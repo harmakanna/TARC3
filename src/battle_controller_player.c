@@ -77,6 +77,8 @@ static void PlayerHandleResetActionMoveSelection(enum BattlerId battler);
 static void PlayerHandleEndLinkBattle(enum BattlerId battler);
 static void PlayerHandleBattleDebug(enum BattlerId battler);
 
+#include "tarc_speedup.h"
+
 static void PlayerBufferRunCommand(enum BattlerId battler);
 static void MoveSelectionDisplayPpNumber(enum BattlerId battler);
 static void MoveSelectionDisplayPpString(enum BattlerId battler);
@@ -738,6 +740,7 @@ void HandleInputChooseMove(enum BattlerId battler)
         TryToHideMoveInfoWindow();
         PlaySE(SE_SELECT);
 
+        StartSpeedup();
         enum MoveTarget moveTarget = GetBattlerMoveTargetType(battler, moveInfo->moves[gMoveSelectionCursor[battler]]);
         bool32 isUserOrAlly = moveTarget == TARGET_USER || moveTarget == TARGET_USER_OR_ALLY || moveTarget == TARGET_USER_AND_ALLY;
 
@@ -1975,6 +1978,7 @@ static void PlayerHandleDrawTrainerPic(enum BattlerId battler)
     }
     else
     {
+        StartSpeedup();
         trainerPicId = PlayerGetTrainerBackPicId();
 
         if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
@@ -2072,6 +2076,7 @@ static void HandleChooseActionAfterDma3(enum BattlerId battler)
 static void PlayerHandleChooseAction(enum BattlerId battler)
 {
     s32 i;
+    StopSpeedup();
 
     gBattlerControllerFuncs[battler] = HandleChooseActionAfterDma3;
     BattleTv_ClearExplosionFaintCause();
@@ -2223,6 +2228,7 @@ static void PlayerHandleChooseItem(enum BattlerId battler)
 static void PlayerHandleChoosePokemon(enum BattlerId battler)
 {
     s32 i;
+    StopSpeedup();
 
     for (i = 0; i < ARRAY_COUNT(gBattlePartyCurrentOrder); i++)
         gBattlePartyCurrentOrder[i] = gBattleResources->bufferA[battler][4 + i];
