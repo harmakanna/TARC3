@@ -1917,8 +1917,8 @@ void CB2_NewGame(void)
     UnlockPlayerFieldControls();
     if (IS_FRLG)
         gFieldCallback = FieldCB_WarpExitFadeFromBlack;
-    else
-        gFieldCallback = ExecuteTruckSequence;
+    // else
+    //     gFieldCallback = ExecuteTruckSequence;
     gFieldCallback2 = NULL;
     DoMapLoadLoop(&gMain.state);
     SetFieldVBlankCallback();
