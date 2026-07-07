@@ -1575,13 +1575,13 @@ const struct Tileset gTileset_VirtualCityCommerce =
     .callback = NULL,
 };
 
-const struct Tileset gTileset_VirtualCityCommercePrimary =
+const struct Tileset gTileset_VirtualCityPrimary =
 {
     .isCompressed = TRUE,
     .isSecondary = FALSE,
-    .tiles = gTilesetTiles_VirtualCityCommercePrimary,
-    .palettes = gTilesetPalettes_VirtualCityCommercePrimary,
-    .metatiles = gMetatiles_VirtualCityCommercePrimary,
-    .metatileAttributes = gMetatileAttributes_VirtualCityCommercePrimary,
+    .tiles = gTilesetTiles_VirtualCityPrimary,
+    .palettes = gTilesetPalettes_VirtualCityPrimary,
+    .metatiles = gMetatiles_VirtualCityPrimary,
+    .metatileAttributes = gMetatileAttributes_VirtualCityPrimary,
     .callback = NULL,
 };

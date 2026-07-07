@@ -418,5 +418,5 @@ const u16 gMetatileAttributes_WorldOneOutside[] = INCBIN_U16("data/tilesets/seco
 const u16 gMetatiles_VirtualCityCommerce[] = INCBIN_U16("data/tilesets/secondary/virtual_city_commerce/metatiles.bin");
 const u16 gMetatileAttributes_VirtualCityCommerce[] = INCBIN_U16("data/tilesets/secondary/virtual_city_commerce/metatile_attributes.bin");
 
-const u16 gMetatiles_VirtualCityCommercePrimary[] = INCBIN_U16("data/tilesets/primary/virtual_city_primary/metatiles.bin");
-const u16 gMetatileAttributes_VirtualCityCommercePrimary[] = INCBIN_U16("data/tilesets/primary/virtual_city_primary/metatile_attributes.bin");
+const u16 gMetatiles_VirtualCityPrimary[] = INCBIN_U16("data/tilesets/primary/virtual_city_primary/metatiles.bin");
+const u16 gMetatileAttributes_VirtualCityPrimary[] = INCBIN_U16("data/tilesets/primary/virtual_city_primary/metatile_attributes.bin");

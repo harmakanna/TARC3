@@ -3106,7 +3106,7 @@ const u16 gTilesetPalettes_VirtualCityCommerce[][16] =
 
 const u32 gTilesetTiles_VirtualCityCommerce[] = INCBIN_U32("data/tilesets/secondary/virtual_city_commerce/tiles.4bpp.lz");
 
-const u16 gTilesetPalettes_VirtualCityCommercePrimary[][16] =
+const u16 gTilesetPalettes_VirtualCityPrimary[][16] =
 {
     INCBIN_U16("data/tilesets/primary/virtual_city_primary/palettes/00.gbapal"),
     INCBIN_U16("data/tilesets/primary/virtual_city_primary/palettes/01.gbapal"),
@@ -3123,4 +3123,4 @@ const u16 gTilesetPalettes_VirtualCityCommercePrimary[][16] =
     INCBIN_U16("data/tilesets/primary/virtual_city_primary/palettes/12.gbapal"),
 };
 
-const u32 gTilesetTiles_VirtualCityCommercePrimary[] = INCBIN_U32("data/tilesets/primary/virtual_city_primary/tiles.4bpp.lz");
+const u32 gTilesetTiles_VirtualCityPrimary[] = INCBIN_U32("data/tilesets/primary/virtual_city_primary/tiles.4bpp.lz");

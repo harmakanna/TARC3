@@ -1,5 +1,7 @@
 {
   "group_order": [
+    "gMapGroup_VirtualCity",
+    "gMapGroup_OutsideWorld",
     "gMapGroup_EmeraldMaps1",
     "gMapGroup_EmeraldMaps2",
     "gMapGroup_EmeraldMaps3",
@@ -9,6 +11,10 @@
     "gMapGroup_EmeraldMaps7",
     "gMapGroup_EmeraldMaps8"
   ],
+  "gMapGroup_VirtualCity": [
+    "VirtualCityOutside1"
+  ],
+  "gMapGroup_OutsideWorld": [],
   "gMapGroup_EmeraldMaps1": [
     "PetalburgCity",
     "SlateportCity",
