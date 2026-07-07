@@ -3087,7 +3087,7 @@ const u16 gTilesetPalettes_WorldOneOutside[][16] =
 
 const u32 gTilesetTiles_WorldOneOutside[] = INCBIN_U32("data/tilesets/secondary/world_one_outside/tiles.4bpp.lz");
 
-const u16 gTilesetPalettes_VirtualCity[][16] =
+const u16 gTilesetPalettes_VirtualCityCommerce[][16] =
 {
     INCBIN_U16("data/tilesets/secondary/virtual_city_commerce/palettes/00.gbapal"),
     INCBIN_U16("data/tilesets/secondary/virtual_city_commerce/palettes/01.gbapal"),
@@ -3104,4 +3104,23 @@ const u16 gTilesetPalettes_VirtualCity[][16] =
     INCBIN_U16("data/tilesets/secondary/virtual_city_commerce/palettes/12.gbapal"),
 };
 
-const u32 gTilesetTiles_VirtualCity[] = INCBIN_U32("data/tilesets/secondary/virtual_city_commerce/tiles.4bpp.lz");
+const u32 gTilesetTiles_VirtualCityCommerce[] = INCBIN_U32("data/tilesets/secondary/virtual_city_commerce/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_VirtualCityCommercePrimary[][16] =
+{
+    INCBIN_U16("data/tilesets/primary/virtual_city_primary/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/primary/virtual_city_primary/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/primary/virtual_city_primary/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/primary/virtual_city_primary/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/primary/virtual_city_primary/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/primary/virtual_city_primary/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/primary/virtual_city_primary/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/primary/virtual_city_primary/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/primary/virtual_city_primary/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/primary/virtual_city_primary/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/primary/virtual_city_primary/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/primary/virtual_city_primary/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/primary/virtual_city_primary/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_VirtualCityCommercePrimary[] = INCBIN_U32("data/tilesets/primary/virtual_city_primary/tiles.4bpp.lz");

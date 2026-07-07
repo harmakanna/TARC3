@@ -1564,13 +1564,24 @@ const struct Tileset gTileset_WorldOneOutside =
     .callback = NULL,
 };
 
-const struct Tileset gTileset_VirtualCity =
+const struct Tileset gTileset_VirtualCityCommerce =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
-    .tiles = gTilesetTiles_VirtualCity,
-    .palettes = gTilesetPalettes_VirtualCity,
-    .metatiles = gMetatiles_VirtualCity,
-    .metatileAttributes = gMetatileAttributes_VirtualCity,
+    .tiles = gTilesetTiles_VirtualCityCommerce,
+    .palettes = gTilesetPalettes_VirtualCityCommerce,
+    .metatiles = gMetatiles_VirtualCityCommerce,
+    .metatileAttributes = gMetatileAttributes_VirtualCityCommerce,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_VirtualCityCommercePrimary =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_VirtualCityCommercePrimary,
+    .palettes = gTilesetPalettes_VirtualCityCommercePrimary,
+    .metatiles = gMetatiles_VirtualCityCommercePrimary,
+    .metatileAttributes = gMetatileAttributes_VirtualCityCommercePrimary,
     .callback = NULL,
 };
