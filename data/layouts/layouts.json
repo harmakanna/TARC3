@@ -9337,8 +9337,8 @@
     {
       "id": "LAYOUT_DEBUG",
       "name": "Debug_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 30,
+      "height": 30,
       "primary_tileset": "gTileset_VirtualCityPrimary",
       "secondary_tileset": "gTileset_VirtualCityCommerce",
       "border_filepath": "data/layouts/Debug/border.bin",
