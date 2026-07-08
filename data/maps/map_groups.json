@@ -12,7 +12,8 @@
     "gMapGroup_EmeraldMaps8"
   ],
   "gMapGroup_VirtualCity": [
-    "VirtualCityOutside1"
+    "VirtualCityOutside1",
+    "Debug"
   ],
   "gMapGroup_OutsideWorld": [],
   "gMapGroup_EmeraldMaps1": [
