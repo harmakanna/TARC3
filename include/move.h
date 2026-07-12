@@ -88,6 +88,12 @@ enum TerrainGroundCheck
     GROUND_CHECK_TARGET,
 };
 
+struct QuantaBehavior
+{
+    u32 type;
+    const u8 *script;
+};
+
 struct MoveInfo
 {
     const u8 *name;
@@ -221,6 +227,7 @@ struct MoveInfo
     u8 contestComboStarterId;
     u8 contestComboMoves[MAX_COMBO_MOVES];
     const u8 *battleAnimScript;
+    const struct QuantaBehavior *quantaBehavior;
 };
 
 extern const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL];
@@ -845,5 +852,8 @@ static inline const u8 *GetMoveBattleScript(enum Move moveId)
     }
     return gBattleMoveEffects[GetMoveEffect(moveId)].battleScript;
 }
+
+extern const struct QuantaBehavior gEffectHitQuantaBehavior[];
+extern const struct QuantaBehavior gBuggedMoveQuantaBehavior[];
 
 #endif // GUARD_MOVES_H

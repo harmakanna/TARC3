@@ -11,6 +11,7 @@
 #include "battle_main.h"
 #include "battle_message.h"
 #include "battle_pyramid.h"
+#include "battle_quanta.h"
 #include "battle_scripts.h"
 #include "battle_setup.h"
 #include "battle_tower.h"
@@ -437,6 +438,7 @@ static void (*const sTurnActionsFuncsTable[])(void) =
     [B_ACTION_FINISHED]               = HandleAction_ActionFinished,
     [B_ACTION_NOTHING_FAINTED]        = HandleAction_NothingIsFainted,
     [B_ACTION_THROW_BALL]             = HandleAction_ThrowBall,
+    [B_ACTION_QUANTA]                 = HandleAction_PrepareQuanta,
 };
 
 static void (*const sEndTurnFuncsTable[])(void) =
@@ -3894,8 +3896,11 @@ bool32 EndTurnEvents(void) // Called from Battle Script
 
     TurnValuesCleanUp(TRUE);
 
-    if (DoEndTurnEffects())
-        return TRUE;
+    if (!InQuantaMode() || gBattleResults.battleTurnCounter % 4 == 3)
+    {
+        if (DoEndTurnEffects())
+            return TRUE;
+    }
 
     gBattleStruct->eventState.faintedAction = 0;
 
@@ -3948,6 +3953,8 @@ bool32 EndTurnEvents(void) // Called from Battle Script
     SetAiLogicDataForTurn(gAiLogicData); // get assumed abilities, hold effects, etc of all battlers
     SetBattleCallback(HandleTurnActionSelectionState);
 
+    if (InQuantaMode())
+        AdvanceQuantaCounter();
     return FALSE;
 }
 
@@ -4081,6 +4088,12 @@ static void HandleTurnActionSelectionState(void)
         switch (gBattleCommunication[battler])
         {
         case STATE_TURN_START_RECORD: // Recorded battle related action on start of every turn.
+            if (InQuantaMode() && !CanBattlerChooseActionThisQuanta(battler))
+            {
+                gBattleCommunication[battler] = STATE_WAIT_ACTION_CONFIRMED_STANDBY;
+                break;
+            }
+
             RecordedBattle_CopyBattlerMoves(battler);
             gBattleCommunication[battler] = STATE_BEFORE_ACTION_CHOSEN;
             bool32 isAiBattler = (gBattleTypeFlags & BATTLE_TYPE_HAS_AI || IsWildMonSmart()) && (BattlerHasAi(battler) && !(gBattleTypeFlags & BATTLE_TYPE_PALACE));
@@ -4419,6 +4432,8 @@ static void HandleTurnActionSelectionState(void)
                                 gBattleStruct->dynamax.baseMoves[battler] = GetBattlerChosenMove(battler);
                             }
                             gBattleCommunication[battler]++;
+                            if (InQuantaMode())
+                        PrepareUpcomingQuanta(battler);
 
                             if (gTestRunnerEnabled)
                             {
@@ -4441,6 +4456,8 @@ static void HandleTurnActionSelectionState(void)
                         gLastUsedItem = (gBattleResources->bufferB[battler][1] | (gBattleResources->bufferB[battler][2] << 8));
                         if (GetItemPocket(gLastUsedItem) == POCKET_POKE_BALLS)
                             gBattleStruct->throwingPokeBall = TRUE;
+                        if (InQuantaMode())
+                            PrepareUpcomingQuanta(battler);
                         gBattleCommunication[battler]++;
                     }
                     break;
@@ -4453,6 +4470,8 @@ static void HandleTurnActionSelectionState(void)
                     else
                     {
                         UpdateBattlerPartyOrdersOnSwitch(battler);
+                        if (InQuantaMode())
+                            PrepareUpcomingQuanta(battler);
                         gBattleCommunication[battler]++;
                     }
                     break;
@@ -4908,7 +4927,11 @@ static void SetActionsAndBattlersTurnOrder(void)
     s32 turnOrderId = 0;
     enum BattlerId battler, battler2;
 
-    if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
+    if (InQuantaMode())
+    {
+        GetQuantaBattleOrder();
+    }
+    else if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
     {
         for (battler = 0; battler < gBattlersCount; battler++)
         {
