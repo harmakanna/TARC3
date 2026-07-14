@@ -1,5 +1,6 @@
 #include "battle_dynamax.h"
 #include "battle_anim_scripts.h"
+#include "battle_scripts.h"
 #include "constants/battle.h"
 #include "constants/battle_move_effects.h"
 #include "constants/battle_script_commands.h"
@@ -7,6 +8,25 @@
 #include "constants/hold_effects.h"
 #include "constants/moves.h"
 #include "constants/contest.h"
+
+//#include "data/quanta_moves.h"
+#define QUANTA_WAIT(battle_script)          {.type = QUANTA_TYPE_PASS,   .script = battle_script}
+#define QUANTA_EFFECT(battle_script)        {.type = QUANTA_TYPE_EFFECT, .script = battle_script}
+#define QUANTA_END                          {.type = QUANTA_TYPE_END,    .script = NULL} // {0}
+
+const struct QuantaBehavior gEffectHitQuantaBehavior[] = {
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_EFFECT(BattleScript_EffectHit),
+    QUANTA_END
+};
+
+const struct QuantaBehavior gBuggedMoveQuantaBehavior[] = {
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_BuggedMove),
+    QUANTA_END
+};
 
 // The Gen. 4+ contest data comes from urpg's contest movedex.
 

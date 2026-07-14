@@ -6,6 +6,7 @@
 #include "battle_dome.h"
 #include "battle_interface.h"
 #include "battle_message.h"
+#include "battle_quanta.h"
 #include "battle_setup.h"
 #include "battle_tv.h"
 #include "battle_z_move.h"
@@ -21,6 +22,7 @@
 #include "party_menu.h"
 #include "pokeball.h"
 #include "pokemon.h"
+#include "pokemon_icon.h"
 #include "random.h"
 #include "recorded_battle.h"
 #include "reshow_battle_screen.h"
@@ -152,6 +154,17 @@ static void (*const sPlayerBufferCommands[CONTROLLER_CMDS_COUNT])(enum BattlerId
     [CONTROLLER_DEBUGMENU]                = PlayerHandleBattleDebug,
     [CONTROLLER_TERMINATOR_NOP]           = BtlController_TerminatorNop
 };
+
+struct QuantaDescription
+{
+    bool8 active;
+    u8 spriteIds[MAX_BATTLERS_COUNT];
+};
+
+static EWRAM_DATA struct QuantaDescription sQuantaDescription;
+static void HideQuantaDescription();
+static void DisplayQuantaDescription();
+
 
 void SetControllerToPlayer(enum BattlerId battler)
 {
@@ -302,7 +315,20 @@ static void HandleInputChooseAction(enum BattlerId battler)
         }
     }
 
-    if (JOY_NEW(A_BUTTON))
+    if (sQuantaDescription.active)
+    {
+        if (JOY_NEW(R_BUTTON) || JOY_NEW(A_BUTTON) || JOY_NEW(B_BUTTON))
+        {
+            sQuantaDescription.active = FALSE;
+            HideQuantaDescription();
+        }
+    }
+    else if (JOY_NEW(R_BUTTON))
+    {
+        sQuantaDescription.active = TRUE;
+        DisplayQuantaDescription();
+    }
+    else if (JOY_NEW(A_BUTTON))
     {
         PlaySE(SE_SELECT);
         TryHideLastUsedBall();
@@ -699,7 +725,15 @@ void HandleInputChooseMove(enum BattlerId battler)
     else
         gPlayerDpadHoldFrames = 0;
 
-    if (JOY_NEW(A_BUTTON) && !gBattleStruct->descriptionSubmenu)
+    if (sQuantaDescription.active)
+    {
+        if (JOY_NEW(R_BUTTON) || JOY_NEW(A_BUTTON) || JOY_NEW(B_BUTTON))
+        {
+            sQuantaDescription.active = FALSE;
+            HideQuantaDescription();
+        }
+    }
+    else if (JOY_NEW(A_BUTTON) && !gBattleStruct->descriptionSubmenu)
     {
         TryToHideMoveInfoWindow();
         PlaySE(SE_SELECT);
@@ -922,6 +956,11 @@ void HandleInputChooseMove(enum BattlerId battler)
     {
         gBattleStruct->descriptionSubmenu = TRUE;
         TryMoveSelectionDisplayMoveDescription(battler);
+    }
+    else if (JOY_NEW(R_BUTTON))
+    {
+        sQuantaDescription.active = TRUE;
+        DisplayQuantaDescription();
     }
     else if (JOY_NEW(START_BUTTON))
     {
@@ -1804,12 +1843,27 @@ static void MoveSelectionDisplayMoveDescription(enum BattlerId battler)
     StringAppend(gDisplayedStringBattle, acc_num);
     StringAppend(gDisplayedStringBattle, gText_NewLine);
     StringAppend(gDisplayedStringBattle, GetMoveDescription(move));
+    StringAppend(gDisplayedStringBattle, gText_NewLine);
+    StringAppend(gDisplayedStringBattle, COMPOUND_STRING("Quanta:"));
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MOVE_DESCRIPTION);
 
     if (gCategoryIconSpriteId == 0xFF)
-        gCategoryIconSpriteId = CreateSprite(&gSpriteTemplate_CategoryIcons, 38, 64, 1);
+        gCategoryIconSpriteId = CreateSprite(&gSpriteTemplate_CategoryIcons, 38, 48, 1);
 
     StartSpriteAnim(&gSprites[gCategoryIconSpriteId], cat);
+
+    const struct QuantaBehavior *quanta = GetQuantaBehavior(move);
+    u32 fillValue;
+    for (u32 i = 0; i < MAX_QUANTAS_PER_ACTION; i++)
+    {
+        if (quanta[i].type == QUANTA_TYPE_END)
+            break;
+        else if (quanta[i].type == QUANTA_TYPE_EFFECT)
+            fillValue = 1;
+        else
+            fillValue = 15; 
+        FillWindowPixelRect(B_WIN_MOVE_DESCRIPTION, fillValue, 38 + 16 * i, 54, 12, 8);
+    }
 
     CopyWindowToVram(B_WIN_MOVE_DESCRIPTION, COPYWIN_FULL);
 }
@@ -2483,4 +2537,78 @@ static void MoveSelectionDisplayMoveEffectiveness(u32 foeEffectiveness, enum Bat
     }
 
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_PP);
+}
+
+static void DisplayQuantaDescription()
+{
+    LoadMessageBoxAndBorderGfx();
+    DrawStdWindowFrame(B_WIN_MOVE_DESCRIPTION, FALSE);
+    FillWindowPixelBuffer(B_WIN_MOVE_DESCRIPTION, PIXEL_FILL(14));
+    gPlttBufferFaded[16 * 5 + 5] = RGB_GREEN;
+
+    ConvertIntToDecimalStringN(gStringVar1, (gBattleResults.battleTurnCounter % 4) + 1, STR_CONV_MODE_LEADING_ZEROS, 1);
+    StringExpandPlaceholders(gStringVar3, COMPOUND_STRING("Quanta: {STR_VAR_1}/4"));
+
+    struct TextPrinterTemplate printerTemplate;
+    printerTemplate.currentChar = gStringVar3;
+    printerTemplate.type = WINDOW_TEXT_PRINTER;
+    printerTemplate.windowId = B_WIN_MOVE_DESCRIPTION;
+    printerTemplate.fontId = FONT_SMALL_NARROWER;
+    printerTemplate.x = 85;
+    printerTemplate.y = 0;
+    printerTemplate.currentX = 85;
+    printerTemplate.currentY = 0;
+    printerTemplate.letterSpacing = gFonts[FONT_SMALL_NARROWER].letterSpacing;
+    printerTemplate.lineSpacing = gFonts[FONT_SMALL_NARROWER].lineSpacing;
+    printerTemplate.color.foreground = TEXT_DYNAMIC_COLOR_4;
+    printerTemplate.color.background = TEXT_DYNAMIC_COLOR_5;
+    printerTemplate.color.accent = TEXT_DYNAMIC_COLOR_5;
+    printerTemplate.color.shadow = TEXT_DYNAMIC_COLOR_6;
+
+    AddTextPrinter(&printerTemplate, 0, NULL);
+    //AddTextPrinterParameterized(B_WIN_MOVE_DESCRIPTION, FONT_SMALL_NARROWER, gStringVar3, 85, 0, 0, NULL);
+    for (enum BattlerId battler = 0; battler < MAX_BATTLERS_COUNT; battler++)
+    {
+        sQuantaDescription.spriteIds[battler] = 0xFF;
+    }
+    LoadMonIconPalettes();
+
+    for (enum BattlerId battler = 0; battler < gBattlersCount; battler++)
+    {
+        u32 fillValue;
+        u32 i = 0;
+        for (i = 0; i < MAX_QUANTAS_PER_ACTION; i++)
+        {
+            if (gUpcomingQuanta[battler][i].type == QUANTA_TYPE_END)
+                break;
+            else if (gUpcomingQuanta[battler][i].type == QUANTA_TYPE_EFFECT)
+                fillValue = 1;
+            else
+                fillValue = 15; 
+            FillWindowPixelRect(B_WIN_MOVE_DESCRIPTION, fillValue, 24 + 16 * i, 12 + 16 * battler, 12, 8);
+        }
+        for (; i < 7; i++)
+        {
+            fillValue = 5;
+            FillWindowPixelRect(B_WIN_MOVE_DESCRIPTION, fillValue, 24 + 16 * i, 12 + 16 * battler, 12, 8);
+        }
+
+        sQuantaDescription.spriteIds[battler] = CreateMonIcon(gBattleMons[battler].species, SpriteCB_MonIcon, 16, 48 + 16 * battler, 0, gBattleMons[battler].personality);
+        gSprites[sQuantaDescription.spriteIds[battler]].oam.priority = 0;
+    }
+
+    CopyWindowToVram(B_WIN_MOVE_DESCRIPTION, COPYWIN_FULL);
+}
+
+static void HideQuantaDescription()
+{
+    FillWindowPixelBuffer(B_WIN_MOVE_DESCRIPTION, PIXEL_FILL(0));
+    ClearStdWindowAndFrame(B_WIN_MOVE_DESCRIPTION, FALSE);
+    CopyWindowToVram(B_WIN_MOVE_DESCRIPTION, COPYWIN_FULL);
+    FreeMonIconPalettes();
+    for (enum BattlerId battler = 0; battler < gBattlersCount; battler++)
+    {
+        FreeAndDestroyMonIconSprite(&gSprites[sQuantaDescription.spriteIds[battler]]);
+    }
+    //TryToHideMoveInfoWindow();
 }

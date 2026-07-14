@@ -528,6 +528,20 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
         .camouflageType = TYPE_PSYCHIC,
         .camouflageBlend = DEFAULT_CAMOUFLAGE_BLEND,
     },
+    [BATTLE_ENVIRONMENT_VIRTUAL] =
+    {
+        .name = _("Virtual"),
+        .naturePower = MOVE_PSYSHOCK,
+        .secretPowerAnimation = gBattleAnimMove_Psywave,
+        .secretPowerEffect = SECRET_POWER_SPD_MINUS_1,
+        .camouflageType = TYPE_PSYCHIC,
+        .camouflageBlend = DEFAULT_CAMOUFLAGE_BLEND,
+        .entry = {.tileset = gBattleAnimBgImage_TrickRoom, .tilemap = gBattleAnimBgTilemap_TrickRoom},
+        .background = {.tileset = gBattleAnimBgImage_TrickRoom, .tilemap = gBattleAnimBgTilemap_TrickRoom},
+        .palette = gBattleAnimBgPalette_TrickRoom,
+        .battleIntroSlide = BattleIntroSlide1,
+    },
+
 };
 
 static const struct {

@@ -1,6 +1,7 @@
 #include "global.h"
 #include "battle.h"
 #include "load_save.h"
+#include "battle_quanta.h"
 #include "battle_setup.h"
 #include "battle_tower.h"
 #include "battle_transition.h"
@@ -721,6 +722,8 @@ enum BattleEnvironments BattleSetup_GetEnvironmentId(void)
 
     tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
 
+    if (InQuantaMode())
+        return BATTLE_ENVIRONMENT_VIRTUAL;
     if (MetatileBehavior_IsTallGrass(tileBehavior))
         return BATTLE_ENVIRONMENT_GRASS;
     if (MetatileBehavior_IsLongGrass(tileBehavior))

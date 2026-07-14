@@ -726,4 +726,8 @@ extern const u8 BattleScript_Stockpile[];
 extern const u8 BattleScript_Memento[];
 extern const u8 BattleScript_TakeHeart[];
 
+// TARC 3
+extern const u8 BattleScript_Dummy[];
+extern const u8 BattleScript_BuggedMove[];
+
 #endif // GUARD_BATTLE_SCRIPTS_H

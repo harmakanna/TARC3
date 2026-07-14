@@ -6313,3 +6313,14 @@ BattleScript_SilphScopeUnveiled::
 	printstring STRINGID_GHOSTWASMAROWAK
 	waitmessage B_WAIT_TIME_LONG
 	end2
+
+// TARC 3
+BattleScript_Dummy::
+	end
+
+BattleScript_BuggedMove::
+	printattackstring
+	pause B_WAIT_TIME_LONG
+	printstring STRINGID_NOTDONEYET
+	waitmessage B_WAIT_TIME_LONG
+	end
