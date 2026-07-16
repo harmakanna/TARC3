@@ -15,7 +15,9 @@
     "VirtualCityOutside1",
     "Debug"
   ],
-  "gMapGroup_OutsideWorld": [],
+  "gMapGroup_OutsideWorld": [
+    "OutsideWorld"
+  ],
   "gMapGroup_EmeraldMaps1": [
     "PetalburgCity",
     "SlateportCity",
