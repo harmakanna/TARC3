@@ -9343,6 +9343,16 @@
       "secondary_tileset": "gTileset_VirtualCityCommerce",
       "border_filepath": "data/layouts/Debug/border.bin",
       "blockdata_filepath": "data/layouts/Debug/map.bin"
+    },
+    {
+      "id": "LAYOUT_OUTSIDE_WORLD",
+      "name": "OutsideWorld_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_WorldOne",
+      "secondary_tileset": "gTileset_OutsideWorldSecondary",
+      "border_filepath": "data/layouts/OutsideWorld/border.bin",
+      "blockdata_filepath": "data/layouts/OutsideWorld/map.bin"
     }
   ]
 }
