@@ -3,6 +3,7 @@
 #include "battle.h"
 #include "battle_message.h"
 #include "bg.h"
+#include "bw_summary_screen.h"
 #include "data.h"
 #include "decompress.h"
 #include "event_data.h"
@@ -981,9 +982,8 @@ static void Task_EvolutionScene(u8 taskId)
             if (!gPaletteFade.active)
             {
                 FreeAllWindowBuffers();
-                ShowSelectMovePokemonSummaryScreen(gParties[B_TRAINER_PLAYER], gTasks[taskId].tPartyId,
-                            CB2_EvolutionSceneLoadGraphics,
-                            gMoveToLearn);
+                ShowSelectMovePokemonSummaryScreen_BW(gParties[B_TRAINER_PLAYER], gTasks[taskId].tPartyId,
+                        CB2_EvolutionSceneLoadGraphics, gMoveToLearn);
                 gTasks[taskId].tLearnMoveState++;
             }
             break;
@@ -1371,7 +1371,7 @@ static void Task_TradeEvolutionScene(u8 taskId)
 
                 if (gTasks[taskId].tPartyId == PC_MON_CHOSEN)
                 {
-                    ShowSelectMovePokemonSummaryScreen(
+                    ShowSelectMovePokemonSummaryScreen_BW(
                                 gParties[B_TRAINER_OPPONENT_A], 
                                 TRADEMON_FROM_PC,
                                 CB2_TradeEvolutionSceneLoadGraphics,
@@ -1380,7 +1380,7 @@ static void Task_TradeEvolutionScene(u8 taskId)
                 }
                 else
                 {
-                    ShowSelectMovePokemonSummaryScreen(
+                    ShowSelectMovePokemonSummaryScreen_BW(
                                 gParties[B_TRAINER_PLAYER], 
                                 gTasks[taskId].tPartyId,
                                 CB2_TradeEvolutionSceneLoadGraphics,
