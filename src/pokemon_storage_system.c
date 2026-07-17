@@ -1,6 +1,7 @@
 #include "global.h"
 #include "malloc.h"
 #include "bg.h"
+#include "bw_summary_screen.h"
 #include "data.h"
 #include "decompress.h"
 #include "dma3.h"
@@ -3778,7 +3779,7 @@ static void Task_ChangeScreen(u8 taskId)
         maxMonIndex = sStorage->summaryMaxPos;
         mode = sStorage->summaryScreenMode;
         FreePokeStorageData();
-        ShowPokemonSummaryScreen(mode, boxMons, monIndex, maxMonIndex, CB2_ReturnToPokeStorage);
+        ShowPokemonSummaryScreen_BW(mode, boxMons, monIndex, maxMonIndex, CB2_ReturnToPokeStorage);
         break;
     case SCREEN_CHANGE_NAME_BOX:
         FreePokeStorageData();
