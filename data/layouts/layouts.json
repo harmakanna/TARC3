@@ -9327,7 +9327,7 @@
     {
       "id": "LAYOUT_VIRTUAL_CITY_OUTSIDE1",
       "name": "VirtualCityOutside1_Layout",
-      "width": 40,
+      "width": 60,
       "height": 40,
       "primary_tileset": "gTileset_VirtualCityPrimary",
       "secondary_tileset": "gTileset_VirtualCityCommerce",
@@ -9343,6 +9343,16 @@
       "secondary_tileset": "gTileset_VirtualCityCommerce",
       "border_filepath": "data/layouts/Debug/border.bin",
       "blockdata_filepath": "data/layouts/Debug/map.bin"
+    },
+    {
+      "id": "LAYOUT_OUTSIDE_WORLD",
+      "name": "OutsideWorld_Layout",
+      "width": 33,
+      "height": 27,
+      "primary_tileset": "gTileset_WorldOne",
+      "secondary_tileset": "gTileset_OutsideWorldSecondary",
+      "border_filepath": "data/layouts/OutsideWorld/border.bin",
+      "blockdata_filepath": "data/layouts/OutsideWorld/map.bin"
     }
   ]
 }

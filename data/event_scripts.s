@@ -1741,3 +1741,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/VirtualCityOutside1/scripts.inc"
 
 	.include "data/maps/Debug/scripts.inc"
+
+	.include "data/maps/OutsideWorld/scripts.inc"

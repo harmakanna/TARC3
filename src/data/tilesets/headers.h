@@ -1585,3 +1585,14 @@ const struct Tileset gTileset_VirtualCityPrimary =
     .metatileAttributes = gMetatileAttributes_VirtualCityPrimary,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_OutsideWorldSecondary =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_OutsideWorldSecondary,
+    .palettes = gTilesetPalettes_OutsideWorldSecondary,
+    .metatiles = gMetatiles_OutsideWorldSecondary,
+    .metatileAttributes = gMetatileAttributes_OutsideWorldSecondary,
+    .callback = NULL,
+};
