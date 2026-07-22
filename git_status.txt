@@ -1,0 +1,122 @@
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   .all-contributorsrc
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   .github/docs_validate/inclusive_summary.py
+	modified:   data/event_scripts.s
+	modified:   data/layouts/layouts.json
+	modified:   data/maps/map_groups.json
+	modified:   data/tilesets/secondary/virtual_city_commerce/metatiles.bin
+	modified:   dev_scripts/competitive_defines/rename_subfolders.py
+	modified:   dev_scripts/delete_frlg_maps.py
+	modified:   dev_scripts/followers/extract_sprites.py
+	modified:   dev_scripts/followers/follower_emotions.py
+	modified:   dev_scripts/followers/front_palette.py
+	modified:   dev_scripts/followers/palette.py
+	modified:   dev_scripts/followers/rename_files_of_same_name.py
+	modified:   dev_scripts/followers/rename_to_graphics_pokemon.py
+	modified:   dev_scripts/gba_gfx/delete_files_of_same_name.py
+	modified:   dev_scripts/gba_gfx/rename_files_of_same_name.py
+	modified:   docs/book.toml
+	modified:   docs/fix_links.py
+	modified:   expand_metatiles.py
+	modified:   migration_scripts/1.11/consolidate_contest_opponent_filters.py
+	modified:   migration_scripts/1.11/convert_battle_frontier_trainers.py
+	modified:   migration_scripts/1.12/convert_trainer_battle_types.py
+	modified:   migration_scripts/1.12/remove_palette_compression.py
+	modified:   migration_scripts/1.12/update_evo_methods.py
+	modified:   migration_scripts/1.13/convert_compressed_files.py
+	modified:   migration_scripts/1.13/convert_trainers.py
+	modified:   migration_scripts/1.14/bin_to_wav.py
+	modified:   migration_scripts/1.14/consolidate_contest_effects.py
+	modified:   migration_scripts/1.15/consolidate_easy_chat.py
+	modified:   migration_scripts/1.15/delete_implicit_waitstates.py
+	modified:   migration_scripts/1.15/givemon_balls_typechange.py
+	modified:   migration_scripts/1.15/migrate_incgfx.py
+	modified:   migration_scripts/1.15/trainer_party_balls_type_change.py
+	modified:   migration_scripts/1.15/update_IsTextPrinterActive.py
+	modified:   migration_scripts/1.15/update_text_color_defs.py
+	modified:   migration_scripts/1.16/consolidate_decorations.py
+	modified:   migration_scripts/1.16/migrate_regional_dexes.py
+	modified:   migration_scripts/1.16/remove_loadspritegfx.py
+	modified:   migration_scripts/1.16/trainer_pic_migration/main.py
+	modified:   migration_scripts/1.8/item_ball_refactor.py
+	modified:   migration_scripts/1.9/battle_frontier_convert_parties.py
+	modified:   migration_scripts/1.9/convert_item_icons.py
+	modified:   migration_scripts/1.9/convert_partner_parties.py
+	modified:   migration_scripts/1.9/convert_trainer_parties.py
+	modified:   migration_scripts/1.9/egg_move_refactor.py
+	modified:   migration_scripts/add_region_hoenn_attribute_to_hoenn_maps.py
+	modified:   migration_scripts/add_time_based_encounters.py
+	modified:   migration_scripts/frlg_metatile_behavior_converter.py
+	modified:   tools/bin2c/LICENSE
+	modified:   tools/find_func/find_func.py
+	modified:   tools/gbafix/COPYING
+	modified:   tools/gbagfx/LICENSE
+	modified:   tools/learnset_helpers/make_learnables.py
+	modified:   tools/learnset_helpers/make_teachables.py
+	modified:   tools/learnset_helpers/make_teaching_types.py
+	modified:   tools/learnset_helpers/make_tutors.py
+	modified:   tools/mid2agb/LICENSE
+	modified:   tools/misc/make_scr_cmd_constants.py
+	modified:   tools/preproc/LICENSE
+	modified:   tools/ramscrgen/LICENSE
+	modified:   tools/rsfont/LICENSE
+	modified:   tools/scaninc/LICENSE
+	modified:   tools/wav2agb/LICENSE
+	modified:   tools/wild_encounters/wild_encounters_to_header.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	data/layouts/OutsideWorld_ApartmentBldg1_Floor1/
+	data/layouts/OutsideWorld_ApartmentBldg1_Floor2/
+	data/layouts/OutsideWorld_ApartmentBldg1_Floor3/
+	data/layouts/OutsideWorld_ApartmentBldg1_Floor4/
+	data/layouts/OutsideWorld_ApartmentBldg1_YourApartment/
+	data/layouts/OutsideWorld_Office/
+	data/layouts/OutsideWorld_Traveling/
+	data/layouts/VirtualCity_Casino/
+	data/layouts/VirtualCity_Gallery/
+	data/layouts/VirtualCity_Garden/
+	data/layouts/VirtualCity_Hotel_Lobby/
+	data/layouts/VirtualCity_Hotel_YourHallway/
+	data/layouts/VirtualCity_Hotel_YourRoom/
+	data/layouts/VirtualCity_Stadium_Arena/
+	data/layouts/VirtualCity_Stadium_Entrance/
+	data/layouts/VirtualCity_Superstore_1F/
+	data/layouts/VirtualCity_Superstore_2F/
+	data/layouts/VirtualCity_Superstore_3F/
+	data/layouts/VirtualCity_Superstore_4F/
+	data/layouts/VirtualCity_Superstore_5F/
+	data/layouts/VirtualCity_Work_Lobby/
+	data/layouts/VirtualCity_Work_YourOffice/
+	data/maps/OutsideWorld_ApartmentBldg1_Floor1/
+	data/maps/OutsideWorld_ApartmentBldg1_Floor2/
+	data/maps/OutsideWorld_ApartmentBldg1_Floor3/
+	data/maps/OutsideWorld_ApartmentBldg1_Floor4/
+	data/maps/OutsideWorld_ApartmentBldg1_YourApartment/
+	data/maps/OutsideWorld_Office/
+	data/maps/OutsideWorld_Traveling/
+	data/maps/VirtualCity_Casino/
+	data/maps/VirtualCity_Gallery/
+	data/maps/VirtualCity_Garden/
+	data/maps/VirtualCity_Hotel_Lobby/
+	data/maps/VirtualCity_Hotel_YourHallway/
+	data/maps/VirtualCity_Hotel_YourRoom/
+	data/maps/VirtualCity_Stadium_Arena/
+	data/maps/VirtualCity_Stadium_Entrance/
+	data/maps/VirtualCity_Superstore_1F/
+	data/maps/VirtualCity_Superstore_2F/
+	data/maps/VirtualCity_Superstore_3F/
+	data/maps/VirtualCity_Superstore_4F/
+	data/maps/VirtualCity_Superstore_5F/
+	data/maps/VirtualCity_Work_Lobby/
+	data/maps/VirtualCity_Work_YourOffice/
+	git_status.txt
+

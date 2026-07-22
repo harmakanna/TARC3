@@ -1743,3 +1743,47 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/Debug/scripts.inc"
 
 	.include "data/maps/OutsideWorld/scripts.inc"
+
+	.include "data/maps/OutsideWorld_Traveling/scripts.inc"
+
+	.include "data/maps/VirtualCity_Work_Lobby/scripts.inc"
+
+	.include "data/maps/OutsideWorld_ApartmentBldg1_Floor1/scripts.inc"
+
+	.include "data/maps/OutsideWorld_ApartmentBldg1_Floor4/scripts.inc"
+
+	.include "data/maps/VirtualCity_Hotel_YourRoom/scripts.inc"
+
+	.include "data/maps/VirtualCity_Hotel_Lobby/scripts.inc"
+
+	.include "data/maps/VirtualCity_Garden/scripts.inc"
+
+	.include "data/maps/VirtualCity_Work_YourOffice/scripts.inc"
+
+	.include "data/maps/OutsideWorld_ApartmentBldg1_Floor2/scripts.inc"
+
+	.include "data/maps/VirtualCity_Gallery/scripts.inc"
+
+	.include "data/maps/VirtualCity_Superstore_3F/scripts.inc"
+
+	.include "data/maps/VirtualCity_Casino/scripts.inc"
+
+	.include "data/maps/VirtualCity_Superstore_5F/scripts.inc"
+
+	.include "data/maps/VirtualCity_Superstore_4F/scripts.inc"
+
+	.include "data/maps/OutsideWorld_ApartmentBldg1_YourApartment/scripts.inc"
+
+	.include "data/maps/VirtualCity_Superstore_1F/scripts.inc"
+
+	.include "data/maps/VirtualCity_Superstore_2F/scripts.inc"
+
+	.include "data/maps/VirtualCity_Hotel_YourHallway/scripts.inc"
+
+	.include "data/maps/VirtualCity_Stadium_Entrance/scripts.inc"
+
+	.include "data/maps/OutsideWorld_Office/scripts.inc"
+
+	.include "data/maps/VirtualCity_Stadium_Arena/scripts.inc"
+
+	.include "data/maps/OutsideWorld_ApartmentBldg1_Floor3/scripts.inc"
