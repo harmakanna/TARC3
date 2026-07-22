@@ -1069,6 +1069,23 @@ static u8 AddScrollIndicatorArrowObject(u8 arrowDir, u8 x, u8 y, u16 tileTag, u1
     return spriteId;
 }
 
+u8 LoadScrollIndicatorArrowObject(u8 arrowDir, u8 x, u8 y, u16 tileTag, u16 palTag)
+{
+    struct CompressedSpriteSheet spriteSheet;
+    spriteSheet.data = sScrollIndicator_Gfx;
+    spriteSheet.size = 0x100;
+    spriteSheet.tag = tileTag;
+    LoadCompressedSpriteSheet(&spriteSheet);
+
+    struct SpritePalette spritePal;
+    spritePal.data = sRedInterface_Pal;
+    spritePal.tag = palTag;
+    LoadSpritePalette(&spritePal);
+
+    return AddScrollIndicatorArrowObject(arrowDir, x, y, tileTag, palTag);
+
+}
+
 #undef tState
 #undef tAnimNum
 #undef tBounceDir
