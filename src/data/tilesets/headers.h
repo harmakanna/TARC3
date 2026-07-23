@@ -1596,3 +1596,14 @@ const struct Tileset gTileset_OutsideWorldSecondary =
     .metatileAttributes = gMetatileAttributes_OutsideWorldSecondary,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_HotelInterior =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_HotelInterior,
+    .palettes = gTilesetPalettes_HotelInterior,
+    .metatiles = gMetatiles_HotelInterior,
+    .metatileAttributes = gMetatileAttributes_HotelInterior,
+    .callback = NULL,
+};

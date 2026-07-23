@@ -9457,10 +9457,10 @@
     {
       "id": "LAYOUT_VIRTUAL_CITY_HOTEL_LOBBY",
       "name": "VirtualCity_Hotel_Lobby_Layout",
-      "width": 33,
-      "height": 27,
-      "primary_tileset": "gTileset_WorldOne",
-      "secondary_tileset": "gTileset_OutsideWorldSecondary",
+      "width": 18,
+      "height": 17,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_HotelInterior",
       "border_filepath": "data/layouts/VirtualCity_Hotel_Lobby/border.bin",
       "blockdata_filepath": "data/layouts/VirtualCity_Hotel_Lobby/map.bin"
     },

@@ -423,3 +423,6 @@ const u16 gMetatileAttributes_VirtualCityPrimary[] = INCBIN_U16("data/tilesets/p
 
 const u16 gMetatiles_OutsideWorldSecondary[] = INCBIN_U16("data/tilesets/secondary/outside_world_secondary/metatiles.bin");
 const u16 gMetatileAttributes_OutsideWorldSecondary[] = INCBIN_U16("data/tilesets/secondary/outside_world_secondary/metatile_attributes.bin");
+
+const u16 gMetatiles_HotelInterior[] = INCBIN_U16("data/tilesets/secondary/hotel_interior/metatiles.bin");
+const u16 gMetatileAttributes_HotelInterior[] = INCBIN_U16("data/tilesets/secondary/hotel_interior/metatile_attributes.bin");
