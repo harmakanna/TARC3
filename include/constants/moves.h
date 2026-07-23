@@ -1015,4 +1015,11 @@ enum __attribute__((packed)) Move
 #define MOVE_RANDOM_TEACHABLE      (MOVES_COUNT_ALL + 1)
 #define MOVE_UNAVAILABLE 0xFFFF // Used for checks for moves affected by Disable, Mimic, etc.
 
+#define QUANTA_TYPE_END      0
+#define QUANTA_TYPE_PASS     1
+#define QUANTA_TYPE_EFFECT   2
+#define QUANTA_TYPE_SWITCH   3
+#define QUANTA_TYPE_ITEM     4
+
+
 #endif  // GUARD_CONSTANTS_MOVES_H

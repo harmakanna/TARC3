@@ -13,10 +13,32 @@
   ],
   "gMapGroup_VirtualCity": [
     "VirtualCityOutside1",
-    "Debug"
+    "Debug",
+    "VirtualCity_Hotel_Lobby",
+    "VirtualCity_Hotel_YourHallway",
+    "VirtualCity_Hotel_YourRoom",
+    "VirtualCity_Gallery",
+    "VirtualCity_Garden",
+    "VirtualCity_Work_Lobby",
+    "VirtualCity_Work_YourOffice",
+    "VirtualCity_Stadium_Entrance",
+    "VirtualCity_Stadium_Arena",
+    "VirtualCity_Casino",
+    "VirtualCity_Superstore_1F",
+    "VirtualCity_Superstore_2F",
+    "VirtualCity_Superstore_3F",
+    "VirtualCity_Superstore_4F",
+    "VirtualCity_Superstore_5F"
   ],
   "gMapGroup_OutsideWorld": [
-    "OutsideWorld"
+    "OutsideWorld",
+    "OutsideWorld_Office",
+    "OutsideWorld_Traveling",
+    "OutsideWorld_ApartmentBldg1_Floor1",
+    "OutsideWorld_ApartmentBldg1_Floor2",
+    "OutsideWorld_ApartmentBldg1_Floor3",
+    "OutsideWorld_ApartmentBldg1_Floor4",
+    "OutsideWorld_ApartmentBldg1_YourApartment"
   ],
   "gMapGroup_EmeraldMaps1": [
     "PetalburgCity",
