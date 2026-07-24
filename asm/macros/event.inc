@@ -2136,6 +2136,21 @@
     call_if_eq VAR_RESULT, FALSE, \dest
     .endm
 
+	@ Sets the text of the name box in the next-shown message box.
+	.macro speakername text:req
+	.byte SCR_OP_SETSPEAKER
+	.4byte \text
+	.endm
+
+	.macro speak localId:req,direction:req,name:req,text:req,type=MSGBOX_DEFAULT
+	.byte SCR_OP_SPEAK
+	.2byte \localId
+	.4byte \direction
+	.4byte \name
+	.4byte \text
+	callstd \type
+	.endm
+
 @ Supplementary
 
 	.macro goto_if_unset flag:req, dest:req
@@ -2732,7 +2747,7 @@
 	.macro getobjectfacingdirection localId:req, dest:req
 	callnative Scrcmd_getobjectfacingdirection, requests_effects=1
 	.2byte \localId
-	.2byte \dest
+	.4byte \dest
 	.endm
 
 	@ Hides any follower Pokémon if present, putting them into their Poké Ball; by default waits for their movement to finish.
