@@ -3101,3 +3101,24 @@
 	getbraillestringwidth \text
 	call EventScript_BrailleCursorWaitButton
 	.endm
+
+@ TARC3
+
+	.macro speak localId:req, text:req, name:req, direction:req, type=MSGBOX_DEFAULT
+	setorcopyvar VAR_0x8000, \localId
+	setspeaker \name
+	call_if_eq \direction, DIR_NORTH, LastTalkedWalkInPlaceNorth
+	call_if_eq \direction, DIR_SOUTH, LastTalkedWalkInPlaceSouth
+	call_if_eq \direction, DIR_EAST, LastTalkedWalkInPlaceEast
+	call_if_eq \direction, DIR_WEST, LastTalkedWalkInPlaceWest
+	msgbox \text, \type
+	closemessage
+	.endm
+
+	.macro npc_speak text:req, name=SP_NAME_NONE, type=MSGBOX_DEFAULT
+	speak VAR_LAST_TALKED, \name, \text, VAR_FACING2, \type
+	.endm
+
+	.macro player_speak text:req, type=MSGBOX_DEFAULT
+	speak LOCALID_PLAYER, SP_NAME_PLAYER, \text, VAR_FACING, \type
+	.endm
