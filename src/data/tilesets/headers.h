@@ -1607,3 +1607,25 @@ const struct Tileset gTileset_HotelInterior =
     .metatileAttributes = gMetatileAttributes_HotelInterior,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_GardenPrimary =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_GardenPrimary,
+    .palettes = gTilesetPalettes_GardenPrimary,
+    .metatiles = gMetatiles_GardenPrimary,
+    .metatileAttributes = gMetatileAttributes_GardenPrimary,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_GardenSecondary =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_GardenSecondary,
+    .palettes = gTilesetPalettes_GardenSecondary,
+    .metatiles = gMetatiles_GardenSecondary,
+    .metatileAttributes = gMetatileAttributes_GardenSecondary,
+    .callback = NULL,
+};
