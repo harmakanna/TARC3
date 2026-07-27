@@ -348,6 +348,7 @@ const u8 *GetInteractedLinkPlayerScript(struct MapPosition *position, u8 metatil
     gSelectedObjectEvent = objectEventId;
     gSpecialVar_LastTalked = gObjectEvents[objectEventId].localId;
     gSpecialVar_Facing = direction;
+    gSpecialVar_Facing2 = GetOppositeDirection(direction);
     return GetObjectEventScriptPointerByObjectEventId(objectEventId);
 }
 
@@ -360,6 +361,7 @@ static const u8 *GetInteractedObjectEventScript(struct MapPosition *position, u8
     u8 currBehavior = MapGridGetMetatileBehaviorAt(currX, currY);
 
     gSpecialVar_Facing = direction;
+    gSpecialVar_Facing2 = GetOppositeDirection(direction);
     switch (direction)
     {
     case DIR_EAST:
@@ -1327,6 +1329,7 @@ static void SetMsgSignPostAndVarFacing(enum Direction playerDirection)
     gMsgBoxIsCancelable = TRUE;
     gMsgIsSignPost = TRUE;
     gSpecialVar_Facing = playerDirection;
+    gSpecialVar_Facing2 = GetOppositeDirection(playerDirection);
 }
 
 static void SetUpWalkIntoSignScript(const u8 *script, enum Direction playerDirection)
