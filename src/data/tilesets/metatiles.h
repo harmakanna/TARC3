@@ -432,3 +432,6 @@ const u16 gMetatileAttributes_GardenPrimary[] = INCBIN_U16("data/tilesets/primar
 
 const u16 gMetatiles_GardenSecondary[] = INCBIN_U16("data/tilesets/secondary/garden_secondary/metatiles.bin");
 const u16 gMetatileAttributes_GardenSecondary[] = INCBIN_U16("data/tilesets/secondary/garden_secondary/metatile_attributes.bin");
+
+const u16 gMetatiles_Casino[] = INCBIN_U16("data/tilesets/secondary/casino/metatiles.bin");
+const u16 gMetatileAttributes_Casino[] = INCBIN_U16("data/tilesets/secondary/casino/metatile_attributes.bin");
