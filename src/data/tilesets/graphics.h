@@ -3219,3 +3219,22 @@ const u16 gTilesetPalettes_Casino[][16] =
 };
 
 const u32 gTilesetTiles_Casino[] = INCBIN_U32("data/tilesets/secondary/casino/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_CasinoPrimary[][16] =
+{
+    INCBIN_U16("data/tilesets/primary/casino_primary/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/primary/casino_primary/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/primary/casino_primary/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/primary/casino_primary/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/primary/casino_primary/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/primary/casino_primary/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/primary/casino_primary/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/primary/casino_primary/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/primary/casino_primary/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/primary/casino_primary/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/primary/casino_primary/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/primary/casino_primary/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/primary/casino_primary/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_CasinoPrimary[] = INCBIN_U32("data/tilesets/primary/casino_primary/tiles.4bpp.lz");
