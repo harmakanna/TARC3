@@ -394,7 +394,7 @@ u16 TakePokemonFromDaycare(void)
     return TakeSelectedPokemonMonFromDaycareShiftSlots(&gSaveBlock1Ptr->daycare, gSpecialVar_0x8004);
 }
 
-static u8 GetLevelAfterDaycareSteps(struct BoxPokemon *mon, u32 steps)
+u8 GetLevelAfterDaycareSteps(struct BoxPokemon *mon, u32 steps)
 {
     struct BoxPokemon tempMon = *mon;
 
@@ -403,7 +403,7 @@ static u8 GetLevelAfterDaycareSteps(struct BoxPokemon *mon, u32 steps)
     return GetLevelFromBoxMonExp(&tempMon);
 }
 
-static u8 GetNumLevelsGainedFromSteps(struct DaycareMon *daycareMon)
+u8 GetNumLevelsGainedFromSteps(struct DaycareMon *daycareMon)
 {
     u8 levelBefore;
     u8 levelAfter;
