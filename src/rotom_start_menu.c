@@ -1684,7 +1684,7 @@ static void RotomPhone_OverworldMenu_LoadBgGfx(bool32 firstInit)
     if (RP_CONFIG_USE_ROTOM_PHONE)
     {
         DecompressAndCopyTileDataToVram(0, sRotomPhone_OverworldTiles, 0, 0, 0);
-        LZDecompressWram(sRotomPhone_OverworldTilemap, buf);
+        DecompressDataWithHeaderWram(sRotomPhone_OverworldTilemap, buf);
     }
     else
     {
@@ -1694,7 +1694,7 @@ static void RotomPhone_OverworldMenu_LoadBgGfx(bool32 firstInit)
             tilemap = sFlipPhone_OverworldOpenTilemap;
         
         DecompressAndCopyTileDataToVram(0, sFlipPhone_OverworldTiles, 0, 0, 0);
-        LZDecompressWram(tilemap, buf);
+        DecompressDataWithHeaderWram(tilemap, buf);
     }
 
     RotomPhone_OverworldMenu_LoadBgPalette(TRUE);
@@ -1708,7 +1708,7 @@ static void RotomPhone_OverworldMenu_CreateSpeechWindows(void)
     if (!RP_CONFIG_USE_ROTOM_PHONE)
         return;
 
-    LZDecompressWram(sRotomPhone_OverworldSpeechTilemap, GetBgTilemapBuffer(0));
+    DecompressDataWithHeaderWram(sRotomPhone_OverworldSpeechTilemap, GetBgTilemapBuffer(0));
 
     sRotomPhone_StartMenu->menuOverworldRotomSpeechTopWindowId = AddWindow(&sWindowTemplate_RotomSpeech_Top);
     FillWindowPixelBuffer(sRotomPhone_StartMenu->menuOverworldRotomSpeechTopWindowId, PIXEL_FILL(OW_ROTOM_PHONE_TEXT_BG_COLOUR));
@@ -1729,7 +1729,7 @@ static void RotomPhone_OverworldMenu_CreateFlipPhoneWindow(void)
     PutWindowTilemap(sRotomPhone_StartMenu->menuOverworldFlipPhoneWindowId);
 }
 
-static const u8 sText_ClearWindow[] = COMPOUND_STRING("{CLEAR_TO 190}");
+static const u8 sText_ClearWindow[] = _("{CLEAR_TO 190}");
 static void RotomPhone_OverworldMenu_PrintRotomSpeech(u8 textBuffer[80], bool32 top, bool32 copy)
 {
     u8 fontId = GetFontIdToFit(textBuffer, FONT_SHORT, 0, ROTOM_SPEECH_WINDOW_WIDTH_PXL);
@@ -2317,6 +2317,11 @@ static void RotomPhone_OverworldMenu_HandleDPAD(u8 taskId)
     RotomPhone_OverworldMenu_UpdateMenuPrompt(taskId);
 }
 
+static u32 GetEasingComfyAnim_CurrentFrame(struct ComfyAnim *comfy)
+{
+    return  comfy->state.easingState.curFrame;
+}
+
 static void Task_RotomPhone_OverworldMenu_PhoneSlideOpen(u8 taskId)
 {
     TryAdvanceComfyAnim(&gComfyAnims[tPhoneComfyAnimId]);
@@ -2336,7 +2341,7 @@ static void Task_RotomPhone_OverworldMenu_PhoneSlideOpen(u8 taskId)
     else if (GetEasingComfyAnim_CurrentFrame(&gComfyAnims[tPhoneComfyAnimId]) == PHONE_COMFY_SLIDE_DURATION / 2
         && !RP_CONFIG_USE_ROTOM_PHONE)
     {
-        LZDecompressWram(sFlipPhone_OverworldOpenTilemap, GetBgTilemapBuffer(0));
+        DecompressDataWithHeaderWram(sFlipPhone_OverworldOpenTilemap, GetBgTilemapBuffer(0));
         ScheduleBgCopyTilemapToVram(0);
     }
     else if (tPhoneY > 0)
@@ -2371,9 +2376,9 @@ static void Task_RotomPhone_OverworldMenu_PhoneSlideClose(u8 taskId)
         RotomPhone_OverworldMenu_RemoveWindows();
         RotomPhone_OverworldMenu_DestroySprites();
         if (RP_CONFIG_USE_ROTOM_PHONE)
-            LZDecompressWram(sRotomPhone_OverworldTilemap, GetBgTilemapBuffer(0));
+            DecompressDataWithHeaderWram(sRotomPhone_OverworldTilemap, GetBgTilemapBuffer(0));
         else
-            LZDecompressWram(sFlipPhone_OverworldClosedTilemap, GetBgTilemapBuffer(0));
+            DecompressDataWithHeaderWram(sFlipPhone_OverworldClosedTilemap, GetBgTilemapBuffer(0));
         ScheduleBgCopyTilemapToVram(0);
         tPhoneY = ReadComfyAnimValueSmooth(&gComfyAnims[tPhoneComfyAnimId]);
         SetGpuReg(REG_OFFSET_BG0VOFS, -tPhoneY);
@@ -3092,8 +3097,8 @@ static bool32 RotomPhone_RotomRealityMenu_LoadGraphics(void)
     case 1:
         if (FreeTempTileDataBuffersIfPossible() != TRUE)
         {
-            LZDecompressWram(sRotomPhone_RotomRealityMenuTilemap, sBg1TilemapBuffer);
-            LZDecompressWram(sRotomPhone_RotomRealityMenuPanelTilemap, sBg2TilemapBuffer);
+            DecompressDataWithHeaderWram(sRotomPhone_RotomRealityMenuTilemap, sBg1TilemapBuffer);
+            DecompressDataWithHeaderWram(sRotomPhone_RotomRealityMenuPanelTilemap, sBg2TilemapBuffer);
             sRotomPhone_StartMenu->menuRotomRealityLoadState++;
         }
         break;
@@ -3468,7 +3473,7 @@ static void RotomPhone_SaveScreen_SetupCB(void)
     case 4:
         if (FreeTempTileDataBuffersIfPossible() != TRUE)
         {
-            LZDecompressWram(sRotomPhone_SaveScreenTilemap, sBg1TilemapBuffer);
+            DecompressDataWithHeaderWram(sRotomPhone_SaveScreenTilemap, sBg1TilemapBuffer);
             gMain.state++;
         }
         else
