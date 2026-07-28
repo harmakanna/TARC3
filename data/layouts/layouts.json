@@ -9437,8 +9437,8 @@
     {
       "id": "LAYOUT_VIRTUAL_CITY_CASINO",
       "name": "VirtualCity_Casino_Layout",
-      "width": 22,
-      "height": 11,
+      "width": 32,
+      "height": 25,
       "primary_tileset": "gTileset_CasinoPrimary",
       "secondary_tileset": "gTileset_Casino",
       "border_filepath": "data/layouts/VirtualCity_Casino/border.bin",
