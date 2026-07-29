@@ -94,11 +94,18 @@ enum
 
 typedef void (*TilesetCB)(void);
 
+enum
+{
+    EMERALD_TILESET_DIMENSIONS,
+    FRLG_TILESET_DIMENSIONS,
+};
+
 struct Tileset
 {
     /*0x00*/ u8 isCompressed:1;
     /*0x00*/ u8 swapPalettes:7; // Bitmask determining whether palette has an alternate, night-time palette
-    /*0x01*/ bool8 isSecondary;
+    /*0x01*/ u8 isSecondary:1;
+    /*0x01*/ u8 tilesetDimensions:7;
     /*0x02*/ u8 lightPalettes; // Bitmask determining whether a palette should be time-blended as a light
     /*0x03*/ u8 customLightColor; // Bitmask determining which light palettes have custom light colors (color 15)
     /*0x04*/ const u32 *tiles;
@@ -116,10 +123,9 @@ struct MapLayout
     /*0x0C*/ const u16 *map;
     /*0x10*/ const struct Tileset *primaryTileset;
     /*0x14*/ const struct Tileset *secondaryTileset;
-    bool8 isFrlg;
     u8 borderWidth;
     u8 borderHeight;
-    u8 padding;
+    u16 padding;
 };
 
 struct BackupMapLayout

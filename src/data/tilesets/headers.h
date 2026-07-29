@@ -28,6 +28,29 @@ const struct Tileset gTileset_SecretBaseRedCave =
 const struct Tileset *const gTilesetPointer_SecretBase = &gTileset_SecretBase;
 const struct Tileset *const gTilesetPointer_SecretBaseRedCave = &gTileset_SecretBaseRedCave;
 
+const struct Tileset gTileset_PokemonCenter =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_PokemonCenter,
+    .palettes = gTilesetPalettes_PokemonCenter,
+    .metatiles = gMetatiles_PokemonCenter,
+    .metatileAttributes = gMetatileAttributes_PokemonCenter,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_PokemonCenterFrlg =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
+    .tiles = gTilesetTiles_PokemonCenter_Frlg,
+    .palettes = gTilesetPalettes_PokemonCenter_Frlg,
+    .metatiles = gMetatiles_PokemonCenter_Frlg,
+    .metatileAttributes = gMetatileAttributes_PokemonCenter_Frlg,
+    .callback = NULL,
+};
+
 #if !IS_FRLG
 
 const struct Tileset gTileset_General =
@@ -225,17 +248,6 @@ const struct Tileset gTileset_Shop =
     .palettes = gTilesetPalettes_Shop,
     .metatiles = gMetatiles_Shop,
     .metatileAttributes = gMetatileAttributes_Shop,
-    .callback = NULL,
-};
-
-const struct Tileset gTileset_PokemonCenter =
-{
-    .isCompressed = TRUE,
-    .isSecondary = TRUE,
-    .tiles = gTilesetTiles_PokemonCenter,
-    .palettes = gTilesetPalettes_PokemonCenter,
-    .metatiles = gMetatiles_PokemonCenter,
-    .metatileAttributes = gMetatileAttributes_PokemonCenter,
     .callback = NULL,
 };
 
@@ -840,6 +852,7 @@ const struct Tileset gTileset_BuildingFrlg =
 {
     .isCompressed = TRUE,
     .isSecondary = FALSE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_Building_Frlg,
     .palettes = gTilesetPalettes_Building_Frlg,
     .metatiles = gMetatiles_Building_Frlg,
@@ -851,6 +864,7 @@ const struct Tileset gTileset_General_Frlg =
 {
     .isCompressed = TRUE,
     .isSecondary = FALSE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_General_Frlg,
     .palettes = gTilesetPalettes_General_Frlg,
     .metatiles = gMetatiles_General_Frlg,
@@ -862,6 +876,7 @@ const struct Tileset gTileset_PalletTown =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_PalletTown,
     .palettes = gTilesetPalettes_PalletTown,
     .metatiles = gMetatiles_PalletTown,
@@ -873,6 +888,7 @@ const struct Tileset gTileset_ViridianCity =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_ViridianCity,
     .palettes = gTilesetPalettes_ViridianCity,
     .metatiles = gMetatiles_ViridianCity,
@@ -884,6 +900,7 @@ const struct Tileset gTileset_PewterCity =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_PewterCity,
     .palettes = gTilesetPalettes_PewterCity,
     .metatiles = gMetatiles_PewterCity,
@@ -895,6 +912,7 @@ const struct Tileset gTileset_CeruleanCity =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_CeruleanCity,
     .palettes = gTilesetPalettes_CeruleanCity,
     .metatiles = gMetatiles_CeruleanCity,
@@ -906,6 +924,7 @@ const struct Tileset gTileset_LavenderTown =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_LavenderTown,
     .palettes = gTilesetPalettes_LavenderTown,
     .metatiles = gMetatiles_LavenderTown,
@@ -917,6 +936,7 @@ const struct Tileset gTileset_VermilionCity =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_VermilionCity,
     .palettes = gTilesetPalettes_VermilionCity,
     .metatiles = gMetatiles_VermilionCity,
@@ -928,6 +948,7 @@ const struct Tileset gTileset_CeladonCity =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_CeladonCity,
     .palettes = gTilesetPalettes_CeladonCity,
     .metatiles = gMetatiles_CeladonCity,
@@ -939,6 +960,7 @@ const struct Tileset gTileset_FuchsiaCity =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_FuchsiaCity,
     .palettes = gTilesetPalettes_FuchsiaCity,
     .metatiles = gMetatiles_FuchsiaCity,
@@ -950,6 +972,7 @@ const struct Tileset gTileset_CinnabarIsland =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_CinnabarIsland,
     .palettes = gTilesetPalettes_CinnabarIsland,
     .metatiles = gMetatiles_CinnabarIsland,
@@ -961,6 +984,7 @@ const struct Tileset gTileset_IndigoPlateau =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_IndigoPlateau,
     .palettes = gTilesetPalettes_IndigoPlateau,
     .metatiles = gMetatiles_IndigoPlateau,
@@ -972,6 +996,7 @@ const struct Tileset gTileset_SaffronCity =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_SaffronCity,
     .palettes = gTilesetPalettes_SaffronCity,
     .metatiles = gMetatiles_SaffronCity,
@@ -983,6 +1008,7 @@ const struct Tileset gTileset_Mart =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_Mart,
     .palettes = gTilesetPalettes_Mart,
     .metatiles = gMetatiles_Mart,
@@ -990,21 +1016,11 @@ const struct Tileset gTileset_Mart =
     .callback = NULL,
 };
 
-const struct Tileset gTileset_PokemonCenterFrlg =
-{
-    .isCompressed = TRUE,
-    .isSecondary = TRUE,
-    .tiles = gTilesetTiles_PokemonCenter_Frlg,
-    .palettes = gTilesetPalettes_PokemonCenter_Frlg,
-    .metatiles = gMetatiles_PokemonCenter_Frlg,
-    .metatileAttributes = gMetatileAttributes_PokemonCenter_Frlg,
-    .callback = NULL,
-};
-
 const struct Tileset gTileset_Cave_Frlg =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_Cave_Frlg,
     .palettes = gTilesetPalettes_Cave_Frlg,
     .metatiles = gMetatiles_Cave_Frlg,
@@ -1016,6 +1032,7 @@ const struct Tileset gTileset_Museum =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_Museum,
     .palettes = gTilesetPalettes_Museum,
     .metatiles = gMetatiles_Museum,
@@ -1027,6 +1044,7 @@ const struct Tileset gTileset_CableClub_Frlg =
 {
     .isCompressed = FALSE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_CableClub_Frlg,
     .palettes = gTilesetPalettes_CableClub_Frlg,
     .metatiles = gMetatiles_CableClub_Frlg,
@@ -1038,6 +1056,7 @@ const struct Tileset gTileset_BikeShop_Frlg =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_BikeShop_Frlg,
     .palettes = gTilesetPalettes_BikeShop_Frlg,
     .metatiles = gMetatiles_BikeShop_Frlg,
@@ -1049,6 +1068,7 @@ const struct Tileset gTileset_GenericBuilding1 =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_GenericBuilding1,
     .palettes = gTilesetPalettes_GenericBuilding1,
     .metatiles = gMetatiles_GenericBuilding1,
@@ -1060,6 +1080,7 @@ const struct Tileset gTileset_Lab_Frlg =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_Lab_Frlg,
     .palettes = gTilesetPalettes_Lab_Frlg,
     .metatiles = gMetatiles_Lab_Frlg,
@@ -1071,6 +1092,7 @@ const struct Tileset gTileset_FuchsiaGym =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_FuchsiaGym,
     .palettes = gTilesetPalettes_FuchsiaGym,
     .metatiles = gMetatiles_FuchsiaGym,
@@ -1082,6 +1104,7 @@ const struct Tileset gTileset_ViridianGym =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_ViridianGym,
     .palettes = gTilesetPalettes_ViridianGym,
     .metatiles = gMetatiles_ViridianGym,
@@ -1093,6 +1116,7 @@ const struct Tileset gTileset_HoennBuilding =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_HoennBuilding,
     .palettes = gTilesetPalettes_HoennBuilding,
     .metatiles = gMetatiles_HoennBuilding,
@@ -1104,6 +1128,7 @@ const struct Tileset gTileset_GameCorner =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_GameCorner,
     .palettes = gTilesetPalettes_GameCorner,
     .metatiles = gMetatiles_GameCorner,
@@ -1115,6 +1140,7 @@ const struct Tileset gTileset_PewterGym =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_PewterGym,
     .palettes = gTilesetPalettes_PewterGym,
     .metatiles = gMetatiles_PewterGym,
@@ -1126,6 +1152,7 @@ const struct Tileset gTileset_CeruleanGym =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_CeruleanGym,
     .palettes = gTilesetPalettes_CeruleanGym,
     .metatiles = gMetatiles_CeruleanGym,
@@ -1137,6 +1164,7 @@ const struct Tileset gTileset_VermilionGym =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_VermilionGym,
     .palettes = gTilesetPalettes_VermilionGym,
     .metatiles = gMetatiles_VermilionGym,
@@ -1148,6 +1176,7 @@ const struct Tileset gTileset_CeladonGym =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_CeladonGym,
     .palettes = gTilesetPalettes_CeladonGym,
     .metatiles = gMetatiles_CeladonGym,
@@ -1159,6 +1188,7 @@ const struct Tileset gTileset_SaffronGym =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_SaffronGym,
     .palettes = gTilesetPalettes_SaffronGym,
     .metatiles = gMetatiles_SaffronGym,
@@ -1170,6 +1200,7 @@ const struct Tileset gTileset_CinnabarGym =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_CinnabarGym,
     .palettes = gTilesetPalettes_CinnabarGym,
     .metatiles = gMetatiles_CinnabarGym,
@@ -1181,6 +1212,7 @@ const struct Tileset gTileset_SSAnne =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_SSAnne,
     .palettes = gTilesetPalettes_SSAnne,
     .metatiles = gMetatiles_SSAnne,
@@ -1192,6 +1224,7 @@ const struct Tileset gTileset_ViridianForest =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_ViridianForest,
     .palettes = gTilesetPalettes_ViridianForest,
     .metatiles = gMetatiles_ViridianForest,
@@ -1203,6 +1236,7 @@ const struct Tileset gTileset_UnusedGatehouse1 =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_UnusedGatehouse1,
     .palettes = gTilesetPalettes_UnusedGatehouse1,
     .metatiles = gMetatiles_UnusedGatehouse1,
@@ -1214,6 +1248,7 @@ const struct Tileset gTileset_RockTunnel =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_RockTunnel,
     .palettes = gTilesetPalettes_RockTunnel,
     .metatiles = gMetatiles_RockTunnel,
@@ -1225,6 +1260,7 @@ const struct Tileset gTileset_DiglettsCave =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_DiglettsCave,
     .palettes = gTilesetPalettes_DiglettsCave,
     .metatiles = gMetatiles_DiglettsCave,
@@ -1236,6 +1272,7 @@ const struct Tileset gTileset_SeafoamIslands =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_SeafoamIslands,
     .palettes = gTilesetPalettes_SeafoamIslands,
     .metatiles = gMetatiles_SeafoamIslands,
@@ -1247,6 +1284,7 @@ const struct Tileset gTileset_UnusedGatehouse2 =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_UnusedGatehouse2,
     .palettes = gTilesetPalettes_UnusedGatehouse2,
     .metatiles = gMetatiles_UnusedGatehouse2,
@@ -1258,6 +1296,7 @@ const struct Tileset gTileset_CeruleanCave =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_CeruleanCave,
     .palettes = gTilesetPalettes_CeruleanCave,
     .metatiles = gMetatiles_CeruleanCave,
@@ -1269,6 +1308,7 @@ const struct Tileset gTileset_DepartmentStore =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_DepartmentStore,
     .palettes = gTilesetPalettes_DepartmentStore,
     .metatiles = gMetatiles_DepartmentStore,
@@ -1280,6 +1320,7 @@ const struct Tileset gTileset_GenericBuilding2 =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_GenericBuilding2,
     .palettes = gTilesetPalettes_GenericBuilding2,
     .metatiles = gMetatiles_GenericBuilding2,
@@ -1291,6 +1332,7 @@ const struct Tileset gTileset_PowerPlant =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_PowerPlant,
     .palettes = gTilesetPalettes_PowerPlant,
     .metatiles = gMetatiles_PowerPlant,
@@ -1302,6 +1344,7 @@ const struct Tileset gTileset_SeaCottage =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_SeaCottage,
     .palettes = gTilesetPalettes_SeaCottage,
     .metatiles = gMetatiles_SeaCottage,
@@ -1313,6 +1356,7 @@ const struct Tileset gTileset_SilphCo =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_Condominiums,
     .palettes = gTilesetPalettes_Condominiums,
     .metatiles = gMetatiles_SilphCo,
@@ -1324,6 +1368,7 @@ const struct Tileset gTileset_UndergroundPath =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_UndergroundPath,
     .palettes = gTilesetPalettes_UndergroundPath,
     .metatiles = gMetatiles_UndergroundPath,
@@ -1335,6 +1380,7 @@ const struct Tileset gTileset_PokemonTower =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_PokemonTower,
     .palettes = gTilesetPalettes_PokemonTower,
     .metatiles = gMetatiles_PokemonTower,
@@ -1346,6 +1392,7 @@ const struct Tileset gTileset_SafariZoneBuilding =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_SafariZoneBuilding,
     .palettes = gTilesetPalettes_SafariZoneBuilding,
     .metatiles = gMetatiles_SafariZoneBuilding,
@@ -1357,6 +1404,7 @@ const struct Tileset gTileset_PokemonMansion =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_PokemonMansion,
     .palettes = gTilesetPalettes_PokemonMansion,
     .metatiles = gMetatiles_PokemonMansion,
@@ -1368,6 +1416,7 @@ const struct Tileset gTileset_RestaurantHotel =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_RestaurantHotel,
     .palettes = gTilesetPalettes_RestaurantHotel,
     .metatiles = gMetatiles_RestaurantHotel,
@@ -1379,6 +1428,7 @@ const struct Tileset gTileset_School =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_School,
     .palettes = gTilesetPalettes_School,
     .metatiles = gMetatiles_School,
@@ -1390,6 +1440,7 @@ const struct Tileset gTileset_FanClubDaycare =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_FanClubDaycare,
     .palettes = gTilesetPalettes_FanClubDaycare,
     .metatiles = gMetatiles_FanClubDaycare,
@@ -1401,6 +1452,7 @@ const struct Tileset gTileset_Condominiums =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_Condominiums,
     .palettes = gTilesetPalettes_Condominiums,
     .metatiles = gMetatiles_Condominiums,
@@ -1412,6 +1464,7 @@ const struct Tileset gTileset_BurgledHouse =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_BurgledHouse,
     .palettes = gTilesetPalettes_BurgledHouse,
     .metatiles = gMetatiles_BurgledHouse,
@@ -1423,6 +1476,7 @@ const struct Tileset gTileset_MtEmber =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_MtEmber,
     .palettes = gTilesetPalettes_MtEmber,
     .metatiles = gMetatiles_MtEmber,
@@ -1434,6 +1488,7 @@ const struct Tileset gTileset_BerryForest =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_BerryForest,
     .palettes = gTilesetPalettes_BerryForest,
     .metatiles = gMetatiles_BerryForest,
@@ -1445,6 +1500,7 @@ const struct Tileset gTileset_NavelRock_Frlg =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_NavelRock_Frlg,
     .palettes = gTilesetPalettes_NavelRock_Frlg,
     .metatiles = gMetatiles_NavelRock_Frlg,
@@ -1456,6 +1512,7 @@ const struct Tileset gTileset_TanobyRuins =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_TanobyRuins,
     .palettes = gTilesetPalettes_TanobyRuins,
     .metatiles = gMetatiles_TanobyRuins,
@@ -1467,6 +1524,7 @@ const struct Tileset gTileset_SeviiIslands123 =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_SeviiIslands123,
     .palettes = gTilesetPalettes_SeviiIslands123,
     .metatiles = gMetatiles_SeviiIslands123,
@@ -1478,6 +1536,7 @@ const struct Tileset gTileset_SeviiIslands45 =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_SeviiIslands45,
     .palettes = gTilesetPalettes_SeviiIslands45,
     .metatiles = gMetatiles_SeviiIslands45,
@@ -1489,6 +1548,7 @@ const struct Tileset gTileset_SeviiIslands67 =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_SeviiIslands67,
     .palettes = gTilesetPalettes_SeviiIslands67,
     .metatiles = gMetatiles_SeviiIslands67,
@@ -1500,6 +1560,7 @@ const struct Tileset gTileset_TrainerTower =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_TrainerTower,
     .palettes = gTilesetPalettes_TrainerTower,
     .metatiles = gMetatiles_TrainerTower,
@@ -1511,6 +1572,7 @@ const struct Tileset gTileset_IslandHarbor_Frlg =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_IslandHarbor_Frlg,
     .palettes = gTilesetPalettes_IslandHarbor_Frlg,
     .metatiles = gMetatiles_IslandHarbor_Frlg,
@@ -1522,6 +1584,7 @@ const struct Tileset gTileset_PokemonLeague =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_PokemonLeague,
     .palettes = gTilesetPalettes_PokemonLeague,
     .metatiles = gMetatiles_PokemonLeague,
@@ -1533,6 +1596,7 @@ const struct Tileset gTileset_HallOfFame =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
     .tiles = gTilesetTiles_HallOfFame,
     .palettes = gTilesetPalettes_HallOfFame,
     .metatiles = gMetatiles_HallOfFame,

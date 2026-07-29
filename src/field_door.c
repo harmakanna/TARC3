@@ -25,11 +25,12 @@ enum DoorSize
 struct DoorGraphics
 {
     u16 metatileNum;
-    const struct Tileset *tileset;
-    u8 sound;
+    u16 sound:8;
     enum DoorSize size:8;
     const void *tiles;
     const void *palettes;
+    const struct Tileset *tileset;
+    
 };
 
 struct DoorAnimFrame
