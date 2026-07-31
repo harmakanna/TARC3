@@ -1,5 +1,6 @@
 import os
 import struct
+import json
 
 OLD_METATILE_MASK  = 0b0000001111111111
 OLD_COLLISION_MASK = 0b0000110000000000
@@ -8,7 +9,7 @@ OLD_ELEVATION_MASK = 0b1111000000000000
 NEW_COLLISION_MASK = 0b0001
 NEW_ELEVATION_MASK = 0b0111
 
-def process_map_data(old_data):
+def process_map_data(old_data, secondary_start):
     new_data = []
     
     for value in old_data:
@@ -18,19 +19,19 @@ def process_map_data(old_data):
 
         if elevation == 15:
             elevation = 7
-        if metatile_id >= 512:
+        if metatile_id >= secondary_start:
             metatile_id = metatile_id + (512 * 3)
 
         new_value = metatile_id | ((collision & NEW_COLLISION_MASK) << 12) | ((elevation & NEW_ELEVATION_MASK) << 13)
         new_data.append(new_value)
     return new_data
 
-def process_border_data(old_data):
+def process_border_data(old_data, secondary_start):
     new_data = []
     for value in old_data:
         metatile_id = value & OLD_METATILE_MASK
 
-        if metatile_id >= 512:
+        if metatile_id >= secondary_start:
             metatile_id = metatile_id + (512 * 3)
 
         new_data.append(metatile_id)
@@ -53,6 +54,7 @@ def find_map_files(file_name="map.bin"):
                 map_files.append(os.path.join(root, file))
     return map_files
 
+"""
 def process_all_maps():
     map_files = find_map_files("map.bin")
     for map_file in map_files:
@@ -68,7 +70,29 @@ def process_all_borders():
         old_data = read_map_bin(map_file)
         new_data = process_border_data(old_data)
         write_map_bin(map_file, new_data)
+"""
 
 if __name__ == "__main__":
-    process_all_maps()
-    process_all_borders()
+    with open("layouts.tmp", "r") as f:
+        data = json.load(f)
+    for map_file in data["emerald_map"]:
+        print(f"Processing {map_file}...")
+        old_data = read_map_bin(map_file)
+        new_data = process_map_data(old_data, 512)
+        write_map_bin(map_file, new_data)
+    for map_file in data["emerald_border"]:
+        print(f"Processing {map_file}...")
+        old_data = read_map_bin(map_file)
+        new_data = process_border_data(old_data, 512)
+        write_map_bin(map_file, new_data)
+    for map_file in data["frlg_map"]:
+        print(f"Processing {map_file}...")
+        old_data = read_map_bin(map_file)
+        new_data = process_map_data(old_data, 640)
+        write_map_bin(map_file, new_data)
+    for map_file in data["frlg_border"]:
+        print(f"Processing {map_file}...")
+        old_data = read_map_bin(map_file)
+        new_data = process_border_data(old_data, 640)
+        write_map_bin(map_file, new_data)
+
