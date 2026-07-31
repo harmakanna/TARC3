@@ -1698,6 +1698,7 @@ const struct Tileset gTileset_WorldOne =
 {
     .isCompressed = TRUE,
     .isSecondary = FALSE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_WorldOne,
     .palettes = gTilesetPalettes_WorldOne,
     .metatiles = gMetatiles_WorldOne,
@@ -1709,6 +1710,7 @@ const struct Tileset gTileset_WorldOneOutside =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_WorldOneOutside,
     .palettes = gTilesetPalettes_WorldOneOutside,
     .metatiles = gMetatiles_WorldOneOutside,
@@ -1720,6 +1722,7 @@ const struct Tileset gTileset_VirtualCityCommerce =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_VirtualCityCommerce,
     .palettes = gTilesetPalettes_VirtualCityCommerce,
     .metatiles = gMetatiles_VirtualCityCommerce,
@@ -1731,6 +1734,7 @@ const struct Tileset gTileset_VirtualCityPrimary =
 {
     .isCompressed = TRUE,
     .isSecondary = FALSE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_VirtualCityPrimary,
     .palettes = gTilesetPalettes_VirtualCityPrimary,
     .metatiles = gMetatiles_VirtualCityPrimary,
@@ -1742,6 +1746,7 @@ const struct Tileset gTileset_OutsideWorldSecondary =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_OutsideWorldSecondary,
     .palettes = gTilesetPalettes_OutsideWorldSecondary,
     .metatiles = gMetatiles_OutsideWorldSecondary,
