@@ -688,7 +688,7 @@
       "name": "Mart_Layout",
       "width": 11,
       "height": 8,
-      "primary_tileset": "gTileset_Building",
+      "primary_tileset": "gTileset_BuildingDoubleLayer",
       "secondary_tileset": "gTileset_Shop",
       "border_filepath": "data/layouts/Mart/border.bin",
       "blockdata_filepath": "data/layouts/Mart/map.bin",

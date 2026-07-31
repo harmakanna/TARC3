@@ -7,6 +7,7 @@ const struct Tileset gTileset_SecretBase =
 {
     .isCompressed = FALSE,
     .isSecondary = FALSE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_SecretBase,
     .palettes = gTilesetPalettes_SecretBase,
     .metatiles = gMetatiles_SecretBasePrimary,
@@ -18,6 +19,7 @@ const struct Tileset gTileset_SecretBaseRedCave =
 {
     .isCompressed = FALSE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_SecretBaseRedCave,
     .palettes = gTilesetPalettes_SecretBaseRedCave,
     .metatiles = gMetatiles_SecretBaseSecondary,
@@ -32,6 +34,7 @@ const struct Tileset gTileset_PokemonCenter =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_PokemonCenter,
     .palettes = gTilesetPalettes_PokemonCenter,
     .metatiles = gMetatiles_PokemonCenter,
@@ -57,6 +60,7 @@ const struct Tileset gTileset_General =
 {
     .isCompressed = TRUE,
     .isSecondary = FALSE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_General,
     .palettes = gTilesetPalettes_General,
     .metatiles = gMetatiles_General,
@@ -68,6 +72,7 @@ const struct Tileset gTileset_Petalburg =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_Petalburg,
     .palettes = gTilesetPalettes_Petalburg,
     .metatiles = gMetatiles_Petalburg,
@@ -79,6 +84,7 @@ const struct Tileset gTileset_Rustboro =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_Rustboro,
     .palettes = gTilesetPalettes_Rustboro,
     .metatiles = gMetatiles_Rustboro,
@@ -90,6 +96,7 @@ const struct Tileset gTileset_Dewford =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_Dewford,
     .palettes = gTilesetPalettes_Dewford,
     .metatiles = gMetatiles_Dewford,
@@ -101,6 +108,7 @@ const struct Tileset gTileset_Slateport =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_Slateport,
     .palettes = gTilesetPalettes_Slateport,
     .metatiles = gMetatiles_Slateport,
@@ -112,6 +120,7 @@ const struct Tileset gTileset_Mauville =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_Mauville,
     .palettes = gTilesetPalettes_Mauville,
     .metatiles = gMetatiles_Mauville,
@@ -123,6 +132,7 @@ const struct Tileset gTileset_Lavaridge =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_Lavaridge,
     .palettes = gTilesetPalettes_Lavaridge,
     .metatiles = gMetatiles_Lavaridge,
@@ -134,6 +144,7 @@ const struct Tileset gTileset_Fallarbor =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_Fallarbor,
     .palettes = gTilesetPalettes_Fallarbor,
     .metatiles = gMetatiles_Fallarbor,
@@ -145,6 +156,7 @@ const struct Tileset gTileset_Fortree =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_Fortree,
     .palettes = gTilesetPalettes_Fortree,
     .metatiles = gMetatiles_Fortree,
@@ -156,6 +168,7 @@ const struct Tileset gTileset_Lilycove =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_Lilycove,
     .palettes = gTilesetPalettes_Lilycove,
     .metatiles = gMetatiles_Lilycove,
@@ -167,6 +180,7 @@ const struct Tileset gTileset_Mossdeep =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_Mossdeep,
     .palettes = gTilesetPalettes_Mossdeep,
     .metatiles = gMetatiles_Mossdeep,
@@ -178,6 +192,7 @@ const struct Tileset gTileset_EverGrande =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_EverGrande,
     .palettes = gTilesetPalettes_EverGrande,
     .metatiles = gMetatiles_EverGrande,
@@ -189,6 +204,7 @@ const struct Tileset gTileset_Pacifidlog =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_Pacifidlog,
     .palettes = gTilesetPalettes_Pacifidlog,
     .metatiles = gMetatiles_Pacifidlog,
@@ -200,6 +216,7 @@ const struct Tileset gTileset_Sootopolis =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_Sootopolis,
     .palettes = gTilesetPalettes_Sootopolis,
     .metatiles = gMetatiles_Sootopolis,
@@ -211,6 +228,7 @@ const struct Tileset gTileset_BattleFrontierOutsideWest =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_BattleFrontierOutsideWest,
     .palettes = gTilesetPalettes_BattleFrontierOutsideWest,
     .metatiles = gMetatiles_BattleFrontierOutsideWest,
@@ -222,6 +240,7 @@ const struct Tileset gTileset_BattleFrontierOutsideEast =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_BattleFrontierOutsideEast,
     .palettes = gTilesetPalettes_BattleFrontierOutsideEast,
     .metatiles = gMetatiles_BattleFrontierOutsideEast,
@@ -233,6 +252,7 @@ const struct Tileset gTileset_Building =
 {
     .isCompressed = TRUE,
     .isSecondary = FALSE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_InsideBuilding,
     .palettes = gTilesetPalettes_InsideBuilding,
     .metatiles = gMetatiles_InsideBuilding,
@@ -240,10 +260,23 @@ const struct Tileset gTileset_Building =
     .callback = InitTilesetAnim_Building,
 };
 
+const struct Tileset gTileset_BuildingDoubleLayer =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .isTripleLayer = FALSE,
+    .tiles = gTilesetTiles_InsideBuilding,
+    .palettes = gTilesetPalettes_InsideBuilding,
+    .metatiles = gMetatiles_InsideBuildingDoubleLayer,
+    .metatileAttributes = gMetatileAttributes_InsideBuildingDoubleLayer,
+    .callback = InitTilesetAnim_Building,
+};
+
 const struct Tileset gTileset_Shop =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = FALSE,
     .tiles = gTilesetTiles_Shop,
     .palettes = gTilesetPalettes_Shop,
     .metatiles = gMetatiles_Shop,
@@ -255,6 +288,7 @@ const struct Tileset gTileset_Cave =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_Cave,
     .palettes = gTilesetPalettes_Cave,
     .metatiles = gMetatiles_Cave,
@@ -266,6 +300,7 @@ const struct Tileset gTileset_PokemonSchool =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_PokemonSchool,
     .palettes = gTilesetPalettes_PokemonSchool,
     .metatiles = gMetatiles_PokemonSchool,
@@ -277,6 +312,7 @@ const struct Tileset gTileset_PokemonFanClub =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_PokemonFanClub,
     .palettes = gTilesetPalettes_PokemonFanClub,
     .metatiles = gMetatiles_PokemonFanClub,
@@ -288,6 +324,7 @@ const struct Tileset gTileset_Unused1 =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_Unused1,
     .palettes = gTilesetPalettes_Unused1,
     .metatiles = gMetatiles_Unused1,
@@ -299,6 +336,7 @@ const struct Tileset gTileset_MeteorFalls =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_MeteorFalls,
     .palettes = gTilesetPalettes_MeteorFalls,
     .metatiles = gMetatiles_MeteorFalls,
@@ -310,6 +348,7 @@ const struct Tileset gTileset_OceanicMuseum =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_OceanicMuseum,
     .palettes = gTilesetPalettes_OceanicMuseum,
     .metatiles = gMetatiles_OceanicMuseum,
@@ -321,6 +360,7 @@ const struct Tileset gTileset_CableClub =
 {
     .isCompressed = FALSE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_CableClub,
     .palettes = gTilesetPalettes_CableClub,
     .metatiles = gMetatiles_CableClub,
@@ -332,6 +372,7 @@ const struct Tileset gTileset_SeashoreHouse =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_SeashoreHouse,
     .palettes = gTilesetPalettes_SeashoreHouse,
     .metatiles = gMetatiles_SeashoreHouse,
@@ -343,6 +384,7 @@ const struct Tileset gTileset_PrettyPetalFlowerShop =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_PrettyPetalFlowerShop,
     .palettes = gTilesetPalettes_PrettyPetalFlowerShop,
     .metatiles = gMetatiles_PrettyPetalFlowerShop,
@@ -354,6 +396,7 @@ const struct Tileset gTileset_PokemonDayCare =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_PokemonDayCare,
     .palettes = gTilesetPalettes_PokemonDayCare,
     .metatiles = gMetatiles_PokemonDayCare,
@@ -365,6 +408,7 @@ const struct Tileset gTileset_Facility =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_Facility,
     .palettes = gTilesetPalettes_Facility,
     .metatiles = gMetatiles_Facility,
@@ -376,6 +420,7 @@ const struct Tileset gTileset_BikeShop =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_BikeShop,
     .palettes = gTilesetPalettes_BikeShop,
     .metatiles = gMetatiles_BikeShop,
@@ -387,6 +432,7 @@ const struct Tileset gTileset_RusturfTunnel =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_RusturfTunnel,
     .palettes = gTilesetPalettes_RusturfTunnel,
     .metatiles = gMetatiles_RusturfTunnel,
@@ -398,6 +444,7 @@ const struct Tileset gTileset_SecretBaseBrownCave =
 {
     .isCompressed = FALSE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_SecretBaseBrownCave,
     .palettes = gTilesetPalettes_SecretBaseBrownCave,
     .metatiles = gMetatiles_SecretBaseSecondary,
@@ -409,6 +456,7 @@ const struct Tileset gTileset_SecretBaseTree =
 {
     .isCompressed = FALSE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_SecretBaseTree,
     .palettes = gTilesetPalettes_SecretBaseTree,
     .metatiles = gMetatiles_SecretBaseSecondary,
@@ -420,6 +468,7 @@ const struct Tileset gTileset_SecretBaseShrub =
 {
     .isCompressed = FALSE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_SecretBaseShrub,
     .palettes = gTilesetPalettes_SecretBaseShrub,
     .metatiles = gMetatiles_SecretBaseSecondary,
@@ -431,6 +480,7 @@ const struct Tileset gTileset_SecretBaseBlueCave =
 {
     .isCompressed = FALSE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_SecretBaseBlueCave,
     .palettes = gTilesetPalettes_SecretBaseBlueCave,
     .metatiles = gMetatiles_SecretBaseSecondary,
@@ -442,6 +492,7 @@ const struct Tileset gTileset_SecretBaseYellowCave =
 {
     .isCompressed = FALSE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_SecretBaseYellowCave,
     .palettes = gTilesetPalettes_SecretBaseYellowCave,
     .metatiles = gMetatiles_SecretBaseSecondary,
@@ -453,6 +504,7 @@ const struct Tileset gTileset_InsideOfTruck =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_InsideOfTruck,
     .palettes = gTilesetPalettes_InsideOfTruck,
     .metatiles = gMetatiles_InsideOfTruck,
@@ -464,6 +516,7 @@ const struct Tileset gTileset_Unused2 =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_Unused2,
     .palettes = gTilesetPalettes_Unused2,
     .metatiles = gMetatiles_Unused2,
@@ -475,6 +528,7 @@ const struct Tileset gTileset_Contest =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_Contest,
     .palettes = gTilesetPalettes_Contest,
     .metatiles = gMetatiles_Contest,
@@ -486,6 +540,7 @@ const struct Tileset gTileset_LilycoveMuseum =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_LilycoveMuseum,
     .palettes = gTilesetPalettes_LilycoveMuseum,
     .metatiles = gMetatiles_LilycoveMuseum,
@@ -497,6 +552,7 @@ const struct Tileset gTileset_BrendansMaysHouse =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_BrendansMaysHouse,
     .palettes = gTilesetPalettes_BrendansMaysHouse,
     .metatiles = gMetatiles_BrendansMaysHouse,
@@ -508,6 +564,7 @@ const struct Tileset gTileset_Lab =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_Lab,
     .palettes = gTilesetPalettes_Lab,
     .metatiles = gMetatiles_Lab,
@@ -519,6 +576,7 @@ const struct Tileset gTileset_Underwater =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_Underwater,
     .palettes = gTilesetPalettes_Underwater,
     .metatiles = gMetatiles_Underwater,
@@ -530,6 +588,7 @@ const struct Tileset gTileset_PetalburgGym =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_PetalburgGym,
     .palettes = gTilesetPalettes_PetalburgGym,
     .metatiles = gMetatiles_PetalburgGym,
@@ -541,6 +600,7 @@ const struct Tileset gTileset_SootopolisGym =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_SootopolisGym,
     .palettes = gTilesetPalettes_SootopolisGym,
     .metatiles = gMetatiles_SootopolisGym,
@@ -552,6 +612,7 @@ const struct Tileset gTileset_GenericBuilding =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_GenericBuilding,
     .palettes = gTilesetPalettes_GenericBuilding,
     .metatiles = gMetatiles_GenericBuilding,
@@ -563,6 +624,7 @@ const struct Tileset gTileset_MauvilleGameCorner =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_MauvilleGameCorner,
     .palettes = gTilesetPalettes_MauvilleGameCorner,
     .metatiles = gMetatiles_MauvilleGameCorner,
@@ -574,6 +636,7 @@ const struct Tileset gTileset_RustboroGym =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_RustboroGym,
     .palettes = gTilesetPalettes_RustboroGym,
     .metatiles = gMetatiles_RustboroGym,
@@ -585,6 +648,7 @@ const struct Tileset gTileset_DewfordGym =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_DewfordGym,
     .palettes = gTilesetPalettes_DewfordGym,
     .metatiles = gMetatiles_DewfordGym,
@@ -596,6 +660,7 @@ const struct Tileset gTileset_MauvilleGym =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_MauvilleGym,
     .palettes = gTilesetPalettes_MauvilleGym,
     .metatiles = gMetatiles_MauvilleGym,
@@ -607,6 +672,7 @@ const struct Tileset gTileset_LavaridgeGym =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_LavaridgeGym,
     .palettes = gTilesetPalettes_LavaridgeGym,
     .metatiles = gMetatiles_LavaridgeGym,
@@ -618,6 +684,7 @@ const struct Tileset gTileset_TrickHousePuzzle =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_TrickHousePuzzle,
     .palettes = gTilesetPalettes_TrickHousePuzzle,
     .metatiles = gMetatiles_TrickHousePuzzle,
@@ -629,6 +696,7 @@ const struct Tileset gTileset_FortreeGym =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_FortreeGym,
     .palettes = gTilesetPalettes_FortreeGym,
     .metatiles = gMetatiles_FortreeGym,
@@ -640,6 +708,7 @@ const struct Tileset gTileset_MossdeepGym =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_MossdeepGym,
     .palettes = gTilesetPalettes_MossdeepGym,
     .metatiles = gMetatiles_MossdeepGym,
@@ -651,6 +720,7 @@ const struct Tileset gTileset_InsideShip =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_InsideShip,
     .palettes = gTilesetPalettes_InsideShip,
     .metatiles = gMetatiles_InsideShip,
@@ -662,6 +732,7 @@ const struct Tileset gTileset_EliteFour =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_EliteFour,
     .palettes = gTilesetPalettes_EliteFour,
     .metatiles = gMetatiles_EliteFour,
@@ -673,6 +744,7 @@ const struct Tileset gTileset_BattleFrontier =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_BattleFrontier,
     .palettes = gTilesetPalettes_BattleFrontier,
     .metatiles = gMetatiles_BattleFrontier,
@@ -684,6 +756,7 @@ const struct Tileset gTileset_BattlePalace =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_BattlePalace,
     .palettes = gTilesetPalettes_BattlePalace,
     .metatiles = gMetatiles_BattlePalace,
@@ -695,6 +768,7 @@ const struct Tileset gTileset_BattleDome =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_BattleDome,
     .palettes = gTilesetPalettes_BattleDome,
     .metatiles = gMetatiles_BattleDome,
@@ -706,6 +780,7 @@ const struct Tileset gTileset_BattleFactory =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_BattleFactory,
     .palettes = gTilesetPalettes_BattleFactory,
     .metatiles = gMetatiles_BattleFactory,
@@ -717,6 +792,7 @@ const struct Tileset gTileset_BattlePike =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_BattlePike,
     .palettes = gTilesetPalettes_BattlePike,
     .metatiles = gMetatiles_BattlePike,
@@ -728,6 +804,7 @@ const struct Tileset gTileset_BattleArena =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_BattleArena,
     .palettes = gTilesetPalettes_BattleArena,
     .metatiles = gMetatiles_BattleArena,
@@ -739,6 +816,7 @@ const struct Tileset gTileset_BattlePyramid =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_BattlePyramid,
     .palettes = gTilesetPalettes_BattlePyramid,
     .metatiles = gMetatiles_BattlePyramid,
@@ -750,6 +828,7 @@ const struct Tileset gTileset_MirageTower =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_MirageTower,
     .palettes = gTilesetPalettes_MirageTower,
     .metatiles = gMetatiles_MirageTower,
@@ -761,6 +840,7 @@ const struct Tileset gTileset_MossdeepGameCorner =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_MossdeepGameCorner,
     .palettes = gTilesetPalettes_MossdeepGameCorner,
     .metatiles = gMetatiles_MossdeepGameCorner,
@@ -772,6 +852,7 @@ const struct Tileset gTileset_IslandHarbor =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_IslandHarbor,
     .palettes = gTilesetPalettes_IslandHarbor,
     .metatiles = gMetatiles_IslandHarbor,
@@ -783,6 +864,7 @@ const struct Tileset gTileset_TrainerHill =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_TrainerHill,
     .palettes = gTilesetPalettes_TrainerHill,
     .metatiles = gMetatiles_TrainerHill,
@@ -794,6 +876,7 @@ const struct Tileset gTileset_NavelRock =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_NavelRock,
     .palettes = gTilesetPalettes_NavelRock,
     .metatiles = gMetatiles_NavelRock,
@@ -805,6 +888,7 @@ const struct Tileset gTileset_BattleFrontierRankingHall =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_BattleFrontierRankingHall,
     .palettes = gTilesetPalettes_BattleFrontierRankingHall,
     .metatiles = gMetatiles_BattleFrontierRankingHall,
@@ -816,6 +900,7 @@ const struct Tileset gTileset_BattleTent =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_BattleTent,
     .palettes = gTilesetPalettes_BattleTent,
     .metatiles = gMetatiles_BattleTent,
@@ -827,6 +912,7 @@ const struct Tileset gTileset_MysteryEventsHouse =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_MysteryEventsHouse,
     .palettes = gTilesetPalettes_MysteryEventsHouse,
     .metatiles = gMetatiles_MysteryEventsHouse,
@@ -838,6 +924,7 @@ const struct Tileset gTileset_UnionRoom =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_UnionRoom,
     .palettes = gTilesetPalettes_UnionRoom,
     .metatiles = gMetatiles_UnionRoom,
