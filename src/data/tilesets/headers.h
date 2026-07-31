@@ -935,17 +935,6 @@ const struct Tileset gTileset_UnionRoom =
 #else
 
 // FRLG tilesets
-const struct Tileset gTileset_BuildingFrlg =
-{
-    .isCompressed = TRUE,
-    .isSecondary = FALSE,
-    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
-    .tiles = gTilesetTiles_Building_Frlg,
-    .palettes = gTilesetPalettes_Building_Frlg,
-    .metatiles = gMetatiles_Building_Frlg,
-    .metatileAttributes = gMetatileAttributes_Building_Frlg,
-    .callback = NULL,
-};
 
 const struct Tileset gTileset_General_Frlg =
 {
@@ -1439,18 +1428,6 @@ const struct Tileset gTileset_SeaCottage =
     .callback = NULL,
 };
 
-const struct Tileset gTileset_SilphCo =
-{
-    .isCompressed = TRUE,
-    .isSecondary = TRUE,
-    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
-    .tiles = gTilesetTiles_Condominiums,
-    .palettes = gTilesetPalettes_Condominiums,
-    .metatiles = gMetatiles_SilphCo,
-    .metatileAttributes = gMetatileAttributes_SilphCo,
-    .callback = InitTilesetAnim_SilphCo,
-};
-
 const struct Tileset gTileset_UndergroundPath =
 {
     .isCompressed = TRUE,
@@ -1692,6 +1669,30 @@ const struct Tileset gTileset_HallOfFame =
 };
 
 #endif // IS_FRLG
+
+const struct Tileset gTileset_BuildingFrlg =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
+    .tiles = gTilesetTiles_Building_Frlg,
+    .palettes = gTilesetPalettes_Building_Frlg,
+    .metatiles = gMetatiles_Building_Frlg,
+    .metatileAttributes = gMetatileAttributes_Building_Frlg,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_SilphCo =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
+    .tiles = gTilesetTiles_Condominiums,
+    .palettes = gTilesetPalettes_Condominiums,
+    .metatiles = gMetatiles_SilphCo,
+    .metatileAttributes = gMetatileAttributes_SilphCo,
+    .callback = InitTilesetAnim_SilphCo,
+};
 
 const struct Tileset gTileset_WorldOne =
 {
