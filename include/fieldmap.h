@@ -15,6 +15,7 @@
 #define MAX_MAP_DATA_SIZE 10240
 
 #define NUM_TILES_PER_METATILE 12
+#define NUM_TILES_PER_METATILE_FRLG 8
 
 // Map coordinates are offset by 7 when using the map
 // buffer because it needs to load sufficient border
