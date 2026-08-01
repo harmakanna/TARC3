@@ -9397,7 +9397,7 @@
     {
       "id": "LAYOUT_OUTSIDE_WORLD_APARTMENT_BLDG1_FLOOR2",
       "name": "OutsideWorld_ApartmentBldg1_Floor2_Layout",
-      "width": 7,
+      "width": 9,
       "height": 5,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_GenericBuilding",
@@ -9427,7 +9427,7 @@
     {
       "id": "LAYOUT_OUTSIDE_WORLD_APARTMENT_BLDG1_FLOOR3",
       "name": "OutsideWorld_ApartmentBldg1_Floor3_Layout",
-      "width": 7,
+      "width": 9,
       "height": 5,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_GenericBuilding",
@@ -9447,10 +9447,10 @@
     {
       "id": "LAYOUT_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT",
       "name": "OutsideWorld_ApartmentBldg1_YourApartment_Layout",
-      "width": 33,
-      "height": 27,
-      "primary_tileset": "gTileset_WorldOne",
-      "secondary_tileset": "gTileset_OutsideWorldSecondary",
+      "width": 8,
+      "height": 6,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/OutsideWorld_ApartmentBldg1_YourApartment/border.bin",
       "blockdata_filepath": "data/layouts/OutsideWorld_ApartmentBldg1_YourApartment/map.bin"
     },
@@ -9467,7 +9467,7 @@
     {
       "id": "LAYOUT_OUTSIDE_WORLD_APARTMENT_BLDG1_FLOOR1",
       "name": "OutsideWorld_ApartmentBldg1_Floor1_Layout",
-      "width": 8,
+      "width": 7,
       "height": 5,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_GenericBuilding",
@@ -9518,7 +9518,7 @@
       "id": "LAYOUT_OUTSIDE_WORLD_APARTMENT_BLDG1_FLOOR4",
       "name": "OutsideWorld_ApartmentBldg1_Floor4_Layout",
       "width": 7,
-      "height": 5,
+      "height": 6,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/OutsideWorld_ApartmentBldg1_Floor4/border.bin",
@@ -9573,6 +9573,16 @@
       "secondary_tileset": "gTileset_Shop",
       "border_filepath": "data/layouts/VirtualCity_Superstore_1F/border.bin",
       "blockdata_filepath": "data/layouts/VirtualCity_Superstore_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT_BEDROOM",
+      "name": "OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Layout",
+      "width": 6,
+      "height": 6,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/OutsideWorld_ApartmentBldg1_YourApartment_Bedroom/border.bin",
+      "blockdata_filepath": "data/layouts/OutsideWorld_ApartmentBldg1_YourApartment_Bedroom/map.bin"
     }
   ]
 }

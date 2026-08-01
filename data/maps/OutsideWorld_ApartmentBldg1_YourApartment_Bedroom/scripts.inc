@@ -1,0 +1,2 @@
+OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_MapScripts::
+	.byte 0
