@@ -9457,9 +9457,9 @@
     {
       "id": "LAYOUT_VIRTUAL_CITY_HOTEL_LOBBY",
       "name": "VirtualCity_Hotel_Lobby_Layout",
-      "width": 18,
+      "width": 15,
       "height": 17,
-      "primary_tileset": "gTileset_Building",
+      "primary_tileset": "gTileset_CasinoPrimary",
       "secondary_tileset": "gTileset_HotelInterior",
       "border_filepath": "data/layouts/VirtualCity_Hotel_Lobby/border.bin",
       "blockdata_filepath": "data/layouts/VirtualCity_Hotel_Lobby/map.bin"
@@ -9509,7 +9509,7 @@
       "name": "VirtualCity_Hotel_YourHallway_Layout",
       "width": 28,
       "height": 6,
-      "primary_tileset": "gTileset_Building",
+      "primary_tileset": "gTileset_CasinoPrimary",
       "secondary_tileset": "gTileset_HotelInterior",
       "border_filepath": "data/layouts/VirtualCity_Hotel_YourHallway/border.bin",
       "blockdata_filepath": "data/layouts/VirtualCity_Hotel_YourHallway/map.bin"
