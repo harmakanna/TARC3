@@ -9417,8 +9417,8 @@
     {
       "id": "LAYOUT_VIRTUAL_CITY_GARDEN",
       "name": "VirtualCity_Garden_Layout",
-      "width": 33,
-      "height": 27,
+      "width": 36,
+      "height": 34,
       "primary_tileset": "gTileset_GardenPrimary",
       "secondary_tileset": "gTileset_GardenSecondary",
       "border_filepath": "data/layouts/VirtualCity_Garden/border.bin",
@@ -9547,8 +9547,8 @@
     {
       "id": "LAYOUT_VIRTUAL_CITY_STADIUM_ENTRANCE",
       "name": "VirtualCity_Stadium_Entrance_Layout",
-      "width": 23,
-      "height": 17,
+      "width": 21,
+      "height": 16,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_BattleDome",
       "border_filepath": "data/layouts/VirtualCity_Stadium_Entrance/border.bin",
