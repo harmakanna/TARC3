@@ -2215,22 +2215,12 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
             retVal = GetSubstruct2(boxMon)->spDefenseEV;
             break;
         case MON_DATA_COOL:
-            retVal = GetSubstruct2(boxMon)->cool;
-            break;
         case MON_DATA_BEAUTY:
-            retVal = GetSubstruct2(boxMon)->beauty;
-            break;
         case MON_DATA_CUTE:
-            retVal = GetSubstruct2(boxMon)->cute;
-            break;
         case MON_DATA_SMART:
-            retVal = GetSubstruct2(boxMon)->smart;
-            break;
         case MON_DATA_TOUGH:
-            retVal = GetSubstruct2(boxMon)->tough;
-            break;
         case MON_DATA_SHEEN:
-            retVal = GetSubstruct2(boxMon)->sheen;
+            retVal = 0;
             break;
         case MON_DATA_POKERUS:
             retVal = GetSubstruct3(boxMon)->pokerus;
@@ -2730,22 +2720,11 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
             SET8(GetSubstruct2(boxMon)->spDefenseEV);
             break;
         case MON_DATA_COOL:
-            SET8(GetSubstruct2(boxMon)->cool);
-            break;
         case MON_DATA_BEAUTY:
-            SET8(GetSubstruct2(boxMon)->beauty);
-            break;
         case MON_DATA_CUTE:
-            SET8(GetSubstruct2(boxMon)->cute);
-            break;
         case MON_DATA_SMART:
-            SET8(GetSubstruct2(boxMon)->smart);
-            break;
         case MON_DATA_TOUGH:
-            SET8(GetSubstruct2(boxMon)->tough);
-            break;
         case MON_DATA_SHEEN:
-            SET8(GetSubstruct2(boxMon)->sheen);
             break;
         case MON_DATA_POKERUS:
             SET8(GetSubstruct3(boxMon)->pokerus);
