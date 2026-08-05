@@ -9477,10 +9477,10 @@
     {
       "id": "LAYOUT_VIRTUAL_CITY_HOTEL_YOUR_ROOM",
       "name": "VirtualCity_Hotel_YourRoom_Layout",
-      "width": 33,
-      "height": 27,
-      "primary_tileset": "gTileset_WorldOne",
-      "secondary_tileset": "gTileset_OutsideWorldSecondary",
+      "width": 21,
+      "height": 19,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/VirtualCity_Hotel_YourRoom/border.bin",
       "blockdata_filepath": "data/layouts/VirtualCity_Hotel_YourRoom/map.bin"
     },
