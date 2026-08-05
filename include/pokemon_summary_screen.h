@@ -26,6 +26,7 @@ enum IncrDecrUpdateValues
 enum PokemonSummaryScreenMode
 {
     SUMMARY_MODE_NORMAL,
+    SUMMARY_MODE_NAMING_SCREEN,
     SUMMARY_MODE_LOCK_MOVES,
     SUMMARY_MODE_BOX,
     SUMMARY_MODE_BOX_CURSOR, // mon is being moved in PC

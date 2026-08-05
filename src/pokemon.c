@@ -1010,6 +1010,8 @@ void CreateBoxMon(struct BoxPokemon *boxMon, enum Species species, u8 level, u32
     value = BALL_POKE;
     SetBoxMonData(boxMon, MON_DATA_POKEBALL, &value);
     SetBoxMonData(boxMon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
+    value = boxMon->personality & 0xFF;
+    SetBoxMonData(boxMon, MON_DATA_GENDER, &value);
 
     value = boxMon->personality & 0x1;
     u32 teraType = value == 0 ? GetSpeciesType(species, 0) : GetSpeciesType(species, 1);
@@ -1829,7 +1831,7 @@ u8 GetMonGender(struct Pokemon *mon)
 u8 GetBoxMonGender(struct BoxPokemon *boxMon)
 {
     enum Species species = GetBoxMonData(boxMon, MON_DATA_SPECIES);
-    u32 personality = GetBoxMonData(boxMon, MON_DATA_PERSONALITY);
+    u32 personality = GetBoxMonData(boxMon, MON_DATA_GENDER);
 
     switch (gSpeciesInfo[species].genderRatio)
     {
@@ -1839,7 +1841,7 @@ u8 GetBoxMonGender(struct BoxPokemon *boxMon)
         return gSpeciesInfo[species].genderRatio;
     }
 
-    if (gSpeciesInfo[species].genderRatio > (personality & 0xFF))
+    if (gSpeciesInfo[species].genderRatio < personality)
         return MON_FEMALE;
     else
         return MON_MALE;
@@ -2221,6 +2223,9 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
         case MON_DATA_TOUGH:
         case MON_DATA_SHEEN:
             retVal = 0;
+            break;
+        case MON_DATA_GENDER:
+            retVal = GetSubstruct2(boxMon)->gender;
             break;
         case MON_DATA_POKERUS:
             retVal = GetSubstruct3(boxMon)->pokerus;
@@ -2725,6 +2730,9 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         case MON_DATA_SMART:
         case MON_DATA_TOUGH:
         case MON_DATA_SHEEN:
+            break;
+        case MON_DATA_GENDER:
+            SET8(GetSubstruct2(boxMon)->gender);
             break;
         case MON_DATA_POKERUS:
             SET8(GetSubstruct3(boxMon)->pokerus);
@@ -5197,7 +5205,7 @@ u8 GetLevelUpMovesBySpecies(enum Species species, u16 *moves)
 
 u16 SpeciesToPokedexNum(enum Species species)
 {
-    if (IsNationalPokedexEnabled())
+    if (TRUE)
     {
         return SpeciesToNationalPokedexNum(species);
     }
