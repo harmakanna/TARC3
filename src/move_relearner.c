@@ -647,6 +647,9 @@ static void Task_MoveRelearner_HandleInput(u8 taskId)
     default:
         PlaySE(SE_SELECT);
         RemoveScrollArrows();
+        GiveMoveToBoxMon(&(gParties[B_TRAINER_PLAYER][gTasks[taskId].data[1]].box), itemId);
+        gTasks[taskId].func = Task_MoveRelearner_Quit;
+        /*
         StringCopy(gStringVar2, GetMoveName(itemId));
         gTasks[taskId].func = Task_MoveRelearner_LearnMove;
         gTasks[taskId].tMove = GetCurrentSelectedMove();
@@ -660,6 +663,7 @@ static void Task_MoveRelearner_HandleInput(u8 taskId)
                 message = gText_MoveRelearnerTeachMoveConfirmUseTm;
         }
         UIPrintMessage(message);
+        */
         break;
     }
 }
