@@ -106,7 +106,7 @@ gSpecialVars::
 	.4byte gSpecialVar_ContestCategory
 	.4byte gSpecialVar_MonBoxId
 	.4byte gSpecialVar_MonBoxPos
-	.4byte gSpecialVar_Unused_0x8014
+	.4byte gSpecialVar_Facing2
 	.4byte gTrainerBattleParameter + 2 // gTrainerBattleParameter.params.opponentA
 
 	.purgem def_special
@@ -1049,6 +1049,7 @@ gStdScripts_End::
 
 .endif
 
+	.include "data/scripts/tarc3.inc"
 	.include "data/scripts/std_msgbox.inc"
 	.include "data/scripts/trainer_battle.inc"
 	.include "data/scripts/new_game.inc"
@@ -1789,4 +1790,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 
 	.include "data/maps/OutsideWorld_ApartmentBldg1_Floor3/scripts.inc"
 
+	.include "data/maps/VirtualCity_TestingRoomIntro/scripts.inc"
 	.include "data/maps/OutsideWorld_ApartmentBldg1_YourApartment_Bedroom/scripts.inc"
