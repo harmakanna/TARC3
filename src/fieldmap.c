@@ -49,30 +49,27 @@ static bool8 SkipCopyingMetatileFromSavedMap(u16 *mapBlock, u16 mapWidth, u8 yMo
 static const struct MapConnection *GetIncomingConnection(enum Connection direction, int x, int y);
 static bool8 IsPosInIncomingConnectingMap(enum Connection direction, int x, int y, const struct MapConnection *connection);
 static bool8 IsCoordInIncomingConnectingMap(int coord, int srcMax, int destMax, int offset);
+static u32 ExtractMetatileAttribute(u32 attributes, u8 attributeType, bool32 isFrlg);
+static u32 GetAttributeByMetatileIdAndMapLayoutEmerald(u16 metatile, u8 attributeType);
+static u32 GetAttributeByMetatileIdAndMapLayoutFrlg(u16 metatile, u8 attributeType);
+
 
 static inline u16 GetBorderBlockAt(int x, int y)
 {
     const struct MapLayout *mapLayout = gMapHeader.mapLayout;
 
-    if (mapLayout->isFrlg)
-    {
-        s32 xprime;
-        s32 yprime;
+    s32 xprime;
+    s32 yprime;
 
-        xprime = x - MAP_OFFSET;
-        xprime += 8 * mapLayout->borderWidth;
-        xprime %= mapLayout->borderWidth;
+    xprime = x - MAP_OFFSET;
+    xprime += 8 * mapLayout->borderWidth;
+    xprime %= mapLayout->borderWidth;
 
-        yprime = y - MAP_OFFSET;
-        yprime += 8 * mapLayout->borderHeight;
-        yprime %= mapLayout->borderHeight;
+    yprime = y - MAP_OFFSET;
+    yprime += 8 * mapLayout->borderHeight;
+    yprime %= mapLayout->borderHeight;
 
-        return mapLayout->border[xprime + yprime * mapLayout->borderWidth] | MAPGRID_COLLISION_MASK;
-    }
-
-    int i = (x + 1) & 1;
-    i += ((y + 1) & 1) * 2;
-    return gMapHeader.mapLayout->border[i] | MAPGRID_IMPASSABLE;
+    return mapLayout->border[xprime + yprime * mapLayout->borderWidth] | MAPGRID_COLLISION_MASK;
 }
 
 #define AreCoordsWithinMapGridBounds(x, y) (x >= 0 && x < gBackupMapLayout.width && y >= 0 && y < gBackupMapLayout.height)
@@ -125,6 +122,32 @@ static const u8 sMetatileAttrShiftsEmerald[METATILE_ATTRIBUTE_COUNT] = {
     [METATILE_ATTRIBUTE_5]              = 0,
     [METATILE_ATTRIBUTE_LAYER_TYPE]     = METATILE_ATTR_LAYER_SHIFT,
     [METATILE_ATTRIBUTE_7]              = 0
+};
+
+struct TilesetDimensions
+{
+    u16 numTiles:12;
+    u16 numPalettes:4;
+    u16 numMetatiles;
+    u32 (*getAttributeByMetatileIdAndMapLayout)(u16, u8);
+};
+
+static const struct TilesetDimensions sTilesetDimensions[] =
+{
+    [EMERALD_TILESET_DIMENSIONS] =
+    {
+        .numTiles = NUM_TILES_IN_PRIMARY,
+        .numMetatiles = NUM_METATILES_IN_PRIMARY,
+        .numPalettes = NUM_PALS_IN_PRIMARY,
+        .getAttributeByMetatileIdAndMapLayout = GetAttributeByMetatileIdAndMapLayoutEmerald,
+    },
+    [FRLG_TILESET_DIMENSIONS] =
+    {
+        .numTiles = NUM_TILES_IN_PRIMARY_FRLG,
+        .numMetatiles = NUM_METATILES_IN_PRIMARY_FRLG,
+        .numPalettes = NUM_PALS_IN_PRIMARY_FRLG,
+        .getAttributeByMetatileIdAndMapLayout = GetAttributeByMetatileIdAndMapLayoutFrlg,
+    }
 };
 
 const struct MapHeader *const GetMapHeaderFromConnection(const struct MapConnection *connection)
@@ -428,17 +451,17 @@ u8 MapGridGetCollisionAt(int x, int y)
 
 u32 GetNumTilesInPrimary(struct MapLayout const *mapLayout)
 {
-    return mapLayout->isFrlg ? NUM_TILES_IN_PRIMARY_FRLG : NUM_TILES_IN_PRIMARY;
+    return sTilesetDimensions[mapLayout->primaryTileset->tilesetDimensions].numTiles;
 }
 
 u32 GetNumMetatilesInPrimary(struct MapLayout const *mapLayout)
 {
-    return mapLayout->isFrlg ? NUM_METATILES_IN_PRIMARY_FRLG : NUM_METATILES_IN_PRIMARY;
+    return sTilesetDimensions[mapLayout->primaryTileset->tilesetDimensions].numMetatiles;
 }
 
 u32 GetNumPalsInPrimary(struct MapLayout const *mapLayout)
 {
-    return mapLayout->isFrlg ? NUM_PALS_IN_PRIMARY_FRLG : NUM_PALS_IN_PRIMARY;
+    return sTilesetDimensions[mapLayout->primaryTileset->tilesetDimensions].numPalettes;
 }
 
 u32 MapGridGetMetatileIdAt(int x, int y)
@@ -454,7 +477,7 @@ u32 MapGridGetMetatileIdAt(int x, int y)
 u32 MapGridGetMetatileAttributeAt(s16 x, s16 y, u8 attributeType)
 {
     u16 metatileId = MapGridGetMetatileIdAt(x, y);
-    return GetAttributeByMetatileIdAndMapLayout(metatileId, attributeType, gMapHeader.mapLayout->isFrlg);
+    return GetAttributeByMetatileIdAndMapLayout(metatileId, attributeType);
 }
 
 u32 MapGridGetMetatileBehaviorAt(int x, int y)
@@ -489,7 +512,7 @@ void MapGridSetMetatileEntryAt(int x, int y, u16 metatile)
     }
 }
 
-u32 ExtractMetatileAttribute(u32 attributes, u8 attributeType, bool32 isFrlg)
+static u32 ExtractMetatileAttribute(u32 attributes, u8 attributeType, bool32 isFrlg)
 {
     if (attributeType >= METATILE_ATTRIBUTE_COUNT) // Check for METATILE_ATTRIBUTES_ALL
         return attributes;
@@ -499,6 +522,7 @@ u32 ExtractMetatileAttribute(u32 attributes, u8 attributeType, bool32 isFrlg)
 
     return (attributes & sMetatileAttrMasksEmerald[attributeType]) >> sMetatileAttrShiftsEmerald[attributeType];
 }
+
 
 static u32 GetAttributeByMetatileIdAndMapLayoutFrlg(u16 metatile, u8 attributeType)
 {
@@ -522,12 +546,9 @@ static u32 GetAttributeByMetatileIdAndMapLayoutFrlg(u16 metatile, u8 attributeTy
     return ExtractMetatileAttribute(attribute, attributeType, TRUE);
 }
 
-u32 GetAttributeByMetatileIdAndMapLayout(u16 metatile, u8 attributeType, bool32 isFrlg)
+static u32 GetAttributeByMetatileIdAndMapLayoutEmerald(u16 metatile, u8 attributeType)
 {
     u32 attribute;
-
-    if (isFrlg)
-        return GetAttributeByMetatileIdAndMapLayoutFrlg(metatile, attributeType);
 
     if (metatile < GetNumMetatilesInPrimary(gMapHeader.mapLayout))
     {
@@ -546,6 +567,11 @@ u32 GetAttributeByMetatileIdAndMapLayout(u16 metatile, u8 attributeType, bool32 
     }
 
     return ExtractMetatileAttribute(attribute, attributeType, FALSE);
+}
+
+u32 GetAttributeByMetatileIdAndMapLayout(u16 metatile, u8 attributeType)
+{
+    return sTilesetDimensions[gMapHeader.mapLayout->primaryTileset->tilesetDimensions].getAttributeByMetatileIdAndMapLayout(metatile, attributeType);
 }
 
 void SaveMapView(void)

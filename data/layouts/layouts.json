@@ -688,7 +688,7 @@
       "name": "Mart_Layout",
       "width": 11,
       "height": 8,
-      "primary_tileset": "gTileset_Building",
+      "primary_tileset": "gTileset_BuildingDoubleLayer",
       "secondary_tileset": "gTileset_Shop",
       "border_filepath": "data/layouts/Mart/border.bin",
       "blockdata_filepath": "data/layouts/Mart/map.bin",
@@ -6072,7 +6072,7 @@
       "blockdata_filepath": "data/layouts/SilphCo_1F_Frlg/map.bin",
       "border_height": 2,
       "border_width": 2,
-      "layout_version": "frlg"
+      "layout_version": "emerald"
     },
     {
       "id": "LAYOUT_SILPH_CO_2F",
@@ -9573,16 +9573,6 @@
       "secondary_tileset": "gTileset_Shop",
       "border_filepath": "data/layouts/VirtualCity_Superstore_1F/border.bin",
       "blockdata_filepath": "data/layouts/VirtualCity_Superstore_1F/map.bin"
-    },
-    {
-      "id": "LAYOUT_VIRTUAL_CITY_TESTING_ROOM_INTRO",
-      "name": "VirtualCity_TestingRoomIntro_Layout",
-      "width": 33,
-      "height": 27,
-      "primary_tileset": "gTileset_WorldOne",
-      "secondary_tileset": "gTileset_OutsideWorldSecondary",
-      "border_filepath": "data/layouts/VirtualCity_TestingRoomIntro/border.bin",
-      "blockdata_filepath": "data/layouts/VirtualCity_TestingRoomIntro/map.bin"
     },
     {
       "id": "LAYOUT_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT_BEDROOM",
