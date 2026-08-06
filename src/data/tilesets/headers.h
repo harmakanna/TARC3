@@ -1753,3 +1753,58 @@ const struct Tileset gTileset_OutsideWorldSecondary =
     .metatileAttributes = gMetatileAttributes_OutsideWorldSecondary,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_HotelInterior =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_HotelInterior,
+    .palettes = gTilesetPalettes_HotelInterior,
+    .metatiles = gMetatiles_HotelInterior,
+    .metatileAttributes = gMetatileAttributes_HotelInterior,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_GardenPrimary =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_GardenPrimary,
+    .palettes = gTilesetPalettes_GardenPrimary,
+    .metatiles = gMetatiles_GardenPrimary,
+    .metatileAttributes = gMetatileAttributes_GardenPrimary,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_GardenSecondary =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_GardenSecondary,
+    .palettes = gTilesetPalettes_GardenSecondary,
+    .metatiles = gMetatiles_GardenSecondary,
+    .metatileAttributes = gMetatileAttributes_GardenSecondary,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_Casino =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Casino,
+    .palettes = gTilesetPalettes_Casino,
+    .metatiles = gMetatiles_Casino,
+    .metatileAttributes = gMetatileAttributes_Casino,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_CasinoPrimary =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_CasinoPrimary,
+    .palettes = gTilesetPalettes_CasinoPrimary,
+    .metatiles = gMetatiles_CasinoPrimary,
+    .metatileAttributes = gMetatileAttributes_CasinoPrimary,
+    .callback = NULL,
+};

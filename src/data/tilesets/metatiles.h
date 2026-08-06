@@ -427,3 +427,18 @@ const u16 gMetatileAttributes_VirtualCityPrimary[] = INCBIN_U16("data/tilesets/p
 
 const u16 gMetatiles_OutsideWorldSecondary[] = INCBIN_U16("data/tilesets/secondary/outside_world_secondary/metatiles.bin");
 const u16 gMetatileAttributes_OutsideWorldSecondary[] = INCBIN_U16("data/tilesets/secondary/outside_world_secondary/metatile_attributes.bin");
+
+const u16 gMetatiles_HotelInterior[] = INCBIN_U16("data/tilesets/secondary/hotel_interior/metatiles.bin");
+const u16 gMetatileAttributes_HotelInterior[] = INCBIN_U16("data/tilesets/secondary/hotel_interior/metatile_attributes.bin");
+
+const u16 gMetatiles_GardenPrimary[] = INCBIN_U16("data/tilesets/primary/garden_primary/metatiles.bin");
+const u16 gMetatileAttributes_GardenPrimary[] = INCBIN_U16("data/tilesets/primary/garden_primary/metatile_attributes.bin");
+
+const u16 gMetatiles_GardenSecondary[] = INCBIN_U16("data/tilesets/secondary/garden_secondary/metatiles.bin");
+const u16 gMetatileAttributes_GardenSecondary[] = INCBIN_U16("data/tilesets/secondary/garden_secondary/metatile_attributes.bin");
+
+const u16 gMetatiles_Casino[] = INCBIN_U16("data/tilesets/secondary/casino/metatiles.bin");
+const u16 gMetatileAttributes_Casino[] = INCBIN_U16("data/tilesets/secondary/casino/metatile_attributes.bin");
+
+const u16 gMetatiles_CasinoPrimary[] = INCBIN_U16("data/tilesets/primary/casino_primary/metatiles.bin");
+const u16 gMetatileAttributes_CasinoPrimary[] = INCBIN_U16("data/tilesets/primary/casino_primary/metatile_attributes.bin");

@@ -1792,4 +1792,4 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 
 	.include "data/maps/OutsideWorld_ApartmentBldg1_Floor3/scripts.inc"
 
-	//.include "data/maps/VirtualCity_TestingRoomIntro/scripts.inc"
+	.include "data/maps/OutsideWorld_ApartmentBldg1_YourApartment_Bedroom/scripts.inc"
