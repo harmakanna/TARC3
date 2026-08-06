@@ -9477,8 +9477,8 @@
     {
       "id": "LAYOUT_VIRTUAL_CITY_HOTEL_YOUR_ROOM",
       "name": "VirtualCity_Hotel_YourRoom_Layout",
-      "width": 21,
-      "height": 19,
+      "width": 20,
+      "height": 15,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/VirtualCity_Hotel_YourRoom/border.bin",
