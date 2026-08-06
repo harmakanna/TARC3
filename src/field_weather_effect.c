@@ -32,7 +32,7 @@ const u8 gWeatherRainTiles[] = INCGFX_U8("graphics/weather/rain.png", ".4bpp");
 const u8 gWeatherSandstormTiles[] = INCGFX_U8("graphics/weather/sandstorm.png", ".4bpp");
 
 const u16 gAutumnLeavesWeatherPalette[] = INCGFX_U16("graphics/weather/autumn_leaves.png", ".gbapal");
-const u8 gWeatherLeafTiles[] = INCGFX_U8("graphics/weather/autumn_leaves.4bpp");
+const u8 gWeatherLeafTiles[] = INCGFX_U8("graphics/weather/autumn_leaves.png", ".4bpp");
 
 //------------------------------------------------------------------------------
 // WEATHER_SUNNY_CLOUDS
