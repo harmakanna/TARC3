@@ -9327,8 +9327,8 @@
     {
       "id": "LAYOUT_VIRTUAL_CITY_OUTSIDE1",
       "name": "VirtualCityOutside1_Layout",
-      "width": 46,
-      "height": 40,
+      "width": 42,
+      "height": 34,
       "primary_tileset": "gTileset_VirtualCityPrimary",
       "secondary_tileset": "gTileset_VirtualCityCommerce",
       "border_filepath": "data/layouts/VirtualCityOutside1/border.bin",
@@ -9417,8 +9417,8 @@
     {
       "id": "LAYOUT_VIRTUAL_CITY_GARDEN",
       "name": "VirtualCity_Garden_Layout",
-      "width": 36,
-      "height": 34,
+      "width": 44,
+      "height": 35,
       "primary_tileset": "gTileset_GardenPrimary",
       "secondary_tileset": "gTileset_GardenSecondary",
       "border_filepath": "data/layouts/VirtualCity_Garden/border.bin",
