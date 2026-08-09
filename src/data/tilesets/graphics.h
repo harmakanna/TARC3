@@ -3237,3 +3237,22 @@ const u16 gTilesetPalettes_CasinoPrimary[][16] =
 };
 
 const u32 gTilesetTiles_CasinoPrimary[] = INCBIN_U32("data/tilesets/primary/casino_primary/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_BrickCafe[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/brick_cafe/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/brick_cafe/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/brick_cafe/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/brick_cafe/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/brick_cafe/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/brick_cafe/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/brick_cafe/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/brick_cafe/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/brick_cafe/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/brick_cafe/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/brick_cafe/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/brick_cafe/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/brick_cafe/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_BrickCafe[] = INCBIN_U32("data/tilesets/secondary/brick_cafe/tiles.4bpp.lz");
