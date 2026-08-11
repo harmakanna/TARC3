@@ -14,7 +14,32 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "warp_id": "Superstore_Exit_1",
+      "x": 9,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_OUTSIDE1",
+      "dest_warp_id": "Superstore_Entrance_1"
+    },
+    {
+      "warp_id": "Superstore_Exit_2",
+      "x": 10,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_OUTSIDE1",
+      "dest_warp_id": "Superstore_Entrance_2"
+    },
+    {
+      "warp_id": "Superstore_Floor2_Upstairs",
+      "x": 15,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_SUPERSTORE_2F",
+      "dest_warp_id": "Superstore_Floor1_Downstairs"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }

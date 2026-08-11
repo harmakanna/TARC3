@@ -14,7 +14,16 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "warp_id": "Hotel_Stadium_Exit",
+      "x": 10,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_HOTEL_LOBBY",
+      "dest_warp_id": "Hotel_Stadium_Entrance"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }

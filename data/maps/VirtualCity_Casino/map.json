@@ -14,7 +14,24 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "warp_id": "Casino_Exit",
+      "x": 15,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_OUTSIDE1",
+      "dest_warp_id": "Casino_Entrance"
+    },
+    {
+      "warp_id": "Casino_Exit2",
+      "x": 16,
+      "y": 24,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_OUTSIDE1",
+      "dest_warp_id": "Casino_Entrance"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }

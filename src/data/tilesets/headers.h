@@ -1746,6 +1746,7 @@ const struct Tileset gTileset_HotelInterior =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_HotelInterior,
     .palettes = gTilesetPalettes_HotelInterior,
     .metatiles = gMetatiles_HotelInterior,
@@ -1757,6 +1758,7 @@ const struct Tileset gTileset_GardenPrimary =
 {
     .isCompressed = TRUE,
     .isSecondary = FALSE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_GardenPrimary,
     .palettes = gTilesetPalettes_GardenPrimary,
     .metatiles = gMetatiles_GardenPrimary,
@@ -1768,6 +1770,7 @@ const struct Tileset gTileset_GardenSecondary =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_GardenSecondary,
     .palettes = gTilesetPalettes_GardenSecondary,
     .metatiles = gMetatiles_GardenSecondary,
@@ -1779,6 +1782,7 @@ const struct Tileset gTileset_Casino =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_Casino,
     .palettes = gTilesetPalettes_Casino,
     .metatiles = gMetatiles_Casino,
@@ -1790,6 +1794,7 @@ const struct Tileset gTileset_CasinoPrimary =
 {
     .isCompressed = TRUE,
     .isSecondary = FALSE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_CasinoPrimary,
     .palettes = gTilesetPalettes_CasinoPrimary,
     .metatiles = gMetatiles_CasinoPrimary,
@@ -1801,6 +1806,7 @@ const struct Tileset gTileset_BrickCafe =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_BrickCafe,
     .palettes = gTilesetPalettes_BrickCafe,
     .metatiles = gMetatiles_BrickCafe,

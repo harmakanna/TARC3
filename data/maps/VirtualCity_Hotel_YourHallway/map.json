@@ -25,7 +25,24 @@
     }
   ],
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "warp_id": "Hotel_YourHallway_Exit",
+      "x": 12,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_HOTEL_LOBBY",
+      "dest_warp_id": "Hotel_YourHallway_Entrance"
+    },
+    {
+      "warp_id": "Hotel_YourRoom_Entrance",
+      "x": 24,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_HOTEL_YOUR_ROOM",
+      "dest_warp_id": "Hotel_YourRoom_Exit"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }

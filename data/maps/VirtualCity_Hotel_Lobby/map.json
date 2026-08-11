@@ -28,7 +28,32 @@
       "flag": "0"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "warp_id": "Hotel_Exit",
+      "x": 7,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_OUTSIDE1",
+      "dest_warp_id": "Hotel_Entrance"
+    },
+    {
+      "warp_id": "Hotel_YourHallway_Entrance",
+      "x": 7,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_HOTEL_YOUR_HALLWAY",
+      "dest_warp_id": "Hotel_YourHallway_Exit"
+    },
+    {
+      "warp_id": "Hotel_Stadium_Entrance",
+      "x": 1,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_STADIUM_ENTRANCE",
+      "dest_warp_id": "Hotel_Stadium_Exit"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }
