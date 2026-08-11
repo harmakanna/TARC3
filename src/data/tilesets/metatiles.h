@@ -63,9 +63,6 @@ const u16 gMetatileAttributes_BattleFrontierOutsideEast[] = INCBIN_U16("data/til
 const u16 gMetatiles_InsideBuilding[] = INCBIN_U16("data/tilesets/primary/building/metatiles.bin");
 const u16 gMetatileAttributes_InsideBuilding[] = INCBIN_U16("data/tilesets/primary/building/metatile_attributes.bin");
 
-const u16 gMetatiles_InsideBuildingDoubleLayer[] = INCBIN_U16("data/tilesets/primary/building/metatiles_double_layer.bin");
-const u16 gMetatileAttributes_InsideBuildingDoubleLayer[] = INCBIN_U16("data/tilesets/primary/building/metatile_attributes_double_layer.bin");
-
 const u16 gMetatiles_Shop[] = INCBIN_U16("data/tilesets/secondary/shop/metatiles.bin");
 const u16 gMetatileAttributes_Shop[] = INCBIN_U16("data/tilesets/secondary/shop/metatile_attributes.bin");
 
