@@ -260,23 +260,11 @@ const struct Tileset gTileset_Building =
     .callback = InitTilesetAnim_Building,
 };
 
-const struct Tileset gTileset_BuildingDoubleLayer =
-{
-    .isCompressed = TRUE,
-    .isSecondary = FALSE,
-    .isTripleLayer = FALSE,
-    .tiles = gTilesetTiles_InsideBuilding,
-    .palettes = gTilesetPalettes_InsideBuilding,
-    .metatiles = gMetatiles_InsideBuildingDoubleLayer,
-    .metatileAttributes = gMetatileAttributes_InsideBuildingDoubleLayer,
-    .callback = InitTilesetAnim_Building,
-};
-
 const struct Tileset gTileset_Shop =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
-    .isTripleLayer = FALSE,
+    .isTripleLayer = TRUE,
     .tiles = gTilesetTiles_Shop,
     .palettes = gTilesetPalettes_Shop,
     .metatiles = gMetatiles_Shop,
