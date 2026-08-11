@@ -112,6 +112,9 @@ EventScript_ResetAllBerries::
 	setberrytree BERRY_TREE_ROUTE_130_LIECHI, BERRY_ID_LIECHI, BERRY_STAGE_BERRIES
 	return
 
+	@ Give running on new game
+	setflag FLAG_SYS_B_DASH
+
 EventScript_ResetAllMapFlags::
 	setflag FLAG_HIDE_CONTEST_POKE_BALL
 	setflag FLAG_HIDE_ROUTE_111_VICTORIA_WINSTRATE
