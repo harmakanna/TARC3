@@ -241,6 +241,7 @@ enum RotomPhone_Colours
 #define RP_CONFIG_UPDATE_MESSAGE          TRUE
 #define RP_CONFIG_UPDATE_MESSAGE_SOUND    TRUE
 #define RP_CONFIG_FACE_UPDATE_PERCENT     100
+#define RP_CONFIG_USE_ROTOM_MENU          FALSE
 
 void RotomPhone_StartMenu_Open(bool32 firstInit);
 
