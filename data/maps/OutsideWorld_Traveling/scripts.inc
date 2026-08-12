@@ -24,5 +24,5 @@ OutsideWorld_Traveling_Text_IntroTalk4::
 	.string "You're so lucky...$"
 
 OutsideWorld_Traveling_Text_IntroTalk5::
-	.string "Katya's the lucky one. I hope she\n"
+	.string "Lola's the lucky one. I hope she\n"
 	.string "lets us play with it!$"
