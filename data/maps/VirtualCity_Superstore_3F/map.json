@@ -17,7 +17,7 @@
   "warp_events": [
     {
       "warp_id": "Superstore_Floor2_Downstairs",
-      "x": 13,
+      "x": 2,
       "y": 1,
       "elevation": 0,
       "dest_map": "MAP_VIRTUAL_CITY_SUPERSTORE_2F",
