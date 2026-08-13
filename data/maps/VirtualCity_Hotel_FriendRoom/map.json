@@ -1,11 +1,11 @@
 {
-  "id": "MAP_VIRTUAL_CITY_HOTEL_YOUR_ROOM",
-  "name": "VirtualCity_Hotel_YourRoom",
-  "layout": "LAYOUT_VIRTUAL_CITY_HOTEL_YOUR_ROOM",
-  "music": "MUS_BW12_047",
+  "id": "MAP_VIRTUAL_CITY_HOTEL_FRIEND_ROOM",
+  "name": "VirtualCity_Hotel_FriendRoom",
+  "layout": "LAYOUT_VIRTUAL_CITY_HOTEL_FRIEND_ROOM",
+  "music": "MUS_BW12_086",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
-  "weather": "WEATHER_SUNNY_CLOUDS",
+  "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
@@ -16,17 +16,9 @@
   "object_events": [],
   "warp_events": [
     {
-      "warp_id": "Hotel_YourRoom_AltExit",
-      "x": 8,
-      "y": 15,
-      "elevation": 0,
-      "dest_map": "MAP_VIRTUAL_CITY_HOTEL_YOUR_HALLWAY",
-      "dest_warp_id": "Hotel_YourRoom_Entrance"
-    },
-    {
-      "warp_id": "Hotel_YourRoom_Exit",
-      "x": 12,
-      "y": 5,
+      "warp_id": "Hotel_FriendsRoom_Exit",
+      "x": 5,
+      "y": 4,
       "elevation": 0,
       "dest_map": "MAP_VIRTUAL_CITY_HOTEL_YOUR_HALLWAY",
       "dest_warp_id": "Hotel_YourRoom_Entrance"

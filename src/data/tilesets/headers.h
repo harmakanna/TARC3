@@ -1813,3 +1813,14 @@ const struct Tileset gTileset_BrickCafe =
     .metatileAttributes = gMetatileAttributes_BrickCafe,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_DigitalGym =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_DigitalGym,
+    .palettes = gTilesetPalettes_DigitalGym,
+    .metatiles = gMetatiles_DigitalGym,
+    .metatileAttributes = gMetatileAttributes_DigitalGym,
+    .callback = NULL,
+};

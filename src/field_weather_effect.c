@@ -46,9 +46,9 @@ static void UpdateCloudSprite(struct Sprite *);
 // These coordinates are for the lower half of Route 120.
 static const struct Coords16 sCloudSpriteMapCoords[] =
 {
-    { 0, 66},
-    { 5, 73},
-    {10, 78},
+    { 0, 1},
+    { 12, 5},
+    { 22, 3},
 };
 
 static const struct SpriteSheet sCloudSpriteSheet =

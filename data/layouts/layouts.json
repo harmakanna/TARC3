@@ -9357,10 +9357,10 @@
     {
       "id": "LAYOUT_VIRTUAL_CITY_SUPERSTORE_2F",
       "name": "VirtualCity_Superstore_2F_Layout",
-      "width": 18,
-      "height": 8,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Shop",
+      "width": 20,
+      "height": 15,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/VirtualCity_Superstore_2F/border.bin",
       "blockdata_filepath": "data/layouts/VirtualCity_Superstore_2F/map.bin"
     },
@@ -9477,10 +9477,10 @@
     {
       "id": "LAYOUT_VIRTUAL_CITY_HOTEL_YOUR_ROOM",
       "name": "VirtualCity_Hotel_YourRoom_Layout",
-      "width": 20,
-      "height": 15,
+      "width": 26,
+      "height": 25,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Slateport",
+      "secondary_tileset": "gTileset_Pacifidlog",
       "border_filepath": "data/layouts/VirtualCity_Hotel_YourRoom/border.bin",
       "blockdata_filepath": "data/layouts/VirtualCity_Hotel_YourRoom/map.bin"
     },
@@ -9557,7 +9557,7 @@
     {
       "id": "LAYOUT_VIRTUAL_CITY_SUPERSTORE_3F",
       "name": "VirtualCity_Superstore_3F_Layout",
-      "width": 18,
+      "width": 16,
       "height": 8,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_Shop",
@@ -9583,6 +9583,16 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/OutsideWorld_ApartmentBldg1_YourApartment_Bedroom/border.bin",
       "blockdata_filepath": "data/layouts/OutsideWorld_ApartmentBldg1_YourApartment_Bedroom/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRTUAL_CITY_HOTEL_FRIEND_ROOM",
+      "name": "VirtualCity_Hotel_FriendRoom_Layout",
+      "width": 20,
+      "height": 15,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Slateport",
+      "border_filepath": "data/layouts/VirtualCity_Hotel_FriendRoom/border.bin",
+      "blockdata_filepath": "data/layouts/VirtualCity_Hotel_FriendRoom/map.bin"
     }
   ]
 }
