@@ -9593,6 +9593,16 @@
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/VirtualCity_Hotel_FriendRoom/border.bin",
       "blockdata_filepath": "data/layouts/VirtualCity_Hotel_FriendRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_OUTSIDE_WORLD_VIRTUAL_TESTING_ROOM_INTRO",
+      "name": "OutsideWorld_VirtualTestingRoom_Intro_Layout",
+      "width": 8,
+      "height": 8,
+      "primary_tileset": "gTileset_VirtualCityPrimary",
+      "secondary_tileset": "gTileset_VirtualCityCommerce",
+      "border_filepath": "data/layouts/OutsideWorld_VirtualTestingRoom_Intro/border.bin",
+      "blockdata_filepath": "data/layouts/OutsideWorld_VirtualTestingRoom_Intro/map.bin"
     }
   ]
 }
