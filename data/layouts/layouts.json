@@ -9347,8 +9347,8 @@
     {
       "id": "LAYOUT_OUTSIDE_WORLD",
       "name": "OutsideWorld_Layout",
-      "width": 33,
-      "height": 27,
+      "width": 38,
+      "height": 28,
       "primary_tileset": "gTileset_WorldOne",
       "secondary_tileset": "gTileset_OutsideWorldSecondary",
       "border_filepath": "data/layouts/OutsideWorld/border.bin",
