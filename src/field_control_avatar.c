@@ -45,6 +45,8 @@
 #include "constants/songs.h"
 #include "constants/trainer_hill.h"
 
+#include "rotom_start_menu.h"
+
 static EWRAM_DATA u8 sWildEncounterImmunitySteps = 0;
 static EWRAM_DATA u16 sPrevMetatileBehavior = 0;
 
@@ -225,9 +227,13 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         return TRUE;
     if (input->pressedStartButton)
     {
-        FlagSet(FLAG_OPENED_START_MENU);
         PlaySE(SE_WIN_OPEN);
+#if RP_CONFIG_USE_ROTOM_MENU
+        FlagSet(FLAG_OPENED_START_MENU);
+        RotomPhone_StartMenu_Open(TRUE);
+#else
         ShowStartMenu();
+#endif
         return TRUE;
     }
 

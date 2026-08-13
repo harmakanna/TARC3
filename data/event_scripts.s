@@ -655,7 +655,7 @@ gStdScripts_End::
 	.include "data/maps/RocketHideout_B3F_Frlg/scripts.inc"
 	.include "data/maps/RocketHideout_B4F_Frlg/scripts.inc"
 	.include "data/maps/RocketHideout_Elevator_Frlg/scripts.inc"
-	.include "data/maps/SilphCo_1F_Frlg/scripts.inc"
+	//.include "data/maps/SilphCo_1F_Frlg/scripts.inc"
 	.include "data/maps/SilphCo_2F_Frlg/scripts.inc"
 	.include "data/maps/SilphCo_3F_Frlg/scripts.inc"
 	.include "data/maps/SilphCo_4F_Frlg/scripts.inc"
@@ -1740,6 +1740,8 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/scripts/apricorn_tree.inc"
 	.include "data/scripts/wild_encounter.inc"
 
+	.include "data/maps/SilphCo_1F_Frlg/scripts.inc"
+
 	.include "data/maps/VirtualCityOutside1/scripts.inc"
 
 	.include "data/maps/Debug/scripts.inc"
@@ -1790,5 +1792,4 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 
 	.include "data/maps/OutsideWorld_ApartmentBldg1_Floor3/scripts.inc"
 
-	.include "data/maps/VirtualCity_TestingRoomIntro/scripts.inc"
 	.include "data/maps/OutsideWorld_ApartmentBldg1_YourApartment_Bedroom/scripts.inc"

@@ -2,7 +2,7 @@
   "id": "MAP_VIRTUAL_CITY_OUTSIDE1",
   "name": "VirtualCityOutside1",
   "layout": "LAYOUT_VIRTUAL_CITY_OUTSIDE1",
-  "music": "MUS_B_FRONTIER",
+  "music": "MUS_BW12_073",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -12,9 +12,61 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": [
+    {
+      "map": "MAP_VIRTUAL_CITY_OUTSIDE1",
+      "offset": 0,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_VIRTUAL_CITY_OUTSIDE1",
+      "offset": 0,
+      "direction": "left"
+    }
+  ],
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "warp_id": "Hotel_Entrance",
+      "x": 24,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_HOTEL_LOBBY",
+      "dest_warp_id": "0"
+    },
+    {
+      "warp_id": "Casino_Entrance",
+      "x": 13,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_CASINO",
+      "dest_warp_id": "Casino_Exit"
+    },
+    {
+      "warp_id": "Superstore_Entrance_1",
+      "x": 34,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_SUPERSTORE_1F",
+      "dest_warp_id": "Superstore_Exit_1"
+    },
+    {
+      "warp_id": "Superstore_Entrance_2",
+      "x": 35,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_SUPERSTORE_1F",
+      "dest_warp_id": "Superstore_Exit_2"
+    },
+    {
+      "warp_id": "Garden_Entrance",
+      "x": 14,
+      "y": 26,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_GARDEN",
+      "dest_warp_id": "Garden_Exit"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }

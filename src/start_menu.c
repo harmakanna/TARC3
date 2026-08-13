@@ -53,6 +53,8 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#include "rotom_start_menu.h"
+
 // Menu actions
 enum
 {
@@ -144,7 +146,6 @@ static u8 BattlePyramidRetireInputCallback(void);
 
 // Task callbacks
 static void StartMenuTask(u8 taskId);
-static void SaveGameTask(u8 taskId);
 static void Task_SaveAfterLinkBattle(u8 taskId);
 static void Task_WaitForBattleTowerLinkSave(u8 taskId);
 static bool8 FieldCB_ReturnToFieldStartMenu(void);
@@ -353,7 +354,7 @@ static void BuildNormalStartMenu(void)
 
     AddStartMenuAction(MENU_ACTION_PLAYER);
     
-    if (FlagGet(FLAG_SYS_QUEST_MENU_GET))
+    //if (FlagGet(FLAG_SYS_QUEST_MENU_GET))
         AddStartMenuAction(MENU_ACTION_QUEST_MENU);
     
     AddStartMenuAction(MENU_ACTION_SAVE);
@@ -593,11 +594,15 @@ static void CreateStartMenuTask(TaskFunc followupFunc)
 
 static bool8 FieldCB_ReturnToFieldStartMenu(void)
 {
+  
+#if RP_CONFIG_USE_ROTOM_MENU
+    RotomPhone_StartMenu_Open(FALSE);
+#else
     if (InitStartMenuStep() == FALSE)
     {
-        return FALSE;
+         return FALSE;
     }
-
+#endif
     ReturnToFieldOpenStartMenu();
     return TRUE;
 }
@@ -984,7 +989,7 @@ static void ShowSaveMessage(const u8 *message, u8 (*saveCallback)(void))
     sSaveDialogCallback = saveCallback;
 }
 
-static void SaveGameTask(u8 taskId)
+void SaveGameTask(u8 taskId)
 {
     u8 status = RunSaveCallback();
 
