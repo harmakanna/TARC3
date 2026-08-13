@@ -354,7 +354,7 @@ static void BuildNormalStartMenu(void)
 
     AddStartMenuAction(MENU_ACTION_PLAYER);
     
-    if (FlagGet(FLAG_SYS_QUEST_MENU_GET))
+    //if (FlagGet(FLAG_SYS_QUEST_MENU_GET))
         AddStartMenuAction(MENU_ACTION_QUEST_MENU);
     
     AddStartMenuAction(MENU_ACTION_SAVE);
@@ -594,13 +594,15 @@ static void CreateStartMenuTask(TaskFunc followupFunc)
 
 static bool8 FieldCB_ReturnToFieldStartMenu(void)
 {
-    // if (InitStartMenuStep() == FALSE)
-    // {
-    //     return FALSE;
-    // }
   
+#if RP_CONFIG_USE_ROTOM_MENU
     RotomPhone_StartMenu_Open(FALSE);
-
+#else
+    if (InitStartMenuStep() == FALSE)
+    {
+         return FALSE;
+    }
+#endif
     ReturnToFieldOpenStartMenu();
     return TRUE;
 }

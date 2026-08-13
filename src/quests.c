@@ -937,7 +937,7 @@ static const u8 sQuestMenuWindowFontColors[][4] =
 	{
 		//Header of Quest Menu
 		TEXT_COLOR_TRANSPARENT,
-		TEXT_COLOR_DARK_GRAY,
+		TEXT_COLOR_LIGHT_GRAY,
 		TEXT_COLOR_TRANSPARENT
 	},
 	{
@@ -949,13 +949,13 @@ static const u8 sQuestMenuWindowFontColors[][4] =
 	{
 		//Done state progress indicator
 		TEXT_COLOR_TRANSPARENT,
-		TEXT_COLOR_GREEN,
+		TEXT_COLOR_BLUE,
 		TEXT_COLOR_TRANSPARENT
 	},
 	{
 		//Active state progress indicator
 		TEXT_COLOR_TRANSPARENT,
-		TEXT_COLOR_BLUE,
+		TEXT_COLOR_LIGHT_BLUE,
 		TEXT_COLOR_TRANSPARENT
 	},
 	{
@@ -2029,7 +2029,7 @@ void GenerateQuestLocation(s32 questId)
 void PrintQuestLocation(s32 questId)
 {
 	FillWindowPixelBuffer(1, 0);
-	QuestMenu_AddTextPrinterParameterized(1, 2, gStringVar4, 2, 3, 2, 0, 0,
+	QuestMenu_AddTextPrinterParameterized(1, 2, gStringVar4, 42, 5, 2, 0, 0,
 	                                      4);
 }
 void GenerateQuestFlavorText(s32 questId)
@@ -2193,15 +2193,15 @@ static void QuestMenu_CreateSprite(u16 itemId, u8 idx, u8 spriteType)
 		switch (spriteType)
 		{
 			case OBJECT:
-				spriteId = CreateObjectGraphicsSprite(itemId, SpriteCallbackDummy, 20,
-				                                      132, 0);
+				spriteId = CreateObjectGraphicsSprite(itemId, SpriteCallbackDummy, 24,
+				                                      129, 0);
 				break;
 			case ITEM:
 				spriteId = AddItemIconSprite(102 + idx, 102 + idx, itemId);
 				break;
 			case PKMN:
 				LoadMonIconPalettes();
-				spriteId = CreateMonIcon(itemId, SpriteCallbackDummy, 20, 132, 0, 0);
+				spriteId = CreateMonIcon(itemId, SpriteCallbackDummy, 24, 129, 0, 1);
 				break;
 			default:
 				break;
@@ -2239,7 +2239,7 @@ static void QuestMenu_DestroySprite(u8 idx)
 	{
 		u16 palTag = GetSpritePaletteTagByPaletteNum(
 		                   gSprites[ptr[idx]].oam.paletteNum);
-		DestroySprite(&gSprites[ptr[idx]]);
+		DestroySpriteAndFreeResources(&gSprites[ptr[idx]]);
 		ptr[idx] = 0xFF;
 
 		if (sStateDataPtr->oldPaletteTag != palTag)
