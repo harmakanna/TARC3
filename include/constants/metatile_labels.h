@@ -122,6 +122,9 @@
 #define METATILE_BuildingFrlg_PCOff  0x062
 #define METATILE_BuildingFrlg_PCOn   0x063
 
+// gTileset_CasinoPrimary
+#define METATILE_CasinoPrimary_Casino_Elevator_Door  0x186
+
 // gTileset_Cave
 #define METATILE_Cave_CrackedFloor                       0x22F
 #define METATILE_Cave_CrackedFloor_Hole                  0x206
@@ -299,6 +302,7 @@
 #define METATILE_General_YellowCaveOpen        0x1A9
 
 // gTileset_GenericBuilding
+#define METATILE_GenericBuilding_Apartment_Door          0x895
 #define METATILE_GenericBuilding_TableEdge               0x2F1
 #define METATILE_GenericBuilding_TrickHouse_Door_Closed  0x21B
 #define METATILE_GenericBuilding_TrickHouse_Stairs_Down  0x219
@@ -306,6 +310,9 @@
 // gTileset_GenericBuilding1
 #define METATILE_GenericBuilding1_PlayersPCOff  0x28F
 #define METATILE_GenericBuilding1_PlayersPCOn   0x28A
+
+// gTileset_HotelInterior
+#define METATILE_HotelInterior_Hotel_Lobby_Door  0x8BE
 
 // gTileset_InsideOfTruck
 #define METATILE_InsideOfTruck_DoorClosedFloor_Bottom  0x21D
@@ -1057,6 +1064,18 @@
 // gTileset_ViridianForest
 #define METATILE_ViridianForest_HugeTreeTopMiddle_Grass  0x284
 #define METATILE_ViridianForest_HugeTreeTopMiddle_Mowed  0x281
+
+// gTileset_VirtualCityCommerce
+#define METATILE_VirtualCityCommerce_Casino_Door            0x8B4
+#define METATILE_VirtualCityCommerce_Hotel_Door             0x955
+#define METATILE_VirtualCityCommerce_Superstore_Door_Left   0x85B
+#define METATILE_VirtualCityCommerce_Superstore_Door_Right  0x85C
+
+// gTileset_VirtualCityPrimary
+#define METATILE_VirtualCityPrimary_Office_Door  0x144
+
+// gTileset_WorldOne
+#define METATILE_WorldOne_Outside_Apartment_Door  0x04E
 
 // Other
 #define METATILE_GeneralFrlg_CalmWater               0x12B
