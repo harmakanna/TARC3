@@ -9583,6 +9583,16 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/OutsideWorld_ApartmentBldg1_YourApartment_Bedroom/border.bin",
       "blockdata_filepath": "data/layouts/OutsideWorld_ApartmentBldg1_YourApartment_Bedroom/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRTUAL_CITY_TESTING_ROOM_INTRO",
+      "name": "VirtualCity_TestingRoomIntro_Layout",
+      "width": 33,
+      "height": 27,
+      "primary_tileset": "gTileset_WorldOne",
+      "secondary_tileset": "gTileset_OutsideWorldSecondary",
+      "border_filepath": "data/layouts/VirtualCity_TestingRoomIntro/border.bin",
+      "blockdata_filepath": "data/layouts/VirtualCity_TestingRoomIntro/map.bin"
     }
   ]
 }
