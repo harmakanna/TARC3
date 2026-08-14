@@ -442,3 +442,6 @@ const u16 gMetatileAttributes_CasinoPrimary[] = INCBIN_U16("data/tilesets/primar
 
 const u16 gMetatiles_BrickCafe[] = INCBIN_U16("data/tilesets/secondary/brick_cafe/metatiles.bin");
 const u16 gMetatileAttributes_BrickCafe[] = INCBIN_U16("data/tilesets/secondary/brick_cafe/metatile_attributes.bin");
+
+const u16 gMetatiles_DigitalGym[] = INCBIN_U16("data/tilesets/secondary/digital_gym/metatiles.bin");
+const u16 gMetatileAttributes_DigitalGym[] = INCBIN_U16("data/tilesets/secondary/digital_gym/metatile_attributes.bin");
