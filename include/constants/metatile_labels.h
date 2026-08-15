@@ -1072,7 +1072,10 @@
 #define METATILE_VirtualCityCommerce_Superstore_Door_Right  0x85C
 
 // gTileset_VirtualCityPrimary
-#define METATILE_VirtualCityPrimary_Office_Door  0x144
+#define METATILE_VirtualCityPrimary_Hotel_Door             0x1A4
+#define METATILE_VirtualCityPrimary_Office_Door            0x144
+#define METATILE_VirtualCityPrimary_Superstore_Door_Left   0x178
+#define METATILE_VirtualCityPrimary_Superstore_Door_Right  0x18D
 
 // gTileset_WorldOne
 #define METATILE_WorldOne_Outside_Apartment_Door  0x04E

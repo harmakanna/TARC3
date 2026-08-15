@@ -65,6 +65,14 @@
       "elevation": 0,
       "dest_map": "MAP_VIRTUAL_CITY_GARDEN",
       "dest_warp_id": "Garden_Exit"
+    },
+    {
+      "warp_id": "VirtualCity_Beach_Entrance",
+      "x": 0,
+      "y": 29,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_HOTEL_FRIEND_ROOM",
+      "dest_warp_id": "VirtualCity_Beach_Exit"
     }
   ],
   "coord_events": [],

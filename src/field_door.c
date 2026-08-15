@@ -167,7 +167,7 @@ static const u16 sDoorNullPalette54[16] = {};
 static const u8 sDoorAnimTiles_VirtualCity_Office[] = INCGFX_U8("graphics/door_anims/virtualcity_office.png", ".4bpp");
 
 static const u16 sDoorNullPalette55[16] = {};
-static const u8 sDoorAnimTiles_VirtualCity_Hotel[] = INCGFX_U8("graphics/door_anims/virtualcity_hotel.png", ".4bpp");
+static const u8 sDoorAnimTiles_VirtualCity_Hotel[] = INCGFX_U8("graphics/door_anims/virtualcity_hotel.png", ".4bpp", "-mwidth 2 -mheight 2");
 
 static const u16 sDoorNullPalette56[16] = {};
 static const u8 sDoorAnimTiles_Superstore_Left[] = INCGFX_U8("graphics/door_anims/superstore_left.png", ".4bpp");
@@ -264,7 +264,7 @@ static const struct DoorAnimFrame sDoorAnimFrames_Close2x2[] =
     {}
 };
 
-static const struct DoorAnimFrame sDoorAnimFrames_Open3x2[] =
+static const struct DoorAnimFrame sDoorAnimFrames_Open3x1[] =
 {
     {4, -1},
     {4, 0 * TILE_SIZE_4BPP},
@@ -273,7 +273,7 @@ static const struct DoorAnimFrame sDoorAnimFrames_Open3x2[] =
     {0, 0},
 };
 
-static const struct DoorAnimFrame sDoorAnimFrames_Close3x2[] =
+static const struct DoorAnimFrame sDoorAnimFrames_Close3x1[] =
 {
     {4, 24 * TILE_SIZE_4BPP},
     {4, 12 * TILE_SIZE_4BPP},
@@ -305,8 +305,8 @@ static const struct DoorSizeInfo sDoorSizeInfo[DOOR_SIZE_COUNT] =
     },
     [DOOR_SIZE_3x1] =
     {
-        .openAnimFrames = sDoorAnimFrames_Open3x2,
-        .closeAnimFrames = sDoorAnimFrames_Close3x2,
+        .openAnimFrames = sDoorAnimFrames_Open3x1,
+        .closeAnimFrames = sDoorAnimFrames_Close3x1,
     },
 };
 
@@ -898,7 +898,7 @@ static const struct DoorGraphics sDoorAnimGraphicsTable[] =
         .sound = DOOR_SOUND_NORMAL,
         .size = DOOR_SIZE_1x1,
         .tiles = sDoorAnimTiles_Superstore_Left,
-        .palettes = sDoorAnimTiles_Superstore_Left
+        .palettes = sDoorAnimPalettes_Superstore_Left
     },
     {
         .metatileNum = METATILE_VirtualCityCommerce_Superstore_Door_Right,
@@ -906,7 +906,7 @@ static const struct DoorGraphics sDoorAnimGraphicsTable[] =
         .sound = DOOR_SOUND_NORMAL,
         .size = DOOR_SIZE_1x1,
         .tiles = sDoorAnimTiles_Superstore_Right,
-        .palettes = sDoorAnimTiles_Superstore_Right
+        .palettes = sDoorAnimPalettes_Superstore_Right
     },
 #else
     {

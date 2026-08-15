@@ -16,12 +16,12 @@
   "object_events": [],
   "warp_events": [
     {
-      "warp_id": "Hotel_FriendsRoom_Exit",
+      "warp_id": "VirtualCity_Beach_Exit",
       "x": 5,
       "y": 4,
       "elevation": 0,
-      "dest_map": "MAP_VIRTUAL_CITY_HOTEL_YOUR_HALLWAY",
-      "dest_warp_id": "Hotel_YourRoom_Entrance"
+      "dest_map": "MAP_VIRTUAL_CITY_OUTSIDE1",
+      "dest_warp_id": "VirtualCity_Beach_Entrance"
     }
   ],
   "coord_events": [],
