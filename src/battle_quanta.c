@@ -38,7 +38,30 @@ const struct QuantaBehavior *GetQuantaBehavior(enum Move move)
     switch (GetMoveEffect(move))
     {
         case EFFECT_HIT:
-            return gEffectHitQuantaBehavior;
+            if (IsMultiHitMove(move))
+                return gEffectMultiHitQuantaBehavior;
+            else if (GetMoveStrikeCount(move) == 2)
+                return gEffect2HitQuantaBehavior;
+            else if (GetMoveStrikeCount(move) == 3)
+                return gEffect3HitQuantaBehavior;
+            else if (GetMovePriority(move) == 1)
+                return gEffectFastHitQuantaBehavior;
+            else if (GetMovePriority(move) == 2)
+                return gEffectFasterHitQuantaBehavior;
+            else if (IsExplosionMove(move))
+                return gEffectExplosionQuantaBehavior;
+            else
+                return gEffectHitQuantaBehavior;
+        case EFFECT_SEMI_INVULNERABLE:
+            return gEffectSemiInvulnerableQuantaBehavior;
+        case EFFECT_RECHARGE:
+            return gEffectRechargeQuantaBehavior;
+        case EFFECT_NON_VOLATILE_STATUS:
+            return gEffectNonVolatileQuantaBehavior;
+        case EFFECT_STAT_CHANGE:
+            return gEffectStatChangeQuantaBehavior;
+        case EFFECT_CONTINUOUS:
+            return gEffectContinuousQuantaBehavior;
         default:
             return gBuggedMoveQuantaBehavior;
     }
