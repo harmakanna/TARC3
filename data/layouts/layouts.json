@@ -9367,12 +9367,14 @@
     {
       "id": "LAYOUT_OUTSIDE_WORLD_OFFICE",
       "name": "OutsideWorld_Office_Layout",
-      "width": 33,
-      "height": 27,
-      "primary_tileset": "gTileset_WorldOne",
-      "secondary_tileset": "gTileset_OutsideWorldSecondary",
+      "width": 13,
+      "height": 11,
+      "primary_tileset": "gTileset_BuildingFrlg",
+      "secondary_tileset": "gTileset_Condominiums",
       "border_filepath": "data/layouts/OutsideWorld_Office/border.bin",
-      "blockdata_filepath": "data/layouts/OutsideWorld_Office/map.bin"
+      "blockdata_filepath": "data/layouts/OutsideWorld_Office/map.bin",
+      "border_height": 2,
+      "border_width": 2
     },
     {
       "id": "LAYOUT_VIRTUAL_CITY_STADIUM_ARENA",
