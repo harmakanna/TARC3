@@ -306,7 +306,7 @@ static const u16 *RotomPhone_StartMenu_GetPhoneColour(void)
     if (UseFlipPhone())
         return sRotomPhone_StartMenu_Palettes[ROTOM_PHONE_BLACK];
     else
-        return sRotomPhone_StartMenu_Palettes[ROTOM_PHONE_OG];
+        return sRotomPhone_StartMenu_Palettes[ROTOM_PHONE_BLUE];
 }
 
 #if RP_CONFIG_PALETTE_BUFFER
