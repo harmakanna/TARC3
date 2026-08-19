@@ -4,6 +4,7 @@
 #include "battle_scripts.h"
 #include "battle_stat_change.h"
 #include "move.h"
+#include "tarc_misc.h"
 
 extern const u8 *const gBattlescriptsForUsingItem[];
 EWRAM_DATA struct QuantaBehavior gUpcomingQuanta[MAX_BATTLERS_COUNT][MAX_QUANTAS_PER_ACTION] = {0};
@@ -11,8 +12,9 @@ static EWRAM_DATA u16 sActiveActions[MAX_BATTLERS_COUNT] = {0};
 
 bool32 InQuantaMode(void)
 {
-    return TRUE;
+    return IsInVirtualWorld();
 }
+
 
 bool32 CanBattlerChooseActionThisQuanta(enum BattlerId battler)
 {
@@ -38,7 +40,30 @@ const struct QuantaBehavior *GetQuantaBehavior(enum Move move)
     switch (GetMoveEffect(move))
     {
         case EFFECT_HIT:
-            return gEffectHitQuantaBehavior;
+            if (IsMultiHitMove(move))
+                return gEffectMultiHitQuantaBehavior;
+            else if (GetMoveStrikeCount(move) == 2)
+                return gEffect2HitQuantaBehavior;
+            else if (GetMoveStrikeCount(move) == 3)
+                return gEffect3HitQuantaBehavior;
+            else if (GetMovePriority(move) == 1)
+                return gEffectFastHitQuantaBehavior;
+            else if (GetMovePriority(move) == 2)
+                return gEffectFasterHitQuantaBehavior;
+            else if (IsExplosionMove(move))
+                return gEffectExplosionQuantaBehavior;
+            else
+                return gEffectHitQuantaBehavior;
+        case EFFECT_SEMI_INVULNERABLE:
+            return gEffectSemiInvulnerableQuantaBehavior;
+        case EFFECT_RECHARGE:
+            return gEffectRechargeQuantaBehavior;
+        case EFFECT_NON_VOLATILE_STATUS:
+            return gEffectNonVolatileQuantaBehavior;
+        case EFFECT_STAT_CHANGE:
+            return gEffectStatChangeQuantaBehavior;
+        case EFFECT_CONTINUOUS:
+            return gEffectContinuousQuantaBehavior;
         default:
             return gBuggedMoveQuantaBehavior;
     }
