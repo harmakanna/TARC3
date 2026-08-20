@@ -96,6 +96,7 @@
 #define NATIVE_ARGS(...) CMD_ARGS(void (*func)(void), ##__VA_ARGS__)
 
 #include "tarc_speedup.h"
+#include "battle_quanta.h"
 
 // table to avoid ugly powing on gba (courtesy of doesnt)
 // this returns (i^2.5)/4
@@ -6940,7 +6941,16 @@ void BS_CourtChangeSwapSideStatuses(void)
 static void Cmd_setprotectlike(void)
 {
     CMD_ARGS();
+
     u32 protectMethod = GetMoveProtectMethod(gCurrentMove);
+
+    if (InQuantaMode())
+    {
+        gProtectStructs[gBattlerAttacker].protected = protectMethod;
+        gBattleMons[gBattlerAttacker].volatiles.consecutiveMoveUses = gBattleMons[gBattlerAttacker].quantaVolatiles.consecutiveProtects;
+        gBattlescriptCurrInstr = cmd->nextInstr;
+        return;
+    }
 
     if (GetMoveEffect(gCurrentMove) == EFFECT_ENDURE)
     {

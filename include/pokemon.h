@@ -333,6 +333,11 @@ struct Volatiles
     // etc.
 };
 
+struct QuantaVolatiles
+{
+    u32 consecutiveProtects:1;
+};
+
 struct BattlePokemon
 {
     enum Species species;
@@ -365,6 +370,7 @@ struct BattlePokemon
     u32 personality;
     u32 status1;
     struct Volatiles volatiles;
+    struct QuantaVolatiles quantaVolatiles;
     u32 otId;
     u8 metLevel:7;
     u8 isShiny:1;
