@@ -29,7 +29,6 @@
     "VirtualCity_Superstore_3F",
     "VirtualCity_Superstore_4F",
     "VirtualCity_Superstore_5F",
-    "VirtualCity_TestingRoomIntro",
     "VirtualCity_Hotel_FriendRoom"
   ],
   "gMapGroup_OutsideWorld": [
@@ -41,7 +40,8 @@
     "OutsideWorld_ApartmentBldg1_Floor3",
     "OutsideWorld_ApartmentBldg1_Floor4",
     "OutsideWorld_ApartmentBldg1_YourApartment",
-    "OutsideWorld_ApartmentBldg1_YourApartment_Bedroom"
+    "OutsideWorld_ApartmentBldg1_YourApartment_Bedroom",
+    "VirtualCity_TestingRoomIntro"
   ],
   "gMapGroup_EmeraldMaps1": [
     "PetalburgCity",

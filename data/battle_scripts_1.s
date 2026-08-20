@@ -6318,9 +6318,29 @@ BattleScript_SilphScopeUnveiled::
 BattleScript_Dummy::
 	end
 
+BattleScript_Explosion3::
+	printstring STRINGID_EXPLOSION3
+	waitmessage B_WAIT_TIME_LONG
+	end
+
+BattleScript_Explosion2::
+	printstring STRINGID_EXPLOSION2
+	waitmessage B_WAIT_TIME_LONG
+	end
+
+BattleScript_Explosion1::
+	printstring STRINGID_EXPLOSION1
+	waitmessage B_WAIT_TIME_LONG
+	end
+
 BattleScript_BuggedMove::
 	printattackstring
 	pause B_WAIT_TIME_LONG
 	printstring STRINGID_NOTDONEYET
 	waitmessage B_WAIT_TIME_LONG
 	end
+
+BattleScript_EffectContinuous::
+	printstring STRINGID_CONTINUEDMOVE
+	//attackcanceler
+	goto BattleScript_HitFromAccCheck

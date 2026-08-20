@@ -45,6 +45,9 @@
 #include "constants/songs.h"
 #include "constants/weather.h"
 
+#include "quests.h"
+#include "tarc_misc.h"
+
 #ifdef RHH_EXPANSION
 #include "constants/expansion.h"
 #endif
@@ -63,7 +66,7 @@
 #define ROTOM_PHONE_OW_MESSGAGE_TIMER       NUM_FRAMES_FOR_MINUTES_UPDATE / 2
 #define ROTOM_PHONE_RR_MESSGAGE_TIMER       NUM_FRAMES_FOR_MINUTES_UPDATE
 
-#define PHONE_OFFSCREEN_Y                   (RP_CONFIG_USE_ROTOM_PHONE ? 98 : 96)
+#define PHONE_OFFSCREEN_Y                   (UseFlipPhone() ? 96 : 98)
 #define PHONE_BASE_COLOUR_INDEX             5
 #define PHONE_BG_PAL_SLOT                   14
 #define TAG_ROTOM_FACE_GFX                  1234
@@ -81,10 +84,10 @@
 #define ROTOM_REALITY_ROW_TWO_Y             80
 #define ROTOM_REALITY_ROW_THREE_Y           120
 
-#define PHONE_COMFY_SLIDE_DURATION          30
+#define PHONE_COMFY_SLIDE_DURATION          20
 #define FACE_ICON_COMFY_SPRING_MASS         200
-#define FACE_ICON_COMFY_SPRING_TENSION      25
-#define FACE_ICON_COMFY_SPRING_FRICTION     800
+#define FACE_ICON_COMFY_SPRING_TENSION      50
+#define FACE_ICON_COMFY_SPRING_FRICTION     300
 #define FACE_ICON_COMFY_SPRING_CLAMP_AFTER  1
 #define CURSOR_COMFY_SPRING_MASS            15
 #define CURSOR_COMFY_SPRING_TENSION         100
@@ -123,7 +126,7 @@ static void RotomPhone_OverworldMenu_PrintHaveFun(u8 taskId);
 static void RotomPhone_OverworldMenu_Personality(u8 taskId);
 static void RotomPhone_OverworldMenu_PrintAdventure(u8 taskId);
 static void RotomPhone_OverworldMenu_UpdateMenuPrompt(u8 taskId);
-
+static void RotomPhone_OverworldMenu_UpdateSprites(u32 selected);
 
 static void Task_RotomPhone_RotomRealityMenu_Open(u8 taskId);
 static void RotomPhone_RotomRealityMenu_Init(void);
@@ -193,6 +196,8 @@ static bool32 RotomPhone_StartMenu_UnlockedFunc_RotomReality(void);
 static bool32 RotomPhone_StartMenu_UnlockedFunc_DexNav(void);
 static bool32 RotomPhone_StartMenu_UnlockedFunc_Clock(void);
 static bool32 RotomPhone_StartMenu_UnlockedFunc_Shortcut(void);
+static bool32 RotomPhone_StartMenu_UnlockedFunc_Quests(void);
+static bool32 RotomPhone_StartMenu_UnlockedFunc_ExitVR(void);
 
 static void RotomPhone_StartMenu_SelectedFunc_Shortcut(void);
 static void RotomPhone_StartMenu_SelectedFunc_Pokedex(void);
@@ -207,6 +212,13 @@ static void RotomPhone_StartMenu_SelectedFunc_RotomReality(void);
 static void RotomPhone_StartMenu_SelectedFunc_DexNav(void);
 static void RotomPhone_StartMenu_SelectedFunc_Clock(void);
 static void RotomPhone_StartMenu_SelectedFunc_Daycare(void);
+static void RotomPhone_StartMenu_SelectedFunc_Quests(void);
+static void RotomPhone_StartMenu_SelectedFunc_ExitVR(void);
+
+static bool32 UseFlipPhone(void)
+{
+    return !IsInVirtualWorld();
+}
 
 
 // Init Rotom Start Menu
@@ -214,7 +226,7 @@ void RotomPhone_StartMenu_Open(bool32 firstInit)
 {
     if (!RotomPhone_StartMenu_IsRotomReality() || gMain.callback2 == CB2_Overworld)
     {
-        if (!RP_CONFIG_USE_ROTOM_PHONE && firstInit)
+        if (UseFlipPhone() && firstInit)
             PlaySE(SE_BALL_TRAY_ENTER);
 
         RotomPhone_OverworldMenu_Init(firstInit);
@@ -291,10 +303,10 @@ static const u16 *const sRotomPhone_StartMenu_Palettes[ROTOM_PHONE_COLOUR_COUNT]
 
 static const u16 *RotomPhone_StartMenu_GetPhoneColour(void)
 {
-    if (RP_CONFIG_PHONE_COLOUR >= ROTOM_PHONE_COLOUR_COUNT)
-        return sRotomPhone_StartMenu_Palettes[ROTOM_PHONE_OG];
-    
-    return sRotomPhone_StartMenu_Palettes[RP_CONFIG_PHONE_COLOUR];
+    if (UseFlipPhone())
+        return sRotomPhone_StartMenu_Palettes[ROTOM_PHONE_BLACK];
+    else
+        return sRotomPhone_StartMenu_Palettes[ROTOM_PHONE_BLUE];
 }
 
 #if RP_CONFIG_PALETTE_BUFFER
@@ -337,10 +349,10 @@ static u16 RotomPhone_StartMenu_GetFaceIconPaletteOriginalColour(u8 palSlot)
 #if RP_CONFIG_PALETTE_BUFFER
     return menuLoadedSpritePalette_One[palSlot];
 #else
-    if (RP_CONFIG_USE_ROTOM_PHONE && !(RP_CONFIG_MONOCHROME_ICONS && palSlot < PAL_ICON_WHITE))
-        return sRotomPhone_StartMenuRotomFaceIconsPal[palSlot];
-    else
+    if (UseFlipPhone() || (RP_CONFIG_MONOCHROME_ICONS && palSlot < PAL_ICON_WHITE))
         return sRotomPhone_StartMenuRotomFaceIconsPal[PAL_ICON_MONOCHROME];
+    else
+        return sRotomPhone_StartMenuRotomFaceIconsPal[palSlot];
 #endif
 }
 
@@ -506,6 +518,9 @@ enum RotomPhone_MenuItems
     RP_MENU_TRAINER_CARD,
     RP_MENU_SAVE,
     RP_MENU_OPTIONS,
+    RP_MENU_QUESTS,
+    RP_MENU_EXIT_VR,
+    RP_MENU_BATTLE_SIM,
     RP_MENU_COUNT,
 };
 #define RP_MENU_FIRST_OPTION RP_MENU_COUNT - RP_MENU_COUNT
@@ -524,6 +539,7 @@ enum RotomPhone_Overworld_Options
     RP_OW_OPTION_4,
     RP_OW_OPTION_5,
     RP_OW_OPTION_6,
+    RP_OW_OPTION_7,
     RP_OW_OPTION_COUNT,
 };
 
@@ -1206,24 +1222,52 @@ struct RotomPhone_MenuOptions
     enum RotomPhone_IconAnims rrAnim;
     const struct SpriteTemplate *rrSpriteTemplate;
 };
+
+static bool32 RotomPhone_DisabledFunction(void)
+{
+    return FALSE;
+}
+
 static const struct RotomPhone_MenuOptions sRotomPhoneOptions[RP_MENU_COUNT] =
 {
     [RP_MENU_POKEDEX] =
     {
         .menuName = COMPOUND_STRING("Pokédex"),
         .rotomSpeech = COMPOUND_STRING("to open the Pokédex?"),
-        .unlockedFunc = RotomPhone_StartMenu_UnlockedFunc_Pokedex,
+        .unlockedFunc = RotomPhone_DisabledFunction,
         .selectedFunc = RotomPhone_StartMenu_SelectedFunc_Pokedex,
         .owIconPalSlot = PAL_ICON_RED,
         .owAnim = RP_ICON_ANIM_FOUR,
         .rrAnim = RP_ICON_ANIM_TWO,
         .rrSpriteTemplate = &sSpriteTemplate_RotomRealityIcons_One,
     },
-    [RP_MENU_DEXNAV] =
+    [RP_MENU_QUESTS] =
     {
-        .menuName = COMPOUND_STRING("DexNav"),
+        .menuName = COMPOUND_STRING("Quests"),
+        .rotomSpeech = COMPOUND_STRING("to see quests?"),
+        .unlockedFunc = RotomPhone_StartMenu_UnlockedFunc_Quests,
+        .selectedFunc = RotomPhone_StartMenu_SelectedFunc_Quests,
+        .owIconPalSlot = PAL_ICON_RED,
+        .owAnim = RP_ICON_ANIM_FOUR,
+        .rrAnim = RP_ICON_ANIM_TWO,
+        .rrSpriteTemplate = &sSpriteTemplate_RotomRealityIcons_One,
+    },
+    [RP_MENU_EXIT_VR] =
+    {
+        .menuName = COMPOUND_STRING("Exit VR"),
+        .rotomSpeech = COMPOUND_STRING("to exit VR?"),
+        .unlockedFunc = IsInVirtualWorld,
+        .selectedFunc = RotomPhone_StartMenu_SelectedFunc_ExitVR,
+        .owIconPalSlot = PAL_ICON_MONOCHROME,
+        .owAnim = 1,
+        .rrAnim = RP_ICON_ANIM_TWO,
+        .rrSpriteTemplate = &sSpriteTemplate_RotomRealityIcons_One,
+    },
+    [RP_MENU_BATTLE_SIM] =
+    {
+        .menuName = COMPOUND_STRING("Battle Sim"),
         .rotomSpeech = COMPOUND_STRING("to use the DexNav?"),
-        .unlockedFunc = RotomPhone_StartMenu_UnlockedFunc_DexNav,
+        .unlockedFunc = RotomPhone_DisabledFunction,
         .selectedFunc = RotomPhone_StartMenu_SelectedFunc_DexNav,
         .owIconPalSlot = PAL_ICON_ORANGE,
         .owAnim = RP_ICON_ANIM_SIX,
@@ -1256,7 +1300,7 @@ static const struct RotomPhone_MenuOptions sRotomPhoneOptions[RP_MENU_COUNT] =
     {
         .menuName = COMPOUND_STRING("PokéNav"),
         .rotomSpeech = COMPOUND_STRING("to browse the PokéNav?"),
-        .unlockedFunc = RotomPhone_StartMenu_UnlockedFunc_PokeNav,
+        .unlockedFunc = RotomPhone_DisabledFunction,
         .selectedFunc = RotomPhone_StartMenu_SelectedFunc_PokeNav,
         .owIconPalSlot = PAL_ICON_ORANGE,
         .owAnim = RP_ICON_ANIM_EIGHT,
@@ -1267,7 +1311,7 @@ static const struct RotomPhone_MenuOptions sRotomPhoneOptions[RP_MENU_COUNT] =
     {
         .menuName = COMPOUND_STRING("Trainer"),
         .rotomSpeech = COMPOUND_STRING("to view your ID Card?"),
-        .unlockedFunc = RotomPhone_StartMenu_UnlockedFunc_Unlocked_RotomReality,
+        .unlockedFunc = RotomPhone_DisabledFunction,
         .selectedFunc = RotomPhone_StartMenu_SelectedFunc_Trainer,
         .rrAnim = RP_ICON_ANIM_TEN,
         .rrSpriteTemplate = &sSpriteTemplate_RotomRealityIcons_One,
@@ -1308,7 +1352,7 @@ static const struct RotomPhone_MenuOptions sRotomPhoneOptions[RP_MENU_COUNT] =
     {
         .menuName = COMPOUND_STRING("Rotom Reality"),
         .rotomSpeech = COMPOUND_STRING("to enter Rotom Reality?"),
-        .unlockedFunc = RotomPhone_StartMenu_UnlockedFunc_RotomReality,
+        .unlockedFunc = RotomPhone_DisabledFunction,
         .selectedFunc = RotomPhone_StartMenu_SelectedFunc_RotomReality,
         .owIconPalSlot = PAL_ICON_MONOCHROME,
         .owAnim = RP_ICON_ANIM_ONE,
@@ -1318,7 +1362,7 @@ static const struct RotomPhone_MenuOptions sRotomPhoneOptions[RP_MENU_COUNT] =
     {
         .menuName = COMPOUND_STRING("Clock"),
         .rotomSpeech = COMPOUND_STRING("to check the time?"),
-        .unlockedFunc = RotomPhone_StartMenu_UnlockedFunc_Clock,
+        .unlockedFunc = RotomPhone_DisabledFunction,
         .selectedFunc = RotomPhone_StartMenu_SelectedFunc_Clock,
         .owIconPalSlot = PAL_ICON_MONOCHROME,
         .owAnim = RP_ICON_ANIM_THREE,
@@ -1329,7 +1373,7 @@ static const struct RotomPhone_MenuOptions sRotomPhoneOptions[RP_MENU_COUNT] =
     {
         .menuName = COMPOUND_STRING("Shortcut"),
         .rotomSpeech = COMPOUND_STRING("Shortcut Action"),
-        .unlockedFunc = RotomPhone_StartMenu_UnlockedFunc_Shortcut,
+        .unlockedFunc = RotomPhone_DisabledFunction,
         .selectedFunc = RotomPhone_StartMenu_SelectedFunc_Shortcut,
     },
     [RP_MENU_DAYCARE] =
@@ -1442,7 +1486,7 @@ static void RotomPhone_OverworldMenu_Init(bool32 firstInit)
         return;
     }
 
-    if (RP_CONFIG_USE_ROTOM_PHONE && RP_CONFIG_UPDATE_MESSAGE_SOUND)
+    if (!UseFlipPhone() && RP_CONFIG_UPDATE_MESSAGE_SOUND)
         m4aMPlayVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, 0x80);
 
     sRotomPhone_StartMenu->menuOverworldLoading = FALSE;
@@ -1485,8 +1529,10 @@ static void RotomPhone_OverworldMenu_ContinueInit(bool32 firstInit)
     RotomPhone_OverworldMenu_CreateFlipPhoneWindow();
     ScheduleBgCopyTilemapToVram(0);
 
+    //sRotomPhone_StartMenu->menuOverworldOptions
+
     if (!sRotomPhoneOptions[menuSelectedOverworld].unlockedFunc || !sRotomPhoneOptions[menuSelectedOverworld].unlockedFunc())
-        menuSelectedOverworld = RotomPhone_StartMenu_SetFirstSelectedMenu();
+        menuSelectedOverworld = sRotomPhone_StartMenu->menuOverworldOptions[0];
 
     if (firstInit)
         gTasks[taskId].func = Task_RotomPhone_OverworldMenu_HandleMainInput;
@@ -1523,7 +1569,7 @@ static void RotomPhone_OverworldMenu_LoadIconSpritePalette(bool32 firstLoad)
     if (firstLoad)
     {
         memcpy(menuLoadedSpritePalette_One, sRotomPhone_StartMenuRotomFaceIconsPal, PLTT_SIZE_4BPP);
-        if (!RP_CONFIG_USE_ROTOM_PHONE || RP_CONFIG_MONOCHROME_ICONS)
+        if (UseFlipPhone() || RP_CONFIG_MONOCHROME_ICONS)
         {
             for (enum RotomPhone_Overworld_FaceIconPaletteIndex colour = PAL_FACE_ICON_TRANSPARENT + 1; colour < PAL_ICON_WHITE; colour++)
             {
@@ -1532,7 +1578,7 @@ static void RotomPhone_OverworldMenu_LoadIconSpritePalette(bool32 firstLoad)
         }
 
         memcpy(menuLoadedSpritePalette_Two, sRotomPhone_RotomRealityMenuIconsPal_Two, PLTT_SIZE_4BPP);
-        if (!RP_CONFIG_USE_ROTOM_PHONE || RP_CONFIG_MONOCHROME_ICONS)
+        if (UseFlipPhone() || RP_CONFIG_MONOCHROME_ICONS)
         {
             for (enum RotomPhone_Overworld_FaceIconPaletteIndex colour = PAL_FACE_ICON_TRANSPARENT + 1; colour < PAL_ICON_WHITE; colour++)
             {
@@ -1544,7 +1590,7 @@ static void RotomPhone_OverworldMenu_LoadIconSpritePalette(bool32 firstLoad)
 #else
     u32 index = IndexOfSpritePaletteTag(TAG_ROTOM_FACE_ICON_PAL);
     LoadPalette(sRotomPhone_StartMenuRotomFaceIconsPal, OBJ_PLTT_ID(index), PLTT_SIZE_4BPP); 
-    if (!RP_CONFIG_USE_ROTOM_PHONE || RP_CONFIG_MONOCHROME_ICONS)
+    if (UseFlipPhone() || RP_CONFIG_MONOCHROME_ICONS)
     {
         for (enum RotomPhone_Overworld_FaceIconPaletteIndex colour = PAL_FACE_ICON_TRANSPARENT + 1; colour < PAL_ICON_WHITE; colour++)
         {
@@ -1565,12 +1611,8 @@ static void RotomPhone_OverworldMenu_LoadSprites(void)
 
 static void RotomPhone_OverworldMenu_CreateIconSprite(enum RotomPhone_MenuItems menuItem, enum RotomPhone_Overworld_Options spriteId)
 {
-    bool32 flash = FALSE;
     s32 x = 190;
-    s32 y = 58;
     s32 xAdd = 24;
-    s32 yAdd = 22;
-    u32 iconRow;
     u32 iconColumn;
     u32 animNum;
     if (menuItem != RP_MENU_SHORTCUT)
@@ -1578,71 +1620,47 @@ static void RotomPhone_OverworldMenu_CreateIconSprite(enum RotomPhone_MenuItems 
     else
         animNum = sRotomPhoneOptions[RP_GET_SHORTCUT_OPTION].owAnim;
 
-    if (!RP_CONFIG_USE_ROTOM_PHONE)
-    {
-        y += 24;
-        yAdd = 25;
-    }
-
     iconColumn = spriteId % 2;
-    iconRow = spriteId / 2;
-
-    if (GetFlashLevel() > 0 || InBattlePyramid_())
-        flash = TRUE;
-
-    if (flash)
-    {
-        SetGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_OBJWIN_ON);
-        SetGpuRegBits(REG_OFFSET_WINOUT, WINOUT_WINOBJ_OBJ);
-    }
 
     sRotomPhone_StartMenu->menuOverworldIconSpriteId[spriteId] = CreateSprite(
         &sSpriteTemplate_OverworldIcon,
         x + (iconColumn * xAdd),
-        y + (iconRow * yAdd),
+        0,
         0
     );
     StartSpriteAnim(&gSprites[sRotomPhone_StartMenu->menuOverworldIconSpriteId[spriteId]], animNum);
-
-    if (flash)
-    {
-        sRotomPhone_StartMenu->menuOverworldIconFlashSpriteId[spriteId] = CreateSprite(
-            &sSpriteTemplate_OverworldIcon,
-            x + (iconColumn * xAdd),
-            y + (iconRow * yAdd),
-            0
-        );
-        gSprites[sRotomPhone_StartMenu->menuOverworldIconFlashSpriteId[spriteId]].oam.objMode = ST_OAM_OBJ_WINDOW;
-        StartSpriteAnim(&gSprites[sRotomPhone_StartMenu->menuOverworldIconFlashSpriteId[spriteId]], animNum);
-    }
 }
 
 static void RotomPhone_OverworldMenu_CreateAllIconSprites(void)
 {
-    enum RotomPhone_Overworld_Options drawn = RP_OW_OPTION_1;
-    u32 drawnCount = RP_OW_OPTION_COUNT;
-    if (!RP_CONFIG_USE_ROTOM_PHONE)
-        drawnCount -= 2;
-    
-
-    for (enum RotomPhone_MenuItems menuId = RP_MENU_FIRST_OPTION; menuId < RP_MENU_COUNT && drawn < drawnCount; menuId++)
+    u32 optionSlot = 0;
+    u32 optionCurrent = 0;
+    for (u32 menuId = 0; menuId < RP_MENU_COUNT; menuId++)
     {
         const struct RotomPhone_MenuOptions *menuOption = &sRotomPhoneOptions[menuId];
 
         if (menuOption->unlockedFunc && menuOption->unlockedFunc())
         {
-            enum RotomPhone_Overworld_Options optionSlot = RP_OW_OPTION_1 + drawn;
-
             RotomPhone_OverworldMenu_CreateIconSprite(menuId, optionSlot);
             sRotomPhone_StartMenu->menuOverworldOptions[optionSlot] = menuId;
-            drawn++;
+            optionSlot++;
         }
     }
 
-    for (; drawn < RP_OW_OPTION_COUNT; drawn++)
+    for (; optionSlot < RP_OW_OPTION_COUNT; optionSlot++)
     {
-        sRotomPhone_StartMenu->menuOverworldOptions[drawn] = RP_MENU_COUNT;
+        sRotomPhone_StartMenu->menuOverworldOptions[optionSlot] = RP_MENU_COUNT;
     }
+
+    for (enum RotomPhone_Overworld_Options i = RP_OW_OPTION_1; i < RP_OW_OPTION_COUNT; i++)
+    {
+        if (sRotomPhone_StartMenu->menuOverworldOptions[i] == menuSelectedOverworld)
+        {
+            optionCurrent = i;
+            break;
+        }
+    }
+    RotomPhone_OverworldMenu_UpdateSprites(optionCurrent);
 }
 
 
@@ -1681,12 +1699,7 @@ static void RotomPhone_OverworldMenu_LoadBgGfx(bool32 firstInit)
     u8* buf = GetBgTilemapBuffer(0);
     const u32 *tilemap;
     LoadBgTilemap(0, 0, 0, 0);
-    if (RP_CONFIG_USE_ROTOM_PHONE)
-    {
-        DecompressAndCopyTileDataToVram(0, sRotomPhone_OverworldTiles, 0, 0, 0);
-        DecompressDataWithHeaderWram(sRotomPhone_OverworldTilemap, buf);
-    }
-    else
+    if (UseFlipPhone())
     {
         if (firstInit)
             tilemap = sFlipPhone_OverworldClosedTilemap;
@@ -1695,6 +1708,11 @@ static void RotomPhone_OverworldMenu_LoadBgGfx(bool32 firstInit)
         
         DecompressAndCopyTileDataToVram(0, sFlipPhone_OverworldTiles, 0, 0, 0);
         DecompressDataWithHeaderWram(tilemap, buf);
+    }
+    else
+    {
+        DecompressAndCopyTileDataToVram(0, sRotomPhone_OverworldTiles, 0, 0, 0);
+        DecompressDataWithHeaderWram(sRotomPhone_OverworldTilemap, buf);
     }
 
     RotomPhone_OverworldMenu_LoadBgPalette(TRUE);
@@ -1705,7 +1723,7 @@ static void RotomPhone_OverworldMenu_LoadBgGfx(bool32 firstInit)
 #define ROTOM_SPEECH_BOTTOM_ROW_Y   1
 static void RotomPhone_OverworldMenu_CreateSpeechWindows(void)
 {
-    if (!RP_CONFIG_USE_ROTOM_PHONE)
+    if (UseFlipPhone())
         return;
 
     DecompressDataWithHeaderWram(sRotomPhone_OverworldSpeechTilemap, GetBgTilemapBuffer(0));
@@ -1721,7 +1739,7 @@ static void RotomPhone_OverworldMenu_CreateSpeechWindows(void)
 
 static void RotomPhone_OverworldMenu_CreateFlipPhoneWindow(void)
 {
-    if (RP_CONFIG_USE_ROTOM_PHONE)
+    if (!UseFlipPhone())
         return;
     
     sRotomPhone_StartMenu->menuOverworldFlipPhoneWindowId = AddWindow(&sWindowTemplate_FlipPhone);
@@ -1747,7 +1765,7 @@ static void RotomPhone_OverworldMenu_PrintRotomSpeech(u8 textBuffer[80], bool32 
 
 static void RotomPhone_OverworldMenu_PrintGreeting(void)
 {
-    if (!RP_CONFIG_USE_ROTOM_PHONE)
+    if (UseFlipPhone())
         return;
     
     u8 textBuffer[80];
@@ -1821,7 +1839,7 @@ static enum RotomPhone_Overworld_Messages RotomPhone_OverworldMenu_GetRandomMess
 
 static void RotomPhone_OverworldMenu_CheckUpdateMessage(u8 taskId)
 {
-    if (!tRotomUpdateTimer && RP_CONFIG_USE_ROTOM_PHONE)
+    if (!tRotomUpdateTimer && !UseFlipPhone())
     {
         switch (tRotomUpdateMessage)
         {
@@ -2066,7 +2084,7 @@ static void RotomPhone_OverworldMenu_PrintAdventure(u8 taskId)
 static void RotomPhone_OverworldMenu_UpdateMenuPrompt(u8 taskId)
 {
     u8 fontId;
-    if (RP_CONFIG_USE_ROTOM_PHONE)
+    if (!UseFlipPhone())
     {
         u8 textBuffer[80];
 
@@ -2265,6 +2283,43 @@ static void Task_RotomPhone_StartMenu_WaitSaveGame(u8 taskId)
     }   
 }
 
+static void RotomPhone_OverworldMenu_UpdateSprites(u32 selected)
+{
+    u32 maxRows = 3;
+    s32 y = 58;
+    s32 yAdd = 22;
+    if (UseFlipPhone())
+    {
+        maxRows = 2;
+         y = 82;
+        yAdd = 25;
+    }
+
+    s32 iconRow = 0;
+    for (u32 i = 0; i < RP_OW_OPTION_COUNT; i++)
+    {
+        if (sRotomPhone_StartMenu->menuOverworldOptions[i] == RP_MENU_COUNT)
+            return;
+        if (selected >= maxRows * 2)
+        {
+            iconRow = i / 2 + (maxRows - 1) - selected / 2;
+        }
+        else
+        {
+            iconRow = i / 2;
+        }
+        if (iconRow < 0 || iconRow >= maxRows)
+        {
+            gSprites[sRotomPhone_StartMenu->menuOverworldIconSpriteId[i]].invisible = TRUE;
+        }
+        else
+        {
+            gSprites[sRotomPhone_StartMenu->menuOverworldIconSpriteId[i]].invisible = FALSE;
+            gSprites[sRotomPhone_StartMenu->menuOverworldIconSpriteId[i]].y = y + (iconRow * yAdd);
+        }
+    }
+}
+
 static void RotomPhone_OverworldMenu_HandleDPAD(u8 taskId)
 {
     enum RotomPhone_Overworld_Options optionCurrent = RP_OW_OPTION_1;
@@ -2286,6 +2341,8 @@ static void RotomPhone_OverworldMenu_HandleDPAD(u8 taskId)
         offset = (optionCurrent % 2 == 1) ? -1 : RP_OW_OPTION_COUNT;
     else  if (JOY_NEW(DPAD_RIGHT))
         offset = (optionCurrent % 2 == 0) ? 1 : RP_OW_OPTION_COUNT;
+    else if (sRotomPhone_StartMenu->menuOverworldOptions[optionCurrent + 2] == RP_MENU_COUNT && optionCurrent % 2 == 1)
+        offset = 1;
     else
         offset = 2;
 
@@ -2294,10 +2351,10 @@ static void RotomPhone_OverworldMenu_HandleDPAD(u8 taskId)
         || nextIndex < RP_OW_OPTION_1
         || sRotomPhone_StartMenu->menuOverworldOptions[nextIndex] == RP_MENU_COUNT)
     {
-        if (RP_CONFIG_USE_ROTOM_PHONE)
-            tRotomMessageSoundEffect = SE_BOO;
-        else
+        if (UseFlipPhone())
             tRotomMessageSoundEffect = SE_CLICK;
+        else
+            tRotomMessageSoundEffect = SE_BOO;
         return;
     }
 
@@ -2307,13 +2364,15 @@ static void RotomPhone_OverworldMenu_HandleDPAD(u8 taskId)
     
     gComfyAnims[tPhoneHighlightComfyAnimId].config.data.spring.to = Q_24_8(FADE_COLOUR_MAX);
     gComfyAnims[tPhoneHighlightComfyAnimId].position = 0;
+    DebugPrintf("RotomPhone_OverworldMenu_HandleDPAD %d", nextIndex);
     menuSelectedOverworld = sRotomPhone_StartMenu->menuOverworldOptions[nextIndex];
-    if (RP_CONFIG_USE_ROTOM_PHONE)
-        tRotomMessageSoundEffect = SE_SELECT;
-    else
+    if (UseFlipPhone())
         tRotomMessageSoundEffect = SE_CLICK;
+    else
+        tRotomMessageSoundEffect = SE_SELECT;
 
     RotomPhone_StartMenu_UpdateRotomFaceAnim(TRUE);
+    RotomPhone_OverworldMenu_UpdateSprites(nextIndex);
     RotomPhone_OverworldMenu_UpdateMenuPrompt(taskId);
 }
 
@@ -2339,7 +2398,7 @@ static void Task_RotomPhone_OverworldMenu_PhoneSlideOpen(u8 taskId)
         tPhoneY = ReadComfyAnimValueSmooth(&gComfyAnims[tPhoneComfyAnimId]);
     }
     else if (GetEasingComfyAnim_CurrentFrame(&gComfyAnims[tPhoneComfyAnimId]) == PHONE_COMFY_SLIDE_DURATION / 2
-        && !RP_CONFIG_USE_ROTOM_PHONE)
+        && UseFlipPhone())
     {
         DecompressDataWithHeaderWram(sFlipPhone_OverworldOpenTilemap, GetBgTilemapBuffer(0));
         ScheduleBgCopyTilemapToVram(0);
@@ -2352,10 +2411,10 @@ static void Task_RotomPhone_OverworldMenu_PhoneSlideOpen(u8 taskId)
     else
     {
         ReleaseComfyAnim(tPhoneComfyAnimId);
-        if (RP_CONFIG_USE_ROTOM_PHONE)
-            RotomPhone_StartMenu_CreateRotomFaceSprite(TRUE);
-        else
+        if (UseFlipPhone())
             RotomPhone_OverworldMenu_ContinueInit(TRUE);
+        else
+            RotomPhone_StartMenu_CreateRotomFaceSprite(TRUE);
     }
 }
 
@@ -2375,10 +2434,10 @@ static void Task_RotomPhone_OverworldMenu_PhoneSlideClose(u8 taskId)
 
         RotomPhone_OverworldMenu_RemoveWindows();
         RotomPhone_OverworldMenu_DestroySprites();
-        if (RP_CONFIG_USE_ROTOM_PHONE)
-            DecompressDataWithHeaderWram(sRotomPhone_OverworldTilemap, GetBgTilemapBuffer(0));
-        else
+        if (UseFlipPhone())
             DecompressDataWithHeaderWram(sFlipPhone_OverworldClosedTilemap, GetBgTilemapBuffer(0));
+        else
+            DecompressDataWithHeaderWram(sRotomPhone_OverworldTilemap, GetBgTilemapBuffer(0));
         ScheduleBgCopyTilemapToVram(0);
         tPhoneY = ReadComfyAnimValueSmooth(&gComfyAnims[tPhoneComfyAnimId]);
         SetGpuReg(REG_OFFSET_BG0VOFS, -tPhoneY);
@@ -2450,16 +2509,16 @@ static void Task_RotomPhone_OverworldMenu_HandleMainInput(u8 taskId)
     }
     else if (JOY_NEW(B_BUTTON) && sRotomPhone_StartMenu->menuOverworldLoading == FALSE)
     {
-        if (RP_CONFIG_USE_ROTOM_PHONE)
-        {
-            gTasks[taskId].func = Task_RotomPhone_OverworldMenu_RotomShutdown;
-            RotomPhone_StartMenu_RotomShutdownPreparation(taskId, TRUE);
-        }
-        else
+        if (UseFlipPhone())
         {
             PlaySE(SE_BALL_TRAY_ENTER);
             tPhoneY = FALSE;
             gTasks[taskId].func = Task_RotomPhone_OverworldMenu_PhoneSlideClose;
+        }
+        else
+        {
+            gTasks[taskId].func = Task_RotomPhone_OverworldMenu_RotomShutdown;
+            RotomPhone_StartMenu_RotomShutdownPreparation(taskId, TRUE);
         }
         return;
     }
@@ -2521,10 +2580,10 @@ static void Task_RotomPhone_OverworldMenu_RotomShutdown(u8 taskId)
 static void Task_RotomPhone_OverworldMenu_CloseAndSave(u8 taskId)
 {
     TaskFunc func;
-    if (RP_CONFIG_USE_ROTOM_PHONE)
-        func = Task_RotomPhone_OverworldMenu_RotomShutdown;
-    else
+    if (UseFlipPhone())
         func = Task_RotomPhone_OverworldMenu_PhoneSlideClose;
+    else
+        func = Task_RotomPhone_OverworldMenu_RotomShutdown;
 
     if (!FuncIsActiveTask(Task_RotomPhone_OverworldMenu_RotomShutdown)
         && !FuncIsActiveTask(Task_RotomPhone_OverworldMenu_PhoneSlideClose)
@@ -3401,7 +3460,7 @@ static void RotomPhone_RotomRealityMenu_LoadIconSpritePalette(void)
     
     index = IndexOfSpritePaletteTag(TAG_ROTOM_FACE_ICON_PAL);
     LoadPalette(sRotomPhone_StartMenuRotomFaceIconsPal, OBJ_PLTT_ID(index), PLTT_SIZE_4BPP); 
-    if (!RP_CONFIG_USE_ROTOM_PHONE || RP_CONFIG_MONOCHROME_ICONS)
+    if (UseFlipPhone() || RP_CONFIG_MONOCHROME_ICONS)
     {
         for (enum RotomPhone_Overworld_FaceIconPaletteIndex colour = PAL_FACE_ICON_TRANSPARENT + 1; colour < PAL_ICON_WHITE; colour++)
         {
@@ -3411,7 +3470,7 @@ static void RotomPhone_RotomRealityMenu_LoadIconSpritePalette(void)
 
     index = IndexOfSpritePaletteTag(TAG_PHONE_RR_ICON_GFX_2);
     LoadPalette(sRotomPhone_RotomRealityMenuIconsPal_Two, OBJ_PLTT_ID(index), PLTT_SIZE_4BPP); 
-    if (!RP_CONFIG_USE_ROTOM_PHONE || RP_CONFIG_MONOCHROME_ICONS)
+    if (UseFlipPhone() || RP_CONFIG_MONOCHROME_ICONS)
     {
         for (enum RotomPhone_Overworld_FaceIconPaletteIndex colour = PAL_FACE_ICON_TRANSPARENT + 1; colour < 16; colour++)
         {
@@ -3683,7 +3742,7 @@ static void RotomPhone_StartMenu_LoadRotomFaceSpritesheet(void)
 
 static void RotomPhone_StartMenu_CreateRotomFaceSprite(bool32 rotomFade)
 {
-    if (!RP_CONFIG_USE_ROTOM_PHONE || sRotomPhone_StartMenu->menuRotomFaceSpriteId != SPRITE_NONE)
+    if (UseFlipPhone() || sRotomPhone_StartMenu->menuRotomFaceSpriteId != SPRITE_NONE)
         return;
 
     bool32 flash = FALSE;
@@ -3823,6 +3882,7 @@ static bool32 RotomPhone_StartMenu_UnlockedFunc_Unlocked_RotomReality(void)
 
 static bool32 RotomPhone_StartMenu_UnlockedFunc_Pokedex(void)
 {
+    return FALSE;
     if (!RotomPhone_StartMenu_IsRotomReality() && !GetSafariZoneFlag())
         return FALSE;
     else
@@ -3890,6 +3950,10 @@ static bool32 RotomPhone_StartMenu_UnlockedFunc_Shortcut(void)
         return FALSE;
 }
 
+static bool32 RotomPhone_StartMenu_UnlockedFunc_Quests(void)
+{
+    return TRUE;
+}
 
 static void RotomPhone_StartMenu_SelectedFunc_Shortcut(void)
 {
@@ -3942,7 +4006,7 @@ static void RotomPhone_StartMenu_SelectedFunc_Save(void)
     {
         taskId = FindTaskIdByFunc(Task_RotomPhone_OverworldMenu_HandleMainInput);
         gTasks[taskId].func = Task_RotomPhone_OverworldMenu_CloseAndSave;
-        if (RP_CONFIG_USE_ROTOM_PHONE)
+        if (!UseFlipPhone())
             RotomPhone_StartMenu_RotomShutdownPreparation(taskId, TRUE);
     }
     else
@@ -4028,6 +4092,18 @@ static void RotomPhone_StartMenu_SelectedFunc_Clock(void)
     }
 }
 
+static void RotomPhone_StartMenu_SelectedFunc_Quests(void)
+{
+    //if (!RotomPhone_StartMenu_IsRotomReality())
+    //    RotomPhone_StartMenu_DoCleanUpAndChangeTaskFunc(FindTaskIdByFunc(Task_RotomPhone_OverworldMenu_HandleMainInput), Task_OpenDexNavFromStartMenu);
+    //else
+    RotomPhone_StartMenu_DoCleanUpAndCreateTask(Task_QuestMenu_OpenFromStartMenu, 0);
+}
+
+static void RotomPhone_StartMenu_SelectedFunc_ExitVR(void)
+{
+
+}
 static void RotomPhone_StartMenu_SelectedFunc_Daycare(void)
 {
     #define MON_ONE 0

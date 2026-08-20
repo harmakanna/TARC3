@@ -28,7 +28,16 @@
       "flag": "0"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "warp_id": "OutsideWorld_Apartment_Entrance",
+      "x": 23,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_FLOOR1",
+      "dest_warp_id": "OutsideWorld_Apartment_Exit"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }

@@ -602,8 +602,8 @@ static bool8 FieldCB_ReturnToFieldStartMenu(void)
     {
          return FALSE;
     }
-#endif
     ReturnToFieldOpenStartMenu();
+#endif
     return TRUE;
 }
 

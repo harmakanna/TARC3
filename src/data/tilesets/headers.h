@@ -920,6 +920,19 @@ const struct Tileset gTileset_UnionRoom =
     .callback = NULL,
 };
 
+const struct Tileset gTileset_Condominiums =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .isTripleLayer = FALSE,
+    .tilesetDimensions = FRLG_TILESET_DIMENSIONS,
+    .tiles = gTilesetTiles_Condominiums,
+    .palettes = gTilesetPalettes_Condominiums,
+    .metatiles = gMetatiles_Condominiums,
+    .metatileAttributes = gMetatileAttributes_Condominiums,
+    .callback = NULL,
+};
+
 #else
 
 // FRLG tilesets

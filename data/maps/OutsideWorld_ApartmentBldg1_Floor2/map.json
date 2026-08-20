@@ -14,7 +14,24 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "warp_id": "OutsideWorld_Apartment_DownToFloor1",
+      "x": 5,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_FLOOR1",
+      "dest_warp_id": "OutsideWorld_Apartment_UpToFloor2"
+    },
+    {
+      "warp_id": "OutsideWorld_Apartment_UpToFloor3",
+      "x": 3,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_FLOOR3",
+      "dest_warp_id": "OutsideWorld_Apartment_DownToFloor2"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }

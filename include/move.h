@@ -853,7 +853,18 @@ static inline const u8 *GetMoveBattleScript(enum Move moveId)
     return gBattleMoveEffects[GetMoveEffect(moveId)].battleScript;
 }
 
+extern const struct QuantaBehavior gEffectNonVolatileQuantaBehavior[];
+extern const struct QuantaBehavior gEffectStatChangeQuantaBehavior[];
+extern const struct QuantaBehavior gEffectExplosionQuantaBehavior[];
+extern const struct QuantaBehavior gEffectRechargeQuantaBehavior[];
+extern const struct QuantaBehavior gEffectFastHitQuantaBehavior[];
+extern const struct QuantaBehavior gEffectFasterHitQuantaBehavior[];
+extern const struct QuantaBehavior gEffect2HitQuantaBehavior[];
+extern const struct QuantaBehavior gEffect3HitQuantaBehavior[];
+extern const struct QuantaBehavior gEffectMultiHitQuantaBehavior[];
 extern const struct QuantaBehavior gEffectHitQuantaBehavior[];
+extern const struct QuantaBehavior gEffectContinuousQuantaBehavior[];
+extern const struct QuantaBehavior gEffectSemiInvulnerableQuantaBehavior[];
 extern const struct QuantaBehavior gBuggedMoveQuantaBehavior[];
 
 #endif // GUARD_MOVES_H

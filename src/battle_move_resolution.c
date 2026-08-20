@@ -2391,6 +2391,8 @@ static enum CancelerResult CancelerMultihitMoves(struct BattleCalcValues *cv)
         gMultiHitCounter = 0;
     }
 
+    gMultiHitCounter = 0;
+
     return CANCELER_RESULT_SUCCESS;
 }
 
