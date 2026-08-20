@@ -5,6 +5,7 @@ VirtualCity_TestingRoomIntro_MapScripts::
 
 VirtualCity_TestingRoomIntro_OnTransition:
 	goto_if_set FLAG_SYS_B_DASH, VirtualCity_TestingRoomIntro_Eventscript_NotFirstLoad
+	@fadescreenspeed FADE_TO_BLACK, 0
 	setvar VAR_PETALBURG_CITY_STATE, 1
 	end
 
@@ -31,7 +32,7 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	removeobject LOCALID_ARCANINE
 	fadescreenspeed FADE_FROM_BLACK, 2
 
-	@@ Transition Graphic
+	@@ TOFOLD Transition Graphic
 
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro01, Speaker_Minh, DIR_SOUTH
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro02, Speaker_Sophie, DIR_NORTH
@@ -58,6 +59,11 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	delay 10
 	removeobject LOCALID_BALL
 	setvar VAR_PETALBURG_CITY_STATE, 0
+	givemon SPECIES_ARCANINE, 1
+	givemon SPECIES_ARCANINE, 1
+	@@ givemon Darkanine x 2
+
+	goto VirtualCity_TestingRoomIntro_Eventscript_Minh
 	end
 
 VirtualCity_TestingRoomIntro_Eventscript_NotFirstLoad:
@@ -65,14 +71,16 @@ VirtualCity_TestingRoomIntro_Eventscript_NotFirstLoad:
 	end
 
 VirtualCity_TestingRoomIntro_Eventscript_Minh::
+	@@edit mon dialog event
+	
 	@@ check if stats and typing correct, if not goto VirtualCity_TestingRoomIntro_Eventscript_StatsIncorrect
 	goto_if_unset FLAG_DARKANINE_BATTLE_1, VirtualCity_TestingRoomIntro_Eventscript_FirstBattle
 	goto_if_unset FLAG_DARKANINE_BATTLE_2, VirtualCity_TestingRoomIntro_Eventscript_SecondBattle
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_SubsequentBattleStart, Speaker_Minh, DIR_SOUTH
-	trainerbattle_earlyrival TRAINER_RIVAL_OAKS_LAB_SQUIRTLE, NULL, VirtualCity_TestingRoomIntro_Text_SubsequentBattleEndLose, VirtualCity_TestingRoomIntro_Text_SubsequentBattleEndWin
+	trainerbattle_earlyrival TRAINER_RIVAL_OAKS_LAB_SQUIRTLE, NULL, VirtualCity_TestingRoomIntro_Text_SubsequentBattleEndWin, VirtualCity_TestingRoomIntro_Text_SubsequentBattleEndLose
 	yesnobox 60,60
-	goto_if_eq VAR_RESULT, NO, EventScript_ConfirmDarkanine
-    goto_if_eq VAR_RESULT, YES, EventScript_End
+	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine
+    goto_if_eq VAR_RESULT, YES, VirtualCity_TestingRoomIntro_Eventscript_Minh
 	end
 
 VirtualCity_TestingRoomIntro_Eventscript_StatsIncorrect:
@@ -83,27 +91,27 @@ VirtualCity_TestingRoomIntro_Eventscript_StatsIncorrect:
 VirtualCity_TestingRoomIntro_Eventscript_FirstBattle:
 	setflag FLAG_DARKANINE_BATTLE_1
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_FirstBattleStart, Speaker_Minh, DIR_SOUTH
-	trainerbattle_earlyrival TRAINER_RIVAL_OAKS_LAB_SQUIRTLE, NULL, VirtualCity_TestingRoomIntro_Text_FirstBattleEndLose, VirtualCity_TestingRoomIntro_Text_FirstBattleEndWin
-	yesnobox 60,60
-	goto_if_eq VAR_RESULT, NO, EventScript_ConfirmDarkanine
-    goto_if_eq VAR_RESULT, YES, EventScript_End
+	trainerbattle_earlyrival TRAINER_RIVAL_OAKS_LAB_SQUIRTLE, NULL, VirtualCity_TestingRoomIntro_Text_FirstBattleEndWin, VirtualCity_TestingRoomIntro_Text_FirstBattleEndLose
+	yesnobox 20,8
+	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine
+    goto_if_eq VAR_RESULT, YES, VirtualCity_TestingRoomIntro_Eventscript_Minh
 	end
 
 VirtualCity_TestingRoomIntro_Eventscript_SecondBattle:
 	setflag FLAG_DARKANINE_BATTLE_2
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_SecondBattleStart, Speaker_Minh, DIR_SOUTH
-	trainerbattle_earlyrival TRAINER_RIVAL_OAKS_LAB_SQUIRTLE, NULL, VirtualCity_TestingRoomIntro_Text_SecondBattleEndLose, VirtualCity_TestingRoomIntro_Text_SecondBattleEndWin
-	yesnobox 60,60
-	goto_if_eq VAR_RESULT, NO, EventScript_ConfirmDarkanine
-    goto_if_eq VAR_RESULT, YES, EventScript_End
+	trainerbattle_earlyrival TRAINER_RIVAL_OAKS_LAB_SQUIRTLE, NULL, VirtualCity_TestingRoomIntro_Text_SecondBattleEndWin, VirtualCity_TestingRoomIntro_Text_SecondBattleEndLose
+	yesnobox 20,8
+	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine
+    goto_if_eq VAR_RESULT, YES, VirtualCity_TestingRoomIntro_Eventscript_Minh
 	end
 
 EventScript_End:
 	end
 
-EventScript_ConfirmDarkanine:
+VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine:
 	msgbox VirtualCity_TestingRoomIntro_Text_ConfirmDarkanine, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, EventScript_End
+	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_Eventscript_Minh
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_DarkanineConfirmed, Speaker_Minh, DIR_SOUTH
 	@@ fancy transition, warpsilent, etc.
 	end
@@ -117,7 +125,7 @@ VirtualCity_TestingRoomIntro_Text_Intro01:
 	.string "Are.\p"
 	.string "You.\p"
 	.string "Ready?\p"
-	.string "True beauty. Elegance. Genius.$"
+	.string "Beauty. Elegance. Genius.$"
 
 VirtualCity_TestingRoomIntro_Text_Intro02:
 	.string "Hmm?\p"
@@ -144,9 +152,9 @@ VirtualCity_TestingRoomIntro_Text_Intro05:
 VirtualCity_TestingRoomIntro_Text_Intro06:
 	.string "Meet our new limited edition Arcanine -\n"
 	.string "I affectionately call him Darkanine.\p"
-	.string "The perfect shadow to Arcanine's light,\n"
-	.string "a dark and brooding look that speaks of\l"
-	.string "danger and nightmares. An elegant-$"
+	.string "The perfect shadow to Arcanine's light.\n"
+	.string "I designed his fur to evoke half-moons\l"
+	.string "and eldritch tentacles. An elegant-$"
 
 VirtualCity_TestingRoomIntro_Text_Intro07:
 	.string "So… Dark type?$"
@@ -156,7 +164,7 @@ VirtualCity_TestingRoomIntro_Text_Intro08:
 	.string "Yes, Dark type, you barbarian, or\n"
 	.string "Dark / Fire if you prefer.\p"
 	.string "Bossman said to give you free rein\n"
-	.string "with the stats and abilities, too.\p"
+	.string "with the stats and abilities, too. TOFOLD\p"
 	.string "'I don't care about power creep, I care\n"
 	.string "about people buying this Pokemon.'\p"
 	.string "That's what he told me.$"
@@ -176,8 +184,8 @@ VirtualCity_TestingRoomIntro_Text_Intro10:
 	.string "Anyways, work your magic, and then\n"
 	.string "come battle me.\p"
 	.string "I got the meta's top three Pokemon you\n"
-	.string "asked for, so you can see how Darkanine\l"
-	.string "fares against them and readjust.$"
+	.string "wanted here, for the test battle.$"
+
 
 
 
@@ -252,3 +260,4 @@ VirtualCity_TestingRoomIntro_Text_DarkanineConfirmed:
 	.string "Now let's log out and get to your place.\p"
 	.string "This real Pokemon thing might even be\n"
 	.string "cooler than my Darkanine.$"
+
