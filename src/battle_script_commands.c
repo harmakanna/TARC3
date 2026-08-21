@@ -6947,7 +6947,6 @@ static void Cmd_setprotectlike(void)
     if (InQuantaMode())
     {
         gProtectStructs[gBattlerAttacker].protected = protectMethod;
-        gBattleMons[gBattlerAttacker].volatiles.consecutiveMoveUses = gBattleMons[gBattlerAttacker].quantaVolatiles.consecutiveProtects;
         gBattlescriptCurrInstr = cmd->nextInstr;
         return;
     }

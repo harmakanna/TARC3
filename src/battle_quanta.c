@@ -25,8 +25,11 @@ bool32 CanBattlerChooseActionThisQuanta(enum BattlerId battler)
 
 static void BattlerEndOfQuantaMoveResolution(enum BattlerId battler)
 {
-    if (sActiveActions[battler] == MOVE_PROTECT)
-        gBattleMons[battler].quantaVolatiles.consecutiveProtects++;
+    if (sActiveActions[battler] == MOVE_PROTECT && gBattleMons[battler].quantaVolatiles.consecutiveProtects != 7)
+    {
+        if (gBattleMons[battler].quantaVolatiles.consecutiveProtects < 3)
+            gBattleMons[battler].quantaVolatiles.consecutiveProtects++;
+    }
     else
         gBattleMons[battler].quantaVolatiles.consecutiveProtects = 0;
 }
@@ -78,7 +81,7 @@ const struct QuantaBehavior *GetQuantaBehavior(enum Move move)
         case EFFECT_CONTINUOUS:
             return gEffectContinuousQuantaBehavior;
         case EFFECT_PROTECT:
-            return gEffectContinuousQuantaBehavior;
+            return gEffectProtectQuantaBehavior;
         default:
             return gBuggedMoveQuantaBehavior;
     }

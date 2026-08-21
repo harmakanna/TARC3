@@ -131,7 +131,7 @@ const struct QuantaBehavior gEffectMultiHitQuantaBehavior[] = {
     QUANTA_END
 };
 
-const struct QuantaBehavior gProtectQuantaBehavior[] = {
+const struct QuantaBehavior gEffectProtectQuantaBehavior[] = {
     QUANTA_PRIORITY(BattleScript_EffectProtect),
     QUANTA_PRIORITY(BattleScript_ContinueProtect),
     QUANTA_END

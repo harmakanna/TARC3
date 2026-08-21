@@ -55,6 +55,8 @@
 #include "constants/pokemon.h"
 #include "test/battle.h"
 
+#include "battle_quanta.h"
+
 static bool32 TryRemoveScreens(enum BattlerId battler);
 static bool32 IsUnnerveAbilityOnOpposingSide(enum BattlerId battler);
 static u32 GetFlingPowerFromItemId(enum Item itemId);
@@ -10861,7 +10863,12 @@ static const u16 sGen5ProtectFailChances[] =
 
 bool32 CanUseMoveConsecutively(enum BattlerId battler)
 {
-    u32 moveUses = gBattleMons[battler].volatiles.consecutiveMoveUses;
+    u32 moveUses;
+    if (InQuantaMode())
+        moveUses = gBattleMons[gBattlerAttacker].quantaVolatiles.consecutiveProtects;
+    else
+        moveUses = gBattleMons[gBattlerAttacker].volatiles.consecutiveMoveUses;
+
     if (moveUses >= ARRAY_COUNT(sProtectFailChances))
         moveUses = ARRAY_COUNT(sProtectFailChances) - 1;
 

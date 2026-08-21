@@ -335,7 +335,7 @@ struct Volatiles
 
 struct QuantaVolatiles
 {
-    u32 consecutiveProtects:1;
+    u32 consecutiveProtects:3;
 };
 
 struct BattlePokemon
