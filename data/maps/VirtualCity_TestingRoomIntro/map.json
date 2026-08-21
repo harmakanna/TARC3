@@ -2,7 +2,7 @@
   "id": "MAP_VIRTUAL_CITY_TESTING_ROOM_INTRO",
   "name": "VirtualCity_TestingRoomIntro",
   "layout": "LAYOUT_VIRTUAL_CITY_TESTING_ROOM_INTRO",
-  "music": "MUS_DUMMY",
+  "music": "MUS_HALL_OF_FAME_ROOM",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -37,9 +37,9 @@
   "object_events": [
     {
       "local_id": "LOCALID_MINH",
-      "graphics_id": "OBJ_EVENT_GFX_COOK",
-      "x": 4,
-      "y": 3,
+      "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
+      "x": 16,
+      "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -52,8 +52,8 @@
     {
       "local_id": "LOCALID_BALL",
       "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
-      "x": 4,
-      "y": 4,
+      "x": 16,
+      "y": 11,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -61,13 +61,13 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_SYS_B_DASH"
     },
     {
       "local_id": "LOCALID_ARCANINE",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ARCANINE)",
-      "x": 4,
-      "y": 4,
+      "x": 16,
+      "y": 11,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
@@ -75,7 +75,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_SYS_B_DASH"
     }
   ],
   "warp_events": [],
