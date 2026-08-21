@@ -49,23 +49,53 @@ VirtualCity_Hotel_YourRoom_Text_ResolutionTalk10Sophie::
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk11Sophie::
 	.string "But maybe we can do something.\n"
 	.string "Something small.\p"
-	.string "We're all very good at what we do…\p"
-	.string "If you three are in, I bet we could do$"
-	.string "something to expose this.$"
+	.string "If we can just… expose this scam,\n"
+	.string "maybe people will stop buying them.\p"
+	.string "And maybe… people will demand to know.\n"
+	.string "what's really going on?$"
 
-VirtualCity_Hotel_YourRoom_Text_ResolutionTalk12Minh::
-	.string "If we can figure out a plan, I'm in.\p"
-	.string "How many Lolas are out there?$"
-
-VirtualCity_Hotel_YourRoom_Text_ResolutionTalk13Harriet::
-	.string "I doubt we'll be able to do much,\n"
-	.string "but I'll help if I can.$"
-
-VirtualCity_Hotel_YourRoom_Text_ResolutionTalk14Ernest::
+VirtualCity_Hotel_YourRoom_Text_ResolutionTalk12Ernest::
+	.string "But… how?\n"
 	.string "It would have to be anonymous…\p"
 	.string "Where could we put a message that\n"
 	.string "everyone could see, that couldn't be\l"
 	.string "traced back to us?$"
 
+@@ BING!
 
-@@
+VirtualCity_Hotel_YourRoom_Text_ResolutionTalk13Minh::
+	.string "No way.$"
+
+VirtualCity_Hotel_YourRoom_Text_ResolutionTalk14Harriet::
+	.string "The Rotom phone messaging system?$"
+
+VirtualCity_Hotel_YourRoom_Text_ResolutionTalk15Sophie::
+	.string "Ernest, can it be done?$"
+
+VirtualCity_Hotel_YourRoom_Text_ResolutionTalk16Ernest::
+	.string "…\p"
+	.string "You want… to hack the Rotom phone?\n"
+	.string "To warn the public… about fakes?\p"
+	.string "It's… it's risky. And illegal.\n"
+	.string "But it might be… possible.$"
+
+VirtualCity_Hotel_YourRoom_Text_ResolutionTalk17Harriet::
+	.string "We'd need one of the execs' cards to$"
+	.string "credentials to access the system.$"
+
+VirtualCity_Hotel_YourRoom_Text_ResolutionTalk12Minh::
+	.string "If we can figure out a plan, I'm in.$"
+
+VirtualCity_Hotel_YourRoom_Text_ResolutionTalk13Harriet::
+	.string "I doubt we'll be able to do much,\n"
+	.string "but I'll help if I can.$"
+
+
+
+
+
+
+
+
+
+
