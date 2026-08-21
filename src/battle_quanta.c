@@ -12,6 +12,8 @@ static EWRAM_DATA u16 sActiveActions[MAX_BATTLERS_COUNT] = {0};
 
 bool32 InQuantaMode(void)
 {
+    if (TESTING)
+        return FALSE;
     return IsInVirtualWorld();
 }
 
@@ -19,6 +21,17 @@ bool32 InQuantaMode(void)
 bool32 CanBattlerChooseActionThisQuanta(enum BattlerId battler)
 {
     return (gUpcomingQuanta[battler][0].type == QUANTA_TYPE_END);
+}
+
+static void BattlerEndOfQuantaMoveResolution(enum BattlerId battler)
+{
+    if (sActiveActions[battler] == MOVE_PROTECT && gBattleMons[battler].quantaVolatiles.consecutiveProtects != 7)
+    {
+        if (gBattleMons[battler].quantaVolatiles.consecutiveProtects < 3)
+            gBattleMons[battler].quantaVolatiles.consecutiveProtects++;
+    }
+    else
+        gBattleMons[battler].quantaVolatiles.consecutiveProtects = 0;
 }
 
 void AdvanceQuantaCounter(void)
@@ -29,6 +42,9 @@ void AdvanceQuantaCounter(void)
         {
             gUpcomingQuanta[i][j] = gUpcomingQuanta[i][j + 1];
         }
+
+        if (gUpcomingQuanta[i][0].type == QUANTA_TYPE_END)
+            BattlerEndOfQuantaMoveResolution(i);
     }
 }
 
@@ -64,6 +80,8 @@ const struct QuantaBehavior *GetQuantaBehavior(enum Move move)
             return gEffectStatChangeQuantaBehavior;
         case EFFECT_CONTINUOUS:
             return gEffectContinuousQuantaBehavior;
+        case EFFECT_PROTECT:
+            return gEffectProtectQuantaBehavior;
         default:
             return gBuggedMoveQuantaBehavior;
     }
@@ -99,11 +117,34 @@ void PrepareUpcomingQuanta(enum BattlerId battler)
 void GetQuantaBattleOrder(void)
 {
     u32 turnOrderId = 0;
+    for (enum QuantaType type = 0; type <= QUANTA_TYPE_PASS; type++)
+    {
+        for (enum BattlerId battler = 0; battler < gBattlersCount; battler++)
+        {
+            if (gUpcomingQuanta[battler][0].type == type)
+            {
+                gBattlerByTurnOrder[turnOrderId] = battler;
+                gActionsByTurnOrder[turnOrderId] = B_ACTION_QUANTA;
+                turnOrderId++;
+            }
+        }
+    }
+    struct BattleCalcValues calcValues = {0};
     for (enum BattlerId battler = 0; battler < gBattlersCount; battler++)
     {
-        gActionsByTurnOrder[turnOrderId] = B_ACTION_QUANTA;
-        gBattlerByTurnOrder[turnOrderId] = battler;
-        turnOrderId++;
+        calcValues.abilities[battler] = GetBattlerAbility(battler);
+        calcValues.holdEffects[battler] = GetBattlerHoldEffect(battler);
+    }
+    for (u32 i = 0; i < gBattlersCount - 1; i++)
+    {
+        for (u32 j = i + 1; j < gBattlersCount; j++)
+        {
+            calcValues.battlerAtk = gBattlerByTurnOrder[i];
+            calcValues.battlerDef = gBattlerByTurnOrder[j];
+
+            if (GetWhichBattlerFaster(&calcValues, TRUE) == -1)
+                SwapTurnOrder(i, j);
+        }
     }
 }
 

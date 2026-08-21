@@ -3147,6 +3147,7 @@ void SwitchInClearSetData(enum BattlerId battler, struct Volatiles *volatilesCop
 
     // Clear volatiles - reapply some if Baton Pass was used
     memset(&gBattleMons[battler].volatiles, 0, sizeof(struct Volatiles));
+    memset(&gBattleMons[battler].quantaVolatiles, 0, sizeof(struct QuantaVolatiles));
     if (effect == EFFECT_BATON_PASS)
     {
         // Transfer Baton Passable volatile statuses
@@ -3274,6 +3275,7 @@ void FaintClearSetData(enum BattlerId battler)
 
     bool32 keepTransformed = gBattleMons[battler].volatiles.transformed;
     memset(&gBattleMons[battler].volatiles, 0, sizeof(struct Volatiles));
+    memset(&gBattleMons[battler].quantaVolatiles, 0, sizeof(struct QuantaVolatiles));
     gBattleMons[battler].volatiles.transformed = keepTransformed; // Edge case: Keep Transformed status to prevent triggering FORM_CHANGE_FAINT on transformed mons.
 
     for (enum BattlerId i = 0; i < gBattlersCount; i++)
@@ -3423,6 +3425,7 @@ static void DoBattleIntro(void)
                 gBattleMons[battler].ability = GetAbilityBySpecies(gBattleMons[battler].species, gBattleMons[battler].abilityNum);
                 gBattleStruct->battlerState[battler].hpOnSwitchout = gBattleMons[battler].hp;
                 memset(&gBattleMons[battler].volatiles, 0, sizeof(struct Volatiles));
+                memset(&gBattleMons[battler].quantaVolatiles, 0, sizeof(struct QuantaVolatiles));
                 for (i = 0; i < NUM_BATTLE_STATS; i++)
                     gBattleMons[battler].statStages[i] = DEFAULT_STAT_STAGE;
                 #if TESTING
