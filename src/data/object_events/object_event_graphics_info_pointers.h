@@ -387,6 +387,14 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DeoxysD;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DeoxysA;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DeoxysN;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SSAnne;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DigitalSophieNormal;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ErnestOutside;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HarrietOutside;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MinhOutside;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ErnestVR;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HarrietVR;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MinhVR;
+
 // Begin Pokémon event objects
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokeBall;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Follower;
@@ -645,6 +653,13 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_OW_MON] =                   &gObjectEventGraphicsInfo_Follower,
     [OBJ_EVENT_GFX_LIGHT_SPRITE] =             &gObjectEventGraphicsInfo_BallLight,
     [OBJ_EVENT_GFX_APRICORN_TREE] =            &gObjectEventGraphicsInfo_ApricornTree,
+    [OBJ_EVENT_GFX_DIGITAL_SOPHIE] =           &gObjectEventGraphicsInfo_DigitalSophieNormal,
+    [OBJ_EVENT_GFX_ERNEST_OUTSIDE] =           &gObjectEventGraphicsInfo_ErnestOutside,
+    [OBJ_EVENT_GFX_HARRIET_OUTSIDE] =          &gObjectEventGraphicsInfo_HarrietOutside,
+    [OBJ_EVENT_GFX_MINH_OUTSIDE] =             &gObjectEventGraphicsInfo_MinhOutside,
+    [OBJ_EVENT_GFX_ERNEST_VR] =                &gObjectEventGraphicsInfo_ErnestVR,
+    [OBJ_EVENT_GFX_HARRIET_VR] =               &gObjectEventGraphicsInfo_HarrietVR,
+    [OBJ_EVENT_GFX_MINH_VR] =                  &gObjectEventGraphicsInfo_MinhVR,
 #if IS_FRLG
     [OBJ_EVENT_GFX_RED_NORMAL] =               &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE] =                 &gObjectEventGraphicsInfo_RedBike,

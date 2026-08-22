@@ -31,6 +31,8 @@ const u32 gObjectEventPic_MayDecorating[] = INCGFX_U32("graphics/object_events/p
 const u32 gObjectEventPic_BrendanUnderwater[] = INCGFX_U32("graphics/object_events/pics/people/brendan/underwater.png", ".4bpp", "-mwidth 4 -mheight 4");
 const u32 gObjectEventPic_MayUnderwater[] = INCGFX_U32("graphics/object_events/pics/people/may/underwater.png", ".4bpp", "-mwidth 4 -mheight 4");
 const u16 gObjectEventPal_PlayerUnderwater[] = INCGFX_U16("graphics/object_events/palettes/player_underwater.pal", ".gbapal");
+const u32 gObjectEventPic_DigitalSophieNormalRunning[] = INCBIN_U32("graphics/object_events/pics/people/digital_sophie/walking.4bpp", "graphics/object_events/pics/people/digital_sophie/running.4bpp");
+const u16 gObjectEventPal_DigitalSophie[] = INCGFX_U16("graphics/object_events/palettes/digital_sophie.pal", ".gbapal");
 const u32 gObjectEventPic_MayNormalRunning[] = INCBIN_U32("graphics/object_events/pics/people/may/walking.4bpp", "graphics/object_events/pics/people/may/running.4bpp");
 const u16 gObjectEventPal_May[] = INCGFX_U16("graphics/object_events/palettes/may.pal", ".gbapal");
 const u16 gObjectEventPal_MayReflection[] = INCGFX_U16("graphics/object_events/palettes/may_reflection.pal", ".gbapal");
@@ -388,6 +390,20 @@ const u16 gObjectEventPal_Lugia[] = INCGFX_U16("graphics/object_events/palettes/
 const u16 gObjectEventPaletteLight[] = INCGFX_U16("graphics/object_events/palettes/light.pal", ".gbapal");
 const u16 gObjectEventPaletteLight2[] = INCGFX_U16("graphics/object_events/palettes/light2.pal", ".gbapal");
 const u16 gObjectEventPal_Substitute[] = INCGFX_U16("graphics/object_events/pics/pokemon_old/substitute.png", ".gbapal");
+
+const u32 gObjectEventPic_ErnestOutside[] = INCGFX_U32("graphics/object_events/pics/people/outside_ernest.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_HarrietOutside[] = INCGFX_U32("graphics/object_events/pics/people/outside_harriet.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_MinhOutside[] = INCGFX_U32("graphics/object_events/pics/people/outside_minh.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_ErnestVR[] = INCGFX_U32("graphics/object_events/pics/people/vr_ernest.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_HarrietVR[] = INCGFX_U32("graphics/object_events/pics/people/vr_harriet.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_MinhVR[] = INCGFX_U32("graphics/object_events/pics/people/vr_minh.png", ".4bpp", "-mwidth 2 -mheight 4");
+
+const u16 gObjectEventPal_ErnestOutside[] = INCGFX_U16("graphics/object_events/pics/people/outside_ernest.png", ".gbapal");
+const u16 gObjectEventPal_HarrietOutside[] = INCGFX_U16("graphics/object_events/pics/people/outside_harriet.png", ".gbapal");
+const u16 gObjectEventPal_MinhOutside[] = INCGFX_U16("graphics/object_events/pics/people/outside_minh.png", ".gbapal");
+const u16 gObjectEventPal_ErnestVR[] = INCGFX_U16("graphics/object_events/pics/people/vr_ernest.png", ".gbapal");
+const u16 gObjectEventPal_HarrietVR[] = INCGFX_U16("graphics/object_events/pics/people/vr_harriet.png", ".gbapal");
+const u16 gObjectEventPal_MinhVR[] = INCGFX_U16("graphics/object_events/pics/people/vr_minh.png", ".gbapal");
 
 const u16 gObjectEventPaletteEmotes[] = INCGFX_U16("graphics/misc/emotes.pal", ".gbapal");
 const u16 gObjectEventPaletteNeonLight[] = INCGFX_U16("graphics/object_events/palettes/neon_light.pal", ".gbapal");
