@@ -24,60 +24,7 @@
       "direction": "left"
     }
   ],
-  "object_events": [
-    {
-      "graphics_id": "OBJ_EVENT_GFX_ERNEST_OUTSIDE",
-      "x": 28,
-      "y": 26,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_LEFT_UP_RIGHT_DOWN",
-      "movement_range_x": 7,
-      "movement_range_y": 7,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_MINH_VR",
-      "x": 21,
-      "y": 20,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_DOWN_LEFT_UP",
-      "movement_range_x": 6,
-      "movement_range_y": 6,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_HARRIET_OUTSIDE",
-      "x": 20,
-      "y": 19,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_DOWN_LEFT_UP",
-      "movement_range_x": 7,
-      "movement_range_y": 7,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_HARRIET_VR",
-      "x": 28,
-      "y": 19,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_DOWN_LEFT_UP_RIGHT",
-      "movement_range_x": 7,
-      "movement_range_y": 7,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
-    }
-  ],
+  "object_events": [],
   "warp_events": [
     {
       "warp_id": "Hotel_Entrance",
@@ -126,6 +73,13 @@
       "elevation": 0,
       "dest_map": "MAP_VIRTUAL_CITY_HOTEL_FRIEND_ROOM",
       "dest_warp_id": "VirtualCity_Beach_Exit"
+    },
+    {
+      "x": 17,
+      "y": 20,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_OUTSIDE1",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],
