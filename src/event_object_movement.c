@@ -156,6 +156,7 @@ static void GetGroundEffectFlags_Tracks(struct ObjectEvent *, u32 *);
 static void GetGroundEffectFlags_Puddle(struct ObjectEvent *, u32 *);
 static void GetGroundEffectFlags_Ripple(struct ObjectEvent *, u32 *);
 static void GetGroundEffectFlags_Seaweed(struct ObjectEvent *, u32 *);
+static void GetGroundEffectFlags_WalkWaterfall(struct ObjectEvent *, u32 *);
 static void GetGroundEffectFlags_JumpLanding(struct ObjectEvent *, u32 *);
 static u8 ObjectEventGetNearbyReflectionType(struct ObjectEvent *);
 static u8 GetReflectionTypeByMetatileBehavior(u32);
@@ -9692,10 +9693,11 @@ static void GetAllGroundEffectFlags_OnSpawn(struct ObjectEvent *objEvent, u32 *f
     GetGroundEffectFlags_Reflection(objEvent, flags);
     GetGroundEffectFlags_TallGrassOnSpawn(objEvent, flags);
     GetGroundEffectFlags_LongGrassOnSpawn(objEvent, flags);
-    GetGroundEffectFlags_SandHeap(objEvent, flags);
+    //GetGroundEffectFlags_SandHeap(objEvent, flags);
     GetGroundEffectFlags_ShallowFlowingWater(objEvent, flags);
     GetGroundEffectFlags_ShortGrass(objEvent, flags);
     GetGroundEffectFlags_HotSprings(objEvent, flags);
+    GetGroundEffectFlags_WalkWaterfall(objEvent, flags);
 }
 
 static void GetAllGroundEffectFlags_OnBeginStep(struct ObjectEvent *objEvent, u32 *flags)
@@ -9705,24 +9707,27 @@ static void GetAllGroundEffectFlags_OnBeginStep(struct ObjectEvent *objEvent, u3
     GetGroundEffectFlags_TallGrassOnBeginStep(objEvent, flags);
     GetGroundEffectFlags_LongGrassOnBeginStep(objEvent, flags);
     GetGroundEffectFlags_Tracks(objEvent, flags);
-    GetGroundEffectFlags_SandHeap(objEvent, flags);
+    //GetGroundEffectFlags_SandHeap(objEvent, flags);
     GetGroundEffectFlags_ShallowFlowingWater(objEvent, flags);
     GetGroundEffectFlags_Puddle(objEvent, flags);
     GetGroundEffectFlags_ShortGrass(objEvent, flags);
     GetGroundEffectFlags_HotSprings(objEvent, flags);
+    GetGroundEffectFlags_WalkWaterfall(objEvent, flags);
+    
 }
 
 static void GetAllGroundEffectFlags_OnFinishStep(struct ObjectEvent *objEvent, u32 *flags)
 {
     ObjectEventUpdateMetatileBehaviors(objEvent);
     GetGroundEffectFlags_ShallowFlowingWater(objEvent, flags);
-    GetGroundEffectFlags_SandHeap(objEvent, flags);
+    //GetGroundEffectFlags_SandHeap(objEvent, flags);
     GetGroundEffectFlags_Puddle(objEvent, flags);
     GetGroundEffectFlags_Ripple(objEvent, flags);
     GetGroundEffectFlags_ShortGrass(objEvent, flags);
     GetGroundEffectFlags_HotSprings(objEvent, flags);
     GetGroundEffectFlags_Seaweed(objEvent, flags);
     GetGroundEffectFlags_JumpLanding(objEvent, flags);
+    GetGroundEffectFlags_WalkWaterfall(objEvent, flags);
 }
 
 static void ObjectEventUpdateMetatileBehaviors(struct ObjectEvent *objEvent)
@@ -9880,6 +9885,23 @@ static void GetGroundEffectFlags_Seaweed(struct ObjectEvent *objEvent, u32 *flag
 {
     if (MetatileBehavior_IsSeaweed(objEvent->currentMetatileBehavior))
         *flags |= GROUND_EFFECT_FLAG_SEAWEED;
+}
+
+static void GetGroundEffectFlags_WalkWaterfall(struct ObjectEvent *objEvent, u32 *flags)
+{
+    if (MetatileBehavior_IsWalkWaterfall(objEvent->currentMetatileBehavior))
+    {
+        if (!objEvent->inSandPile)
+        {
+            objEvent->inSandPile = FALSE;
+            objEvent->inSandPile = TRUE;
+            *flags |= GROUND_EFFECT_FLAG_WALK_WATERFALL;
+        }
+    }
+    else
+    {
+        objEvent->inSandPile = FALSE;
+    }
 }
 
 static void GetGroundEffectFlags_JumpLanding(struct ObjectEvent *objEvent, u32 *flags)
@@ -10454,6 +10476,11 @@ void GroundEffect_Seaweed(struct ObjectEvent *objEvent, struct Sprite *sprite)
     FieldEffectStart(FLDEFF_BUBBLES);
 }
 
+void GroundEffect_WalkWaterfall(struct ObjectEvent *objEvent, struct Sprite *sprite)
+{
+    StartFieldEffectForObjectEvent(FLDEFF_WATERFALL_SPLASH, objEvent);
+}
+
 static void (*const sGroundEffectFuncs[])(struct ObjectEvent *objEvent, struct Sprite *sprite) = {
     GroundEffect_SpawnOnTallGrass,      // GROUND_EFFECT_FLAG_TALL_GRASS_ON_SPAWN
     GroundEffect_StepOnTallGrass,       // GROUND_EFFECT_FLAG_TALL_GRASS_ON_MOVE
@@ -10474,7 +10501,8 @@ static void (*const sGroundEffectFuncs[])(struct ObjectEvent *objEvent, struct S
     GroundEffect_JumpLandingDust,       // GROUND_EFFECT_FLAG_LAND_ON_NORMAL_GROUND
     GroundEffect_ShortGrass,            // GROUND_EFFECT_FLAG_SHORT_GRASS
     GroundEffect_HotSprings,            // GROUND_EFFECT_FLAG_HOT_SPRINGS
-    GroundEffect_Seaweed                // GROUND_EFFECT_FLAG_SEAWEED
+    GroundEffect_Seaweed,               // GROUND_EFFECT_FLAG_SEAWEED
+    GroundEffect_WalkWaterfall          // GROUND_EFFECT_FLAG_WALK_WATERFALL
 };
 
 static void DoFlaggedGroundEffects(struct ObjectEvent *objEvent, struct Sprite *sprite, u32 flags)
@@ -10486,7 +10514,7 @@ static void DoFlaggedGroundEffects(struct ObjectEvent *objEvent, struct Sprite *
     for (i = 0; i < ARRAY_COUNT(sGroundEffectFuncs); i++, flags >>= 1)
         if (flags & 1)
             sGroundEffectFuncs[i](objEvent, sprite);
-    if (!OW_OBJECT_VANILLA_SHADOWS && CurrentMapHasShadows() && !(gWeatherPtr->noShadows || objEvent->inHotSprings || objEvent->inSandPile || MetatileBehavior_IsPuddle(objEvent->currentMetatileBehavior)))
+    if (!OW_OBJECT_VANILLA_SHADOWS && CurrentMapHasShadows() && !(gWeatherPtr->noShadows || objEvent->inHotSprings || MetatileBehavior_IsPuddle(objEvent->currentMetatileBehavior)))
     {
         SetUpShadow(objEvent);
     }

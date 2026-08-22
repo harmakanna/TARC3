@@ -89,6 +89,7 @@ gFieldEffectScriptPointers::
 	.4byte gFldEffScript_PhotoFlash      		        @ FLDEFF_PHOTO_FLASH
 	.4byte gFieldEffectScript_OWE_SpawnAnim				@ FLDEFF_OW_ENCOUNTER_SPAWN_ANIM
 	.4byte gFieldEffectScript_QuestIcon					@ FLDEFF_QUEST_ICON
+	.4byte gFieldEffectScript_WaterfallSplash			@ FLDEFF_WATERFALL_SPLASH
 
 gFieldEffectScript_ExclamationMarkIcon1::
 	field_eff_callnative FldEff_ExclamationMarkIcon
@@ -160,6 +161,10 @@ gFieldEffectScript_Splash::
 
 gFieldEffectScript_JumpSmallSplash::
 	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect0, FldEff_JumpSmallSplash
+	field_eff_end
+
+gFieldEffectScript_WaterfallSplash::
+	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect0, FldEff_WaterfallSplash
 	field_eff_end
 
 gFieldEffectScript_LongGrass::

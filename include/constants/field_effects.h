@@ -85,6 +85,7 @@
 #define FLDEFF_PHOTO_FLASH               80
 #define FLDEFF_OW_ENCOUNTER_SPAWN_ANIM   81
 #define FLDEFF_QUEST_ICON                82
+#define FLDEFF_WATERFALL_SPLASH          83
 
 #define FLDEFFOBJ_SHADOW_S              0
 #define FLDEFFOBJ_SHADOW_M              1
@@ -132,6 +133,7 @@
 #define FLDEFFOBJ_ORAS_DOWSE_BRENDAN    43
 #define FLDEFFOBJ_ORAS_DOWSE_MAY        44
 #define FLDEFFOBJ_SHINY_SPARKLE         45
+#define FLDEFFOBJ_WATERFALL_SPLASH      46
 
 #define FLDEFF_PAL_TAG_CUT_GRASS          0x1000
 #define FLDEFF_PAL_TAG_SECRET_POWER_TREE  0x1003
