@@ -73,13 +73,6 @@
       "elevation": 0,
       "dest_map": "MAP_VIRTUAL_CITY_HOTEL_FRIEND_ROOM",
       "dest_warp_id": "VirtualCity_Beach_Exit"
-    },
-    {
-      "x": 17,
-      "y": 20,
-      "elevation": 0,
-      "dest_map": "MAP_VIRTUAL_CITY_OUTSIDE1",
-      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],
