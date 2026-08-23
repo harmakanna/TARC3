@@ -1,3 +1,5 @@
+@ Speak Macro 
+
 LastTalkedWalkInPlaceNorth::
 	applymovement VAR_0x8000, FastWalkInPlaceNorth
 	return
@@ -29,3 +31,35 @@ FastWalkInPlaceEast::
 FastWalkInPlaceWest::
 	walk_in_place_faster_left
 	step_end
+
+@ Comms Tower Door Handlers
+
+EventScript_OpenDoor::
+	playfanfare MUS_LEVEL_UP
+	msgbox Text_WelcomeBackExecutive
+	waitfanfare
+	call_if_eq VAR_TEMP_1, 1, EventScript_OpenComms1FDoor
+	call_if_eq VAR_TEMP_1, 2, EventScript_OpenComms2FDoor
+	call_if_eq VAR_TEMP_1, 3, EventScript_OpenComms3FDoor
+	call_if_eq VAR_TEMP_1, 4, EventScript_OpenComms4FDoor
+	waitse
+	playse SE_UNLOCK
+	special DrawWholeMapView
+	waitse
+	special SetHiddenItemFlag
+	releaseall
+	end
+
+EventScript_DoorUnlocked::
+	msgbox Text_TheDoorIsOpen
+	releaseall
+	end
+
+Text_WelcomeBackExecutive::
+	.string "Identity verified.\n"
+	.string "Welcome back, Byron.$"
+	
+Text_TheDoorIsOpen::
+	.string "The door is open.$"
+
+@ Etc

@@ -29,7 +29,12 @@
     "VirtualCity_Superstore_3F",
     "VirtualCity_Superstore_4F",
     "VirtualCity_Superstore_5F",
-    "VirtualCity_Hotel_FriendRoom"
+    "VirtualCity_Hotel_FriendRoom",
+    "VirtualCity_CommsTower_1F",
+    "VirtualCity_CommsTower_2F",
+    "VirtualCity_CommsTower_3F",
+    "VirtualCity_CommsTower_4F",
+    "VirtualCity_CommsTower_TopF"
   ],
   "gMapGroup_OutsideWorld": [
     "OutsideWorld",
