@@ -36,6 +36,8 @@
 #include "constants/songs.h"
 #include "constants/trainer_types.h"
 
+#include "tarc_misc.h"
+
 #define NUM_FORCED_MOVEMENTS 22
 #define NUM_ACRO_BIKE_COLLISIONS 5
 
@@ -1574,7 +1576,10 @@ u16 GetRivalAvatarGraphicsIdByStateIdAndGender(u8 state, enum Gender gender)
 
 u16 GetPlayerAvatarGraphicsIdByStateIdAndGender(u8 state, enum Gender gender)
 {
-    return sPlayerAvatarGfxIds[state][gender];
+    if (IsInVirtualWorld())
+        return OBJ_EVENT_GFX_DIGITAL_SOPHIE;
+    else
+         return sPlayerAvatarGfxIds[state][FEMALE];
 }
 
 u16 GetFRLGAvatarGraphicsIdByGender(enum Gender gender)
