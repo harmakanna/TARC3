@@ -1032,6 +1032,46 @@ void UpdateHotSpringsWaterFieldEffect(struct Sprite *sprite)
     }
 }
 
+void UpdateWaterfallSplashFieldEffect(struct Sprite *sprite)
+{
+    u8 objectEventId;
+
+    if (TryGetObjectEventIdByLocalIdAndMap(sprite->sLocalId, sprite->sMapNum, sprite->sMapGroup, &objectEventId) || !gObjectEvents[objectEventId].inSandPile)
+    {
+        FieldEffectStop(sprite, FLDEFF_WATERFALL_SPLASH);
+    }
+    else
+    {
+        s16 parentY = gSprites[gObjectEvents[objectEventId].spriteId].y;
+        s16 parentX = gSprites[gObjectEvents[objectEventId].spriteId].x;
+        sprite->x = parentX;
+        sprite->y = parentY - 5;
+        if (sprite->animEnded)
+            StartSpriteAnim(sprite, 0);
+        sprite->subpriority = gSprites[gObjectEvents[objectEventId].spriteId].subpriority;
+        UpdateObjectEventSpriteInvisibility(sprite, FALSE);
+    }
+}
+
+u32 FldEff_WaterfallSplash(void)
+{
+    u8 objectEventId = GetObjectEventIdByLocalIdAndMap(gFieldEffectArguments[0], gFieldEffectArguments[1], gFieldEffectArguments[2]);
+    struct ObjectEvent *objectEvent = &gObjectEvents[objectEventId];
+    u8 spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_WATERFALL_SPLASH], 0, 0, 0);
+    if (spriteId != MAX_SPRITES)
+    {
+        struct Sprite *sprite = &gSprites[spriteId];
+        sprite->coordOffsetEnabled = TRUE;
+        sprite->oam.priority = 1;
+        sprite->sLocalId = gFieldEffectArguments[0];
+        sprite->sMapNum = gFieldEffectArguments[1];
+        sprite->sMapGroup = gFieldEffectArguments[2];
+
+    }
+    return 0;
+}
+
+
 #undef sLocalId
 #undef sMapNum
 #undef sMapGroup
