@@ -469,6 +469,9 @@ const u16 gTrainerPalette_LadyFrlg[] = INCGFX_U16("graphics/trainers/palettes/la
 const u32 gTrainerFrontPic_PainterFrlg[] = INCGFX_U32("graphics/trainers/front_pics/painter_frlg.png", ".4bpp.smol");
 const u16 gTrainerPalette_PainterFrlg[] = INCGFX_U16("graphics/trainers/palettes/painter_frlg.pal", ".gbapal");
 
+const u32 gTrainerFrontPic_DigitalSophie[] = INCGFX_U32("graphics/trainers/front_pics/digital_sophie.png", ".4bpp.smol");
+const u16 gTrainerPalette_DigitalSophie[] = INCGFX_U16("graphics/trainers/palettes/digital_sophie.pal", ".gbapal");
+
 static const u8 gTrainerBackPic_None[] = INCGFX_U8("graphics/trainers/back_pics/none.png", ".4bpp");
 const u8 gTrainerBackPic_Brendan[] = INCGFX_U8("graphics/trainers/back_pics/brendan.png", ".4bpp");
 const u8 gTrainerBackPic_May[] = INCGFX_U8("graphics/trainers/back_pics/may.png", ".4bpp");
@@ -486,6 +489,7 @@ const u16 gTrainerBackPicPalette_Leaf[] = INCGFX_U16("graphics/trainers/back_pic
 const u16 gTrainerBackPicPalette_Pokedude[] = INCGFX_U16("graphics/trainers/back_pics/pokedude.png", ".gbapal");
 const u16 gTrainerBackPicPalette_OldMan[] = INCGFX_U16("graphics/trainers/back_pics/old_man.png", ".gbapal");
 
+const u8 gTrainerBackPic_DigitalSophie[] = INCGFX_U8("graphics/trainers/back_pics/digital_sophie.png", ".4bpp");
 
 static const union AnimCmd sAnimCmd_Hoenn[] =
 {
@@ -598,7 +602,7 @@ const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
     [TRAINER_PIC_MAY] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_May, gTrainerPalette_May),
-        .backPic = TRAINER_BACK_PIC(4, gTrainerBackPic_May, gTrainerPalette_May, sBackAnims_Hoenn),
+        .backPic = TRAINER_BACK_PIC(4, gTrainerBackPic_May, gTrainerPalette_May, sBackAnims_OldManPokedude),
     },
     [TRAINER_PIC_RED] =
     {
@@ -1225,5 +1229,10 @@ const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
     [TRAINER_PIC_PAINTER_FRLG] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_PainterFrlg, gTrainerPalette_PainterFrlg),
+    },
+    [TRAINER_PIC_DIGITAL_SOPHIE] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_DigitalSophie, gTrainerPalette_DigitalSophie),
+        .backPic = TRAINER_BACK_PIC(4, gTrainerBackPic_DigitalSophie, gTrainerPalette_DigitalSophie, sBackAnims_OldManPokedude),
     },
 };
