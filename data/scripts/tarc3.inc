@@ -16,19 +16,19 @@ LastTalkedWalkInPlaceWest::
 	applymovement VAR_0x8000, FastWalkInPlaceWest
 	return
 
-FastWalkInPlaceNorth::
+FastWalkInPlaceNorth:
 	walk_in_place_faster_up
 	step_end
 
-FastWalkInPlaceSouth::
+FastWalkInPlaceSouth:
 	walk_in_place_faster_down
 	step_end
 
-FastWalkInPlaceEast::
+FastWalkInPlaceEast:
 	walk_in_place_faster_right
 	step_end
 
-FastWalkInPlaceWest::
+FastWalkInPlaceWest:
 	walk_in_place_faster_left
 	step_end
 
