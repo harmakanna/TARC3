@@ -75,6 +75,8 @@
 #include "constants/union_room.h"
 #include "constants/weather.h"
 
+#include "tarc_misc.h"
+
 extern u16 gSpecialVar_ItemId;
 
 #define FRIENDSHIP_EVO_THRESHOLD ((P_FRIENDSHIP_EVO_THRESHOLD >= GEN_8) ? 160 : 220)
@@ -999,7 +1001,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, enum Species species, u8 level, u32
     StringCopy(speciesName, GetSpeciesName(species));
     SetBoxMonData(boxMon, MON_DATA_NICKNAME, speciesName);
     SetBoxMonData(boxMon, MON_DATA_LANGUAGE, &gGameLanguage);
-    SetBoxMonData(boxMon, MON_DATA_OT_NAME, gSaveBlock2Ptr->playerName);
+    SetBoxMonData(boxMon, MON_DATA_OT_NAME, gDigitalSophieName);
     SetBoxMonData(boxMon, MON_DATA_SPECIES, &species);
     SetBoxMonData(boxMon, MON_DATA_EXP, &gExperienceTables[gSpeciesInfo[species].growthRate][level]);
     SetBoxMonData(boxMon, MON_DATA_FRIENDSHIP, &gSpeciesInfo[species].friendship);
@@ -1009,7 +1011,8 @@ void CreateBoxMon(struct BoxPokemon *boxMon, enum Species species, u8 level, u32
     SetBoxMonData(boxMon, MON_DATA_MET_GAME, &gGameVersion);
     value = BALL_POKE;
     SetBoxMonData(boxMon, MON_DATA_POKEBALL, &value);
-    SetBoxMonData(boxMon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
+    enum Gender gender = FEMALE;
+    SetBoxMonData(boxMon, MON_DATA_OT_GENDER, &gender);
     value = boxMon->personality & 0xFF;
     SetBoxMonData(boxMon, MON_DATA_GENDER, &value);
 
@@ -2973,8 +2976,9 @@ u8 GiveCapturedMonToPlayer(struct Pokemon *mon)
 {
     s32 i;
 
-    SetMonData(mon, MON_DATA_OT_NAME, gSaveBlock2Ptr->playerName);
-    SetMonData(mon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
+    enum Gender gender = FEMALE;
+    SetMonData(mon, MON_DATA_OT_NAME, gDigitalSophieName);
+    SetMonData(mon, MON_DATA_OT_GENDER, &gender);
     SetMonData(mon, MON_DATA_OT_ID, gSaveBlock2Ptr->playerTrainerId);
 
     for (i = 0; i < PARTY_SIZE; i++)
@@ -5481,7 +5485,7 @@ bool8 IsOtherTrainer(u32 otId, u8 *otName)
     {
         int i;
         for (i = 0; otName[i] != EOS; i++)
-            if (otName[i] != gSaveBlock2Ptr->playerName[i])
+            if (otName[i] != gDigitalSophieName[i])
                 return TRUE;
         return FALSE;
     }
