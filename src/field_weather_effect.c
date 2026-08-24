@@ -2735,6 +2735,7 @@ void CommonLeaves_InitVars(void)
     gWeatherPtr->targetLeafSpriteCount = NUM_SNOWFLAKE_SPRITES;
     gWeatherPtr->leafVisibleCounter = 0;
     gWeatherPtr->noShadows = FALSE;
+    Weather_SetBlendCoeffs(8, BASE_SHADOW_INTENSITY); // preserve shadow darkness
 }
 
 static bool8 UpdateVisibleLeafSprites(const u16 *palette)
