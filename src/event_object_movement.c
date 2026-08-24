@@ -9825,7 +9825,8 @@ static void GetGroundEffectFlags_ShallowFlowingWater(struct ObjectEvent *objEven
     if ((MetatileBehavior_IsShallowFlowingWater(objEvent->currentMetatileBehavior)
          && MetatileBehavior_IsShallowFlowingWater(objEvent->previousMetatileBehavior))
         || (MetatileBehavior_IsPacifidlogLog(objEvent->currentMetatileBehavior)
-            && MetatileBehavior_IsPacifidlogLog(objEvent->previousMetatileBehavior)))
+            && MetatileBehavior_IsPacifidlogLog(objEvent->previousMetatileBehavior))
+        || (MetatileBehavior_IsWalkWaterfall(objEvent->previousMetatileBehavior)))
     {
         if (!objEvent->inShallowFlowingWater)
         {

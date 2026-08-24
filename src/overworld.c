@@ -1146,6 +1146,18 @@ static u8 UNUSED GetObjectEventLoadFlag(void)
     return sObjectEventLoadFlag;
 }
 
+static bool16 IsSpoofingExecutive(struct WarpData *warp)
+{
+    //If the player isn't spoofing Byron, then the music will not play.
+    if(!FlagGet(FLAG_SPOOFING_EXECUTIVE))
+        return FALSE;
+    //Since we already checked for if the player is spoofing Byron, only play the music if
+    //they're in the Virtual City.
+    else if(warp->mapGroup != MAP_GROUP(MAP_VIRTUAL_CITY_OUTSIDE1))
+        return FALSE;
+    return TRUE;
+}
+
 static bool16 ShouldLegendaryMusicPlayAtLocation(struct WarpData *warp)
 {
     if (!FlagGet(FLAG_SYS_WEATHER_CTRL))
@@ -1220,7 +1232,9 @@ static bool16 IsInfiltratedSpaceCenter(struct WarpData *warp)
 
 u16 GetLocationMusic(struct WarpData *warp)
 {
-    if (NoMusicInSootopolisWithLegendaries(warp) == TRUE)
+    if (IsSpoofingExecutive(warp) == TRUE)
+        return MUS_BW12_187;
+    else if (NoMusicInSootopolisWithLegendaries(warp) == TRUE)
         return MUS_NONE;
     else if (ShouldLegendaryMusicPlayAtLocation(warp) == TRUE)
         return MUS_ABNORMAL_WEATHER;

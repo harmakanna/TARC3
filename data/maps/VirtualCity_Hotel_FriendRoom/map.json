@@ -21,7 +21,7 @@
       "y": 4,
       "elevation": 0,
       "dest_map": "MAP_VIRTUAL_CITY_OUTSIDE1",
-      "dest_warp_id": "VirtualCity_Beach_Entrance"
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

@@ -2,7 +2,7 @@
   "id": "MAP_VIRTUAL_CITY_COMMS_TOWER_TOP_F",
   "name": "VirtualCity_CommsTower_TopF",
   "layout": "LAYOUT_VIRTUAL_CITY_COMMS_TOWER_TOP_F",
-  "music": "MUS_DUMMY",
+  "music": "MUS_BW12_187",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -14,8 +14,26 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "warp_id": "VirtualCity_CommsTower_TopF_Elevator",
+      "x": 2,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_COMMS_TOWER_4F",
+      "dest_warp_id": "VirtualCity_CommsTower_4F_Elevator"
+    }
+  ],
   "coord_events": [],
-  "bg_events": [],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 4,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
+      "script": "VirtualCity_CommsTower_TopF_EventScript_HackRotomPhone"
+    }
+  ],
   "floor_number": 5
 }

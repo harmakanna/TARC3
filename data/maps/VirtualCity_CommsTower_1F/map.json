@@ -2,7 +2,7 @@
   "id": "MAP_VIRTUAL_CITY_COMMS_TOWER_1F",
   "name": "VirtualCity_CommsTower_1F",
   "layout": "LAYOUT_VIRTUAL_CITY_COMMS_TOWER_1F",
-  "music": "MUS_DUMMY",
+  "music": "MUS_BW12_073",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -14,7 +14,24 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "warp_id": "VirtualCity_CommsTower_Exit",
+      "x": 5,
+      "y": 11,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_OUTSIDE1",
+      "dest_warp_id": "VirtualCity_CommsTower_Entrance"
+    },
+    {
+      "warp_id": "VirtualCity_CommsTower_Up_2F",
+      "x": 11,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_COMMS_TOWER_2F",
+      "dest_warp_id": "VirtualCity_CommsTower_Down_1F"
+    }
+  ],
   "coord_events": [],
   "bg_events": [
     {
