@@ -15,7 +15,7 @@ VirtualCity_Hotel_YourRoom_Text_ResolutionTalk2Ernest::
 	.string "But what can we even do?$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk3Harriet::
-	.string "Corpo will just censor us, or worse,\n"
+	.string "BETTER will just censor us, or worse,\n"
 	.string "if we try to tell people.$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk4Sophie::
@@ -80,15 +80,50 @@ VirtualCity_Hotel_YourRoom_Text_ResolutionTalk16Ernest::
 	.string "But it might be… possible.$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk17Harriet::
-	.string "We'd need one of the execs' cards to$"
+	.string "We'd need one of the execs' cards to\n"
 	.string "credentials to access the system.$"
 
-VirtualCity_Hotel_YourRoom_Text_ResolutionTalk12Minh::
-	.string "If we can figure out a plan, I'm in.$"
+VirtualCity_Hotel_YourRoom_Text_ResolutionTalk18Ernest::
+	.string "And then you'd need to impersonate…\n"
+	.string "the exec to get into the tower.$"
 
-VirtualCity_Hotel_YourRoom_Text_ResolutionTalk13Harriet::
-	.string "I doubt we'll be able to do much,\n"
-	.string "but I'll help if I can.$"
+VirtualCity_Hotel_YourRoom_Text_ResolutionTalk19Minh::
+	.string "Harriet, isn't that cheater exec still\n"
+	.string "the BETTER champion?$"
+
+VirtualCity_Hotel_YourRoom_Text_ResolutionTalk20Harriet::
+	.string "Uh, yeah… no one's ever been able to\n"
+	.string "cheat hard enough to beat him.$"
+
+VirtualCity_Hotel_YourRoom_Text_ResolutionTalk21Harriet::
+	.string "That'll be our exec, then!\n"
+	.string "I'll get his ID when I battle him.$"
+
+VirtualCity_Hotel_YourRoom_Text_ResolutionTalk22Ernest::
+	.string "She's in one of those moods again…\p"
+	.string "Oh well, I've always wanted to hack into\n"
+	.string "something wildly dangerous.$"
+
+VirtualCity_Hotel_YourRoom_Text_ResolutionTalk19Minh::
+	.string "I like this plan…\p"
+	.string "Maybe I can help you find more\n"
+	.string "Pokemon to battle with?$"
+
+VirtualCity_Hotel_YourRoom_Text_ResolutionTalk20Harriet::
+	.string "Which leaves me to scout out your\n"
+	.string "opponents. I can handle that.\p"
+	.string "And you'll do the battling. None of us\n"
+	.string "know the meta like you do, Sophie.$"
+
+VirtualCity_Hotel_YourRoom_Text_ResolutionTalk21Sophie::
+	.string "I can beat him.\p"
+	.string "I can modify the team between battles,\n"
+	.string "adapt to him. No one else can do that.$"
+
+VirtualCity_Hotel_YourRoom_Text_ResolutionTalk22Harriet::
+	.string "That's the spirit. Go get ready,\n"
+	.string "and meet me at the Stadium.\p"
+	.string "Let's do this, everyone!$"
 
 
 
