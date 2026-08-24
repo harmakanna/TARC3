@@ -34,7 +34,9 @@
     "VirtualCity_CommsTower_2F",
     "VirtualCity_CommsTower_3F",
     "VirtualCity_CommsTower_4F",
-    "VirtualCity_CommsTower_TopF"
+    "VirtualCity_CommsTower_TopF",
+    "VirtualCity_Stadium_PreBattleRoom",
+    "BattleFrontier_BattleDomeCorridor"
   ],
   "gMapGroup_OutsideWorld": [
     "OutsideWorld",
@@ -480,7 +482,6 @@
     "BattleFrontier_BattleTowerMultiCorridor",
     "BattleFrontier_BattleTowerMultiBattleRoom",
     "BattleFrontier_BattleDomeLobby",
-    "BattleFrontier_BattleDomeCorridor",
     "BattleFrontier_BattleDomePreBattleRoom",
     "BattleFrontier_BattleDomeBattleRoom",
     "BattleFrontier_BattlePalaceLobby",
