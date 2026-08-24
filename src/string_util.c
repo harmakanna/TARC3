@@ -4,6 +4,8 @@
 #include "strings.h"
 #include "union_room_chat.h"
 
+#include "tarc_misc.h"
+
 EWRAM_DATA u8 gStringVar1[0x100] = {0};
 EWRAM_DATA u8 gStringVar2[0x100] = {0};
 EWRAM_DATA u8 gStringVar3[0x100] = {0};
@@ -451,7 +453,7 @@ static const u8 *ExpandPlaceholder_UnknownStringVar(void)
 
 static const u8 *ExpandPlaceholder_PlayerName(void)
 {
-    return gSaveBlock2Ptr->playerName;
+    return GetPlayerName();
 }
 
 static const u8 *ExpandPlaceholder_StringVar1(void)

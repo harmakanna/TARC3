@@ -1,6 +1,8 @@
 #include "global.h"
 #include "constants/trainers.h"
 
+#include "tarc_misc.h"
+
 static enum TrainerPicID GetEmeraldTrainerPic(enum Gender gender)
 {
     return gender == MALE ? TRAINER_PIC_BRENDAN : TRAINER_PIC_MAY;
@@ -17,6 +19,7 @@ static enum TrainerPicID GetKantoTrainerPic(enum Gender gender)
 
 enum TrainerPicID GetPlayerTrainerPic(enum Gender gender, enum GameVersion version)
 {
+    /*
     switch (version)
     {
         case VERSION_SAPPHIRE:
@@ -29,4 +32,9 @@ enum TrainerPicID GetPlayerTrainerPic(enum Gender gender, enum GameVersion versi
         default:
             return GetEmeraldTrainerPic(gender);
     }
+    */
+    if (IsInVirtualWorld())
+        return TRAINER_PIC_DIGITAL_SOPHIE;
+    else
+        return TRAINER_PIC_MAY;
 }
