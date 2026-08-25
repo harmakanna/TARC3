@@ -2996,6 +2996,7 @@ void SpawnObjectEventsOnReturnToField(s16 x, s16 y)
         if (gObjectEvents[i].active)
             SpawnObjectEventOnReturnToField(i, x, y);
     }
+    SetSpoofedIdentityAvatar();
     CreateReflectionEffectSprites();
     TrySpawnLightSprites(x, y);
 }
@@ -3400,6 +3401,13 @@ void PatchObjectPaletteRange(const u16 *paletteTags, u8 minSlot, u8 maxSlot)
         paletteTags++;
         minSlot++;
     }
+}
+
+void UpdatePlayerPalette(void)
+{
+    u32 i = FindObjectEventPaletteIndexByTag(OBJ_EVENT_PAL_TAG_DIGITAL_SOPHIE);
+    if (i != 0xFF)
+        UpdateSpritePalette(&sObjectEventSpritePalettes[i], &gSprites[gPlayerAvatar.spriteId]);
 }
 
 static u8 FindObjectEventPaletteIndexByTag(u16 tag)

@@ -1099,6 +1099,18 @@ void SetPlayerAvatarTransitionFlags(u16 transitionFlags)
     gPlayerAvatar.transitionFlags |= transitionFlags;
     DoPlayerAvatarTransition();
 }
+#include "palette.h"
+
+void UpdateSpoofedPalette(void)
+{
+    if (!IsInVirtualWorld())
+        return;
+    if (FlagGet(FLAG_SPOOFING_EXECUTIVE))
+    {
+        TintPalette_GrayScale2(&gPlttBufferUnfaded[OBJ_PLTT_ID(gSprites[gPlayerAvatar.spriteId].oam.paletteNum)], 16);
+        TintPalette_GrayScale2(&gPlttBufferFaded[OBJ_PLTT_ID(gSprites[gPlayerAvatar.spriteId].oam.paletteNum)], 16);
+    }
+}
 
 static void DoPlayerAvatarTransition(void)
 {
@@ -1110,7 +1122,10 @@ static void DoPlayerAvatarTransition(void)
         for (i = 0; i < ARRAY_COUNT(sPlayerAvatarTransitionFuncs); i++, flags >>= 1)
         {
             if (flags & 1)
+            {
                 sPlayerAvatarTransitionFuncs[i](&gObjectEvents[gPlayerAvatar.objectEventId]);
+                UpdateSpoofedPalette();
+            }
         }
         gPlayerAvatar.transitionFlags = 0;
     }
@@ -1706,6 +1721,15 @@ void SetPlayerAvatarExtraStateTransition(u16 graphicsId, u8 transitionFlag)
     DoPlayerAvatarTransition();
 }
 
+void SetSpoofedIdentityAvatar()
+{
+    if (!IsInVirtualWorld())
+        return;
+    u32 matrixNum = AllocOamMatrix();
+    gPlayerAvatar.matrixNum = matrixNum;
+    UpdateSpoofedPalette();
+}
+
 void InitPlayerAvatar(s16 x, s16 y, enum Direction direction, enum Gender gender)
 {
     struct ObjectEventTemplate playerObjEventTemplate;
@@ -1729,6 +1753,7 @@ void InitPlayerAvatar(s16 x, s16 y, enum Direction direction, enum Gender gender
     objectEvent->isPlayer = TRUE;
     objectEvent->warpArrowSpriteId = CreateWarpArrowSprite();
     ObjectEventTurn(objectEvent, direction);
+    SetSpoofedIdentityAvatar();
     ClearPlayerAvatarInfo();
     gPlayerAvatar.runningState = NOT_MOVING;
     gPlayerAvatar.tileTransitionState = T_NOT_MOVING;
