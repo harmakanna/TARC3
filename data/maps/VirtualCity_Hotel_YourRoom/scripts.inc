@@ -49,21 +49,6 @@ VirtualCity_Hotel_YourRoom_Text_ResolutionTalk10Sophie::
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk11Sophie::
 	.string "But maybe we can do something.\n"
 	.string "Something small.\p"
-<<<<<<< HEAD
-	.string "We're all very good at what we do…\p"
-	.string "If you three are in, I bet we could do$"
-	.string "something to expose this.$"
-
-VirtualCity_Hotel_YourRoom_Text_ResolutionTalk12Minh::
-	.string "If we can figure out a plan, I'm in.\p"
-	.string "How many Lolas are out there?$"
-
-VirtualCity_Hotel_YourRoom_Text_ResolutionTalk13Harriet::
-	.string "I doubt we'll be able to do much,\n"
-	.string "but I'll help if I can.$"
-
-VirtualCity_Hotel_YourRoom_Text_ResolutionTalk14Ernest::
-=======
 	.string "If we can just… expose this scam,\n"
 	.string "maybe people will stop buying them.\p"
 	.string "And maybe… people will demand to know.\n"
@@ -71,16 +56,11 @@ VirtualCity_Hotel_YourRoom_Text_ResolutionTalk14Ernest::
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk12Ernest::
 	.string "But… how?\n"
->>>>>>> d1459f1521102ab00a7b6d7e24e4b34414ed9a31
 	.string "It would have to be anonymous…\p"
 	.string "Where could we put a message that\n"
 	.string "everyone could see, that couldn't be\l"
 	.string "traced back to us?$"
 
-<<<<<<< HEAD
-
-@@
-=======
 @@ BING!
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk13Minh::
@@ -119,4 +99,3 @@ VirtualCity_Hotel_YourRoom_Text_ResolutionTalk13Harriet::
 
 
 
->>>>>>> d1459f1521102ab00a7b6d7e24e4b34414ed9a31

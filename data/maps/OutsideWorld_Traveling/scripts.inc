@@ -23,12 +23,6 @@ OutsideWorld_Traveling_Text_IntroTalk3Minh::
 OutsideWorld_Traveling_Text_IntroTalk4Sophie::
 	.string "You're so lucky...$"
 
-<<<<<<< HEAD
-OutsideWorld_Traveling_Text_IntroTalk5::
-	.string "Lola's the lucky one. I hope she\n"
-	.string "lets us play with it!$"
-=======
 OutsideWorld_Traveling_Text_IntroTalk5Minh::
 	.string "Lola's the lucky one. And we all\n"
 	.string "get to be aunts and uncles!$"
->>>>>>> d1459f1521102ab00a7b6d7e24e4b34414ed9a31

@@ -11,13 +11,8 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk2Harriet::
 	.string "been waiting for so long!$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk3Ernest::
-<<<<<<< HEAD
-	.string "To be fair, she's been waiting for\n"
-	.string "twenty-two years.$"
-=======
 	.string "To be fair… she's been waiting…\n"
 	.string "for twenty-two… years.$"
->>>>>>> d1459f1521102ab00a7b6d7e24e4b34414ed9a31
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk4Lola::
 	.string "…\p"
@@ -43,11 +38,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk7Harriet::
 	.string "Whoa, his fur! It feels like a blanket!$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk8Ernest::
-<<<<<<< HEAD
-	.string "What's his name, Lola?$"
-=======
 	.string "What's… his name, Lola?$"
->>>>>>> d1459f1521102ab00a7b6d7e24e4b34414ed9a31
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk9Lola::
 	.string "Dreams. Dreams the Snubbull.$"
