@@ -5,7 +5,6 @@ VirtualCity_TestingRoomIntro_MapScripts::
 
 VirtualCity_TestingRoomIntro_OnTransition:
 	goto_if_set FLAG_SYS_B_DASH, VirtualCity_TestingRoomIntro_Eventscript_NotFirstLoad
-	@fadescreenspeed FADE_TO_BLACK, 0
 	setvar VAR_PETALBURG_CITY_STATE, 1
 	end
 
@@ -26,6 +25,7 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	setflag FLAG_SYS_B_DASH
 	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_SYS_NATIONAL_DEX
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
 	@@more setflags TOFOLD, set healing place, etc. etc.
 
 	removeobject LOCALID_BALL
@@ -36,6 +36,7 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro01, Speaker_Minh, DIR_SOUTH
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro02, Speaker_Sophie, DIR_NORTH
+	applymovement LOCALID_MINH, Common_Movement_ExclamationMark
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro03, Speaker_Minh, DIR_SOUTH
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro04, Speaker_Sophie, DIR_NORTH
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro05, Speaker_Minh, DIR_SOUTH
