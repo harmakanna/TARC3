@@ -1,5 +1,5 @@
 #include "constants/battle.h"
-#define MAX_QUANTAS_PER_ACTION 10
+#define MAX_QUANTAS_PER_ACTION 12
 
 extern EWRAM_DATA struct QuantaBehavior gUpcomingQuanta[MAX_BATTLERS_COUNT][MAX_QUANTAS_PER_ACTION];
 

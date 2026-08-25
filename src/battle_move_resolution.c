@@ -14,6 +14,8 @@
 #include "move.h"
 #include "constants/battle_move_resolution.h"
 
+#include "battle_quanta.h"
+
 static void ValidateBattlers(void);
 static enum Move GetOriginallyUsedMove(enum Move chosenMove);
 static void SetSameMoveTurnValues(enum BattleMoveEffects moveEffect);
@@ -1241,12 +1243,15 @@ static enum CancelerResult CancelerMoveFailure(struct BattleCalcValues *cv)
         break;
     case EFFECT_PROTECT:
     case EFFECT_ENDURE:
-        TryResetConsecutiveUseCounter(cv->battlerAtk);
-        if (IsLastMonToMove(cv->battlerAtk))
+        if (!InQuantaMode())
         {
-            battleScript = BattleScript_ButItFailed;
+            TryResetConsecutiveUseCounter(cv->battlerAtk);
+            if (IsLastMonToMove(cv->battlerAtk))
+            {
+                battleScript = BattleScript_ButItFailed;
+            }
         }
-        else
+        if (battleScript == NULL)
         {
             enum ProtectMethod protectMethod = GetMoveProtectMethod(cv->move);
             bool32 canUseProtectSecondTime = CanUseMoveConsecutively(cv->battlerAtk);
@@ -1262,6 +1267,7 @@ static enum CancelerResult CancelerMoveFailure(struct BattleCalcValues *cv)
         if (battleScript != NULL)
         {
             gBattleMons[cv->battlerAtk].volatiles.consecutiveMoveUses = 0;
+            gBattleMons[cv->battlerAtk].quantaVolatiles.consecutiveProtects = 7;
             gBattleStruct->battlerState[cv->battlerAtk].stompingTantrumTimer = 2;
         }
         break;
@@ -2390,6 +2396,8 @@ static enum CancelerResult CancelerMultihitMoves(struct BattleCalcValues *cv)
     {
         gMultiHitCounter = 0;
     }
+
+    gMultiHitCounter = 0;
 
     return CANCELER_RESULT_SUCCESS;
 }

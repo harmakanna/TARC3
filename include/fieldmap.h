@@ -2,7 +2,7 @@
 #define GUARD_FIELDMAP_H
 
 #define NUM_TILES_IN_PRIMARY_FRLG 640
-#define NUM_METATILES_IN_PRIMARY_FRLG 640
+#define NUM_METATILES_IN_PRIMARY_FRLG 2176
 #define NUM_PALS_IN_PRIMARY_FRLG 7
 
 #define NUM_TILES_IN_PRIMARY 512
@@ -15,6 +15,7 @@
 #define MAX_MAP_DATA_SIZE 10240
 
 #define NUM_TILES_PER_METATILE 12
+#define NUM_TILES_PER_METATILE_FRLG 8
 
 // Map coordinates are offset by 7 when using the map
 // buffer because it needs to load sufficient border
@@ -40,9 +41,8 @@ void GetCameraCoords(u16 *x, u16 *y);
 u8 MapGridGetCollisionAt(int x, int y);
 enum Connection GetMapBorderIdAt(int x, int y);
 bool32 CanCameraMoveInDirection(enum Direction direction);
-u32 GetAttributeByMetatileIdAndMapLayout(u16 metatile, u8 attributeType, bool32 isFrlg);
+u32 GetAttributeByMetatileIdAndMapLayout(u16 metatile, u8 attributeType);
 void GetCameraFocusCoords(u16 *x, u16 *y);
-u32 ExtractMetatileAttribute(u32 attributes, u8 attributeType, bool32 isFrlg);
 u32 MapGridGetMetatileAttributeAt(s16 x, s16 y, u8 attributeType);
 u8 MapGridGetMetatileLayerTypeAt(int x, int y);
 u8 MapGridGetElevationAt(int x, int y);

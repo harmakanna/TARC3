@@ -4,6 +4,7 @@
 #include "fieldmap.h"
 #include "fldeff.h"
 #include "task.h"
+#include "tilesets.h"
 #include "constants/metatile_labels.h"
 
 static EWRAM_DATA u8 sEscalatorAnim_TaskId = 0;
@@ -159,37 +160,66 @@ static void SetEscalatorMetatile(u8 taskId, const s16 *metatileIds, u16 metatile
     }
 }
 
+struct EscalatorGraphics
+{
+    const struct Tileset *tileset;
+    const s16 *const *metatiles;
+};
+
+static const s16 *const sEscalatorMetatilesEmerald[] =
+{
+    sEscalatorMetatiles_1F_0,
+    sEscalatorMetatiles_1F_1,
+    sEscalatorMetatiles_1F_2,
+    sEscalatorMetatiles_1F_3,
+    sEscalatorMetatiles_2F_0,
+    sEscalatorMetatiles_2F_1,
+    sEscalatorMetatiles_2F_2
+};
+
+static const s16 *const sEscalatorMetatilesFrlg[] =
+{
+    sEscalatorMetatilesFrlg_BottomNextRail,
+    sEscalatorMetatilesFrlg_BottomRail,
+    sEscalatorMetatilesFrlg_BottomNext,
+    sEscalatorMetatilesFrlg_Bottom,
+    sEscalatorMetatilesFrlg_TopNext,
+    sEscalatorMetatilesFrlg_Top,
+    sEscalatorMetatilesFrlg_TopNextRail
+};
+
+static const struct EscalatorGraphics sEscalatorGfxs[] = 
+{
+    {.tileset = &gTileset_PokemonCenter,     .metatiles = sEscalatorMetatilesEmerald},
+    {.tileset = &gTileset_PokemonCenterFrlg, .metatiles = sEscalatorMetatilesFrlg},
+    {}
+};
+
+static const s16 *const *GetEscalatormetatiles()
+{
+    u32 i = 0;
+    while (sEscalatorGfxs[i].tileset != NULL)
+    {
+        if (sEscalatorGfxs[i].tileset == gMapHeader.mapLayout->primaryTileset || sEscalatorGfxs[i].tileset == gMapHeader.mapLayout->secondaryTileset)
+            return sEscalatorGfxs[i].metatiles;
+        i++;
+    }
+    return NULL;
+}
+
 static void Task_DrawEscalator(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
 
     tDrawingEscalator = TRUE;
 
+    const s16 *const *metatiles = GetEscalatormetatiles();
     // Set tile for each section of the escalator in sequence for current transition stage
-    switch (tState)
-    {
-    case 0:
-        SetEscalatorMetatile(taskId, gMapHeader.mapLayout->isFrlg ? sEscalatorMetatilesFrlg_BottomNextRail : sEscalatorMetatiles_1F_0, 0);
-        break;
-    case 1:
-        SetEscalatorMetatile(taskId, gMapHeader.mapLayout->isFrlg ? sEscalatorMetatilesFrlg_BottomRail : sEscalatorMetatiles_1F_1, 0);
-        break;
-    case 2:
-        SetEscalatorMetatile(taskId, gMapHeader.mapLayout->isFrlg ? sEscalatorMetatilesFrlg_BottomNext : sEscalatorMetatiles_1F_2, MAPGRID_IMPASSABLE);
-        break;
-    case 3:
-        SetEscalatorMetatile(taskId, gMapHeader.mapLayout->isFrlg ? sEscalatorMetatilesFrlg_Bottom : sEscalatorMetatiles_1F_3, 0);
-        break;
-    case 4:
-        SetEscalatorMetatile(taskId, gMapHeader.mapLayout->isFrlg ? sEscalatorMetatilesFrlg_TopNext : sEscalatorMetatiles_2F_0, MAPGRID_IMPASSABLE);
-        break;
-    case 5:
-        SetEscalatorMetatile(taskId, gMapHeader.mapLayout->isFrlg ? sEscalatorMetatilesFrlg_Top : sEscalatorMetatiles_2F_1, 0);
-        break;
-    case 6:
-        SetEscalatorMetatile(taskId, gMapHeader.mapLayout->isFrlg ? sEscalatorMetatilesFrlg_TopNextRail : sEscalatorMetatiles_2F_2, 0);
-        break;
-    }
+    u16 metatileMasks = 0;
+    if (tState == 2 || tState == 4)
+        metatileMasks = MAPGRID_IMPASSABLE;
+
+    SetEscalatorMetatile(taskId, metatiles[tState], metatileMasks);
 
     tState = (tState + 1) & 7;
 

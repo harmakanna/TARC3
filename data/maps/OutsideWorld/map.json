@@ -2,11 +2,11 @@
   "id": "MAP_OUTSIDE_WORLD",
   "name": "OutsideWorld",
   "layout": "LAYOUT_OUTSIDE_WORLD",
-  "music": "MUS_DUMMY",
-  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "music": "MUS_BW12_030",
+  "region_map_section": "MAPSEC_ALTERING_CAVE",
   "requires_flash": false,
   "weather": "WEATHER_VOLCANIC_ASH",
-  "map_type": "MAP_TYPE_NONE",
+  "map_type": "MAP_TYPE_CITY",
   "allow_cycling": true,
   "allow_escaping": false,
   "allow_running": true,
@@ -16,7 +16,7 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_TRUCK",
-      "x": 2,
+      "x": 5,
       "y": 15,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -28,7 +28,16 @@
       "flag": "0"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "warp_id": "OutsideWorld_Apartment_Entrance",
+      "x": 23,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_FLOOR1",
+      "dest_warp_id": "OutsideWorld_Apartment_Exit"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }

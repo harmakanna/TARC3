@@ -2,15 +2,15 @@
   "id": "MAP_VIRTUAL_CITY_HOTEL_LOBBY",
   "name": "VirtualCity_Hotel_Lobby",
   "layout": "LAYOUT_VIRTUAL_CITY_HOTEL_LOBBY",
-  "music": "MUS_DUMMY",
+  "music": "MUS_BW12_167",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
-  "allow_running": false,
-  "show_map_name": true,
+  "allow_running": true,
+  "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
   "object_events": [
@@ -28,7 +28,32 @@
       "flag": "0"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "warp_id": "Hotel_Exit",
+      "x": 7,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_OUTSIDE1",
+      "dest_warp_id": "Hotel_Entrance"
+    },
+    {
+      "warp_id": "Hotel_YourHallway_Entrance",
+      "x": 7,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_HOTEL_YOUR_HALLWAY",
+      "dest_warp_id": "Hotel_YourHallway_Exit"
+    },
+    {
+      "warp_id": "Hotel_Stadium_Entrance",
+      "x": 1,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_STADIUM_ENTRANCE",
+      "dest_warp_id": "Hotel_Stadium_Exit"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }

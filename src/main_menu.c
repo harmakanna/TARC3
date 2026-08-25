@@ -41,6 +41,7 @@
 #include "window.h"
 #include "mystery_gift_menu.h"
 
+#include "tarc_misc.h"
 /*
  * Main menu state machine
  * -----------------------
@@ -1306,8 +1307,8 @@ static void Task_NewGameBirchSpeech_Init(u8 taskId)
     SetGpuReg(REG_OFFSET_BLDCNT, 0);
     SetGpuReg(REG_OFFSET_BLDALPHA, 0);
     SetGpuReg(REG_OFFSET_BLDY, 0);
-    gSaveBlock2Ptr->playerGender = MALE;
-    NewGameBirchSpeech_SetDefaultPlayerName(Random() % NUM_PRESET_NAMES);
+    gSaveBlock2Ptr->playerGender = FEMALE;
+    NewGameBirchSpeech_SetDefaultPlayerName(0);
 
     // DecompressDataWithHeaderVram(sBirchSpeechShadowGfx, (void *)VRAM);
     // DecompressDataWithHeaderVram(sBirchSpeechBgMap, (void *)(BG_SCREEN_ADDR(7)));
@@ -2141,13 +2142,9 @@ static s8 NewGameBirchSpeech_ProcessGenderMenuInput(void)
 
 void NewGameBirchSpeech_SetDefaultPlayerName(u8 nameId)
 {
-    const u8 *name;
+    const u8 *name = COMPOUND_STRING("__BUG__");
     u8 i;
 
-    if (gSaveBlock2Ptr->playerGender == MALE)
-        name = sMalePresetNames[nameId];
-    else
-        name = sFemalePresetNames[nameId];
     for (i = 0; i < PLAYER_NAME_LENGTH; i++)
         gSaveBlock2Ptr->playerName[i] = name[i];
     gSaveBlock2Ptr->playerName[PLAYER_NAME_LENGTH] = EOS;

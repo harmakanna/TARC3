@@ -683,6 +683,16 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_JumpSmallSplash = {
     .callback = UpdateJumpImpactEffect,
 };
 
+
+const struct SpriteTemplate gFieldEffectObjectTemplate_WaterfallSplash = {
+    .tileTag = TAG_NONE,
+    .paletteTag = FLDEFF_PAL_TAG_GENERAL_0,
+    .oam = &gObjectEventBaseOam_16x8,
+    .anims = sAnimTable_JumpSmallSplash,
+    .images = sPicTable_JumpSmallSplash,
+    .callback = UpdateWaterfallSplashFieldEffect,
+};
+
 static const struct SpriteFrameImage sPicTable_LongGrass[] = {
     overworld_frame(gFieldEffectObjectPic_LongGrass, 2, 2, 0),
     overworld_frame(gFieldEffectObjectPic_LongGrass, 2, 2, 1),

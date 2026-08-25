@@ -2,9 +2,8 @@
   "id": "MAP_BATTLE_FRONTIER_BATTLE_DOME_CORRIDOR",
   "name": "BattleFrontier_BattleDomeCorridor",
   "layout": "LAYOUT_BATTLE_FRONTIER_BATTLE_DOME_CORRIDOR",
-  "music": "MUS_B_DOME_LOBBY",
-  "region": "REGION_HOENN",
-  "region_map_section": "MAPSEC_BATTLE_FRONTIER",
+  "music": "MUS_BW12_131",
+  "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -47,5 +46,6 @@
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "region": "REGION_HOENN"
 }

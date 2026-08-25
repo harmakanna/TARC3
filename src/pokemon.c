@@ -75,6 +75,8 @@
 #include "constants/union_room.h"
 #include "constants/weather.h"
 
+#include "tarc_misc.h"
+
 extern u16 gSpecialVar_ItemId;
 
 #define FRIENDSHIP_EVO_THRESHOLD ((P_FRIENDSHIP_EVO_THRESHOLD >= GEN_8) ? 160 : 220)
@@ -999,7 +1001,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, enum Species species, u8 level, u32
     StringCopy(speciesName, GetSpeciesName(species));
     SetBoxMonData(boxMon, MON_DATA_NICKNAME, speciesName);
     SetBoxMonData(boxMon, MON_DATA_LANGUAGE, &gGameLanguage);
-    SetBoxMonData(boxMon, MON_DATA_OT_NAME, gSaveBlock2Ptr->playerName);
+    SetBoxMonData(boxMon, MON_DATA_OT_NAME, gDigitalSophieName);
     SetBoxMonData(boxMon, MON_DATA_SPECIES, &species);
     SetBoxMonData(boxMon, MON_DATA_EXP, &gExperienceTables[gSpeciesInfo[species].growthRate][level]);
     SetBoxMonData(boxMon, MON_DATA_FRIENDSHIP, &gSpeciesInfo[species].friendship);
@@ -1009,7 +1011,10 @@ void CreateBoxMon(struct BoxPokemon *boxMon, enum Species species, u8 level, u32
     SetBoxMonData(boxMon, MON_DATA_MET_GAME, &gGameVersion);
     value = BALL_POKE;
     SetBoxMonData(boxMon, MON_DATA_POKEBALL, &value);
-    SetBoxMonData(boxMon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
+    enum Gender gender = FEMALE;
+    SetBoxMonData(boxMon, MON_DATA_OT_GENDER, &gender);
+    value = boxMon->personality & 0xFF;
+    SetBoxMonData(boxMon, MON_DATA_GENDER, &value);
 
     value = boxMon->personality & 0x1;
     u32 teraType = value == 0 ? GetSpeciesType(species, 0) : GetSpeciesType(species, 1);
@@ -1829,7 +1834,7 @@ u8 GetMonGender(struct Pokemon *mon)
 u8 GetBoxMonGender(struct BoxPokemon *boxMon)
 {
     enum Species species = GetBoxMonData(boxMon, MON_DATA_SPECIES);
-    u32 personality = GetBoxMonData(boxMon, MON_DATA_PERSONALITY);
+    u32 personality = GetBoxMonData(boxMon, MON_DATA_GENDER);
 
     switch (gSpeciesInfo[species].genderRatio)
     {
@@ -1839,7 +1844,7 @@ u8 GetBoxMonGender(struct BoxPokemon *boxMon)
         return gSpeciesInfo[species].genderRatio;
     }
 
-    if (gSpeciesInfo[species].genderRatio > (personality & 0xFF))
+    if (gSpeciesInfo[species].genderRatio < personality)
         return MON_FEMALE;
     else
         return MON_MALE;
@@ -2215,22 +2220,15 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
             retVal = GetSubstruct2(boxMon)->spDefenseEV;
             break;
         case MON_DATA_COOL:
-            retVal = GetSubstruct2(boxMon)->cool;
-            break;
         case MON_DATA_BEAUTY:
-            retVal = GetSubstruct2(boxMon)->beauty;
-            break;
         case MON_DATA_CUTE:
-            retVal = GetSubstruct2(boxMon)->cute;
-            break;
         case MON_DATA_SMART:
-            retVal = GetSubstruct2(boxMon)->smart;
-            break;
         case MON_DATA_TOUGH:
-            retVal = GetSubstruct2(boxMon)->tough;
-            break;
         case MON_DATA_SHEEN:
-            retVal = GetSubstruct2(boxMon)->sheen;
+            retVal = 0;
+            break;
+        case MON_DATA_GENDER:
+            retVal = GetSubstruct2(boxMon)->gender;
             break;
         case MON_DATA_POKERUS:
             retVal = GetSubstruct3(boxMon)->pokerus;
@@ -2730,22 +2728,14 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
             SET8(GetSubstruct2(boxMon)->spDefenseEV);
             break;
         case MON_DATA_COOL:
-            SET8(GetSubstruct2(boxMon)->cool);
-            break;
         case MON_DATA_BEAUTY:
-            SET8(GetSubstruct2(boxMon)->beauty);
-            break;
         case MON_DATA_CUTE:
-            SET8(GetSubstruct2(boxMon)->cute);
-            break;
         case MON_DATA_SMART:
-            SET8(GetSubstruct2(boxMon)->smart);
-            break;
         case MON_DATA_TOUGH:
-            SET8(GetSubstruct2(boxMon)->tough);
-            break;
         case MON_DATA_SHEEN:
-            SET8(GetSubstruct2(boxMon)->sheen);
+            break;
+        case MON_DATA_GENDER:
+            SET8(GetSubstruct2(boxMon)->gender);
             break;
         case MON_DATA_POKERUS:
             SET8(GetSubstruct3(boxMon)->pokerus);
@@ -2986,8 +2976,9 @@ u8 GiveCapturedMonToPlayer(struct Pokemon *mon)
 {
     s32 i;
 
-    SetMonData(mon, MON_DATA_OT_NAME, gSaveBlock2Ptr->playerName);
-    SetMonData(mon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
+    enum Gender gender = FEMALE;
+    SetMonData(mon, MON_DATA_OT_NAME, gDigitalSophieName);
+    SetMonData(mon, MON_DATA_OT_GENDER, &gender);
     SetMonData(mon, MON_DATA_OT_ID, gSaveBlock2Ptr->playerTrainerId);
 
     for (i = 0; i < PARTY_SIZE; i++)
@@ -5218,7 +5209,7 @@ u8 GetLevelUpMovesBySpecies(enum Species species, u16 *moves)
 
 u16 SpeciesToPokedexNum(enum Species species)
 {
-    if (IsNationalPokedexEnabled())
+    if (TRUE)
     {
         return SpeciesToNationalPokedexNum(species);
     }
@@ -5494,7 +5485,7 @@ bool8 IsOtherTrainer(u32 otId, u8 *otName)
     {
         int i;
         for (i = 0; otName[i] != EOS; i++)
-            if (otName[i] != gSaveBlock2Ptr->playerName[i])
+            if (otName[i] != gDigitalSophieName[i])
                 return TRUE;
         return FALSE;
     }

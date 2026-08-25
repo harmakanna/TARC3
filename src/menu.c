@@ -27,6 +27,8 @@
 #include "window.h"
 #include "constants/songs.h"
 
+#include "tarc_misc.h"
+
 struct MenuInfoIcon
 {
     u8 width;
@@ -1898,7 +1900,7 @@ void BufferSaveMenuText(u8 textId, u8 *dest, u8 color)
     switch (textId)
     {
     case SAVE_MENU_NAME:
-        StringCopy(string, gSaveBlock2Ptr->playerName);
+        StringCopy(string, gSophieName);
         break;
     case SAVE_MENU_CAUGHT:
         if (IsNationalPokedexEnabled())

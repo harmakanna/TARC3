@@ -29,7 +29,14 @@
     "VirtualCity_Superstore_3F",
     "VirtualCity_Superstore_4F",
     "VirtualCity_Superstore_5F",
-    "VirtualCity_TestingRoomIntro"
+    "VirtualCity_Hotel_FriendRoom",
+    "VirtualCity_CommsTower_1F",
+    "VirtualCity_CommsTower_2F",
+    "VirtualCity_CommsTower_3F",
+    "VirtualCity_CommsTower_4F",
+    "VirtualCity_CommsTower_TopF",
+    "VirtualCity_Stadium_PreBattleRoom",
+    "BattleFrontier_BattleDomeCorridor"
   ],
   "gMapGroup_OutsideWorld": [
     "OutsideWorld",
@@ -40,7 +47,8 @@
     "OutsideWorld_ApartmentBldg1_Floor3",
     "OutsideWorld_ApartmentBldg1_Floor4",
     "OutsideWorld_ApartmentBldg1_YourApartment",
-    "OutsideWorld_ApartmentBldg1_YourApartment_Bedroom"
+    "OutsideWorld_ApartmentBldg1_YourApartment_Bedroom",
+    "VirtualCity_TestingRoomIntro"
   ],
   "gMapGroup_EmeraldMaps1": [
     "PetalburgCity",
@@ -386,6 +394,7 @@
     "ArtisanCave_1F"
   ],
   "gMapGroup_EmeraldMaps3": [
+    "SilphCo_1F_Frlg",
     "Underwater_MarineCave",
     "MarineCave_Entrance",
     "MarineCave_End",
@@ -473,7 +482,6 @@
     "BattleFrontier_BattleTowerMultiCorridor",
     "BattleFrontier_BattleTowerMultiBattleRoom",
     "BattleFrontier_BattleDomeLobby",
-    "BattleFrontier_BattleDomeCorridor",
     "BattleFrontier_BattleDomePreBattleRoom",
     "BattleFrontier_BattleDomeBattleRoom",
     "BattleFrontier_BattlePalaceLobby",
@@ -621,7 +629,6 @@
     "RocketHideout_B3F_Frlg",
     "RocketHideout_B4F_Frlg",
     "RocketHideout_Elevator_Frlg",
-    "SilphCo_1F_Frlg",
     "SilphCo_2F_Frlg",
     "SilphCo_3F_Frlg",
     "SilphCo_4F_Frlg",

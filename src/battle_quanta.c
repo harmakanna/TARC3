@@ -4,6 +4,7 @@
 #include "battle_scripts.h"
 #include "battle_stat_change.h"
 #include "move.h"
+#include "tarc_misc.h"
 
 extern const u8 *const gBattlescriptsForUsingItem[];
 EWRAM_DATA struct QuantaBehavior gUpcomingQuanta[MAX_BATTLERS_COUNT][MAX_QUANTAS_PER_ACTION] = {0};
@@ -11,12 +12,26 @@ static EWRAM_DATA u16 sActiveActions[MAX_BATTLERS_COUNT] = {0};
 
 bool32 InQuantaMode(void)
 {
-    return TRUE;
+    if (TESTING)
+        return FALSE;
+    return IsInVirtualWorld();
 }
+
 
 bool32 CanBattlerChooseActionThisQuanta(enum BattlerId battler)
 {
     return (gUpcomingQuanta[battler][0].type == QUANTA_TYPE_END);
+}
+
+static void BattlerEndOfQuantaMoveResolution(enum BattlerId battler)
+{
+    if (sActiveActions[battler] == MOVE_PROTECT && gBattleMons[battler].quantaVolatiles.consecutiveProtects != 7)
+    {
+        if (gBattleMons[battler].quantaVolatiles.consecutiveProtects < 3)
+            gBattleMons[battler].quantaVolatiles.consecutiveProtects++;
+    }
+    else
+        gBattleMons[battler].quantaVolatiles.consecutiveProtects = 0;
 }
 
 void AdvanceQuantaCounter(void)
@@ -27,6 +42,9 @@ void AdvanceQuantaCounter(void)
         {
             gUpcomingQuanta[i][j] = gUpcomingQuanta[i][j + 1];
         }
+
+        if (gUpcomingQuanta[i][0].type == QUANTA_TYPE_END)
+            BattlerEndOfQuantaMoveResolution(i);
     }
 }
 
@@ -38,7 +56,32 @@ const struct QuantaBehavior *GetQuantaBehavior(enum Move move)
     switch (GetMoveEffect(move))
     {
         case EFFECT_HIT:
-            return gEffectHitQuantaBehavior;
+            if (IsMultiHitMove(move))
+                return gEffectMultiHitQuantaBehavior;
+            else if (GetMoveStrikeCount(move) == 2)
+                return gEffect2HitQuantaBehavior;
+            else if (GetMoveStrikeCount(move) == 3)
+                return gEffect3HitQuantaBehavior;
+            else if (GetMovePriority(move) == 1)
+                return gEffectFastHitQuantaBehavior;
+            else if (GetMovePriority(move) == 2)
+                return gEffectFasterHitQuantaBehavior;
+            else if (IsExplosionMove(move))
+                return gEffectExplosionQuantaBehavior;
+            else
+                return gEffectHitQuantaBehavior;
+        case EFFECT_SEMI_INVULNERABLE:
+            return gEffectSemiInvulnerableQuantaBehavior;
+        case EFFECT_RECHARGE:
+            return gEffectRechargeQuantaBehavior;
+        case EFFECT_NON_VOLATILE_STATUS:
+            return gEffectNonVolatileQuantaBehavior;
+        case EFFECT_STAT_CHANGE:
+            return gEffectStatChangeQuantaBehavior;
+        case EFFECT_CONTINUOUS:
+            return gEffectContinuousQuantaBehavior;
+        case EFFECT_PROTECT:
+            return gEffectProtectQuantaBehavior;
         default:
             return gBuggedMoveQuantaBehavior;
     }
@@ -74,11 +117,34 @@ void PrepareUpcomingQuanta(enum BattlerId battler)
 void GetQuantaBattleOrder(void)
 {
     u32 turnOrderId = 0;
+    for (enum QuantaType type = 0; type <= QUANTA_TYPE_PASS; type++)
+    {
+        for (enum BattlerId battler = 0; battler < gBattlersCount; battler++)
+        {
+            if (gUpcomingQuanta[battler][0].type == type)
+            {
+                gBattlerByTurnOrder[turnOrderId] = battler;
+                gActionsByTurnOrder[turnOrderId] = B_ACTION_QUANTA;
+                turnOrderId++;
+            }
+        }
+    }
+    struct BattleCalcValues calcValues = {0};
     for (enum BattlerId battler = 0; battler < gBattlersCount; battler++)
     {
-        gActionsByTurnOrder[turnOrderId] = B_ACTION_QUANTA;
-        gBattlerByTurnOrder[turnOrderId] = battler;
-        turnOrderId++;
+        calcValues.abilities[battler] = GetBattlerAbility(battler);
+        calcValues.holdEffects[battler] = GetBattlerHoldEffect(battler);
+    }
+    for (u32 i = 0; i < gBattlersCount - 1; i++)
+    {
+        for (u32 j = i + 1; j < gBattlersCount; j++)
+        {
+            calcValues.battlerAtk = gBattlerByTurnOrder[i];
+            calcValues.battlerDef = gBattlerByTurnOrder[j];
+
+            if (GetWhichBattlerFaster(&calcValues, TRUE) == -1)
+                SwapTurnOrder(i, j);
+        }
     }
 }
 

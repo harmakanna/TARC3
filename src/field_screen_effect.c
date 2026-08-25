@@ -479,7 +479,9 @@ static void Task_WaitForFadeShowStartMenu(u8 taskId)
 void ReturnToFieldOpenStartMenu(void)
 {
     FadeInFromBlack();
+#if !RP_CONFIG_USE_ROTOM_MENU
     CreateTask(Task_WaitForFadeShowStartMenu, 0x50);
+#endif
     LockPlayerFieldControls();
 }
 

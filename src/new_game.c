@@ -100,9 +100,9 @@ static void InitPlayerTrainerId(void)
 // L=A isnt set here for some reason.
 static void SetDefaultOptions(void)
 {
-    gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_MID;
+    gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_FAST;
     gSaveBlock2Ptr->optionsWindowFrameType = 0;
-    gSaveBlock2Ptr->optionsSound = OPTIONS_SOUND_MONO;
+    gSaveBlock2Ptr->optionsSound = OPTIONS_SOUND_STEREO;
     gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SHIFT;
     gSaveBlock2Ptr->optionsBattleSceneOff = FALSE;
     gSaveBlock2Ptr->regionMapZoom = FALSE;
@@ -136,10 +136,14 @@ static void ClearFrontierRecord(void)
 
 static void WarpToTruck(void)
 {
+<<<<<<< HEAD
     if (IS_FRLG)
         SetWarpDestination(MAP_GROUP(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), MAP_NUM(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), WARP_ID_NONE, 6, 6);
     else
         SetWarpDestination(MAP_GROUP(MAP_VIRTUAL_CITY_TESTING_ROOM_INTRO), MAP_NUM(MAP_VIRTUAL_CITY_TESTING_ROOM_INTRO), WARP_ID_NONE, -1, -1);
+=======
+    SetWarpDestination(MAP_GROUP(MAP_VIRTUAL_CITY_TESTING_ROOM_INTRO), MAP_NUM(MAP_VIRTUAL_CITY_TESTING_ROOM_INTRO), WARP_ID_NONE, -1, -1);
+>>>>>>> d1459f1521102ab00a7b6d7e24e4b34414ed9a31
     WarpIntoMap();
 }
 

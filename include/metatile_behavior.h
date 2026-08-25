@@ -133,6 +133,7 @@ bool8 MetatileBehavior_IsIsolatedHorizontalRail(u8 metatileBehavior);
 bool8 MetatileBehavior_IsVerticalRail(u8 metatileBehavior);
 bool8 MetatileBehavior_IsHorizontalRail(u8 metatileBehavior);
 bool8 MetatileBehavior_IsSeaweed(u8 metatileBehavior);
+bool8 MetatileBehavior_IsWalkWaterfall(u8 metatileBehavior);
 bool8 MetatileBehavior_IsRunningDisallowed(u8 metatileBehavior);
 bool8 MetatileBehavior_IsCuttableGrass(u8 metatileBehavior);
 bool8 MetatileBehavior_IsRunningShoesManual(u8 metatileBehavior);

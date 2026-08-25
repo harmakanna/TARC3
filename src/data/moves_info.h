@@ -12,6 +12,7 @@
 //#include "data/quanta_moves.h"
 #define QUANTA_WAIT(battle_script)          {.type = QUANTA_TYPE_PASS,   .script = battle_script}
 #define QUANTA_EFFECT(battle_script)        {.type = QUANTA_TYPE_EFFECT, .script = battle_script}
+#define QUANTA_PRIORITY(battle_script)      {.type = QUANTA_TYPE_PRIORITY, .script = battle_script}
 #define QUANTA_END                          {.type = QUANTA_TYPE_END,    .script = NULL} // {0}
 
 const struct QuantaBehavior gEffectHitQuantaBehavior[] = {
@@ -22,11 +23,126 @@ const struct QuantaBehavior gEffectHitQuantaBehavior[] = {
     QUANTA_END
 };
 
+const struct QuantaBehavior gEffectNonVolatileQuantaBehavior[] = {
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_EFFECT(BattleScript_EffectNonVolatileStatus),
+    QUANTA_END
+};
+
+const struct QuantaBehavior gEffectStatChangeQuantaBehavior[] = {
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_EFFECT(BattleScript_EffectStatChange),
+    QUANTA_END
+};
+
+const struct QuantaBehavior gEffectContinuousQuantaBehavior[] = {
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_EFFECT(BattleScript_EffectHit),
+    QUANTA_EFFECT(BattleScript_EffectContinuous),
+    QUANTA_EFFECT(BattleScript_EffectContinuous),
+    QUANTA_EFFECT(BattleScript_EffectContinuous),
+    QUANTA_END
+};
+
+const struct QuantaBehavior gEffectExplosionQuantaBehavior[] = {
+    QUANTA_WAIT(BattleScript_Explosion3),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Explosion2),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Explosion1),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_EFFECT(BattleScript_EffectHit),
+    QUANTA_END
+};
+
+const struct QuantaBehavior gEffectRechargeQuantaBehavior[] = {
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_EFFECT(BattleScript_EffectHit),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_END
+};
+
+const struct QuantaBehavior gEffectSemiInvulnerableQuantaBehavior[] = {
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_EFFECT(BattleScript_EffectHit),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_EFFECT(BattleScript_EffectHit),
+    QUANTA_END
+};
+
+const struct QuantaBehavior gEffectFastHitQuantaBehavior[] = {
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_EFFECT(BattleScript_EffectHit),
+    QUANTA_END
+};
+
+const struct QuantaBehavior gEffectFasterHitQuantaBehavior[] = {
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_EFFECT(BattleScript_EffectHit),
+    QUANTA_END
+};
+
+const struct QuantaBehavior gEffect2HitQuantaBehavior[] = {
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_EFFECT(BattleScript_EffectHit),
+    QUANTA_EFFECT(BattleScript_EffectHit),
+    QUANTA_END
+};
+
+const struct QuantaBehavior gEffect3HitQuantaBehavior[] = {
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_EFFECT(BattleScript_EffectHit),
+    QUANTA_EFFECT(BattleScript_EffectHit),
+    QUANTA_EFFECT(BattleScript_EffectHit),
+    QUANTA_END
+};
+
+const struct QuantaBehavior gEffectMultiHitQuantaBehavior[] = {
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_WAIT(BattleScript_Dummy),
+    QUANTA_EFFECT(BattleScript_EffectHit),
+    QUANTA_EFFECT(BattleScript_EffectHit),
+    QUANTA_EFFECT(BattleScript_EffectHit),
+    QUANTA_EFFECT(BattleScript_EffectHit),
+    QUANTA_EFFECT(BattleScript_EffectHit),
+    QUANTA_END
+};
+
+const struct QuantaBehavior gEffectProtectQuantaBehavior[] = {
+    QUANTA_PRIORITY(BattleScript_EffectProtect),
+    QUANTA_PRIORITY(BattleScript_ContinueProtect),
+    QUANTA_END
+};
+
 const struct QuantaBehavior gBuggedMoveQuantaBehavior[] = {
     QUANTA_WAIT(BattleScript_Dummy),
     QUANTA_WAIT(BattleScript_BuggedMove),
     QUANTA_END
 };
+
 
 // The Gen. 4+ contest data comes from urpg's contest movedex.
 
@@ -1731,7 +1847,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "Leaves the user immobile\n"
             "if target is not KO'd."),
         #endif
-        .effect = EFFECT_HIT,
+        .effect = EFFECT_RECHARGE,
         .power = 150,
         .type = TYPE_NORMAL,
         .accuracy = 90,
@@ -1740,10 +1856,6 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
         .ignoresKingsRock = B_UPDATED_MOVE_FLAGS < GEN_3,
-        .additionalEffects = ADDITIONAL_EFFECTS({
-            .moveEffect = MOVE_EFFECT_RECHARGE,
-            .self = TRUE,
-        }),
         .contestEffect = CONTEST_EFFECT_JAMS_OTHERS_BUT_MISS_ONE_TURN,
         .contestCategory = CONTEST_CATEGORY_COOL,
         .contestComboStarterId = 0,
@@ -2417,8 +2529,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .description = COMPOUND_STRING(
             "A powerful quake that\n"
             "hits all other POKéMON."),
-        .effect = EFFECT_EARTHQUAKE,
-        .power = 100,
+        .effect = EFFECT_CONTINUOUS,
+        .power = 50,
         .type = TYPE_GROUND,
         .accuracy = 100,
         .pp = 10,

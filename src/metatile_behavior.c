@@ -255,6 +255,7 @@ bool8 MetatileBehavior_IsEscalator(u8 metatileBehavior)
         return FALSE;
 }
 
+/*
 bool8 Unref_MetatileBehavior_IsUnused04(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_UNUSED_04)
@@ -262,6 +263,7 @@ bool8 Unref_MetatileBehavior_IsUnused04(u8 metatileBehavior)
     else
         return FALSE;
 }
+*/
 
 bool8 MetatileBehavior_IsLadder(u8 metatileBehavior)
 {
@@ -1289,6 +1291,14 @@ bool8 MetatileBehavior_IsHorizontalRail(u8 metatileBehavior)
 bool8 MetatileBehavior_IsSeaweed(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_SEAWEED || metatileBehavior == MB_SEAWEED_NO_SURFACING)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+bool8 MetatileBehavior_IsWalkWaterfall(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_WALK_WATERFALL)
         return TRUE;
     else
         return FALSE;

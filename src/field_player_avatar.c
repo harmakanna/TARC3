@@ -36,6 +36,8 @@
 #include "constants/songs.h"
 #include "constants/trainer_types.h"
 
+#include "tarc_misc.h"
+
 #define NUM_FORCED_MOVEMENTS 22
 #define NUM_ACRO_BIKE_COLLISIONS 5
 
@@ -907,7 +909,7 @@ static void PlayerNotOnBikeMoving(enum Direction direction, u16 heldKeys)
 
     if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_UNDERWATER)
      && (heldKeys & B_BUTTON)
-     && FlagGet(FLAG_SYS_B_DASH)
+     //&& FlagGet(FLAG_SYS_B_DASH)
      && IsRunningDisallowed(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior) == 0
      && !FollowerNPCComingThroughDoor()
      && (I_ORAS_DOWSING_FLAG == 0 || (I_ORAS_DOWSING_FLAG != 0 && !FlagGet(I_ORAS_DOWSING_FLAG))))
@@ -1097,6 +1099,18 @@ void SetPlayerAvatarTransitionFlags(u16 transitionFlags)
     gPlayerAvatar.transitionFlags |= transitionFlags;
     DoPlayerAvatarTransition();
 }
+#include "palette.h"
+
+void UpdateSpoofedPalette(void)
+{
+    if (!IsInVirtualWorld())
+        return;
+    if (FlagGet(FLAG_SPOOFING_EXECUTIVE))
+    {
+        TintPalette_GrayScale2(&gPlttBufferUnfaded[OBJ_PLTT_ID(gSprites[gPlayerAvatar.spriteId].oam.paletteNum)], 16);
+        TintPalette_GrayScale2(&gPlttBufferFaded[OBJ_PLTT_ID(gSprites[gPlayerAvatar.spriteId].oam.paletteNum)], 16);
+    }
+}
 
 static void DoPlayerAvatarTransition(void)
 {
@@ -1108,7 +1122,10 @@ static void DoPlayerAvatarTransition(void)
         for (i = 0; i < ARRAY_COUNT(sPlayerAvatarTransitionFuncs); i++, flags >>= 1)
         {
             if (flags & 1)
+            {
                 sPlayerAvatarTransitionFuncs[i](&gObjectEvents[gPlayerAvatar.objectEventId]);
+                UpdateSpoofedPalette();
+            }
         }
         gPlayerAvatar.transitionFlags = 0;
     }
@@ -1574,7 +1591,10 @@ u16 GetRivalAvatarGraphicsIdByStateIdAndGender(u8 state, enum Gender gender)
 
 u16 GetPlayerAvatarGraphicsIdByStateIdAndGender(u8 state, enum Gender gender)
 {
-    return sPlayerAvatarGfxIds[state][gender];
+    if (IsInVirtualWorld())
+        return OBJ_EVENT_GFX_DIGITAL_SOPHIE;
+    else
+         return sPlayerAvatarGfxIds[state][FEMALE];
 }
 
 u16 GetFRLGAvatarGraphicsIdByGender(enum Gender gender)
@@ -1701,6 +1721,15 @@ void SetPlayerAvatarExtraStateTransition(u16 graphicsId, u8 transitionFlag)
     DoPlayerAvatarTransition();
 }
 
+void SetSpoofedIdentityAvatar()
+{
+    if (!IsInVirtualWorld())
+        return;
+    u32 matrixNum = AllocOamMatrix();
+    gPlayerAvatar.matrixNum = matrixNum;
+    UpdateSpoofedPalette();
+}
+
 void InitPlayerAvatar(s16 x, s16 y, enum Direction direction, enum Gender gender)
 {
     struct ObjectEventTemplate playerObjEventTemplate;
@@ -1724,6 +1753,7 @@ void InitPlayerAvatar(s16 x, s16 y, enum Direction direction, enum Gender gender
     objectEvent->isPlayer = TRUE;
     objectEvent->warpArrowSpriteId = CreateWarpArrowSprite();
     ObjectEventTurn(objectEvent, direction);
+    SetSpoofedIdentityAvatar();
     ClearPlayerAvatarInfo();
     gPlayerAvatar.runningState = NOT_MOVING;
     gPlayerAvatar.tileTransitionState = T_NOT_MOVING;

@@ -35,6 +35,7 @@ extern const struct SpriteTemplate gFieldEffectObjectTemplate_AshLaunch;
 extern const struct SpriteTemplate gFieldEffectObjectTemplate_Bubbles;
 extern const struct SpriteTemplate gFieldEffectObjectTemplate_SmallSparkle;
 extern const struct SpriteTemplate gFieldEffectObjectTemplate_ShinySparkle;
+extern const struct SpriteTemplate gFieldEffectObjectTemplate_WaterfallSplash;
 extern const struct SpriteTemplate gFieldEffectObjectTemplate_Rayquaza;
 extern const struct SpriteTemplate gFieldEffectObjectTemplate_BallLight;
 extern const struct SpriteTemplate gFieldEffectObjectTemplate_SlitherTracks;
@@ -93,4 +94,5 @@ const struct SpriteTemplate *const gFieldEffectObjectTemplatePointers[] = {
     [FLDEFFOBJ_ORAS_DOWSE_BRENDAN]    = &gFieldEffectObjectTemplate_ORASDowsingBrendan,
     [FLDEFFOBJ_ORAS_DOWSE_MAY]        = &gFieldEffectObjectTemplate_ORASDowsingMay,
     [FLDEFFOBJ_SHINY_SPARKLE]         = &gFieldEffectObjectTemplate_ShinySparkle,
+    [FLDEFFOBJ_WATERFALL_SPLASH]      = &gFieldEffectObjectTemplate_WaterfallSplash,
 };

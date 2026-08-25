@@ -515,26 +515,10 @@ EventScript_OpenDoor::
 	playfanfare MUS_LEVEL_UP
 	msgbox Text_CardKeyOpenedDoor
 	waitfanfare
-	call_if_eq VAR_TEMP_1, 1, EventScript_Open2FDoor1
-	call_if_eq VAR_TEMP_1, 2, EventScript_Open2FDoor2
-	call_if_eq VAR_TEMP_1, 3, EventScript_Open3FDoor1
-	call_if_eq VAR_TEMP_1, 4, EventScript_Open3FDoor2
-	call_if_eq VAR_TEMP_1, 5, EventScript_Open4FDoor1
-	call_if_eq VAR_TEMP_1, 6, EventScript_Open4FDoor2
-	call_if_eq VAR_TEMP_1, 7, EventScript_Open5FDoor1
-	call_if_eq VAR_TEMP_1, 8, EventScript_Open5FDoor2
-	call_if_eq VAR_TEMP_1, 9, EventScript_Open5FDoor3
-	call_if_eq VAR_TEMP_1, 10, EventScript_Open6FDoor
-	call_if_eq VAR_TEMP_1, 11, EventScript_Open7FDoor1
-	call_if_eq VAR_TEMP_1, 12, EventScript_Open7FDoor2
-	call_if_eq VAR_TEMP_1, 13, EventScript_Open7FDoor3
-	call_if_eq VAR_TEMP_1, 14, EventScript_Open8FDoor
-	call_if_eq VAR_TEMP_1, 15, EventScript_Open9FDoor1
-	call_if_eq VAR_TEMP_1, 16, EventScript_Open9FDoor2
-	call_if_eq VAR_TEMP_1, 17, EventScript_Open9FDoor3
-	call_if_eq VAR_TEMP_1, 18, EventScript_Open9FDoor4
-	call_if_eq VAR_TEMP_1, 19, EventScript_Open10FDoor
-	call_if_eq VAR_TEMP_1, 20, EventScript_Open11FDoor
+	call_if_eq VAR_TEMP_1, 1, EventScript_OpenComms1FDoor
+	call_if_eq VAR_TEMP_1, 2, EventScript_OpenComms2FDoor
+	call_if_eq VAR_TEMP_1, 3, EventScript_OpenComms3FDoor
+	call_if_eq VAR_TEMP_1, 4, EventScript_OpenComms4FDoor
 	waitse
 	playse SE_UNLOCK
 	special DrawWholeMapView

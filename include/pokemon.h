@@ -125,6 +125,7 @@ enum MonData {
     MON_DATA_GIGANTAMAX_FACTOR,
     MON_DATA_TERA_TYPE,
     MON_DATA_EVOLUTION_TRACKER,
+    MON_DATA_GENDER,
 };
 
 struct PokemonSubstruct0
@@ -173,12 +174,9 @@ struct PokemonSubstruct2
     u8 speedEV;
     u8 spAttackEV;
     u8 spDefenseEV;
-    u8 cool;
-    u8 beauty;
-    u8 cute;
-    u8 smart;
-    u8 tough;
-    u8 sheen;
+    u8 gender;
+    u8 padding;
+    u32 filler;
 };
 
 struct PokemonSubstruct3
@@ -335,6 +333,11 @@ struct Volatiles
     // etc.
 };
 
+struct QuantaVolatiles
+{
+    u32 consecutiveProtects:3;
+};
+
 struct BattlePokemon
 {
     enum Species species;
@@ -367,6 +370,7 @@ struct BattlePokemon
     u32 personality;
     u32 status1;
     struct Volatiles volatiles;
+    struct QuantaVolatiles quantaVolatiles;
     u32 otId;
     u8 metLevel:7;
     u8 isShiny:1;

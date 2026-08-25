@@ -38,6 +38,8 @@
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
 
+#include "tarc_misc.h"
+
 struct BattleWindowText
 {
     u8 fillValue;
@@ -140,6 +142,7 @@ static const u8 sText_AllyPkmnPrefix2[] = _("Ally");
 static const u8 sText_FoePkmnPrefix4[] = _("Opposing");
 static const u8 sText_AllyPkmnPrefix3[] = _("Ally");
 static const u8 sText_AttackerUsedX[] = _("{B_ATK_NAME_WITH_PREFIX} used {B_BUFF3}!");
+static const u8 sText_AttackerContinuedX[] = _("{B_ATK_NAME_WITH_PREFIX} is still using {B_BUFF3}!");
 static const u8 sText_ExclamationMark[] = _("!");
 static const u8 sText_ExclamationMark2[] = _("!");
 static const u8 sText_ExclamationMark3[] = _("!");
@@ -886,6 +889,9 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_LIGHTSCREENWOREOFF]                   = COMPOUND_STRING("{B_DEF_TEAM1} team's Light Screen wore off!"),
     [STRINGID_AURORAVEILWOREOFF]                    = COMPOUND_STRING("{B_DEF_TEAM1} team's Aurora Veil wore off!"),
     [STRINGID_STICKYWEBDISAPPEAREDFROMYOU]          = COMPOUND_STRING("The sticky web has disappeared from the ground around you!"),
+    [STRINGID_EXPLOSION3]                           = COMPOUND_STRING("3 ..."),
+    [STRINGID_EXPLOSION2]                           = COMPOUND_STRING("2 ..."),
+    [STRINGID_EXPLOSION1]                           = COMPOUND_STRING("1 ..."),
 };
 
 const u16 gTrainerUsedItemStringIds[] =
@@ -2695,6 +2701,15 @@ void BufferStringBattle(enum StringID stringID, enum BattlerId battler)
             StringCopy(gBattleTextBuff3, GetMoveName(gBattleMsgDataPtr->currentMove));
         stringPtr = sText_AttackerUsedX;
         break;
+    case STRINGID_CONTINUEDMOVE: // Pokémon used a move msg
+        if (gBattleMsgDataPtr->currentMove >= MOVES_COUNT
+         && !IsZMove(gBattleMsgDataPtr->currentMove)
+         && !IsMaxMove(gBattleMsgDataPtr->currentMove))
+            StringCopy(gBattleTextBuff3, gTypesInfo[*(&gBattleStruct->stringMoveType)].generic);
+        else
+            StringCopy(gBattleTextBuff3, GetMoveName(gBattleMsgDataPtr->currentMove));
+        stringPtr = sText_AttackerContinuedX;
+        break;
     case STRINGID_BATTLEEND: // battle end
         if (gBattleTextBuff1[0] & B_OUTCOME_LINK_BATTLE_RAN)
         {
@@ -2974,7 +2989,7 @@ static const u8 *BattleStringGetPlayerName(u8 *text, enum BattlerId battler)
         if (gBattleTypeFlags & BATTLE_TYPE_RECORDED)
             toCpy = gLinkPlayers[0].name;
         else
-            toCpy = gSaveBlock2Ptr->playerName;
+            toCpy = GetPlayerName();
         break;
     case B_POSITION_PLAYER_RIGHT:
         if (((gBattleTypeFlags & BATTLE_TYPE_RECORDED) && !(gBattleTypeFlags & (BATTLE_TYPE_MULTI | BATTLE_TYPE_INGAME_PARTNER)))
@@ -2993,7 +3008,7 @@ static const u8 *BattleStringGetPlayerName(u8 *text, enum BattlerId battler)
         }
         else
         {
-            toCpy = gSaveBlock2Ptr->playerName;
+            toCpy = GetPlayerName();
         }
         break;
     default:

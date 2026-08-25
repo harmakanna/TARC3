@@ -2,11 +2,11 @@
   "id": "MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT_BEDROOM",
   "name": "OutsideWorld_ApartmentBldg1_YourApartment_Bedroom",
   "layout": "LAYOUT_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT_BEDROOM",
-  "music": "MUS_DUMMY",
-  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "music": "MUS_NONE",
+  "region_map_section": "MAPSEC_ALTERING_CAVE",
   "requires_flash": false,
   "weather": "WEATHER_SHADE",
-  "map_type": "MAP_TYPE_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
   "allow_cycling": false,
   "allow_escaping": false,
   "allow_running": true,
@@ -14,7 +14,24 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "warp_id": "OutsideWorld_Apartment_YourAparment_Bedroom_Exit",
+      "x": 2,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT",
+      "dest_warp_id": "OutsideWorld_Apartment_YourAparment_Bedroom_Entrance"
+    },
+    {
+      "warp_id": "OutsideWorld_Apartment_YourAparment_Bedroom_Exit2",
+      "x": 3,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT",
+      "dest_warp_id": "OutsideWorld_Apartment_YourAparment_Bedroom_Entrance"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }
