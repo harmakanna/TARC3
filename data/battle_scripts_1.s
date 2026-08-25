@@ -6344,3 +6344,7 @@ BattleScript_EffectContinuous::
 	printstring STRINGID_CONTINUEDMOVE
 	//attackcanceler
 	goto BattleScript_HitFromAccCheck
+
+BattleScript_ContinueProtect::
+	setprotectlike
+	goto BattleScript_MoveEnd

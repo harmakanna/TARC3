@@ -80,6 +80,7 @@ VirtualCity_Hotel_YourRoom_Text_ResolutionTalk16Ernest::
 	.string "But it might be… possible.$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk17Harriet::
+<<<<<<< HEAD
 	.string "We'd need one of the execs' cards to\n"
 	.string "credentials to access the system.$"
 
@@ -124,6 +125,17 @@ VirtualCity_Hotel_YourRoom_Text_ResolutionTalk26Harriet::
 	.string "That's the spirit. Go get ready,\n"
 	.string "and meet me at the Stadium.\p"
 	.string "Let's do this, everyone!$"
+=======
+	.string "We'd need one of the execs' cards to$"
+	.string "credentials to access the system.$"
+
+VirtualCity_Hotel_YourRoom_Text_ResolutionTalk12Minh::
+	.string "If we can figure out a plan, I'm in.$"
+
+VirtualCity_Hotel_YourRoom_Text_ResolutionTalk13Harriet::
+	.string "I doubt we'll be able to do much,\n"
+	.string "but I'll help if I can.$"
+>>>>>>> master
 
 
 

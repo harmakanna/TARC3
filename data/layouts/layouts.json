@@ -9605,6 +9605,76 @@
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/VirtualCity_Hotel_FriendRoom/border.bin",
       "blockdata_filepath": "data/layouts/VirtualCity_Hotel_FriendRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRTUAL_CITY_COMMS_TOWER_1F",
+      "name": "VirtualCity_CommsTower_1F_Layout",
+      "width": 14,
+      "height": 12,
+      "primary_tileset": "gTileset_BuildingFrlg",
+      "secondary_tileset": "gTileset_SilphCo",
+      "border_filepath": "data/layouts/VirtualCity_CommsTower_1F/border.bin",
+      "blockdata_filepath": "data/layouts/VirtualCity_CommsTower_1F/map.bin",
+      "border_height": 2,
+      "border_width": 2
+    },
+    {
+      "id": "LAYOUT_VIRTUAL_CITY_COMMS_TOWER_2F",
+      "name": "VirtualCity_CommsTower_2F_Layout",
+      "width": 15,
+      "height": 13,
+      "primary_tileset": "gTileset_BuildingFrlg",
+      "secondary_tileset": "gTileset_SilphCo",
+      "border_filepath": "data/layouts/VirtualCity_CommsTower_2F/border.bin",
+      "blockdata_filepath": "data/layouts/VirtualCity_CommsTower_2F/map.bin",
+      "border_height": 2,
+      "border_width": 2
+    },
+    {
+      "id": "LAYOUT_VIRTUAL_CITY_COMMS_TOWER_3F",
+      "name": "VirtualCity_CommsTower_3F_Layout",
+      "width": 15,
+      "height": 13,
+      "primary_tileset": "gTileset_BuildingFrlg",
+      "secondary_tileset": "gTileset_SilphCo",
+      "border_filepath": "data/layouts/VirtualCity_CommsTower_3F/border.bin",
+      "blockdata_filepath": "data/layouts/VirtualCity_CommsTower_3F/map.bin",
+      "border_height": 2,
+      "border_width": 2
+    },
+    {
+      "id": "LAYOUT_VIRTUAL_CITY_COMMS_TOWER_4F",
+      "name": "VirtualCity_CommsTower_4F_Layout",
+      "width": 15,
+      "height": 13,
+      "primary_tileset": "gTileset_BuildingFrlg",
+      "secondary_tileset": "gTileset_SilphCo",
+      "border_filepath": "data/layouts/VirtualCity_CommsTower_4F/border.bin",
+      "blockdata_filepath": "data/layouts/VirtualCity_CommsTower_4F/map.bin",
+      "border_height": 2,
+      "border_width": 2
+    },
+    {
+      "id": "LAYOUT_VIRTUAL_CITY_COMMS_TOWER_TOP_F",
+      "name": "VirtualCity_CommsTower_TopF_Layout",
+      "width": 13,
+      "height": 9,
+      "primary_tileset": "gTileset_BuildingFrlg",
+      "secondary_tileset": "gTileset_SilphCo",
+      "border_filepath": "data/layouts/VirtualCity_CommsTower_TopF/border.bin",
+      "blockdata_filepath": "data/layouts/VirtualCity_CommsTower_TopF/map.bin",
+      "border_height": 2,
+      "border_width": 2
+    },
+    {
+      "id": "LAYOUT_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM",
+      "name": "VirtualCity_Stadium_PreBattleRoom_Layout",
+      "width": 8,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleDome",
+      "border_filepath": "data/layouts/VirtualCity_Stadium_PreBattleRoom/border.bin",
+      "blockdata_filepath": "data/layouts/VirtualCity_Stadium_PreBattleRoom/map.bin"
     }
   ]
 }

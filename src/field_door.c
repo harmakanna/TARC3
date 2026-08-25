@@ -177,6 +177,9 @@ static const u8 sDoorAnimTiles_Superstore_Right[] = INCGFX_U8("graphics/door_ani
 
 static const u16 sDoorNullPalette58[16] = {};
 
+static const u8 sDoorAnimTiles_HideoutElevator[] = INCGFX_U8("graphics/door_anims/hideout_elevator.png", ".4bpp");
+
+static const u8 sDoorAnimTiles_SilphCoElevator[] = INCGFX_U8("graphics/door_anims/silph_co_elevator.png", ".4bpp");
 #if IS_FRLG
 
 static const u8 sDoorAnimTiles_GeneralFrlg[] = INCGFX_U8("graphics/door_anims/general_frlg.png", ".4bpp");
@@ -198,9 +201,9 @@ static const u8 sDoorAnimTiles_SafariZoneFrlg[] = INCGFX_U8("graphics/door_anims
 static const u8 sDoorAnimTiles_CinnabarLab[] = INCGFX_U8("graphics/door_anims/cinnabar_lab.png", ".4bpp");
 static const u8 sDoorAnimTiles_DeptStoreElevator[] = INCGFX_U8("graphics/door_anims/dept_store_elevator.png", ".4bpp");
 static const u8 sDoorAnimTiles_CableClubFrlg[] = INCGFX_U8("graphics/door_anims/cable_club_frlg.png", ".4bpp");
-static const u8 sDoorAnimTiles_HideoutElevator[] = INCGFX_U8("graphics/door_anims/hideout_elevator.png", ".4bpp");
+
 static const u8 sDoorAnimTiles_SSAnne[] = INCGFX_U8("graphics/door_anims/ss_anne.png", ".4bpp");
-static const u8 sDoorAnimTiles_SilphCoElevator[] = INCGFX_U8("graphics/door_anims/silph_co_elevator.png", ".4bpp");
+
 static const u8 sDoorAnimTiles_Sevii123[] = INCGFX_U8("graphics/door_anims/sevii_123.png", ".4bpp");
 static const u8 sDoorAnimTiles_JoyfulGameCorner[] = INCGFX_U8("graphics/door_anims/joyful_game_corner.png", ".4bpp");
 static const u8 sDoorAnimTiles_OneIslandPokeCenter[] = INCGFX_U8("graphics/door_anims/one_island_poke_center.png", ".4bpp");
@@ -371,8 +374,8 @@ static const u8 sDoorAnimPalettes_VirtualCity_Office[] = {2, 2, 2, 2, 2, 2, 2, 2
 static const u8 sDoorAnimPalettes_VirtualCity_Hotel[] = {12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12};
 static const u8 sDoorAnimPalettes_Superstore_Left[] = {7, 7, 7, 7, 7, 7, 7, 7};
 static const u8 sDoorAnimPalettes_Superstore_Right[] = {7, 7, 7, 7, 7, 7, 7, 7};
-
-
+static const u8 sDoorAnimPalettes_HideoutElevator[] = {12, 12, 2, 2, 2, 2, 2, 2};
+static const u8 sDoorAnimPalettes_SilphCoElevator[] = {8, 8, 2, 2, 2, 2, 2, 2};
 #if IS_FRLG
 
 static const u8 sDoorAnimPalettes_GeneralFrlg[] = {2, 2, 2, 2, 2, 2, 2, 2};
@@ -394,9 +397,9 @@ static const u8 sDoorAnimPalettes_SafariZoneFrlg[] = {9, 9, 9, 9, 9, 9, 9, 9};
 static const u8 sDoorAnimPalettes_CinnabarLab[] = {3, 3, 3, 3, 3, 3, 3, 3};
 static const u8 sDoorAnimPalettes_DeptStoreElevator[] = {8, 8, 8, 8, 8, 8, 8, 8};
 static const u8 sDoorAnimPalettes_CableClubFrlg[] = {8, 8, 8, 8, 8, 8, 8, 8};
-static const u8 sDoorAnimPalettes_HideoutElevator[] = {12, 12, 2, 2, 2, 2, 2, 2};
+
 static const u8 sDoorAnimPalettes_SSAnne[] = {7, 7, 7, 7, 7, 7, 7, 7};
-static const u8 sDoorAnimPalettes_SilphCoElevator[] = {8, 8, 2, 2, 2, 2, 2, 2};
+
 static const u8 sDoorAnimPalettes_Sevii123[] = {5, 5, 5, 5, 5, 5, 5, 5};
 static const u8 sDoorAnimPalettes_JoyfulGameCorner[] = {3, 3, 3, 3, 3, 3, 3, 3};
 static const u8 sDoorAnimPalettes_OneIslandPokeCenter[] = {3, 3, 3, 3, 3, 3, 3, 3};
@@ -908,6 +911,22 @@ static const struct DoorGraphics sDoorAnimGraphicsTable[] =
         .tiles = sDoorAnimTiles_Superstore_Right,
         .palettes = sDoorAnimPalettes_Superstore_Right
     },
+    {
+        .metatileNum = METATILE_SilphCo_HideoutElevatorDoor,
+        .tileset = &gTileset_SilphCo,
+        .sound = DOOR_SOUND_SLIDING,
+        .size = DOOR_SIZE_1x2,
+        .tiles = sDoorAnimTiles_HideoutElevator,
+        .palettes = sDoorAnimPalettes_HideoutElevator
+    },
+    {
+        .metatileNum = METATILE_SilphCo_ElevatorDoor,
+        .tileset = &gTileset_SilphCo,
+        .sound = DOOR_SOUND_SLIDING,
+        .size = DOOR_SIZE_1x2,
+        .tiles = sDoorAnimTiles_SilphCoElevator,
+        .palettes = sDoorAnimPalettes_SilphCoElevator
+    },
 #else
     {
         .metatileNum = METATILE_GeneralFrlg_Door,
@@ -1110,28 +1129,12 @@ static const struct DoorGraphics sDoorAnimGraphicsTable[] =
         .palettes = sDoorAnimPalettes_CableClubFrlg
     },
     {
-        .metatileNum = METATILE_SilphCo_HideoutElevatorDoor,
-        .tileset = &gTileset_SilphCo,
-        .sound = DOOR_SOUND_SLIDING,
-        .size = DOOR_SIZE_1x2,
-        .tiles = sDoorAnimTiles_HideoutElevator,
-        .palettes = sDoorAnimPalettes_HideoutElevator
-    },
-    {
         .metatileNum = METATILE_SSAnne_Door,
         .tileset = &gTileset_SSAnne,
         .sound = DOOR_SOUND_NORMAL,
         .size = DOOR_SIZE_1x2,
         .tiles = sDoorAnimTiles_SSAnne,
         .palettes = sDoorAnimPalettes_SSAnne
-    },
-    {
-        .metatileNum = METATILE_SilphCo_ElevatorDoor,
-        .tileset = &gTileset_SilphCo,
-        .sound = DOOR_SOUND_SLIDING,
-        .size = DOOR_SIZE_1x2,
-        .tiles = sDoorAnimTiles_SilphCoElevator,
-        .palettes = sDoorAnimPalettes_SilphCoElevator
     },
     {
         .metatileNum = METATILE_SeaCottage_Teleporter_Door,

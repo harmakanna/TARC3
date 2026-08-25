@@ -29,7 +29,14 @@
     "VirtualCity_Superstore_3F",
     "VirtualCity_Superstore_4F",
     "VirtualCity_Superstore_5F",
-    "VirtualCity_Hotel_FriendRoom"
+    "VirtualCity_Hotel_FriendRoom",
+    "VirtualCity_CommsTower_1F",
+    "VirtualCity_CommsTower_2F",
+    "VirtualCity_CommsTower_3F",
+    "VirtualCity_CommsTower_4F",
+    "VirtualCity_CommsTower_TopF",
+    "VirtualCity_Stadium_PreBattleRoom",
+    "BattleFrontier_BattleDomeCorridor"
   ],
   "gMapGroup_OutsideWorld": [
     "OutsideWorld",
@@ -475,7 +482,6 @@
     "BattleFrontier_BattleTowerMultiCorridor",
     "BattleFrontier_BattleTowerMultiBattleRoom",
     "BattleFrontier_BattleDomeLobby",
-    "BattleFrontier_BattleDomeCorridor",
     "BattleFrontier_BattleDomePreBattleRoom",
     "BattleFrontier_BattleDomeBattleRoom",
     "BattleFrontier_BattlePalaceLobby",

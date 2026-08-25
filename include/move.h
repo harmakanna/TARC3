@@ -865,6 +865,7 @@ extern const struct QuantaBehavior gEffectMultiHitQuantaBehavior[];
 extern const struct QuantaBehavior gEffectHitQuantaBehavior[];
 extern const struct QuantaBehavior gEffectContinuousQuantaBehavior[];
 extern const struct QuantaBehavior gEffectSemiInvulnerableQuantaBehavior[];
+extern const struct QuantaBehavior gEffectProtectQuantaBehavior[];
 extern const struct QuantaBehavior gBuggedMoveQuantaBehavior[];
 
 #endif // GUARD_MOVES_H

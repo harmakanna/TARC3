@@ -1797,3 +1797,20 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/VirtualCity_TestingRoomIntro/scripts.inc"
 
 	.include "data/maps/VirtualCity_Hotel_FriendRoom/scripts.inc"
+
+	.include "data/maps/VirtualCity_CommsTower_1F/scripts.inc"
+	.include "data/maps/VirtualCity_CommsTower_1F/text.inc"
+
+	.include "data/maps/VirtualCity_CommsTower_2F/scripts.inc"
+	.include "data/maps/VirtualCity_CommsTower_2F/text.inc"
+
+	.include "data/maps/VirtualCity_CommsTower_3F/scripts.inc"
+	.include "data/maps/VirtualCity_CommsTower_3F/text.inc"
+
+	.include "data/maps/VirtualCity_CommsTower_TopF/scripts.inc"
+	.include "data/maps/VirtualCity_CommsTower_TopF/text.inc"
+
+	.include "data/maps/VirtualCity_CommsTower_4F/scripts.inc"
+	.include "data/maps/VirtualCity_CommsTower_4F/text.inc"
+
+	.include "data/maps/VirtualCity_Stadium_PreBattleRoom/scripts.inc"

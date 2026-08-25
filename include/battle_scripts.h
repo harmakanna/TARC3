@@ -732,6 +732,7 @@ extern const u8 BattleScript_Explosion3[];
 extern const u8 BattleScript_Explosion2[];
 extern const u8 BattleScript_Explosion1[];
 extern const u8 BattleScript_EffectContinuous[];
+extern const u8 BattleScript_ContinueProtect[];
 extern const u8 BattleScript_BuggedMove[];
 
 #endif // GUARD_BATTLE_SCRIPTS_H

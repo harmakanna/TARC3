@@ -12,6 +12,7 @@
 //#include "data/quanta_moves.h"
 #define QUANTA_WAIT(battle_script)          {.type = QUANTA_TYPE_PASS,   .script = battle_script}
 #define QUANTA_EFFECT(battle_script)        {.type = QUANTA_TYPE_EFFECT, .script = battle_script}
+#define QUANTA_PRIORITY(battle_script)      {.type = QUANTA_TYPE_PRIORITY, .script = battle_script}
 #define QUANTA_END                          {.type = QUANTA_TYPE_END,    .script = NULL} // {0}
 
 const struct QuantaBehavior gEffectHitQuantaBehavior[] = {
@@ -130,11 +131,18 @@ const struct QuantaBehavior gEffectMultiHitQuantaBehavior[] = {
     QUANTA_END
 };
 
+const struct QuantaBehavior gEffectProtectQuantaBehavior[] = {
+    QUANTA_PRIORITY(BattleScript_EffectProtect),
+    QUANTA_PRIORITY(BattleScript_ContinueProtect),
+    QUANTA_END
+};
+
 const struct QuantaBehavior gBuggedMoveQuantaBehavior[] = {
     QUANTA_WAIT(BattleScript_Dummy),
     QUANTA_WAIT(BattleScript_BuggedMove),
     QUANTA_END
 };
+
 
 // The Gen. 4+ contest data comes from urpg's contest movedex.
 

@@ -664,11 +664,11 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_123_RARE_CANDY                (FLAG_HIDDEN_ITEMS_START + 0x6E)
 #define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                 (FLAG_HIDDEN_ITEMS_START + 0x6F)
 
-#define FLAG_UNUSED_0x264  0x264 // Unused Flag
-#define FLAG_UNUSED_0x265  0x265 // Unused Flag
-#define FLAG_UNUSED_0x266  0x266 // Unused Flag
-#define FLAG_UNUSED_0x267  0x267 // Unused Flag
-#define FLAG_UNUSED_0x268  0x268 // Unused Flag
+#define FLAG_SPOOFING_EXECUTIVE  0x264 // Unused Flag
+#define FLAG_COMMS_1F_DOOR  0x265 // Unused Flag
+#define FLAG_COMMS_2F_DOOR  0x266 // Unused Flag
+#define FLAG_COMMS_3F_DOOR  0x267 // Unused Flag
+#define FLAG_COMMS_4F_DOOR  0x268 // Unused Flag
 #define FLAG_UNUSED_0x269  0x269 // Unused Flag
 #define FLAG_UNUSED_0x26A  0x26A // Unused Flag
 #define FLAG_UNUSED_0x26B  0x26B // Unused Flag
@@ -1224,10 +1224,10 @@
 
 #define FLAG_DARKANINE_BATTLE_1                                     0x493 // Unused Flag
 #define FLAG_DARKANINE_BATTLE_2                                     0x494 // Unused Flag
-#define FLAG_UNUSED_0x495                                           0x495 // Unused Flag
-#define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
-#define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
-#define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
+#define FLAG_PROLOGUE_COMPLETE                                      0x495 // Unused Flag
+#define FLAG_ACTI_COMPLETE                                          0x496 // Unused Flag
+#define FLAG_ACTII_COMPLETE                                         0x497 // Unused Flag
+#define FLAG_ACTIII_COMPLETE                                        0x498 // Unused Flag
 #define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
 #define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
 #define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag

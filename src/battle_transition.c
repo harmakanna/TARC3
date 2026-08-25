@@ -27,6 +27,9 @@
 #include "constants/trainers.h"
 #include "constants/rgb.h"
 
+#include "tarc_misc.h"
+#include "trainer.h"
+
 #define PALTAG_UNUSED_MUGSHOT 0x100A
 
 #define B_TRANS_DMA_FLAGS (1 | ((DMA_SRC_INC | DMA_DEST_FIXED | DMA_REPEAT | DMA_16BIT | DMA_START_HBLANK | DMA_ENABLE) << 16))
@@ -2287,7 +2290,7 @@ static bool8 Mugshot_SetGfx(struct Task *task)
         mugshotColor = MUGSHOT_COLOR_PURPLE;
 
     LoadPalette(sOpponentMugshotsPals[mugshotColor], BG_PLTT_ID(15), PLTT_SIZE_4BPP);
-    LoadPalette(sPlayerMugshotsPals[gSaveBlock2Ptr->playerGender], BG_PLTT_ID(15) + 10, PLTT_SIZEOF(6));
+    LoadPalette(sPlayerMugshotsPals[FEMALE], BG_PLTT_ID(15) + 10, PLTT_SIZEOF(6));
 
     for (i = 0; i < 20; i++)
     {
@@ -2631,7 +2634,7 @@ static void Mugshots_CreateTrainerPics(struct Task *task)
         SetOamMatrixRotationScaling(partnerSprite->oam.matrixNum, -512, 512, 0);
     }
 
-    task->tPlayerSpriteId = CreateTrainerSprite(PlayerGenderToFrontTrainerPicId(gSaveBlock2Ptr->playerGender),
+    task->tPlayerSpriteId = CreateTrainerSprite(GetPlayerTrainerPic(0, 0),
                                                 DISPLAY_WIDTH + 32,
                                                 106,
                                                 0, NULL);

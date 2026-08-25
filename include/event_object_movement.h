@@ -86,6 +86,7 @@ enum FollowerTransformTypes
 #define GROUND_EFFECT_FLAG_SHORT_GRASS           (1 << 17)
 #define GROUND_EFFECT_FLAG_HOT_SPRINGS           (1 << 18)
 #define GROUND_EFFECT_FLAG_SEAWEED               (1 << 19)
+#define GROUND_EFFECT_FLAG_WALK_WATERFALL        (1 << 20)
 
 // Sprite data for the CameraObject functions
 #define sCamera_FollowSpriteId data[0]
@@ -140,6 +141,7 @@ u8 GetObjectEventIdByLocalId(u8);
 void RemoveObjectEvent(struct ObjectEvent *objectEvent);
 void RemoveObjectEventByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroup);
 void LoadSpecialObjectReflectionPalette(u16 tag, u8 slot);
+void UpdatePlayerPalette(void);
 void TryMoveObjectEventToMapCoords(u8 localId, u8 mapNum, u8 mapGroup, s16 x, s16 y);
 void PatchObjectPalette(u16 paletteTag, u8 paletteSlot);
 void SpawnObjectEventsOnReturnToField(s16 x, s16 y);

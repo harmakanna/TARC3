@@ -414,6 +414,10 @@ static const struct SpriteFrameImage sPicTable_MayNormal[] = {
     overworld_ascending_frames(gObjectEventPic_MayNormalRunning, 2, 4),
 };
 
+static const struct SpriteFrameImage sPicTable_DigitalSophieNormal[] = {
+    overworld_ascending_frames(gObjectEventPic_DigitalSophieNormalRunning, 2, 4),
+};
+
 static const struct SpriteFrameImage sPicTable_MayMachBike[] = {
     overworld_ascending_frames(gObjectEventPic_MayMachBike, 4, 4),
 };
@@ -1108,6 +1112,29 @@ static const struct SpriteFrameImage sPicTable_Brandon[] = {
     overworld_ascending_frames(gObjectEventPic_Brandon, 2, 4),
 };
 
+static const struct SpriteFrameImage sPicTable_ErnestOutside[] = {
+    overworld_ascending_frames(gObjectEventPic_ErnestOutside, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_HarrietOutside[] = {
+    overworld_ascending_frames(gObjectEventPic_HarrietOutside, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_MinhOutside[] = {
+    overworld_ascending_frames(gObjectEventPic_MinhOutside, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_ErnestVR[] = {
+    overworld_ascending_frames(gObjectEventPic_ErnestVR, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_HarrietVR[] = {
+    overworld_ascending_frames(gObjectEventPic_HarrietVR, 2, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_MinhVR[] = {
+    overworld_ascending_frames(gObjectEventPic_MinhVR, 2, 4),
+};
 static const struct SpriteFrameImage sPicTable_PokeBall[] = {
     overworld_frame(gObjectEventPic_PokeBall, 2, 4, 0),
     overworld_frame(gObjectEventPic_PokeBall, 2, 4, 1),

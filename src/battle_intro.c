@@ -14,6 +14,8 @@
 #include "constants/battle_partner.h"
 #include "constants/trainers.h"
 
+#include "battle_quanta.h"
+
 void BattleIntroSlide1(u8);
 void BattleIntroSlide2(u8);
 void BattleIntroSlide3(u8);

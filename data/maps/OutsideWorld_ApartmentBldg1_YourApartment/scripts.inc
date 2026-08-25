@@ -1,5 +1,52 @@
 OutsideWorld_ApartmentBldg1_YourApartment_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, OutsideWorld_ApartmentBldg1_YourApartment_OnTransition
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, OutsideWorld_ApartmentBldg1_YourApartment_OnFrame
 	.byte 0
+
+OutsideWorld_ApartmentBldg1_YourApartment_OnTransition:
+	goto_if_set FLAG_PROLOGUE_COMPLETE, OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_NotFirstLoad
+	setvar VAR_PETALBURG_CITY_STATE, 1
+
+
+VirtualCity_TestingRoomIntro_OnFrame:
+	map_script_2 VAR_PETALBURG_CITY_STATE, 1, OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene
+	.2byte 0
+
+
+OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
+	speak LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk1Minh, Speaker_Minh, DIR_WEST
+	applymovement LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh1
+	delay 10
+	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie1
+
+
+	setvar VAR_PETALBURG_CITY_STATE, 0
+	end
+
+
+
+
+
+
+
+
+
+
+
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh1:
+	walk_faster_up
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	step_end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie1:
+	walk_right
+	walk_right
+	step_end
+
+
 
 
 
@@ -62,7 +109,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk12Sophie::
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk13Lola::
 	.string "Don't worry, Dreams, I'm sure they'll\n"
 	.string "be less shy tomorrow. Now come on,\l"
-	.string "you haven't even seen your bed yet!$"
+	.string "you haven't even seen our room yet!$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk14Lola::
 	.string "See y'all tomorrow!$"
