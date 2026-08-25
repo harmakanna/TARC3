@@ -151,7 +151,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk31Minh::
 	.string "Whoever it is, they've got artists.\n"
 	.string "I'll ask around with my art friends.$"
 
-OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk29Minh::
+OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk32Sophie::
 	.string "Good plan. I'll see you tomorrow.$"
 
 

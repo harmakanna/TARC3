@@ -104,23 +104,23 @@ VirtualCity_Hotel_YourRoom_Text_ResolutionTalk22Ernest::
 	.string "Oh well, I've always wanted to hack into\n"
 	.string "something wildly dangerous.$"
 
-VirtualCity_Hotel_YourRoom_Text_ResolutionTalk19Minh::
+VirtualCity_Hotel_YourRoom_Text_ResolutionTalk23Minh::
 	.string "I like this plan…\p"
 	.string "Maybe I can help you find more\n"
 	.string "Pokemon to battle with?$"
 
-VirtualCity_Hotel_YourRoom_Text_ResolutionTalk20Harriet::
+VirtualCity_Hotel_YourRoom_Text_ResolutionTalk24Harriet::
 	.string "Which leaves me to scout out your\n"
 	.string "opponents. I can handle that.\p"
 	.string "And you'll do the battling. None of us\n"
 	.string "know the meta like you do, Sophie.$"
 
-VirtualCity_Hotel_YourRoom_Text_ResolutionTalk21Sophie::
+VirtualCity_Hotel_YourRoom_Text_ResolutionTalk25Sophie::
 	.string "I can beat him.\p"
 	.string "I can modify the team between battles,\n"
 	.string "adapt to him. No one else can do that.$"
 
-VirtualCity_Hotel_YourRoom_Text_ResolutionTalk22Harriet::
+VirtualCity_Hotel_YourRoom_Text_ResolutionTalk26Harriet::
 	.string "That's the spirit. Go get ready,\n"
 	.string "and meet me at the Stadium.\p"
 	.string "Let's do this, everyone!$"
