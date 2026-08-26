@@ -3106,11 +3106,12 @@
 
 	.macro speak localId:req, text:req, name:req, direction:req, type=MSGBOX_DEFAULT
 	setorcopyvar VAR_0x8000, \localId
+	setorcopyvar VAR_0x8001, \direction
 	setspeaker \name
-	call_if_eq \direction, DIR_NORTH, LastTalkedWalkInPlaceNorth
-	call_if_eq \direction, DIR_SOUTH, LastTalkedWalkInPlaceSouth
-	call_if_eq \direction, DIR_EAST, LastTalkedWalkInPlaceEast
-	call_if_eq \direction, DIR_WEST, LastTalkedWalkInPlaceWest
+	call_if_eq VAR_0x8001, DIR_NORTH, LastTalkedWalkInPlaceNorth
+	call_if_eq VAR_0x8001, DIR_SOUTH, LastTalkedWalkInPlaceSouth
+	call_if_eq VAR_0x8001, DIR_EAST, LastTalkedWalkInPlaceEast
+	call_if_eq VAR_0x8001, DIR_WEST, LastTalkedWalkInPlaceWest
 	msgbox \text, \type
 	closemessage
 	.endm
