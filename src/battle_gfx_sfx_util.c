@@ -439,7 +439,6 @@ static void TrainerSpriteMosaicUpdate(struct Sprite *sprite)
             stretch += (sprite->data[4] / latency);
         else
             stretch += 2 * (extra_strech - 1) - (sprite->data[4] / latency);
-        DebugPrintf("timer %d strecth %d", sprite->data[4], stretch);
         SetGpuReg(REG_OFFSET_MOSAIC, (stretch << 12) | (stretch << 8));
         sprite->data[4]++;
         if (sprite->data[4] == (extra_strech - 1) * latency * 2)
