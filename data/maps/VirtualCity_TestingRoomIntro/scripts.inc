@@ -29,7 +29,7 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
 	@@more setflags TOFOLD, set healing place, etc. etc.
 
-	removeobject LOCALID_BALL
+	removeobject LOCALID_DARKANINES_BALL
 	removeobject LOCALID_ARCANINE
 	fadescreenspeed FADE_FROM_BLACK, 2
 
@@ -42,10 +42,10 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro04, Speaker_Sophie, DIR_NORTH
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro05, Speaker_Minh, DIR_SOUTH
 
-	addobject LOCALID_BALL
+	addobject LOCALID_DARKANINES_BALL
 	delay 10
 	playse SE_BALL_OPEN
-	removeobject LOCALID_BALL
+	removeobject LOCALID_DARKANINES_BALL
 	addobject LOCALID_ARCANINE
 	delay 40
 
@@ -56,14 +56,15 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro10, Speaker_Minh, DIR_SOUTH
 
 	removeobject LOCALID_ARCANINE
-	addobject LOCALID_BALL
+	addobject LOCALID_DARKANINES_BALL
 	playse SE_BALL_OPEN
 	delay 10
-	removeobject LOCALID_BALL
+	removeobject LOCALID_DARKANINES_BALL
 	setvar VAR_PETALBURG_CITY_STATE, 0
-	givemon SPECIES_ARCANINE, 1
-	givemon SPECIES_ARCANINE, 1
-	@@ givemon Darkanine x 2
+	givemon SPECIES_DARKANINE, 50
+	givemon SPECIES_DARKANINE, 50
+	givemon SPECIES_ARCANINE, 50
+	givemon SPECIES_ARCANINE, 50
 
 	goto VirtualCity_TestingRoomIntro_Eventscript_Minh
 	end

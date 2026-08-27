@@ -37,15 +37,9 @@
   "object_events": [
     {
       "local_id": "LOCALID_MINH",
-<<<<<<< HEAD
-      "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
-      "x": 16,
-      "y": 9,
-=======
       "graphics_id": "OBJ_EVENT_GFX_MINH_OUTSIDE",
       "x": 8,
       "y": 3,
->>>>>>> master
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -56,15 +50,10 @@
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_BALL",
+      "local_id": "LOCALID_DARKANINES_BALL",
       "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
-<<<<<<< HEAD
-      "x": 16,
-      "y": 11,
-=======
       "x": 8,
       "y": 5,
->>>>>>> master
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -77,13 +66,8 @@
     {
       "local_id": "LOCALID_ARCANINE",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ARCANINE)",
-<<<<<<< HEAD
-      "x": 16,
-      "y": 11,
-=======
       "x": 8,
       "y": 5,
->>>>>>> master
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,

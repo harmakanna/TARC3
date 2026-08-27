@@ -176,6 +176,89 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     /* You may add any custom species below this point based on the following structure: */
 
+    [SPECIES_DARKANINE] =
+    {
+        .baseHP        = 90,
+        .baseAttack    = 110,
+        .baseDefense   = 80,
+        .baseSpeed     = 95,
+        .baseSpAttack  = 100,
+        .baseSpDefense = 80,
+        .types = MON_TYPES(TYPE_DARK),
+        .catchRate = 255,
+        .expYield = 67,
+        .evYield_HP = 1,
+        .evYield_Defense = 1,
+        .evYield_SpDefense = 1,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
+        .abilities = { ABILITY_INTIMIDATE, ABILITY_FLASH_FIRE, ABILITY_JUSTIFIED },
+        .bodyColor = BODY_COLOR_BROWN,
+        .speciesName = _("R2arcV1.04"),
+        .cryId = CRY_ARCANINE,
+        .natDexNum = NATIONAL_DEX_NONE,
+        .categoryName = _("Unknown"),
+        .height = 19,
+        .weight = 1550,
+        .description = COMPOUND_STRING(
+            "This is a newly discovered Pokémon.\n"
+            "It is currently under investigation.\n"
+            "No detailed information is available\n"
+            "at this time."),
+        .pokemonScale = 256,
+        .pokemonOffset = 1,
+        .trainerScale = 312,
+        .trainerOffset = 4,
+        .frontPic = gMonFrontPic_Darkanine,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = ANIM_FRAMES(
+            ANIMCMD_FRAME(1, 38),
+            ANIMCMD_FRAME(0, 1),
+        ),
+        .frontAnimId = P_GBA_STYLE_SPECIES_GFX ? ANIM_H_VIBRATE : ANIM_V_SHAKE,
+        .frontAnimDelay = P_GBA_STYLE_SPECIES_GFX ? 40 : 8,
+        .backPic = gMonBackPic_Darkanine,
+        .backPicSize = MON_COORDS_SIZE(64, 56),
+        .backPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 6 : 4,
+#if P_GENDER_DIFFERENCES
+        .frontPicFemale = gMonFrontPic_Darkanine,
+        .frontPicSizeFemale = MON_COORDS_SIZE(64, 64),
+        .backPicFemale = gMonBackPic_Darkanine,
+        .backPicSizeFemale = MON_COORDS_SIZE(64, 64),
+        .paletteFemale = gMonPalette_Darkanine,
+        .shinyPaletteFemale = gMonShinyPalette_Darkanine,
+        .iconSpriteFemale = gMonIcon_Darkanine,
+        .iconPalIndexFemale = 1,
+#endif //P_GENDER_DIFFERENCES
+        .backAnimId = BACK_ANIM_JOLT_RIGHT,
+        .palette = gMonPalette_Darkanine,
+        .shinyPalette = gMonShinyPalette_Darkanine,
+        .iconSprite = gMonIcon_Darkanine,
+        .iconPalIndex = 0,
+        SHADOW(-4, 11, SHADOW_SIZE_XL_BATTLE_ONLY)
+        FOOTPRINT(Darkanine)
+        OVERWORLD(
+            sPicTable_Arcanine,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_Arcanine,
+            gShinyOverworldPalette_Arcanine
+        )
+        .levelUpLearnset = sNoneLevelUpLearnset,
+        .teachableLearnset = sNoneTeachableLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 100, SPECIES_NONE},
+                                {EVO_ITEM, ITEM_MOOMOO_MILK, SPECIES_NONE}),
+        //.formSpeciesIdTable = sNoneFormSpeciesIdTable,
+        //.formChangeTable = sNoneFormChangeTable,
+        //.perfectIVCount = NUM_STATS,
+    },
+
     /*
     [SPECIES_NONE] =
     {

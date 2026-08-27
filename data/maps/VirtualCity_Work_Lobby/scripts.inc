@@ -2,7 +2,6 @@ VirtualCity_Work_Lobby_MapScripts::
 	.byte 0
 
 
-<<<<<<< HEAD
 
 @ Minh ACT I (Add Magikarp branch if time allows TOFOLD)
 
@@ -87,14 +86,6 @@ VirtualCity_Work_Lobby_Text_SophieACTIPokemonCheckSuccess4:
 Speaker_Guard::
 	.string "Guard$"
 
-=======
-Speaker_Guard::
-	.string "Guard$"
-
-
-
-
->>>>>>> master
 VirtualCity_Work_Lobby_Eventscript_NoPokemonGuard::
 	
 	@@check, how many Pokemon does the player have?
@@ -170,7 +161,6 @@ VirtualCity_Work_Lobby_Text_NoPokemonGuardMagikarp:
 
 
 
-<<<<<<< HEAD
 
 @@ Roland and his fans TOFOLD
 
@@ -246,5 +236,3 @@ VirtualCity_Work_Lobby_Text_RolandFanClubGuyPostgame:
 
 VirtualCity_Work_Lobby_Text_RolandFanClubGirlPostgame:
 	.string "!$"
-=======
->>>>>>> master

@@ -8,7 +8,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_OnTransition:
 	setvar VAR_PETALBURG_CITY_STATE, 1
 
 
-VirtualCity_TestingRoomIntro_OnFrame:
+OutsideWorld_ApartmentBldg1_YourApartment_OnFrame:
 	map_script_2 VAR_PETALBURG_CITY_STATE, 1, OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene
 	.2byte 0
 
@@ -30,7 +30,11 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
 
 
 
+OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_NotFirstLoad::
 
+
+
+	end
 
 
 
