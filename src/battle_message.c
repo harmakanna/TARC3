@@ -168,6 +168,24 @@ const u8 *const gStatNamesTable[NUM_BATTLE_STATS] =
     [STAT_ACC]     = sText_Accuracy,
     [STAT_EVASION] = sText_Evasiveness,
 };
+
+static const u8 sText_Stats_HP[] = _("HP");
+static const u8 sText_Stats_Attack[] = _("ATK");
+static const u8 sText_Stats_Defense[] = _("DEF");
+static const u8 sText_Stats_Speed[] = _("SPE");
+static const u8 sText_Stats_SpAttack[] = _("SP.A");
+static const u8 sText_Stats_SpDefense[] = _("SP.D");
+
+const u8 *const gShortenStatTable[NUM_STATS] =
+{
+    [STAT_HP]      = sText_Stats_HP,
+    [STAT_ATK]     = sText_Stats_Attack,
+    [STAT_DEF]     = sText_Stats_Defense,
+    [STAT_SPEED]   = sText_Stats_Speed,
+    [STAT_SPATK]   = sText_Stats_SpAttack,
+    [STAT_SPDEF]   = sText_Stats_SpDefense,
+};
+
 const u8 *const gPokeblockWasTooXStringTable[FLAVOR_COUNT] =
 {
     [FLAVOR_SPICY]  = COMPOUND_STRING("was too spicy!"),

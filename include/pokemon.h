@@ -126,6 +126,7 @@ enum MonData {
     MON_DATA_TERA_TYPE,
     MON_DATA_EVOLUTION_TRACKER,
     MON_DATA_GENDER,
+    MON_DATA_TRAIT_INDEX,
 };
 
 struct PokemonSubstruct0
@@ -175,7 +176,7 @@ struct PokemonSubstruct2
     u8 spAttackEV;
     u8 spDefenseEV;
     u8 gender;
-    u8 padding;
+    u8 trait;
     u32 filler;
 };
 
@@ -375,6 +376,8 @@ struct BattlePokemon
     u8 metLevel:7;
     u8 isShiny:1;
     u8 affectionHearts;
+    enum Type extraType;
+    enum Type extraImmunity;
 };
 
 struct EvolutionParam
