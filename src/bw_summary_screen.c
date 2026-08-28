@@ -292,6 +292,7 @@ static void PrintPageSpecificText(u8);
 static void CreateTextPrinterTask(u8);
 static void PrintInfoPageText(void);
 static void Task_PrintInfoPage(u8);
+static void PrintTrait();
 static void PrintMonOTName(void);
 static void PrintMonOTID(void);
 static void PrintMonDexNumberSpecies(void);
@@ -647,16 +648,16 @@ static const struct WindowTemplate sPageInfoTemplate[] =
         .tilemapLeft = 7,
         .tilemapTop = 7,
         .width = 12,
-        .height = 6,
+        .height = 5,
         .paletteNum = 6,
         .baseBlock = 335,
     },
     [PSS_DATA_WINDOW_INFO_MEMO] = {
         .bg = 0,
         .tilemapLeft = 2,
-        .tilemapTop = 13,
+        .tilemapTop = 12,
         .width = 26,
-        .height = 7,
+        .height = 8,
         .paletteNum = 6,
         .baseBlock = 407,
     },
@@ -667,7 +668,7 @@ static const struct WindowTemplate sPageInfoTemplate[] =
         .width = 9,
         .height = 4,
         .paletteNum = 6,
-        .baseBlock = 589,
+        .baseBlock = 615,
     },
     /*
     [PSS_DATA_WINDOW_INFO_TRAIT] = {
@@ -1956,7 +1957,7 @@ static bool8 LoadGraphics(void)
         }
         break;
     case 17:
-        CreateMonMarkingsSprite(&sMonSummaryScreen->currentMon);
+        //CreateMonMarkingsSprite(&sMonSummaryScreen->currentMon);
         gMain.state++;
         break;
     case 18:
@@ -2665,7 +2666,7 @@ static void Task_ChangeSummaryMon(u8 taskId)
         }
         break;
     case 5:
-        RemoveAndCreateMonMarkingsSprite(&sMonSummaryScreen->currentMon);
+        //RemoveAndCreateMonMarkingsSprite(&sMonSummaryScreen->currentMon);
         CreateMonShinySprite(&sMonSummaryScreen->currentMon);
         break;
     case 6:
@@ -3908,10 +3909,10 @@ static void PrintInfoPageText(void)
         PrintMonOTName();
         PrintMonOTID();
         PrintMonDexNumberSpecies();
-        PrintHeldItemName();
-        //PrintTrait();
         BufferMonTrainerMemo();
         PrintMonTrainerMemo();
+        PrintHeldItemName();
+        PrintTrait();
     }
 }
 
@@ -4095,7 +4096,7 @@ static void BufferMonTrainerMemo(void)
 
 static void PrintMonTrainerMemo(void)
 {
-    PrintTextOnWindow_BW_Font(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_MEMO), gStringVar4, 16, 4, 0, 0);
+    PrintTextOnWindow_BW_Font(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_MEMO), gStringVar4, 16, 12, 0, 0);
 }
 
 static void BufferNatureString(void)
@@ -4310,6 +4311,12 @@ static void SetTraitString()
     }
 }
 
+static void PrintTrait()
+{
+    SetTraitString();
+    PrintTextOnWindowWithFont(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_MEMO), gStringVar1, 50, 0, 0, 0, FONT_SHORT);
+}
+
 static void PrintHeldItemName(void)
 {
     const u8 *text;
@@ -4333,8 +4340,6 @@ static void PrintHeldItemName(void)
 
     fontId = GetFontIdToFit(text, FONT_SHORT, 0, WindowTemplateWidthPx(&sPageInfoTemplate[PSS_DATA_WINDOW_INFO_OT_OTID_ITEM]) - 8);
     PrintTextOnWindowWithFont(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_OT_OTID_ITEM), text, 12, 28, 0, 0, fontId);
-    SetTraitString();
-    PrintTextOnWindowWithFont(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_OT_OTID_ITEM), gStringVar1, 12, 36, 0, 0, FONT_SHORT);
 }
 
 static void UNUSED PrintRibbonCount(void)
@@ -5860,12 +5865,11 @@ static u32 TraitIncrement(s32 data, bool32 isReverse)
     data = LoopData(data, 2, isReverse);
     sMonSummaryScreen->summary.trait = data;
     SetMonData(&sMonSummaryScreen->currentMon, MON_DATA_TRAIT_INDEX, &data);
-    u32 windowId = sMonSummaryScreen->windowIds[PSS_DATA_WINDOW_INFO_OT_OTID_ITEM];
+    u32 windowId = sMonSummaryScreen->windowIds[PSS_DATA_WINDOW_INFO_MEMO];
     FillWindowPixelBuffer(windowId, PIXEL_FILL(0));
-    PrintMonOTName();
-    PrintMonOTID();
-    PrintHeldItemName();
-    SetMonTypeIcons();
+    BufferMonTrainerMemo();
+    PrintMonTrainerMemo();
+    PrintTrait();
     return data;
 }
 
