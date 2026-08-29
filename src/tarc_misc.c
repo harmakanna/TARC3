@@ -15,3 +15,8 @@ const u8 *GetPlayerName(void)
     else
         return gSophieName;
 }
+
+void CloneFirstMon(void)
+{
+    memcpy(&gParties[B_TRAINER_PLAYER][1], &gParties[B_TRAINER_PLAYER][0], sizeof(struct Pokemon));
+}
