@@ -37,6 +37,7 @@
 #include "test/test.h"
 
 #include "battle_quanta.h"
+#include "tarc_traits.h"
 
 static EWRAM_DATA u8 sLinkSendTaskId = 0;
 static EWRAM_DATA u8 sLinkReceiveTaskId = 0;
@@ -1487,6 +1488,8 @@ static u32 GetBattlerMonData(enum BattlerId battler, struct Pokemon *party, u32 
         battleMon.metLevel = GetMonData(&party[monId], MON_DATA_MET_LEVEL);
         battleMon.isShiny = GetMonData(&party[monId], MON_DATA_IS_SHINY);
         battleMon.affectionHearts = GetMonAffectionHearts(&party[monId]);
+        battleMon.extraType = GetBoxMonExtraType(&party[monId].box);
+        battleMon.extraImmunity = GetBoxMonExtraImmunity(&party[monId].box);
         GetMonData(&party[monId], MON_DATA_NICKNAME, nickname);
         StringCopy_Nickname(battleMon.nickname, nickname);
         GetMonData(&party[monId], MON_DATA_OT_NAME, battleMon.otName);

@@ -76,6 +76,7 @@
 #include "constants/weather.h"
 
 #include "tarc_misc.h"
+#include "tarc_traits.h"
 
 extern u16 gSpecialVar_ItemId;
 
@@ -1409,7 +1410,7 @@ void CalculateMonStats(struct Pokemon *mon)
         if (i == STAT_HP)
             continue;
 
-        u8 baseStat = GetSpeciesBaseStat(species, i);
+        u32 baseStat = GetSpeciesBaseStat(species, i) + GetBoxMonExtraStat(&mon->box, i);
         s32 n = (((2 * baseStat + iv[i] + ev[i] * 2) * level) / 100) + 5;
         n = ModifyStatByNature(nature, n, i);
         if (B_FRIENDSHIP_BOOST == TRUE)
@@ -1428,7 +1429,7 @@ void CalculateMonStats(struct Pokemon *mon)
     }
     else
     {
-        s32 n = 2 * GetSpeciesBaseHP(species) + iv[STAT_HP];
+        s32 n = 2 * (GetSpeciesBaseHP(species) + GetBoxMonExtraStat(&mon->box, STAT_HP)) + iv[STAT_HP];
         newMaxHP = (((n + ev[STAT_HP] * 2) * level) / 100) + level + 10;
     }
 
@@ -2468,6 +2469,9 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
                 }.combinedValue;
             }
             break;
+        case MON_DATA_TRAIT_INDEX:
+            retVal = GetSubstruct2(boxMon)->trait;
+            break;
         default:
             break;
         }
@@ -2892,6 +2896,9 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
             substruct1->evolutionTracker2 = evoTracker.tracker2;
             break;
         }
+         case MON_DATA_TRAIT_INDEX:
+            SET8(GetSubstruct2(boxMon)->trait);
+            break;
         default:
             break;
         }
