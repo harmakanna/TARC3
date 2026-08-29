@@ -43,6 +43,7 @@ static void TilesetAnim_MauvilleGym(u16);
 static void TilesetAnim_BikeShop(u16);
 static void TilesetAnim_BattlePyramid(u16);
 static void TilesetAnim_BattleDome(u16);
+static void TilesetAnim_VirtualCityPrimary(u16);
 static void QueueAnimTiles_General_Flower(u16);
 static void QueueAnimTiles_General_Water(u16);
 static void QueueAnimTiles_General_SandWaterEdge(u16);
@@ -73,6 +74,9 @@ static void QueueAnimTiles_MauvilleGym_ElectricGates(u16);
 static void QueueAnimTiles_SootopolisGym_Waterfalls(u16);
 static void QueueAnimTiles_EliteFour_GroundLights(u16);
 static void QueueAnimTiles_EliteFour_WallLights(u16);
+static void QueueAnimTiles_VirtualCityPrimary_Fountain(u16);
+static void QueueAnimTiles_VirtualCityPrimary_Flower(u16);
+static void QueueAnimTiles_VirtualCityPrimary_Grid(u16);
 
 const u16 gTilesetAnims_General_Flower_Frame1[] = INCGFX_U16("data/tilesets/primary/general/anim/flower/1.png", ".4bpp");
 const u16 gTilesetAnims_General_Flower_Frame0[] = INCGFX_U16("data/tilesets/primary/general/anim/flower/0.png", ".4bpp");
@@ -544,6 +548,54 @@ static const u16 *const sTilesetAnims_BattleDomeFloorLightPals[] = {
     gTilesetAnims_BattleDomePals0_3,
 };
 
+const u16 gTilesetAnims_VirtualCityPrimary_Fountain_Frame0[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/fountain/0.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_Fountain_Frame1[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/fountain/1.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_Fountain_Frame2[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/fountain/2.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_Fountain_Frame3[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/fountain/3.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_Fountain_Frame4[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/fountain/4.png", ".4bpp");
+const u16 tileset_anims_space_12[224] = {};
+
+const u16 gTilesetAnims_VirtualCityPrimary_Flower_Frame0[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/flower/0.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_Flower_Frame1[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/flower/1.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_Flower_Frame2[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/flower/2.png", ".4bpp");
+const u16 tileset_anims_space_13[16] = {};
+
+const u16 gTilesetAnims_VirtualCityPrimary_Grid_Frame0[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/grid/0.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_Grid_Frame1[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/grid/1.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_Grid_Frame2[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/grid/2.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_Grid_Frame3[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/grid/3.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_Grid_Frame4[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/grid/4.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_Grid_Frame5[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/grid/5.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_Grid_Frame6[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/grid/6.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_Grid_Frame7[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/grid/7.png", ".4bpp");
+const u16 tileset_anims_space_15[224] = {};
+
+const u16 *const gTilesetAnims_VirtualCityPrimary_Fountain[] = {
+    gTilesetAnims_VirtualCityPrimary_Fountain_Frame0,
+    gTilesetAnims_VirtualCityPrimary_Fountain_Frame1,
+    gTilesetAnims_VirtualCityPrimary_Fountain_Frame2,
+    gTilesetAnims_VirtualCityPrimary_Fountain_Frame3,
+    gTilesetAnims_VirtualCityPrimary_Fountain_Frame4
+};
+
+const u16 *const gTilesetAnims_VirtualCityPrimary_Flower[] = {
+    gTilesetAnims_VirtualCityPrimary_Flower_Frame0,
+    gTilesetAnims_VirtualCityPrimary_Flower_Frame1,
+    gTilesetAnims_VirtualCityPrimary_Flower_Frame0,
+    gTilesetAnims_VirtualCityPrimary_Flower_Frame2
+};
+
+const u16 *const gTilesetAnims_VirtualCityPrimary_Grid[] = {
+    gTilesetAnims_VirtualCityPrimary_Grid_Frame0,
+    gTilesetAnims_VirtualCityPrimary_Grid_Frame1,
+    gTilesetAnims_VirtualCityPrimary_Grid_Frame2,
+    gTilesetAnims_VirtualCityPrimary_Grid_Frame3,
+    gTilesetAnims_VirtualCityPrimary_Grid_Frame4,
+    gTilesetAnims_VirtualCityPrimary_Grid_Frame5,
+    gTilesetAnims_VirtualCityPrimary_Grid_Frame6,
+    gTilesetAnims_VirtualCityPrimary_Grid_Frame7
+};
+
 static void ResetTilesetAnimBuffer(void)
 {
     sTilesetDMA3TransferBufferSize = 0;
@@ -832,6 +884,13 @@ void InitTilesetAnim_BattleDome(void)
     sSecondaryTilesetAnimCounter = 0;
     sSecondaryTilesetAnimCounterMax = sPrimaryTilesetAnimCounterMax;
     sSecondaryTilesetAnimCallback = TilesetAnim_BattleDome;
+}
+
+void InitTilesetAnim_VirtualCityPrimary(void)
+{
+    sPrimaryTilesetAnimCounter = 0;
+    sPrimaryTilesetAnimCounterMax = 256;
+    sPrimaryTilesetAnimCallback = TilesetAnim_VirtualCityPrimary;
 }
 
 static void TilesetAnim_Rustboro(u16 timer)
@@ -1185,6 +1244,34 @@ static void BlendAnimPalette_BattleDome_FloorLightsNoBlend(u16 timer)
         if (!--sSecondaryTilesetAnimCounterMax)
             sSecondaryTilesetAnimCallback = NULL;
     }
+}
+
+static void TilesetAnim_VirtualCityPrimary(u16 timer)
+{
+    if (timer % 32 == 0)
+        QueueAnimTiles_VirtualCityPrimary_Flower(timer / 32);
+    if (timer % 8 == 0)
+        QueueAnimTiles_VirtualCityPrimary_Grid(timer / 8);
+    if (timer % 4 == 0)
+        QueueAnimTiles_VirtualCityPrimary_Fountain(timer / 4);
+}
+
+static void QueueAnimTiles_VirtualCityPrimary_Fountain(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_VirtualCityPrimary_Fountain);
+    AppendTilesetAnimToBuffer(gTilesetAnims_VirtualCityPrimary_Fountain[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(476)), 36 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_VirtualCityPrimary_Flower(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_VirtualCityPrimary_Flower);
+    AppendTilesetAnimToBuffer(gTilesetAnims_VirtualCityPrimary_Flower[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(472)), 4 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_VirtualCityPrimary_Grid(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_VirtualCityPrimary_Grid);
+    AppendTilesetAnimToBuffer(gTilesetAnims_VirtualCityPrimary_Grid[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(3)), 4 * TILE_SIZE_4BPP);
 }
 
 // FRLG anims

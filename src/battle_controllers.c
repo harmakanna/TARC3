@@ -2156,7 +2156,7 @@ static void Controller_DoMoveAnimation(enum BattlerId battler)
 
 static void Controller_HandleTrainerSlideBack(enum BattlerId battler)
 {
-    if (gSprites[gBattleStruct->trainerSlideSpriteIds[battler]].callback == SpriteCallbackDummy)
+    if (gSprites[gBattleStruct->trainerSlideSpriteIds[battler]].callback == SpriteCB_TrainerSpriteDefault)
     {
         if (!IsOnPlayerSide(battler))
             FreeTrainerFrontPicPalette(gSprites[gBattleStruct->trainerSlideSpriteIds[battler]].oam.affineParam);
@@ -2214,7 +2214,7 @@ static void Controller_WaitForStatusAnimation(enum BattlerId battler)
 
 static void Controller_WaitForTrainerPic(enum BattlerId battler)
 {
-    if (gSprites[gBattleStruct->trainerSlideSpriteIds[battler]].callback == SpriteCallbackDummy)
+    if (gSprites[gBattleStruct->trainerSlideSpriteIds[battler]].callback == SpriteCB_TrainerSpriteDefault)
         BtlController_Complete(battler);
 }
 
@@ -2447,6 +2447,7 @@ void BtlController_HandleDrawTrainerPic(enum BattlerId battler, enum TrainerPicI
         gSprites[gBattleStruct->trainerSlideSpriteIds[battler]].x2 = -DISPLAY_WIDTH;
         gSprites[gBattleStruct->trainerSlideSpriteIds[battler]].sSpeedX = 2;
         gSprites[gBattleStruct->trainerSlideSpriteIds[battler]].oam.affineParam = trainerPicId;
+
     }
     else // Player's side
     {
@@ -2485,6 +2486,18 @@ void BtlController_HandleDrawTrainerPic(enum BattlerId battler, enum TrainerPicI
         }
         gSprites[gBattleStruct->trainerSlideSpriteIds[battler]].x2 = DISPLAY_WIDTH;
         gSprites[gBattleStruct->trainerSlideSpriteIds[battler]].sSpeedX = -2;
+    }
+
+    if (IsOnPlayerSide(battler) && FlagGet(FLAG_SPOOFING_EXECUTIVE))
+    {
+        gSprites[gBattleStruct->trainerSlideSpriteIds[battler]].oam.mosaic = TRUE;
+        gSprites[gBattleStruct->trainerSlideSpriteIds[battler]].data[5] = TRUE;
+        gSprites[gBattleStruct->trainerSlideSpriteIds[battler]].data[4] = 0;
+        TintPalette_GrayScale2(&gPlttBufferFaded[OBJ_PLTT_ID(gSprites[gBattleStruct->trainerSlideSpriteIds[battler]].oam.paletteNum)], 16);
+    }
+    else
+    {
+        gSprites[gBattleStruct->trainerSlideSpriteIds[battler]].data[5] = FALSE;
     }
     if (B_FAST_INTRO_NO_SLIDE || gTestRunnerHeadless)
         gSprites[gBattleStruct->trainerSlideSpriteIds[battler]].callback = SpriteCB_TrainerSpawn;

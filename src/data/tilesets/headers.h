@@ -1740,7 +1740,7 @@ const struct Tileset gTileset_VirtualCityPrimary =
     .palettes = gTilesetPalettes_VirtualCityPrimary,
     .metatiles = gMetatiles_VirtualCityPrimary,
     .metatileAttributes = gMetatileAttributes_VirtualCityPrimary,
-    .callback = NULL,
+    .callback = InitTilesetAnim_VirtualCityPrimary,
 };
 
 const struct Tileset gTileset_OutsideWorldSecondary =

@@ -84,6 +84,8 @@
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
 
+#include "tarc_misc.h"
+
 STATIC_ASSERT((B_FLAG_FOLLOWERS_DISABLED == 0 || OW_FOLLOWERS_ENABLED), FollowersFlagAssignedWithoutEnablingThem);
 
 struct CableClubPlayer
@@ -234,6 +236,8 @@ EWRAM_DATA bool8 gDisableMapMusicChangeOnMapLoad = MUSIC_DISABLE_OFF;
 static EWRAM_DATA const struct CreditsOverworldCmd *sCreditsOverworld_Script = NULL;
 static EWRAM_DATA s16 sCreditsOverworld_CmdLength = 0;
 static EWRAM_DATA s16 sCreditsOverworld_CmdIndex = 0;
+
+static EWRAM_DATA u8 sMosaicTimer = 0;
 
 static const struct WarpData sDummyWarpData =
 {
@@ -1638,6 +1642,8 @@ void CleanupOverworldWindowsAndTilemaps(void)
 {
     ClearMirageTowerPulseBlendEffect();
     FreeAllOverworldWindowBuffers();
+    if (IsInVirtualWorld())
+        FreeOamMatrix(gPlayerAvatar.matrixNum);
     TRY_FREE_AND_SET_NULL(gOverworldTilemapBuffer_Bg3);
     TRY_FREE_AND_SET_NULL(gOverworldTilemapBuffer_Bg2);
     TRY_FREE_AND_SET_NULL(gOverworldTilemapBuffer_Bg1);
@@ -1832,8 +1838,62 @@ u8 UpdateSpritePaletteWithTime(u8 paletteNum)
     return paletteNum;
 }
 
+static void PlayerMosaicEffect(void)
+{
+    if (!IsInVirtualWorld())
+        return;
+
+    u32 latency = 4;
+    u32 min_stretch = 2;
+    u32 extra_strech = 4;
+    if (FlagGet(FLAG_SPOOFING_EXECUTIVE))
+    {
+        if (gSprites[gPlayerAvatar.spriteId].oam.affineMode == ST_OAM_AFFINE_OFF)
+        {
+            TintPalette_GrayScale2(&gPlttBufferUnfaded[OBJ_PLTT_ID(gSprites[gPlayerAvatar.spriteId].oam.paletteNum)], 16);
+            TintPalette_GrayScale2(&gPlttBufferFaded[OBJ_PLTT_ID(gSprites[gPlayerAvatar.spriteId].oam.paletteNum)], 16);
+        }
+        gSprites[gPlayerAvatar.spriteId].oam.affineMode = ST_OAM_AFFINE_NORMAL;
+        gSprites[gPlayerAvatar.spriteId].oam.matrixNum = gPlayerAvatar.matrixNum;
+        if (gSprites[gPlayerAvatar.spriteId].anims[ANIM_STD_FACE_EAST]->frame.hFlip)
+        {
+            gOamMatrices[gPlayerAvatar.matrixNum].a = -256;
+            gOamMatrices[gPlayerAvatar.matrixNum].b = 0;
+            gOamMatrices[gPlayerAvatar.matrixNum].c = 0;
+            gOamMatrices[gPlayerAvatar.matrixNum].d = 256;
+        }
+        else
+        {
+            gOamMatrices[gPlayerAvatar.matrixNum].a = 0;
+            gOamMatrices[gPlayerAvatar.matrixNum].b = 0;
+            gOamMatrices[gPlayerAvatar.matrixNum].c = 0;
+            gOamMatrices[gPlayerAvatar.matrixNum].d = 0;
+        }
+        gSprites[gPlayerAvatar.spriteId].oam.mosaic = TRUE;
+        u32 stretch = min_stretch;
+        if ( sMosaicTimer < extra_strech * latency)
+            stretch += (sMosaicTimer / latency);
+        else
+            stretch += 2 * (extra_strech - 1) - (sMosaicTimer / latency);
+        SetGpuReg(REG_OFFSET_MOSAIC, (stretch << 12) | (stretch << 8));
+        sMosaicTimer++;
+        if (sMosaicTimer == (extra_strech - 1) * latency * 2)
+             sMosaicTimer = 0;
+    }
+    else
+    {
+        if (gSprites[gPlayerAvatar.spriteId].oam.affineMode == ST_OAM_AFFINE_NORMAL)
+        {
+            UpdatePlayerPalette();
+        }
+        gSprites[gPlayerAvatar.spriteId].oam.affineMode = ST_OAM_AFFINE_OFF;
+        gSprites[gPlayerAvatar.spriteId].oam.mosaic = FALSE;
+    }
+}
+
 static void OverworldBasic(void)
 {
+    PlayerMosaicEffect();
     ScriptContext_RunScript();
     RunTasks();
     AnimateSprites();
@@ -2620,6 +2680,7 @@ static void InitObjectEventsLocal(void)
     SetPlayerAvatarTransitionFlags(player->transitionFlags);
     ResetInitialPlayerAvatarState();
     TrySpawnObjectEvents(0, 0);
+    SetSpoofedIdentityAvatar();
     FollowerNPC_HandleSprite();
     UpdateFollowingPokemon();
     TryRunOnWarpIntoMapScript();

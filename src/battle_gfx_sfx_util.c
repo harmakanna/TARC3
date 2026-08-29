@@ -424,8 +424,36 @@ static void UNUSED UnusedDoBattleSpriteAffineAnim(struct Sprite *sprite, bool8 p
 
 #define sSpeedX data[0]
 
+#include "gpu_regs.h"
+
+static void TrainerSpriteMosaicUpdate(struct Sprite *sprite)
+{
+    u32 latency = 4;
+    u32 min_stretch = 4;
+    u32 extra_strech = 4;
+    if (sprite->data[5]);
+    {
+        
+        u32 stretch = min_stretch;
+        if (sprite->data[4] < extra_strech * latency)
+            stretch += (sprite->data[4] / latency);
+        else
+            stretch += 2 * (extra_strech - 1) - (sprite->data[4] / latency);
+        SetGpuReg(REG_OFFSET_MOSAIC, (stretch << 12) | (stretch << 8));
+        sprite->data[4]++;
+        if (sprite->data[4] == (extra_strech - 1) * latency * 2)
+            sprite->data[4] = 0;
+    }
+    
+}
+void SpriteCB_TrainerSpriteDefault(struct Sprite *sprite)
+{
+    TrainerSpriteMosaicUpdate(sprite);
+}
+
 void SpriteCB_TrainerSlideIn(struct Sprite *sprite)
 {
+    TrainerSpriteMosaicUpdate(sprite);
     if (!(gIntroSlideFlags & 1))
     {
         sprite->x2 += sprite->sSpeedX;
@@ -434,29 +462,32 @@ void SpriteCB_TrainerSlideIn(struct Sprite *sprite)
             if (sprite->y2 != 0)
                 sprite->callback = SpriteCB_TrainerSlideVertical;
             else
-                sprite->callback = SpriteCallbackDummy;
+                sprite->callback = SpriteCB_TrainerSpriteDefault;
         }
     }
 }
 
 void SpriteCB_TrainerSpawn(struct Sprite *sprite)
 {
+    DebugPrintf("SpriteCB_TrainerSpawn");
+    TrainerSpriteMosaicUpdate(sprite);
     if (!(gIntroSlideFlags & 1))
     {
         sprite->x2 = 0;
         if (sprite->y2 != 0)
             sprite->callback = SpriteCB_TrainerSlideVertical;
         else
-            sprite->callback = SpriteCallbackDummy;
+            sprite->callback = SpriteCB_TrainerSpriteDefault;
     }
 }
 
 // Slide up to 0 if necessary (used by multi battle intro)
 static void SpriteCB_TrainerSlideVertical(struct Sprite *sprite)
 {
+    TrainerSpriteMosaicUpdate(sprite);
     sprite->y2 -= 2;
     if (sprite->y2 == 0)
-        sprite->callback = SpriteCallbackDummy;
+        sprite->callback = SpriteCB_TrainerSpriteDefault;
 }
 
 #undef sSpeedX
