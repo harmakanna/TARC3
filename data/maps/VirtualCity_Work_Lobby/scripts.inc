@@ -1,10 +1,68 @@
 VirtualCity_Work_Lobby_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, VirtualCity_Work_Lobby_OnTransition
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, VirtualCity_Work_Lobby_OnFrame
 	.byte 0
 
 
+VirtualCity_Work_Lobby_OnTransition::
+	end
+
+VirtualCity_Work_Lobby_OnFrame:
+	@map_script_2 VAR_PETALBURG_CITY_STATE, 10, VirtualCity_Work_Lobby_Eventscript_ActIIntro
+	.2byte 0
 
 @ Minh ACT I (Add Magikarp branch if time allows TOFOLD)
 
+VirtualCity_Work_Lobby_Eventscript_ActIMinh::
+	goto_if_set FLAG_ACT_I_INFO_OBTAINED, VirtualCity_Work_Lobby_Text_Eventscript_ACTIPokemonCheck
+	goto_if_set FLAG_ACT_I_STARTED, VirtualCity_Work_Lobby_Eventscript_MinhACTIIntroRepeat
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 10, VirtualCity_Work_Lobby_Eventscript_ActIIntro
+	end
+
+VirtualCity_Work_Lobby_Eventscript_ActIIntro::
+	@warpsilent NEXT TO Minh
+	applymovement LOCALID_MINH, Common_Movement_FaceRight
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+
+	speak LOCALID_MINH, VirtualCity_Work_Lobby_Text_MinhACTIIntro1, Speaker_Minh, DIR_WEST
+
+	applymovement LOCALID_MINH, Common_Movement_FaceUp
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
+	special SpawnCameraObject 
+	applymovement OBJ_EVENT_ID_CAMERA, VirtualCity_Work_Lobby_Move_IntroCamera1
+	waitmovement
+
+	speak LOCALID_MINH, VirtualCity_Work_Lobby_Text_MinhACTIIntro2, Speaker_Minh, DIR_SOUTH
+	speak LOCALID_MINH, VirtualCity_Work_Lobby_Text_SophieACTIIntro3, Speaker_Sophie, DIR_SOUTH
+	speak LOCALID_MINH, VirtualCity_Work_Lobby_Text_MinhACTIIntro4, Speaker_Minh, DIR_SOUTH
+
+	applymovement OBJ_EVENT_ID_CAMERA, VirtualCity_Work_Lobby_Move_IntroCamera1
+	waitmovement
+	delay 20
+	applymovement LOCALID_MINH, Common_Movement_FaceRight
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	
+
+	speak LOCALID_MINH, VirtualCity_Work_Lobby_Text_SophieACTIIntro5, Speaker_Sophie, DIR_SOUTH
+	speak LOCALID_MINH, VirtualCity_Work_Lobby_Text_MinhACTIIntro6, Speaker_Minh, DIR_SOUTH	
+
+	setflag FLAG_ACT_I_STARTED
+
+	end
+
+VirtualCity_Work_Lobby_Move_IntroCamera1:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+VirtualCity_Work_Lobby_Move_IntroCamera2:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
 
 VirtualCity_Work_Lobby_Text_MinhACTIIntro1:
 	.string "Good, you made it.\p"
@@ -18,10 +76,13 @@ VirtualCity_Work_Lobby_Text_MinhACTIIntro1:
 	.string "They might be making fakes in there.$"
 
 VirtualCity_Work_Lobby_Text_MinhACTIIntro2:
+	.string "IRL is a part of Research.\p"
+	.string "We work in Design, under Place, so\n"
+	.string "we won't be able to get far.\p"
 	.string "We gotta sneak in, but you need a\n"
 	.string "Pokemon to fight guards…\p"
-	.string "And the elevator guard won't let you\n"
-	.string "bring Ex in.$"
+	.string "And Research doesn't allow outside\n"
+	.string "Pokemon. You can't bring Ex in.$"
 
 VirtualCity_Work_Lobby_Text_SophieACTIIntro3:
 	.string "I see. Why don't I just-$"
@@ -49,6 +110,12 @@ VirtualCity_Work_Lobby_Text_MinhACTIIntro6:
 	.string "Sigh… I dunno. You're the pro battler.\n"
 	.string "My art skills don't really help here.$"
 
+
+VirtualCity_Work_Lobby_Eventscript_MinhACTIIntroRepeat::
+	speak LOCALID_MINH, VirtualCity_Work_Lobby_Text_MinhACTIIntroRepeat, Speaker_Minh, DIR_SOUTH
+	end
+
+
 VirtualCity_Work_Lobby_Text_MinhACTIIntroRepeat:
 	.string "You remember what to do, right?\p"
 	.string "Get into the IRL Department without\n"
@@ -56,6 +123,20 @@ VirtualCity_Work_Lobby_Text_MinhACTIIntroRepeat:
 	.string "find out what Pokemon they'll let in.\p"
 	.string "We'll plan it from there.$"
 
+
+
+VirtualCity_Work_Lobby_Text_Eventscript_ACTIPokemonCheck::
+	speak LOCALID_MINH, VirtualCity_Work_Lobby_Text_MinhACTIPokemonCheck, Speaker_Minh, DIR_WEST
+	@ Ponyta check
+	speak LOCALID_MINH, VirtualCity_Work_Lobby_Text_MinhACTIPokemonCheckSuccess1, Speaker_Minh, DIR_WEST
+	speak LOCALID_MINH, VirtualCity_Work_Lobby_Text_SophieACTIPokemonCheckSuccess2, Speaker_Sophie, DIR_EAST
+	speak LOCALID_MINH, VirtualCity_Work_Lobby_Text_MinhACTIPokemonCheckSuccess3, Speaker_Minh, DIR_WEST
+	speak LOCALID_MINH, VirtualCity_Work_Lobby_Text_SophieACTIPokemonCheckSuccess4, Speaker_Sophie, DIR_EAST
+
+	warpsilent MAP_VIRTUAL_CITY_COMMS_TOWER_2F
+	setvar VAR_PETALBURG_CITY_STATE, 11
+	delay 100
+	end
 
 
 VirtualCity_Work_Lobby_Text_MinhACTIPokemonCheck:
@@ -180,7 +261,7 @@ VirtualCity_Work_Lobby_Text_RolandRamble1:
 	.string "on a discrete time scale. Hrrmph.\p"
 	.string "You know, battle time is in turns.\n"
 	.string "One attack per turn, no half-turns.\p"
-	.string "But in the Realm, they've quantized\n"
+	.string "But in the Place, they've quantized\n"
 	.string "time down a bit smaller. Yeah.\p"
 	.string "Four fractional turns in a regular turn.\p"
 	.string "Casuals call them miniturns, but pros\n"

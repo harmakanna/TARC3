@@ -1224,13 +1224,13 @@
 
 #define FLAG_DARKANINE_BATTLE_1                                     0x493 // Unused Flag
 #define FLAG_DARKANINE_BATTLE_2                                     0x494 // Unused Flag
-#define FLAG_PROLOGUE_COMPLETE                                      0x495 // Unused Flag
-#define FLAG_ACTI_COMPLETE                                          0x496 // Unused Flag
-#define FLAG_ACTII_COMPLETE                                         0x497 // Unused Flag
-#define FLAG_ACTIII_COMPLETE                                        0x498 // Unused Flag
-#define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
-#define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
-#define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag
+#define FLAG_DARKANINE_COMPLETE                            0x495 // Unused Flag
+#define FLAG_PROLOGUE_COMPLETE                                     0x496 // Unused Flag
+#define FLAG_ACT_I_STARTED                                         0x497 // Unused Flag
+#define FLAG_ACT_I_INFO_OBTAINED                                   0x498 // Unused Flag
+#define FLAG_ACT_I_EX_PONYTA_OBTAINED                              0x499 // Unused Flag
+#define FLAG_ACT_I_REAL_PONYTA_OBTAINED                            0x49A // Unused Flag
+#define FLAG_ACT_I_COMPLETE                                                       0x49B // Unused Flag
 #define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
 #define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
 #define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag

@@ -21,13 +21,38 @@ Speaker_Minh::
 Speaker_Sophie::
 	.string "Sophie$"
 
+Speaker_Harriet::
+	.string "Harriet$"
+
+Speaker_Ernest::
+	.string "Ernest$"
+
+Speaker_Lola::
+	.string "Lola$"
+
+
+
+Speaker_Byron::
+	.string "Byron$"
+
+
 
 VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	setflag FLAG_SYS_B_DASH
 	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_SYS_NATIONAL_DEX
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
+	@setflag FLAG_BADGE08_GET
 	@@more setflags TOFOLD, set healing place, etc. etc.
+
+	@----------------------------------------------------
+	setvar VAR_PETALBURG_CITY_STATE, 2
+	setflag FLAG_DARKANINE_COMPLETE
+	@@ Skipping traveling sequence for now TOFOLD
+	warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT, 1, 3
+	delay 100
+	@----------------------------------------------------
+
 
 	removeobject LOCALID_DARKANINES_BALL
 	removeobject LOCALID_ARCANINE
@@ -62,9 +87,9 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	removeobject LOCALID_DARKANINES_BALL
 	setvar VAR_PETALBURG_CITY_STATE, 0
 	givemon SPECIES_DARKANINE, 50
-	givemon SPECIES_DARKANINE, 50
-	givemon SPECIES_ARCANINE, 50
-	givemon SPECIES_ARCANINE, 50
+
+
+	@@ TOFOLD - Add Pokemon upgrade scene
 
 	goto VirtualCity_TestingRoomIntro_Eventscript_Minh
 	end
@@ -74,9 +99,14 @@ VirtualCity_TestingRoomIntro_Eventscript_NotFirstLoad:
 	end
 
 VirtualCity_TestingRoomIntro_Eventscript_Minh::
-	@@edit mon dialog event
+	@@ TOFOLD edit mon dialog event
 	
+	@@ We can skip this part, there shouldn't be a way to turn down a buff
 	@@ check if stats and typing correct, if not goto VirtualCity_TestingRoomIntro_Eventscript_StatsIncorrect
+
+	givemon SPECIES_ARCANINE, 50
+	givemon SPECIES_ARCANINE, 50
+
 	goto_if_unset FLAG_DARKANINE_BATTLE_1, VirtualCity_TestingRoomIntro_Eventscript_FirstBattle
 	goto_if_unset FLAG_DARKANINE_BATTLE_2, VirtualCity_TestingRoomIntro_Eventscript_SecondBattle
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_SubsequentBattleStart, Speaker_Minh, DIR_SOUTH
@@ -116,7 +146,12 @@ VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine:
 	msgbox VirtualCity_TestingRoomIntro_Text_ConfirmDarkanine, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_Eventscript_Minh
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_DarkanineConfirmed, Speaker_Minh, DIR_SOUTH
-	@@ fancy transition, warpsilent, etc.
+	@@ fancy transition
+	fadescreenspeed FADE_TO_BLACK, 5
+	setvar VAR_PETALBURG_CITY_STATE, 2
+	setflag FLAG_DARKANINE_COMPLETE
+	@@ Skipping traveling sequence for now TOFOLD
+	warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT, 1, 3
 	end
 
 

@@ -4,23 +4,173 @@ OutsideWorld_ApartmentBldg1_YourApartment_MapScripts::
 	.byte 0
 
 OutsideWorld_ApartmentBldg1_YourApartment_OnTransition:
-	goto_if_set FLAG_PROLOGUE_COMPLETE, OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_NotFirstLoad
-	setvar VAR_PETALBURG_CITY_STATE, 1
+	@goto_if_set FLAG_PROLOGUE_COMPLETE, OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_NotFirstLoad
+	@setvar VAR_PETALBURG_CITY_STATE, 10
+	end
 
 
 OutsideWorld_ApartmentBldg1_YourApartment_OnFrame:
-	map_script_2 VAR_PETALBURG_CITY_STATE, 1, OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene
+	map_script_2 VAR_PETALBURG_CITY_STATE, 2, OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene
 	.2byte 0
 
 
 OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
+	playse SE_DOOR
+	applymovement LOCALID_MINH, Common_Movement_FaceRight
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
 	speak LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk1Minh, Speaker_Minh, DIR_WEST
 	applymovement LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh1
 	delay 10
 	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie1
+	waitmovement
+	applymovement LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Move_Harriet1
+	playse SE_LEDGE
+	waitse
+	waitmovement
+	speak LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk2Harriet, Speaker_Harriet, DIR_WEST
+	speak LOCALID_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk3Ernest, Speaker_Ernest, DIR_NORTH
+	speak LOCALID_LOLA, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk4Lola, Speaker_Lola, DIR_SOUTH
+	applymovement LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh2
+	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie2
+	applymovement LOCALID_HARRIET, Common_Movement_FaceUp
+	speak LOCALID_LOLA, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk5Lola, Speaker_Lola, DIR_SOUTH
+
+	addobject LOCALID_SNUBBULLS_BALL
+	delay 10
+	playse SE_BALL_OPEN
+	removeobject LOCALID_SNUBBULLS_BALL
+	addobject LOCALID_SNUBBULL
+	applymovement LOCALID_MINH, Common_Movement_ExclamationMark
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement LOCALID_HARRIET, Common_Movement_ExclamationMark
+	applymovement LOCALID_ERNEST, Common_Movement_ExclamationMark
+	waitse
+	playmoncry SPECIES_SNUBBULL, CRY_MODE_ENCOUNTER
+	delay 40
+
+	speak LOCALID_LOLA, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk6Lola, Speaker_Lola, DIR_SOUTH
+	applymovement LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh3
+	applymovement LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Move_Harriet2
+	waitmovement
+    applymovement LOCALID_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Move_Ernest1
+	waitmovement
+	applymovement LOCALID_HARRIET, Common_Movement_Heart
+
+	applymovement LOCALID_SNUBBULL, OutsideWorld_ApartmentBldg1_YourApartment_Move_Harriet1
+	playse SE_LEDGE
+	waitse
+	playmoncry SPECIES_SNUBBULL, CRY_MODE_ENCOUNTER
+	delay 30
+
+	speak LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk7Harriet, Speaker_Harriet, DIR_WEST
+	applymovement LOCALID_SNUBBULL, Common_Movement_Heart
+	applymovement LOCALID_MINH, Common_Movement_ExclamationMark
+	waitmovement
+	applymovement LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh4
+	waitmovement
+	delay 30
+	applymovement LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh5
+	waitmovement
+	applymovement LOCALID_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Move_Ernest2
 
 
-	setvar VAR_PETALBURG_CITY_STATE, 0
+	speak LOCALID_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk8Ernest, Speaker_Ernest, DIR_NORTH
+	applymovement LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh6
+	waitmovement
+
+	speak LOCALID_LOLA, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk9Lola, Speaker_Lola, DIR_SOUTH
+	speak LOCALID_LOLA, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk10Lola, Speaker_Lola, DIR_SOUTH
+	applymovement LOCALID_HARRIET, Common_Movement_FaceLeft
+	applymovement LOCALID_ERNEST, Common_Movement_FaceLeft
+	applymovement LOCALID_LOLA, Common_Movement_FaceLeft
+
+	applymovement LOCALID_MINH, Common_Movement_FaceRight
+	delay 20
+	applymovement LOCALID_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Move_Ernest3
+
+
+	speak LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk11Minh, Speaker_Minh, DIR_EAST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk12Sophie, Speaker_Sophie, DIR_EAST
+	applymovement LOCALID_HARRIET, Common_Movement_QuestionMark
+	applymovement LOCALID_ERNEST, Common_Movement_QuestionMark
+
+	speak LOCALID_LOLA, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk13Lola, Speaker_Lola, DIR_SOUTH
+	applymovement LOCALID_LOLA, OutsideWorld_ApartmentBldg1_YourApartment_Move_Lola1
+	applymovement LOCALID_SNUBBULL, OutsideWorld_ApartmentBldg1_YourApartment_Move_Snubbull1
+	delay 10
+	applymovement LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh7
+
+	speak LOCALID_LOLA, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk14Lola, Speaker_Lola, DIR_SOUTH
+	applymovement LOCALID_LOLA, OutsideWorld_ApartmentBldg1_YourApartment_Move_Lola2
+	applymovement LOCALID_SNUBBULL, OutsideWorld_ApartmentBldg1_YourApartment_Move_Snubbull2
+	delay 16
+	removeobject LOCALID_LOLA
+	playse SE_DOOR
+	delay 8
+	removeobject LOCALID_SNUBBULL
+	playse SE_DOOR
+
+	delay 20
+
+	applymovement LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh8
+	applymovement LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Move_Harriet3
+	delay 10
+	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie3
+	waitmovement
+	delay 30
+	applymovement LOCALID_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Move_Ernest4
+	waitmovement
+
+	speak LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk15Harriet, Speaker_Harriet, DIR_NORTH
+	speak LOCALID_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk16Ernest, Speaker_Ernest, DIR_NORTH
+	speak LOCALID_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk17Ernest, Speaker_Ernest, DIR_NORTH
+	speak LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk18Minh, Speaker_Minh, DIR_WEST
+
+
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk19Sophie, Speaker_Sophie, DIR_SOUTH
+	speak LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk20Harriet, Speaker_Harriet, DIR_NORTH
+	applymovement LOCALID_ERNEST, Common_Movement_FaceLeft
+	applymovement LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Move_Harriet4
+	delay 40
+	removeobject LOCALID_HARRIET
+	playse SE_DOOR
+	delay 10
+
+	speak LOCALID_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk21Ernest, Speaker_Ernest, DIR_NORTH
+	applymovement LOCALID_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Move_Ernest5
+	waitmovement
+	delay 50
+
+	speak LOCALID_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk21pt5Ernest, Speaker_Ernest, DIR_EAST
+	applymovement LOCALID_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Move_Ernest6
+	delay 10
+	removeobject LOCALID_ERNEST
+	playse SE_DOOR
+	delay 20
+
+
+	@Discuss with Minh
+	applymovement LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh9
+	waitmovement
+
+	speak LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk22Minh, Speaker_Minh, DIR_EAST
+	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie4
+	waitmovement
+
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk23Sophie, Speaker_Sophie, DIR_EAST
+	speak LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk24Minh, Speaker_Minh, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk25Sophie, Speaker_Sophie, DIR_EAST
+	speak LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk26Minh, Speaker_Minh, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk27Sophie, Speaker_Sophie, DIR_EAST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk28Sophie, Speaker_Sophie, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk29Sophie, Speaker_Sophie, DIR_EAST
+	delay 50
+	fadescreenspeed FADE_TO_BLACK 5
+	setvar VAR_PETALBURG_CITY_STATE, 3
+	warpsilent MAP_OUTSIDE_WORLD, 22, 20
+	delay 100
+
+	
 	end
 
 
@@ -39,18 +189,161 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_NotFirstLoad::
 
 
 OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh1:
-	walk_faster_up
-	walk_faster_right
-	walk_faster_right
-	walk_faster_right
+	walk_fast_up
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
 	step_end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh2:
+	walk_right
+	walk_down
+	walk_down
+	face_up
+	step_end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh3:
+	walk_up
+	walk_right
+	step_end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh4:
+	lock_facing_direction
+	walk_left
+	unlock_facing_direction
+	step_end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh5:
+	walk_up
+	face_down
+	step_end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh6:
+	face_left
+	delay_16
+	delay_16
+	face_down
+	step_end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh7:
+	walk_left
+	face_right
+	step_end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh8:
+	walk_right
+	face_down
+	step_end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh9:
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
 
 OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie1:
 	walk_right
 	walk_right
 	step_end
 
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie2:
+	step_end
 
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie3:
+	walk_up
+	face_down
+	step_end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie4:
+	walk_down
+	walk_right
+	walk_right
+	step_end
+
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Harriet1:
+	jump_in_place_up
+	step_end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Harriet2:
+	walk_up
+	face_left
+	step_end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Harriet3:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	face_up
+	step_end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Harriet4:
+	walk_left
+	walk_left
+	walk_down
+	step_end
+
+
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Ernest1:
+	walk_up
+	face_right
+	step_end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Ernest2:
+	walk_up
+	walk_right
+	step_end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Ernest3:
+	walk_left
+	walk_down
+	face_up
+	step_end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Ernest4:
+	walk_up
+	face_up
+	step_end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Ernest5:
+	walk_left
+	walk_left
+	walk_left
+	face_down
+	step_end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Ernest6:
+	walk_down
+	step_end
+
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Lola1:
+	walk_down
+	walk_left
+	walk_left
+	step_end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Lola2:
+	walk_up
+	walk_up
+	step_end	
+
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Snubbull1:
+	walk_up
+	walk_down
+	walk_left
+	step_end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Snubbull2:
+	walk_left
+	walk_up
+	walk_up
+	step_end
 
 
 
@@ -75,9 +368,9 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk5Lola::
 	.string "So many people called it a stupid,\n"
 	.string "unrealistic dream.\p"
 	.string "Back then, I couldn't explain why it\n" 
-	.string "felt so… uh, necessary?\p"
-	.string "Actually, I still can't explain it.\n"
-	.string "But just look at him!$"
+	.string "felt so… so necessary.\p"
+	.string "Well, I still can't explain it.\n"
+	.string "But look at him!$"
 	
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk6Lola::
 	.string "Go on, pet him! Like you would a\n"
@@ -86,7 +379,8 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk6Lola::
 	.string "Why real Pokemon are so important.$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk7Harriet::
-	.string "Whoa, his fur! It feels like a blanket!$"
+	.string "OMG he's so precious! And warm!\n"
+	.string "His fur feels like a blanket!$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk8Ernest::
 	.string "What's… his name, Lola?$"
@@ -116,7 +410,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk13Lola::
 	.string "you haven't even seen our room yet!$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk14Lola::
-	.string "See y'all tomorrow!$"
+	.string "Goodnight! See y'all tomorrow!$"
 
 
 
@@ -143,7 +437,9 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk20Harriet::
 	.string "Let's celebrate with Lola tomorrow!$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk21Ernest::
-	.string "Hm.\p"
+	.string "Hm.$"
+
+OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk21pt5Ernest::
 	.string "I know something's up.\n"
 	.string "Tell me about it later.$"
 
@@ -165,45 +461,27 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk25Sophie::
 	.string "Like the VR Pokemon you design…\n"
 	.string "but not as skillful.$"
 
-OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk25Minh::
+OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk26Minh::
 	.string "Are you saying… does BETTER have a\n"
 	.string "way to make fake IRL Pokemon?!\p"
 	.string "And Lola just spent her life savings\n"
 	.string "on one, thinking it was real?!$"
 
-OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk26Sophie::
-	.string "Minh.\p"
-	.string "There's something here even worse than\n"
-	.string "Lola getting scammed.$"
-
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk27Sophie::
-	.string "Are there even any real Pokemon left?$"
-
-
-@Scene transition to sitting on couches bleakly, not facing each other
-
+	.string "Minh, hush!\n"
+	.string "The walls aren't that thick.\p"
+	.string "And… there's something here even\n"
+	.string "worse than Lola getting scammed.$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk28Sophie::
-	.string "There's no point brooding any longer.\p"
-	.string "It's late, you should get home. Meet in\n"
-	.string "the Realm, at work, when you can.\p"
-	.string "At least that way, Lola won't be\n"
-	.string "able to hear us talking about it.$"
+	.string "We haven't seen any Pokemon in years.\n"
+	.string "Real ones, I mean.\p"
+	.string "And when we see one, it's a fake.$"
 
-OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk29Minh::
-	.string "…I don't know what we're going to do.$"
+OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk29Sophie::
+	.string "Minh…\p"
+	.string "Are there even any real Pokemon left?$"
 
-OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk30Sophie::
-	.string "We're going to find out who's doing\n"
-	.string "this. And we're going to get evidence.$"
-
-OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk31Minh::
-	.string "…Okay.\p"
-	.string "Whoever it is, they've got artists.\n"
-	.string "I'll ask around with my art friends.$"
-
-OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk32Sophie::
-	.string "Good plan. I'll see you tomorrow.$"
 
 
 
