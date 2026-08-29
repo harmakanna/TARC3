@@ -27,6 +27,7 @@
 #include "constants/rgb.h"
 
 #include "tarc_speedup.h"
+#include "graphics_sandbox.h"
 
 static void VBlankIntr(void);
 static void HBlankIntr(void);
@@ -175,7 +176,7 @@ static void InitMainCallbacks(void)
     gTrainerHillVBlankCounter = NULL;
     gMain.vblankCounter2 = 0;
     gMain.callback1 = NULL;
-    SetMainCallback2(gInitialMainCB2);
+    SetMainCallback2(GraphicsSandboxInit);
     gSaveBlock2Ptr = &gSaveblock2.block;
     gPokemonStoragePtr = &gPokemonStorage.block;
 }
