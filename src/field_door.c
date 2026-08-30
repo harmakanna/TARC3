@@ -374,7 +374,7 @@ static const u8 sDoorAnimPalettes_VirtualCity_Office[] = {2, 2, 2, 2, 2, 2, 2, 2
 static const u8 sDoorAnimPalettes_VirtualCity_Hotel[] = {12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12};
 static const u8 sDoorAnimPalettes_Superstore_Left[] = {7, 7, 7, 7, 7, 7, 7, 7};
 static const u8 sDoorAnimPalettes_Superstore_Right[] = {7, 7, 7, 7, 7, 7, 7, 7};
-static const u8 sDoorAnimPalettes_HideoutElevator[] = {12, 12, 2, 2, 2, 2, 2, 2};
+static const u8 sDoorAnimPalettes_HideoutElevator[] = {3, 3, 2, 2, 2, 2, 2, 2};
 static const u8 sDoorAnimPalettes_SilphCoElevator[] = {8, 8, 2, 2, 2, 2, 2, 2};
 #if IS_FRLG
 
