@@ -3123,3 +3123,11 @@
 	.macro player_speak text:req, type=MSGBOX_DEFAULT
 	speak LOCALID_PLAYER, SP_NAME_PLAYER, \text, VAR_FACING, \type
 	.endm
+
+	.macro clearparty
+	callnative ZeroPlayerPartyMons
+	.endm
+
+	.macro clonefirstmon
+	callnative CloneFirstMon
+	.endm
