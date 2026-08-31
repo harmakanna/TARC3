@@ -582,6 +582,7 @@ enum
 #define OBJ_EVENT_PAL_TAG_ERNEST_VR               0x1138
 #define OBJ_EVENT_PAL_TAG_HARRIET_VR              0x1139
 #define OBJ_EVENT_PAL_TAG_MINH_VR                 0x113A
+#define OBJ_EVENT_PAL_TAG_ORIGINAL_MAY            0x113B
 
 #if OW_FOLLOWERS_POKEBALLS
 // Vanilla
