@@ -47,6 +47,7 @@
 
 #include "quests.h"
 #include "tarc_misc.h"
+#include "field_screen_effect.h"
 
 #ifdef RHH_EXPANSION
 #include "constants/expansion.h"
@@ -4102,8 +4103,14 @@ static void RotomPhone_StartMenu_SelectedFunc_Quests(void)
 
 static void RotomPhone_StartMenu_SelectedFunc_ExitVR(void)
 {
-
+    SetWarpDestination(1, 8, -1, 5, 2);
+    DoWarp();
+    ResetInitialPlayerAvatarState();
+    u8 taskId = FindTaskIdByFunc(Task_RotomPhone_OverworldMenu_HandleMainInput);
+    gTasks[taskId].func = Task_RotomPhone_OverworldMenu_RotomShutdown;
+    RotomPhone_StartMenu_RotomShutdownPreparation(taskId, TRUE);
 }
+
 static void RotomPhone_StartMenu_SelectedFunc_Daycare(void)
 {
     #define MON_ONE 0
