@@ -176,7 +176,8 @@ static void InitMainCallbacks(void)
     gTrainerHillVBlankCounter = NULL;
     gMain.vblankCounter2 = 0;
     gMain.callback1 = NULL;
-    SetMainCallback2(GraphicsSandboxInit);
+    SetMainCallback2(gInitialMainCB2);
+    //SetMainCallback2(GraphicsSandboxInit);
     gSaveBlock2Ptr = &gSaveblock2.block;
     gPokemonStoragePtr = &gPokemonStorage.block;
 }

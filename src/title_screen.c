@@ -54,6 +54,10 @@ static void CB2_GoToBerryFixScreen(void);
 static void CB2_GoToCopyrightScreen(void);
 static void UpdateLegendaryMarkingColor(u8);
 
+static void HblankCb_LogoInsert(void);
+static void Task_TarcTitleScreenPhase1(u8 taskId);
+static void Task_TarcTitleScreenPhase2(u8 taskId);
+
 static void SpriteCB_VersionBannerLeft(struct Sprite *sprite);
 static void SpriteCB_VersionBannerRight(struct Sprite *sprite);
 static void SpriteCB_PressStartCopyrightBanner(struct Sprite *sprite);
@@ -618,9 +622,9 @@ void CB2_InitTitleScreen(void)
         break;
     case 2:
     {
-        u8 taskId = CreateTask(Task_TitleScreenPhase1, 0);
+        u8 taskId = CreateTask(Task_TarcTitleScreenPhase1, 0);
 
-        gTasks[taskId].tCounter = 256;
+        gTasks[taskId].tCounter = 0;
         gTasks[taskId].tSkipToNext = FALSE;
         gTasks[taskId].tPointless = -16;
         gTasks[taskId].tBg2Y = -32;
@@ -634,29 +638,24 @@ void CB2_InitTitleScreen(void)
         break;
     case 4:
         PanFadeAndZoomScreen(DISPLAY_WIDTH / 2, DISPLAY_HEIGHT / 2, 0x100, 0);
-        SetGpuReg(REG_OFFSET_BG2X_L, -29 * 256);
+        SetGpuReg(REG_OFFSET_BG2X_L, 0);
         SetGpuReg(REG_OFFSET_BG2X_H, -1);
-        SetGpuReg(REG_OFFSET_BG2Y_L, -32 * 256);
-        SetGpuReg(REG_OFFSET_BG2Y_H, -1);
-        SetGpuReg(REG_OFFSET_WIN0H, 0);
-        SetGpuReg(REG_OFFSET_WIN0V, 0);
-        SetGpuReg(REG_OFFSET_WIN1H, 0);
-        SetGpuReg(REG_OFFSET_WIN1V, 0);
-        SetGpuReg(REG_OFFSET_WININ, WININ_WIN0_BG_ALL | WININ_WIN0_OBJ | WININ_WIN1_BG_ALL | WININ_WIN1_OBJ);
-        SetGpuReg(REG_OFFSET_WINOUT, WINOUT_WIN01_BG_ALL | WINOUT_WIN01_OBJ | WINOUT_WINOBJ_ALL);
-        SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT1_BG2 | BLDCNT_EFFECT_LIGHTEN);
-        SetGpuReg(REG_OFFSET_BLDALPHA, 0);
-        SetGpuReg(REG_OFFSET_BLDY, 12);
+        SetGpuReg(REG_OFFSET_BG2Y_L, 0);
+        SetGpuReg(REG_OFFSET_BG2Y_H, 0);
         SetGpuReg(REG_OFFSET_BG0CNT, BGCNT_PRIORITY(3) | BGCNT_CHARBASE(2) | BGCNT_SCREENBASE(26) | BGCNT_16COLOR | BGCNT_TXT256x256);
         SetGpuReg(REG_OFFSET_BG1CNT, BGCNT_PRIORITY(2) | BGCNT_CHARBASE(3) | BGCNT_SCREENBASE(27) | BGCNT_16COLOR | BGCNT_TXT256x256);
+        SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT1_BG1 | BLDCNT_EFFECT_BLEND | BLDCNT_TGT2_BG0 | BLDCNT_TGT2_BD);
+        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(6, 15));
+        SetGpuReg(REG_OFFSET_BLDY, 0);
         SetGpuReg(REG_OFFSET_BG2CNT, BGCNT_PRIORITY(1) | BGCNT_CHARBASE(0) | BGCNT_SCREENBASE(9) | BGCNT_256COLOR | BGCNT_AFF256x256);
-        EnableInterrupts(INTR_FLAG_VBLANK);
+        EnableInterrupts(INTR_FLAG_VBLANK | INTR_FLAG_HBLANK);
+        ScanlineEffect_InitWave(0, DISPLAY_HEIGHT, 3, 4, 2, SCANLINE_EFFECT_REG_BG1HOFS, FALSE);
+        SetHBlankCallback(HblankCb_LogoInsert);
         SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_MODE_1
                                     | DISPCNT_OBJ_1D_MAP
-                                    | DISPCNT_BG2_ON
-                                    | DISPCNT_OBJ_ON
-                                    | DISPCNT_WIN0_ON
-                                    | DISPCNT_OBJWIN_ON);
+                                    | DISPCNT_BG0_ON
+                                    | DISPCNT_BG1_ON
+                                    | DISPCNT_OBJ_ON);
         m4aSongNumStart(MUS_TITLE);
         gMain.state = 5;
         break;
@@ -664,7 +663,7 @@ void CB2_InitTitleScreen(void)
         if (!UpdatePaletteFade())
         {
             StartPokemonLogoShine(SHINE_MODE_SINGLE_NO_BG_COLOR);
-            ScanlineEffect_InitWave(0, DISPLAY_HEIGHT, 4, 4, 0, SCANLINE_EFFECT_REG_BG1HOFS, TRUE);
+            //ScanlineEffect_InitWave(0, DISPLAY_HEIGHT, 4, 4, 0, SCANLINE_EFFECT_REG_BG1HOFS, TRUE);
             SetMainCallback2(MainCB2);
         }
         break;
@@ -823,6 +822,149 @@ static void Task_TitleScreenPhase3(u8 taskId)
             SetMainCallback2(CB2_GoToCopyrightScreen);
         }
     }
+}
+
+static void HblankCb_LogoWave(void)
+{
+    s16 var = gScanlineEffectRegBuffers[1][REG_VCOUNT] + 227;
+    //s32 offset = (REG_VCOUNT % 5) - 2;
+    REG_BG2X_L = var * 256;
+    REG_BG2X_H = -1;
+}
+
+static EWRAM_DATA s16 sHblankTest[DISPLAY_HEIGHT][2] = {0};
+
+static void HblankCb_LogoInsert(void)
+{
+    s16 var = sHblankTest[REG_VCOUNT][0];
+    REG_BG2X_L = var * 256;
+    REG_BG2X_H = sHblankTest[REG_VCOUNT][1];
+}
+
+#define SMEAR_DELAY 16
+static void SetScanlineValues(u32 counter)
+{
+    
+    /*
+    DebugPrintf("counter %d", counter);
+    for (u32 i = 0; i < DISPLAY_HEIGHT; i++)
+    {
+        if (i < counter / SMEAR_DELAY)
+            sHblankTest[i] = 227 + gScanlineEffectRegBuffers[1][i];
+        else if (i < (counter / SMEAR_DELAY) + 1)
+            sHblankTest[i] = (counter % SMEAR_DELAY) * 227 / SMEAR_DELAY;
+        else
+            sHblankTest[i] = 0;
+    }
+    -
+    */
+    DebugPrintf("counter %d", counter);
+    for (u32 i = 0; i < DISPLAY_HEIGHT; i++)
+    {
+        s16 xPos = -29;
+        if (i < 36)
+        {
+            if (i < counter / SMEAR_DELAY)
+                xPos += gScanlineEffectRegBuffers[1][i];
+            else if (i < (counter / SMEAR_DELAY) + 1)
+                xPos -= (counter % SMEAR_DELAY) * 256 / SMEAR_DELAY;
+            else
+                xPos -= 256;
+        }
+        else
+        {
+            if ((72 - i) < counter / SMEAR_DELAY)
+                xPos += gScanlineEffectRegBuffers[1][i];
+            else if ((72 - i) < (counter / SMEAR_DELAY) + 1)
+                xPos += (counter % SMEAR_DELAY) * 256 / SMEAR_DELAY;
+            else
+                xPos += 256;
+        }
+        if (xPos < - 256)
+            xPos = -256;
+        if (xPos > 0)
+        {
+            sHblankTest[i][0] = xPos;
+            sHblankTest[i][1] = 0;
+        }
+        else
+        {
+            sHblankTest[i][0] = 256 + xPos;
+            sHblankTest[i][1] = -1;
+        }
+    }
+
+}
+
+//SetGpuReg(REG_OFFSET_BG2X_L, 227 * 256);
+#define MAX_TIME (40 * SMEAR_DELAY)
+
+static void Task_TarcTitleScreenPhase1(u8 taskId)
+{
+    if (gTasks[taskId].tCounter == 0)
+    {
+        SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_MODE_1
+                                    | DISPCNT_OBJ_1D_MAP
+                                    | DISPCNT_BG0_ON
+                                    | DISPCNT_BG1_ON
+                                    | DISPCNT_BG2_ON
+                                    | DISPCNT_OBJ_ON);
+    }
+    if (JOY_NEW(A_B_START_SELECT))
+    {
+        gTasks[taskId].tCounter = MAX_TIME;
+    }
+
+    if (gTasks[taskId].tCounter == MAX_TIME)
+    {
+        SetGpuReg(REG_OFFSET_BG2Y_L, 0);
+        SetGpuReg(REG_OFFSET_BG2Y_H, 0);
+        SetHBlankCallback(HblankCb_LogoWave);
+        CreatePressStartBanner(START_BANNER_X, 132);
+        //ScanlineEffect_Stop();
+        //EnableInterrupts(INTR_FLAG_HBLANK | INTR_FLAG_VBLANK);
+        gTasks[taskId].func = Task_TarcTitleScreenPhase2;
+        gTasks[taskId].tCounter = 0;
+        return;
+    }
+
+    if (++gTasks[taskId].tCounter & 1)
+    {
+        gTasks[taskId].tBg1Y++;
+        gBattle_BG1_Y = gTasks[taskId].tBg1Y / 2;
+        gBattle_BG1_X = 0;
+    }
+    SetScanlineValues(gTasks[taskId].tCounter);
+}
+
+static void Task_TarcTitleScreenPhase2(u8 taskId)
+{
+    if (JOY_NEW(A_BUTTON) || JOY_NEW(START_BUTTON))
+    {
+        FadeOutBGM(4);
+        BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_WHITEALPHA);
+        SetMainCallback2(CB2_GoToMainMenu);
+    }
+    else if (JOY_HELD(CLEAR_SAVE_BUTTON_COMBO) == CLEAR_SAVE_BUTTON_COMBO)
+    {
+        SetMainCallback2(CB2_GoToClearSaveDataScreen);
+    }
+    else if (JOY_HELD(RESET_RTC_BUTTON_COMBO) == RESET_RTC_BUTTON_COMBO
+      && CanResetRTC() == TRUE)
+    {
+        FadeOutBGM(4);
+        BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
+        SetMainCallback2(CB2_GoToResetRtcScreen);
+    }
+    if (++gTasks[taskId].tCounter & 1)
+    {
+        gTasks[taskId].tBg1Y++;
+        gBattle_BG1_Y = gTasks[taskId].tBg1Y / 2;
+        gBattle_BG1_X = 0;
+    }
+    
+    //s32 offset = (gTasks[taskId].tCounter % 10) - 5;
+    //SetGpuReg(REG_OFFSET_BG2X_L, (-29 + offset) * 256);
 }
 
 static void CB2_GoToMainMenu(void)
