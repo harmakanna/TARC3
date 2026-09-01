@@ -15,21 +15,26 @@ OutsideWorld_OnFrame:
 OutsideWorld_PrologueEndScene_Final_Really::
 	setweather WEATHER_RAIN
 	doweather
-	addobject LOCALID_MINH
+	addobject LOCALID_OW_MINH
 	delay 100
 	delay 100
 	fadescreenspeed FADE_FROM_BLACK 5
 	delay 50
 	
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_SophiePrologue1, Speaker_Sophie, DIR_SOUTH
-	speak LOCALID_MINH, OutsideWorld_MinhPrologue2, Speaker_Minh, DIR_SOUTH
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_SophiePrologue3, Speaker_Sophie, DIR_SOUTH
-	speak LOCALID_MINH, OutsideWorld_MinhPrologue4, Speaker_Minh, DIR_WEST
+	playse SE_SELECT
+	speak LOCALID_OW_MINH, OutsideWorld_MinhPrologue2, Speaker_Minh, DIR_SOUTH
+	playse SE_SELECT
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_SophiePrologue3, Speaker_Sophie, DIR_EAST
+	playse SE_SELECT
+	speak LOCALID_OW_MINH, OutsideWorld_MinhPrologue4, Speaker_Minh, DIR_WEST
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_SophiePrologue5, Speaker_Sophie, DIR_EAST
+	playse SE_SELECT
 	delay 30
-	applymovement LOCALID_MINH, OutsideWorld_Move_Minh1
+	applymovement LOCALID_OW_MINH, OutsideWorld_Move_Minh1
 	waitmovement
-	removeobject LOCALID_MINH
+	removeobject LOCALID_OW_MINH
 
 	setflag FLAG_PROLOGUE_COMPLETE
 	setvar VAR_PETALBURG_CITY_STATE, 10
@@ -42,6 +47,8 @@ OutsideWorld_Move_Minh1:
 	walk_up
 	walk_up
 	walk_up
+	walk_left
+	walk_left
 	walk_left
 	walk_left
 	walk_left

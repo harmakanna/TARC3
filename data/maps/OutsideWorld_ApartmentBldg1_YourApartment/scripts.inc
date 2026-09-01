@@ -5,7 +5,6 @@ OutsideWorld_ApartmentBldg1_YourApartment_MapScripts::
 
 OutsideWorld_ApartmentBldg1_YourApartment_OnTransition:
 	@goto_if_set FLAG_PROLOGUE_COMPLETE, OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_NotFirstLoad
-	@setvar VAR_PETALBURG_CITY_STATE, 10
 	end
 
 
@@ -34,7 +33,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
 	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie2
 	applymovement LOCALID_HARRIET, Common_Movement_FaceUp
 	speak LOCALID_LOLA, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk5Lola, Speaker_Lola, DIR_SOUTH
-
+	special SpawnCameraObject
 	addobject LOCALID_SNUBBULLS_BALL
 	delay 10
 	playse SE_BALL_OPEN
@@ -147,7 +146,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
 	removeobject LOCALID_ERNEST
 	playse SE_DOOR
 	delay 20
-
+	special RemoveCameraObject
 
 	@Discuss with Minh
 	applymovement LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh9
@@ -168,7 +167,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
 	fadescreenspeed FADE_TO_BLACK 5
 	setvar VAR_PETALBURG_CITY_STATE, 3
 	warpsilent MAP_OUTSIDE_WORLD, 22, 20
-	delay 100
+	waitstate
 
 	
 	end
@@ -489,6 +488,64 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk29Sophie::
 
 @@ ACT II INTRO
 
+
+
+
+
+
+OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_ActIII_Opening::
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro1, Speaker_Sophie, DIR_WEST
+	speak LOCALID_A2_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Text_ErnestActIIIntro2, Speaker_Ernest, DIR_EAST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro3, Speaker_Sophie, DIR_WEST
+	speak LOCALID_A2_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_HarrietActIIIntro4, Speaker_Harriet, DIR_NORTH
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro5, Speaker_Sophie, DIR_WEST
+
+	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_ActIII_Opening1
+	waitmovement
+	
+
+	addobject LOCALID_SNUBBULLS_BALL
+	delay 10
+	playse SE_BALL_OPEN
+	removeobject LOCALID_SNUBBULLS_BALL
+	addobject LOCALID_PONYTA_A2
+	applymovement LOCALID_A2_HARRIET, Common_Movement_ExclamationMark
+	applymovement LOCALID_A2_ERNEST, Common_Movement_ExclamationMark
+	waitse
+	playmoncry SPECIES_PONYTA, CRY_MODE_ENCOUNTER
+	waitse
+	delay 40
+
+	speak LOCALID_A2_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_HarrietActIIIntro6, Speaker_Harriet, DIR_NORTH
+	speak LOCALID_A2_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_HarrietActIIIntro7, Speaker_Harriet, DIR_NORTH
+	speak LOCALID_A2_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Text_MinhActIIIntro8, Speaker_Minh, DIR_EAST
+	speak LOCALID_A2_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Text_ErnestActIIIntro9, Speaker_Ernest, DIR_NORTH
+
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro10, Speaker_Sophie, DIR_SOUTH
+	speak LOCALID_A2_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Text_MinhActIIIntro11, Speaker_Minh, DIR_SOUTH
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro12, Speaker_Sophie, DIR_SOUTH
+
+	setflag FLAG_HIDE_ACT_II_INTRO_CHARS
+	@warpsilent 
+	waitstate
+	
+	end
+
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_ActIII_Opening1:
+	walk_up
+	face_down
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	delay_16
+	face_left
+	step_end
+
+
+
+
 OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro1::
 	.string "Harriet. Ernest. Thanks for coming.\n"
 	.string "We don't have long until Lola gets home.\p"
@@ -539,7 +596,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_MinhActIIIntro11::
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro12::
 	.string "We can't talk here, Lola's gonna be back\n"
-	.string "soon. Meet at my place in the Realm.$"
+	.string "soon. Meet at my Place.$"
 
 
 

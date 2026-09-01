@@ -10,10 +10,17 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Eventscript_Sign::
 
 	@@ Fancy transition TOFOLD
 	warp MAP_VIRTUAL_CITY_OUTSIDE1, 24, 24
-
+	waitstate
+	end
 
 Common_Eventscript_Cancel::
 	end
 
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Text_Sign:
 	.string "Enter VR?$"
+
+
+
+
+
+

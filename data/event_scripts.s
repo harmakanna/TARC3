@@ -1814,3 +1814,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/VirtualCity_CommsTower_4F/text.inc"
 
 	.include "data/maps/VirtualCity_Stadium_PreBattleRoom/scripts.inc"
+
+	.include "data/maps/VirtualCity_CommsTower_Research/scripts.inc"

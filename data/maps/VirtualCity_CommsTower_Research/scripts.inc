@@ -1,0 +1,132 @@
+VirtualCity_CommsTower_Research_MapScripts::
+	.byte 0
+
+
+
+
+VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger::
+	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger1, Speaker_Researcher, DIR_NORTH
+	applymovement LOCALID_RESEARCHBOSS, Common_Movement_ExclamationMark
+	waitmovement
+	delay 20
+	applymovement LOCALID_RESEARCHBOSS, VirtualCity_CommsTower_Research_Move_ResearchBossTrigger1
+	waitmovement
+	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger2, Speaker_Researcher, DIR_NORTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger3, Speaker_Sophie, DIR_SOUTH
+	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger4, Speaker_Researcher, DIR_NORTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger5, Speaker_Sophie, DIR_SOUTH
+	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger6, Speaker_Researcher, DIR_NORTH
+
+	@battle TOFOLD
+
+	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger7, Speaker_Researcher, DIR_NORTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger8, Speaker_Sophie, DIR_SOUTH
+	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger9, Speaker_Researcher, DIR_NORTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger10, Speaker_Sophie, DIR_SOUTH
+	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger11, Speaker_Researcher, DIR_NORTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger12, Speaker_Sophie, DIR_SOUTH
+	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger13, Speaker_Researcher, DIR_NORTH
+	applymovement LOCALID_RESEARCHBOSS, VirtualCity_CommsTower_Research_Move_ResearchBossTrigger1
+	waitmovement
+	setvar VAR_PETALBURG_CITY_STATE 16
+	end
+
+
+VirtualCity_CommsTower_Research_Move_ResearchBossTrigger1:
+	walk_left
+	walk_left
+	face_up
+	step_end
+
+VirtualCity_CommsTower_Research_Move_ResearchBossTrigger2:
+	walk_right
+	walk_right
+	face_up
+	step_end
+
+
+VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger1:
+	.string "About time you showed up, Brady.\p"
+	.string "Enough gambling - get to work on\n"
+	.string "those back legs.$"
+
+VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger2:
+	.string "Hold up, you're not Brady!\p"
+	.string "Aren't you that lady from Design?$"
+
+VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger3:
+	.string "Well, I-$"
+
+VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger4:
+	.string "What?! Wait, it's done!\p"
+	.string "He finished working on it at the Casino?\n"
+	.string "Now that's BETTER behavior right there.\p"
+	.string "So, you've balanced it already, I assume?$"
+
+VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger5:
+	.string "Actually, I-$"
+
+VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger6:
+	.string "Come on then, let's see it!$"
+
+VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger7:
+	.string "Don't you think it's too strong?\p"
+	.string "Also you mixed up the moveset. This is\n"
+	.string "for the Hyperreal pack.$"
+
+VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger8:
+	.string "The Hyperreal pack? What-$"
+
+VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger9:
+	.string "Yeah, you know, back to basics.\n"
+	.string "Everything like it would have been.\p"
+	.string "This team's made tons of designs, but\n"
+	.string "the release keeps getting delayed.$"
+
+VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger10:
+	.string "Tons of designs? Why-$"
+
+VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger11:
+	.string "Yeah, I swear Byron wants practically\n"
+	.string "every Pokemon done this way.\p"
+	.string "You don't know about it because they\n"
+	.string "haven't needed to be balanced for-\p"
+	.string "Hey, why did Brady give you this one\n"
+	.string "to balance, anyway?\p"
+	.string "This is a top secret release!$"
+
+VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger12:
+	.string "I should, uh, probably fix the moveset.$"
+
+VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger13:
+	.string "Yeah, sure. Ah, that Brady - two steps\n"
+	.string "forward, one step back with that boy.$"
+
+
+
+
+VirtualCity_CommsTower_Research_Eventscript_PonytaBall::
+	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Text_PonytaBall, Speaker_Sophie, DIR_NORTH
+	givemon SPECIES_PONYTA, 50
+	setflag FLAG_ACT_I_REAL_PONYTA_OBTAINED
+	end
+
+VirtualCity_CommsTower_Research_Text_PonytaBall:
+	.string "Hmm, it's one of the Ponyta…\n"
+	.string "This is the perfect evidence!$"
+
+
+VirtualCity_CommsTower_Research_Eventscript_ResearchBoss::
+	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Text_ResearchBoss1, Speaker_Sophie, DIR_NORTH
+	speak LOCALID_RESEARCHBOSS, VirtualCity_CommsTower_Research_Text_ResearchBoss2, Speaker_Researcher, DIR_NORTH
+	end
+
+VirtualCity_CommsTower_Research_Text_ResearchBoss1:
+	.string "Um, have you seen this Ponyta-$"
+
+
+VirtualCity_CommsTower_Research_Text_ResearchBoss2:
+	.string "Hush! I've gotta finish this before\n"
+	.string "Byron's check-in.\p"
+	.string "Also, has anyone ever told you that\n"
+	.string "you interrupt people a lot?$"

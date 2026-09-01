@@ -7,6 +7,9 @@ VirtualCity_Work_YourOffice_OnFrame:
 	.2byte 0
 
 VirtualCity_Work_YourOffice_Eventscript_MakingExPonyta::
+	@ Take away EX TOFOLD
+	@ Give drilbur (ponytaEx)
+	
 	applymovement LOCALID_MINH, Common_Movement_FaceUp
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
 	speak LOCALID_MINH, VirtualCity_Work_YourOffice_Text_MinhACTIPonytaDone1, Speaker_Minh, DIR_NORTH
@@ -32,7 +35,7 @@ VirtualCity_Work_YourOffice_Eventscript_MakingExPonyta::
 
 
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement LOCALID_MINH, Common_Movement_ExclamationMark
 	
 	
 	@removeobject LOCALID_PONYTAEX
@@ -69,7 +72,6 @@ VirtualCity_Work_YourOffice_Move_Ex1:
 VirtualCity_Work_YourOffice_Eventscript_MinhACTI:
 	goto_if_set FLAG_ACT_I_REAL_PONYTA_OBTAINED, VirtualCity_Work_YourOffice_Eventscript_MinhACTIOutro
 	goto_if_set FLAG_ACT_I_EX_PONYTA_OBTAINED, VirtualCity_Work_YourOffice_Eventscript_MinhACTIPonytaDoneRepeat
-
 	end
 
 
@@ -144,9 +146,9 @@ VirtualCity_Work_YourOffice_Eventscript_MinhACTIOutro::
 
 	setvar VAR_PETALBURG_CITY_STATE, 20
 	setflag FLAG_ACT_I_COMPLETE
-
-	@warpsilent 
-
+	clearflag FLAG_HIDE_ACT_II_INTRO_CHARS
+	warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT_BEDROOM, 2,3
+	waitstate
 	end
 
 VirtualCity_Work_YourOffice_Move_ACTIOutroSophie1:
@@ -166,6 +168,7 @@ VirtualCity_Work_YourOffice_Text_SophieACTIOutro2:
 
 VirtualCity_Work_YourOffice_Text_MinhACTIOutro3:
 	.string "It's an unfinished Ponyta…\n"
+	.string "But it's so detailed.\p"
 	.string "Hi, lil' guy!$"
 
 VirtualCity_Work_YourOffice_Text_SophieACTIOutro4:
@@ -174,6 +177,9 @@ VirtualCity_Work_YourOffice_Text_SophieACTIOutro4:
 	.string "That means… it's like Lola's Snubbull.$"
 
 VirtualCity_Work_YourOffice_Text_MinhACTIOutro5:
-	.string "A virtual Pokemon being sold as a\n"
-	.string "real one. Let's go check.$"
+	.string "Let's meet up with the gang.\p"
+	.string "I'll tell them to meet us at your\n"
+	.string "apartment - they might have ideas.$"
+
+
 
