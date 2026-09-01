@@ -205,14 +205,7 @@ void StartTimer1(void)
 
 void SeedRngAndSetTrainerId(void)
 {
-    u32 val;
-
-    REG_TM1CNT_H = 0;
-    REG_TM2CNT_H = 0;
-    val = ((u32)REG_TM2CNT_L) << 16;
-    val |= REG_TM1CNT_L;
-    SeedRng(val);
-    sTrainerId = Random();
+    sTrainerId = 50622;
 }
 
 u16 GetGeneratedTrainerIdLower(void)
