@@ -1,0 +1,77 @@
+{
+  "id": "MAP_VIRTUAL_CITY_COMMS_TOWER_RESEARCH",
+  "name": "VirtualCity_CommsTower_Research",
+  "layout": "LAYOUT_VIRTUAL_CITY_COMMS_TOWER_RESEARCH",
+  "music": "MUS_BW12_073",
+  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_NONE",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [
+    {
+      "local_id": "LOCALID_RESEARCHBOSS",
+      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST",
+      "x": 7,
+      "y": 21,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 14,
+      "y": 21,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VirtualCity_CommsTower_Research_Eventscript_PonytaBall",
+      "flag": "FLAG_ACT_I_REAL_PONYTA_OBTAINED"
+    }
+  ],
+  "warp_events": [
+    {
+      "warp_id": "VirtualCity_CommsTower_Up_Research",
+      "x": 2,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_COMMS_TOWER_1F",
+      "dest_warp_id": "VirtualCity_CommsTower_Down_Research"
+    }
+  ],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_PETALBURG_CITY_STATE",
+      "var_value": "15",
+      "script": "VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_PETALBURG_CITY_STATE",
+      "var_value": "15",
+      "script": "VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger"
+    }
+  ],
+  "bg_events": [],
+  "floor_number": 1
+}

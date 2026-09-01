@@ -5566,7 +5566,7 @@ enum Obedience GetAttackerObedienceForAction(void)
     s32 calc;
     u8 obedienceLevel = 0;
     u8 levelReferenced;
-
+    return OBEYS;
     if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
         return OBEYS;
     if (BattlerHasAi(gBattlerAttacker))

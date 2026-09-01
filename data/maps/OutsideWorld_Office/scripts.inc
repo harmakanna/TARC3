@@ -6,19 +6,19 @@ OutsideWorld_Office_MapScripts::
 OutsideWorld_Office_Text_IntroTalk1::
 	.string "You ready to go?\n"
 	.string "I can't believe the day's finally come!\p"
-	.string "Katya's gonna get that real Pokemon!\n"
+	.string "Lola's gonna get that real Pokemon!\n"
 	.string "How long has she been saving up for?$"
 
 OutsideWorld_Office_Text_IntroTalk2::
-	.string "Um... it's gotta be over ten years.\p"
+	.string "Um… it's gotta be over ten years.\p"
 	.string "All those times she skipped going\n"
-	.string "out to dinner with us...\p"
+	.string "out to dinner with us…\p"
 	.string "And she never bought any virtual\n"
 	.string "Pokemon - not even one.$"
 
 OutsideWorld_Office_Text_IntroTalk3::
 	.string "My grandma used to tell me stories\n"
-	.string "about Pokemon being everywhere...\p"
+	.string "about Pokemon being everywhere…\p"
 	.string "Imagine, real Pokemon for free!$"
 
 OutsideWorld_Office_Text_IntroTalk4::
@@ -28,7 +28,7 @@ OutsideWorld_Office_Text_IntroTalk4::
 
 OutsideWorld_Office_Text_IntroTalk5::
 	.string "Huh? Everyone's left work already!\p"
-	.string "C'mon, Katya's probably waiting\n"
+	.string "C'mon, Lola's probably waiting\n"
 	.string "for us!$"
 
 

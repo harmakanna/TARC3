@@ -39,3 +39,442 @@ VirtualCity_CommsTower_1F_EventScript_TryUnlockDoor::
 VirtualCity_CommsTower_1F_Text_AccessDenied::
 	.string "Identity unknown.\n"
 	.string "Access denied.$"
+
+
+
+
+
+
+
+
+@ Minh ACT I (Add Magikarp branch if time allows TOFOLD)
+
+VirtualCity_CommsTower_1F_Eventscript_ActIMinh::
+	goto_if_set FLAG_ACT_I_INFO_OBTAINED, VirtualCity_CommsTower_1F_Text_Eventscript_ACTIPokemonCheck
+	goto_if_set FLAG_ACT_I_STARTED, VirtualCity_CommsTower_1F_Eventscript_MinhACTIIntroRepeat
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 10, VirtualCity_CommsTower_1F_Eventscript_ActIIntro
+	end
+
+VirtualCity_CommsTower_1F_Eventscript_ActIIntro::
+	@warpsilent NEXT TO Minh
+	applymovement LOCALID_OFFICE_MINH, Common_Movement_FaceLeft
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+
+	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIIntro1, Speaker_Minh, DIR_WEST
+
+	applymovement LOCALID_OFFICE_MINH, Common_Movement_FaceUp
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
+	special SpawnCameraObject 
+	applymovement OBJ_EVENT_ID_CAMERA, VirtualCity_CommsTower_1F_Move_IntroCamera1
+	waitmovement
+
+	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIIntro2, Speaker_Minh, DIR_SOUTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIIntro3, Speaker_Sophie, DIR_SOUTH
+	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIIntro4, Speaker_Minh, DIR_SOUTH
+
+	applymovement OBJ_EVENT_ID_CAMERA, VirtualCity_CommsTower_1F_Move_IntroCamera2
+	waitmovement
+	special RemoveCameraObject 
+	delay 20
+	applymovement LOCALID_OFFICE_MINH, Common_Movement_FaceLeft
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	
+
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIIntro5, Speaker_Sophie, DIR_EAST
+	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIIntro6, Speaker_Minh, DIR_WEST	
+
+	setflag FLAG_ACT_I_STARTED
+
+	end
+
+VirtualCity_CommsTower_1F_Move_IntroCamera1:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+VirtualCity_CommsTower_1F_Move_IntroCamera2:
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	walk_fast_down
+	step_end
+
+VirtualCity_CommsTower_1F_Text_MinhACTIIntro1:
+	.string "Good, you made it.\p"
+	.string "I've been asking around, and I might\n"
+	.string "have a lead.\p"
+	.string "Apparently, a bunch of artists -\n"
+	.string "the boring ones, not visionaries\l"
+	.string "like me - got moved recently.\p"
+	.string "They're working in BETTER's IRL\n"
+	.string "Department, which is pretty suspicious.\p"
+	.string "They might be making fakes in there.$"
+
+VirtualCity_CommsTower_1F_Text_MinhACTIIntro2:
+	.string "IRL is a part of Research.\n"
+	.string "It's the guarded staircase there.\p"
+	.string "Here's the problem - Research doesn't\n"
+	.string "allow outside Pokemon, like Ex.\p"
+	.string "But once we sneak in, we'll need a\n"
+	.string "Pokemon in case we have to fight.$"
+
+VirtualCity_CommsTower_1F_Text_SophieACTIIntro3:
+	.string "I see. Why don't I just-$"
+
+VirtualCity_CommsTower_1F_Text_MinhACTIIntro4:
+	.string "Sophie, we've been over this. No\n"
+	.string "starting fights in public places.\p"
+	.string "If you fight that guard, people will\n"
+	.string "stop you, and we'll never find out\l"
+	.string "what's going on.\p"
+	.string "Only fight in the department if you\n"
+	.string "absolutely have to.$"
+
+VirtualCity_CommsTower_1F_Text_SophieACTIIntro5:
+	.string "Ugh, fine.\p"
+	.string "So, no Pokemon? My bare hands should\n"
+	.string "be enough to-$"
+
+VirtualCity_CommsTower_1F_Text_MinhACTIIntro6:
+	.string "NO, Sophie.\p"
+	.string "Some Pokemon are allowed in. Maybe\n"
+	.string "you can find out which ones?\p"
+	.string "All the Research folks are at some\n"
+	.string "event at the Casino.\p"
+	.string "If you figure out what Pokemon they're\n"
+	.string "working on, maybe we can find one?\p"
+	.string "Sigh… I dunno. You're the pro battler.\n"
+	.string "My art skills don't really help here.$"
+
+
+VirtualCity_CommsTower_1F_Eventscript_MinhACTIIntroRepeat::
+	speak LOCALID_ARCANINE, VirtualCity_CommsTower_1F_Text_MinhACTIIntroRepeat, Speaker_Minh, DIR_SOUTH
+	end
+
+
+VirtualCity_CommsTower_1F_Text_MinhACTIIntroRepeat:
+	.string "You remember what to do, right?\p"
+	.string "Get to the Casino and eavesdrop on\n"
+	.string "researchers, and see if you can\l"
+	.string "find out what Pokemon they'll let in.\p"
+	.string "We'll plan it from there.$"
+
+
+
+VirtualCity_CommsTower_1F_Text_Eventscript_ACTIPokemonCheck::
+	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheck, Speaker_Minh, DIR_WEST
+	@ Ponyta check TOFOLD MULTICHOICE...
+	dynmultipush PonytaChoice_Text_Choice1, 1
+	dynmultipush PonytaChoice_Text_Choice2, 2
+	dynmultipush PonytaChoice_Text_Choice3, 3
+	dynmultipush PonytaChoice_Text_Choice4, 4
+	dynmultipush PonytaChoice_Text_Choice5, 5
+	dynmultipush PonytaChoice_Text_Choice6, 6
+	dynmultipush PonytaChoice_Text_Choice7, 7
+	dynmultipush PonytaChoice_Text_Choice8, 8
+	dynmultipush PonytaChoice_Text_Choice9, 9
+	dynmultipush PonytaChoice_Text_Choice10, 10
+	dynmultipush PonytaChoice_Text_Choice11, 11
+	dynmultipush PonytaChoice_Text_Choice12, 12
+	dynmultipush PonytaChoice_Text_Choice13, 13
+	dynmultipush PonytaChoice_Text_Choice14, 14
+	dynmultistack 0, 0, FALSE, 2, FALSE, 0, DYN_MULTICHOICE_CB_NONE
+	goto_if_eq VAR_RESULT, 8, VirtualCity_CommsTower_1F_Text_Eventscript_ACTIPokemonCheckSuccess
+	speak LOCALID_ARCANINE, VirtualCity_CommsTower_1F_Text_SophieACTIPokemonFailure, Speaker_Sophie, DIR_EAST
+	end
+
+
+VirtualCity_CommsTower_1F_Text_Eventscript_ACTIPokemonCheckSuccess::
+	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheckSuccess1, Speaker_Minh, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheckSuccess2, Speaker_Sophie, DIR_EAST
+	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheckSuccess3, Speaker_Minh, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheckSuccess4, Speaker_Sophie, DIR_EAST
+	setvar VAR_PETALBURG_CITY_STATE, 11
+	warpsilent MAP_VIRTUAL_CITY_WORK_YOUR_OFFICE, 13, 19
+	waitstate
+	delay 100
+	end
+
+
+
+PonytaChoice_Text_Choice1:
+	.string "Lapras$"
+
+PonytaChoice_Text_Choice2:
+	.string "Pyroar$"
+
+PonytaChoice_Text_Choice3:
+	.string "Snorlax$"
+
+PonytaChoice_Text_Choice4:
+	.string "Fearow$"
+
+PonytaChoice_Text_Choice5:
+	.string "Malamar$"
+
+PonytaChoice_Text_Choice6:
+	.string "Scolipede$"
+
+PonytaChoice_Text_Choice7:
+	.string "Pikachu$"
+
+PonytaChoice_Text_Choice8:
+	.string "Tinkatink$"
+
+PonytaChoice_Text_Choice9:
+	.string "Ponyta$"
+
+PonytaChoice_Text_Choice10:
+	.string "Ho-Oh$"
+
+PonytaChoice_Text_Choice11:
+	.string "Snubbull$"
+
+PonytaChoice_Text_Choice12:
+	.string "Magmar$"
+
+PonytaChoice_Text_Choice13:
+	.string "Spinda$"
+
+PonytaChoice_Text_Choice14:
+	.string "Mawile$"
+
+
+VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheck:
+	.string "Did you get any info on what Pokemon\n"
+	.string "you can get past the guard?$"
+
+VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheck:
+	.string "I overheard a few people talking\n"
+	.string "about a Pokemon they were working on…\p"
+	.string "But something tells me that one of\n"
+	.string "them was on a different project; one\l"
+	.string "of the facts I heard is irrelevant.$"
+
+VirtualCity_CommsTower_1F_Text_SophieACTIPokemonFailure:
+	.string "Hmm, that doesn't sound right.\p"
+	.string "I'm sure one of those people wasn't\n"
+	.string "describing about our mystery mon.\p"
+	.string "But which one?$"
+
+VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheckSuccess1:
+	.string "Nice! Wait, Ponyta are expensive!\p"
+	.string "By the time we save up to get one,\n"
+	.string "they'll be working on something else!$"
+
+VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheckSuccess2:
+	.string "Hmm. How well can you draw Ponyta?$"
+
+VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheckSuccess3:
+	.string "What? Umm, very well. It's my fourteenth\n"
+	.string "favorite Fire-type.$"
+	.string "You'd know that if you read my blog.$"
+
+VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheckSuccess4:
+	.string "I think I know how your artistic skill\n"
+	.string "can get us into the department.\p"
+	.string "Meet you in our office; let me get Ex.\p"
+
+
+
+@@ Guard
+
+Speaker_Guard::
+	.string "Guard$"
+
+VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuard::
+	
+	@@check, how many Pokemon does the player have?
+	@getpartysize
+	@goto_if_eq VAR_RESULT, 0, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardEnter
+    @goto_if_eq VAR_RESULT, 2, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardStop
+	@goto_if_eq VAR_RESULT, 3, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardStop
+	@goto_if_eq VAR_RESULT, 4, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardStop
+	@goto_if_eq VAR_RESULT, 5, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardStop
+	@goto_if_eq VAR_RESULT, 6, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardStop
+	@@check what Pokemon it is 
+	@checkspecies SPECIES_PONYTA, NO_PARTY_SCREEN
+	@goto_if_eq VAR_RESULT, TRUE, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardPonyta
+	@checkspecies SPECIES_MAGIKARP, NO_PARTY_SCREEN
+	@goto_if_eq VAR_RESULT, TRUE, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardMagikarp
+	@goto VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardStop
+	
+	goto_if_set FLAG_ACT_I_EX_PONYTA_OBTAINED, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardPonyta
+	speak LOCALID_GUARD, VirtualCity_CommsTower_1F_Text_NoPokemonGuardStop, Speaker_Guard, DIR_SOUTH
+	end
+
+
+VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardEnter:
+	speak LOCALID_GUARD, VirtualCity_CommsTower_1F_Text_NoPokemonGuardEnter, Speaker_Guard, DIR_SOUTH
+	goto VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardMoves
+	end
+
+VirtualCity_CommsTower_1F_Text_NoPokemonGuardEnter:
+	.string "Ah good, no Pokemon.$"
+
+VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardMoves:
+	@ guard moves out of the way depending on where you are standing TOFOLD
+	applymovement LOCALID_GUARD, Common_Movement_WalkDown
+	end
+
+
+
+VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardStop:
+	speak LOCALID_GUARD, VirtualCity_CommsTower_1F_Text_NoPokemonGuardStop, Speaker_Guard, DIR_SOUTH
+	end
+
+VirtualCity_CommsTower_1F_Text_NoPokemonGuardStop:
+	.string "Hold it, you can't bring Pokemon here.\p"
+	.string "Too many trainers beating up us guards\n"
+	.string "and stealing what they want.\p"
+	.string "Only Pokemon related to what they're\n"
+	.string "making in there are allowed.$"
+
+
+
+
+VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardPonyta:
+	speak LOCALID_GUARD, VirtualCity_CommsTower_1F_Text_NoPokemonGuardPonyta, Speaker_Guard, DIR_SOUTH
+	applymovement LOCALID_GUARD, Common_Movement_WalkDown
+	end
+
+VirtualCity_CommsTower_1F_Text_NoPokemonGuardPonyta:
+	.string "Hold it, you can't…\p"
+	.string "Oh, is it done? I barely recognized it…\n"
+	.string "It looks great!$"
+
+VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardMagikarp:
+	speak LOCALID_GUARD, VirtualCity_CommsTower_1F_Text_NoPokemonGuardMagikarp, Speaker_Guard, DIR_SOUTH
+	goto VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardMoves
+	end
+
+
+VirtualCity_CommsTower_1F_Text_NoPokemonGuardMagikarp:
+	.string "Hold it, you can't bring Pokemon here.\p"
+	.string "Too many… wait, is that a Magikarp?\n"
+	.string "Ahahahahahaha!\p"
+	.string "Go on through, heh. Ain't no way you're\n"
+	.string "overpowering guards with that!$"
+
+
+
+
+
+
+@@ Roland and his fans TOFOLD
+
+VirtualCity_CommsTower_1F_Text_Roland:
+	.string "Ugh, Roland is rambling about the\n"
+	.string "quanta system again.\p"
+	.string "Listen in?$"
+
+VirtualCity_CommsTower_1F_Text_RolandNo:
+	.string "Better not. The headache from the last\n"
+	.string "time is just starting to fade.$"
+
+
+
+VirtualCity_CommsTower_1F_Text_RolandRamble1:
+	.string "…so obviously, ahem, the real world runs\n"
+	.string "on a discrete time scale. Hrrmph.\p"
+	.string "You know, battle time is in turns.\n"
+	.string "One attack per turn, no half-turns.\p"
+	.string "But in the Place, they've quantized\n"
+	.string "time down a bit smaller. Yeah.\p"
+	.string "Four fractional turns in a regular turn.\p"
+	.string "Casuals call them miniturns, but pros\n"
+	.string "use the real name: quanta.\p"
+	.string "It's a real innovation. Makes battles\n"
+	.string "suited for high skill players like me.\p"
+	.string "You can hit three Quick Attacks before\n"
+	.string "your opponent hits a Solarbeam.\p"
+	.string "Or, you can use Giga Impact for a huge\n"
+	.string "attack immediately, but then you use\l"
+	.string "a lot of quanta recharging.\p"
+	.string "Harrumph! I say…$"
+
+VirtualCity_CommsTower_1F_Text_RolandRamble2:
+	.string "…$"
+
+VirtualCity_CommsTower_1F_Text_RolandRamble3:
+	.string "…$"
+
+VirtualCity_CommsTower_1F_Text_RolandRamblePostgame:
+	.string "…$"
+
+
+
+
+VirtualCity_CommsTower_1F_Text_RolandFanClubGuy1:
+	.string "Wow… I never knew that!\p"
+	.string "Roland, you're so cool!$"
+
+VirtualCity_CommsTower_1F_Text_RolandFanClubGirl1:
+	.string "So the Realm is really higher fidelity\n"
+	.string "than real life?\p"
+	.string "I thought that was just marketing!$"
+
+
+
+VirtualCity_CommsTower_1F_Text_RolandFanClubGuy2:
+	.string "!$"
+
+VirtualCity_CommsTower_1F_Text_RolandFanClubGirl2:
+	.string "!$"
+
+
+VirtualCity_CommsTower_1F_Text_RolandFanClubGuy3:
+	.string "!$"
+
+VirtualCity_CommsTower_1F_Text_RolandFanClubGirl3:
+	.string "!$"
+
+
+VirtualCity_CommsTower_1F_Text_RolandFanClubGuyPostgame:
+	.string "!$"
+
+VirtualCity_CommsTower_1F_Text_RolandFanClubGirlPostgame:
+	.string "!$"
+
+
+Speaker_Receptionist::
+	.string "Receptionist$"
+
+VirtualCity_CommsTower_1F_Eventscript_Receptionist::
+	goto_if_set FLAG_ACT_III_COMPLETE, VirtualCity_CommsTower_1F_Eventscript_Receptionist3
+	goto_if_set FLAG_ACT_II_COMPLETE, VirtualCity_CommsTower_1F_Eventscript_Receptionist2
+	speak LOCALID_ARCANINE, VirtualCity_CommsTower_1F_Text_Receptionist1, Speaker_Receptionist, DIR_EAST
+	end
+
+VirtualCity_CommsTower_1F_Text_Receptionist1:
+	.string "Hi! Welcome to… oh.\p"
+	.string "Hello, Sophie.\p"
+	.string "Don't think that just because you're\n"
+	.string "logged on to your personal account,\l"
+	.string "I don't recognize your skin.\p"
+	.string "There's a picture of it on a sticky\n"
+	.string "note under the counter here.$"
+
+
+VirtualCity_CommsTower_1F_Eventscript_Receptionist2::
+	speak LOCALID_ARCANINE, VirtualCity_CommsTower_1F_Text_Receptionist2, Speaker_Receptionist, DIR_EAST
+
+VirtualCity_CommsTower_1F_Text_Receptionist2:
+	.string "Aaaah, what is that?!\n"
+	.string "SECURITY!$"
+
+
+VirtualCity_CommsTower_1F_Eventscript_Receptionist3::
+	speak LOCALID_ARCANINE, VirtualCity_CommsTower_1F_Text_Receptionist3, Speaker_Receptionist, DIR_EAST
+
+VirtualCity_CommsTower_1F_Text_Receptionist3:
+	.string "!$"
+

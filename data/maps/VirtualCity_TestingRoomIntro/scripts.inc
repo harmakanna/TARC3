@@ -21,14 +21,45 @@ Speaker_Minh::
 Speaker_Sophie::
 	.string "Sophie$"
 
+Speaker_Harriet::
+	.string "Harriet$"
+
+Speaker_Ernest::
+	.string "Ernest$"
+
+Speaker_Lola::
+	.string "Lola$"
+
+
+
+Speaker_Announcement::
+	.string "Announcement$"
+
+Speaker_Byron::
+	.string "Byron$"
+
+
 
 VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	setflag FLAG_SYS_B_DASH
 	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_SYS_NATIONAL_DEX
+	setflag FLAG_HIDE_ACT_II_INTRO_CHARS
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
+
+	@setflag FLAG_BADGE08_GET
 	@@more setflags TOFOLD, set healing place, etc. etc.
 
-	removeobject LOCALID_BALL
+	@----------------------------------------------------
+	@setvar VAR_PETALBURG_CITY_STATE, 2
+	@setflag FLAG_DARKANINE_COMPLETE
+	@@ Skipping traveling sequence for now TOFOLD
+	@warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT, 1, 3
+	@waitstate
+	@----------------------------------------------------
+
+
+	removeobject LOCALID_DARKANINES_BALL
 	removeobject LOCALID_ARCANINE
 	fadescreenspeed FADE_FROM_BLACK, 2
 
@@ -36,14 +67,15 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro01, Speaker_Minh, DIR_SOUTH
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro02, Speaker_Sophie, DIR_NORTH
+	applymovement LOCALID_MINH, Common_Movement_ExclamationMark
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro03, Speaker_Minh, DIR_SOUTH
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro04, Speaker_Sophie, DIR_NORTH
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro05, Speaker_Minh, DIR_SOUTH
 
-	addobject LOCALID_BALL
+	addobject LOCALID_DARKANINES_BALL
 	delay 10
 	playse SE_BALL_OPEN
-	removeobject LOCALID_BALL
+	removeobject LOCALID_DARKANINES_BALL
 	addobject LOCALID_ARCANINE
 	delay 40
 
@@ -53,15 +85,29 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro09, Speaker_Sophie, DIR_NORTH
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro10, Speaker_Minh, DIR_SOUTH
 
+	playse SE_NOTE_G
+	waitse
+	playse SE_NOTE_C
+	waitse
+	playse SE_NOTE_E
+	waitse
+	playse SE_NOTE_D
+	waitse
+
+	speak LOCALID_GUARD, VirtualCity_TestingRoomIntro_Text_Intro11, Speaker_Announcement, DIR_NORTH 
+	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro12, Speaker_Minh, DIR_SOUTH
+
 	removeobject LOCALID_ARCANINE
-	addobject LOCALID_BALL
+	addobject LOCALID_DARKANINES_BALL
 	playse SE_BALL_OPEN
 	delay 10
-	removeobject LOCALID_BALL
+	removeobject LOCALID_DARKANINES_BALL
 	setvar VAR_PETALBURG_CITY_STATE, 0
-	givemon SPECIES_ARCANINE, 1
-	givemon SPECIES_ARCANINE, 1
-	@@ givemon Darkanine x 2
+	
+
+
+	@@ TOFOLD - Add Pokemon upgrade scene
+	@@ TOFOLD - duplicate Darkanine + mods
 
 	goto VirtualCity_TestingRoomIntro_Eventscript_Minh
 	end
@@ -71,14 +117,25 @@ VirtualCity_TestingRoomIntro_Eventscript_NotFirstLoad:
 	end
 
 VirtualCity_TestingRoomIntro_Eventscript_Minh::
-	@@edit mon dialog event
+	@@ TOFOLD edit mon dialog event
 	
+	@@ We can skip this part, there shouldn't be a way to turn down a buff
 	@@ check if stats and typing correct, if not goto VirtualCity_TestingRoomIntro_Eventscript_StatsIncorrect
+
+	@ TOFOLD delete party
+	givemon SPECIES_DARKANINE, 50
+	@@ TOFOLD - Add Pokemon upgrade scene
+	@@ TOFOLD - duplicate Darkanine + mods
+
+
+	givemon SPECIES_ARCANINE, 50
+	givemon SPECIES_ARCANINE, 50
+
 	goto_if_unset FLAG_DARKANINE_BATTLE_1, VirtualCity_TestingRoomIntro_Eventscript_FirstBattle
 	goto_if_unset FLAG_DARKANINE_BATTLE_2, VirtualCity_TestingRoomIntro_Eventscript_SecondBattle
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_SubsequentBattleStart, Speaker_Minh, DIR_SOUTH
 	trainerbattle_earlyrival TRAINER_RIVAL_OAKS_LAB_SQUIRTLE, NULL, VirtualCity_TestingRoomIntro_Text_SubsequentBattleEndWin, VirtualCity_TestingRoomIntro_Text_SubsequentBattleEndLose
-	yesnobox 60,60
+	msgbox VirtualCity_TestingRoomIntro_Text_AdjustDarkanine, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine
     goto_if_eq VAR_RESULT, YES, VirtualCity_TestingRoomIntro_Eventscript_Minh
 	end
@@ -92,7 +149,7 @@ VirtualCity_TestingRoomIntro_Eventscript_FirstBattle:
 	setflag FLAG_DARKANINE_BATTLE_1
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_FirstBattleStart, Speaker_Minh, DIR_SOUTH
 	trainerbattle_earlyrival TRAINER_RIVAL_OAKS_LAB_SQUIRTLE, NULL, VirtualCity_TestingRoomIntro_Text_FirstBattleEndWin, VirtualCity_TestingRoomIntro_Text_FirstBattleEndLose
-	yesnobox 20,8
+	msgbox VirtualCity_TestingRoomIntro_Text_AdjustDarkanine, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine
     goto_if_eq VAR_RESULT, YES, VirtualCity_TestingRoomIntro_Eventscript_Minh
 	end
@@ -101,7 +158,7 @@ VirtualCity_TestingRoomIntro_Eventscript_SecondBattle:
 	setflag FLAG_DARKANINE_BATTLE_2
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_SecondBattleStart, Speaker_Minh, DIR_SOUTH
 	trainerbattle_earlyrival TRAINER_RIVAL_OAKS_LAB_SQUIRTLE, NULL, VirtualCity_TestingRoomIntro_Text_SecondBattleEndWin, VirtualCity_TestingRoomIntro_Text_SecondBattleEndLose
-	yesnobox 20,8
+	msgbox VirtualCity_TestingRoomIntro_Text_AdjustDarkanine, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine
     goto_if_eq VAR_RESULT, YES, VirtualCity_TestingRoomIntro_Eventscript_Minh
 	end
@@ -113,7 +170,13 @@ VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine:
 	msgbox VirtualCity_TestingRoomIntro_Text_ConfirmDarkanine, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_Eventscript_Minh
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_DarkanineConfirmed, Speaker_Minh, DIR_SOUTH
-	@@ fancy transition, warpsilent, etc.
+	@@ fancy transition
+	fadescreenspeed FADE_TO_BLACK, 5
+	setvar VAR_PETALBURG_CITY_STATE, 2
+	setflag FLAG_DARKANINE_COMPLETE
+	@@ Skipping traveling sequence for now TOFOLD
+	warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT, 1, 3
+	waitstate
 	end
 
 
@@ -163,32 +226,40 @@ VirtualCity_TestingRoomIntro_Text_Intro08:
 	.string "Ugh, no appreciation for art.\p"
 	.string "Yes, Dark type, you barbarian, or\n"
 	.string "Dark / Fire if you prefer.\p"
-	.string "Bossman said to give you free rein\n"
-	.string "with the stats and abilities, too. TOFOLD\p"
-	.string "'I don't care about power creep, I care\n"
-	.string "about people buying this Pokemon.'\p"
-	.string "That's what he told me.$"
+	.string "And as usual, boss wants it powered\n"
+	.string "up a lot so people buy it.$"
 
 VirtualCity_TestingRoomIntro_Text_Intro09:
-	.string "…$"
+	.string "Ugh…$"
 
 VirtualCity_TestingRoomIntro_Text_Intro10:
 	.string "I know. But look on the bright side -\n"
 	.string "even though you're a barbarian, you're\l"
 	.string "the best balancer working here.\p"
-	.string "(That's why they paired you up with\n"
-	.string "the best artist, of course.)\p"
-	.string "The others don't even test releases\n"
-	.string "next to the unmodified Pokemon, to\l"
-	.string "make sure they actually feel stronger.\p"
-	.string "Anyways, work your magic, and then\n"
-	.string "come battle me.\p"
+	.string "That's why they paired you up with\n"
+	.string "the best artist, obvi-$"
+
+VirtualCity_TestingRoomIntro_Text_Intro11:
+	.string "DO YOU NEED A CHANGE OF SCENERY?\p"
+	.string "COME VISIT THE GREENEST GARDEN AND\n"
+	.string "EXPERIENCE OUR STATE-OF-THE-ART\l"
+	.string "AUTUMN WONDERLAND!\p"
+	.string "THE COMPLIMENTARY F.R.E.S.H. BREATHING\n"
+	.string "EXPERIENCE LEAVES YOU BREATHLESS!$"
+
+
+VirtualCity_TestingRoomIntro_Text_Intro12:
+	.string "What are the odds that the one time\n"
+	.string "I'm complimenting myself, a Rotom\l"
+	.string "Phone ad interrupts it? Hmph.\p"
+	.string "Anyways, work your magic on Darkanine,\n"
+	.string "and then come battle me.\p"
 	.string "I got the meta's top three Pokemon you\n"
 	.string "wanted here, for the test battle.$"
 
 
-
-
+VirtualCity_TestingRoomIntro_Text_AdjustDarkanine:
+	.string "Adjust Darkanine?$"
 
 VirtualCity_TestingRoomIntro_Text_WrongAdjustment:
 	.string "Huh? You're not done adjusting it,\n"

@@ -27503,3 +27503,18 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u32 gMonFrontPic_Egg[] = INCGFX_U32("graphics/pokemon/egg/anim_front.png", ".4bpp.smol");
     const u16 gMonPalette_Egg[] = INCGFX_U16("graphics/pokemon/egg/normal.pal", ".gbapal");
     const u8 gMonIcon_Egg[] = INCGFX_U8("graphics/pokemon/egg/icon.png", ".4bpp");
+
+
+
+    const u32 gMonFrontPic_Darkanine[] = INCGFX_U32("graphics/pokemon/darkanine/anim_front.png", ".4bpp.smol");
+    const u16 gMonPalette_Darkanine[] = INCGFX_U16("graphics/pokemon/darkanine/normal.pal", ".gbapal");
+    const u32 gMonBackPic_Darkanine[] = INCGFX_U32("graphics/pokemon/darkanine/back.png", ".4bpp.smol");
+    const u16 gMonShinyPalette_Darkanine[] = INCGFX_U16("graphics/pokemon/darkanine/shiny.pal", ".gbapal");
+    const u8 gMonIcon_Darkanine[] = INCGFX_U8("graphics/pokemon/darkanine/icon.png", ".4bpp");
+#if P_FOOTPRINTS
+    const u8 gMonFootprint_Darkanine[] = INCGFX_U8("graphics/pokemon/darkanine/footprint.png", ".1bpp");
+#endif //P_FOOTPRINTS
+#if OW_POKEMON_OBJECT_EVENTS
+    const u32 gObjectEventPic_Darkanine[] = INCGFX_COMP("graphics/pokemon/darkanine/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
+#endif //OW_POKEMON_OBJECT_EVENTS
+
