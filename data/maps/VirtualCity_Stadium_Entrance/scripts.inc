@@ -4,8 +4,8 @@ VirtualCity_Stadium_Entrance_MapScripts::
 
 
 VirtualCity_Stadium_Entrance_EventScript_Harriet::
-	goto_if_set FLAG_ACT_II_HARRIET_EXPLANATION, VirtualCity_Stadium_Entrance_EventScript_Harriet_Rexplains
-
+	@goto_if_set FLAG_ACT_II_HARRIET_EXPLANATION, VirtualCity_Stadium_Entrance_EventScript_Harriet_Rexplains
+	end
 
 
 
@@ -16,7 +16,8 @@ VirtualCity_Stadium_Entrance_EventScript_Harriet::
 
 
 VirtualCity_Stadium_Entrance_EventScript_Harriet_Rexplains::
-	speak LOCALID_DARKANINE, VirtualCity_Work_YourOffice_Text_SophieACTIOutro2, Speaker_Harriet, DIR_EAST
+	@speak LOCALID_DARKANINE, VirtualCity_Work_YourOffice_Text_SophieACTIOutro2, Speaker_Harriet, DIR_EAST
+	end
 
 
 
