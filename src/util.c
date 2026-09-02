@@ -249,3 +249,23 @@ s32 SubtractClamped(s32 lowestVal, s32 highestVal, s32 currentVal, s32 delta)
 
     return newValue;
 }
+
+void BlendIndividualPalette(u16 palNum, u16 colorFlags, u8 coeff, u32 blendColor)
+{
+    u16 i;
+    struct PlttData *data2 = (struct PlttData *) & blendColor;
+    for (i = 0; i < 16; i++)
+    {
+        if (!(colorFlags & (1 << i)))
+            continue;
+        u16 index = i + palNum * 16;
+        struct PlttData *data1 = (struct PlttData *)&gPlttBufferUnfaded[index];
+        s8 r = data1->r;
+        s8 g = data1->g;
+        s8 b = data1->b;
+
+        gPlttBufferFaded[index] = RGB(r + (((data2->r - r) * coeff) >> 4),
+                                      g + (((data2->g - g) * coeff) >> 4),
+                                      b + (((data2->b - b) * coeff) >> 4));
+    }
+}
