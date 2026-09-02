@@ -1309,6 +1309,7 @@ static void Task_NewGameBirchSpeech_Init(u8 taskId)
     SetGpuReg(REG_OFFSET_BLDY, 0);
     gSaveBlock2Ptr->playerGender = FEMALE;
     NewGameBirchSpeech_SetDefaultPlayerName(0);
+    SeedRngAndSetTrainerId();
 
     // DecompressDataWithHeaderVram(sBirchSpeechShadowGfx, (void *)VRAM);
     // DecompressDataWithHeaderVram(sBirchSpeechBgMap, (void *)(BG_SCREEN_ADDR(7)));

@@ -14,7 +14,7 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution::
 	speak LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk2Ernest, Speaker_Ernest, DIR_EAST
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk3Harriet, Speaker_Harriet, DIR_WEST
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
-	waitmovement
+	waitmovement 0
 	delay 40
 	applymovement LOCALID_VRROOM_MINH, Common_Movement_FaceUp
 	applymovement LOCALID_VRROOM_ERNEST, Common_Movement_FaceUp
