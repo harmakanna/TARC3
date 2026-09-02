@@ -63,3 +63,16 @@ Text_TheDoorIsOpen::
 	.string "The door is open.$"
 
 @ Etc
+
+EventScript_AddRandomMod::
+	special ChooseMonForAddMod
+	goto_if_ge VAR_0x8004, PARTY_SIZE, EventScript_AddNoRandomMod
+	callnative GetThreeRandomTraits
+	dynmultipush gStringVar1, 0
+	dynmultipush gStringVar2, 1
+	dynmultipush gStringVar3, 2
+	dynmultistack 0, 0, TRUE, 3 FALSE, 0, NULL
+	callnative AddNewMod
+	releaseall
+EventScript_AddNoRandomMod:
+	return

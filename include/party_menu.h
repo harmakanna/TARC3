@@ -33,7 +33,8 @@ enum PartyMenuType
     PARTY_MENU_TYPE_SPIN_TRADE,                 // Unused beta for Gen IV's Spin Trade
     PARTY_MENU_TYPE_MINIGAME,
     PARTY_MENU_TYPE_STORE_PYRAMID_HELD_ITEMS,
-    PARTY_MENU_TYPE_MULTI_FULL_SHOWCASE
+    PARTY_MENU_TYPE_MULTI_FULL_SHOWCASE,
+    PARTY_MENU_TYPE_ADD_MOD,
 };
 
 // seems like the last two fields may have been left as all-purpose vars
@@ -132,6 +133,7 @@ void CB2_ReturnToPartyMenuFromSummaryScreen(void);
 void ChooseContestMon(void);
 void ChoosePartyMon(void);
 void ChooseMonForMoveRelearner(void);
+void ChooseMonForAddMod(void);
 void BattlePyramidChooseMonHeldItems(void);
 void DoBattlePyramidMonsHaveHeldItem(void);
 void IsSelectedMonEgg(void);

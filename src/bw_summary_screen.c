@@ -206,7 +206,7 @@ static EWRAM_DATA struct PokemonSummaryScreenData
         u8 evSpatk;
         u8 evSpdef;
         u8 evSpeed; // 0x56
-        u8 trait;
+        u8 mods[3];
     } summary;
     u16 bg3TilemapBuffers[PSS_BUFFER_SIZE];
     u16 bg2TilemapBuffers[PSS_PAGE_COUNT][PSS_BUFFER_SIZE];
@@ -2290,7 +2290,9 @@ static bool8 ExtractMonDataToSummaryStruct(struct Pokemon *mon)
         sum->ribbonCount = GetMonData(mon, MON_DATA_RIBBON_COUNT);
         sum->teraType = GetMonData(mon, MON_DATA_TERA_TYPE);
         sum->isShiny = GetMonData(mon, MON_DATA_IS_SHINY);
-        sum->trait = GetMonData(mon, MON_DATA_TRAIT_INDEX);
+        sum->mods[0] = GetMonData(mon, MON_DATA_TRAIT_INDEX1);
+        sum->mods[1] = GetMonData(mon, MON_DATA_TRAIT_INDEX2);
+        sum->mods[2] = GetMonData(mon, MON_DATA_TRAIT_INDEX3);
         sMonSummaryScreen->relearnableMovesNum = CanBoxMonRelearnMoves(&mon->box, MOVE_RELEARNER_LEVEL_UP_MOVES);
         return TRUE;
     }
@@ -3940,6 +3942,7 @@ static void Task_PrintInfoPage(u8 taskId)
         PrintMonTrainerMemo();
         break;
     case 7:
+        PrintTrait();
         DestroyTask(taskId);
         return;
     }
@@ -4270,51 +4273,23 @@ static void Task_PrintSkillsPage(u8 taskId)
     data[0]++;
 }
 
-static void SetTraitString()
-{
-    struct Pokemon *mon = &gParties[B_TRAINER_PLAYER][sMonSummaryScreen->curMonIndex];
-    u32 traitIndex = sMonSummaryScreen->summary.trait;
-    const struct TarcTrait *trait = GetBoxMonTrait(&mon->box, traitIndex);
-    if (trait == NULL)
-    {
-        StringCopy(gStringVar1, COMPOUND_STRING(""));
-    }
-    switch (trait->type)
-    {
-        case EXTRA_TYPE:
-            //StringCopy(gStringVar2, ");
-            StringCopy(gStringVar2, gTypesInfo[trait->arg1].name);
-            StringExpandPlaceholders(gStringVar1, COMPOUND_STRING("{STR_VAR_2} type"));
-            break;
-        case EXTRA_STAT:
-            ConvertIntToDecimalStringN(gStringVar2, trait->arg2, STR_CONV_MODE_LEFT_ALIGN, 2);
-            StringCopy(gStringVar3, gStatNamesTable[trait->arg1]);
-            StringExpandPlaceholders(gStringVar1, COMPOUND_STRING("+{STR_VAR_2} {STR_VAR_3}"));
-            break;
-        case ALL_STAT_BONUS:
-            ConvertIntToDecimalStringN(gStringVar2, trait->arg1, STR_CONV_MODE_LEFT_ALIGN, 2);
-            StringExpandPlaceholders(gStringVar1, COMPOUND_STRING("+{STR_VAR_2} All Stats"));
-            break;
-        case EXTRA_STAT_DRAWBACK:
-            ConvertIntToDecimalStringN(gStringVar2, trait->arg3 * 2, STR_CONV_MODE_RIGHT_ALIGN, 2);
-            StringCopy(gStringVar3, gShortenStatTable[trait->arg1]);
-            StringExpandPlaceholders(gStringVar1, COMPOUND_STRING("+{STR_VAR_2} {STR_VAR_3}"));
-            ConvertIntToDecimalStringN(gStringVar2, trait->arg3, STR_CONV_MODE_LEFT_ALIGN, 2);
-            StringCopy(gStringVar3, gShortenStatTable[trait->arg2]);
-            StringExpandPlaceholders(gStringVar4, COMPOUND_STRING("{STR_VAR_1} - {STR_VAR_2} {STR_VAR_3}"));
-            StringCopy(gStringVar1, gStringVar4);
-            break;
-        case EXTRA_IMMUNITY:
-            StringCopy(gStringVar2, gTypesInfo[trait->arg1].name);
-            StringExpandPlaceholders(gStringVar1, COMPOUND_STRING("{STR_VAR_2} Immunity"));
-            break;
-    }
-}
-
 static void PrintTrait()
 {
-    SetTraitString();
-    PrintTextOnWindowWithFont(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_MEMO), gStringVar1, 50, 0, 0, 0, FONT_SHORT);
+    struct Pokemon *mon = &gParties[B_TRAINER_PLAYER][sMonSummaryScreen->curMonIndex];
+    u32 traitIndex;
+    const struct TarcTrait *trait;
+    u8 modString[3][50];
+    for (u32 i = 0; i < 3; i++)
+    {
+        traitIndex = sMonSummaryScreen->summary.mods[i];
+        trait = GetBoxMonTrait(&mon->box, traitIndex);
+        CopyTraitString(modString[i], trait);
+    }
+    StringCopy(gStringVar1, modString[0]);
+    StringCopy(gStringVar2, modString[1]);
+    StringCopy(gStringVar3, modString[2]);
+    StringExpandPlaceholders(gStringVar4, COMPOUND_STRING("{STR_VAR_1},{STR_VAR_2},{STR_VAR_3}"));
+    PrintTextOnWindowWithFont(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_MEMO), gStringVar4, 50, 0, 0, 0, FONT_SHORT_NARROWER);
 }
 
 static void PrintHeldItemName(void)
@@ -5860,18 +5835,20 @@ static u32 AbilityNumIncrement(s32 data, bool32 isReverse)
     return data;
 }
 
+/*
 static u32 TraitIncrement(s32 data, bool32 isReverse)
 {
     data = LoopData(data, 2, isReverse);
     sMonSummaryScreen->summary.trait = data;
-    SetMonData(&sMonSummaryScreen->currentMon, MON_DATA_TRAIT_INDEX, &data);
+    SetMonData(&sMonSummaryScreen->currentMon, MON_DATA_TRAIT_INDEX1, &data);
     u32 windowId = sMonSummaryScreen->windowIds[PSS_DATA_WINDOW_INFO_MEMO];
     FillWindowPixelBuffer(windowId, PIXEL_FILL(0));
     BufferMonTrainerMemo();
     PrintMonTrainerMemo();
-    PrintTrait();
+    PrintTrait(0);
     return data;
 }
+*/
 
 static const struct EditInput sTitleEditInput[] = {
     //{.data = MON_DATA_SPECIES,        .increment = SpeciesIncrement,  .x = 56,  .y = 42},
@@ -5879,7 +5856,7 @@ static const struct EditInput sTitleEditInput[] = {
     {.data = MON_DATA_GENDER,         .increment = GenderIncrement, .x = 220, .y = 22},
     {.data = MON_DATA_POKEBALL,       .increment = BallIncrement,   .x = 218, .y = 38},
     {.data = MON_DATA_HELD_ITEM,      .increment = HeldItemIncrement,  .x = 56,  .y = 90},
-    {.data = MON_DATA_TRAIT_INDEX,    .increment = TraitIncrement,  .x = 56,  .y = 102},
+    //{.data = MON_DATA_TRAIT_INDEX,    .increment = TraitIncrement,  .x = 56,  .y = 102},
     {.data = MON_DATA_HIDDEN_NATURE,  .increment = NatureIncrement, .x = 20,  .y = 116},
 };
 
