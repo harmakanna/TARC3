@@ -176,7 +176,7 @@ VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine:
 	setvar VAR_PETALBURG_CITY_STATE, 2
 	setflag FLAG_DARKANINE_COMPLETE
 	@@ Skipping traveling sequence for now TOFOLD
-	warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT, 1, 3
+	warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT, 4, 2
 	waitstate
 	end
 

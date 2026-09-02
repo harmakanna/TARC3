@@ -15,17 +15,38 @@ OutsideWorld_ApartmentBldg1_YourApartment_OnFrame:
 
 OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
 	playse SE_DOOR
-	applymovement LOCALID_MINH, Common_Movement_FaceRight
+	applymovement LOCALID_LOLA, Common_Movement_FaceLeft
+	delay 50
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	waitmovement 0
+	special SpawnCameraObject
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	delay 10
+	speak LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk01Harriet, Speaker_Harriet, DIR_NORTH
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk02Sophie, Speaker_Sophie, DIR_SOUTH
+	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie01
+	speak LOCALID_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk03Ernest, Speaker_Ernest, DIR_NORTH
+	applymovement LOCALID_LOLA, Common_Movement_FaceDown
+	speak LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk04Harriet, Speaker_Harriet, DIR_NORTH
+	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie1
+	waitmovement 0
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk05Sophie, Speaker_Sophie, DIR_EAST
+	speak LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk06Harriet, Speaker_Harriet, DIR_NORTH
+
+
+	playse SE_DOOR
+	addobject LOCALID_MINH
+	applymovement LOCALID_MINH, Common_Movement_FaceRight
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
 	speak LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk1Minh, Speaker_Minh, DIR_WEST
 	applymovement LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh1
 	delay 10
-	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie1
-	waitmovement
+	waitmovement 0 
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
 	applymovement LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Move_Harriet1
 	playse SE_LEDGE
 	waitse
-	waitmovement
+	waitmovement 0
 	speak LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk2Harriet, Speaker_Harriet, DIR_WEST
 	speak LOCALID_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk3Ernest, Speaker_Ernest, DIR_NORTH
 	speak LOCALID_LOLA, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk4Lola, Speaker_Lola, DIR_SOUTH
@@ -33,7 +54,6 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
 	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie2
 	applymovement LOCALID_HARRIET, Common_Movement_FaceUp
 	speak LOCALID_LOLA, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk5Lola, Speaker_Lola, DIR_SOUTH
-	special SpawnCameraObject
 	addobject LOCALID_SNUBBULLS_BALL
 	delay 10
 	playse SE_BALL_OPEN
@@ -180,9 +200,6 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
 
 
 OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_NotFirstLoad::
-
-
-
 	end
 
 
@@ -242,7 +259,17 @@ OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh9:
 	step_end
 
 
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie01:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	step_end
+
 OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie1:
+	walk_down
+	walk_right
 	walk_right
 	walk_right
 	step_end
@@ -345,12 +372,40 @@ OutsideWorld_ApartmentBldg1_YourApartment_Move_Snubbull2:
 	step_end
 
 
+OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk01Harriet::
+	.string "She's here!$"
+
+OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk02Sophie::
+	.string "Hey!\p"
+	.string "We just finished up. Minh got a head\n"
+	.string "start, so he'll be here any minute.\p"
+	.string "We're excited for your big day, Lola!$"
+
+OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk03Ernest::
+	.string "Lola hasn't said a word…\n"
+	.string "She's just been smiling.$"
+
+OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk04Harriet::
+	.string "Sophie, we were just discussing…\p"
+	.string "When was the last time you saw a\n"
+	.string "Pokemon, you know, in real life?$"
+
+OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk05Sophie::
+	.string "Gosh, I don't even remember.\p"
+	.string "It must have been when I was a child,\n"
+	.string "before the zoo closed down.\p"
+	.string "What about you?$"
+
+OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk06Harriet::
+	.string "I don't think I've ever seen one,\n"
+	.string "and Ernest claims-$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk1Minh::
-	.string "Hey, sorry we're late!$"
+	.string "Hahhh… hahhh…\p"
+	.string "I made it!$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk2Harriet::
-	.string "Aaah, finally! Lola, come on, we've\n"
+	.string "Finally, Minh! Lola, come on, we've\n"
 	.string "been waiting for so long!$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk3Ernest::

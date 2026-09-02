@@ -9609,8 +9609,8 @@
     {
       "id": "LAYOUT_VIRTUAL_CITY_COMMS_TOWER_1F",
       "name": "VirtualCity_CommsTower_1F_Layout",
-      "width": 16,
-      "height": 29,
+      "width": 14,
+      "height": 12,
       "primary_tileset": "gTileset_BuildingFrlg",
       "secondary_tileset": "gTileset_SilphCo",
       "border_filepath": "data/layouts/VirtualCity_CommsTower_1F/border.bin",
