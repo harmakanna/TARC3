@@ -75,8 +75,8 @@
     },
     {
       "warp_id": "WARP_ID_COMM1F_DESIGNOFFICE",
-      "x": 0,
-      "y": 7,
+      "x": 7,
+      "y": 6,
       "elevation": 0,
       "dest_map": "MAP_VIRTUAL_CITY_WORK_YOUR_OFFICE",
       "dest_warp_id": "WARP_ID_DESIGNOFFICE"
@@ -86,7 +86,7 @@
       "x": 11,
       "y": 2,
       "elevation": 0,
-      "dest_map": "MAP_VIRTUAL_CITY_COMMS_TOWER_1F",
+      "dest_map": "MAP_VIRTUAL_CITY_COMMS_TOWER_2F",
       "dest_warp_id": "VirtualCity_CommsTower_Down_1F"
     }
   ],

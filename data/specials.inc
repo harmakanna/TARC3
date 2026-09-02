@@ -240,6 +240,7 @@ gSpecials::
 	def_special DoLotteryCornerComputerEffect
 	def_special EndLotteryCornerComputerEffect
 	def_special ChooseMonForMoveRelearner, waitstate=1
+	def_special ChooseMonForAddMod, waitstate=1
 	def_special MoveDeleterChooseMoveToForget
 	def_special MoveDeleterForgetMove
 	def_special BufferMoveDeleterNicknameAndMove

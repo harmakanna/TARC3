@@ -248,6 +248,7 @@ static void LoadPartyBoxPalette(struct PartyMenuBox *, u8);
 static void DrawEmptySlot(u8 windowId);
 static void DrawEmptySlot_Equal(u8 windowId); //Custom party menu
 static void DisplayPartyPokemonDataForRelearner(u8);
+static void DisplayPartyPokemonDataForAddMod(u8 slot);
 static void DisplayPartyPokemonDataForContest(u8);
 static void DisplayPartyPokemonDataForChooseHalf(u8);
 static void DisplayPartyPokemonDataForWirelessMinigame(u8);
@@ -1034,6 +1035,8 @@ static void RenderPartyMenuBox(u8 slot)
         {
             if (gPartyMenu.menuType == PARTY_MENU_TYPE_MOVE_RELEARNER)
                 DisplayPartyPokemonDataForRelearner(slot);
+            else if (gPartyMenu.menuType == PARTY_MENU_TYPE_ADD_MOD)
+                DisplayPartyPokemonDataForAddMod(slot);
             else if (gPartyMenu.menuType == PARTY_MENU_TYPE_CONTEST)
                 DisplayPartyPokemonDataForContest(slot);
             else if (gPartyMenu.menuType == PARTY_MENU_TYPE_CHOOSE_HALF)
@@ -1138,6 +1141,17 @@ static void DisplayPartyPokemonDataForRelearner(u8 slot)
     if (!GetBoxMonData(&gParties[B_TRAINER_PLAYER][slot].box, MON_DATA_IS_EGG) && HasMoveToRelearn(&gParties[B_TRAINER_PLAYER][slot].box, gMoveRelearnerState))
         hasMoves = TRUE;
     u32 desc = (hasMoves ? PARTYBOX_DESC_ABLE_2 : PARTYBOX_DESC_NOT_ABLE_2);
+    DisplayPartyPokemonDescriptionData(slot, desc);
+}
+
+static void DisplayPartyPokemonDataForAddMod(u8 slot)
+{
+    bool32 hasAvailableModSlot;
+    if (GetMonData(&gParties[B_TRAINER_PLAYER][slot], MON_DATA_TRAIT_INDEX3) == 0)
+        hasAvailableModSlot = TRUE;
+    else
+        hasAvailableModSlot = FALSE;
+    u32 desc = (hasAvailableModSlot ? PARTYBOX_DESC_ABLE_2 : PARTYBOX_DESC_NOT_ABLE_2);
     DisplayPartyPokemonDescriptionData(slot, desc);
 }
 
@@ -1711,6 +1725,8 @@ static bool8 DisplayCancelChooseMonYesNo(u8 taskId)
         stringPtr = gText_CancelParticipation;
     else if (gPartyMenu.menuType == PARTY_MENU_TYPE_CHOOSE_HALF)
         stringPtr = GetFacilityCancelString();
+    else if (gPartyMenu.menuType == PARTY_MENU_TYPE_ADD_MOD)
+        stringPtr = COMPOUND_STRING("Are you sure you don't want\n to add a new mod?");
 
     if (stringPtr == NULL)
         return FALSE;
@@ -8258,6 +8274,25 @@ static void Task_ChooseMonForMoveRelearner(u8 taskId)
         DestroyTask(taskId);
     }
 }
+
+static void Task_ChooseMonForAddMod(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        CleanupOverworldWindowsAndTilemaps();
+        InitPartyMenu(PARTY_MENU_TYPE_ADD_MOD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_CHOOSE_AND_CLOSE, FALSE, PARTY_MSG_CHOOSE_MON, Task_HandleChooseMonInput, CB2_ChooseMonForMoveRelearner);
+        DestroyTask(taskId);
+    }
+}
+
+void ChooseMonForAddMod(void)
+{
+    LockPlayerFieldControls();
+    FadeScreen(FADE_TO_BLACK, 0);
+    CreateTask(Task_ChooseMonForAddMod, 10);
+}
+
+
 
 static void CB2_ChooseMonForMoveRelearner(void)
 {

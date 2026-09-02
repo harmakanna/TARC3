@@ -2469,8 +2469,14 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
                 }.combinedValue;
             }
             break;
-        case MON_DATA_TRAIT_INDEX:
-            retVal = GetSubstruct2(boxMon)->trait;
+        case MON_DATA_TRAIT_INDEX1:
+            retVal = GetSubstruct2(boxMon)->mods[0];
+            break;
+        case MON_DATA_TRAIT_INDEX2:
+            retVal = GetSubstruct2(boxMon)->mods[1];
+            break;
+        case MON_DATA_TRAIT_INDEX3:
+            retVal = GetSubstruct2(boxMon)->mods[2];
             break;
         default:
             break;
@@ -2896,8 +2902,14 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
             substruct1->evolutionTracker2 = evoTracker.tracker2;
             break;
         }
-         case MON_DATA_TRAIT_INDEX:
-            SET8(GetSubstruct2(boxMon)->trait);
+        case MON_DATA_TRAIT_INDEX1:
+            SET8(GetSubstruct2(boxMon)->mods[0]);
+            break;
+        case MON_DATA_TRAIT_INDEX2:
+            SET8(GetSubstruct2(boxMon)->mods[1]);
+            break;
+        case MON_DATA_TRAIT_INDEX3:
+            SET8(GetSubstruct2(boxMon)->mods[2]);
             break;
         default:
             break;

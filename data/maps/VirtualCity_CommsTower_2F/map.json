@@ -21,7 +21,7 @@
       "y": 2,
       "elevation": 0,
       "dest_map": "MAP_VIRTUAL_CITY_COMMS_TOWER_1F",
-      "dest_warp_id": "0"
+      "dest_warp_id": "VirtualCity_CommsTower_Up_1F"
     },
     {
       "warp_id": "VirtualCity_CommsTower_Up_3F",

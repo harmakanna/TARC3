@@ -15,6 +15,8 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#include "title_screen.h"
+
 #if EXPANSION_INTRO == TRUE
 
 #define TAG_DIZZY   20000
@@ -282,8 +284,8 @@ void Task_HandleExpansionIntro(u8 taskId)
             }
             else
             {
-                CreateTask(Task_Scene1_Load, 0);
-                SetMainCallback2(MainCB2_Intro);
+                //CreateTask(Task_Scene1_Load, 0);
+                SetMainCallback2(CB2_InitTitleScreen);
             }
         }
         break;
