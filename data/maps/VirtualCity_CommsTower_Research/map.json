@@ -17,8 +17,8 @@
     {
       "local_id": "LOCALID_RESEARCHBOSS",
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST",
-      "x": 7,
-      "y": 21,
+      "x": 6,
+      "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -46,7 +46,7 @@
     {
       "warp_id": "VirtualCity_CommsTower_Up_Research",
       "x": 2,
-      "y": 18,
+      "y": 2,
       "elevation": 0,
       "dest_map": "MAP_VIRTUAL_CITY_COMMS_TOWER_1F",
       "dest_warp_id": "VirtualCity_CommsTower_Down_Research"
@@ -55,8 +55,8 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 5,
-      "y": 18,
+      "x": 4,
+      "y": 3,
       "elevation": 0,
       "var": "VAR_PETALBURG_CITY_STATE",
       "var_value": "15",
@@ -64,8 +64,8 @@
     },
     {
       "type": "trigger",
-      "x": 5,
-      "y": 19,
+      "x": 4,
+      "y": 2,
       "elevation": 0,
       "var": "VAR_PETALBURG_CITY_STATE",
       "var_value": "15",

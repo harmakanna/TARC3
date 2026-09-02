@@ -11,6 +11,7 @@ EventScript_CloseComms2FDoor::
 	setmetatile 3, 5, METATILE_SilphCo_HorizontalBarrier_TopRight, 1
 	setmetatile 2, 6, METATILE_SilphCo_HorizontalBarrier_BottomLeft, 1
 	setmetatile 3, 6, METATILE_SilphCo_HorizontalBarrier_BottomRight, 1
+	setmetatile 2, 7, METATILE_SilphCo_Floor_ShadeFull, 0
 	setmetatile 3, 7, METATILE_SilphCo_Floor_ShadeFull, 0
 	return
 

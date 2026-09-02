@@ -11,6 +11,7 @@ EventScript_CloseComms3FDoor::
 	setmetatile 12, 5, METATILE_SilphCo_HorizontalBarrier_TopRight, 1
 	setmetatile 11, 6, METATILE_SilphCo_HorizontalBarrier_BottomLeft, 1
 	setmetatile 12, 6, METATILE_SilphCo_HorizontalBarrier_BottomRight, 1
+	setmetatile 11, 7, METATILE_SilphCo_Floor_ShadeFull, 0
 	setmetatile 12, 7, METATILE_SilphCo_Floor_ShadeFull, 0
 	return
 
