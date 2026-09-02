@@ -3,6 +3,34 @@ VirtualCity_Stadium_Entrance_MapScripts::
 
 
 
+VirtualCity_Stadium_Entrance_EventScript_Harriet::
+	goto_if_set FLAG_ACT_II_HARRIET_EXPLANATION, VirtualCity_Stadium_Entrance_EventScript_Harriet_Rexplains
+
+
+
+
+
+
+
+
+
+
+VirtualCity_Stadium_Entrance_EventScript_Harriet_Rexplains::
+	speak LOCALID_DARKANINE, VirtualCity_Work_YourOffice_Text_SophieACTIOutro2, Speaker_Harriet, DIR_EAST
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 VirtualCity_Stadium_Entrance_Text_HarrietBattleXEarlGrey1:
 	.string "Well, your next fight is against a guy\n"

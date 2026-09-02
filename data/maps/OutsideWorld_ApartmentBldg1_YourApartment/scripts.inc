@@ -10,6 +10,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_OnTransition:
 
 OutsideWorld_ApartmentBldg1_YourApartment_OnFrame:
 	map_script_2 VAR_PETALBURG_CITY_STATE, 2, OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene
+	map_script_2 VAR_PETALBURG_CITY_STATE, 2, OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene
 	.2byte 0
 
 

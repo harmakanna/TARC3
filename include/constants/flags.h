@@ -1238,8 +1238,8 @@
 #define FLAG_HIDE_ACT_II_INTRO_CHARS                                           0x4A0 // Unused Flag
 #define FLAG_ACT_II_COMPLETE                                           0x4A1 // Unused Flag
 #define FLAG_ACT_III_COMPLETE                                           0x4A2 // Unused Flag
-#define FLAG_UNUSED_0x4A3                                           0x4A3 // Unused Flag
-#define FLAG_UNUSED_0x4A4                                           0x4A4 // Unused Flag
+#define FLAG_HIDE_ACT_II_HARRIET                                           0x4A3 // Unused Flag
+#define FLAG_ACT_II_HARRIET_EXPLANATION                                           0x4A4 // Unused Flag
 #define FLAG_UNUSED_0x4A5                                           0x4A5 // Unused Flag
 #define FLAG_UNUSED_0x4A6                                           0x4A6 // Unused Flag
 #define FLAG_UNUSED_0x4A7                                           0x4A7 // Unused Flag

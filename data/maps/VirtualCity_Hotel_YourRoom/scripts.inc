@@ -79,6 +79,7 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution::
 
 	setvar VAR_PETALBURG_CITY_STATE, 22
 	setflag FLAG_ACT_II_STARTED
+	clearflag FLAG_HIDE_ACT_II_HARRIET
 
 
 	end

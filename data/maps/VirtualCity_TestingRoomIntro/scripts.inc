@@ -45,6 +45,7 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_SYS_NATIONAL_DEX
 	setflag FLAG_HIDE_ACT_II_INTRO_CHARS
+	setflag FLAG_HIDE_ACT_II_HARRIET
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
 
 	@setflag FLAG_BADGE08_GET
