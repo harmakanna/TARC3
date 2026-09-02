@@ -66,19 +66,19 @@ VirtualCity_CommsTower_1F_Eventscript_ActIIntro::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
 	special SpawnCameraObject 
 	applymovement OBJ_EVENT_ID_CAMERA, VirtualCity_CommsTower_1F_Move_IntroCamera1
-	waitmovement
+	waitmovement 0
 
 	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIIntro2, Speaker_Minh, DIR_SOUTH
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIIntro3, Speaker_Sophie, DIR_SOUTH
 	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIIntro4, Speaker_Minh, DIR_SOUTH
 
 	applymovement OBJ_EVENT_ID_CAMERA, VirtualCity_CommsTower_1F_Move_IntroCamera2
-	waitmovement
+	waitmovement 0
 	special RemoveCameraObject 
 	delay 20
 	applymovement LOCALID_OFFICE_MINH, Common_Movement_FaceLeft
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
-	
+	waitmovement 0
 
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIIntro5, Speaker_Sophie, DIR_EAST
 	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIIntro6, Speaker_Minh, DIR_WEST	
@@ -295,11 +295,7 @@ VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuard::
 	@@check, how many Pokemon does the player have?
 	@getpartysize
 	@goto_if_eq VAR_RESULT, 0, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardEnter
-    @goto_if_eq VAR_RESULT, 2, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardStop
-	@goto_if_eq VAR_RESULT, 3, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardStop
-	@goto_if_eq VAR_RESULT, 4, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardStop
-	@goto_if_eq VAR_RESULT, 5, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardStop
-	@goto_if_eq VAR_RESULT, 6, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardStop
+    @goto_if_ne VAR_RESULT, 1, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardStop
 	@@check what Pokemon it is 
 	@checkspecies SPECIES_PONYTA, NO_PARTY_SCREEN
 	@goto_if_eq VAR_RESULT, TRUE, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardPonyta
