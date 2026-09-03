@@ -5727,7 +5727,8 @@ static u32 NatureIncrement(s32 data, bool32 isReverse)
     SetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HIDDEN_NATURE, &data);
     FillWindowPixelBuffer(windowId, PIXEL_FILL(0));
     BufferMonTrainerMemo();
-    PrintTextOnWindow_BW_Font(windowId, gStringVar4, 16, 4, 0, 0);
+    PrintMonTrainerMemo();
+    PrintTrait();
     return data;
 }
 
