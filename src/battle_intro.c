@@ -15,6 +15,7 @@
 #include "constants/trainers.h"
 
 #include "battle_quanta.h"
+#include "tarc_misc.h"
 
 void BattleIntroSlide1(u8);
 void BattleIntroSlide2(u8);

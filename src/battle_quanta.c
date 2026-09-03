@@ -12,6 +12,7 @@ static EWRAM_DATA u16 sActiveActions[MAX_BATTLERS_COUNT] = {0};
 
 bool32 InQuantaMode(void)
 {
+    return FALSE;
     if (TESTING)
         return FALSE;
     return IsInVirtualWorld();
