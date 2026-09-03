@@ -4280,13 +4280,14 @@ static void PrintTrait()
 {
     struct Pokemon *mon = &gParties[B_TRAINER_PLAYER][sMonSummaryScreen->curMonIndex];
     u32 traitIndex;
-    const struct TarcTrait *trait;
+    const struct TarcTrait *traitList = GetSpeciesTraitList(&mon->box);
+    if (traitList == NULL)
+        return;
     u8 modString[3][50];
     for (u32 i = 0; i < 3; i++)
     {
         traitIndex = sMonSummaryScreen->summary.mods[i];
-        trait = GetBoxMonTrait(&mon->box, traitIndex);
-        CopyTraitString(modString[i], trait);
+        CopyTraitString(modString[i], &traitList[traitIndex]);
     }
     StringCopy(gStringVar1, modString[0]);
     StringCopy(gStringVar2, modString[1]);
