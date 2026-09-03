@@ -2474,7 +2474,7 @@ static void Task_HandleInput(u8 taskId)
             tSkillsState = defaultSkillsState;
             ChangePage(taskId, 1);
         }
-        else if (JOY_NEW(A_BUTTON))
+        else if (JOY_NEW(A_BUTTON) && !sMonSummaryScreen->lockMovesFlag)
         {
             if (sMonSummaryScreen->currPageIndex == PSS_PAGE_BATTLE_MOVES)
             {
@@ -2709,7 +2709,7 @@ static void Task_ChangeSummaryMon(u8 taskId)
         break;
     case 11:
         PrintPageSpecificText(sMonSummaryScreen->currPageIndex);
-        if (sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO)
+        if (sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO && !sMonSummaryScreen->lockMovesFlag)
         { 
             if (sMonSummaryScreen->summary.isEgg)
                 LimitEggSummaryPageDisplay();
@@ -2718,7 +2718,7 @@ static void Task_ChangeSummaryMon(u8 taskId)
 
             DrawPromptWindow();
         } 
-        else if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
+        else if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS && !sMonSummaryScreen->lockMovesFlag)
         {
             DrawPromptWindow();
             /*
@@ -2938,7 +2938,8 @@ static void SwitchToMoveSelection(u8 taskId)
 
     CreateMoveSelectorSprites(SPRITE_ARR_ID_MOVE_SELECTOR1);
     gTasks[taskId].func = Task_HandleInput_MoveSelect;
-    DrawPromptWindow();
+    if (!sMonSummaryScreen->lockMovesFlag)
+        DrawPromptWindow();
 }
 
 static void Task_HandleInput_MoveSelect(u8 taskId)
@@ -3717,7 +3718,8 @@ static void PrintPageNamesAndStats(void)
     PrintTextOnWindow(PSS_LABEL_WINDOW_BATTLE_MOVES_TITLE, sText_BattleMoves, 2, 1, 0, 1);
     PrintTextOnWindow(PSS_LABEL_WINDOW_CONTEST_MOVES_TITLE, sText_ContestMoves, 2, 1, 0, 1);
 
-    DrawPromptWindow();
+    if (!sMonSummaryScreen->lockMovesFlag)
+        DrawPromptWindow();
     /*
     stringXPos = GetStringRightAlignXOffset(FONT_NORMAL, sText_Info, 62);
     iconXPos = stringXPos - 16;
@@ -4231,7 +4233,8 @@ static void PrintSkillsPageText(void)
     //PrintRibbonCount();
     PrintMonAbilityName();
     PrintMonAbilityDescription();
-    DrawPromptWindow();
+    if (!sMonSummaryScreen->lockMovesFlag)
+        DrawPromptWindow();
     BufferHPStats();
     PrintHPStats(SKILL_STATE_STATS);
     BufferNonHPStats();
