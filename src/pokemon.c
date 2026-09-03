@@ -1004,7 +1004,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, enum Species species, u8 level, u32
     SetBoxMonData(boxMon, MON_DATA_LANGUAGE, &gGameLanguage);
     SetBoxMonData(boxMon, MON_DATA_OT_NAME, gDigitalSophieName);
     SetBoxMonData(boxMon, MON_DATA_SPECIES, &species);
-    SetBoxMonData(boxMon, MON_DATA_EXP, &gExperienceTables[gSpeciesInfo[species].growthRate][level]);
+    SetBoxMonData(boxMon, MON_DATA_EXP, &gExperienceTables[gSpeciesInfo[species].growthRate][50]);
     SetBoxMonData(boxMon, MON_DATA_FRIENDSHIP, &gSpeciesInfo[species].friendship);
     value = GetCurrentRegionMapSectionId();
     SetBoxMonData(boxMon, MON_DATA_MET_LOCATION, &value);
@@ -1382,7 +1382,7 @@ void CalculateMonStats(struct Pokemon *mon)
     s32 currentHP = GetMonData(mon, MON_DATA_HP);
     enum Species species = GetMonData(mon, MON_DATA_SPECIES);
     u8 friendship = GetMonData(mon, MON_DATA_FRIENDSHIP);
-    s32 level = GetLevelFromMonExp(mon);
+    s32 level = 50;
     s32 newMaxHP;
 
     u8 nature = GetMonData(mon, MON_DATA_HIDDEN_NATURE);
@@ -1411,7 +1411,7 @@ void CalculateMonStats(struct Pokemon *mon)
             continue;
 
         u32 baseStat = GetSpeciesBaseStat(species, i) + GetBoxMonExtraStat(&mon->box, i);
-        s32 n = (((2 * baseStat + iv[i] + ev[i] * 2) * level) / 100) + 5;
+        s32 n = (((2 * baseStat + iv[i]) * level) / 100) + 5;
         n = ModifyStatByNature(nature, n, i);
         if (B_FRIENDSHIP_BOOST == TRUE)
             n = n + ((n * 10 * friendship) / (MAX_FRIENDSHIP * 100));
@@ -1430,7 +1430,7 @@ void CalculateMonStats(struct Pokemon *mon)
     else
     {
         s32 n = 2 * (GetSpeciesBaseHP(species) + GetBoxMonExtraStat(&mon->box, STAT_HP)) + iv[STAT_HP];
-        newMaxHP = (((n + ev[STAT_HP] * 2) * level) / 100) + level + 10;
+        newMaxHP = ((n * level) / 100) + level + 10;
     }
 
     gBattleScripting.levelUpHP = newMaxHP - oldMaxHP;

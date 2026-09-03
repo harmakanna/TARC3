@@ -52,6 +52,7 @@ static const struct SpeciesTraits sTarcTraits[] = {
     { .species = SPECIES_NONE, .traits = NULL },
 };
 
+/*
 const struct TarcTrait *GetBoxMonTrait(struct BoxPokemon *boxmon, u32 traitIndex)
 {
     enum Species species = GetBoxMonData(boxmon, MON_DATA_SPECIES_OR_EGG);
@@ -64,6 +65,7 @@ const struct TarcTrait *GetBoxMonTrait(struct BoxPokemon *boxmon, u32 traitIndex
     }
     return NULL;
 }
+*/
 
 const struct TarcTrait *GetSpeciesTraitList(struct BoxPokemon *boxmon)
 {

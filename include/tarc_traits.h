@@ -19,7 +19,7 @@ struct TarcTrait
     s16 arg3;
 };
 
-const struct TarcTrait *GetBoxMonTrait(struct BoxPokemon *boxmon, u32 traitIndex);
+const struct TarcTrait *GetSpeciesTraitList(struct BoxPokemon *boxmon);
 enum Type GetBoxMonExtraType(struct BoxPokemon *boxmon);
 enum Type GetBoxMonExtraImmunity(struct BoxPokemon *boxmon);
 u32 GetBoxMonExtraStat(struct BoxPokemon *boxmon, enum Stat stat);

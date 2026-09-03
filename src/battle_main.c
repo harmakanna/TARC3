@@ -83,6 +83,7 @@
 #include "cable_club.h"
 
 #include "tarc_speedup.h"
+#include "tarc_misc.h"
 
 extern const struct BgTemplate gBattleBgTemplates[];
 extern const struct WindowTemplate *const gBattleWindowTemplates[];
