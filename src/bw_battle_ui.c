@@ -1335,10 +1335,12 @@ static void BattleUI_UpdateHealthboxLvlText(u32 spriteId, struct Pokemon *mon)
         break;
     }
 
+/*
     u32 lvl = GetMonData(mon, MON_DATA_LEVEL);
     u8 *strbuf = StringAppend(gDisplayedStringBattle, COMPOUND_STRING("{COLOR 8}{LV_2}{COLOR 1}"));
     ConvertIntToDecimalStringN(strbuf, lvl, STR_CONV_MODE_LEFT_ALIGN, MAX_DIGITS(MAX_LEVEL));
-
+*/
+    
     u32 data1 = sprite->data[1];
     u32 data2 = sprite2->data[1];
 

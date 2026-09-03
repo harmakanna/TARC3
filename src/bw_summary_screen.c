@@ -3665,11 +3665,13 @@ static void PrintNotEggInfo(void)
     PrintGenderSymbol(mon, summary->species2);
 
     // print level
+    /*
     StringCopy(gStringVar1, gText_LevelSymbol);
     ConvertIntToDecimalStringN(gStringVar2, summary->level, STR_CONV_MODE_LEFT_ALIGN, 3);
     StringAppend(gStringVar1, gStringVar2);
-
     PrintTextOnWindow(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME_GENDER_LEVEL, gStringVar1, 5, 13, 0, 0);
+    */
+
     PutWindowTilemap(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME_GENDER_LEVEL);
 }
 
@@ -4239,7 +4241,7 @@ static void PrintSkillsPageText(void)
     PrintHPStats(SKILL_STATE_STATS);
     BufferNonHPStats();
     PrintNonHPStats();
-    PrintExpPointsNextLevel();
+    //PrintExpPointsNextLevel();
 }
 
 static void Task_PrintSkillsPage(u8 taskId)
@@ -4267,7 +4269,7 @@ static void Task_PrintSkillsPage(u8 taskId)
         PrintNonHPStats();
         break;
     case 7:
-        PrintExpPointsNextLevel();
+        //PrintExpPointsNextLevel();
         break;
     case 8:
         DestroyTask(taskId);
@@ -5959,8 +5961,8 @@ static void CancelEditMode(u8 taskId)
         FillWindowPixelBuffer(sMonSummaryScreen->xpWindowIds[0], PIXEL_FILL(0));
         FillWindowPixelBuffer(sMonSummaryScreen->xpWindowIds[1], PIXEL_FILL(0));
         FillWindowPixelBuffer(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP, PIXEL_FILL(0));
-        PrintExpPointsNextLevel();
-        PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP, sText_NextLv, 0, 4, 0, 0);
+        //PrintExpPointsNextLevel();
+        //PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP, sText_NextLv, 0, 4, 0, 0);
         CopyWindowToVram(sMonSummaryScreen->xpWindowIds[0], COPYWIN_GFX);
         CopyWindowToVram(sMonSummaryScreen->xpWindowIds[1], COPYWIN_GFX);
         CopyWindowToVram(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP, COPYWIN_GFX);

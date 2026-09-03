@@ -1072,7 +1072,7 @@ static void DisplayPartyPokemonData(u8 slot)
     {
         sPartyMenuBoxes[slot].infoRects->blitFunc(sPartyMenuBoxes[slot].windowId, 0, 0, 0, 0, FALSE);
         DisplayPartyPokemonNickname(mon, &sPartyMenuBoxes[slot], 0);
-        DisplayPartyPokemonLevelCheck(mon, &sPartyMenuBoxes[slot], 0);
+        //DisplayPartyPokemonLevelCheck(mon, &sPartyMenuBoxes[slot], 0);
         DisplayPartyPokemonGenderNidoranCheck(mon, &sPartyMenuBoxes[slot], 0);
         DisplayPartyPokemonHPCheck(mon, &sPartyMenuBoxes[slot], 0);
         DisplayPartyPokemonMaxHPCheck(mon, &sPartyMenuBoxes[slot], 0);
@@ -1088,7 +1088,7 @@ static void DisplayPartyPokemonDescriptionData(u8 slot, u8 stringID)
     DisplayPartyPokemonNickname(mon, &sPartyMenuBoxes[slot], 0);
     if (!GetMonData(mon, MON_DATA_IS_EGG))
     {
-        DisplayPartyPokemonLevelCheck(mon, &sPartyMenuBoxes[slot], 0);
+        //DisplayPartyPokemonLevelCheck(mon, &sPartyMenuBoxes[slot], 0);
         DisplayPartyPokemonGenderNidoranCheck(mon, &sPartyMenuBoxes[slot], 0);
     }
     DisplayPartyPokemonDescriptionText(stringID, &sPartyMenuBoxes[slot], 0);
@@ -1240,7 +1240,7 @@ static void DisplayPartyPokemonDataForMultiBattle(u8 slot)
         StringGet_Nickname(gStringVar1);
         ConvertInternationalPlayerName(gStringVar1);
         DisplayPartyPokemonBarDetailToFit(menuBox->windowId, gStringVar1, 0, menuBox->infoRects->dimensions, 50);
-        DisplayPartyPokemonLevel(gMultiPartnerParty[actualSlot].level, menuBox);
+        //DisplayPartyPokemonLevel(gMultiPartnerParty[actualSlot].level, menuBox);
         DisplayPartyPokemonGender(gMultiPartnerParty[actualSlot].gender, gMultiPartnerParty[actualSlot].species, gMultiPartnerParty[actualSlot].nickname, menuBox);
         DisplayPartyPokemonHP(gMultiPartnerParty[actualSlot].hp, gMultiPartnerParty[actualSlot].maxhp, menuBox);
         DisplayPartyPokemonMaxHP(gMultiPartnerParty[actualSlot].maxhp, menuBox);
@@ -5071,7 +5071,7 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
         }
         SetPartyMonAilmentGfx(mon, &sPartyMenuBoxes[gPartyMenu.slotId]);
         //if (gSprites[sPartyMenuBoxes[gPartyMenu.slotId].statusSpriteId].invisible)
-        DisplayPartyPokemonLevelCheck(mon, &sPartyMenuBoxes[gPartyMenu.slotId], 1);
+        //DisplayPartyPokemonLevelCheck(mon, &sPartyMenuBoxes[gPartyMenu.slotId], 1);
         if (canHeal == TRUE)
         {
             if (hp == 0)

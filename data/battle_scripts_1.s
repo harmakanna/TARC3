@@ -1428,8 +1428,8 @@ BattleScript_EffectHealBlock::
 
 BattleScript_EffectHitEscape::
 	jumpiffainted BS_TARGET, FALSE, BattleScript_HitEscapeSwitch
-	setbyte sGIVEEXP_STATE, 0
-	getexp BS_TARGET
+	//setbyte sGIVEEXP_STATE, 0
+	//getexp BS_TARGET
 BattleScript_HitEscapeSwitch:
 	call BattleScript_MoveSwitchPursuitRet
 	return
@@ -2742,8 +2742,8 @@ BattleScript_FaintBattler::
 	return
 
 BattleScript_GiveExp::
-	setbyte sGIVEEXP_STATE, 0
-	getexp BS_TARGET
+	//setbyte sGIVEEXP_STATE, 0
+	//getexp BS_TARGET
 	end2
 
 BattleScript_HandleFaintedMon::
