@@ -1411,7 +1411,7 @@ void CalculateMonStats(struct Pokemon *mon)
             continue;
 
         u32 baseStat = GetSpeciesBaseStat(species, i) + GetBoxMonExtraStat(&mon->box, i);
-        s32 n = (((2 * baseStat + iv[i] + ev[i] * 2) * level) / 100) + 5;
+        s32 n = (((2 * baseStat + iv[i]) * level) / 100) + 5;
         n = ModifyStatByNature(nature, n, i);
         if (B_FRIENDSHIP_BOOST == TRUE)
             n = n + ((n * 10 * friendship) / (MAX_FRIENDSHIP * 100));
@@ -1430,7 +1430,7 @@ void CalculateMonStats(struct Pokemon *mon)
     else
     {
         s32 n = 2 * (GetSpeciesBaseHP(species) + GetBoxMonExtraStat(&mon->box, STAT_HP)) + iv[STAT_HP];
-        newMaxHP = (((n + ev[STAT_HP] * 2) * level) / 100) + level + 10;
+        newMaxHP = ((n * level) / 100) + level + 10;
     }
 
     gBattleScripting.levelUpHP = newMaxHP - oldMaxHP;

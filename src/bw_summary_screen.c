@@ -5868,12 +5868,14 @@ static const struct EditInput sTitleEditInput[] = {
 };
 
 static const struct EditInput sStatsEditInput[] = {
+    /*
     {.data = MON_DATA_HP_EV,    .increment = HpEvIncrement, .         x = 90, .y = 20},
     {.data = MON_DATA_ATK_EV,   .increment = AtkEvIncrement,         .x = 90, .y = 42},
     {.data = MON_DATA_DEF_EV,   .increment = DefEvIncrement,         .x = 90, .y = 54},
     {.data = MON_DATA_SPATK_EV, .increment = SpatkEvIncrement,       .x = 90, .y = 66},
     {.data = MON_DATA_SPDEF_EV, .increment = SpdefEvIncrement,       .x = 90, .y = 78},
     {.data = MON_DATA_SPEED_EV, .increment = SpeedEvIncrement,       .x = 90, .y = 90},
+    */
     {.data = MON_DATA_ABILITY_NUM, .increment = AbilityNumIncrement, .x = 20, .y = 128},
 };
 
@@ -5909,6 +5911,7 @@ static void StartEditMode(u8 taskId)
     else if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
     {
         //DrawNextSkillsButtonPrompt(SKILL_STATE_EDIT);
+        /*
         BufferAndPrintStats_HandleState(SKILL_STATE_EDIT);
         FillWindowPixelBuffer(sMonSummaryScreen->xpWindowIds[0], PIXEL_FILL(0));
         FillWindowPixelBuffer(sMonSummaryScreen->xpWindowIds[1], PIXEL_FILL(0));
@@ -5916,6 +5919,7 @@ static void StartEditMode(u8 taskId)
         CopyWindowToVram(sMonSummaryScreen->xpWindowIds[0], COPYWIN_GFX);
         CopyWindowToVram(sMonSummaryScreen->xpWindowIds[1], COPYWIN_GFX);
         PrintStatPoints();
+        */
     }
     else
     {
@@ -5954,6 +5958,7 @@ static void CancelEditMode(u8 taskId)
     }
     else if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
     {
+        /*
         RecalculateCurrentMonStats();
         //DrawNextSkillsButtonPrompt(SKILL_STATE_STATS);
         BufferAndPrintStats_HandleState(SKILL_STATE_STATS);
@@ -5966,6 +5971,7 @@ static void CancelEditMode(u8 taskId)
         CopyWindowToVram(sMonSummaryScreen->xpWindowIds[0], COPYWIN_GFX);
         CopyWindowToVram(sMonSummaryScreen->xpWindowIds[1], COPYWIN_GFX);
         CopyWindowToVram(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP, COPYWIN_GFX);
+        */
     }
 
     gTasks[taskId].func = Task_HandleInput;
