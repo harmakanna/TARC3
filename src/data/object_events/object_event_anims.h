@@ -7,6 +7,12 @@ static const union AnimCmd sAnim_StayStill[] =
     ANIMCMD_JUMP(0),
 };
 
+static const union AnimCmd sAnim_Kumatora[] =
+{
+    ANIMCMD_FRAME(0, 8),  
+    ANIMCMD_FRAME(1, 8),
+    ANIMCMD_JUMP(0),
+};
 static const union AnimCmd sAnim_QuintyPlumpFaceSouth[] =
 {
     ANIMCMD_FRAME(0, 16),
@@ -1297,6 +1303,29 @@ const union AnimCmd *const sAnimTable_Following_Asym[] = {
     [ANIM_EXIT_POKEBALL_FAST_NORTH] = sAnim_ExitPokeballFastNorth,
     [ANIM_EXIT_POKEBALL_FAST_WEST] = sAnim_ExitPokeballFastWest,
     [ANIM_EXIT_POKEBALL_FAST_EAST] = sAnim_ExitPokeballFastEast_Asym,
+};
+
+static const union AnimCmd *const sAnimTable_Kumatora[] = {
+    [ANIM_STD_FACE_SOUTH] = sAnim_Kumatora,
+    [ANIM_STD_FACE_NORTH] = sAnim_Kumatora,
+    [ANIM_STD_FACE_WEST] = sAnim_Kumatora,
+    [ANIM_STD_FACE_EAST] = sAnim_Kumatora,
+    [ANIM_STD_GO_SOUTH] = sAnim_Kumatora,
+    [ANIM_STD_GO_NORTH] = sAnim_Kumatora,
+    [ANIM_STD_GO_WEST] = sAnim_Kumatora,
+    [ANIM_STD_GO_EAST] = sAnim_Kumatora,
+    [ANIM_STD_GO_FAST_SOUTH] = sAnim_Kumatora,
+    [ANIM_STD_GO_FAST_NORTH] = sAnim_Kumatora,
+    [ANIM_STD_GO_FAST_WEST] = sAnim_Kumatora,
+    [ANIM_STD_GO_FAST_EAST] = sAnim_Kumatora,
+    [ANIM_STD_GO_FASTER_SOUTH] = sAnim_Kumatora,
+    [ANIM_STD_GO_FASTER_NORTH] = sAnim_Kumatora,
+    [ANIM_STD_GO_FASTER_WEST] = sAnim_Kumatora,
+    [ANIM_STD_GO_FASTER_EAST] = sAnim_Kumatora,
+    [ANIM_STD_GO_FASTEST_SOUTH] = sAnim_Kumatora,
+    [ANIM_STD_GO_FASTEST_NORTH] = sAnim_Kumatora,
+    [ANIM_STD_GO_FASTEST_WEST] = sAnim_Kumatora,
+    [ANIM_STD_GO_FASTEST_EAST] = sAnim_Kumatora,
 };
 
 static const union AnimCmd *const sAnimTable_HoOh[] = {
