@@ -2010,25 +2010,31 @@
     @ Starts the specified quest.
 	.macro startquest quest:req
 	closemessage
-	delay 30
+	delay 60
 	questmenu QUEST_MENU_SET_ACTIVE, \quest
 	questmenu QUEST_MENU_BUFFER_QUEST_NAME \quest
     bufferstring 1 gText_QuestActive
-	playfanfare MUS_LEVEL_UP
-	msgbox gText_QuestAnnounce, MSGBOX_SIGN
+	message gText_QuestAnnounce
+	playfanfare MUS_REGISTER_MATCH_CALL
 	waitfanfare
+	waitmessage
+	delay 10
+	closemessage
 	.endm
 
     @ Completes the specified quest.
 	.macro completequest quest:req
 	closemessage
-	delay 30
+	delay 60
 	questmenu QUEST_MENU_COMPLETE_QUEST, \quest
 	questmenu QUEST_MENU_BUFFER_QUEST_NAME \quest
     bufferstring 1 gText_QuestComplete
-	playfanfare MUS_LEVEL_UP
-	msgbox gText_QuestAnnounce, MSGBOX_SIGN
+	message gText_QuestAnnounce
+	playfanfare MUS_OBTAIN_TMHM
 	waitfanfare
+	waitmessage
+	delay 10
+	closemessage
 	.endm
 
 .macro goto_if_quest_inactive quest:req, dest:req
@@ -3113,15 +3119,14 @@
 	call_if_eq VAR_0x8001, DIR_EAST, LastTalkedWalkInPlaceEast
 	call_if_eq VAR_0x8001, DIR_WEST, LastTalkedWalkInPlaceWest
 	msgbox \text, \type
-	closemessage
 	.endm
 
 	.macro npc_speak text:req, name=SP_NAME_NONE, type=MSGBOX_DEFAULT
-	speak VAR_LAST_TALKED, \name, \text, VAR_FACING2, \type
+	speak VAR_LAST_TALKED, \text, \name, VAR_FACING2, \type
 	.endm
 
 	.macro player_speak text:req, type=MSGBOX_DEFAULT
-	speak LOCALID_PLAYER, SP_NAME_PLAYER, \text, VAR_FACING, \type
+	speak LOCALID_PLAYER, \text, Speaker_Player, VAR_FACING, \type
 	.endm
 
 	.macro clearparty
