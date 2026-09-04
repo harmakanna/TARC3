@@ -48,6 +48,7 @@
 #include "quests.h"
 #include "tarc_misc.h"
 #include "field_screen_effect.h"
+#include "save.h"
 
 #ifdef RHH_EXPANSION
 #include "constants/expansion.h"
@@ -215,6 +216,7 @@ static void RotomPhone_StartMenu_SelectedFunc_Clock(void);
 static void RotomPhone_StartMenu_SelectedFunc_Daycare(void);
 static void RotomPhone_StartMenu_SelectedFunc_Quests(void);
 static void RotomPhone_StartMenu_SelectedFunc_ExitVR(void);
+static void RotomPhone_StartMenu_SelectedFunc_PokemonStorage(void);
 
 static bool32 UseFlipPhone(void)
 {
@@ -521,6 +523,7 @@ enum RotomPhone_MenuItems
     RP_MENU_OPTIONS,
     RP_MENU_QUESTS,
     RP_MENU_EXIT_VR,
+    RP_MENU_POKEMON_STORAGE,
     RP_MENU_BATTLE_SIM,
     RP_MENU_COUNT,
 };
@@ -1261,6 +1264,17 @@ static const struct RotomPhone_MenuOptions sRotomPhoneOptions[RP_MENU_COUNT] =
         .selectedFunc = RotomPhone_StartMenu_SelectedFunc_ExitVR,
         .owIconPalSlot = PAL_ICON_MONOCHROME,
         .owAnim = 1,
+        .rrAnim = RP_ICON_ANIM_TWO,
+        .rrSpriteTemplate = &sSpriteTemplate_RotomRealityIcons_One,
+    },
+    [RP_MENU_POKEMON_STORAGE] =
+    {
+        .menuName = COMPOUND_STRING("Storage"),
+        .rotomSpeech = COMPOUND_STRING("to access Pokemon Storage?"),
+        .unlockedFunc = IsInVirtualWorld,
+        .selectedFunc = RotomPhone_StartMenu_SelectedFunc_PokemonStorage,
+        .owIconPalSlot = PAL_ICON_ORANGE,
+        .owAnim = RP_ICON_ANIM_EIGHT,
         .rrAnim = RP_ICON_ANIM_TWO,
         .rrSpriteTemplate = &sSpriteTemplate_RotomRealityIcons_One,
     },
@@ -4000,23 +4014,51 @@ static void RotomPhone_StartMenu_SelectedFunc_Trainer(void)
     }
 }
 
+static void Task_RotomPhone_SaveProgress(u8 taskId)
+{
+    switch (gTasks[taskId].data[15])
+    {
+        case 0:
+            if (UseFlipPhone())
+            {
+                u8 menuName[24];
+                StringCopy(menuName, COMPOUND_STRING("Saving..."));
+                u32 fontId = GetFontIdToFit(menuName, FONT_SHORT, 0, sWindowTemplate_FlipPhone.width * 8);
+                FillWindowPixelBuffer(sRotomPhone_StartMenu->menuOverworldFlipPhoneWindowId, PIXEL_FILL(OW_FLIP_PHONE_TEXT_BG_COLOUR));
+                AddTextPrinterParameterized4(sRotomPhone_StartMenu->menuOverworldFlipPhoneWindowId, fontId,
+                GetStringCenterAlignXOffset(fontId, menuName, sWindowTemplate_FlipPhone.width * 8),
+                ROTOM_SPEECH_BOTTOM_ROW_Y, 0, 0, sRotomPhone_StartMenu_FontColours[FONT_OW_FLIP_PHONE], TEXT_SKIP_DRAW, menuName);
+                CopyWindowToVram(sRotomPhone_StartMenu->menuOverworldFlipPhoneWindowId, COPYWIN_GFX);
+            }
+            else
+            {
+                u8 textBuffer[80];
+                StringCopy(textBuffer, COMPOUND_STRING("Currently saving the game"));
+                RotomPhone_OverworldMenu_PrintRotomSpeech(textBuffer, TRUE, TRUE);
+                StringCopy(textBuffer, COMPOUND_STRING("Please wait a little"));
+                RotomPhone_OverworldMenu_PrintRotomSpeech(textBuffer, FALSE, TRUE);
+            }
+            gTasks[taskId].data[15]++;
+            break;
+        case 1:
+            IncrementGameStat(GAME_STAT_SAVED_GAME);
+            TrySavingData(SAVE_NORMAL);
+            gTasks[taskId].data[15]++;
+            break;
+        case 2:
+            RotomPhone_OverworldMenu_UpdateMenuPrompt(taskId);
+            gTasks[taskId].func = Task_RotomPhone_OverworldMenu_HandleMainInput;
+            break;
+    }
+    
+}
+
 static void RotomPhone_StartMenu_SelectedFunc_Save(void)
 {
-    u8 taskId;
-    if (!RotomPhone_StartMenu_IsRotomReality())
-    {
-        taskId = FindTaskIdByFunc(Task_RotomPhone_OverworldMenu_HandleMainInput);
-        gTasks[taskId].func = Task_RotomPhone_OverworldMenu_CloseAndSave;
-        if (!UseFlipPhone())
-            RotomPhone_StartMenu_RotomShutdownPreparation(taskId, TRUE);
-    }
-    else
-    {
-        taskId = FindTaskIdByFunc(Task_RotomPhone_RotomRealityMenu_HandleMainInput);
-        gTasks[taskId].func = Task_RotomPhone_RotomRealityMenu_WaitFadeAndExitGracefullyForSave;
-        RotomPhone_StartMenu_RotomShutdownPreparation(taskId, FALSE);
-    }
-    tPhoneCloseParameterSaveSafariFade = FALSE;
+    sRotomPhone_StartMenu->menuOverworldLoading = FALSE;
+    u8 taskId = FindTaskIdByFunc(Task_RotomPhone_OverworldMenu_HandleMainInput);
+    gTasks[taskId].func = Task_RotomPhone_SaveProgress;
+    gTasks[taskId].data[15] = 0;
 }
 
 static void RotomPhone_StartMenu_SelectedFunc_Settings(void)
@@ -4110,6 +4152,13 @@ static void RotomPhone_StartMenu_SelectedFunc_ExitVR(void)
     gTasks[taskId].func = Task_RotomPhone_OverworldMenu_RotomShutdown;
     RotomPhone_StartMenu_RotomShutdownPreparation(taskId, TRUE);
 }
+
+
+static void RotomPhone_StartMenu_SelectedFunc_PokemonStorage(void)
+{
+    RotomPhone_StartMenu_DoCleanUpAndChangeCallback(EnterStorage);
+}
+
 
 static void RotomPhone_StartMenu_SelectedFunc_Daycare(void)
 {
