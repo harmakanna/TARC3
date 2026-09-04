@@ -3,4 +3,3 @@ VirtualCity_CommsTower_TopF_MapScripts::
 
 VirtualCity_CommsTower_TopF_EventScript_HackRotomPhone::
 	end
-	

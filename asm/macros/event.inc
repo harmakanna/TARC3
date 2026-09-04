@@ -3126,7 +3126,7 @@
 	.endm
 
 	.macro player_speak text:req, type=MSGBOX_DEFAULT
-	speak LOCALID_PLAYER, \text, Speaker_Player, VAR_FACING, \type
+	speak LOCALID_PLAYER, \text, SP_NAME_PLAYER, VAR_FACING, \type
 	.endm
 
 	.macro clearparty
