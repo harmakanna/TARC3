@@ -215,6 +215,7 @@ static void RotomPhone_StartMenu_SelectedFunc_Clock(void);
 static void RotomPhone_StartMenu_SelectedFunc_Daycare(void);
 static void RotomPhone_StartMenu_SelectedFunc_Quests(void);
 static void RotomPhone_StartMenu_SelectedFunc_ExitVR(void);
+static void RotomPhone_StartMenu_SelectedFunc_PokemonStorage(void);
 
 static bool32 UseFlipPhone(void)
 {
@@ -521,6 +522,7 @@ enum RotomPhone_MenuItems
     RP_MENU_OPTIONS,
     RP_MENU_QUESTS,
     RP_MENU_EXIT_VR,
+    RP_MENU_POKEMON_STORAGE,
     RP_MENU_BATTLE_SIM,
     RP_MENU_COUNT,
 };
@@ -1261,6 +1263,17 @@ static const struct RotomPhone_MenuOptions sRotomPhoneOptions[RP_MENU_COUNT] =
         .selectedFunc = RotomPhone_StartMenu_SelectedFunc_ExitVR,
         .owIconPalSlot = PAL_ICON_MONOCHROME,
         .owAnim = 1,
+        .rrAnim = RP_ICON_ANIM_TWO,
+        .rrSpriteTemplate = &sSpriteTemplate_RotomRealityIcons_One,
+    },
+    [RP_MENU_POKEMON_STORAGE] =
+    {
+        .menuName = COMPOUND_STRING("Storage"),
+        .rotomSpeech = COMPOUND_STRING("to access Pokemon Storage?"),
+        .unlockedFunc = IsInVirtualWorld,
+        .selectedFunc = RotomPhone_StartMenu_SelectedFunc_PokemonStorage,
+        .owIconPalSlot = PAL_ICON_ORANGE,
+        .owAnim = RP_ICON_ANIM_EIGHT,
         .rrAnim = RP_ICON_ANIM_TWO,
         .rrSpriteTemplate = &sSpriteTemplate_RotomRealityIcons_One,
     },
@@ -4110,6 +4123,13 @@ static void RotomPhone_StartMenu_SelectedFunc_ExitVR(void)
     gTasks[taskId].func = Task_RotomPhone_OverworldMenu_RotomShutdown;
     RotomPhone_StartMenu_RotomShutdownPreparation(taskId, TRUE);
 }
+
+
+static void RotomPhone_StartMenu_SelectedFunc_PokemonStorage(void)
+{
+    RotomPhone_StartMenu_DoCleanUpAndChangeCallback(EnterStorage);
+}
+
 
 static void RotomPhone_StartMenu_SelectedFunc_Daycare(void)
 {
