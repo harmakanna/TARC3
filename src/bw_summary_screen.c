@@ -2193,6 +2193,11 @@ static void CopyMonToSummaryStruct(struct Pokemon *mon)
 static void DrawPromptWindow(void)
 {
     FillWindowPixelBuffer(PSS_LABEL_WINDOW_PROMPT_CANCEL, PIXEL_FILL(0));
+    if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
+    {
+        ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_CANCEL);
+        return;
+    }
     const u8 *promptText;
     bool32 editMode;
 
@@ -2480,7 +2485,7 @@ static void Task_HandleInput(u8 taskId)
             {
                 SwitchToMoveSelection(taskId);
             }
-            else
+            else if (sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO)
             {
                 StartEditMode(taskId);
             }
@@ -2828,6 +2833,7 @@ static void ChangePage(u8 taskId, s8 delta)
     sMonSummaryScreen->currPageIndex += delta;
     tScrollState = 0;
     SetTaskFuncWithFollowupFunc(taskId, PssScroll, gTasks[taskId].func);
+    DrawPromptWindow();
     CreateTextPrinterTask(sMonSummaryScreen->currPageIndex);
     HidePageSpecificSprites();
 }
@@ -4036,6 +4042,18 @@ static void PrintMonOTID(void)
 static void PrintMonAbilityName(void)
 {
     u16 ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum);
+    //PrintTextOnWindow(AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_ABILITY), gAbilitiesInfo[ability].name, 4, 2, 0, 0);
+}
+
+static void PrintMonAbilityDescription(void)
+{
+    PrintTextOnWindow_BW_Font(AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_ABILITY), gSpeciesInfo[sMonSummaryScreen->summary.species].description, 4, 15, 0, 0);
+}
+
+/*
+static void PrintMonAbilityName(void)
+{
+    u16 ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum);
     PrintTextOnWindow(AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_ABILITY), gAbilitiesInfo[ability].name, 4, 2, 0, 0);
 }
 
@@ -4045,60 +4063,32 @@ static void PrintMonAbilityDescription(void)
     PrintTextOnWindow_BW_Font(AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_ABILITY), gAbilitiesInfo[ability].description, 4, 15, 0, 0);
 }
 
-static void BufferMonTrainerMemo(void)
-{
-    struct PokeSummary *sum = &sMonSummaryScreen->summary;
-    const u8 *text;
-    bool32 locationFound = sum->metLocation < MAPSEC_NONE;
+struct PokeSummary *sum = &sMonSummaryScreen->summary;
 
     DynamicPlaceholderTextUtil_Reset();
     DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, sMemoNatureTextColor);
     DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, sMemoMiscTextColor);
     BufferNatureString();
 
-    if (InBattleFactory() == TRUE || InSlateportBattleTent() == TRUE || IsInGamePartnerMon() == TRUE)
-    {
-        DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, gText_XNature);
-    }
-    else
-    {
-        u8 *metLevelString = Alloc(32);
-        u8 *metLocationString = Alloc(32);
-        GetMetLevelString(metLevelString);
+    u16 ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum);
+    DynamicPlaceholderTextUtil_SetPlaceholderPtr(3, gAbilitiesInfo[ability].name);
+    DynamicPlaceholderTextUtil_SetPlaceholderPtr(4, gAbilitiesInfo[ability].description);
 
-        if (locationFound)
-        {
-            GetMapNameHandleAquaHideout(metLocationString, sum->metLocation);
-            DynamicPlaceholderTextUtil_SetPlaceholderPtr(4, metLocationString);
-        }
+    StringCopy(gStringVar4, gText_XNature);
+*/
 
-        text = gText_XNature;
+static void BufferMonTrainerMemo(void)
+{
+    DynamicPlaceholderTextUtil_Reset();
+    DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, sMemoNatureTextColor);
+    DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, sMemoMiscTextColor);
+    BufferNatureString();
 
-        if (DoesMonOTMatchOwner() == TRUE)
-        {
-            if (sum->metLevel == 0)
-                text = (!locationFound) ? gText_XNatureHatchedSomewhereAt : gText_XNatureHatchedAtYZ;
-            else
-                text = (!locationFound) ? gText_XNatureMetSomewhereAt : gText_XNatureMetAtYZ;
-        }
-        else if (sum->metLocation == METLOC_FATEFUL_ENCOUNTER)
-        {
-            text = gText_XNatureFatefulEncounter;
-        }
-        else if (sum->metLocation != METLOC_IN_GAME_TRADE && DidMonComeFromGBAGames())
-        {
-            text = (!locationFound) ? gText_XNatureObtainedInTrade : gText_XNatureProbablyMetAt;
-        }
-        else
-        {
-            text = gText_XNatureObtainedInTrade;
-        }
+    u16 ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum);
+    DynamicPlaceholderTextUtil_SetPlaceholderPtr(3, gAbilitiesInfo[ability].name);
+    DynamicPlaceholderTextUtil_SetPlaceholderPtr(4, gAbilitiesInfo[ability].description);
 
-        DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, text);
-
-        Free(metLevelString);
-        Free(metLocationString);
-    }
+    DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, gText_XNature);
 }
 
 static void PrintMonTrainerMemo(void)
@@ -5835,10 +5825,11 @@ static u32 AbilityNumIncrement(s32 data, bool32 isReverse)
         }
     }
     sMonSummaryScreen->summary.abilityNum = data;
-    u32 windowId = sMonSummaryScreen->windowIds[PSS_DATA_WINDOW_SKILLS_ABILITY];
+    u32 windowId = sMonSummaryScreen->windowIds[PSS_DATA_WINDOW_INFO_MEMO];
     FillWindowPixelBuffer(windowId, PIXEL_FILL(0));
-    PrintMonAbilityName();
-    PrintMonAbilityDescription();
+    BufferMonTrainerMemo();
+    PrintMonTrainerMemo();
+    PrintTrait();
     return data;
 }
 
@@ -5865,6 +5856,7 @@ static const struct EditInput sTitleEditInput[] = {
     {.data = MON_DATA_HELD_ITEM,      .increment = HeldItemIncrement,  .x = 56,  .y = 90},
     //{.data = MON_DATA_TRAIT_INDEX,    .increment = TraitIncrement,  .x = 56,  .y = 102},
     {.data = MON_DATA_HIDDEN_NATURE,  .increment = NatureIncrement, .x = 20,  .y = 116},
+    {.data = MON_DATA_ABILITY_NUM, .increment = AbilityNumIncrement, .x = 20, .y = 128},
 };
 
 static const struct EditInput sStatsEditInput[] = {
@@ -5876,7 +5868,6 @@ static const struct EditInput sStatsEditInput[] = {
     {.data = MON_DATA_SPDEF_EV, .increment = SpdefEvIncrement,       .x = 90, .y = 78},
     {.data = MON_DATA_SPEED_EV, .increment = SpeedEvIncrement,       .x = 90, .y = 90},
     */
-    {.data = MON_DATA_ABILITY_NUM, .increment = AbilityNumIncrement, .x = 20, .y = 128},
 };
 
 static const u32 sEditInputsCount[4] = {

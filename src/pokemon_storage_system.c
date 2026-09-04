@@ -1664,7 +1664,7 @@ static void CreateMainMenu(u8 whichMenu, s16 *windowIdPtr)
 static void CB2_ExitPokeStorage(void)
 {
     sPreviousBoxOption = GetCurrentBoxOption();
-    gFieldCallback = FieldTask_ReturnToPcMenu;
+    //gFieldCallback = FieldTask_ReturnToPcMenu;
     SetMainCallback2(CB2_ReturnToField);
 }
 
@@ -4033,6 +4033,8 @@ static void PrintDisplayMonInfo(void)
     }
 
     CopyWindowToVram(WIN_DISPLAY_INFO, COPYWIN_GFX);
+    sStorage->markingComboSprite->invisible = TRUE;
+    /*
     if (sStorage->displayMonSpecies != SPECIES_NONE)
     {
         UpdateMonMarkingTiles(sStorage->displayMonMarkings, sStorage->markingComboTilesPtr);
@@ -4042,6 +4044,7 @@ static void PrintDisplayMonInfo(void)
     {
         sStorage->markingComboSprite->invisible = TRUE;
     }
+    */
 }
 
 // Turn the wave animation on the sides of "Pkmn Data" on/off
@@ -7813,9 +7816,9 @@ static bool8 SetMenuTexts_Mon(void)
             SetMenuText(MENU_STORE);
     }
 
-    SetMenuText(MENU_MARK);
-    if (sStorage->boxOption != OPTION_SELECT_MON)
-        SetMenuText(MENU_RELEASE);
+    //SetMenuText(MENU_MARK);
+    //if (sStorage->boxOption != OPTION_SELECT_MON)
+    //    SetMenuText(MENU_RELEASE);
     SetMenuText(MENU_CANCEL);
     return TRUE;
 }
@@ -10128,6 +10131,11 @@ void UpdateSpeciesSpritePSS(struct BoxPokemon *boxMon)
 void ChooseMonFromStorage(void)
 {
     EnterPokeStorage(OPTION_SELECT_MON);
+}
+
+void EnterStorage(void)
+{
+    EnterPokeStorage(OPTION_MOVE_MONS);
 }
 
 void RemoveSelectedPcMon(struct Pokemon *mon)
