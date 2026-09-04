@@ -77,6 +77,7 @@ static void QueueAnimTiles_EliteFour_WallLights(u16);
 static void QueueAnimTiles_VirtualCityPrimary_Fountain(u16);
 static void QueueAnimTiles_VirtualCityPrimary_Flower(u16);
 static void QueueAnimTiles_VirtualCityPrimary_Grid(u16);
+static void QueueAnimTiles_VirtualCityPrimary_OfficeRoof(u16);
 
 const u16 gTilesetAnims_General_Flower_Frame1[] = INCGFX_U16("data/tilesets/primary/general/anim/flower/1.png", ".4bpp");
 const u16 gTilesetAnims_General_Flower_Frame0[] = INCGFX_U16("data/tilesets/primary/general/anim/flower/0.png", ".4bpp");
@@ -595,6 +596,154 @@ const u16 *const gTilesetAnims_VirtualCityPrimary_Grid[] = {
     gTilesetAnims_VirtualCityPrimary_Grid_Frame6,
     gTilesetAnims_VirtualCityPrimary_Grid_Frame7
 };
+
+//===================================================================
+//=================== START OFFCE ROOF TILE ANIMS ===================
+//===================================================================
+
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_BotBlue_Frame0[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/bot_blue/0.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_BotBlue_Frame1[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/bot_blue/1.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_BotBlue_Frame2[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/bot_blue/2.png", ".4bpp");
+
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_BotPink_Frame0[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/bot_pink/0.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_BotPink_Frame1[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/bot_pink/1.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_BotPink_Frame2[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/bot_pink/2.png", ".4bpp");
+
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_BotYellow_Frame0[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/bot_yellow/0.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_BotYellow_Frame1[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/bot_yellow/1.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_BotYellow_Frame2[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/bot_yellow/2.png", ".4bpp");
+
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_LeftTop_Frame0[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/left_top/0.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_LeftTop_Frame1[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/left_top/1.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_LeftTop_Frame2[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/left_top/2.png", ".4bpp");
+
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_LeftBot_Frame0[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/left_bot/0.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_LeftBot_Frame1[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/left_bot/1.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_LeftBot_Frame2[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/left_bot/2.png", ".4bpp");
+
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_MidBlue_Frame0[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/mid_blue/0.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_MidBlue_Frame1[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/mid_blue/1.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_MidBlue_Frame2[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/mid_blue/2.png", ".4bpp");
+
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_MidPink_Frame0[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/mid_pink/0.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_MidPink_Frame1[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/mid_pink/1.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_MidPink_Frame2[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/mid_pink/2.png", ".4bpp");
+
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_MidYellow_Frame0[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/mid_yellow/0.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_MidYellow_Frame1[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/mid_yellow/1.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_MidYellow_Frame2[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/mid_yellow/2.png", ".4bpp");
+
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_RightTop_Frame0[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/right_top/0.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_RightTop_Frame1[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/right_top/1.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_RightTop_Frame2[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/right_top/2.png", ".4bpp");
+
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_RightMid_Frame0[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/right_mid/0.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_RightMid_Frame1[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/right_mid/1.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_RightMid_Frame2[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/right_mid/2.png", ".4bpp");
+
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_RightBot_Frame0[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/right_bot/0.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_RightBot_Frame1[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/right_bot/1.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_RightBot_Frame2[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/right_bot/2.png", ".4bpp");
+
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_TopBlue_Frame0[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/top_blue/0.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_TopBlue_Frame1[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/top_blue/1.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_TopBlue_Frame2[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/top_blue/2.png", ".4bpp");
+
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_TopPink_Frame0[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/top_pink/0.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_TopPink_Frame1[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/top_pink/1.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_TopPink_Frame2[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/top_pink/2.png", ".4bpp");
+
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_TopYellow_Frame0[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/top_yellow/0.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_TopYellow_Frame1[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/top_yellow/1.png", ".4bpp");
+const u16 gTilesetAnims_VirtualCityPrimary_OfficeRoof_TopYellow_Frame2[] = INCGFX_U16("data/tilesets/primary/virtual_city_primary/anims/office_roof/top_yellow/2.png", ".4bpp");
+
+const u16 *const gTilesetAnims_VirtualCityPrimary_OfficeRoof_BotBlue[] = {
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_BotBlue_Frame0,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_BotBlue_Frame1,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_BotBlue_Frame2
+};
+
+const u16 *const gTilesetAnims_VirtualCityPrimary_OfficeRoof_BotPink[] = {
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_BotPink_Frame0,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_BotPink_Frame1,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_BotPink_Frame2
+};
+
+const u16 *const gTilesetAnims_VirtualCityPrimary_OfficeRoof_BotYellow[] = {
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_BotYellow_Frame0,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_BotYellow_Frame1,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_BotYellow_Frame2
+};
+
+const u16 *const gTilesetAnims_VirtualCityPrimary_OfficeRoof_LeftTop[] = {
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_LeftTop_Frame0,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_LeftTop_Frame1,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_LeftTop_Frame2
+};
+
+const u16 *const gTilesetAnims_VirtualCityPrimary_OfficeRoof_LeftBot[] = {
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_LeftBot_Frame0,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_LeftBot_Frame1,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_LeftBot_Frame2
+};
+
+const u16 *const gTilesetAnims_VirtualCityPrimary_OfficeRoof_RightTop[] = {
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_RightTop_Frame0,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_RightTop_Frame1,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_RightTop_Frame2
+};
+
+const u16 *const gTilesetAnims_VirtualCityPrimary_OfficeRoof_RightMid[] = {
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_RightMid_Frame0,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_RightMid_Frame1,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_RightMid_Frame2
+};
+
+const u16 *const gTilesetAnims_VirtualCityPrimary_OfficeRoof_RightBot[] = {
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_RightBot_Frame0,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_RightBot_Frame1,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_RightBot_Frame2
+};
+
+const u16 *const gTilesetAnims_VirtualCityPrimary_OfficeRoof_MidBlue[] = {
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_MidBlue_Frame0,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_MidBlue_Frame1,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_MidBlue_Frame2
+};
+
+const u16 *const gTilesetAnims_VirtualCityPrimary_OfficeRoof_MidPink[] = {
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_MidPink_Frame0,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_MidPink_Frame1,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_MidPink_Frame2
+};
+
+const u16 *const gTilesetAnims_VirtualCityPrimary_OfficeRoof_MidYellow[] = {
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_MidYellow_Frame0,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_MidYellow_Frame1,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_MidYellow_Frame2
+};
+
+const u16 *const gTilesetAnims_VirtualCityPrimary_OfficeRoof_TopBlue[] = {
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_TopBlue_Frame0,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_TopBlue_Frame1,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_TopBlue_Frame2
+};
+
+const u16 *const gTilesetAnims_VirtualCityPrimary_OfficeRoof_TopPink[] = {
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_TopPink_Frame0,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_TopPink_Frame1,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_TopPink_Frame2
+};
+
+const u16 *const gTilesetAnims_VirtualCityPrimary_OfficeRoof_TopYellow[] = {
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_TopYellow_Frame0,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_TopYellow_Frame1,
+    gTilesetAnims_VirtualCityPrimary_OfficeRoof_TopYellow_Frame2
+};
+
+//===================================================================
+//=================== END OFFCE ROOF TILE ANIMS ===================
+//===================================================================
 
 static void ResetTilesetAnimBuffer(void)
 {
@@ -1252,6 +1401,7 @@ static void TilesetAnim_VirtualCityPrimary(u16 timer)
         QueueAnimTiles_VirtualCityPrimary_Flower(timer / 32);
     if (timer % 8 == 0)
         QueueAnimTiles_VirtualCityPrimary_Grid(timer / 8);
+        QueueAnimTiles_VirtualCityPrimary_OfficeRoof(timer / 8);
     if (timer % 4 == 0)
         QueueAnimTiles_VirtualCityPrimary_Fountain(timer / 4);
 }
@@ -1272,6 +1422,42 @@ static void QueueAnimTiles_VirtualCityPrimary_Grid(u16 timer)
 {
     u16 i = timer % ARRAY_COUNT(gTilesetAnims_VirtualCityPrimary_Grid);
     AppendTilesetAnimToBuffer(gTilesetAnims_VirtualCityPrimary_Grid[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(3)), 4 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_VirtualCityPrimary_OfficeRoof(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_VirtualCityPrimary_OfficeRoof_TopBlue);
+    AppendTilesetAnimToBuffer(gTilesetAnims_VirtualCityPrimary_OfficeRoof_TopBlue[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(10)), TILE_SIZE_4BPP);
+    //u16 i = timer % ARRAY_COUNT(gTilesetAnims_VirtualCityPrimary_OfficeRoof_TopPink);
+    AppendTilesetAnimToBuffer(gTilesetAnims_VirtualCityPrimary_OfficeRoof_TopPink[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(11)), TILE_SIZE_4BPP);
+    //u16 i = timer % ARRAY_COUNT(gTilesetAnims_VirtualCityPrimary_OfficeRoof_TopYellow);
+    AppendTilesetAnimToBuffer(gTilesetAnims_VirtualCityPrimary_OfficeRoof_TopYellow[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(12)), TILE_SIZE_4BPP);
+    
+    //u16 i = timer % ARRAY_COUNT(gTilesetAnims_VirtualCityPrimary_OfficeRoof_MidBlue);
+    AppendTilesetAnimToBuffer(gTilesetAnims_VirtualCityPrimary_OfficeRoof_MidBlue[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(26)), TILE_SIZE_4BPP);
+    //u16 i = timer % ARRAY_COUNT(gTilesetAnims_VirtualCityPrimary_OfficeRoof_MidPink);
+    AppendTilesetAnimToBuffer(gTilesetAnims_VirtualCityPrimary_OfficeRoof_MidPink[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(27)), TILE_SIZE_4BPP);
+    //u16 i = timer % ARRAY_COUNT(gTilesetAnims_VirtualCityPrimary_OfficeRoof_MidYellow);
+    AppendTilesetAnimToBuffer(gTilesetAnims_VirtualCityPrimary_OfficeRoof_MidYellow[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(28)), TILE_SIZE_4BPP);
+
+    //u16 i = timer % ARRAY_COUNT(gTilesetAnims_VirtualCityPrimary_OfficeRoof_BotBlue);
+    AppendTilesetAnimToBuffer(gTilesetAnims_VirtualCityPrimary_OfficeRoof_BotBlue[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(42)), TILE_SIZE_4BPP);
+    //u16 i = timer % ARRAY_COUNT(gTilesetAnims_VirtualCityPrimary_OfficeRoof_BotPink);
+    AppendTilesetAnimToBuffer(gTilesetAnims_VirtualCityPrimary_OfficeRoof_BotPink[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(43)), TILE_SIZE_4BPP);
+   // u16 i = timer % ARRAY_COUNT(gTilesetAnims_VirtualCityPrimary_OfficeRoof_BotYellow);
+    AppendTilesetAnimToBuffer(gTilesetAnims_VirtualCityPrimary_OfficeRoof_BotYellow[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(44)), TILE_SIZE_4BPP);
+
+   // u16 i = timer % ARRAY_COUNT(gTilesetAnims_VirtualCityPrimary_OfficeRoof_LeftTop[]);
+    AppendTilesetAnimToBuffer(gTilesetAnims_VirtualCityPrimary_OfficeRoof_LeftTop[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(25)), TILE_SIZE_4BPP);
+    //u16 i = timer % ARRAY_COUNT(gTilesetAnims_VirtualCityPrimary_OfficeRoof_LeftBot);
+    AppendTilesetAnimToBuffer(gTilesetAnims_VirtualCityPrimary_OfficeRoof_LeftBot[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(40)), TILE_SIZE_4BPP);
+
+   // u16 i = timer % ARRAY_COUNT(gTilesetAnims_VirtualCityPrimary_OfficeRoof_RightTop[]);
+    AppendTilesetAnimToBuffer(gTilesetAnims_VirtualCityPrimary_OfficeRoof_RightTop[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(31)), TILE_SIZE_4BPP);
+    //u16 i = timer % ARRAY_COUNT(gTilesetAnims_VirtualCityPrimary_OfficeRoof_RightMid);
+    AppendTilesetAnimToBuffer(gTilesetAnims_VirtualCityPrimary_OfficeRoof_RightMid[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(47)), TILE_SIZE_4BPP);
+    //u16 i = timer % ARRAY_COUNT(gTilesetAnims_VirtualCityPrimary_OfficeRoof_RightBot);
+    AppendTilesetAnimToBuffer(gTilesetAnims_VirtualCityPrimary_OfficeRoof_RightBot[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(63)), TILE_SIZE_4BPP);
 }
 
 // FRLG anims
