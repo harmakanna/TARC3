@@ -245,7 +245,7 @@ VirtualCity_Garden_Text_Sign::
 	.string "Tide Pools\p"
 	.string "Next Nature Refuge:\n"
 	.string "Asteroids\p"
-	.string "Buy your favorites for 599.99\n"
+	.string "Buy your favorites for 59999.95\n"
 	.string "at the BETTER SUPERSTORE!$"
 
 Speaker_LedianLover:

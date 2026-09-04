@@ -30,8 +30,12 @@ VirtualCity_Casino_Eventscript_Cluegiver6::
 	speak LOCALID_GUARD, VirtualCity_Casino_Text_Cluegiver6, Speaker_Researcher, DIR_SOUTH
 	end
 
+VirtualCity_Casino_EventScript_Kumatora::
+	msgbox VirtualCity_Casino_Text_Kumatora, MSGBOX_NPC
 
-
+VirtualCity_Casino_Text_Kumatora:
+	.string "Hi!$"
+	
 VirtualCity_Casino_Text_Cluegiver1:
 	.string "…wish I could tell my daughter.\p"
 	.string "It's been her favorite since she\n"

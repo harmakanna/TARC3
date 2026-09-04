@@ -57,10 +57,10 @@
 #define FLAG_LEDIAN_SPOKE_TO_BABY    0x23 // Unused Flag
 #define FLAG_LEDIAN_SPOKE_TO_MAN    0x24 // Unused Flag
 #define FLAG_IM_BABY         0x25 // Unused Flag
-#define FLAG_UNUSED_0x026    0x26 // Unused Flag
-#define FLAG_UNUSED_0x027    0x27 // Unused Flag
-#define FLAG_UNUSED_0x028    0x28 // Unused Flag
-#define FLAG_UNUSED_0x029    0x29 // Unused Flag
+#define FLAG_HIDE_ACT_2_TEA_QUEST    0x26 // Unused Flag
+#define FLAG_FOUGHT_EARL_GRAY    0x27 // Unused Flag
+#define FLAG_PRESENTED_EARLS_MESSAGE    0x28 // Unused Flag
+#define FLAG_DEFEATED_CAPN_CHINO    0x29 // Unused Flag
 #define FLAG_UNUSED_0x02A    0x2A // Unused Flag
 #define FLAG_UNUSED_0x02B    0x2B // Unused Flag
 #define FLAG_UNUSED_0x02C    0x2C // Unused Flag

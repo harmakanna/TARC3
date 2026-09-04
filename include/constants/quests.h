@@ -23,7 +23,7 @@
 #define QUEST_6          5
 #define QUEST_7          6
 #define QUEST_LEDIAN     7
-#define QUEST_9          8
+#define QUEST_TEA        8
 #define QUEST_10         9
 #define QUEST_11        10
 #define QUEST_12        11

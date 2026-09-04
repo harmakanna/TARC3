@@ -336,7 +336,7 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 	      0
 	),
 	side_quest(
-	      gText_SideQuestDesc_7,
+	      gText_SideQuestName_7,
 	      gText_SideQuestDesc_7,
 	      gText_SideQuestDoneDesc_7,
 	      gText_SideQuestMap7,
@@ -357,11 +357,11 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 	      0
 	),
 	side_quest(
-	      gText_SideQuestName_9,
-	      gText_SideQuestDesc_9,
-	      gText_SideQuestDoneDesc_9,
-	      gText_SideQuestMap9,
-	      OBJ_EVENT_GFX_WALLY,
+	      gText_SideQuestName_Tea,
+	      gText_SideQuestDesc_Tea,
+	      gText_SideQuestDoneDesc_Tea,
+	      gText_SideQuestMapTea,
+	      OBJ_EVENT_GFX_GENTLEMAN,
 	      OBJECT,
 	      NULL,
 	      0
