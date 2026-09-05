@@ -4,6 +4,7 @@
 #include "event_data.h"
 #include "malloc.h"
 #include "pokemon.h"
+#include "pokemon_storage_system.h"
 #include "random.h"
 #include "string_util.h"
 #include "tarc_traits.h"
@@ -233,6 +234,37 @@ void AddNewMod(void)
             SetMonData(mon, MON_DATA_TRAIT_INDEX1 + i, &sRandomlySelectedTraits[gSpecialVar_Result]);
             CalculateMonStats(mon);
             return;
+        }
+    }
+}
+
+static void RemoveModsFromBoxMon(struct BoxPokemon *boxmon)
+{
+    u32 value = 0;
+    for (u32 i = 0; i < 3; i++)
+    {
+        SetBoxMonData(boxmon, MON_DATA_TRAIT_INDEX1 + i, &value);
+    }
+}
+
+void RemoveModsFromSelectedMon(void)
+{
+    struct BoxPokemon *boxmon = GetSelectedBoxMonFromPcOrParty();
+    RemoveModsFromBoxMon(boxmon);
+}
+
+void RemoveModFromAllMons(void)
+{
+    for (u32 i = 0; i < PARTY_SIZE; i++)
+    {
+        RemoveModsFromBoxMon(&gParties[B_TRAINER_PLAYER][i].box);
+    }
+
+    for (u32 boxId = 0; boxId < TOTAL_BOXES_COUNT; boxId++)
+    {
+        for (u32 boxPosition = 0; boxPosition < IN_BOX_COUNT; boxPosition++)
+        {
+            RemoveModsFromBoxMon(&gPokemonStoragePtr->boxes[boxId][boxPosition]);
         }
     }
 }
