@@ -187,6 +187,13 @@ void ChooseHalfPartyForBattle(void)
     InitChooseHalfPartyForBattle(0);
 }
 
+void ChooseVGCParty(void)
+{
+    gMain.savedCallback = CB2_ReturnFromChooseHalfParty;
+    VarSet(VAR_FRONTIER_FACILITY, VGC_BATTLE);
+    InitChooseHalfPartyForBattle(0);
+}
+
 static void CB2_ReturnFromChooseHalfParty(void)
 {
     switch (gSelectedOrderFromParty[0])
