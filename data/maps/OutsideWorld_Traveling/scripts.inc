@@ -3,15 +3,7 @@ OutsideWorld_Traveling_MapScripts::
 
 
 
-OutsideWorld_Traveling_Text_IntroTalk1Minh::
-	.string "When was the last time you saw a\n"
-	.string "Pokemon, you know, in real life?$"
 
-OutsideWorld_Traveling_Text_IntroTalk2Sophie::
-	.string "Gosh, I don't even remember.\p"
-	.string "It must have been when I was a child,\n"
-	.string "before the zoo closed down.\p"
-	.string "What about you?$"
 
 OutsideWorld_Traveling_Text_IntroTalk3Minh::
 	.string "My grandma was a trainer! So I got to\n"

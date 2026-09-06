@@ -4,6 +4,7 @@ VirtualCity_CommsTower_1F_MapScripts::
 
 VirtualCity_CommsTower_1F_OnLoad::
 	call_if_unset FLAG_COMMS_1F_DOOR, EventScript_CloseComms1FDoor
+	setdynamicwarp MAP_VIRTUAL_CITY_WORK_YOUR_OFFICE, 0
 	end
 
 EventScript_CloseComms1FDoor::
@@ -83,7 +84,7 @@ VirtualCity_CommsTower_1F_Eventscript_ActIIntro::
 
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIIntro5, Speaker_Sophie, DIR_EAST
 	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIIntro6, Speaker_Minh, DIR_WEST	
-
+	setvar VAR_PETALBURG_CITY_STATE, 11
 	setflag FLAG_ACT_I_STARTED
 
 	end
@@ -115,17 +116,18 @@ VirtualCity_CommsTower_1F_Text_MinhACTIIntro1:
 	.string "Apparently, a bunch of artists -\n"
 	.string "the boring ones, not visionaries\l"
 	.string "like me - got moved recently.\p"
-	.string "They're working in BETTER's IRL\n"
+	.string "They're working in BETTER's Research\n"
 	.string "Department, which is pretty suspicious.\p"
-	.string "They might be making fakes in there.$"
+	.string "We need to get into the department and\n"
+	.string "see if they're making fake IRL Pokemon.\p"
+	.string "But, of course, there's a problem.$"
 
 VirtualCity_CommsTower_1F_Text_MinhACTIIntro2:
-	.string "IRL is a part of Research.\n"
-	.string "It's the guarded staircase there.\p"
-	.string "Here's the problem - Research doesn't\n"
-	.string "allow outside Pokemon, like Ex.\p"
-	.string "But once we sneak in, we'll need a\n"
-	.string "Pokemon in case we have to fight.$"
+	.string "The stairs there will take you to our\n"
+	.string "Design office, like usual, because the\l"
+	.string "autoscanner knows where you work.\p"
+	.string "The guard can set the stairs to go to\n"
+	.string "Research, but we need a good reason.$"
 
 VirtualCity_CommsTower_1F_Text_SophieACTIIntro3:
 	.string "I see. Why don't I just-$"
@@ -136,8 +138,7 @@ VirtualCity_CommsTower_1F_Text_MinhACTIIntro4:
 	.string "If you fight that guard, people will\n"
 	.string "stop you, and we'll never find out\l"
 	.string "what's going on.\p"
-	.string "Only fight in the department if you\n"
-	.string "absolutely have to.$"
+	.string "Only fight if you absolutely have to.$"
 
 VirtualCity_CommsTower_1F_Text_SophieACTIIntro5:
 	.string "Ugh, fine.\p"
@@ -146,12 +147,12 @@ VirtualCity_CommsTower_1F_Text_SophieACTIIntro5:
 
 VirtualCity_CommsTower_1F_Text_MinhACTIIntro6:
 	.string "NO, Sophie.\p"
-	.string "Some Pokemon are allowed in. Maybe\n"
-	.string "you can find out which ones?\p"
-	.string "All the Research folks are at some\n"
-	.string "event at the Casino.\p"
-	.string "If you figure out what Pokemon they're\n"
-	.string "working on, maybe we can find one?\p"
+	.string "As I walked in, I saw a group of five\n"
+	.string "researchers heading to the casino.\p"
+	.string "Maybe you can eavesdrop, and find out\n"
+	.string "what they're working on?\p"
+	.string "If you figure it out, maybe we can find\n"
+	.string "that Pokemon and show the guard?\p"
 	.string "Sigh… I dunno. You're the pro battler.\n"
 	.string "My art skills don't really help here.$"
 
@@ -187,7 +188,7 @@ VirtualCity_CommsTower_1F_Text_Eventscript_ACTIPokemonCheck::
 	dynmultipush PonytaChoice_Text_Choice12, 12
 	dynmultipush PonytaChoice_Text_Choice13, 13
 	dynmultipush PonytaChoice_Text_Choice14, 14
-	dynmultistack 0, 0, FALSE, 2, FALSE, 0, DYN_MULTICHOICE_CB_NONE
+	dynmultistack 0, 0, FALSE, 6, FALSE, 0, DYN_MULTICHOICE_CB_NONE
 	goto_if_eq VAR_RESULT, 8, VirtualCity_CommsTower_1F_Text_Eventscript_ACTIPokemonCheckSuccess
 	speak LOCALID_ARCANINE, VirtualCity_CommsTower_1F_Text_SophieACTIPokemonFailure, Speaker_Sophie, DIR_EAST
 	end
@@ -198,7 +199,7 @@ VirtualCity_CommsTower_1F_Text_Eventscript_ACTIPokemonCheckSuccess::
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheckSuccess2, Speaker_Sophie, DIR_EAST
 	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheckSuccess3, Speaker_Minh, DIR_WEST
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheckSuccess4, Speaker_Sophie, DIR_EAST
-	setvar VAR_PETALBURG_CITY_STATE, 11
+	setvar VAR_PETALBURG_CITY_STATE, 12
 	warpsilent MAP_VIRTUAL_CITY_WORK_YOUR_OFFICE, 13, 19
 	waitstate
 	delay 100
@@ -228,10 +229,10 @@ PonytaChoice_Text_Choice7:
 	.string "Pikachu$"
 
 PonytaChoice_Text_Choice8:
-	.string "Tinkatink$"
+	.string "Ponyta$"
 
 PonytaChoice_Text_Choice9:
-	.string "Ponyta$"
+	.string "Tinkatink$"
 
 PonytaChoice_Text_Choice10:
 	.string "Ho-Oh$"
@@ -254,11 +255,9 @@ VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheck:
 	.string "you can get past the guard?$"
 
 VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheck:
-	.string "I overheard a few people talking\n"
+	.string "I overheard a few researchers talking\n"
 	.string "about a Pokemon they were working on…\p"
-	.string "But something tells me that one of\n"
-	.string "them was on a different project; one\l"
-	.string "of the facts I heard is irrelevant.$"
+	.string "I think they were talking about…$"
 
 VirtualCity_CommsTower_1F_Text_SophieACTIPokemonFailure:
 	.string "Hmm, that doesn't sound right.\p"
@@ -276,13 +275,13 @@ VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheckSuccess2:
 
 VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheckSuccess3:
 	.string "What? Umm, very well. It's my fourteenth\n"
-	.string "favorite Fire-type.$"
+	.string "favorite Fire-type.\p"
 	.string "You'd know that if you read my blog.$"
 
 VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheckSuccess4:
 	.string "I think I know how your artistic skill\n"
-	.string "can get us into the department.\p"
-	.string "Meet you in our office; let me get Ex.\p"
+	.string "can get us into Research.\p"
+	.string "Let's stop by the Design office.$"
 
 
 
@@ -340,7 +339,12 @@ VirtualCity_CommsTower_1F_Text_NoPokemonGuardStop:
 
 VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardPonyta:
 	speak LOCALID_GUARD, VirtualCity_CommsTower_1F_Text_NoPokemonGuardPonyta, Speaker_Guard, DIR_SOUTH
-	applymovement LOCALID_GUARD, Common_Movement_WalkDown
+	applymovement LOCALID_GUARD, VirtualCity_CommsTower_1F_Move_NoPokemonGuardPonyta
+	waitmovement 0
+	setdynamicwarp MAP_VIRTUAL_CITY_COMMS_TOWER_RESEARCH, 0
+	setspeaker Speaker_Guard
+	msgbox VirtualCity_CommsTower_1F_Text_NoPokemonGuardGoAhead, MSGBOX_SIGN
+	closemessage
 	end
 
 VirtualCity_CommsTower_1F_Text_NoPokemonGuardPonyta:
@@ -348,20 +352,34 @@ VirtualCity_CommsTower_1F_Text_NoPokemonGuardPonyta:
 	.string "Oh, is it done? I barely recognized it…\n"
 	.string "It looks great!$"
 
-VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardMagikarp:
-	speak LOCALID_GUARD, VirtualCity_CommsTower_1F_Text_NoPokemonGuardMagikarp, Speaker_Guard, DIR_SOUTH
-	goto VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardMoves
-	end
+VirtualCity_CommsTower_1F_Text_NoPokemonGuardGoAhead:
+	.string "You're all set. I've configured the\n"
+	.string "stairs to take you to Research.$"
+
+@VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardMagikarp:
+@	speak LOCALID_GUARD, VirtualCity_CommsTower_1F_Text_NoPokemonGuardMagikarp, Speaker_Guard, DIR_SOUTH
+@	goto VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardMoves
+@	end
 
 
-VirtualCity_CommsTower_1F_Text_NoPokemonGuardMagikarp:
-	.string "Hold it, you can't bring Pokemon here.\p"
-	.string "Too many… wait, is that a Magikarp?\n"
-	.string "Ahahahahahaha!\p"
-	.string "Go on through, heh. Ain't no way you're\n"
-	.string "overpowering guards with that!$"
+@VirtualCity_CommsTower_1F_Text_NoPokemonGuardMagikarp:
+@	.string "Hold it, you can't bring Pokemon here.\p"
+@	.string "Too many… wait, is that a Magikarp?\n"
+@	.string "Ahahahahahaha!\p"
+@	.string "Go on through, heh. Ain't no way you're\n"
+@	.string "overpowering guards with that!$"
 
 
+
+VirtualCity_CommsTower_1F_Move_NoPokemonGuardPonyta:
+	walk_in_place_up
+	walk_in_place_up
+	walk_in_place_up
+	walk_in_place_up
+	delay_16
+	delay_16
+	face_player
+	step_end
 
 
 

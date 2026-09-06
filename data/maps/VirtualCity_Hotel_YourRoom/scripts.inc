@@ -8,13 +8,13 @@ VirtualCity_Hotel_YourRoom_OnFrame::
 
 
 VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution::
-	warpsilent MAP_VIRTUAL_CITY_HOTEL_YOUR_ROOM, 12, 9
-	waitstate
+	@warpsilent MAP_VIRTUAL_CITY_HOTEL_YOUR_ROOM, 12, 9
+	@waitstate
 	speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk1Minh, Speaker_Minh, DIR_NORTH
 	speak LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk2Ernest, Speaker_Ernest, DIR_EAST
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk3Harriet, Speaker_Harriet, DIR_WEST
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
-	waitmovement
+	waitmovement 0
 	delay 40
 	applymovement LOCALID_VRROOM_MINH, Common_Movement_FaceUp
 	applymovement LOCALID_VRROOM_ERNEST, Common_Movement_FaceUp
@@ -47,8 +47,9 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution::
 	waitse
 	playse SE_NOTE_D
 	waitse
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk12pt5Message, Speaker_Sophie, DIR_SOUTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk12pt5Message, Speaker_Announcement, DIR_SOUTH
 	delay 50
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
 	applymovement LOCALID_VRROOM_ERNEST, Common_Movement_FaceRight
 	applymovement LOCALID_VRROOM_HARRIET, Common_Movement_FaceLeft
 	delay 20
@@ -70,15 +71,16 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution::
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk20Harriet, Speaker_Harriet, DIR_WEST
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk21Sophie, Speaker_Sophie, DIR_WEST
 	speak LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk22Ernest, Speaker_Ernest, DIR_EAST
-	speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk19Minh, Speaker_Minh, DIR_NORTH
-	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk20Harriet, Speaker_Harriet, DIR_WEST
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk21Sophie, Speaker_Sophie, DIR_WEST
-	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk20Harriet, Speaker_Harriet, DIR_WEST
+	speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk23Minh, Speaker_Minh, DIR_NORTH
+	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk24Harriet, Speaker_Harriet, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk25Sophie, Speaker_Sophie, DIR_WEST
+	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk26Harriet, Speaker_Harriet, DIR_WEST
 
 
 
 	setvar VAR_PETALBURG_CITY_STATE, 22
 	setflag FLAG_ACT_II_STARTED
+	clearflag FLAG_HIDE_ACT_II_HARRIET
 
 
 	end

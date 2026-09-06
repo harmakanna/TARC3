@@ -9380,7 +9380,7 @@
       "id": "LAYOUT_VIRTUAL_CITY_STADIUM_ARENA",
       "name": "VirtualCity_Stadium_Arena_Layout",
       "width": 20,
-      "height": 10,
+      "height": 14,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_BattleDome",
       "border_filepath": "data/layouts/VirtualCity_Stadium_Arena/border.bin",
