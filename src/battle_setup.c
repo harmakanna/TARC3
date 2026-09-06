@@ -58,6 +58,8 @@
 #include "constants/weather.h"
 #include "fishing.h"
 
+#include "tarc_misc.h"
+
 enum TransitionType
 {
     TRANSITION_TYPE_NORMAL,
@@ -722,7 +724,7 @@ enum BattleEnvironments BattleSetup_GetEnvironmentId(void)
 
     tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
 
-    if (InQuantaMode())
+    if (IsInVirtualWorld())
         return BATTLE_ENVIRONMENT_VIRTUAL;
     if (MetatileBehavior_IsTallGrass(tileBehavior))
         return BATTLE_ENVIRONMENT_GRASS;

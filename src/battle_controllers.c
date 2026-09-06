@@ -39,6 +39,7 @@
 
 #include "battle_quanta.h"
 #include "tarc_traits.h"
+#include "tarc_misc.h"
 
 static EWRAM_DATA u8 sLinkSendTaskId = 0;
 static EWRAM_DATA u8 sLinkReceiveTaskId = 0;

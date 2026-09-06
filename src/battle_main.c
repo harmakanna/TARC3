@@ -83,6 +83,7 @@
 #include "cable_club.h"
 
 #include "tarc_speedup.h"
+#include "tarc_misc.h"
 
 extern const struct BgTemplate gBattleBgTemplates[];
 extern const struct WindowTemplate *const gBattleWindowTemplates[];
@@ -318,7 +319,7 @@ const struct TrainerClass gTrainerClasses[TRAINER_CLASS_COUNT] =
     [TRAINER_CLASS_EXPERT] = { _("EXPERT"), 10 },
     [TRAINER_CLASS_AQUA_ADMIN] = { _("AQUA ADMIN"), 10 },
     [TRAINER_CLASS_BLACK_BELT] = { _("BLACK BELT"), 8, BALL_ULTRA },
-    [TRAINER_CLASS_AQUA_LEADER] = { _("AQUA LEADER"), 20, BALL_MASTER },
+    [TRAINER_CLASS_AQUA_LEADER] = { _("COFFEE LOVER"), 20, BALL_NET },
     [TRAINER_CLASS_HEX_MANIAC] = { _("HEX MANIAC"), 6 },
     [TRAINER_CLASS_AROMA_LADY] = { _("AROMA LADY"), 10 },
     [TRAINER_CLASS_RUIN_MANIAC] = { _("RUIN MANIAC"), 15 },

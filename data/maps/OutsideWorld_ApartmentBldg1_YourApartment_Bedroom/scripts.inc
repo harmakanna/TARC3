@@ -5,6 +5,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_MapScripts::
 
 
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Eventscript_PC::
+	lockall
 	goto_if_eq VAR_PETALBURG_CITY_STATE, 2, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Eventscript_NoVRNow
 	@many more situations where you need to disable this temporarily TOFOLD
 	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Text_PC, MSGBOX_YESNO
@@ -16,6 +17,8 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Eventscript_PC::
 	end
 
 Common_Eventscript_Cancel::
+	closemessage
+	releaseall
 	end
 
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Text_PC:

@@ -76,3 +76,6 @@ EventScript_AddRandomMod::
 	releaseall
 EventScript_AddNoRandomMod:
 	return
+
+Speaker_Player:
+	.string "{PLAYER}$"

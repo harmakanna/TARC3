@@ -321,7 +321,7 @@ static void HandleInputChooseAction(enum BattlerId battler)
         }
     }
 
-    if (sQuantaDescription.active)
+    if (sQuantaDescription.active && InQuantaMode())
     {
         if (JOY_NEW(R_BUTTON) || JOY_NEW(A_BUTTON) || JOY_NEW(B_BUTTON))
         {
@@ -329,7 +329,7 @@ static void HandleInputChooseAction(enum BattlerId battler)
             HideQuantaDescription();
         }
     }
-    else if (JOY_NEW(R_BUTTON))
+    else if (JOY_NEW(R_BUTTON) && InQuantaMode())
     {
         sQuantaDescription.active = TRUE;
         DisplayQuantaDescription();
@@ -1036,7 +1036,7 @@ void HandleInputChooseMove(enum BattlerId battler)
         gBattleStruct->descriptionSubmenu = TRUE;
         TryMoveSelectionDisplayMoveDescription(battler);
     }
-    else if (JOY_NEW(R_BUTTON))
+    else if (JOY_NEW(R_BUTTON) && InQuantaMode())
     {
         sQuantaDescription.active = TRUE;
         DisplayQuantaDescription();
@@ -1938,27 +1938,31 @@ static void MoveSelectionDisplayMoveDescription(enum BattlerId battler)
     StringAppend(gDisplayedStringBattle, gText_NewLine);
     StringAppend(gDisplayedStringBattle, GetMoveDescription(move));
     StringAppend(gDisplayedStringBattle, gText_NewLine);
-    StringAppend(gDisplayedStringBattle, COMPOUND_STRING("Quanta:"));
-    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MOVE_DESCRIPTION);
 
     if (gCategoryIconSpriteId == 0xFF)
         gCategoryIconSpriteId = CreateSprite(&gSpriteTemplate_CategoryIcons, 38, 48, 1);
 
     StartSpriteAnim(&gSprites[gCategoryIconSpriteId], cat);
 
-    const struct QuantaBehavior *quanta = GetQuantaBehavior(move);
-    u32 fillValue;
-    for (u32 i = 0; i < MAX_QUANTAS_PER_ACTION; i++)
+    if (InQuantaMode())
     {
-        if (quanta[i].type == QUANTA_TYPE_END)
-            break;
-        else if (quanta[i].type == QUANTA_TYPE_EFFECT)
-            fillValue = 1;
-        else
-            fillValue = 15; 
-        FillWindowPixelRect(B_WIN_MOVE_DESCRIPTION, fillValue, 38 + 16 * i, 54, 12, 8);
+        StringAppend(gDisplayedStringBattle, COMPOUND_STRING("Quanta:"));
+
+        const struct QuantaBehavior *quanta = GetQuantaBehavior(move);
+        u32 fillValue;
+        for (u32 i = 0; i < MAX_QUANTAS_PER_ACTION; i++)
+        {
+            if (quanta[i].type == QUANTA_TYPE_END)
+                break;
+            else if (quanta[i].type == QUANTA_TYPE_EFFECT)
+                fillValue = 1;
+            else
+                fillValue = 15; 
+            FillWindowPixelRect(B_WIN_MOVE_DESCRIPTION, fillValue, 38 + 16 * i, 54, 12, 8);
+        }
     }
 
+    BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MOVE_DESCRIPTION);
     CopyWindowToVram(B_WIN_MOVE_DESCRIPTION, COPYWIN_FULL);
 }
 

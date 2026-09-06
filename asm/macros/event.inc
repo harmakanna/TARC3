@@ -1058,7 +1058,7 @@
 
 	@ Gives the player a Pokémon of the specified species and level, and allows to customize extra parameters.
 	@ VAR_RESULT will be set to MON_GIVEN_TO_PARTY, MON_GIVEN_TO_PC, or MON_CANT_GIVE depending on the outcome.
-	.macro givemon species:req, level:req, item, ball, nature, abilityNum, gender, hpEv, atkEv, defEv, speedEv, spAtkEv, spDefEv, hpIv, atkIv, defIv, speedIv, spAtkIv, spDefIv, move1, move2, move3, move4, shinyMode, gmaxFactor, teraType, dmaxLevel
+	.macro givemon species:req, level:req, item, ball, nature, abilityNum, gender, hpEv, atkEv, defEv, speedEv, spAtkEv, spDefEv, hpIv, atkIv, defIv, speedIv, spAtkIv, spDefIv, move1, move2, move3, move4, shinyMode, gmaxFactor, teraType, dmaxLevel, nickname, otName, otGender
 	callnative ScrCmd_createmon, requests_effects=1
 	.byte 0
 	.byte PARTY_SIZE @ assign to first empty slot
@@ -1090,6 +1090,9 @@
 	.ifnb \gmaxFactor; .set givemon_flags, givemon_flags | (1 << 22); .endif
 	.ifnb \teraType; .set givemon_flags, givemon_flags | (1 << 23); .endif
 	.ifnb \dmaxLevel; .set givemon_flags, givemon_flags | (1 << 24); .endif
+	.ifnb \nickname; .set givemon_flags, givemon_flags | (1 << 25); .endif
+	.ifnb \otName; .set givemon_flags, givemon_flags | (1 << 26); .endif
+	.ifnb \otGender; .set givemon_flags, givemon_flags | (1 << 27); .endif
 	.4byte givemon_flags
 	.ifnb \item; .2byte \item; .endif
 	.ifnb \ball; .2byte \ball; .endif
@@ -1116,11 +1119,14 @@
 	.ifnb \gmaxFactor; .2byte \gmaxFactor; .endif
 	.ifnb \teraType; .2byte \teraType; .endif
 	.ifnb \dmaxLevel; .2byte \dmaxLevel; .endif
+	.ifnb \nickname; .4byte \nickname; .endif
+	.ifnb \otName; .4byte \otName; .endif
+	.ifnb \otGender; .2byte \otGender; .endif
 	.endm
 
 	@ creates a mon for a given party and slot
 	@ otherwise
-	.macro createmon side:req, slot:req, species:req, level:req, item, ball, nature, abilityNum, gender, hpEv, atkEv, defEv, speedEv, spAtkEv, spDefEv, hpIv, atkIv, defIv, speedIv, spAtkIv, spDefIv, move1, move2, move3, move4, shinyMode, gmaxFactor, teraType, dmaxLevel
+	.macro createmon side:req, slot:req, species:req, level:req, item, ball, nature, abilityNum, gender, hpEv, atkEv, defEv, speedEv, spAtkEv, spDefEv, hpIv, atkIv, defIv, speedIv, spAtkIv, spDefIv, move1, move2, move3, move4, shinyMode, gmaxFactor, teraType, dmaxLevel, nickname, otName, otGender
 	callnative ScrCmd_createmon, requests_effects=1
 	.byte \side	 @ 0 - player, 1 - opponent
 	.byte \slot	 @ 0-5
@@ -1152,6 +1158,9 @@
 	.ifnb \gmaxFactor; .set givemon_flags, givemon_flags | (1 << 22); .endif
 	.ifnb \teraType; .set givemon_flags, givemon_flags | (1 << 23); .endif
 	.ifnb \dmaxLevel; .set givemon_flags, givemon_flags | (1 << 24); .endif
+	.ifnb \nickname; .set givemon_flags, givemon_flags | (1 << 25); .endif
+	.ifnb \otName; .set givemon_flags, givemon_flags | (1 << 26); .endif
+	.ifnb \otGender; .set givemon_flags, givemon_flags | (1 << 27); .endif
 	.4byte givemon_flags
 	.ifnb \item; .2byte \item; .endif
 	.ifnb \ball; .2byte \ball; .endif
@@ -1178,6 +1187,9 @@
 	.ifnb \gmaxFactor; .2byte \gmaxFactor; .endif
 	.ifnb \teraType; .2byte \teraType; .endif
 	.ifnb \dmaxLevel; .2byte \dmaxLevel; .endif
+	.ifnb \nickname; .4byte \nickname; .endif
+	.ifnb \otName; .4byte \otName; .endif
+	.ifnb \otGender; .2byte \otGender; .endif
 	.endm
 
 	@ Gives the player an Egg of the specified species.
@@ -2010,25 +2022,31 @@
     @ Starts the specified quest.
 	.macro startquest quest:req
 	closemessage
-	delay 30
+	delay 60
 	questmenu QUEST_MENU_SET_ACTIVE, \quest
 	questmenu QUEST_MENU_BUFFER_QUEST_NAME \quest
     bufferstring 1 gText_QuestActive
-	playfanfare MUS_LEVEL_UP
-	msgbox gText_QuestAnnounce, MSGBOX_SIGN
+	message gText_QuestAnnounce
+	playfanfare MUS_REGISTER_MATCH_CALL
 	waitfanfare
+	waitmessage
+	delay 10
+	closemessage
 	.endm
 
     @ Completes the specified quest.
 	.macro completequest quest:req
 	closemessage
-	delay 30
+	delay 60
 	questmenu QUEST_MENU_COMPLETE_QUEST, \quest
 	questmenu QUEST_MENU_BUFFER_QUEST_NAME \quest
     bufferstring 1 gText_QuestComplete
-	playfanfare MUS_LEVEL_UP
-	msgbox gText_QuestAnnounce, MSGBOX_SIGN
+	message gText_QuestAnnounce
+	playfanfare MUS_OBTAIN_TMHM
 	waitfanfare
+	waitmessage
+	delay 10
+	closemessage
 	.endm
 
 .macro goto_if_quest_inactive quest:req, dest:req
@@ -3113,15 +3131,14 @@
 	call_if_eq VAR_0x8001, DIR_EAST, LastTalkedWalkInPlaceEast
 	call_if_eq VAR_0x8001, DIR_WEST, LastTalkedWalkInPlaceWest
 	msgbox \text, \type
-	closemessage
 	.endm
 
 	.macro npc_speak text:req, name=SP_NAME_NONE, type=MSGBOX_DEFAULT
-	speak VAR_LAST_TALKED, \name, \text, VAR_FACING2, \type
+	speak VAR_LAST_TALKED, \text, \name, VAR_FACING2, \type
 	.endm
 
 	.macro player_speak text:req, type=MSGBOX_DEFAULT
-	speak LOCALID_PLAYER, SP_NAME_PLAYER, \text, VAR_FACING, \type
+	speak LOCALID_PLAYER, \text, SP_NAME_PLAYER, VAR_FACING, \type
 	.endm
 
 	.macro clearparty

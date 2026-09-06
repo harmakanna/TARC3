@@ -394,6 +394,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MinhOutside
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ErnestVR;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HarrietVR;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MinhVR;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kumatora;
 
 // Begin Pokémon event objects
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokeBall;
@@ -660,6 +661,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ERNEST_VR] =                &gObjectEventGraphicsInfo_ErnestVR,
     [OBJ_EVENT_GFX_HARRIET_VR] =               &gObjectEventGraphicsInfo_HarrietVR,
     [OBJ_EVENT_GFX_MINH_VR] =                  &gObjectEventGraphicsInfo_MinhVR,
+    [OBJ_EVENT_GFX_KUMATORA] =                 &gObjectEventGraphicsInfo_Kumatora,
 #if IS_FRLG
     [OBJ_EVENT_GFX_RED_NORMAL] =               &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE] =                 &gObjectEventGraphicsInfo_RedBike,

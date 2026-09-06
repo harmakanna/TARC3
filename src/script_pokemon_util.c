@@ -187,6 +187,13 @@ void ChooseHalfPartyForBattle(void)
     InitChooseHalfPartyForBattle(0);
 }
 
+void ChooseVGCParty(void)
+{
+    gMain.savedCallback = CB2_ReturnFromChooseHalfParty;
+    VarSet(VAR_FRONTIER_FACILITY, VGC_BATTLE);
+    InitChooseHalfPartyForBattle(0);
+}
+
 static void CB2_ReturnFromChooseHalfParty(void)
 {
     switch (gSelectedOrderFromParty[0])
@@ -359,7 +366,7 @@ void SetTeraType(struct ScriptContext *ctx)
  * if side/slot are assigned, it will create the mon at the assigned party location
  * if slot == PARTY_SIZE, it will give the mon to first available party or storage slot
  */
-static u32 ScriptGiveMonParameterized(u8 side, u8 slot, enum Species species, u8 level, enum Item item, enum PokeBall ball, u8 nature, u8 abilityNum, u8 gender, u16 *evs, u16 *ivs, enum Move *moves, enum ShinyMode shinyMode, bool8 gmaxFactor, enum Type teraType, u8 dmaxLevel)
+static u32 ScriptGiveMonParameterized(u8 side, u8 slot, enum Species species, u8 level, enum Item item, enum PokeBall ball, u8 nature, u8 abilityNum, u8 gender, u16 *evs, u16 *ivs, enum Move *moves, enum ShinyMode shinyMode, bool8 gmaxFactor, enum Type teraType, u8 dmaxLevel, u8 *nickname, u8 *otName, enum Gender otGender)
 {
     struct Pokemon mon;
     u32 i;
@@ -370,6 +377,11 @@ static u32 ScriptGiveMonParameterized(u8 side, u8 slot, enum Species species, u8
     u32 personality = GetMonPersonality(species, gender, nature, RANDOM_UNOWN_LETTER);
     CreateMon(&mon, species, level, personality, OTID_STRUCT_PLAYER_ID);
 
+    if (nickname)
+        SetMonData(&mon, MON_DATA_NICKNAME, nickname);
+    if (otName)
+        SetMonData(&mon, MON_DATA_OT_NAME, otName);
+    SetMonData(&mon, MON_DATA_OT_GENDER, &otGender);
     // shininess
     if (shinyMode == SHINY_MODE_ALWAYS || (P_FLAG_FORCE_SHINY != 0 && FlagGet(P_FLAG_FORCE_SHINY)))
         isShiny = TRUE;
@@ -503,7 +515,8 @@ void ScrCmd_createmon(struct ScriptContext *ctx)
     u8 side            = ScriptReadByte(ctx);
     u8 slot            = ScriptReadByte(ctx);
     enum Species species = VarGet(ScriptReadHalfword(ctx));
-    u8 level           = VarGet(ScriptReadHalfword(ctx));
+    ScriptReadHalfword(ctx);
+    u8 level           = 50;
 
     u32 flags          = ScriptReadWord(ctx);
     enum Item item     = PARSE_FLAG(0, ITEM_NONE);
@@ -567,6 +580,10 @@ void ScrCmd_createmon(struct ScriptContext *ctx)
     enum Type teraType       = PARSE_FLAG(23, NUMBER_OF_MON_TYPES);
     u8 dmaxLevel             = PARSE_FLAG(24, 0);
 
+    u8 *nickname = flags & (1 << 25) ? (u8 *)ScriptReadWord(ctx) : NULL;
+    u8 *otName = flags & (1 << 26) ? (u8 *)ScriptReadWord(ctx) : NULL;
+    enum Gender otGender = PARSE_FLAG(27, FEMALE);
+
     enum GeneratedMonOrigin origin;
     if (side == 0)
     {
@@ -584,7 +601,7 @@ void ScrCmd_createmon(struct ScriptContext *ctx)
     if (nature == NATURE_MAY_SYNCHRONIZE)
         nature = GetSynchronizedNature(origin, species);
 
-    gSpecialVar_Result = ScriptGiveMonParameterized(side, slot, species, level, item, ball, nature, abilityNum, gender, evs, ivs, moves, shinyMode, gmaxFactor, teraType, dmaxLevel);
+    gSpecialVar_Result = ScriptGiveMonParameterized(side, slot, species, level, item, ball, nature, abilityNum, gender, evs, ivs, moves, shinyMode, gmaxFactor, teraType, dmaxLevel, nickname, otName, otGender);
 }
 
 #undef PARSE_FLAG

@@ -45,6 +45,18 @@ static const struct SpriteFrameImage sPicTable_QuintyPlump[] = {
     overworld_ascending_frames(gObjectEventPic_QuintyPlump, 4, 4),
 };
 
+static const struct SpriteFrameImage sPicTable_Kumatora[] = {
+    overworld_frame(gObjectEventPic_Kumatora, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Kumatora, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Kumatora, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Kumatora, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Kumatora, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Kumatora, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Kumatora, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Kumatora, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Kumatora, 4, 4, 1),
+};
+
 static const struct SpriteFrameImage sPicTable_NinjaBoy[] = {
     overworld_ascending_frames(gObjectEventPic_NinjaBoy, 2, 2),
 };

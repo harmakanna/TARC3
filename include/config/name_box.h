@@ -11,7 +11,7 @@
 
 // Text colors of Namebox. The numbers corresponds to the palette index.
 // The BG color is not provided as it always needs to be 0.
-#define OW_NAME_BOX_FOREGROUND_COLOR  1
-#define OW_NAME_BOX_SHADOW_COLOR      2
+#define OW_NAME_BOX_FOREGROUND_COLOR  2
+#define OW_NAME_BOX_SHADOW_COLOR      3
 
 #endif // GUARD_CONFIG_NAME_BOX_H

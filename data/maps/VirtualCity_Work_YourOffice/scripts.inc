@@ -147,6 +147,7 @@ VirtualCity_Work_YourOffice_Eventscript_MinhACTIOutro::
 	givemon SPECIES_PONYTA, 50
 	setvar VAR_PETALBURG_CITY_STATE, 20
 	setflag FLAG_ACT_I_COMPLETE
+	clearflag FLAG_HIDE_ACT_2_TEA_QUEST
 	clearflag FLAG_HIDE_ACT_II_INTRO_CHARS
 	warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT, 7,4
 	waitstate

@@ -2193,6 +2193,11 @@ static void CopyMonToSummaryStruct(struct Pokemon *mon)
 static void DrawPromptWindow(void)
 {
     FillWindowPixelBuffer(PSS_LABEL_WINDOW_PROMPT_CANCEL, PIXEL_FILL(0));
+    if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
+    {
+        ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_CANCEL);
+        return;
+    }
     const u8 *promptText;
     bool32 editMode;
 
@@ -2474,13 +2479,13 @@ static void Task_HandleInput(u8 taskId)
             tSkillsState = defaultSkillsState;
             ChangePage(taskId, 1);
         }
-        else if (JOY_NEW(A_BUTTON))
+        else if (JOY_NEW(A_BUTTON) && !sMonSummaryScreen->lockMovesFlag)
         {
             if (sMonSummaryScreen->currPageIndex == PSS_PAGE_BATTLE_MOVES)
             {
                 SwitchToMoveSelection(taskId);
             }
-            else
+            else if (sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO)
             {
                 StartEditMode(taskId);
             }
@@ -2709,7 +2714,7 @@ static void Task_ChangeSummaryMon(u8 taskId)
         break;
     case 11:
         PrintPageSpecificText(sMonSummaryScreen->currPageIndex);
-        if (sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO)
+        if (sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO && !sMonSummaryScreen->lockMovesFlag)
         { 
             if (sMonSummaryScreen->summary.isEgg)
                 LimitEggSummaryPageDisplay();
@@ -2718,7 +2723,7 @@ static void Task_ChangeSummaryMon(u8 taskId)
 
             DrawPromptWindow();
         } 
-        else if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
+        else if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS && !sMonSummaryScreen->lockMovesFlag)
         {
             DrawPromptWindow();
             /*
@@ -2828,6 +2833,7 @@ static void ChangePage(u8 taskId, s8 delta)
     sMonSummaryScreen->currPageIndex += delta;
     tScrollState = 0;
     SetTaskFuncWithFollowupFunc(taskId, PssScroll, gTasks[taskId].func);
+    DrawPromptWindow();
     CreateTextPrinterTask(sMonSummaryScreen->currPageIndex);
     HidePageSpecificSprites();
 }
@@ -2938,7 +2944,8 @@ static void SwitchToMoveSelection(u8 taskId)
 
     CreateMoveSelectorSprites(SPRITE_ARR_ID_MOVE_SELECTOR1);
     gTasks[taskId].func = Task_HandleInput_MoveSelect;
-    DrawPromptWindow();
+    if (!sMonSummaryScreen->lockMovesFlag)
+        DrawPromptWindow();
 }
 
 static void Task_HandleInput_MoveSelect(u8 taskId)
@@ -3664,11 +3671,13 @@ static void PrintNotEggInfo(void)
     PrintGenderSymbol(mon, summary->species2);
 
     // print level
+    /*
     StringCopy(gStringVar1, gText_LevelSymbol);
     ConvertIntToDecimalStringN(gStringVar2, summary->level, STR_CONV_MODE_LEFT_ALIGN, 3);
     StringAppend(gStringVar1, gStringVar2);
-
     PrintTextOnWindow(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME_GENDER_LEVEL, gStringVar1, 5, 13, 0, 0);
+    */
+
     PutWindowTilemap(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME_GENDER_LEVEL);
 }
 
@@ -3717,7 +3726,8 @@ static void PrintPageNamesAndStats(void)
     PrintTextOnWindow(PSS_LABEL_WINDOW_BATTLE_MOVES_TITLE, sText_BattleMoves, 2, 1, 0, 1);
     PrintTextOnWindow(PSS_LABEL_WINDOW_CONTEST_MOVES_TITLE, sText_ContestMoves, 2, 1, 0, 1);
 
-    DrawPromptWindow();
+    if (!sMonSummaryScreen->lockMovesFlag)
+        DrawPromptWindow();
     /*
     stringXPos = GetStringRightAlignXOffset(FONT_NORMAL, sText_Info, 62);
     iconXPos = stringXPos - 16;
@@ -4032,6 +4042,18 @@ static void PrintMonOTID(void)
 static void PrintMonAbilityName(void)
 {
     u16 ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum);
+    //PrintTextOnWindow(AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_ABILITY), gAbilitiesInfo[ability].name, 4, 2, 0, 0);
+}
+
+static void PrintMonAbilityDescription(void)
+{
+    PrintTextOnWindow_BW_Font(AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_ABILITY), gSpeciesInfo[sMonSummaryScreen->summary.species].description, 4, 15, 0, 0);
+}
+
+/*
+static void PrintMonAbilityName(void)
+{
+    u16 ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum);
     PrintTextOnWindow(AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_ABILITY), gAbilitiesInfo[ability].name, 4, 2, 0, 0);
 }
 
@@ -4041,60 +4063,32 @@ static void PrintMonAbilityDescription(void)
     PrintTextOnWindow_BW_Font(AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_ABILITY), gAbilitiesInfo[ability].description, 4, 15, 0, 0);
 }
 
-static void BufferMonTrainerMemo(void)
-{
-    struct PokeSummary *sum = &sMonSummaryScreen->summary;
-    const u8 *text;
-    bool32 locationFound = sum->metLocation < MAPSEC_NONE;
+struct PokeSummary *sum = &sMonSummaryScreen->summary;
 
     DynamicPlaceholderTextUtil_Reset();
     DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, sMemoNatureTextColor);
     DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, sMemoMiscTextColor);
     BufferNatureString();
 
-    if (InBattleFactory() == TRUE || InSlateportBattleTent() == TRUE || IsInGamePartnerMon() == TRUE)
-    {
-        DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, gText_XNature);
-    }
-    else
-    {
-        u8 *metLevelString = Alloc(32);
-        u8 *metLocationString = Alloc(32);
-        GetMetLevelString(metLevelString);
+    u16 ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum);
+    DynamicPlaceholderTextUtil_SetPlaceholderPtr(3, gAbilitiesInfo[ability].name);
+    DynamicPlaceholderTextUtil_SetPlaceholderPtr(4, gAbilitiesInfo[ability].description);
 
-        if (locationFound)
-        {
-            GetMapNameHandleAquaHideout(metLocationString, sum->metLocation);
-            DynamicPlaceholderTextUtil_SetPlaceholderPtr(4, metLocationString);
-        }
+    StringCopy(gStringVar4, gText_XNature);
+*/
 
-        text = gText_XNature;
+static void BufferMonTrainerMemo(void)
+{
+    DynamicPlaceholderTextUtil_Reset();
+    DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, sMemoNatureTextColor);
+    DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, sMemoMiscTextColor);
+    BufferNatureString();
 
-        if (DoesMonOTMatchOwner() == TRUE)
-        {
-            if (sum->metLevel == 0)
-                text = (!locationFound) ? gText_XNatureHatchedSomewhereAt : gText_XNatureHatchedAtYZ;
-            else
-                text = (!locationFound) ? gText_XNatureMetSomewhereAt : gText_XNatureMetAtYZ;
-        }
-        else if (sum->metLocation == METLOC_FATEFUL_ENCOUNTER)
-        {
-            text = gText_XNatureFatefulEncounter;
-        }
-        else if (sum->metLocation != METLOC_IN_GAME_TRADE && DidMonComeFromGBAGames())
-        {
-            text = (!locationFound) ? gText_XNatureObtainedInTrade : gText_XNatureProbablyMetAt;
-        }
-        else
-        {
-            text = gText_XNatureObtainedInTrade;
-        }
+    u16 ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum);
+    DynamicPlaceholderTextUtil_SetPlaceholderPtr(3, gAbilitiesInfo[ability].name);
+    DynamicPlaceholderTextUtil_SetPlaceholderPtr(4, gAbilitiesInfo[ability].description);
 
-        DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, text);
-
-        Free(metLevelString);
-        Free(metLocationString);
-    }
+    DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, gText_XNature);
 }
 
 static void PrintMonTrainerMemo(void)
@@ -4231,12 +4225,13 @@ static void PrintSkillsPageText(void)
     //PrintRibbonCount();
     PrintMonAbilityName();
     PrintMonAbilityDescription();
-    DrawPromptWindow();
+    if (!sMonSummaryScreen->lockMovesFlag)
+        DrawPromptWindow();
     BufferHPStats();
     PrintHPStats(SKILL_STATE_STATS);
     BufferNonHPStats();
     PrintNonHPStats();
-    PrintExpPointsNextLevel();
+    //PrintExpPointsNextLevel();
 }
 
 static void Task_PrintSkillsPage(u8 taskId)
@@ -4264,7 +4259,7 @@ static void Task_PrintSkillsPage(u8 taskId)
         PrintNonHPStats();
         break;
     case 7:
-        PrintExpPointsNextLevel();
+        //PrintExpPointsNextLevel();
         break;
     case 8:
         DestroyTask(taskId);
@@ -4277,13 +4272,14 @@ static void PrintTrait()
 {
     struct Pokemon *mon = &gParties[B_TRAINER_PLAYER][sMonSummaryScreen->curMonIndex];
     u32 traitIndex;
-    const struct TarcTrait *trait;
+    const struct TarcTrait *traitList = GetSpeciesTraitList(&mon->box);
+    if (traitList == NULL)
+        return;
     u8 modString[3][50];
     for (u32 i = 0; i < 3; i++)
     {
         traitIndex = sMonSummaryScreen->summary.mods[i];
-        trait = GetBoxMonTrait(&mon->box, traitIndex);
-        CopyTraitString(modString[i], trait);
+        CopyTraitString(modString[i], &traitList[traitIndex]);
     }
     StringCopy(gStringVar1, modString[0]);
     StringCopy(gStringVar2, modString[1]);
@@ -5724,7 +5720,8 @@ static u32 NatureIncrement(s32 data, bool32 isReverse)
     SetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HIDDEN_NATURE, &data);
     FillWindowPixelBuffer(windowId, PIXEL_FILL(0));
     BufferMonTrainerMemo();
-    PrintTextOnWindow_BW_Font(windowId, gStringVar4, 16, 4, 0, 0);
+    PrintMonTrainerMemo();
+    PrintTrait();
     return data;
 }
 
@@ -5828,10 +5825,11 @@ static u32 AbilityNumIncrement(s32 data, bool32 isReverse)
         }
     }
     sMonSummaryScreen->summary.abilityNum = data;
-    u32 windowId = sMonSummaryScreen->windowIds[PSS_DATA_WINDOW_SKILLS_ABILITY];
+    u32 windowId = sMonSummaryScreen->windowIds[PSS_DATA_WINDOW_INFO_MEMO];
     FillWindowPixelBuffer(windowId, PIXEL_FILL(0));
-    PrintMonAbilityName();
-    PrintMonAbilityDescription();
+    BufferMonTrainerMemo();
+    PrintMonTrainerMemo();
+    PrintTrait();
     return data;
 }
 
@@ -5858,16 +5856,18 @@ static const struct EditInput sTitleEditInput[] = {
     {.data = MON_DATA_HELD_ITEM,      .increment = HeldItemIncrement,  .x = 56,  .y = 90},
     //{.data = MON_DATA_TRAIT_INDEX,    .increment = TraitIncrement,  .x = 56,  .y = 102},
     {.data = MON_DATA_HIDDEN_NATURE,  .increment = NatureIncrement, .x = 20,  .y = 116},
+    {.data = MON_DATA_ABILITY_NUM, .increment = AbilityNumIncrement, .x = 20, .y = 128},
 };
 
 static const struct EditInput sStatsEditInput[] = {
+    /*
     {.data = MON_DATA_HP_EV,    .increment = HpEvIncrement, .         x = 90, .y = 20},
     {.data = MON_DATA_ATK_EV,   .increment = AtkEvIncrement,         .x = 90, .y = 42},
     {.data = MON_DATA_DEF_EV,   .increment = DefEvIncrement,         .x = 90, .y = 54},
     {.data = MON_DATA_SPATK_EV, .increment = SpatkEvIncrement,       .x = 90, .y = 66},
     {.data = MON_DATA_SPDEF_EV, .increment = SpdefEvIncrement,       .x = 90, .y = 78},
     {.data = MON_DATA_SPEED_EV, .increment = SpeedEvIncrement,       .x = 90, .y = 90},
-    {.data = MON_DATA_ABILITY_NUM, .increment = AbilityNumIncrement, .x = 20, .y = 128},
+    */
 };
 
 static const u32 sEditInputsCount[4] = {
@@ -5902,6 +5902,7 @@ static void StartEditMode(u8 taskId)
     else if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
     {
         //DrawNextSkillsButtonPrompt(SKILL_STATE_EDIT);
+        /*
         BufferAndPrintStats_HandleState(SKILL_STATE_EDIT);
         FillWindowPixelBuffer(sMonSummaryScreen->xpWindowIds[0], PIXEL_FILL(0));
         FillWindowPixelBuffer(sMonSummaryScreen->xpWindowIds[1], PIXEL_FILL(0));
@@ -5909,6 +5910,7 @@ static void StartEditMode(u8 taskId)
         CopyWindowToVram(sMonSummaryScreen->xpWindowIds[0], COPYWIN_GFX);
         CopyWindowToVram(sMonSummaryScreen->xpWindowIds[1], COPYWIN_GFX);
         PrintStatPoints();
+        */
     }
     else
     {
@@ -5947,6 +5949,7 @@ static void CancelEditMode(u8 taskId)
     }
     else if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
     {
+        /*
         RecalculateCurrentMonStats();
         //DrawNextSkillsButtonPrompt(SKILL_STATE_STATS);
         BufferAndPrintStats_HandleState(SKILL_STATE_STATS);
@@ -5954,11 +5957,12 @@ static void CancelEditMode(u8 taskId)
         FillWindowPixelBuffer(sMonSummaryScreen->xpWindowIds[0], PIXEL_FILL(0));
         FillWindowPixelBuffer(sMonSummaryScreen->xpWindowIds[1], PIXEL_FILL(0));
         FillWindowPixelBuffer(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP, PIXEL_FILL(0));
-        PrintExpPointsNextLevel();
-        PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP, sText_NextLv, 0, 4, 0, 0);
+        //PrintExpPointsNextLevel();
+        //PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP, sText_NextLv, 0, 4, 0, 0);
         CopyWindowToVram(sMonSummaryScreen->xpWindowIds[0], COPYWIN_GFX);
         CopyWindowToVram(sMonSummaryScreen->xpWindowIds[1], COPYWIN_GFX);
         CopyWindowToVram(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP, COPYWIN_GFX);
+        */
     }
 
     gTasks[taskId].func = Task_HandleInput;

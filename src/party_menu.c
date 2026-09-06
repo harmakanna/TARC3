@@ -1072,7 +1072,7 @@ static void DisplayPartyPokemonData(u8 slot)
     {
         sPartyMenuBoxes[slot].infoRects->blitFunc(sPartyMenuBoxes[slot].windowId, 0, 0, 0, 0, FALSE);
         DisplayPartyPokemonNickname(mon, &sPartyMenuBoxes[slot], 0);
-        DisplayPartyPokemonLevelCheck(mon, &sPartyMenuBoxes[slot], 0);
+        //DisplayPartyPokemonLevelCheck(mon, &sPartyMenuBoxes[slot], 0);
         DisplayPartyPokemonGenderNidoranCheck(mon, &sPartyMenuBoxes[slot], 0);
         DisplayPartyPokemonHPCheck(mon, &sPartyMenuBoxes[slot], 0);
         DisplayPartyPokemonMaxHPCheck(mon, &sPartyMenuBoxes[slot], 0);
@@ -1088,7 +1088,7 @@ static void DisplayPartyPokemonDescriptionData(u8 slot, u8 stringID)
     DisplayPartyPokemonNickname(mon, &sPartyMenuBoxes[slot], 0);
     if (!GetMonData(mon, MON_DATA_IS_EGG))
     {
-        DisplayPartyPokemonLevelCheck(mon, &sPartyMenuBoxes[slot], 0);
+        //DisplayPartyPokemonLevelCheck(mon, &sPartyMenuBoxes[slot], 0);
         DisplayPartyPokemonGenderNidoranCheck(mon, &sPartyMenuBoxes[slot], 0);
     }
     DisplayPartyPokemonDescriptionText(stringID, &sPartyMenuBoxes[slot], 0);
@@ -1240,7 +1240,7 @@ static void DisplayPartyPokemonDataForMultiBattle(u8 slot)
         StringGet_Nickname(gStringVar1);
         ConvertInternationalPlayerName(gStringVar1);
         DisplayPartyPokemonBarDetailToFit(menuBox->windowId, gStringVar1, 0, menuBox->infoRects->dimensions, 50);
-        DisplayPartyPokemonLevel(gMultiPartnerParty[actualSlot].level, menuBox);
+        //DisplayPartyPokemonLevel(gMultiPartnerParty[actualSlot].level, menuBox);
         DisplayPartyPokemonGender(gMultiPartnerParty[actualSlot].gender, gMultiPartnerParty[actualSlot].species, gMultiPartnerParty[actualSlot].nickname, menuBox);
         DisplayPartyPokemonHP(gMultiPartnerParty[actualSlot].hp, gMultiPartnerParty[actualSlot].maxhp, menuBox);
         DisplayPartyPokemonMaxHP(gMultiPartnerParty[actualSlot].maxhp, menuBox);
@@ -5071,7 +5071,7 @@ void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
         }
         SetPartyMonAilmentGfx(mon, &sPartyMenuBoxes[gPartyMenu.slotId]);
         //if (gSprites[sPartyMenuBoxes[gPartyMenu.slotId].statusSpriteId].invisible)
-        DisplayPartyPokemonLevelCheck(mon, &sPartyMenuBoxes[gPartyMenu.slotId], 1);
+        //DisplayPartyPokemonLevelCheck(mon, &sPartyMenuBoxes[gPartyMenu.slotId], 1);
         if (canHeal == TRUE)
         {
             if (hp == 0)
@@ -7457,6 +7457,7 @@ static bool8 GetBattleEntryEligibility(struct Pokemon *mon)
 
     switch (VarGet(VAR_FRONTIER_FACILITY))
     {
+    case VGC_BATTLE:
     case FACILITY_MULTI_OR_EREADER:
         if (GetMonData(mon, MON_DATA_HP) != 0)
             return TRUE;
@@ -7489,7 +7490,7 @@ static u8 CheckBattleEntriesAndGetMessage(void)
     }
 
     facility = VarGet(VAR_FRONTIER_FACILITY);
-    if (facility == FACILITY_UNION_ROOM || facility == FACILITY_MULTI_OR_EREADER)
+    if (facility == FACILITY_UNION_ROOM || facility == FACILITY_MULTI_OR_EREADER || facility == VGC_BATTLE)
         return 0xFF;
 
     maxBattlers = GetMaxBattleEntries();
@@ -7556,6 +7557,8 @@ static u8 GetMaxBattleEntries(void)
         return MULTI_PARTY_SIZE;
     case FACILITY_UNION_ROOM:
         return UNION_ROOM_PARTY_SIZE;
+    case VGC_BATTLE:
+        return 4;
     default: // Battle Frontier
         return gSpecialVar_0x8005;
     }
@@ -7565,6 +7568,7 @@ static u8 GetMinBattleEntries(void)
 {
     switch (VarGet(VAR_FRONTIER_FACILITY))
     {
+    case VGC_BATTLE:
     case FACILITY_MULTI_OR_EREADER:
         return 1;
     case FACILITY_UNION_ROOM:
@@ -7578,6 +7582,7 @@ static u8 GetBattleEntryLevelCap(void)
 {
     switch (VarGet(VAR_FRONTIER_FACILITY))
     {
+    case VGC_BATTLE:
     case FACILITY_MULTI_OR_EREADER:
         return MAX_LEVEL;
     case FACILITY_UNION_ROOM:
@@ -7593,7 +7598,7 @@ static const u8 *GetFacilityCancelString(void)
 {
     u8 facilityNum = VarGet(VAR_FRONTIER_FACILITY);
 
-    if (!(facilityNum != FACILITY_UNION_ROOM && facilityNum != FACILITY_MULTI_OR_EREADER))
+    if (facilityNum == FACILITY_UNION_ROOM || facilityNum == FACILITY_MULTI_OR_EREADER || facilityNum == VGC_BATTLE)
         return gText_CancelBattle;
     else if (facilityNum == FRONTIER_FACILITY_DOME && gSpecialVar_0x8005 == 2)
         return gText_ReturnToWaitingRoom;
