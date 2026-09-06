@@ -472,6 +472,21 @@ const u16 gTrainerPalette_PainterFrlg[] = INCGFX_U16("graphics/trainers/palettes
 const u32 gTrainerFrontPic_DigitalSophie[] = INCGFX_U32("graphics/trainers/front_pics/digital_sophie.png", ".4bpp.smol");
 const u16 gTrainerPalette_DigitalSophie[] = INCGFX_U16("graphics/trainers/palettes/digital_sophie.pal", ".gbapal");
 
+const u32 gTrainerFrontPic_IdolPink[] = INCGFX_U32("graphics/trainers/front_pics/idol_pink.png", ".4bpp.smol");
+const u16 gTrainerPalette_IdolPink[] = INCGFX_U16("graphics/trainers/front_pics/idol_pink.png", ".gbapal");
+
+const u32 gTrainerFrontPic_IdolYellow[] = INCGFX_U32("graphics/trainers/front_pics/idol_yellow.png", ".4bpp.smol");
+const u16 gTrainerPalette_IdolYellow[] = INCGFX_U16("graphics/trainers/front_pics/idol_yellow.png", ".gbapal");
+
+const u32 gTrainerFrontPic_IdolBlue[] = INCGFX_U32("graphics/trainers/front_pics/idol_blue.png", ".4bpp.smol");
+const u16 gTrainerPalette_IdolBlue[] = INCGFX_U16("graphics/trainers/front_pics/idol_blue.png", ".gbapal");
+
+const u32 gTrainerFrontPic_OfficerM[] = INCGFX_U32("graphics/trainers/front_pics/officer_m.png", ".4bpp.smol");
+const u16 gTrainerPalette_OfficerM[] = INCGFX_U16("graphics/trainers/front_pics/officer_m.png", ".gbapal");
+
+const u32 gTrainerFrontPic_OfficerF[] = INCGFX_U32("graphics/trainers/front_pics/officer_f.png", ".4bpp.smol");
+const u16 gTrainerPalette_OfficerF[] = INCGFX_U16("graphics/trainers/front_pics/officer_f.png", ".gbapal");
+
 static const u8 gTrainerBackPic_None[] = INCGFX_U8("graphics/trainers/back_pics/none.png", ".4bpp");
 const u8 gTrainerBackPic_Brendan[] = INCGFX_U8("graphics/trainers/back_pics/brendan.png", ".4bpp");
 const u8 gTrainerBackPic_May[] = INCGFX_U8("graphics/trainers/back_pics/may.png", ".4bpp");

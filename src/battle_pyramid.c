@@ -528,6 +528,7 @@ static const u8 sTrainerTextGroups[50][2] =
     {FACILITY_CLASS_LASS, 3},
     {FACILITY_CLASS_BUG_CATCHER, 0},
     {FACILITY_CLASS_HIKER, 4},
+
 };
 
 static const u8 *const sExitDirectionHintTexts1[] =

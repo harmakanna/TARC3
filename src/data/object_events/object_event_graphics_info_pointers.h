@@ -396,6 +396,13 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HarrietVR;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MinhVR;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kumatora;
 
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_IdolPink;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_IdolYellow;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_IdolBlue;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FairyTaleGirl;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OfficerM;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OfficerF;
+
 // Begin Pokémon event objects
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokeBall;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Follower;
@@ -662,6 +669,12 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_HARRIET_VR] =               &gObjectEventGraphicsInfo_HarrietVR,
     [OBJ_EVENT_GFX_MINH_VR] =                  &gObjectEventGraphicsInfo_MinhVR,
     [OBJ_EVENT_GFX_KUMATORA] =                 &gObjectEventGraphicsInfo_Kumatora,
+    [OBJ_EVENT_GFX_IDOL_PINK] =                &gObjectEventGraphicsInfo_IdolPink,
+    [OBJ_EVENT_GFX_IDOL_YELLOW] =                &gObjectEventGraphicsInfo_IdolYellow,
+    [OBJ_EVENT_GFX_IDOL_BLUE] =                &gObjectEventGraphicsInfo_IdolBlue,
+    [OBJ_EVENT_GFX_FAIRY_TALE_GIRL] =          &gObjectEventGraphicsInfo_FairyTaleGirl,
+    [OBJ_EVENT_GFX_OFFICER_M] =                &gObjectEventGraphicsInfo_OfficerM,
+    [OBJ_EVENT_GFX_OFFICER_F] =                &gObjectEventGraphicsInfo_OfficerF,
 #if IS_FRLG
     [OBJ_EVENT_GFX_RED_NORMAL] =               &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE] =                 &gObjectEventGraphicsInfo_RedBike,
