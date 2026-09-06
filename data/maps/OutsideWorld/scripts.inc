@@ -64,7 +64,7 @@ OutsideWorld_Move_Minh1:
 OutsideWorld_SophiePrologue1::
 	.string "There's no point brooding any longer.\p"
 	.string "It's late, you should get home. Meet in\n"
-	.string "the Realm, at work, when you can.\p"
+	.string "the Place, at work, when you can.\p"
 	.string "At least that way, Lola won't be\n"
 	.string "able to hear us talking about it.$"
 

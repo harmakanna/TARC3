@@ -3,13 +3,12 @@ VirtualCity_Work_YourOffice_MapScripts::
 	.byte 0
 
 VirtualCity_Work_YourOffice_OnFrame:
-	map_script_2 VAR_PETALBURG_CITY_STATE, 11, VirtualCity_Work_YourOffice_Eventscript_MakingExPonyta
+	map_script_2 VAR_PETALBURG_CITY_STATE, 12, VirtualCity_Work_YourOffice_Eventscript_MakingExPonyta
 	.2byte 0
 
 VirtualCity_Work_YourOffice_Eventscript_MakingExPonyta::
-	@ Take away EX TOFOLD
-	@ Give drilbur (ponytaEx)
-	
+	clearparty
+	givemon SPECIES_DRILBUR, 50
 	applymovement LOCALID_MINH, Common_Movement_FaceUp
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
 	speak LOCALID_MINH, VirtualCity_Work_YourOffice_Text_MinhACTIPonytaDone1, Speaker_Minh, DIR_NORTH
@@ -19,11 +18,11 @@ VirtualCity_Work_YourOffice_Eventscript_MakingExPonyta::
 	applymovement LOCALID_MINH, Common_Movement_FaceDown
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
 
-	@addobject LOCALID_PONYTAEXS_BALL
+	addobject LOCALID_PONYTAS_BALL
 	delay 10
 	playse SE_BALL_OPEN
-	@removeobject LOCALID_PONYTAEXS_BALL
-	@addobject LOCALID_PONYTAEX
+	removeobject LOCALID_PONYTAS_BALL
+	addobject LOCALID_PONYTAEX
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	waitse
 	playmoncry SPECIES_PONYTA, CRY_MODE_ENCOUNTER
@@ -31,23 +30,23 @@ VirtualCity_Work_YourOffice_Eventscript_MakingExPonyta::
 
 
 	
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Work_YourOffice_Text_SophieACTIPonytaDone4, Speaker_Sophie, DIR_NORTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Work_YourOffice_Text_SophieACTIPonytaDone4, Speaker_Sophie, DIR_WEST
 
 
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	applymovement LOCALID_MINH, Common_Movement_ExclamationMark
 	
 	
-	@removeobject LOCALID_PONYTAEX
-	@addobject LOCALID_PONYTAEXS_BALL
+	removeobject LOCALID_PONYTAEX
+	addobject LOCALID_PONYTAS_BALL
 	playse SE_BALL_OPEN
 	delay 10
-	@removeobject LOCALID_PONYTAEXS_BALL
+	removeobject LOCALID_PONYTAS_BALL
 
 	
 
 
-	speak LOCALID_MINH, VirtualCity_Work_YourOffice_Text_SophieACTIPonytaDone5, Speaker_Sophie, DIR_NORTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Work_YourOffice_Text_SophieACTIPonytaDone5, Speaker_Sophie, DIR_NORTH
 	speak LOCALID_MINH, VirtualCity_Work_YourOffice_Text_MinhACTIPonytaDone6, Speaker_Minh, DIR_NORTH
 	setvar VAR_PETALBURG_CITY_STATE, 15
 	setflag FLAG_ACT_I_EX_PONYTA_OBTAINED
@@ -69,7 +68,7 @@ VirtualCity_Work_YourOffice_Move_Ex1:
 
 
 
-VirtualCity_Work_YourOffice_Eventscript_MinhACTI:
+VirtualCity_Work_YourOffice_Eventscript_MinhACTI::
 	goto_if_set FLAG_ACT_I_REAL_PONYTA_OBTAINED, VirtualCity_Work_YourOffice_Eventscript_MinhACTIOutro
 	goto_if_set FLAG_ACT_I_EX_PONYTA_OBTAINED, VirtualCity_Work_YourOffice_Eventscript_MinhACTIPonytaDoneRepeat
 	end
@@ -85,7 +84,7 @@ VirtualCity_Work_YourOffice_Text_SophieACTIPonytaDone2:
 
 VirtualCity_Work_YourOffice_Text_MinhACTIPonytaDone3:
 	.string "Ex is fine, don't worry. It's like\n"
-	.string "changing your Realm avatar.\p"
+	.string "changing your Place avatar.\p"
 	.string "He might have to learn how to walk on\n"
 	.string "four feet, though!$"
 
@@ -99,7 +98,7 @@ VirtualCity_Work_YourOffice_Text_SophieACTIPonytaDone5:
 	.string "And Minh, you were worried about not\n"
 	.string "being helpful!\p"
 	.string "No other artist could have edited Ex\n"
-	.string "into a Ponyta so fast and accurately!\p"
+	.string "into a Ponyta so fast and accurately!$"
 
 VirtualCity_Work_YourOffice_Text_MinhACTIPonytaDone6:
 	.string "Oh, stop it! …but do go on.\p"
@@ -143,11 +142,13 @@ VirtualCity_Work_YourOffice_Eventscript_MinhACTIOutro::
 	speak LOCALID_MINH, VirtualCity_Work_YourOffice_Text_MinhACTIOutro3, Speaker_Minh, DIR_WEST
 	speak LOCALID_MINH, VirtualCity_Work_YourOffice_Text_SophieACTIOutro4, Speaker_Sophie, DIR_EAST
 	speak LOCALID_MINH, VirtualCity_Work_YourOffice_Text_MinhACTIOutro5, Speaker_Minh, DIR_WEST
-
+	clearparty
+	givemon SPECIES_EXCADRILL, 50
+	givemon SPECIES_PONYTA, 50
 	setvar VAR_PETALBURG_CITY_STATE, 20
 	setflag FLAG_ACT_I_COMPLETE
 	clearflag FLAG_HIDE_ACT_II_INTRO_CHARS
-	warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT_BEDROOM, 2,3
+	warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT, 7,4
 	waitstate
 	end
 

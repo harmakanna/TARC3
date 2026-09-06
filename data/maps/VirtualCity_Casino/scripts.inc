@@ -6,28 +6,40 @@ Speaker_Researcher:
 	.string "Researcher$"
 
 VirtualCity_Casino_Eventscript_Cluegiver1::
-	speak LOCALID_GUARD, VirtualCity_Casino_Text_Cluegiver1, Speaker_Researcher, DIR_SOUTH
+	setspeaker Speaker_Researcher
+	msgbox VirtualCity_Casino_Text_Cluegiver1, MSGBOX_SIGN
+	closemessage
 	end
 
 VirtualCity_Casino_Eventscript_Cluegiver2::
-	speak LOCALID_GUARD, VirtualCity_Casino_Text_Cluegiver2, Speaker_Researcher, DIR_SOUTH
+	setspeaker Speaker_Researcher
+	msgbox VirtualCity_Casino_Text_Cluegiver2, MSGBOX_SIGN
+	closemessage
 	end
 
 VirtualCity_Casino_Eventscript_Cluegiver3::
-	speak LOCALID_GUARD, VirtualCity_Casino_Text_Cluegiver3, Speaker_Researcher, DIR_SOUTH
+	setspeaker Speaker_Researcher
+	msgbox VirtualCity_Casino_Text_Cluegiver3, MSGBOX_SIGN
+	closemessage
 	end
 
 VirtualCity_Casino_Eventscript_Cluegiver4::
-	speak LOCALID_GUARD, VirtualCity_Casino_Text_Cluegiver4, Speaker_Researcher, DIR_SOUTH
+	setspeaker Speaker_Researcher
+	msgbox VirtualCity_Casino_Text_Cluegiver4, MSGBOX_SIGN
+	closemessage
 	end
 
 VirtualCity_Casino_Eventscript_Cluegiver5::
-	speak LOCALID_GUARD, VirtualCity_Casino_Text_Cluegiver5, Speaker_Researcher, DIR_SOUTH
+	setspeaker Speaker_Researcher
+	msgbox VirtualCity_Casino_Text_Cluegiver5, MSGBOX_SIGN
+	closemessage
 	end
 
 VirtualCity_Casino_Eventscript_Cluegiver6::
 	setflag FLAG_ACT_I_INFO_OBTAINED
-	speak LOCALID_GUARD, VirtualCity_Casino_Text_Cluegiver6, Speaker_Researcher, DIR_SOUTH
+	setspeaker Speaker_Researcher
+	msgbox VirtualCity_Casino_Text_Cluegiver6, MSGBOX_SIGN
+	closemessage
 	end
 
 

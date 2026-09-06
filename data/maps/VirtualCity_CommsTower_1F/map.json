@@ -16,7 +16,7 @@
   "object_events": [
     {
       "local_id": "LOCALID_GUARD",
-      "graphics_id": "OBJ_EVENT_GFX_MG_DELIVERYMAN",
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
       "x": 6,
       "y": 2,
       "elevation": 0,
@@ -70,8 +70,8 @@
       "x": 2,
       "y": 2,
       "elevation": 0,
-      "dest_map": "MAP_VIRTUAL_CITY_COMMS_TOWER_RESEARCH",
-      "dest_warp_id": "VirtualCity_CommsTower_Up_Research"
+      "dest_map": "MAP_DYNAMIC",
+      "dest_warp_id": "0"
     },
     {
       "warp_id": "WARP_ID_COMM1F_DESIGNOFFICE",

@@ -26,7 +26,7 @@ VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger::
 	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger11, Speaker_Researcher, DIR_NORTH
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger12, Speaker_Sophie, DIR_SOUTH
 	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger13, Speaker_Researcher, DIR_NORTH
-	applymovement LOCALID_RESEARCHBOSS, VirtualCity_CommsTower_Research_Move_ResearchBossTrigger1
+	applymovement LOCALID_RESEARCHBOSS, VirtualCity_CommsTower_Research_Move_ResearchBossTrigger2
 	waitmovement
 	setvar VAR_PETALBURG_CITY_STATE 16
 	end
@@ -109,6 +109,7 @@ VirtualCity_CommsTower_Research_Eventscript_PonytaBall::
 	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Text_PonytaBall, Speaker_Sophie, DIR_NORTH
 	givemon SPECIES_PONYTA, 50
 	setflag FLAG_ACT_I_REAL_PONYTA_OBTAINED
+	removeobject LOCALID_REAL_PONYTA_BALL
 	end
 
 VirtualCity_CommsTower_Research_Text_PonytaBall:

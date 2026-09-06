@@ -10,6 +10,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_OnTransition:
 
 OutsideWorld_ApartmentBldg1_YourApartment_OnFrame:
 	map_script_2 VAR_PETALBURG_CITY_STATE, 2, OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene
+	map_script_2 VAR_PETALBURG_CITY_STATE, 20, OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_ActII_Opening
 	.2byte 0
 
 
@@ -548,7 +549,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk29Sophie::
 
 
 
-OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_ActIII_Opening::
+OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_ActII_Opening::
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro1, Speaker_Sophie, DIR_WEST
 	speak LOCALID_A2_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Text_ErnestActIIIntro2, Speaker_Ernest, DIR_EAST
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro3, Speaker_Sophie, DIR_WEST
@@ -556,7 +557,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_ActIII_Opening::
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro5, Speaker_Sophie, DIR_WEST
 
 	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_ActIII_Opening1
-	waitmovement
+	waitmovement 0
 	
 
 	addobject LOCALID_SNUBBULLS_BALL
@@ -581,7 +582,8 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_ActIII_Opening::
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro12, Speaker_Sophie, DIR_SOUTH
 
 	setflag FLAG_HIDE_ACT_II_INTRO_CHARS
-	@warpsilent 
+	setvar VAR_PETALBURG_CITY_STATE, 21
+	warpsilent MAP_VIRTUAL_CITY_HOTEL_YOUR_ROOM, 12, 9
 	waitstate
 	
 	end

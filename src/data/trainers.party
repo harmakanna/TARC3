@@ -96,7 +96,7 @@ Geodude
 Level: 21
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GRUNT_AQUA_HIDEOUT_1 ===
+=== TRAINER_RANDO1 ===
 Name: GRUNT
 Class: Team Aqua
 Pic: Aqua Grunt M
@@ -109,7 +109,7 @@ Poochyena
 Level: 32
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GRUNT_AQUA_HIDEOUT_2 ===
+=== TRAINER_RANDO2 ===
 Name: GRUNT
 Class: Team Aqua
 Pic: Aqua Grunt M
@@ -126,7 +126,7 @@ Carvanha
 Level: 31
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GRUNT_AQUA_HIDEOUT_3 ===
+=== TRAINER_RANDO3 ===
 Name: GRUNT
 Class: Team Aqua
 Pic: Aqua Grunt M
@@ -139,7 +139,7 @@ Zubat
 Level: 32
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GRUNT_AQUA_HIDEOUT_4 ===
+=== TRAINER_RANDO4 ===
 Name: GRUNT
 Class: Team Aqua
 Pic: Aqua Grunt M
@@ -152,7 +152,7 @@ Carvanha
 Level: 32
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GRUNT_SEAFLOOR_CAVERN_1 ===
+=== TRAINER_RANDO5 ===
 Name: GRUNT
 Class: Team Aqua
 Pic: Aqua Grunt M
@@ -165,7 +165,7 @@ Poochyena
 Level: 36
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GRUNT_SEAFLOOR_CAVERN_2 ===
+=== TRAINER_BRODUDE ===
 Name: GRUNT
 Class: Team Aqua
 Pic: Aqua Grunt M
@@ -178,7 +178,7 @@ Carvanha
 Level: 36
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GRUNT_SEAFLOOR_CAVERN_3 ===
+=== TRAINER_WVDDIE ===
 Name: GRUNT
 Class: Team Aqua
 Pic: Aqua Grunt M
@@ -224,7 +224,7 @@ Taillow
 Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GRUNT_PETALBURG_WOODS ===
+=== TRAINER_EARLGREY ===
 Name: GRUNT
 Class: Team Aqua
 Pic: Aqua Grunt M
@@ -237,7 +237,7 @@ Poochyena
 Level: 9
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_MARCEL ===
+=== TRAINER_BYRON1 ===
 Name: MARCEL
 Class: Cooltrainer
 Pic: Cooltrainer M
@@ -255,7 +255,7 @@ Shiftry
 Level: 29
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_ALBERTO ===
+=== TRAINER_BYRON2 ===
 Name: ALBERTO
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -272,7 +272,7 @@ Xatu
 Level: 30
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_ED ===
+=== TRAINER_BYRON3 ===
 Name: ED
 Class: Collector
 Pic: Collector
@@ -289,7 +289,7 @@ Seviper
 Level: 30
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_GRUNT_SEAFLOOR_CAVERN_4 ===
+=== TRAINER_SILVABULLET ===
 Name: GRUNT
 Class: Team Aqua
 Pic: Aqua Grunt F
