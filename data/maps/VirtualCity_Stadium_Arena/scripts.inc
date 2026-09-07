@@ -1,13 +1,34 @@
 VirtualCity_Stadium_Arena_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, VirtualCity_Stadium_Arena_OnFrame
 	.byte 0
+
+
+VirtualCity_Stadium_Arena_OnFrame:
+	map_script_2 VAR_PETALBURG_CITY_STATE, 23, VirtualCity_Stadium_Arena_Eventscript_Rando1Fight
+	map_script_2 VAR_PETALBURG_CITY_STATE, 24, VirtualCity_Stadium_Arena_Eventscript_Rando2Fight
+	map_script_2 VAR_PETALBURG_CITY_STATE, 25, VirtualCity_Stadium_Arena_Eventscript_Rando3Fight
+	map_script_2 VAR_PETALBURG_CITY_STATE, 26, VirtualCity_Stadium_Arena_Eventscript_Rando4Fight
+	map_script_2 VAR_PETALBURG_CITY_STATE, 27, VirtualCity_Stadium_Arena_Eventscript_Rando5Fight
+	map_script_2 VAR_PETALBURG_CITY_STATE, 28, VirtualCity_Stadium_Arena_Eventscript_BrodudeFight
+	map_script_2 VAR_PETALBURG_CITY_STATE, 29, VirtualCity_Stadium_Arena_Eventscript_WvddieFight
+	map_script_2 VAR_PETALBURG_CITY_STATE, 30, VirtualCity_Stadium_Arena_Eventscript_SilvaBulletFight
+	map_script_2 VAR_PETALBURG_CITY_STATE, 31, VirtualCity_Stadium_Arena_Eventscript_EarlGreyFight
+	map_script_2 VAR_PETALBURG_CITY_STATE, 32, VirtualCity_Stadium_Arena_Eventscript_ByronB1Fight
+	map_script_2 VAR_PETALBURG_CITY_STATE, 33, VirtualCity_Stadium_Arena_Eventscript_ByronB2Fight
+	map_script_2 VAR_PETALBURG_CITY_STATE, 34, VirtualCity_Stadium_Arena_Eventscript_ByronB3Fight
+	end
+
+
+
+
 
 @ Extra Speakers
 
 Speaker_Challenger::
 	.string "Challenger$"
 
-Speaker_BrodDude69::
-	.string "BrodDude69$"
+Speaker_BroDude69::
+	.string "BroDude69$"
 
 Speaker_Wvddie::
 	.string "WVDDIE$"
@@ -23,9 +44,11 @@ Common_Text_NotEnoughPokemon:
 
 VirtualCity_Stadium_Arena_Eventscript_Rando1Fight::
 	@play se crowds
+	setvar VAR_PETALBURG_CITY_STATE, 9
 	addobject LOCALID_RANDO1
 	applymovement LOCALID_RANDO1, VirtualCity_Stadium_Arena_Move_CommonApproachArena
-	speak LOCALID_RANDO1, VirtualCity_Stadium_Arena_Text_Rando1Intro, Speaker_Challenger, DIR_WEST
+	@speak LOCALID_RANDO1, VirtualCity_Stadium_Arena_Text_Rando1Intro, Speaker_Challenger, DIR_WEST
+	setspeaker Speaker_Challenger
 	trainerbattle_double TRAINER_RANDO1, VirtualCity_Stadium_Arena_Text_Rando1Intro, VirtualCity_Stadium_Arena_Text_Rando1Win, Common_Text_NotEnoughPokemon
 	applymovement LOCALID_RANDO1, VirtualCity_Stadium_Arena_Move_CommonLeaveArena
 	
@@ -34,6 +57,8 @@ VirtualCity_Stadium_Arena_Eventscript_Rando1Fight::
 
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 2
 	waitstate
+	end
+
 
 VirtualCity_Stadium_Arena_Eventscript_Rando2Fight::
 	@play se crowds
@@ -48,20 +73,24 @@ VirtualCity_Stadium_Arena_Eventscript_Rando2Fight::
 
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 2
 	waitstate
+	end
+
 
 VirtualCity_Stadium_Arena_Eventscript_Rando3Fight::
 	@play se crowds
 	addobject LOCALID_RANDO3
-	applymovement LOCALID_RANDO3, VirtualCity_Stadium_Arena_Move_CommonApproachArena
+	applymovement LOCALID_RANDO3, VirtualCity_Stadium_Arena_Move_CommonApproachArenaSlow
 	speak LOCALID_RANDO3, VirtualCity_Stadium_Arena_Text_Rando3Intro, Speaker_Challenger, DIR_WEST
 	trainerbattle_double TRAINER_RANDO3, VirtualCity_Stadium_Arena_Text_Rando3Intro, VirtualCity_Stadium_Arena_Text_Rando3Win, Common_Text_NotEnoughPokemon
-	applymovement LOCALID_RANDO3, VirtualCity_Stadium_Arena_Move_CommonLeaveArena
+	applymovement LOCALID_RANDO3, VirtualCity_Stadium_Arena_Move_CommonLeaveArenaSlow
 	
 	setflag FLAG_ACT_II_FOUGHT_RANDO3
 	setvar VAR_PETALBURG_CITY_STATE, 26
 
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 2
 	waitstate
+	end
+
 
 VirtualCity_Stadium_Arena_Eventscript_Rando4Fight::
 	@play se crowds
@@ -76,6 +105,8 @@ VirtualCity_Stadium_Arena_Eventscript_Rando4Fight::
 
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 2
 	waitstate
+	end
+
 
 VirtualCity_Stadium_Arena_Eventscript_Rando5Fight::
 	@play se crowds
@@ -86,11 +117,12 @@ VirtualCity_Stadium_Arena_Eventscript_Rando5Fight::
 	applymovement LOCALID_RANDO5, VirtualCity_Stadium_Arena_Move_CommonLeaveArena
 	
 	setflag FLAG_ACT_II_FOUGHT_RANDO5
+	setflag FLAG_ACT_II_HIDE_ERNEST_PREBATTLE
 	setvar VAR_PETALBURG_CITY_STATE, 28
 
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 2
 	waitstate
-
+	end
 
 
 
@@ -99,15 +131,114 @@ VirtualCity_Stadium_Arena_Eventscript_BrodudeFight::
 	@play se crowds
 	addobject LOCALID_BRODUDE
 	applymovement LOCALID_BRODUDE, VirtualCity_Stadium_Arena_Move_CommonApproachArena
-	speak LOCALID_BRODUDE, VirtualCity_Stadium_Arena_Text_BroDudeIntro, Speaker_Challenger, DIR_WEST
+	speak LOCALID_BRODUDE, VirtualCity_Stadium_Arena_Text_BroDudeIntro, Speaker_BroDude69, DIR_WEST
 	trainerbattle_double TRAINER_BRODUDE, VirtualCity_Stadium_Arena_Text_BroDudeIntro, VirtualCity_Stadium_Arena_Text_BroDudeWin, Common_Text_NotEnoughPokemon
 	applymovement LOCALID_BRODUDE, VirtualCity_Stadium_Arena_Move_CommonLeaveArena
 	
 	setflag FLAG_ACT_II_FOUGHT_BRODUDE
-	setvar VAR_PETALBURG_CITY_STATE, 24
+	setvar VAR_PETALBURG_CITY_STATE, 29
 
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 2
 	waitstate
+	end
+
+VirtualCity_Stadium_Arena_Eventscript_WvddieFight::
+	@play se crowds
+	addobject LOCALID_WVDDIE
+	applymovement LOCALID_WVDDIE, VirtualCity_Stadium_Arena_Move_CommonApproachArena
+	speak LOCALID_WVDDIE, VirtualCity_Stadium_Arena_Text_WvddieIntro, Speaker_Wvddie, DIR_WEST
+	trainerbattle_double TRAINER_WVDDIE, VirtualCity_Stadium_Arena_Text_WvddieIntro, VirtualCity_Stadium_Arena_Text_WvddieWin, Common_Text_NotEnoughPokemon
+	applymovement LOCALID_WVDDIE, VirtualCity_Stadium_Arena_Move_CommonLeaveArena
+	
+	setflag FLAG_ACT_II_FOUGHT_WVDDIE
+	setvar VAR_PETALBURG_CITY_STATE, 30
+
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 2
+	waitstate
+	end
+
+VirtualCity_Stadium_Arena_Eventscript_SilvaBulletFight::
+	@play se crowds
+	addobject LOCALID_SILVABULLET
+	applymovement LOCALID_SILVABULLET, VirtualCity_Stadium_Arena_Move_CommonApproachArena
+	speak LOCALID_SILVABULLET, VirtualCity_Stadium_Arena_Text_SilvaBulletIntro, Speaker_SilvaBullet, DIR_WEST
+	trainerbattle_double TRAINER_SILVABULLET, VirtualCity_Stadium_Arena_Text_SilvaBulletIntro, VirtualCity_Stadium_Arena_Text_SilvaBulletWin, Common_Text_NotEnoughPokemon
+	applymovement LOCALID_SILVABULLET, VirtualCity_Stadium_Arena_Move_CommonLeaveArena
+	
+	setflag FLAG_ACT_II_FOUGHT_SILVABULLET
+	setvar VAR_PETALBURG_CITY_STATE, 31
+
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 2
+	waitstate
+	end
+
+VirtualCity_Stadium_Arena_Eventscript_EarlGreyFight::
+	@play se crowds
+	addobject LOCALID_EARLGREY
+	applymovement LOCALID_EARLGREY, VirtualCity_Stadium_Arena_Move_CommonApproachArenaSlow
+	speak LOCALID_EARLGREY, VirtualCity_Stadium_Arena_Text_EarlGreyIntro, Speaker_EarlGrey, DIR_WEST
+	trainerbattle_double TRAINER_EARLGREY, VirtualCity_Stadium_Arena_Text_EarlGreyIntro, VirtualCity_Stadium_Arena_Text_EarlGreyWin, Common_Text_NotEnoughPokemon
+	applymovement LOCALID_EARLGREY, VirtualCity_Stadium_Arena_Move_CommonLeaveArenaSlow
+	
+	setflag FLAG_ACT_II_FOUGHT_EARLGREY
+	setvar VAR_PETALBURG_CITY_STATE, 32
+
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 2
+	waitstate
+	end
+
+
+
+VirtualCity_Stadium_Arena_Eventscript_ByronB1Fight::
+	@play se crowds
+	addobject LOCALID_BYRON
+	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_ByronApproachArena1
+	speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB1Intro1, Speaker_Byron, DIR_NORTH
+	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_ByronApproachArena2
+	speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB1Intro2, Speaker_Byron, DIR_WEST
+	trainerbattle_double TRAINER_BYRON1, VirtualCity_Stadium_Arena_Text_ByronB1Intro2, VirtualCity_Stadium_Arena_Text_ByronB1Win, Common_Text_NotEnoughPokemon
+	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_CommonLeaveArenaSlow
+	
+	setflag FLAG_ACT_II_FOUGHT_BYRONB1
+	setvar VAR_PETALBURG_CITY_STATE, 33
+
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 2
+	waitstate
+	end
+
+VirtualCity_Stadium_Arena_Eventscript_ByronB2Fight::
+	@play se crowds
+	addobject LOCALID_BYRON
+	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_ByronApproachArena1
+	speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB1Intro1, Speaker_Byron, DIR_NORTH
+	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_ByronApproachArena2
+	speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB1Intro2, Speaker_Byron, DIR_WEST
+	trainerbattle_double TRAINER_BYRON1, VirtualCity_Stadium_Arena_Text_ByronB1Intro2, VirtualCity_Stadium_Arena_Text_ByronB1Win, Common_Text_NotEnoughPokemon
+	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_CommonLeaveArenaSlow
+	
+	setflag FLAG_ACT_II_FOUGHT_BYRONB1
+	setvar VAR_PETALBURG_CITY_STATE, 34
+
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 2
+	waitstate
+	end
+
+VirtualCity_Stadium_Arena_Eventscript_ByronB3Fight::
+	@play se crowds
+	addobject LOCALID_BYRON
+	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_ByronApproachArena1
+	speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB1Intro1, Speaker_Byron, DIR_NORTH
+	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_ByronApproachArena2
+	speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB1Intro2, Speaker_Byron, DIR_WEST
+	trainerbattle_double TRAINER_BYRON1, VirtualCity_Stadium_Arena_Text_ByronB1Intro2, VirtualCity_Stadium_Arena_Text_ByronB1Win, Common_Text_NotEnoughPokemon
+	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_CommonLeaveArenaSlow
+	
+	setflag FLAG_ACT_II_FOUGHT_BYRONB1
+	setvar VAR_PETALBURG_CITY_STATE, 35
+
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 2
+	waitstate
+	end
 
 
 
@@ -163,6 +294,27 @@ VirtualCity_Stadium_Arena_Move_CommonLeaveArenaSlow::
 	walk_slow_down
 	walk_slow_down
 	step_end
+
+
+VirtualCity_Stadium_Arena_Move_ByronApproachArena1::
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	step_end
+
+VirtualCity_Stadium_Arena_Move_ByronApproachArena2::
+	walk_slow_left
+	walk_slow_left
+	walk_slow_left
+	step_end
+
+
+
+
 
 
 VirtualCity_Stadium_Arena_Text_Rando1Intro:
@@ -222,11 +374,11 @@ VirtualCity_Stadium_Arena_Text_WvddieWin:
 	.string "CIVO$"
 
 
-VirtualCity_Stadium_Arena_Text_OneHitIntro:
+VirtualCity_Stadium_Arena_Text_SilvaBulletIntro:
 	.string "You're new, aren't you? Time to learn\n"
 	.string "a thing or two, heh.$"
 
-VirtualCity_Stadium_Arena_Text_OneHitWin:
+VirtualCity_Stadium_Arena_Text_SilvaBulletWin:
 	.string "What kind of garbage was that!?\n"
 	.string "Best of one cheese, ugh.$"
 
@@ -259,7 +411,7 @@ VirtualCity_Stadium_Arena_Text_ByronB1Lose:
 
 VirtualCity_Stadium_Arena_Text_ByronB1Win:
 	.string "You.\p"
-	.string "You shouldn't have done that.\p"
+	.string "You shouldn't have done that.\n"
 	.string "You don't know who I am.$"
 
 

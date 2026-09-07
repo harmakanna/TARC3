@@ -34,9 +34,9 @@ VirtualCity_Stadium_Entrance_Eventscript_ReceptionistCheckPokemon::
 	goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Entrance_Eventscript_ReceptionistNotEnoughPokemon
 	goto_if_eq VAR_RESULT, 2, VirtualCity_Stadium_Entrance_Eventscript_ReceptionistNotEnoughPokemon
 	goto_if_eq VAR_RESULT, 3, VirtualCity_Stadium_Entrance_Eventscript_ReceptionistNotEnoughPokemon
-	goto_if_eq VAR_RESULT, 4, VirtualCity_Stadium_Entrance_Eventscript_ReceptionistNotEnoughPokemon
-	goto_if_eq VAR_RESULT, 5, VirtualCity_Stadium_Entrance_Eventscript_ReceptionistNotEnoughPokemon
-	goto_if_eq VAR_RESULT, 6, VirtualCity_Stadium_Entrance_Eventscript_ReceptionistNotEnoughPokemon
+	goto_if_eq VAR_RESULT, 4, VirtualCity_Stadium_Entrance_Eventscript_Receptionist4or5Pokemon
+	goto_if_eq VAR_RESULT, 5, VirtualCity_Stadium_Entrance_Eventscript_Receptionist4or5Pokemon
+	goto_if_eq VAR_RESULT, 6, VirtualCity_Stadium_Entrance_Eventscript_ReceptionistStartTourney
 	end
 
 
@@ -83,7 +83,7 @@ VirtualCity_Stadium_Entrance_Text_Gallade:
 	.string "You'll make waves out there!$"
 
 VirtualCity_Stadium_Entrance_Text_ReceptionistIntro::
-	.string "Welcome to the BETTER Tournament!\n"
+	.string "Welcome to the {COLOR GREEN}BETTER {COLOR DARK_GRAY}Tournament!\n"
 	.string "It's {COLOR GREEN}BETTER {COLOR DARK_GRAY}than reality!\p"
 	.string "Are you here to register?$"
 
@@ -102,7 +102,7 @@ VirtualCity_Stadium_Entrance_Text_Receptionist4or5Pokemon::
 	.string "Ooh, honey, you sure you don't want\n"
 	.string "to enter with a full team of six?\p"
 	.string "There's a lot of tough trainers here,\n"
-	.string "you know!$"
+	.string "you know! You sure?$"
 
 VirtualCity_Stadium_Entrance_Text_ReceptionistStartTourney::
 	.string "Okay, honey, good luck!\n"

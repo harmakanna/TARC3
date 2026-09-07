@@ -4,12 +4,14 @@ VirtualCity_Hotel_YourRoom_MapScripts::
 
 VirtualCity_Hotel_YourRoom_OnFrame::
 	map_script_2 VAR_PETALBURG_CITY_STATE, 21, VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution
+	map_script_2 VAR_PETALBURG_CITY_STATE, 35, VirtualCity_Hotel_YourRoom_Eventscript_ActII_Ending
 	.2byte 0
 
 
 VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution::
 	@warpsilent MAP_VIRTUAL_CITY_HOTEL_YOUR_ROOM, 12, 9
 	@waitstate
+	special SpawnCameraObject
 	speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk1Minh, Speaker_Minh, DIR_NORTH
 	speak LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk2Ernest, Speaker_Ernest, DIR_EAST
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk3Harriet, Speaker_Harriet, DIR_WEST
@@ -75,11 +77,19 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution::
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk24Harriet, Speaker_Harriet, DIR_WEST
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk25Sophie, Speaker_Sophie, DIR_WEST
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk26Harriet, Speaker_Harriet, DIR_WEST
-
-
-
+	closemessage
+	applymovement LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Move_MinhLeaves
+	applymovement LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Move_HarrietLeaves
+	applymovement LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Move_ErnestLeaves
+	delay 100
+	playse SE_EXIT
+	delay 40
+	playse SE_EXIT
+	delay 40
+	special RemoveCameraObject
 	setvar VAR_PETALBURG_CITY_STATE, 22
 	setflag FLAG_ACT_II_STARTED
+	setflag FLAG_ACT_II_HIDE_HOTEL_FRIENDS
 	clearflag FLAG_HIDE_ACT_II_HARRIET
 
 
@@ -108,6 +118,47 @@ VirtualCity_Hotel_YourRoom_Move_ResolutionTalkSophie4:
 	walk_right
 	walk_right
 	step_end
+
+
+VirtualCity_Hotel_YourRoom_Move_MinhLeaves:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	step_end
+
+VirtualCity_Hotel_YourRoom_Move_HarrietLeaves:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	step_end
+
+VirtualCity_Hotel_YourRoom_Move_ErnestLeaves:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_up
+	step_end
+
 
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk1Minh::
@@ -241,7 +292,90 @@ VirtualCity_Hotel_YourRoom_Text_ResolutionTalk26Harriet::
 
 
 
+VirtualCity_Hotel_YourRoom_Eventscript_ActII_Ending::
+	special SpawnCameraObject
+	@ TOFOLD some movement would be great
+	speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ActII_Ending1Minh, Speaker_Minh, DIR_NORTH
+	speak LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Text_ActII_Ending2Ernest, Speaker_Ernest, DIR_EAST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ActII_Ending3Sophie, Speaker_Sophie, DIR_SOUTH
+	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ActII_Ending4Harriet, Speaker_Harriet, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ActII_Ending5Sophie, Speaker_Sophie, DIR_SOUTH
+	speak LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Text_ActII_Ending6Ernest, Speaker_Ernest, DIR_EAST
+	speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ActII_Ending7Minh, Speaker_Minh, DIR_NORTH
+	speak LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Text_ActII_Ending8Ernest, Speaker_Ernest, DIR_EAST
+	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ActII_Ending9Harriet, Speaker_Harriet, DIR_WEST
+	speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ActII_Ending10Minh, Speaker_Minh, DIR_NORTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ActII_Ending11Sophie, Speaker_Sophie, DIR_SOUTH
+	closemessage
+	special RemoveCameraObject
+	removeobject LOCALID_VRROOM_MINH
+	playse SE_PC_OFF
+	waitse
+	removeobject LOCALID_VRROOM_ERNEST
+	playse SE_PC_OFF
+	waitse
+	removeobject LOCALID_VRROOM_HARRIET
+	playse SE_PC_OFF
+	waitse
+	setvar VAR_PETALBURG_CITY_STATE, 40
+	setflag FLAG_ACT_II_HIDE_HOTEL_FRIENDS
+	setflag FLAG_ACT_III_STARTED
+	clearflag FLAG_ACT_III_HIDE_BEDROOM_LOLA
+	end
 
 
+VirtualCity_Hotel_YourRoom_Text_ActII_Ending1Minh::
+	.string "So, that's it? We can hack the Rotom\n"
+	.string "Phone system now?$"
+
+VirtualCity_Hotel_YourRoom_Text_ActII_Ending2Ernest::
+	.string "We have the credentials. But Sophie\n"
+	.string "still has to get to the control room.\p"
+	.string "I have a way to scramble your ID.\p"
+	.string "You'll look like Byron to the system,\n"
+	.string "And your sprite will be blurred.\p"
+	.string "You'll have to enter the Place with\n"
+	.string "a different body.$"
+
+VirtualCity_Hotel_YourRoom_Text_ActII_Ending3Sophie::
+	.string "And then I can fight the guards?$"
+
+VirtualCity_Hotel_YourRoom_Text_ActII_Ending4Harriet::
+	.string "I mean, there's probably going to be\n"
+	.string "guards trying to stop you.\p"
+	.string "So, um, yeah?$"
+
+VirtualCity_Hotel_YourRoom_Text_ActII_Ending5Sophie::
+	.string "Excellent!$"
+
+VirtualCity_Hotel_YourRoom_Text_ActII_Ending6Ernest::
+	.string "The autoscanner won't work when you're\n"
+	.string "scrambled, so you'll have to go through\l"
+	.string "the tower manually.\p"
+	.string "You won't be able to turn back when we\n"
+	.string "start.$"
+
+VirtualCity_Hotel_YourRoom_Text_ActII_Ending7Minh::
+	.string "I've prepared the message and the\n"
+	.string "overworld footage of the Ponyta.\p"
+	.string "Let's bring it home.$"
+
+VirtualCity_Hotel_YourRoom_Text_ActII_Ending8Ernest::
+	.string "Let's meet back at your place, Sophie.\p"
+	.string "Finish up what you have to do first,\n"
+	.string "and we'll meet there and prepare.$"
+
+VirtualCity_Hotel_YourRoom_Text_ActII_Ending9Harriet::
+	.string "Let's goooooo! Crush the system!$"
+
+VirtualCity_Hotel_YourRoom_Text_ActII_Ending10Minh::
+	.string "Or in our case, stage the smallest\n"
+	.string "possible rebellion against the system.$"
+
+VirtualCity_Hotel_YourRoom_Text_ActII_Ending11Sophie::
+	.string "Hush, Minh.\p"
+	.string "Okay, I'll finish up anything I need.\n"
+	.string "to do before this gauntlet, and meet\l"
+	.string "you all back at my place. See ya!$"
 
 

@@ -113,6 +113,7 @@ EventScript_ResetAllBerries::
 	return
 
 EventScript_ResetAllMapFlags::
+	setflag FLAG_ACT_II_HIDE_HOTEL_FRIENDS
 	setflag FLAG_HIDE_OUTSIDE_WORLD_PROLOGUE
 	setflag FLAG_HIDE_ACT_2_TEA_QUEST
 	setflag FLAG_HIDE_CONTEST_POKE_BALL

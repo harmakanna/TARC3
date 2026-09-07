@@ -582,6 +582,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_ActII_Opening::
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro12, Speaker_Sophie, DIR_SOUTH
 
 	setflag FLAG_HIDE_ACT_II_INTRO_CHARS
+	clearflag FLAG_ACT_II_HIDE_HOTEL_FRIENDS
 	setvar VAR_PETALBURG_CITY_STATE, 21
 	warpsilent MAP_VIRTUAL_CITY_HOTEL_YOUR_ROOM, 12, 9
 	waitstate

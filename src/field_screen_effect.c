@@ -44,6 +44,8 @@
 #include "fldeff.h"
 #include "battle.h"
 
+#include "fldeff_misc.h"
+
 static void Task_ExitNonAnimDoor(u8);
 static void Task_ExitNonDoor(u8);
 static void Task_DoContestHallWarp(u8);
@@ -299,6 +301,35 @@ void FieldCB_DefaultWarpExit(void)
     Overworld_PlaySpecialMapMusic();
     WarpFadeInScreen();
     SetUpWarpExitTask();
+    FollowerNPC_WarpSetEnd();
+    LockPlayerFieldControls();
+}
+
+static void Task_EnterVr(u8 taskId)
+{
+    switch (gTasks[taskId].data[0])
+    {
+    case 0:
+        PlaySE(SE_PC_ON);
+        ComputerScreenOpenEffect(5, 0, 0);
+        gTasks[taskId].data[0]++;
+        break;
+    case 1:
+        if (!IsComputerScreenOpenEffectActive())
+        {
+            SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_BG_ALL_ON | DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
+            UnlockPlayerFieldControls();
+            DestroyTask(taskId);
+        }
+        break;
+    }
+}
+
+void FieldCB_EnterVrWarp(void)
+{
+    Overworld_PlaySpecialMapMusic();
+    u8 taskId = CreateTask(Task_EnterVr, 0);
+    gTasks[taskId].data[0] = 0;
     FollowerNPC_WarpSetEnd();
     LockPlayerFieldControls();
 }
