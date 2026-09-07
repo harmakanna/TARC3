@@ -197,24 +197,61 @@ Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
 Double Battle: No
-AI: Check Bad Move
+AI: Basic Trainer
 
 Carvanha
 Level: 36
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_WVDDIE ===
-Name: GRUNT
+Name: WVDDIE
 Class: Team Aqua
 Pic: Aqua Grunt M
-Gender: Male
+Gender: Female
 Music: Aqua
-Double Battle: No
-AI: Check Bad Move
+Double Battle: Yes
+AI: Basic Trainer
 
-Zubat
-Level: 36
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Eiscue @ Sitrus Berry  
+Ability: Ice Face  
+EVs: 4 HP / 252 Atk / 252 Spe  
+Adamant Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Iron Head  
+- Icicle Crash  
+- Liquidation  
+- Belly Drum  
+
+Electrode @ Rocky Helmet  
+Ability: Static  
+EVs: 4 HP / 252 Def / 252 SpD  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Thunderbolt  
+- Sleep Talk  
+- Foul Play  
+- Rest  
+
+Sylveon @ Throat Spray  
+Ability: Pixilate  
+EVs: 116 HP / 140 SpA / 252 Spe  
+Modest Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Hyper Voice  
+- Calm Mind  
+- Wish  
+- Psychic  
+
+Blissey (F) @ Focus Sash  
+Ability: Serene Grace  
+EVs: 252 SpA / 252 SpD / 4 Spe  
+Modest Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Thunder  
+- Fire Blast  
+- Blizzard  
+- Hyper Voice  
+
+
 
 === TRAINER_GABRIELLE_1 ===
 Name: GABRIELLE
@@ -256,7 +293,7 @@ Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
 Double Battle: No
-AI: Check Bad Move
+AI: Basic Trainer
 
 Poochyena
 Level: 9
@@ -287,7 +324,7 @@ Pic: Bird Keeper
 Gender: Male
 Music: Cool
 Double Battle: No
-AI: Check Bad Move
+AI: Basic Trainer
 
 Pelipper
 Level: 30

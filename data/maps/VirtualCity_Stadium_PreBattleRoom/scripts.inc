@@ -3,20 +3,41 @@ VirtualCity_Stadium_PreBattleRoom_MapScripts::
 	.byte 0
 
 VirtualCity_Stadium_PreBattleRoom_OnFrame::
-	map_script_2 VAR_PETALBURG_CITY_STATE, 1, VirtualCity_Stadium_PreBattleRoom_Eventscript_IntroScene
+	map_script_2 VAR_PETALBURG_CITY_STATE, 22, VirtualCity_Stadium_PreBattleRoom_Eventscript_IntroScene
+	map_script_2 VAR_PETALBURG_CITY_STATE, 32, VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB1Scene
+	map_script_2 VAR_PETALBURG_CITY_STATE, 33, VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2Scene
+	map_script_2 VAR_PETALBURG_CITY_STATE, 34, VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB3Scene
+	map_script_2 VAR_PETALBURG_CITY_STATE, 35, VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronHackSuccess
 	.2byte 0
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_IntroScene::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
 	waitmovement 0
-	delay 50
+	delay 30
 	playse SE_DOOR
 	addobject LOCALID_HARRIET_PREBATTLE
-	delay 50
-	@TOFOLDDDDDD
+	delay 20
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+	waitmovement 0
+	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro0, Speaker_Harriet, DIR_NORTH
+	closemessage
+	delay 30
+
 	applymovement LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Move_HarrietEnters
+	delay 30
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
+	waitmovement 0
+	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro1, Speaker_Harriet, DIR_SOUTH
+	closemessage
+	delay 30
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Eventscript_SophieIntro2, Speaker_Sophie, DIR_NORTH
+	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro3, Speaker_Harriet, DIR_SOUTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Eventscript_SophieIntro4, Speaker_Sophie, DIR_NORTH
+	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro5, Speaker_Harriet, DIR_SOUTH
+	closemessage
 
 	clearflag FLAG_ACT_II_HIDE_HARRIET_PREBATTLE
+	setvar VAR_PETALBURG_CITY_STATE, 23
 	end
 
 VirtualCity_Stadium_PreBattleRoom_Move_HarrietEnters:
@@ -230,7 +251,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXWvddie::
 	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXWvddie3, MSGBOX_NPC
 	closemessage
-	setflag FLAG_ACT_II_FOUGHT_BRODUDE
+	setflag FLAG_ACT_II_FOUGHT_WVDDIE
 	end
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXSilvaBullet::
@@ -332,15 +353,112 @@ VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXEarlGrey3:
 
 @@ BYRON
 
+VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB1Scene::
+	setspeaker Speaker_Harriet
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle1XByron0, MSGBOX_NPC
+	setspeaker Speaker_Harriet
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle1XByron1, MSGBOX_NPC
+	setspeaker Speaker_Sophie
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle1XByron2, MSGBOX_NPC
+	setspeaker Speaker_Ernest
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle1XByron3, MSGBOX_NPC
+	setspeaker Speaker_Harriet
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle1XByron0, MSGBOX_NPC
+	closemessage
+	end
 
+VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2Scene::
+	@This is if you beat Byron
+	goto VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2SceneLose
+
+	setspeaker Speaker_Harriet
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle2WinXByron1, MSGBOX_NPC
+	setspeaker Speaker_Sophie
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2WinXByron2, MSGBOX_NPC
+	setspeaker Speaker_Ernest
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle2WinXByron3, MSGBOX_NPC
+	setspeaker Speaker_Ernest
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle2WinXByron4, MSGBOX_NPC
+	setspeaker Speaker_Sophie
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2WinXByron5, MSGBOX_NPC
+	setspeaker Speaker_Ernest
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle2WinXByron6, MSGBOX_NPC
+	setspeaker Speaker_Harriet
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle2WinXByron7, MSGBOX_NPC
+	setspeaker Speaker_Ernest
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle2WinXByron8, MSGBOX_NPC
+	setspeaker Speaker_Sophie
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2WinXByron9, MSGBOX_NPC	
+	closemessage
+	end
+
+VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2SceneLose::
+	@if you lose
+	setspeaker Speaker_Harriet
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle2LoseXByron1, MSGBOX_NPC
+	setspeaker Speaker_Sophie
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2LoseXByron2, MSGBOX_NPC
+	setspeaker Speaker_Ernest
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle2LoseXByron3, MSGBOX_NPC
+	setspeaker Speaker_Ernest
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle2LoseXByron4, MSGBOX_NPC
+	setspeaker Speaker_Sophie
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2LoseXByron5, MSGBOX_NPC
+	setspeaker Speaker_Ernest
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle2LoseXByron6, MSGBOX_NPC
+	setspeaker Speaker_Harriet
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle2LoseXByron7, MSGBOX_NPC
+	setspeaker Speaker_Ernest
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle2LoseXByron8, MSGBOX_NPC
+	setspeaker Speaker_Sophie
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2LoseXByron9, MSGBOX_NPC	
+	closemessage
+	end
+
+
+VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB3Scene::
+	setspeaker Speaker_Sophie
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle3XByron1, MSGBOX_NPC
+	setspeaker Speaker_Ernest
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle3XByron2, MSGBOX_NPC
+	setspeaker Speaker_Harriet
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle3XByron3, MSGBOX_NPC
+	setspeaker Speaker_Ernest
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle3XByron4, MSGBOX_NPC
+	setspeaker Speaker_Harriet
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle3XByron5, MSGBOX_NPC
+	setspeaker Speaker_Ernest
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle3XByron6, MSGBOX_NPC
+	setspeaker Speaker_Sophie
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle3XByron7, MSGBOX_NPC
+	end
+
+
+VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronHackSuccess::
+	setspeaker Speaker_Sophie
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieHackSuccess1, MSGBOX_NPC
+	setspeaker Speaker_Ernest
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestHackSuccess2, MSGBOX_NPC
+	setspeaker Speaker_Harriet
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietHackSuccess3, MSGBOX_NPC
+	setspeaker Speaker_Ernest
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestHackSuccess4, MSGBOX_NPC
+	clearflag FLAG_ACT_II_HIDE_HOTEL_FRIENDS
+	warpsilent MAP_VIRTUAL_CITY_HOTEL_YOUR_ROOM, 12,9
+	waitstate
+	end
+
+
+
+VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle1XByron0:
+	.string "Next. It's him. It's Byron.\p"
+	.string "This is the guy we came here to fight,\n"
+	.string "and boy does he have a nasty team.$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle1XByron1:
-	.string "It's him. It's Byron.\p"
-	.string "This is the guy we came here to fight,\n"
-	.string "and boy does he have a nasty team.\p"
 	.string "Legendaries, boosted stats, absurd\n"
 	.string "and illegal abilities and movesets.\p"
-	.string "Plus, he's got a shadowy Pokemon I\n"
+	.string "And he's got a shadowy Pokemon I\n"
 	.string "couldn't even identify.$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle1XByron2:
@@ -399,7 +517,7 @@ VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle2WinXByron6:
 	.string "It'll take me a while to make something\n"
 	.string "that can actually get his credentials.\p"
 	.string "If you lose, it'll go to a best of three,\n"
-	.string "and I'll be ready by the next battle.$"
+	.string "and I'll have it ready by next battle.$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle2WinXByron7:
 	.string "What are you going to-$"
@@ -414,11 +532,57 @@ VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2WinXByron9:
 
 
 
+VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle2LoseXByron1:
+	.string "Wow, I heard he was a cheater, but…\n"
+	.string "He's a scumbag. How are you gonna win?$"
+
+VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2LoseXByron2:
+	.string "It's okay, I know what to expect now.\p"
+	.string "Ernest, any progress?$"
+
+@KUMATORA (I used my limited cybersecurity vocabulary to make something up here - if you have suggestions, it's all you)
+
+VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle2LoseXByron3:
+	.string "I.\p"
+	.string "Cannot.\p"
+	.string "Believe.\p"
+	.string "How dumb. He is.\p"
+	.string "There's no encryption - I just gotta\n"
+	.string "get into the system somehow. But how?\p"
+	.string "…\p"
+	.string "I got it.$"
+
+VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle2LoseXByron4:
+	.string "You have to win this next match.$"
+
+VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2LoseXByron5:
+	.string "I mean, I'll try.\n"
+	.string "Why?$"
+
+VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle2LoseXByron6:
+	.string "It'll take me a while to make something\n"
+	.string "that can actually get his credentials.\p"
+	.string "If you win, it'll go to a best of three,\n"
+	.string "and I'll have it ready by next battle.$"
+
+VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle2LoseXByron7:
+	.string "What are you going to-$"
+
+VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle2LoseXByron8:
+	.string "No time. I have to focus.$"
+
+VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2LoseXByron9:
+	.string "Okay, gotta win this.\n"
+	.string "No pressure.$"
+
+
+
+
 
 
 
 VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle3XByron1:
-	.string "Ernest? Is it done?$"
+	.string "Ernest?$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle3XByron2:
 	.string "It's done. Here.$"
@@ -431,17 +595,116 @@ VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle3XByron4:
 	.string "them to teach Pokemon moves.$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle3XByron5:
-	.string "Discs used to teach Pokemon moves?\n"
+	.string "Discs taught Pokemon moves?\n"
 	.string "Were… Were Pokemon always just code?$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle3XByron6:
-	.string "Um, anyway, teach that to one of your\n"
-	.string "Pokemon and hit him with it.\p"
-	.string "It's high priority and accurate, so\n"
-	.string "it shouldn't be hard.\p"
+	.string "No, it was just a way…\p"
+	.string "Um, anyway, I can use it to teach one\n"
+	.string "of your Pokemon a move I just made.\p"
+	.string "It's got the viral load in it, so when\n"
+	.string "it hits one of his hacked Pokemon,\l"
+	.string "I'll be able to get access.\p"
+	.string "The move's high priority and accurate,\n"
+	.string "so it shouldn't be hard to hit.\p"
 	.string "After that, doesn't matter if you win\n"
-	.string "or lose - I'll be in.\p"
+	.string "or lose - I'll be in.$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle3XByron7:
 	.string "I just gotta hit him, huh?\p"
 	.string "I can do that.$"
+
+
+
+
+VirtualCity_Stadium_PreBattleRoom_Text_SophieHackSuccess1:
+	.string "It's done.$"
+
+VirtualCity_Stadium_PreBattleRoom_Text_ErnestHackSuccess2:
+	.string "I see it. What an amateur.$"
+
+VirtualCity_Stadium_PreBattleRoom_Text_HarrietHackSuccess3:
+	.string "Well done! Now, what next?$"
+
+VirtualCity_Stadium_PreBattleRoom_Text_ErnestHackSuccess4:
+	.string "I need to disguise your identity, and\n"
+	.string "tie it to these credentials.\p"
+	.string "Let's get out of here for now.$"
+
+
+
+
+
+@ Ernest
+
+VirtualCity_Stadium_PreBattleRoom_Eventscript_Ernest::
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 35, VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestLetsGo
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 34, VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestTutor
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 33, VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestWork
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 32, VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestWait
+	end
+
+
+VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestWait::
+	setspeaker Speaker_Ernest
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestWait, MSGBOX_NPC
+	end
+
+VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestWork::
+	setspeaker Speaker_Ernest
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestWait, MSGBOX_NPC
+	end
+
+VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestLetsGo::
+	setspeaker Speaker_Ernest
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestLetsGo, MSGBOX_NPC
+	end
+
+
+
+VirtualCity_Stadium_PreBattleRoom_Text_ErnestWork:
+	.string "Don't bug me, I'm working.$"
+
+VirtualCity_Stadium_PreBattleRoom_Text_ErnestWait:
+	.string "Keep going. I can't help until I see\n"
+	.string "the team he's got.$"
+
+VirtualCity_Stadium_PreBattleRoom_Text_ErnestLetsGo:
+	.string "It worked. Time to go test it.$"
+
+
+
+VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestTutor::
+	lock
+	faceplayer
+	move_tutor MOVE_OCTAZOOKA, VirtualCity_Stadium_PreBattleRoom_Text_ErnestTeach, VirtualCity_Stadium_PreBattleRoom_Text_ErnestWhich, VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestDeclined, VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestTaught, FLAG_MOVE_TUTOR_TAUGHT_DYNAMICPUNCH
+	clearflag FLAG_MOVE_TUTOR_TAUGHT_DYNAMICPUNCH
+	end
+
+VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestDeclined::
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestDeclined, MSGBOX_DEFAULT
+	release
+	end
+
+VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestTaught::
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestTaught, MSGBOX_DEFAULT
+	setflag FLAG_ACT_II_MOVE_TAUGHT
+	release
+	end
+
+VirtualCity_Stadium_PreBattleRoom_Text_ErnestTeach:
+	.string "Are you ready?$"
+
+
+VirtualCity_Stadium_PreBattleRoom_Text_ErnestWhich:
+	.string "Who learns it? I can teach multiple\n"
+	.string "if you want.$"
+
+VirtualCity_Stadium_PreBattleRoom_Text_ErnestDeclined:
+	.string "Don't take too long!$"
+
+VirtualCity_Stadium_PreBattleRoom_Text_ErnestTaught:
+	.string "Okay, it's done. I can teach it\n"
+	.string "again if you want.$"
+
+

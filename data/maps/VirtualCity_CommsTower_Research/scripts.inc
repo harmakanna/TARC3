@@ -35,10 +35,12 @@ VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger::
 VirtualCity_CommsTower_Research_Move_ResearchBossTrigger1:
 	walk_left
 	walk_left
+	walk_up
 	face_up
 	step_end
 
 VirtualCity_CommsTower_Research_Move_ResearchBossTrigger2:
+	walk_down
 	walk_right
 	walk_right
 	face_up

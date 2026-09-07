@@ -84,6 +84,7 @@ VirtualCity_CommsTower_1F_Eventscript_ActIIntro::
 
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIIntro5, Speaker_Sophie, DIR_EAST
 	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIIntro6, Speaker_Minh, DIR_WEST	
+	closemessage
 	setvar VAR_PETALBURG_CITY_STATE, 11
 	setflag FLAG_ACT_I_STARTED
 
@@ -116,7 +117,7 @@ VirtualCity_CommsTower_1F_Text_MinhACTIIntro1:
 	.string "Apparently, a bunch of artists -\n"
 	.string "the boring ones, not visionaries\l"
 	.string "like me - got moved recently.\p"
-	.string "They're working in BETTER's Research\n"
+	.string "They're working in {COLOR GREEN}BETTER{COLOR DARK_GRAY}'s Research\n"
 	.string "Department, which is pretty suspicious.\p"
 	.string "We need to get into the department and\n"
 	.string "see if they're making fake IRL Pokemon.\p"
@@ -147,8 +148,8 @@ VirtualCity_CommsTower_1F_Text_SophieACTIIntro5:
 
 VirtualCity_CommsTower_1F_Text_MinhACTIIntro6:
 	.string "NO, Sophie.\p"
-	.string "As I walked in, I saw a group of five\n"
-	.string "researchers heading to the casino.\p"
+	.string "As I walked in, I saw a group of {COLOR BLUE}five\n"
+	.string "researchers {COLOR DARK_GRAY}heading to the casino.\p"
 	.string "Maybe you can eavesdrop, and find out\n"
 	.string "what they're working on?\p"
 	.string "If you figure it out, maybe we can find\n"
@@ -172,8 +173,13 @@ VirtualCity_CommsTower_1F_Text_MinhACTIIntroRepeat:
 
 
 VirtualCity_CommsTower_1F_Text_Eventscript_ACTIPokemonCheck::
-	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheck, Speaker_Minh, DIR_WEST
-	@ Ponyta check TOFOLD MULTICHOICE...
+	setspeaker Speaker_Minh
+	msgbox VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheck, MSGBOX_NPC
+	setspeaker Speaker_Sophie
+	msgbox VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheck, MSGBOX_NPC
+
+
+
 	dynmultipush PonytaChoice_Text_Choice1, 1
 	dynmultipush PonytaChoice_Text_Choice2, 2
 	dynmultipush PonytaChoice_Text_Choice3, 3
@@ -199,6 +205,7 @@ VirtualCity_CommsTower_1F_Text_Eventscript_ACTIPokemonCheckSuccess::
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheckSuccess2, Speaker_Sophie, DIR_EAST
 	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheckSuccess3, Speaker_Minh, DIR_WEST
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheckSuccess4, Speaker_Sophie, DIR_EAST
+	closemessage
 	setvar VAR_PETALBURG_CITY_STATE, 12
 	warpsilent MAP_VIRTUAL_CITY_WORK_YOUR_OFFICE, 13, 19
 	waitstate
@@ -255,13 +262,15 @@ VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheck:
 	.string "you can get past the guard?$"
 
 VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheck:
-	.string "I overheard a few researchers talking\n"
+	.string "You mentioned {COLOR BLUE}five {COLOR DARK_GRAY}researchers… but I\n"
+	.string "saw {COLOR RED}six {COLOR DARK_GRAY}different researchers, talking\l"
 	.string "about a Pokemon they were working on…\p"
-	.string "I think they were talking about…$"
+	.string "{COLOR BLUE}One of them must have been unrelated.\p"
+	.string "{COLOR DARK_GRAY}I think they were talking about…$"
 
 VirtualCity_CommsTower_1F_Text_SophieACTIPokemonFailure:
 	.string "Hmm, that doesn't sound right.\p"
-	.string "I'm sure one of those people wasn't\n"
+	.string "I'm sure {COLOR BLUE}one of them {COLOR DARK_GRAY}wasn't\n"
 	.string "describing about our mystery mon.\p"
 	.string "But which one?$"
 
@@ -305,6 +314,7 @@ VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuard::
 	
 	goto_if_set FLAG_ACT_I_EX_PONYTA_OBTAINED, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardPonyta
 	speak LOCALID_GUARD, VirtualCity_CommsTower_1F_Text_NoPokemonGuardStop, Speaker_Guard, DIR_SOUTH
+	closemessage
 	end
 
 

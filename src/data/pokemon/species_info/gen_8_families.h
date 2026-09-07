@@ -5572,12 +5572,12 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
 #if P_FAMILY_EISCUE
     [SPECIES_EISCUE_ICE] =
     {
-        .baseHP        = 75,
-        .baseAttack    = 80,
-        .baseDefense   = 110,
-        .baseSpeed     = 50,
-        .baseSpAttack  = 65,
-        .baseSpDefense = 90,
+        .baseHP        = 50,
+        .baseAttack    = 110,
+        .baseDefense   = 80,
+        .baseSpeed     = 75,
+        .baseSpAttack  = 90,
+        .baseSpDefense = 65,
         .types = MON_TYPES(TYPE_ICE),
         .catchRate = 60,
         .expYield = 165,
@@ -5638,12 +5638,12 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
 
     [SPECIES_EISCUE_NOICE] =
     {
-        .baseHP        = 75,
-        .baseAttack    = 80,
-        .baseDefense   = 70,
-        .baseSpeed     = 130,
-        .baseSpAttack  = 65,
-        .baseSpDefense = 50,
+        .baseHP        = 130,
+        .baseAttack    = 70,
+        .baseDefense   = 80,
+        .baseSpeed     = 75,
+        .baseSpAttack  = 50,
+        .baseSpDefense = 65,
         .types = MON_TYPES(TYPE_ICE),
         .catchRate = 60,
         .expYield = 165,

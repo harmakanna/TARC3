@@ -48,11 +48,24 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	setflag FLAG_HIDE_ACT_II_HARRIET
 	setflag FLAG_ACT_II_HIDE_HARRIET_PREBATTLE
 	setflag FLAG_ACT_II_HIDE_ERNEST_PREBATTLE
+	setflag FLAG_ACT_III_HIDE_BEDROOM_LOLA
+	setflag FLAG_ACT_III_HIDE_BEDROOM_FRIENDS
 	setflag B_FLAG_NO_WHITEOUT
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
 
 	@setflag FLAG_BADGE08_GET
 	@@more setflags TOFOLD, set healing place, etc. etc.
+
+	@----------------------------------------------------
+	setvar VAR_PETALBURG_CITY_STATE, 22
+	givemon SPECIES_ARCANINE, 50
+	givemon SPECIES_ARCANINE, 50
+	givemon SPECIES_ARCANINE, 50
+	givemon SPECIES_ARCANINE, 50
+	
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 7
+	waitstate
+
 
 	@----------------------------------------------------
 	@setvar VAR_PETALBURG_CITY_STATE, 10
@@ -154,7 +167,7 @@ VirtualCity_TestingRoomIntro_Eventscript_StatsIncorrect:
 VirtualCity_TestingRoomIntro_Eventscript_FirstBattle:
 	setflag FLAG_DARKANINE_BATTLE_1
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_FirstBattleStart, Speaker_Minh, DIR_SOUTH
-	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE, 0, VirtualCity_TestingRoomIntro_Text_FirstBattleEndWin, VirtualCity_TestingRoomIntro_Text_FirstBattleEndLose
+	@trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE, 0, VirtualCity_TestingRoomIntro_Text_FirstBattleEndWin, VirtualCity_TestingRoomIntro_Text_FirstBattleEndLose
 	setspeaker Speaker_Minh
 	msgbox VirtualCity_TestingRoomIntro_Text_AdjustDarkanine, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine

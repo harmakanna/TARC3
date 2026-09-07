@@ -31,8 +31,8 @@
     {
       "local_id": "LOCALID_RANDO1",
       "graphics_id": "OBJ_EVENT_GFX_MAN_1",
-      "x": 12,
-      "y": 12,
+      "x": 13,
+      "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -46,7 +46,7 @@
       "local_id": "LOCALID_RANDO2",
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
       "x": 13,
-      "y": 12,
+      "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -59,8 +59,8 @@
     {
       "local_id": "LOCALID_RANDO3",
       "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
-      "x": 14,
-      "y": 12,
+      "x": 13,
+      "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -73,8 +73,8 @@
     {
       "local_id": "LOCALID_RANDO4",
       "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
-      "x": 15,
-      "y": 12,
+      "x": 13,
+      "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -87,8 +87,8 @@
     {
       "local_id": "LOCALID_RANDO5",
       "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
-      "x": 16,
-      "y": 12,
+      "x": 13,
+      "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -101,7 +101,7 @@
     {
       "local_id": "LOCALID_BRODUDE",
       "graphics_id": "OBJ_EVENT_GFX_SCOTT",
-      "x": 16,
+      "x": 13,
       "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -113,9 +113,9 @@
       "flag": "FLAG_SYS_B_DASH"
     },
     {
-      "local_id": "LOCALID_EARL_GREY",
+      "local_id": "LOCALID_EARLGREY",
       "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
-      "x": 15,
+      "x": 13,
       "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -127,9 +127,23 @@
       "flag": "FLAG_SYS_B_DASH"
     },
     {
-      "local_id": "LOCALID_SILVA_BULLET",
+      "local_id": "LOCALID_SILVABULLET",
       "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
-      "x": 14,
+      "x": 13,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_SYS_B_DASH"
+    },
+    {
+      "local_id": "LOCALID_BYRON",
+      "graphics_id": "OBJ_EVENT_GFX_TRAINER_TOWER_DUDE",
+      "x": 13,
       "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -141,7 +155,16 @@
       "flag": "FLAG_SYS_B_DASH"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "warp_id": "WARP_ID_BATTLEREADY",
+      "x": 7,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_STADIUM_ARENA",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }

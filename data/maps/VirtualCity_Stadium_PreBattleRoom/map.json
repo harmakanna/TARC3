@@ -31,16 +31,16 @@
     {
       "local_id": "LOCALID_ERNEST_PREBATTLE",
       "graphics_id": "OBJ_EVENT_GFX_ERNEST_VR",
-      "x": 1,
-      "y": 5,
+      "x": 0,
+      "y": 3,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_ACT_II_HIDE_ERNEST_PREBATTLE"
     },
     {
       "local_id": "LOCALID_HARRIET_PREBATTLE",
@@ -57,7 +57,15 @@
       "flag": "FLAG_SYS_B_DASH"
     }
   ],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 4,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_STADIUM_ARENA",
+      "dest_warp_id": "WARP_ID_BATTLEREADY"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }
