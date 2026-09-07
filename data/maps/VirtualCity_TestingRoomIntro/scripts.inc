@@ -39,17 +39,9 @@ Speaker_Byron::
 	.string "Byron$"
 
 
-
+@Set your flags in new_game.inc rather than everything right at the start here. I added all of them
+@to that file for less clutter.
 VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
-	setflag FLAG_SYS_B_DASH
-	setflag FLAG_SYS_POKEMON_GET
-	setflag FLAG_SYS_NATIONAL_DEX
-	setflag FLAG_HIDE_ACT_II_INTRO_CHARS
-	setflag FLAG_HIDE_ACT_II_HARRIET
-	setflag FLAG_ACT_II_HIDE_HARRIET_PREBATTLE
-	setflag FLAG_ACT_II_HIDE_ERNEST_PREBATTLE
-	setflag FLAG_ACT_III_HIDE_BEDROOM_LOLA
-	setflag FLAG_ACT_III_HIDE_BEDROOM_FRIENDS
 	setflag B_FLAG_NO_WHITEOUT
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
 
