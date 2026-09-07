@@ -984,38 +984,6 @@ bool8 ScrCmd_warp(struct ScriptContext *ctx)
     return TRUE;
 }
 
-/*
-static void Task_EnterVr(u8 taskId)
-{
-    switch (gTasks[taskId].data[0])
-    {
-    case 0:
-        PlaySE(SE_PC_ON);
-        ComputerScreenOpenEffect(5, 0, 0);
-        gTasks[taskId].data[0]++;
-        break;
-    case 1:
-        WarpIntoMap();
-        gTasks[taskId].data[0]++;
-        break;
-    case 2:
-        if (!IsComputerScreenOpenEffectActive())
-        {
-            
-            //DoWarp();
-            //gTasks[taskId].data[0]++;
-            SetMainCallback2(CB2_LoadMap);
-            DestroyTask(taskId);
-        }
-        break;
-    case 3:
-        SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_BG_ALL_ON | DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
-        DestroyTask(taskId);
-        break;
-    }
-}
-*/
-
 bool8 Callnative_entervr(struct ScriptContext *ctx)
 {
     u8 mapGroup = ScriptReadByte(ctx);
@@ -1030,8 +998,6 @@ bool8 Callnative_entervr(struct ScriptContext *ctx)
     gFieldCallback = FieldCB_EnterVrWarp;
     WarpIntoMap();
     SetMainCallback2(CB2_LoadMap);
-    //u8 taskId = CreateTask(Task_EnterVr, 0);
-    //gTasks[taskId].data[0] = 0;
     ResetInitialPlayerAvatarState();
     return TRUE;
 }
