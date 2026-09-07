@@ -54,7 +54,6 @@ VirtualCity_Stadium_Entrance_Eventscript_Receptionist4or5Pokemon::
     goto_if_eq VAR_RESULT, YES, VirtualCity_Stadium_Entrance_Eventscript_ReceptionistStartTourney
 	end
 
-
 VirtualCity_Stadium_Entrance_Eventscript_ReceptionistStartTourney::
 	setspeaker Speaker_Receptionist
 	msgbox VirtualCity_Stadium_Entrance_Text_ReceptionistStartTourney, MSGBOX_NPC
@@ -64,7 +63,24 @@ VirtualCity_Stadium_Entrance_Eventscript_ReceptionistStartTourney::
 	waitstate
 	end
 
+VirtualCity_Stadium_Entrance_EventScript_Gallade::
+	msgbox VirtualCity_Stadium_Entrance_Text_Gallade, MSGBOX_NPC
+	end
 
+VirtualCity_Stadium_Entrance_EventScript_Gardevoir::
+	msgbox VirtualCity_Stadium_Entrance_Text_Gardevoir, MSGBOX_NPC
+	end
+
+VirtualCity_Stadium_Entrance_Text_Gardevoir:
+	.string "I dunno, I think I can do well,\n"
+	.string "but I'm just a bit scared…\p"
+	.string "Everyone'll be out there watching\n"
+	.string "me battle…$"
+
+VirtualCity_Stadium_Entrance_Text_Gallade:
+	.string "It's okay honey, I believe in you!\n"
+	.string "I'll be right by your side.\p"
+	.string "You'll make waves out there!$"
 
 VirtualCity_Stadium_Entrance_Text_ReceptionistIntro::
 	.string "Welcome to the {COLOR GREEN}BETTER {COLOR DARK_GRAY}Tournament!\n"

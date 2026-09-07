@@ -325,10 +325,6 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_Ernest1:
 	.string "{COLOR DARK_GRAY}Are you ready?$"
 
 
-
-
-
-
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Eventscript_PC::
 	lockall
 	goto_if_eq VAR_PETALBURG_CITY_STATE, 2, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Eventscript_NoVRNow

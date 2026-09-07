@@ -3139,11 +3139,11 @@
 	.endm
 
 	.macro npc_speak text:req, name=SP_NAME_NONE, type=MSGBOX_DEFAULT
-	speak VAR_LAST_TALKED, \text, \name, VAR_FACING2, \type
+	speak VAR_LAST_TALKED, \name, \text, VAR_FACING2, \type
 	.endm
 
 	.macro player_speak text:req, type=MSGBOX_DEFAULT
-	speak LOCALID_PLAYER, \text, SP_NAME_PLAYER, VAR_FACING, \type
+	speak LOCALID_PLAYER, SP_NAME_PLAYER, \text, VAR_FACING, \type
 	.endm
 
 	.macro clearparty

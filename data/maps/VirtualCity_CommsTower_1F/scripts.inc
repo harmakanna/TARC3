@@ -87,6 +87,7 @@ VirtualCity_CommsTower_1F_Eventscript_ActIIntro::
 	closemessage
 	setvar VAR_PETALBURG_CITY_STATE, 11
 	setflag FLAG_ACT_I_STARTED
+	clearflag FLAG_HIDE_OUTSIDE_WORLD_PROLOGUE
 
 	end
 

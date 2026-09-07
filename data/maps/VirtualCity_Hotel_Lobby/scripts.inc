@@ -119,6 +119,73 @@ VirtualCity_HotelLobby_Receptionist::
 	msgbox VirtualCity_HotelLobby_Text_Receptionist, MSGBOX_NPC
 	end
 
+VirtualCity_HotelLobby_EventScript_ElevatorIdol::
+	msgbox VirtualCity_HotelLobby_Text_ElevatorIdol, MSGBOX_NPC
+	end
+
+VirtualCity_HotelLobby_EventScript_MachokeConvo::
+	lockall
+	speak LOCALID_ENAMORED_MAN, VirtualCity_HotelLobby_Text_EnamoredMan1, Speaker_EnamoredMan, DIR_SOUTH
+	speak LOCALID_WISEMACHOKE, VirtualCity_HotelLobby_Text_WiseMachoke1, Speaker_Wise_Machoke, DIR_NORTH
+	speak LOCALID_ENAMORED_MAN, VirtualCity_HotelLobby_Text_EnamoredMan2, Speaker_EnamoredMan, DIR_SOUTH
+	speak LOCALID_WISEMACHOKE, VirtualCity_HotelLobby_Text_WiseMachoke2, Speaker_Wise_Machoke, DIR_NORTH
+	closemessage
+	releaseall
+	end
+
+VirtualCity_HotelLobby_EventScript_RedMan::
+	msgbox VirtualCity_HotelLobby_Text_RedMan, MSGBOX_NPC
+	end
+
+VirtualCity_HotelLobby_Text_RedMan:
+	.string "You gotta shell out the big bucks\n"
+	.string "for the lower floors here!\p"
+	.string "But boy, is it worth it to come\n"
+	.string "back to an idol waiting hand over\l"
+	.string "fist for you after a long day's work!$"
+
+Speaker_EnamoredMan:
+	.string "LovestruckLenny$"
+
+Speaker_Wise_Machoke:
+	.string "WiseMachoke442$"
+
+VirtualCity_HotelLobby_Text_EnamoredMan1:
+	.string "Man, that idol in the blue dress\n"
+	.string "is such a CUTIE…\p"
+	.string "Do you think I should shoot my\n"
+	.string "shot with her?\p"
+	.string "Oooooh, but how will the pink one at\n"
+	.string "the elevator feel if I reject her as\l"
+	.string "my personal assistant?\p"
+	.string "Gosh, I just can't decide…$"
+
+VirtualCity_HotelLobby_Text_WiseMachoke1:
+	.string "My guy, don't be fooled!\p"
+	.string "None of the idols are actual,\n"
+	.string "in-the-flesh chicks! They're ALL AI!\p"
+	.string "BETTER uses all these virtual robot\n"
+	.string "girls to try and distract you from\l"
+	.string "true happiness!$"
+
+VirtualCity_HotelLobby_Text_EnamoredMan2:
+	.string "Golly gee, thanks WiseMachoke!\p"
+	.string "That's the last time I go lusting\n"
+	.string "after AI girls!$"
+
+VirtualCity_HotelLobby_Text_WiseMachoke2:
+	.string "Stay strong, my friend,\n"
+	.string "and always look out for number one!$"
+
+VirtualCity_HotelLobby_Text_ElevatorIdol:
+	.string "Sooo-rreeee!!! Only VIPs can\n"
+	.string "use this elevator!\p"
+	.string "BUUUUUT if you buy a VIP room in\n"
+	.string "the next hour, you'll get me as a\l"
+	.string "COMPLEMENTARY idol assistant for free!\l"
+	.string "{FONT_SMALL}First month only.\p"
+	.string "{FONT_NORMAL}Don't pass up this HOT deal!$"
+
 VirtualCity_HotelLobby_EarlGrayHmm:
 	.string "Hmm… What should I do…$"
 
@@ -216,10 +283,10 @@ VirtualCity_HotelLobby_Text_Receptionist:
 	.string "Welcome to the Better Hotel!\p"
 	.string "If you're looking for the stadium,\n"
 	.string "head to the left.\p"
-	.string "Your rooms will be through center\n"
-	.string "elevator.\p"
+	.string "Your rooms will be through the\n"
+	.string "right elevator.\p"
 	.string "Your floor is:{PAUSE 60}\n"
 	.string "FLOOR 42813\p"
-	.string "The right door is VIPs only.\p"
+	.string "The center door is VIPs only.\p"
 	.string "Purchase a VIP room for only{PAUSE 60}\n"
 	.string "9{PAUSE 30}9{PAUSE 20}9{PAUSE 15}9{PAUSE 10}9{PAUSE 5}99999999.99!$"
