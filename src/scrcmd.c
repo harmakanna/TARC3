@@ -68,6 +68,9 @@
 #include "constants/map_types.h"
 #include "constants/party_menu.h"
 
+#include "fldeff_misc.h"
+#include "constants/songs.h"
+
 typedef u16 (*SpecialFunc)(void);
 typedef void (*NativeFunc)(struct ScriptContext *ctx);
 
@@ -977,6 +980,58 @@ bool8 ScrCmd_warp(struct ScriptContext *ctx)
 
     SetWarpDestination(mapGroup, mapNum, warpId, x, y);
     DoWarp();
+    ResetInitialPlayerAvatarState();
+    return TRUE;
+}
+
+/*
+static void Task_EnterVr(u8 taskId)
+{
+    switch (gTasks[taskId].data[0])
+    {
+    case 0:
+        PlaySE(SE_PC_ON);
+        ComputerScreenOpenEffect(5, 0, 0);
+        gTasks[taskId].data[0]++;
+        break;
+    case 1:
+        WarpIntoMap();
+        gTasks[taskId].data[0]++;
+        break;
+    case 2:
+        if (!IsComputerScreenOpenEffectActive())
+        {
+            
+            //DoWarp();
+            //gTasks[taskId].data[0]++;
+            SetMainCallback2(CB2_LoadMap);
+            DestroyTask(taskId);
+        }
+        break;
+    case 3:
+        SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_BG_ALL_ON | DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
+        DestroyTask(taskId);
+        break;
+    }
+}
+*/
+
+bool8 Callnative_entervr(struct ScriptContext *ctx)
+{
+    u8 mapGroup = ScriptReadByte(ctx);
+    u8 mapNum = ScriptReadByte(ctx);
+    u8 warpId = ScriptReadByte(ctx);
+    u16 x = VarGet(ScriptReadHalfword(ctx));
+    u16 y = VarGet(ScriptReadHalfword(ctx));
+
+    Script_RequestEffects(SCREFF_V1 | SCREFF_SAVE | SCREFF_HARDWARE);
+
+    SetWarpDestination(mapGroup, mapNum, warpId, x, y);
+    gFieldCallback = FieldCB_EnterVrWarp;
+    WarpIntoMap();
+    SetMainCallback2(CB2_LoadMap);
+    //u8 taskId = CreateTask(Task_EnterVr, 0);
+    //gTasks[taskId].data[0] = 0;
     ResetInitialPlayerAvatarState();
     return TRUE;
 }
