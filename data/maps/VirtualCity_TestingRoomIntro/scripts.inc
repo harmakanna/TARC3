@@ -43,25 +43,29 @@ Speaker_Byron::
 @to that file for less clutter.
 VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	setflag B_FLAG_NO_WHITEOUT
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
-
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
 	@setflag FLAG_BADGE08_GET
+
+	@ DO SETFLAGS IN NEW_GAME.INC!!! WAY EASIER TO TRACK!!!
+
 	@@more setflags TOFOLD, set healing place, etc. etc.
 
 	@----------------------------------------------------
-	setvar VAR_PETALBURG_CITY_STATE, 22
-	givemon SPECIES_ARCANINE, 50
-	givemon SPECIES_ARCANINE, 50
-	givemon SPECIES_ARCANINE, 50
-	givemon SPECIES_ARCANINE, 50
+	@setvar VAR_PETALBURG_CITY_STATE, 22
+	@clearflag FLAG_SYS_PREVENT_MAP_FADE
+	@givemon SPECIES_ARCANINE, 50
+	@givemon SPECIES_ARCANINE, 50
+	@givemon SPECIES_ARCANINE, 50
+	@givemon SPECIES_ARCANINE, 50
 	
-	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 7
-	waitstate
+	@warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 7
+	@waitstate
 
 
 	@----------------------------------------------------
 	@setvar VAR_PETALBURG_CITY_STATE, 10
 	@setflag FLAG_DARKANINE_COMPLETE
+	@clearflag FLAG_SYS_PREVENT_MAP_FADE
 	@@ Skipping traveling sequence for now TOFOLD
 	@warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT, 1, 3
 	@waitstate
@@ -71,18 +75,26 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	@----------------------------------------------------
 
 
+	special SpawnCameraObject
+	applymovement LOCALID_CAMERA, Common_Movement_WalkRightFaster2
+	waitmovement 0
+	special RemoveCameraObject
 	removeobject LOCALID_DARKANINES_BALL
+	clearflag FLAG_SYS_PREVENT_MAP_FADE
 	removeobject LOCALID_ARCANINE
 	fadescreenspeed FADE_FROM_BLACK, 2
 
 	@@ TOFOLD Transition Graphic
 
-	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro01, Speaker_Minh, DIR_SOUTH
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro02, Speaker_Sophie, DIR_NORTH
+	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro01, Speaker_Minh, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro02, Speaker_Sophie, DIR_EAST
+	playse SE_PIN
 	applymovement LOCALID_MINH, Common_Movement_ExclamationMark
-	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro03, Speaker_Minh, DIR_SOUTH
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro04, Speaker_Sophie, DIR_NORTH
-	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro05, Speaker_Minh, DIR_SOUTH
+	waitse
+	delay 60
+	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro03, Speaker_Minh, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro04, Speaker_Sophie, DIR_EAST
+	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro05, Speaker_Minh, DIR_WEST
 
 	addobject LOCALID_DARKANINES_BALL
 	delay 10
@@ -91,11 +103,11 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	addobject LOCALID_ARCANINE
 	delay 40
 
-	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro06, Speaker_Minh, DIR_SOUTH
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro07, Speaker_Sophie, DIR_NORTH
-	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro08, Speaker_Minh, DIR_SOUTH
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro09, Speaker_Sophie, DIR_NORTH
-	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro10, Speaker_Minh, DIR_SOUTH
+	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro06, Speaker_Minh, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro07, Speaker_Sophie, DIR_EAST
+	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro08, Speaker_Minh, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro09, Speaker_Sophie, DIR_EAST
+	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro10, Speaker_Minh, DIR_WEST
 
 	playse SE_NOTE_G
 	waitse
@@ -106,8 +118,8 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	playse SE_NOTE_D
 	waitse
 
-	speak LOCALID_GUARD, VirtualCity_TestingRoomIntro_Text_Intro11, Speaker_Announcement, DIR_NORTH 
-	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro12, Speaker_Minh, DIR_SOUTH
+	speak LOCALID_GUARD, VirtualCity_TestingRoomIntro_Text_Intro11, Speaker_Announcement, DIR_EAST 
+	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro12, Speaker_Minh, DIR_WEST
 
 	removeobject LOCALID_ARCANINE
 	addobject LOCALID_DARKANINES_BALL
@@ -143,7 +155,7 @@ VirtualCity_TestingRoomIntro_Eventscript_Minh::
 
 	goto_if_unset FLAG_DARKANINE_BATTLE_1, VirtualCity_TestingRoomIntro_Eventscript_FirstBattle
 	goto_if_unset FLAG_DARKANINE_BATTLE_2, VirtualCity_TestingRoomIntro_Eventscript_SecondBattle
-	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_SubsequentBattleStart, Speaker_Minh, DIR_SOUTH
+	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_SubsequentBattleStart, Speaker_Minh, DIR_WEST
 	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE, 0, VirtualCity_TestingRoomIntro_Text_SubsequentBattleEndWin, VirtualCity_TestingRoomIntro_Text_SubsequentBattleEndLose
 	setspeaker Speaker_Minh
 	msgbox VirtualCity_TestingRoomIntro_Text_AdjustDarkanine, MSGBOX_YESNO
@@ -153,12 +165,12 @@ VirtualCity_TestingRoomIntro_Eventscript_Minh::
 
 VirtualCity_TestingRoomIntro_Eventscript_StatsIncorrect:
 	setspeaker Speaker_Minh
-	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_WrongAdjustment, Speaker_Minh, DIR_SOUTH
+	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_WrongAdjustment, Speaker_Minh, DIR_WEST
 	end
 
 VirtualCity_TestingRoomIntro_Eventscript_FirstBattle:
 	setflag FLAG_DARKANINE_BATTLE_1
-	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_FirstBattleStart, Speaker_Minh, DIR_SOUTH
+	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_FirstBattleStart, Speaker_Minh, DIR_WEST
 	@trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE, 0, VirtualCity_TestingRoomIntro_Text_FirstBattleEndWin, VirtualCity_TestingRoomIntro_Text_FirstBattleEndLose
 	setspeaker Speaker_Minh
 	msgbox VirtualCity_TestingRoomIntro_Text_AdjustDarkanine, MSGBOX_YESNO
@@ -168,7 +180,7 @@ VirtualCity_TestingRoomIntro_Eventscript_FirstBattle:
 
 VirtualCity_TestingRoomIntro_Eventscript_SecondBattle:
 	setflag FLAG_DARKANINE_BATTLE_2
-	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_SecondBattleStart, Speaker_Minh, DIR_SOUTH
+	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_SecondBattleStart, Speaker_Minh, DIR_WEST
 	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE, 0, VirtualCity_TestingRoomIntro_Text_SecondBattleEndWin, VirtualCity_TestingRoomIntro_Text_SecondBattleEndLose
 	setspeaker Speaker_Minh
 	msgbox VirtualCity_TestingRoomIntro_Text_AdjustDarkanine, MSGBOX_YESNO
@@ -182,7 +194,7 @@ EventScript_End:
 VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine:
 	msgbox VirtualCity_TestingRoomIntro_Text_ConfirmDarkanine, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_Eventscript_Minh
-	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_DarkanineConfirmed, Speaker_Minh, DIR_SOUTH
+	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_DarkanineConfirmed, Speaker_Minh, DIR_WEST
 	delay 100
 	playse SE_PC_LOGIN
 	waitse

@@ -113,6 +113,7 @@ EventScript_ResetAllBerries::
 	return
 
 EventScript_ResetAllMapFlags::
+	setflag FLAG_SYS_PREVENT_MAP_FADE
 	setflag FLAG_SYS_B_DASH
 	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_SYS_NATIONAL_DEX

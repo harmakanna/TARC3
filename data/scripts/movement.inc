@@ -175,7 +175,10 @@ Common_Movement_WalkLeftFaster::
 	walk_faster_left
 	step_end
 
-
+Common_Movement_WalkRightFaster2::
+	walk_faster_right
+	walk_faster_right
+	step_end
 
 
 
