@@ -472,6 +472,11 @@
 	.endm
 
 
+	.macro entervr_warp map:req, a, b, c
+	callnative Callnative_entervr
+	formatwarp \map, \a, \b, \c
+	.endm
+
 	@ Warps the player to the specified map.
 	@ Warp commands can be given either the id of which warp location to go to on the destination map
 	@ or a pair of x/y coordinates to go to directly on the destination map.

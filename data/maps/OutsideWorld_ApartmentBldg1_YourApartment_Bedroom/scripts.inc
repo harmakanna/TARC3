@@ -10,7 +10,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Eventscript_Sign::
 	goto_if_eq VAR_RESULT, NO, Common_Eventscript_Cancel
 
 	@@ Fancy transition TOFOLD
-	warp MAP_VIRTUAL_CITY_OUTSIDE1, 24, 24
+	entervr_warp MAP_VIRTUAL_CITY_OUTSIDE1, 24, 24
 	waitstate
 	end
 
