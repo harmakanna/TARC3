@@ -62,8 +62,8 @@
 #define FLAG_PRESENTED_EARLS_MESSAGE    0x28 // Unused Flag
 #define FLAG_DEFEATED_CAPN_CHINO    0x29 // Unused Flag
 #define FLAG_HIDE_OUTSIDE_WORLD_PROLOGUE    0x2A // Unused Flag
-#define FLAG_UNUSED_0x02B    0x2B // Unused Flag
-#define FLAG_UNUSED_0x02C    0x2C // Unused Flag
+#define FLAG_HIDE_INTRO_ARCANINE    0x2B // Unused Flag
+#define FLAG_HIDE_LOLA_BEDROOM_PROLOGUE    0x2C // Unused Flag
 #define FLAG_UNUSED_0x02D    0x2D // Unused Flag
 #define FLAG_UNUSED_0x02E    0x2E // Unused Flag
 #define FLAG_UNUSED_0x02F    0x2F // Unused Flag

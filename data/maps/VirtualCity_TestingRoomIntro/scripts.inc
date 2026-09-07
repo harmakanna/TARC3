@@ -97,11 +97,11 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro03, Speaker_Minh, DIR_WEST
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro04, Speaker_Sophie, DIR_EAST
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro05, Speaker_Minh, DIR_WEST
-
+	closemessage
 	addobject LOCALID_DARKANINES_BALL
 	delay 10
-	playse SE_BALL_OPEN
 	removeobject LOCALID_DARKANINES_BALL
+	playse SE_BALL_OPEN
 	addobject LOCALID_ARCANINE
 	delay 40
 
@@ -113,6 +113,7 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	closemessage
 	playse SE_PIN
 	applymovement LOCALID_MINH, Common_Movement_ExclamationMark
+	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
 	waitse
 	playse SE_NOTE_G
 	waitse
@@ -132,6 +133,11 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	delay 10
 	removeobject LOCALID_DARKANINES_BALL
 	setvar VAR_PETALBURG_CITY_STATE, 0
+	@fadescreenspeed FADE_TO_BLACK, 2
+	@special SpawnCameraObject
+	@applymovement LOCALID_CAMERA, Common_Movement_WalkUp
+	@waitmovement LOCALID_CAMERA
+	@special RemoveCameraObject
 	
 
 
@@ -202,11 +208,14 @@ VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine:
 	msgbox VirtualCity_TestingRoomIntro_Text_ConfirmDarkanine, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_EventScript_AdjustDarkanine
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_DarkanineConfirmed, Speaker_Minh, DIR_WEST
-	delay 100
+	closemessage
+	delay 50
 	playse SE_PC_LOGIN
 	waitse
 	delay 20
 	playse SE_PC_OFF
+	applymovement LOCALID_MINH, VirtualCityIntro_Movement_LogOut
+	waitmovement 0
 	removeobject LOCALID_MINH
 	delay 40
 	
@@ -224,7 +233,32 @@ VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine:
 
 
 
-
+VirtualCityIntro_Movement_LogOut:
+	face_down
+	face_right
+	face_up
+	face_left
+	face_down
+	face_right
+	face_up
+	face_left
+	face_down
+	face_right
+	face_up
+	face_left
+	face_down
+	face_right
+	face_up
+	face_left
+	@face_down
+	@face_right
+	@face_up
+	@face_left
+	@face_down
+	@face_right
+	@face_up
+	@face_left
+	step_end
 
 
 VirtualCity_TestingRoomIntro_CameraPositioning::
@@ -279,8 +313,9 @@ VirtualCity_TestingRoomIntro_Text_Intro08:
 	.string "And boss wants two boosts on it.\p"
 	.string "You know that hack-y, bonus thing\n"
 	.string "you usually only do once?\p"
-	.string "This is a limited edition, so, uh,\n"
-	.string "just do it twice.$"
+	.string "This is a limited edition, so…\n"
+	.string "Uhh…\p"
+	.string "Just do it twice.$"
 
 VirtualCity_TestingRoomIntro_Text_Intro09:
 	.string "Ugh…$"
@@ -293,11 +328,11 @@ VirtualCity_TestingRoomIntro_Text_Intro10:
 	.string "the best artist, obvi-$"
 
 VirtualCity_TestingRoomIntro_Text_Intro11:
-	.string "DO YOU NEED A CHANGE OF SCENERY?\p"
-	.string "COME VISIT THE GREENEST GARDEN AND\n"
+	.string "DO {COLOR RED}YOU {COLOR DARK_GRAY}NEED A CHANGE OF {COLOR BLUE}SCENERY?\p"
+	.string "{COLOR DARK_GRAY}COME VISIT THE {COLOR GREEN}GREENEST {COLOR DARK_GRAY}GARDEN AND\n"
 	.string "EXPERIENCE OUR STATE-OF-THE-ART\l"
-	.string "AUTUMN WONDERLAND!\p"
-	.string "THE COMPLIMENTARY F.R.E.S.H. BREATHING\n"
+	.string "{COLOR RED}AUTUMN WONDERLAND!\p"
+	.string "{COLOR DARK_GRAY}THE COMPLIMENTARY {COLOR GREEN}F.R.E.S.H. {COLOR DARK_GRAY}BREATHING\n"
 	.string "EXPERIENCE LEAVES YOU BREATHLESS!$"
 
 
@@ -326,14 +361,14 @@ VirtualCity_TestingRoomIntro_Text_WrongAdjustment:
 
 VirtualCity_TestingRoomIntro_Text_FirstBattleStart:
 	.string "Oh, my baby looks good!\p"
-	.string "You know I'm not a battler, but\n"
+	.string "I may not be a battler, but\n"
 	.string "I'll try my best!$"
 
 VirtualCity_TestingRoomIntro_Text_FirstBattleIntro:
 	.string "Minh is ready to test Darkanine!$"
 
 VirtualCity_TestingRoomIntro_Text_FirstBattleEndWin:
-	.string "Welp, didn't win this time.\p"
+	@.string "Welp, didn't win this time.\p"
 	.string "Did it feel good to use? Wanna\n"
 	.string "modify it some more?$"
 
@@ -382,8 +417,9 @@ VirtualCity_TestingRoomIntro_Text_DarkanineConfirmed:
 	.string "Excellent! I dunno what you did,\n"
 	.string "but I know my beautiful shadow puppy\l"
 	.string "is in good hands.\p"
-	.string "Now, let's get to your apartment.\n"
-	.string "The Rotom Phone's logout works in here.\p"
+	.string "Now, let's log out of here and get\n"
+	.string "to your apartment.\p"
+	@.string "The Rotom Phone's logout works in here.\p"
 	.string "Tell them to wait for me, I'll run there\n"
 	.string "as fast as I can!\p"
 	.string "Don't you dare pet the new Pokemon\n"
