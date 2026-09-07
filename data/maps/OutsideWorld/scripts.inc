@@ -32,12 +32,30 @@ OutsideWorld_PrologueEndScene_Final_Really::
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_SophiePrologue5, Speaker_Sophie, DIR_EAST
 	playse SE_SELECT
 	delay 30
+	closemessage
 	applymovement LOCALID_OW_MINH, OutsideWorld_Move_Minh1
-	waitmovement
+	delay 100
+	delay 100
+	delay 100
+	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_Move_Sophie1
+	waitmovement 0
 	removeobject LOCALID_OW_MINH
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_Move_Sophie2
+	applymovement OBJ_EVENT_ID_CAMERA, OutsideWorld_Move_Camera1
+	delay 50
+	playse SE_DOOR
+	hideplayer
+	waitmovement 0
+	delay 100
+	delay 50
+	setvar VAR_PETALBURG_CITY_STATE, 4
+	warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_FLOOR1, 2,4
+	waitstate
+	end	
 
+	@TOFOLD move this
 	setflag FLAG_PROLOGUE_COMPLETE
-	setvar VAR_PETALBURG_CITY_STATE, 10
 
 	end
 
@@ -59,12 +77,37 @@ OutsideWorld_Move_Minh1:
 	walk_left
 	step_end
 
+OutsideWorld_Move_Sophie1:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	face_left
+	step_end
+
+OutsideWorld_Move_Sophie2:
+	walk_right
+	walk_up
+	walk_up
+	step_end
+
+OutsideWorld_Move_Camera1:
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
 
 
 OutsideWorld_SophiePrologue1::
 	.string "There's no point brooding any longer.\p"
 	.string "It's late, you should get home. Meet in\n"
-	.string "the Realm, at work, when you can.\p"
+	.string "the Place, at work, when you can.\p"
 	.string "At least that way, Lola won't be\n"
 	.string "able to hear us talking about it.$"
 

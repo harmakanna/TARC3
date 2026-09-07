@@ -13,8 +13,59 @@
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
-  "object_events": [],
-  "warp_events": [],
+  "object_events": [
+    {
+      "local_id": "LOCALID_HARRIET_PREBATTLE2",
+      "graphics_id": "OBJ_EVENT_GFX_HARRIET_VR",
+      "x": 3,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VirtualCity_Stadium_PreBattleRoom_Eventscript_Harriet",
+      "flag": "FLAG_ACT_II_HIDE_HARRIET_PREBATTLE"
+    },
+    {
+      "local_id": "LOCALID_ERNEST_PREBATTLE",
+      "graphics_id": "OBJ_EVENT_GFX_ERNEST_VR",
+      "x": 0,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_ACT_II_HIDE_ERNEST_PREBATTLE"
+    },
+    {
+      "local_id": "LOCALID_HARRIET_PREBATTLE",
+      "graphics_id": "OBJ_EVENT_GFX_HARRIET_VR",
+      "x": 4,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VirtualCity_Stadium_PreBattleRoom_Eventscript_Harriet",
+      "flag": "FLAG_SYS_B_DASH"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 4,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_VIRTUAL_CITY_STADIUM_ARENA",
+      "dest_warp_id": "WARP_ID_BATTLEREADY"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }

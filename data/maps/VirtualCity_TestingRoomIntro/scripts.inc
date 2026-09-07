@@ -45,16 +45,36 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_SYS_NATIONAL_DEX
 	setflag FLAG_HIDE_ACT_II_INTRO_CHARS
+	setflag FLAG_HIDE_ACT_II_HARRIET
+	setflag FLAG_ACT_II_HIDE_HARRIET_PREBATTLE
+	setflag FLAG_ACT_II_HIDE_ERNEST_PREBATTLE
+	setflag FLAG_ACT_III_HIDE_BEDROOM_LOLA
+	setflag FLAG_ACT_III_HIDE_BEDROOM_FRIENDS
+	setflag B_FLAG_NO_WHITEOUT
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
 
 	@setflag FLAG_BADGE08_GET
 	@@more setflags TOFOLD, set healing place, etc. etc.
 
 	@----------------------------------------------------
-	@setvar VAR_PETALBURG_CITY_STATE, 2
+	setvar VAR_PETALBURG_CITY_STATE, 22
+	givemon SPECIES_ARCANINE, 50
+	givemon SPECIES_ARCANINE, 50
+	givemon SPECIES_ARCANINE, 50
+	givemon SPECIES_ARCANINE, 50
+	
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 7
+	waitstate
+
+
+	@----------------------------------------------------
+	@setvar VAR_PETALBURG_CITY_STATE, 10
 	@setflag FLAG_DARKANINE_COMPLETE
 	@@ Skipping traveling sequence for now TOFOLD
 	@warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT, 1, 3
+	@waitstate
+
+	@warpsilent MAP_VIRTUAL_CITY_COMMS_TOWER_1F, 5, 11
 	@waitstate
 	@----------------------------------------------------
 
@@ -106,7 +126,7 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	
 
 
-	@@ TOFOLD - Add Pokemon upgrade scene
+	
 	@@ TOFOLD - duplicate Darkanine + mods
 
 	goto VirtualCity_TestingRoomIntro_Eventscript_Minh
@@ -117,24 +137,23 @@ VirtualCity_TestingRoomIntro_Eventscript_NotFirstLoad:
 	end
 
 VirtualCity_TestingRoomIntro_Eventscript_Minh::
-	@@ TOFOLD edit mon dialog event
-	
-	@@ We can skip this part, there shouldn't be a way to turn down a buff
-	@@ check if stats and typing correct, if not goto VirtualCity_TestingRoomIntro_Eventscript_StatsIncorrect
 
-	@ TOFOLD delete party
+
+	clearparty
 	givemon SPECIES_DARKANINE, 50
-	@@ TOFOLD - Add Pokemon upgrade scene
-	@@ TOFOLD - duplicate Darkanine + mods
 
+	call EventScript_AddRandomMod
+	call EventScript_AddRandomMod
 
+	clonefirstmon
 	givemon SPECIES_ARCANINE, 50
 	givemon SPECIES_ARCANINE, 50
 
 	goto_if_unset FLAG_DARKANINE_BATTLE_1, VirtualCity_TestingRoomIntro_Eventscript_FirstBattle
 	goto_if_unset FLAG_DARKANINE_BATTLE_2, VirtualCity_TestingRoomIntro_Eventscript_SecondBattle
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_SubsequentBattleStart, Speaker_Minh, DIR_SOUTH
-	trainerbattle_earlyrival TRAINER_RIVAL_OAKS_LAB_SQUIRTLE, NULL, VirtualCity_TestingRoomIntro_Text_SubsequentBattleEndWin, VirtualCity_TestingRoomIntro_Text_SubsequentBattleEndLose
+	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE, 0, VirtualCity_TestingRoomIntro_Text_SubsequentBattleEndWin, VirtualCity_TestingRoomIntro_Text_SubsequentBattleEndLose
+	setspeaker Speaker_Minh
 	msgbox VirtualCity_TestingRoomIntro_Text_AdjustDarkanine, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine
     goto_if_eq VAR_RESULT, YES, VirtualCity_TestingRoomIntro_Eventscript_Minh
@@ -148,7 +167,8 @@ VirtualCity_TestingRoomIntro_Eventscript_StatsIncorrect:
 VirtualCity_TestingRoomIntro_Eventscript_FirstBattle:
 	setflag FLAG_DARKANINE_BATTLE_1
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_FirstBattleStart, Speaker_Minh, DIR_SOUTH
-	trainerbattle_earlyrival TRAINER_RIVAL_OAKS_LAB_SQUIRTLE, NULL, VirtualCity_TestingRoomIntro_Text_FirstBattleEndWin, VirtualCity_TestingRoomIntro_Text_FirstBattleEndLose
+	@trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE, 0, VirtualCity_TestingRoomIntro_Text_FirstBattleEndWin, VirtualCity_TestingRoomIntro_Text_FirstBattleEndLose
+	setspeaker Speaker_Minh
 	msgbox VirtualCity_TestingRoomIntro_Text_AdjustDarkanine, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine
     goto_if_eq VAR_RESULT, YES, VirtualCity_TestingRoomIntro_Eventscript_Minh
@@ -157,7 +177,8 @@ VirtualCity_TestingRoomIntro_Eventscript_FirstBattle:
 VirtualCity_TestingRoomIntro_Eventscript_SecondBattle:
 	setflag FLAG_DARKANINE_BATTLE_2
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_SecondBattleStart, Speaker_Minh, DIR_SOUTH
-	trainerbattle_earlyrival TRAINER_RIVAL_OAKS_LAB_SQUIRTLE, NULL, VirtualCity_TestingRoomIntro_Text_SecondBattleEndWin, VirtualCity_TestingRoomIntro_Text_SecondBattleEndLose
+	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE, 0, VirtualCity_TestingRoomIntro_Text_SecondBattleEndWin, VirtualCity_TestingRoomIntro_Text_SecondBattleEndLose
+	setspeaker Speaker_Minh
 	msgbox VirtualCity_TestingRoomIntro_Text_AdjustDarkanine, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine
     goto_if_eq VAR_RESULT, YES, VirtualCity_TestingRoomIntro_Eventscript_Minh
@@ -170,12 +191,23 @@ VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine:
 	msgbox VirtualCity_TestingRoomIntro_Text_ConfirmDarkanine, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_Eventscript_Minh
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_DarkanineConfirmed, Speaker_Minh, DIR_SOUTH
+	delay 100
+	playse SE_PC_LOGIN
+	waitse
+	delay 20
+	playse SE_PC_OFF
+	removeobject LOCALID_MINH
+	delay 40
+	
 	@@ fancy transition
-	fadescreenspeed FADE_TO_BLACK, 5
+	@fadescreenspeed FADE_TO_BLACK, 5
 	setvar VAR_PETALBURG_CITY_STATE, 2
 	setflag FLAG_DARKANINE_COMPLETE
-	@@ Skipping traveling sequence for now TOFOLD
-	warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT, 1, 3
+
+
+	clearparty
+	givemon SPECIES_EXCADRILL,  50
+	warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT_BEDROOM, 5, 2
 	waitstate
 	end
 
@@ -187,7 +219,7 @@ VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine:
 VirtualCity_TestingRoomIntro_Text_Intro01:
 	.string "Are.\p"
 	.string "You.\p"
-	.string "Ready?\p"
+	.string "{COLOR RED}Ready?\p"
 	.string "Beauty. Elegance. Genius.$"
 
 VirtualCity_TestingRoomIntro_Text_Intro02:
@@ -226,8 +258,11 @@ VirtualCity_TestingRoomIntro_Text_Intro08:
 	.string "Ugh, no appreciation for art.\p"
 	.string "Yes, Dark type, you barbarian, or\n"
 	.string "Dark / Fire if you prefer.\p"
-	.string "And as usual, boss wants it powered\n"
-	.string "up a lot so people buy it.$"
+	.string "And boss wants two boosts on it.\p"
+	.string "You know that hack-y, bonus thing\n"
+	.string "you usually only do once?\p"
+	.string "This is a limited edition, so, uh,\n"
+	.string "just do it twice.$"
 
 VirtualCity_TestingRoomIntro_Text_Intro09:
 	.string "Ugh…$"
@@ -253,7 +288,7 @@ VirtualCity_TestingRoomIntro_Text_Intro12:
 	.string "I'm complimenting myself, a Rotom\l"
 	.string "Phone ad interrupts it? Hmph.\p"
 	.string "Anyways, work your magic on Darkanine,\n"
-	.string "and then come battle me.\p"
+	.string "and then we can run a simulator battle.\p"
 	.string "I got the meta's top three Pokemon you\n"
 	.string "wanted here, for the test battle.$"
 
@@ -320,15 +355,18 @@ VirtualCity_TestingRoomIntro_Text_SubsequentBattleEndLose:
 	.string "even more?$"
 
 VirtualCity_TestingRoomIntro_Text_ConfirmDarkanine:
-	.string "Cool, you're locking it in?\p"
-	.string "Stats, typing, ability - all ready\n"
-	.string "for the release?$"
+	.string "Cool, you're locking it in?\n"
+	.string "It's ready for the release?$"
+
 
 VirtualCity_TestingRoomIntro_Text_DarkanineConfirmed:
 	.string "Excellent! I dunno what you did,\n"
 	.string "but I know my beautiful shadow puppy\l"
 	.string "is in good hands.\p"
-	.string "Now let's log out and get to your place.\p"
-	.string "This real Pokemon thing might even be\n"
-	.string "cooler than my Darkanine.$"
+	.string "Now, let's get to your apartment.\n"
+	.string "The Rotom Phone's logout works in here.\p"
+	.string "Tell them to wait for me, I'll run there\n"
+	.string "as fast as I can!\p"
+	.string "Don't you dare pet the new Pokemon\n"
+	.string "without me!$"
 

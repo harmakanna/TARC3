@@ -13,7 +13,120 @@
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
-  "object_events": [],
+  "object_events": [
+    {
+      "local_id": "LOCALID_BEDROOM_LOLACONFRONT",
+      "graphics_id": "OBJ_EVENT_GFX_LUCY",
+      "x": 2,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_BEDROOM_MINH",
+      "graphics_id": "OBJ_EVENT_GFX_MINH_OUTSIDE",
+      "x": 3,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_SYS_B_DASH"
+    },
+    {
+      "local_id": "LOCALID_BEDROOM_HARRIET",
+      "graphics_id": "OBJ_EVENT_GFX_HARRIET_OUTSIDE",
+      "x": 2,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_ACT_III_HIDE_BEDROOM_FRIENDS"
+    },
+    {
+      "local_id": "LOCALID_BEDROOM_ERNEST",
+      "graphics_id": "OBJ_EVENT_GFX_ERNEST_OUTSIDE",
+      "x": 4,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_ACT_III_HIDE_BEDROOM_FRIENDS"
+    },
+    {
+      "local_id": "LOCALID_BEDROOM_ERNESTDONTTELL",
+      "graphics_id": "OBJ_EVENT_GFX_ERNEST_OUTSIDE",
+      "x": 3,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_SYS_B_DASH"
+    },
+    {
+      "local_id": "LOCALID_BEDROOM_HARRIETDONTTELL",
+      "graphics_id": "OBJ_EVENT_GFX_HARRIET_OUTSIDE",
+      "x": 2,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_SYS_B_DASH"
+    },
+    {
+      "local_id": "LOCALID_BEDROOM_MINHDONTTELL",
+      "graphics_id": "OBJ_EVENT_GFX_MINH_OUTSIDE",
+      "x": 3,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_SYS_B_DASH"
+    },
+    {
+      "local_id": "LOCALID_BEDROOM_MINHEXTRA",
+      "graphics_id": "OBJ_EVENT_GFX_MINH_OUTSIDE",
+      "x": 2,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_ACT_III_HIDE_BEDROOM_FRIENDS"
+    }
+  ],
   "warp_events": [
     {
       "warp_id": "OutsideWorld_Apartment_YourAparment_Bedroom_Exit",
@@ -40,7 +153,7 @@
       "y": 1,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Eventscript_Sign"
+      "script": "OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Eventscript_PC"
     }
   ]
 }
