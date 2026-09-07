@@ -250,7 +250,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
             gOverworldPalette_Arcanine,
             gShinyOverworldPalette_Arcanine
         )
-        .levelUpLearnset = sNoneLevelUpLearnset,
+        .levelUpLearnset = sDarkanineLevelUpLearnset,
         .teachableLearnset = sNoneTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 100, SPECIES_NONE},
                                 {EVO_ITEM, ITEM_MOOMOO_MILK, SPECIES_NONE}),

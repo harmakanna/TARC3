@@ -37,6 +37,36 @@ VirtualCity_Superstore1F_CapnChinoPreQuest::
 	msgbox VirtualCity_Superstore1F_Text_CapnChinoPreQuest, MSGBOX_NPC
 	end
 
+VirtualCity_Superstore1F_EventScript_Artist::
+	msgbox VirtualCity_Superstore1F_Text_Artist, MSGBOX_NPC
+	end
+
+VirtualCity_Superstore1F_EventScript_Bard::
+	msgbox VirtualCity_Superstore1F_Text_Bard, MSGBOX_NPC
+	end
+
+VirtualCity_Superstore1F_EventScript_BaristaIdol::
+	msgbox VirtualCity_Superstore1F_Text_BaristaIdol, MSGBOX_NPC
+	end
+
+VirtualCity_Superstore1F_Text_BaristaIdol:
+	.string "Hee hee! Let me fill you up with\n"
+	.string "BETTER's top-of-its-class hot cocoa!\p"
+	.string "The best treat to shop our truly\n"
+	.string "SUPER store!$"
+
+VirtualCity_Superstore1F_Text_Bard:
+	.string "Oh, the hot chocolate here is\n"
+	.string "absolutely SUBLIME!\p"
+	.string "Don't let any cheapskate tell you\n"
+	.string "it's trash! Give it a try!$"
+
+VirtualCity_Superstore1F_Text_Artist:
+	.string "What is this FILTH!?\p"
+	.string "Can a man not enjoy a nice cup of\n"
+	.string "hot chocolate!?\p"
+	.string "The drinks here STINK!$"
+	
 VirtualCity_Superstore1F_CapnChinoDefeated:
 	.string "Grrr…$"
 

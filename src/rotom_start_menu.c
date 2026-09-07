@@ -45,6 +45,7 @@
 #include "constants/songs.h"
 #include "constants/weather.h"
 
+#include "fldeff_misc.h"
 #include "quests.h"
 #include "tarc_misc.h"
 #include "field_screen_effect.h"
@@ -217,6 +218,8 @@ static void RotomPhone_StartMenu_SelectedFunc_Daycare(void);
 static void RotomPhone_StartMenu_SelectedFunc_Quests(void);
 static void RotomPhone_StartMenu_SelectedFunc_ExitVR(void);
 static void RotomPhone_StartMenu_SelectedFunc_PokemonStorage(void);
+
+static EWRAM_DATA bool8 isExitingVR = FALSE;
 
 static bool32 UseFlipPhone(void)
 {
@@ -2192,9 +2195,28 @@ static void RotomPhone_OverworldMenu_DestroySprites(void)
     }
 }
 
+static void Task_ExitVr(u8 taskId)
+{
+    switch (gTasks[taskId].data[0])
+    {
+    case 0:
+        PlaySE(SE_PC_OFF);
+        ComputerScreenCloseEffect(5, 0, 0);
+        gTasks[taskId].data[0]++;
+        break;
+    case 1:
+        if (!IsComputerScreenCloseEffectActive())
+        {
+            DoWarp();
+            DestroyTask(taskId);
+        }
+    }
+}
+
 static void RotomPhone_OverworldMenu_ExitAndClearTilemap(void)
 {
     u32 i;
+
     u8 *buf = GetBgTilemapBuffer(0);
 
     RotomPhone_OverworldMenu_RemoveWindows();
@@ -2215,9 +2237,20 @@ static void RotomPhone_OverworldMenu_ExitAndClearTilemap(void)
         sRotomPhone_StartMenu = NULL;
     }
 
+    if (isExitingVR)
+    {
+        isExitingVR = FALSE;
+        u8 taskId = CreateTask(Task_ExitVr, 0);
+        gTasks[taskId].data[0] = 0;
+        return;
+        
+    }
+
     ReleaseComfyAnims();
     ScriptUnfreezeObjectEvents();  
     UnlockPlayerFieldControls();
+
+
 }
 
 static void RotomPhone_StartMenu_DoCleanUpAndChangeCallback(MainCallback callback)
@@ -2379,7 +2412,6 @@ static void RotomPhone_OverworldMenu_HandleDPAD(u8 taskId)
     
     gComfyAnims[tPhoneHighlightComfyAnimId].config.data.spring.to = Q_24_8(FADE_COLOUR_MAX);
     gComfyAnims[tPhoneHighlightComfyAnimId].position = 0;
-    DebugPrintf("RotomPhone_OverworldMenu_HandleDPAD %d", nextIndex);
     menuSelectedOverworld = sRotomPhone_StartMenu->menuOverworldOptions[nextIndex];
     if (UseFlipPhone())
         tRotomMessageSoundEffect = SE_CLICK;
@@ -2515,7 +2547,7 @@ static void Task_RotomPhone_OverworldMenu_HandleMainInput(u8 taskId)
         {
             if (menuSelectedOverworld == RP_MENU_ROTOM_REALITY)
                 FadeScreen(FADE_TO_WHITE, 0);
-            else if (menuSelectedOverworld != RP_MENU_SAVE && menuSelectedOverworld != RP_MENU_FLAG && menuSelectedOverworld != RP_MENU_CLOCK)
+            else if (menuSelectedOverworld != RP_MENU_SAVE && menuSelectedOverworld != RP_MENU_FLAG && menuSelectedOverworld != RP_MENU_CLOCK && menuSelectedOverworld != RP_MENU_EXIT_VR)
                 FadeScreen(FADE_TO_BLACK, 0);
             
             PlaySE(SE_BALL_TRAY_ENTER);
@@ -4145,9 +4177,10 @@ static void RotomPhone_StartMenu_SelectedFunc_Quests(void)
 
 static void RotomPhone_StartMenu_SelectedFunc_ExitVR(void)
 {
+    sRotomPhone_StartMenu->menuOverworldLoading = FALSE;
     SetWarpDestination(1, 8, -1, 5, 2);
-    DoWarp();
     ResetInitialPlayerAvatarState();
+    isExitingVR = TRUE;
     u8 taskId = FindTaskIdByFunc(Task_RotomPhone_OverworldMenu_HandleMainInput);
     gTasks[taskId].func = Task_RotomPhone_OverworldMenu_RotomShutdown;
     RotomPhone_StartMenu_RotomShutdownPreparation(taskId, TRUE);

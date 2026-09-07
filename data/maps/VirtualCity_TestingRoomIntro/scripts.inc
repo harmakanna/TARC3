@@ -39,25 +39,21 @@ Speaker_Byron::
 	.string "Byron$"
 
 
-
+@Set your flags in new_game.inc rather than everything right at the start here. I added all of them
+@to that file for less clutter.
 VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
-	setflag FLAG_SYS_B_DASH
-	setflag FLAG_SYS_POKEMON_GET
-	setflag FLAG_SYS_NATIONAL_DEX
-	setflag FLAG_HIDE_ACT_II_INTRO_CHARS
-	setflag FLAG_HIDE_ACT_II_HARRIET
-	setflag FLAG_ACT_II_HIDE_HARRIET_PREBATTLE
-	setflag FLAG_ACT_II_HIDE_ERNEST_PREBATTLE
-	setflag FLAG_ACT_III_HIDE_BEDROOM_LOLA
-	setflag FLAG_ACT_III_HIDE_BEDROOM_FRIENDS
 	setflag B_FLAG_NO_WHITEOUT
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
-
+	setflag FLAG_SYS_B_DASH
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
 	@setflag FLAG_BADGE08_GET
+
+	@ DO SETFLAGS IN NEW_GAME.INC!!! WAY EASIER TO TRACK!!!
+
 	@@more setflags TOFOLD, set healing place, etc. etc.
 
 	@----------------------------------------------------
 	@setvar VAR_PETALBURG_CITY_STATE, 22
+	@clearflag FLAG_SYS_PREVENT_MAP_FADE
 	@givemon SPECIES_ARCANINE, 50
 	@givemon SPECIES_ARCANINE, 50
 	@givemon SPECIES_ARCANINE, 50
@@ -70,6 +66,7 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	@----------------------------------------------------
 	@setvar VAR_PETALBURG_CITY_STATE, 10
 	@setflag FLAG_DARKANINE_COMPLETE
+	@clearflag FLAG_SYS_PREVENT_MAP_FADE
 	@@ Skipping traveling sequence for now TOFOLD
 	@warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT, 1, 3
 	@waitstate
@@ -79,18 +76,27 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	@----------------------------------------------------
 
 
+	special SpawnCameraObject
+	applymovement LOCALID_CAMERA, VirtualCity_TestingRoomIntro_CameraPositioning
+	waitmovement 0
+	special RemoveCameraObject
 	removeobject LOCALID_DARKANINES_BALL
+	clearflag FLAG_SYS_PREVENT_MAP_FADE
 	removeobject LOCALID_ARCANINE
 	fadescreenspeed FADE_FROM_BLACK, 2
 
 	@@ TOFOLD Transition Graphic
 
-	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro01, Speaker_Minh, DIR_SOUTH
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro02, Speaker_Sophie, DIR_NORTH
+	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro01, Speaker_Minh, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro02, Speaker_Sophie, DIR_EAST
+	closemessage
+	playse SE_PIN
 	applymovement LOCALID_MINH, Common_Movement_ExclamationMark
-	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro03, Speaker_Minh, DIR_SOUTH
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro04, Speaker_Sophie, DIR_NORTH
-	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro05, Speaker_Minh, DIR_SOUTH
+	waitse
+	delay 60
+	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro03, Speaker_Minh, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro04, Speaker_Sophie, DIR_EAST
+	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro05, Speaker_Minh, DIR_WEST
 
 	addobject LOCALID_DARKANINES_BALL
 	delay 10
@@ -99,12 +105,15 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	addobject LOCALID_ARCANINE
 	delay 40
 
-	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro06, Speaker_Minh, DIR_SOUTH
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro07, Speaker_Sophie, DIR_NORTH
-	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro08, Speaker_Minh, DIR_SOUTH
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro09, Speaker_Sophie, DIR_NORTH
-	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro10, Speaker_Minh, DIR_SOUTH
-
+	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro06, Speaker_Minh, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro07, Speaker_Sophie, DIR_EAST
+	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro08, Speaker_Minh, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro09, Speaker_Sophie, DIR_EAST
+	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro10, Speaker_Minh, DIR_WEST
+	closemessage
+	playse SE_PIN
+	applymovement LOCALID_MINH, Common_Movement_ExclamationMark
+	waitse
 	playse SE_NOTE_G
 	waitse
 	playse SE_NOTE_C
@@ -114,8 +123,8 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	playse SE_NOTE_D
 	waitse
 
-	speak LOCALID_GUARD, VirtualCity_TestingRoomIntro_Text_Intro11, Speaker_Announcement, DIR_NORTH 
-	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro12, Speaker_Minh, DIR_SOUTH
+	speak LOCALID_GUARD, VirtualCity_TestingRoomIntro_Text_Intro11, Speaker_Announcement, DIR_EAST 
+	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro12, Speaker_Minh, DIR_WEST
 
 	removeobject LOCALID_ARCANINE
 	addobject LOCALID_DARKANINES_BALL
@@ -151,10 +160,12 @@ VirtualCity_TestingRoomIntro_Eventscript_Minh::
 
 	goto_if_unset FLAG_DARKANINE_BATTLE_1, VirtualCity_TestingRoomIntro_Eventscript_FirstBattle
 	goto_if_unset FLAG_DARKANINE_BATTLE_2, VirtualCity_TestingRoomIntro_Eventscript_SecondBattle
-	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_SubsequentBattleStart, Speaker_Minh, DIR_SOUTH
+	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_SubsequentBattleStart, Speaker_Minh, DIR_WEST
 	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE, 0, VirtualCity_TestingRoomIntro_Text_SubsequentBattleEndWin, VirtualCity_TestingRoomIntro_Text_SubsequentBattleEndLose
 	special HealPlayerParty
 	setspeaker Speaker_Minh
+
+VirtualCity_TestingRoomIntro_EventScript_AdjustDarkanine::
 	msgbox VirtualCity_TestingRoomIntro_Text_AdjustDarkanine, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine
     goto_if_eq VAR_RESULT, YES, VirtualCity_TestingRoomIntro_Eventscript_Minh
@@ -162,27 +173,27 @@ VirtualCity_TestingRoomIntro_Eventscript_Minh::
 
 VirtualCity_TestingRoomIntro_Eventscript_StatsIncorrect:
 	setspeaker Speaker_Minh
-	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_WrongAdjustment, Speaker_Minh, DIR_SOUTH
+	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_WrongAdjustment, Speaker_Minh, DIR_WEST
 	end
 
 VirtualCity_TestingRoomIntro_Eventscript_FirstBattle:
 	setflag FLAG_DARKANINE_BATTLE_1
-	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_FirstBattleStart, Speaker_Minh, DIR_SOUTH
-	@trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE, 0, VirtualCity_TestingRoomIntro_Text_FirstBattleEndWin, VirtualCity_TestingRoomIntro_Text_FirstBattleEndLose
+	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_FirstBattleStart, Speaker_Minh, DIR_WEST
+	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE, 0, VirtualCity_TestingRoomIntro_Text_FirstBattleEndWin, VirtualCity_TestingRoomIntro_Text_FirstBattleEndLose
 	setspeaker Speaker_Minh
 	msgbox VirtualCity_TestingRoomIntro_Text_AdjustDarkanine, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine
-    goto_if_eq VAR_RESULT, YES, VirtualCity_TestingRoomIntro_Eventscript_Minh
+    goto_if_eq VAR_RESULT, YES, VirtualCity_TestingRoomIntro_EventScript_AdjustDarkanine
 	end
 
 VirtualCity_TestingRoomIntro_Eventscript_SecondBattle:
 	setflag FLAG_DARKANINE_BATTLE_2
-	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_SecondBattleStart, Speaker_Minh, DIR_SOUTH
+	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_SecondBattleStart, Speaker_Minh, DIR_WEST
 	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE, 0, VirtualCity_TestingRoomIntro_Text_SecondBattleEndWin, VirtualCity_TestingRoomIntro_Text_SecondBattleEndLose
 	setspeaker Speaker_Minh
 	msgbox VirtualCity_TestingRoomIntro_Text_AdjustDarkanine, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine
-    goto_if_eq VAR_RESULT, YES, VirtualCity_TestingRoomIntro_Eventscript_Minh
+    goto_if_eq VAR_RESULT, YES, VirtualCity_TestingRoomIntro_EventScript_AdjustDarkanine
 	end
 
 EventScript_End:
@@ -190,8 +201,8 @@ EventScript_End:
 
 VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine:
 	msgbox VirtualCity_TestingRoomIntro_Text_ConfirmDarkanine, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_Eventscript_Minh
-	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_DarkanineConfirmed, Speaker_Minh, DIR_SOUTH
+	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_EventScript_AdjustDarkanine
+	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_DarkanineConfirmed, Speaker_Minh, DIR_WEST
 	delay 100
 	playse SE_PC_LOGIN
 	waitse
@@ -217,6 +228,12 @@ VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine:
 
 
 
+VirtualCity_TestingRoomIntro_CameraPositioning::
+	walk_faster_right
+	walk_faster_right
+	walk_faster_down
+	step_end
+
 VirtualCity_TestingRoomIntro_Text_Intro01:
 	.string "Are.\p"
 	.string "You.\p"
@@ -229,7 +246,7 @@ VirtualCity_TestingRoomIntro_Text_Intro02:
 	.string "Pokemon tonight?$"
 
 VirtualCity_TestingRoomIntro_Text_Intro03:
-	.string "What? No! Sophieeeee!\n"
+	.string "What? No!\p Sophieeeee!\p"
 	.string "Ugh, you're so mean!\p"
 	.string "I mean, I'm excited for that too… but\n"
 	.string "you know what I'm talking about!\p"
@@ -238,11 +255,12 @@ VirtualCity_TestingRoomIntro_Text_Intro03:
 VirtualCity_TestingRoomIntro_Text_Intro04:
 	.string "Heh, just teasin' ya.\p"
 	.string "I'm excited to see it, really, because\n"
-	.string "you're just so talented.$"
+	.string "you're just SOOOO talented.$"
 
 VirtualCity_TestingRoomIntro_Text_Intro05:
-	.string "I am quite talented, aren't I? See, this\n"
-	.string "is why I can never stay mad at you.\p"
+	.string "I know, aren't I!?\p"
+	@.string "See, this\n"
+	@.string "is why I can never stay mad at you.\p"
 	.string "Well then, without further ado…$"
 
 VirtualCity_TestingRoomIntro_Text_Intro06:
@@ -269,8 +287,8 @@ VirtualCity_TestingRoomIntro_Text_Intro09:
 	.string "Ugh…$"
 
 VirtualCity_TestingRoomIntro_Text_Intro10:
-	.string "I know. But look on the bright side -\n"
-	.string "even though you're a barbarian, you're\l"
+	.string "I know. But look on the bright side!\p"
+	.string "Even though you're a barbarian, you're\n"
 	.string "the best balancer working here.\p"
 	.string "That's why they paired you up with\n"
 	.string "the best artist, obvi-$"
@@ -285,9 +303,10 @@ VirtualCity_TestingRoomIntro_Text_Intro11:
 
 
 VirtualCity_TestingRoomIntro_Text_Intro12:
-	.string "What are the odds that the one time\n"
-	.string "I'm complimenting myself, a Rotom\l"
-	.string "Phone ad interrupts it? Hmph.\p"
+	.string "Ugh, ANOTHER Rotom phone ad ping?\n"
+	@.string "I'm complimenting myself, a Rotom\l"
+	@.string "Phone ad interrupts it?"" 
+	.string "Hmph.\p"
 	.string "Anyways, work your magic on Darkanine,\n"
 	.string "and then we can run a simulator battle.\p"
 	.string "I got the meta's top three Pokemon you\n"

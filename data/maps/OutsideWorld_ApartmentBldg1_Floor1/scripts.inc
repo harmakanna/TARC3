@@ -35,3 +35,14 @@ OutsideWorld_ApartmentBldg1_Floor1_Move_Camera::
 	walk_up
 	walk_up
 	step_end
+
+AptBldg_Floor1_Man::
+	msgbox AptBldg_Floor1_Text_Man, MSGBOX_NPC
+	end
+
+AptBldg_Floor1_Text_Man:
+	.string "No mail from her today…\p"
+	.string "I wish I could afford a\n"
+	.string "BETTER Place subscription…\p"
+	.string "The post office is barely\n"
+	.string "functional these days.$"
