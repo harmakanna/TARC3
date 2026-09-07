@@ -114,7 +114,6 @@ EventScript_ResetAllBerries::
 
 EventScript_ResetAllMapFlags::
 	setflag FLAG_SYS_PREVENT_MAP_FADE
-	setflag FLAG_SYS_B_DASH
 	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_SYS_NATIONAL_DEX
 	setflag FLAG_HIDE_ACT_II_INTRO_CHARS

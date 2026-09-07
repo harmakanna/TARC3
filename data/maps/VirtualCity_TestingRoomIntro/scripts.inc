@@ -43,6 +43,7 @@ Speaker_Byron::
 @to that file for less clutter.
 VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	setflag B_FLAG_NO_WHITEOUT
+	setflag FLAG_SYS_B_DASH
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
 	@setflag FLAG_BADGE08_GET
 
