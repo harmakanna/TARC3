@@ -30,13 +30,45 @@ Speaker_Ernest::
 Speaker_Lola::
 	.string "Lola$"
 
-
-
 Speaker_Announcement::
 	.string "Announcement$"
 
 Speaker_Byron::
 	.string "Byron$"
+
+
+
+
+
+OT_SoPhi99::
+	.string "SoPhi99$"
+
+OT_Lola::
+	.string "Lola$"
+
+OT_Ledian::
+	.string "Buggin8$"
+
+OT_Design::
+	.string "DESIGN$"
+
+OT_Research::
+	.string "Researc$"
+
+OT_Contentment::
+	.string "ConTENT$"
+
+OT_EarlGrey::
+	.string "EarlGry$"
+
+Nickname_Ex::
+	.string "Ex$"
+
+Nickname_Dreams::
+	.string "Dreams$"
+
+
+
 
 
 @Set your flags in new_game.inc rather than everything right at the start here. I added all of them
@@ -124,6 +156,8 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	waitse
 
 	speak LOCALID_GUARD, VirtualCity_TestingRoomIntro_Text_Intro11, Speaker_Announcement, DIR_EAST 
+	closemessage
+	delay 50
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro12, Speaker_Minh, DIR_WEST
 
 	removeobject LOCALID_ARCANINE
@@ -149,14 +183,13 @@ VirtualCity_TestingRoomIntro_Eventscript_Minh::
 
 
 	clearparty
-	givemon SPECIES_DARKANINE, 50
-
+	givemon SPECIES_DARKANINE, 50, otName=OT_Design
 	call EventScript_AddRandomMod
 	call EventScript_AddRandomMod
 
-	clonefirstmon
-	givemon SPECIES_ARCANINE, 50
-	givemon SPECIES_ARCANINE, 50
+	@clonefirstmon
+	givemon SPECIES_ARCANINE, 50, otName=OT_Design
+	givemon SPECIES_EXCADRILL, 50, nature=NATURE_JOLLY, gender=MON_MALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_EARTHQUAKE, move2=MOVE_ROCK_SLIDE, move3=MOVE_SWORDS_DANCE, move4=MOVE_PROTECT, nickname=Nickname_Ex, otName=OT_SoPhi99
 
 	goto_if_unset FLAG_DARKANINE_BATTLE_1, VirtualCity_TestingRoomIntro_Eventscript_FirstBattle
 	goto_if_unset FLAG_DARKANINE_BATTLE_2, VirtualCity_TestingRoomIntro_Eventscript_SecondBattle
@@ -218,7 +251,7 @@ VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine:
 
 
 	clearparty
-	givemon SPECIES_EXCADRILL,  50
+	givemon SPECIES_EXCADRILL, 50, nature=NATURE_JOLLY, gender=MON_MALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_EARTHQUAKE, move2=MOVE_ROCK_SLIDE, move3=MOVE_SWORDS_DANCE, move4=MOVE_PROTECT, nickname=Nickname_Ex, otName=OT_SoPhi99
 	warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT_BEDROOM, 5, 2
 	waitstate
 	end
@@ -237,7 +270,7 @@ VirtualCity_TestingRoomIntro_CameraPositioning::
 VirtualCity_TestingRoomIntro_Text_Intro01:
 	.string "Are.\p"
 	.string "You.\p"
-	.string "{COLOR RED}Ready?\p"
+	.string "Ready?\p"
 	.string "Beauty. Elegance. Genius.$"
 
 VirtualCity_TestingRoomIntro_Text_Intro02:
@@ -294,16 +327,16 @@ VirtualCity_TestingRoomIntro_Text_Intro10:
 	.string "the best artist, obvi-$"
 
 VirtualCity_TestingRoomIntro_Text_Intro11:
-	.string "DO YOU NEED A CHANGE OF SCENERY?\p"
-	.string "COME VISIT THE GREENEST GARDEN AND\n"
+	.string "{COLOR BLUE}DO YOU NEED A CHANGE OF SCENERY?\p"
+	.string "COME VISIT THE {COLOR GREEN}BETTER {COLOR BLUE}GARDEN AND\n"
 	.string "EXPERIENCE OUR STATE-OF-THE-ART\l"
 	.string "AUTUMN WONDERLAND!\p"
-	.string "THE COMPLIMENTARY F.R.E.S.H. BREATHING\n"
+	.string "THE COMPLIMENTARY {COLOR GREEN}F.R.E.S.H. {COLOR BLUE}BREATHING\n"
 	.string "EXPERIENCE LEAVES YOU BREATHLESS!$"
 
 
 VirtualCity_TestingRoomIntro_Text_Intro12:
-	.string "Ugh, ANOTHER Rotom phone ad ping?\n"
+	.string "Ugh, ANOTHER Rotom Phone ad ping?\n"
 	@.string "I'm complimenting myself, a Rotom\l"
 	@.string "Phone ad interrupts it?"" 
 	.string "Hmph.\p"

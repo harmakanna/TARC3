@@ -62,7 +62,7 @@ VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger3:
 VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger4:
 	.string "What?! Wait, it's done!\p"
 	.string "He finished working on it at the Casino?\n"
-	.string "Now that's BETTER behavior right there.\p"
+	.string "Now that's {COLOR GREEN}BETTER{COLOR DARK_GRAY} behavior right there.\p"
 	.string "So, you've balanced it already, I assume?$"
 
 VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger5:

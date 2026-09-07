@@ -147,7 +147,7 @@ VirtualCity_Casino_EventScript_SuaveMan::
 	end
 
 VirtualCity_Casino_Text_SuaveMan:
-	.string "Ohohohon… BETTER knowz how too\n"
+	.string "Ohohohon… {COLOR GREEN}BETTER{COLOR DARK_GRAY} knowz how too\n"
 	.string "treet itz honorred guestz…$"
 	.string "What zey don't tell you eez zat\n"
 	.string "ze more membership duez you pay,\l"
@@ -244,7 +244,7 @@ VirtualCity_Casino_Text_SophieStopTalkingClanker:
 VirtualCity_Casino_Text_WaitressIdol2:
 	.string "Ooooo, you're playin' {COLOR RED}hard-to-get!!!\p"
 	.string "{COLOR DARK_GRAY}Remember, it's never too\n"
-	.string "late to start your journey with BETTER\n"
+	.string "late to start your journey with {COLOR GREEN}BETTER{COLOR DARK_GRAY}\n"
 	.string "casino!!!\p"
 	.string "Just say the word!$"
 
