@@ -332,7 +332,7 @@ VirtualCity_Garden_Text_YouReceivedLedian:
 VirtualCity_Garden_LedianLoverDejected:
 	.string "There's still always hope,\n"
 	.string "right?\p"
-	.string "… {PAUSE 50}… {PAUSE 50}… {PAUSE 50}Right?$"
+	.string "… {PAUSE 50}… {PAUSE 50}… {PAUSE 50}{FONT_SMALL}Right?$"
 
 VirtualCity_Garden_Text_Togepi_ImBaby:
 	.string "im baby$"
@@ -365,8 +365,8 @@ VirtualCity_Garden_Text_Plump_EveryonesACritic:
 
 VirtualCity_Garden_Text_Plump_LedianStinks:
 	.string "LEDIAN!?!?\p"
-	.string "THAT POKéMON STINKS!\p"
-	.string "GET OUTTA MY FACE WITH THAT GARBAGE!\p"
+	.string "THAT POKéMON {COLOR GREEN}STINKS!\p"
+	.string "{COLOR DARK_GRAY}GET OUTTA MY FACE WITH THAT GARBAGE!\p"
 	.string "LET'S GET ANOTHER FLYGON WOOOOOO!$"
 
 VirtualCity_Garden_Text_OldWoman_WhyLedian:
@@ -386,13 +386,13 @@ VirtualCity_Garden_Text_OldWoman_SpecialBulk:
 	.string "Special bulk…?\p"
 	.string "Sure, I GUESS 110 base SpDef isn't\n"
 	.string "that bad.\p"
-	.string "{FONT_SMALL} For a bug…$"
+	.string "{FONT_SMALL}For a bug…$"
 
 VirtualCity_Garden_Text_OldWoman_PunchesTickle:
 	.string "It's punches tickle!?!?\p"
 	.string "Well, I GUESS you could get a good\n"
 	.string "massage from such a weak punch…?\p"
-	.string "{FONT_SMALL} Weirdo…$"
+	.string "{FONT_SMALL}Weirdo…$"
 
 VirtualCity_Garden_Text_OldWoman_ImYoung:
 	.string "Everyone treats you so differently\n"

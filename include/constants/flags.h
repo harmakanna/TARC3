@@ -61,7 +61,7 @@
 #define FLAG_FOUGHT_EARL_GRAY    0x27 // Unused Flag
 #define FLAG_PRESENTED_EARLS_MESSAGE    0x28 // Unused Flag
 #define FLAG_DEFEATED_CAPN_CHINO    0x29 // Unused Flag
-#define FLAG_UNUSED_0x02A    0x2A // Unused Flag
+#define FLAG_HIDE_OUTSIDE_WORLD_PROLOGUE    0x2A // Unused Flag
 #define FLAG_UNUSED_0x02B    0x2B // Unused Flag
 #define FLAG_UNUSED_0x02C    0x2C // Unused Flag
 #define FLAG_UNUSED_0x02D    0x2D // Unused Flag
