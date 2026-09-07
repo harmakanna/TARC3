@@ -296,6 +296,20 @@ const u16 gObjectEventPal_QuintyPlump[] = INCGFX_U16("graphics/object_events/pal
 const u16 gObjectEventPal_QuintyPlumpReflection[] = INCGFX_U16("graphics/object_events/palettes/quinty_plump_reflection.pal", ".gbapal");
 const u32 gObjectEventPic_Kumatora[] = INCGFX_U32("graphics/object_events/pics/people/kumatora.png", ".4bpp", "-mwidth 4 -mheight 4");
 const u16 gObjectEventPal_Kumatora[] = INCGFX_U16("graphics/object_events/palettes/kumatora.pal", ".gbapal");
+const u32 gObjectEventPic_IdolPink[] = INCGFX_U32("graphics/object_events/pics/people/idol_pink.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u16 gObjectEventPal_IdolPink[] = INCGFX_U16("graphics/object_events/palettes/idol_pink.pal", ".gbapal");
+
+const u32 gObjectEventPic_IdolYellow[] = INCGFX_U32("graphics/object_events/pics/people/idol_yellow.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u16 gObjectEventPal_IdolYellow[] = INCGFX_U16("graphics/object_events/palettes/idol_yellow.pal", ".gbapal");
+
+const u32 gObjectEventPic_IdolBlue[] = INCGFX_U32("graphics/object_events/pics/people/idol_blue.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u16 gObjectEventPal_IdolBlue[] = INCGFX_U16("graphics/object_events/palettes/idol_blue.pal", ".gbapal");
+const u32 gObjectEventPic_FairyTaleGirl[] = INCGFX_U32("graphics/object_events/pics/people/fairy_tale_girl.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u16 gObjectEventPal_FairyTaleGirl[] = INCGFX_U16("graphics/object_events/palettes/fairy_tale_girl.pal", ".gbapal");
+const u32 gObjectEventPic_OfficerM[] = INCGFX_U32("graphics/object_events/pics/people/officer_m.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u16 gObjectEventPal_OfficerM[] = INCGFX_U16("graphics/object_events/palettes/officer_m.pal", ".gbapal");
+const u32 gObjectEventPic_OfficerF[] = INCGFX_U32("graphics/object_events/pics/people/officer_f.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u16 gObjectEventPal_OfficerF[] = INCGFX_U16("graphics/object_events/palettes/officer_f.pal", ".gbapal");
 const u32 gFieldEffectObjectPic_ShadowSmall[] = INCGFX_U32("graphics/field_effects/pics/shadow_small.png", ".4bpp");
 const u32 gFieldEffectObjectPic_ShadowMedium[] = INCGFX_U32("graphics/field_effects/pics/shadow_medium.png", ".4bpp");
 const u32 gFieldEffectObjectPic_ShadowLarge[] = INCGFX_U32("graphics/field_effects/pics/shadow_large.png", ".4bpp");
