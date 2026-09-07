@@ -8,7 +8,21 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_OnFrame::
 
 
 
+
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_LolaConfronts::
+	addobject LOCALID_BEDROOM_LOLACONFRONT
+	clearflag FLAG_SYS_PREVENT_MAP_FADE
+	fadescreenspeed FADE_FROM_BLACK, 2
+
+    applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	waitmovement 0
+	delay 10
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+    waitse
+    delay 60
+
+
 	speak LOCALID_BEDROOM_LOLACONFRONT, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaConfronts1, Speaker_Lola, DIR_EAST
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaConfronts2, Speaker_Sophie, DIR_WEST
 	speak LOCALID_BEDROOM_LOLACONFRONT, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaConfronts3, Speaker_Lola, DIR_EAST
@@ -234,7 +248,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer11:
 
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer12:
 	.string "You think I'm going to sit back and let\n"
-	.string "you destabilize BETTER without me?\p"
+	.string "you destabilize {COLOR GREEN}BETTER{COLOR DARK_GRAY} without me?\p"
 	.string "Dreams has a nasty bite. Put it to\n"
 	.string "good use.\p"
 
@@ -287,7 +301,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaDontTellHer5:
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_Mission1:
 	.string "Back to the mission.\p"
 	.string "The new identity is ready, and I set\n"
-	.string "it to spawn in the BETTER office.\p"
+	.string "it to spawn in the {COLOR GREEN}BETTER{COLOR DARK_GRAY} Office.\p"
 	.string "You should be able to open the eastern\n"
 	.string "security door and go up the stairs.\p"
 	.string "There's probably a lot of guards there,\n"

@@ -27,6 +27,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk02Sophie, Speaker_Sophie, DIR_SOUTH
 	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie01
 	speak LOCALID_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk03Ernest, Speaker_Ernest, DIR_NORTH
+	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie001
 	applymovement LOCALID_LOLA, Common_Movement_FaceDown
 	speak LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk04Harriet, Speaker_Harriet, DIR_NORTH
 	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie1
@@ -60,13 +61,17 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
 	playse SE_BALL_OPEN
 	removeobject LOCALID_SNUBBULLS_BALL
 	addobject LOCALID_SNUBBULL
+	playse SE_PIN
 	applymovement LOCALID_MINH, Common_Movement_ExclamationMark
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	applymovement LOCALID_HARRIET, Common_Movement_ExclamationMark
 	applymovement LOCALID_ERNEST, Common_Movement_ExclamationMark
 	waitse
+	delay 60
+	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_SophieBackAway
 	playmoncry SPECIES_SNUBBULL, CRY_MODE_ENCOUNTER
 	delay 40
+	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_SophieReturn
 
 	speak LOCALID_LOLA, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk6Lola, Speaker_Lola, DIR_SOUTH
 	applymovement LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh3
@@ -149,6 +154,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
 
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk19Sophie, Speaker_Sophie, DIR_SOUTH
 	speak LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk20Harriet, Speaker_Harriet, DIR_NORTH
+	closemessage
 	applymovement LOCALID_ERNEST, Common_Movement_FaceLeft
 	applymovement LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Move_Harriet4
 	delay 40
@@ -163,6 +169,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
 
 	speak LOCALID_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk21pt5Ernest, Speaker_Ernest, DIR_EAST
 	applymovement LOCALID_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Move_Ernest6
+	closemessage
 	delay 10
 	removeobject LOCALID_ERNEST
 	playse SE_DOOR
@@ -187,6 +194,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
 	delay 50
 	fadescreenspeed FADE_TO_BLACK 5
 	setvar VAR_PETALBURG_CITY_STATE, 3
+	setflag FLAG_SYS_PREVENT_MAP_FADE
 	warpsilent MAP_OUTSIDE_WORLD, 22, 20
 	waitstate
 
@@ -268,9 +276,13 @@ OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie01:
 	walk_up
 	step_end
 
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie001:
+	walk_right
+	face_up
+	step_end
+
 OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie1:
 	walk_down
-	walk_right
 	walk_right
 	walk_right
 	step_end
@@ -286,6 +298,16 @@ OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie3:
 OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie4:
 	walk_down
 	walk_right
+	walk_right
+	step_end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_SophieBackAway:
+	lock_facing_direction
+	walk_fast_left
+	unlock_facing_direction
+	step_end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_SophieReturn:
 	walk_right
 	step_end
 
@@ -517,7 +539,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk25Sophie::
 	.string "but not as skillful.$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk26Minh::
-	.string "Are you saying… does BETTER have a\n"
+	.string "Are you saying… does {COLOR GREEN}BETTER{COLOR DARK_GRAY} have a\n"
 	.string "way to make fake IRL Pokemon?!\p"
 	.string "And Lola just spent her life savings\n"
 	.string "on one, thinking it was real?!$"
@@ -531,11 +553,12 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk27Sophie::
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk28Sophie::
 	.string "We haven't seen any Pokemon in years.\n"
 	.string "Real ones, I mean.\p"
-	.string "And when we see one, it's a fake.$"
+	.string "And when we finally see one, it's a\n"
+	.string "very convincing fake.$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk29Sophie::
 	.string "Minh…\p"
-	.string "Are there even any real Pokemon left?$"
+	.string "{COLOR RED}Are there even any real Pokemon left?$"
 
 
 
@@ -632,7 +655,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_HarrietActIIIntro7::
 	.string "Aaaah! What is… Why is it unfinished?!$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_MinhActIIIntro8::
-	.string "Because it's not real. BETTER has a way\n"
+	.string "Because it's not real. {COLOR GREEN}BETTER{COLOR DARK_GRAY} has a way\n"
 	.string "to make IRL fakes now, somehow.\p"
 	.string "And they're being sold as real.$"
 

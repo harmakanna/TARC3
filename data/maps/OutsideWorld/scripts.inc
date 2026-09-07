@@ -18,6 +18,7 @@ OutsideWorld_PrologueEndScene_Final_Really::
 	addobject LOCALID_OW_MINH
 	delay 100
 	delay 100
+	clearflag FLAG_SYS_PREVENT_MAP_FADE
 	fadescreenspeed FADE_FROM_BLACK 5
 	delay 50
 	
@@ -35,8 +36,7 @@ OutsideWorld_PrologueEndScene_Final_Really::
 	closemessage
 	applymovement LOCALID_OW_MINH, OutsideWorld_Move_Minh1
 	delay 100
-	delay 100
-	delay 100
+	delay 60
 	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_Move_Sophie1
 	waitmovement 0
 	removeobject LOCALID_OW_MINH
@@ -88,6 +88,10 @@ OutsideWorld_Move_Sophie1:
 	walk_up
 	walk_up
 	face_left
+	delay_16
+	delay_16
+	delay_16
+	delay_16
 	step_end
 
 OutsideWorld_Move_Sophie2:
@@ -149,8 +153,13 @@ OutsideWorld_Script_Dealer::
 	lock
 	npc_speak Speaker_Dodgy_Man, OutsideWorld_Text_Dealer
 	playse SE_SELECT
-	player_speak OutsideWorld_Text_SophieHellNo
-	playse SE_SELECT
+	
+	@Kumatora - I think player_speak is broken? I put in the obvious workaround, but feel free to change back if it's fixed
+	setspeaker Speaker_Sophie
+	msgbox OutsideWorld_Text_SophieHellNo, MSGBOX_NPC
+
+	@player_speak OutsideWorld_Text_SophieHellNo
+	@playse SE_SELECT
 	npc_speak Speaker_Dodgy_Man, OutsideWorld_Text_DealerOkayOkay
 	closemessage
 	release
@@ -199,12 +208,12 @@ OutsideWorld_Text_ToOldMan:
 
 OutsideWorld_Text_YoungBoy:
 	.string "IM BOOOOOORED I HATE THIS\p"
-	.string "DAD BANNED ME FROM BETTER FOR A WEEK\p"
+	.string "DAD BANNED ME FROM {COLOR GREEN}BETTER{COLOR DARK_GRAY} FOR A WEEK\p"
 	.string "THERES NOTHING TO DO OUTSIDE THOUGH\p"
 	.string "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA$"
 
 OutsideWorld_Text_PurpleBoy:
-	.string "Ever since BETTER figured out how to\n"
+	.string "Ever since {COLOR GREEN}BETTER{COLOR DARK_GRAY} figured out how to\n"
 	.string "transfer essentials like groceries\l"
 	.string "and meds through the PC, every store\l"
 	.string "here have shuttered their doors.\p"
@@ -265,7 +274,7 @@ OutsideWorld_SophiePrologue3::
 
 OutsideWorld_MinhPrologue4::
 	.string "…Okay.\p"
-	.string "Whoever it is, they work for BETTER,\n"
+	.string "Whoever it is, they work for {COLOR GREEN}BETTER{COLOR DARK_GRAY},\n"
 	.string "and they've got artists.\p"
 	.string "I'll ask around with my art friends.$"
 

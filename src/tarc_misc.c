@@ -1,7 +1,7 @@
 #include "global.h"
 
 const u8 gSophieName[] = _("Sophie");
-const u8 gDigitalSophieName[] = _("Trinity");
+const u8 gDigitalSophieName[] = _("SoPhi99");
 
 bool32 IsInVirtualWorld(void)
 {

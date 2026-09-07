@@ -43,6 +43,6 @@ AptBldg_Floor1_Man::
 AptBldg_Floor1_Text_Man:
 	.string "No mail from her today…\p"
 	.string "I wish I could afford a\n"
-	.string "Better Place subscription…\p"
+	.string "{COLOR GREEN}BETTER Place{COLOR DARK_GRAY} subscription…\p"
 	.string "The post office is barely\n"
 	.string "functional these days.$"

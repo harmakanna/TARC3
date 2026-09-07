@@ -130,9 +130,55 @@ Music: Aqua
 Double Battle: No
 AI: Check Bad Move
 
-Poochyena
-Level: 32
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Inteleon (M) @ Choice Specs  
+Ability: Sniper  
+Level: 50  
+Tera Type: Water  
+EVs: 252 HP / 252 Spe  
+Timid Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Ice Beam  
+- Snipe Shot  
+- U-turn  
+- Taunt  
+
+Bayleef (M) @ Eviolite  
+Ability: Overgrow  
+Level: 50  
+Tera Type: Grass  
+EVs: 252 HP / 252 Def  
+Adamant Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Seed Bomb  
+- Leech Seed  
+- Swords Dance  
+- Knock Off  
+
+Treecko (F) @ Focus Sash  
+Ability: Overgrow  
+Level: 50  
+Tera Type: Grass  
+EVs: 248 HP / 248 Spe  
+Hasty Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Dragon Tail  
+- Leech Seed  
+- Endeavor  
+- Agility  
+
+Eevee (M) @ Custap Berry  
+Ability: Adaptability  
+Level: 50  
+Tera Type: Normal  
+EVs: 252 HP / 252 Atk  
+Naughty Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Quick Attack  
+- Hyper Voice  
+- Protect  
+- Charm  
+
+
 
 === TRAINER_RANDO2 ===
 Name: GRUNT
@@ -143,16 +189,58 @@ Music: Aqua
 Double Battle: No
 AI: Check Bad Move
 
-Zubat
-Level: 31
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Torkoal (F) @ Heat Rock  
+Ability: Drought  
+Level: 50  
+Tera Type: Fire  
+EVs: 252 HP / 252 Def / 4 SpA  
+Modest Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Eruption  
+- Heat Wave  
+- Stealth Rock  
+- Protect  
 
-Carvanha
-Level: 31
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Braixen (F) @ Choice Scarf  
+Ability: Blaze  
+Level: 50  
+Tera Type: Fire  
+EVs: 248 Def / 248 SpA / 8 Spe  
+Bold Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Sunny Day  
+- Flamethrower  
+- Psychic  
+- Trick Room  
+
+Rufflet @ Life Orb  
+Ability: Keen Eye  
+Level: 50  
+Tera Type: Normal  
+EVs: 252 Atk / 252 Spe  
+Jolly Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Sunny Day  
+- Dual Wingbeat  
+- Whirlwind  
+- Rock Slide  
+
+Klawf (M) @ Leftovers  
+Ability: Anger Shell  
+Level: 50  
+Tera Type: Rock  
+EVs: 252 HP / 4 Atk / 252 SpD  
+Brave Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Crabhammer  
+- Dig  
+- Iron Defense  
+- Swords Dance  
+
+
 
 === TRAINER_RANDO3 ===
-Name: GRUNT
+Name: StlCute44
 Class: Team Aqua
 Pic: Aqua Grunt M
 Gender: Male
@@ -160,9 +248,55 @@ Music: Aqua
 Double Battle: No
 AI: Check Bad Move
 
-Zubat
-Level: 32
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Luvdisc (F) @ Iapapa Berry  
+Ability: Swift Swim  
+Level: 50  
+Tera Type: Water  
+EVs: 252 HP / 4 SpA / 252 Spe  
+Timid Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Baby-Doll Eyes  
+- Attract  
+- Sweet Kiss  
+- Surf  
+
+Cutiefly @ Mental Herb  
+Ability: Honey Gather  
+Level: 50  
+Tera Type: Bug  
+EVs: 252 HP / 4 Atk / 252 Spe  
+Hasty Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Fake Tears  
+- Charm  
+- Magical Leaf  
+- Leech Life  
+
+Snom @ Focus Sash  
+Ability: Shield Dust  
+Level: 50  
+Tera Type: Ice  
+EVs: 252 HP / 4 Atk / 252 Def  
+Relaxed Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Bug Bite  
+- Icy Wind  
+- Pounce  
+- Protect  
+
+Teddiursa @ Leftovers  
+Ability: Quick Feet  
+Level: 50  
+Tera Type: Normal  
+EVs: 252 HP / 4 Atk / 252 SpD  
+Careful Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Play Nice  
+- Scratch  
+- Yawn  
+- Sweet Scent  
+
+
 
 === TRAINER_RANDO4 ===
 Name: GRUNT
@@ -173,9 +307,55 @@ Music: Aqua
 Double Battle: No
 AI: Check Bad Move
 
-Carvanha
-Level: 32
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Tyrogue @ Eviolite  
+Ability: Guts  
+Level: 50  
+Tera Type: Fighting  
+EVs: 252 HP / 252 Def  
+Impish Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Fake Out  
+- Mach Punch  
+- Low Sweep  
+- Helping Hand  
+
+Hitmontop @ Assault Vest  
+Ability: Intimidate  
+Level: 50  
+Tera Type: Fighting  
+EVs: 248 Atk / 248 SpD / 8 Spe  
+Adamant Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Fake Out  
+- Mach Punch  
+- Triple Axel  
+- Close Combat  
+
+Hitmonchan @ Salac Berry  
+Ability: Iron Fist  
+Level: 50  
+Tera Type: Fighting  
+EVs: 252 HP / 252 Atk / 4 Spe  
+Jolly Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Fake Out  
+- Close Combat  
+- Fire Punch  
+- Ice Punch  
+
+Hitmonlee @ Aguav Berry  
+Ability: Unburden  
+Level: 50  
+Tera Type: Fighting  
+EVs: 4 HP / 252 Atk / 252 Spe  
+Jolly Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Mach Punch  
+- Bulk Up  
+- Poison Jab  
+- High Jump Kick  
+
+
 
 === TRAINER_RANDO5 ===
 Name: GRUNT
@@ -186,12 +366,58 @@ Music: Aqua
 Double Battle: No
 AI: Check Bad Move
 
-Poochyena
-Level: 36
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Incineroar (M) @ Sitrus Berry  
+Ability: Intimidate  
+Level: 50  
+Tera Type: Fire  
+EVs: 252 HP / 252 Atk / 4 SpD  
+Adamant Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Darkest Lariat  
+- Flare Blitz  
+- Fake Out  
+- Protect  
+
+Clawitzer (F) @ Choice Specs  
+Ability: Mega Launcher  
+Level: 50  
+Tera Type: Water  
+EVs: 252 HP / 252 SpA / 4 SpD  
+Modest Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Aura Sphere  
+- Dark Pulse  
+- Dragon Pulse  
+- Water Pulse  
+
+Brambleghast @ Rocky Helmet  
+Ability: Wind Rider  
+Level: 50  
+Tera Type: Grass  
+EVs: 4 HP / 252 Atk / 252 Spe  
+Jolly Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Seed Bomb  
+- Shadow Sneak  
+- Curse  
+- Pain Split  
+
+Seviper @ Leftovers  
+Ability: Shed Skin  
+Level: 50  
+Tera Type: Poison  
+EVs: 252 HP / 4 Atk / 252 SpD  
+Careful Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Crunch  
+- Poison Jab  
+- Toxic  
+- Glare  
+
+
 
 === TRAINER_BRODUDE ===
-Name: GRUNT
+Name: BroDude69
 Class: Team Aqua
 Pic: Aqua Grunt M
 Gender: Male
@@ -199,9 +425,54 @@ Music: Aqua
 Double Battle: No
 AI: Basic Trainer
 
-Carvanha
-Level: 36
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Sableye (M) @ Sablenite  
+Ability: Prankster  
+Level: 50  
+Tera Type: Dark  
+EVs: 252 HP / 252 Def / 4 SpD  
+Impish Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Will-O-Wisp  
+- Night Shade  
+- Foul Play  
+- Fake Out  
+
+Absol (M) @ Black Glasses  
+Ability: Super Luck  
+Level: 50  
+Tera Type: Dark  
+EVs: 252 Atk / 252 Spe  
+Jolly Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Sucker Punch  
+- Brutal Swing  
+- Roar  
+- Swords Dance  
+
+Krookodile (M) @ Black Glasses  
+Ability: Intimidate  
+Level: 50  
+Tera Type: Ground  
+EVs: 4 HP / 252 Atk / 252 Spe  
+Jolly Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Earthquake  
+- Crunch  
+- Knock Off  
+- Bulk Up  
+
+Hydreigon (M) @ Black Glasses  
+Ability: Levitate  
+Level: 50  
+Tera Type: Dark  
+EVs: 252 Atk / 252 SpA / 4 Spe  
+Mild Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Nasty Plot  
+- Sucker Punch  
+- Dark Pulse  
+- Dragon Pulse  
+
 
 === TRAINER_WVDDIE ===
 Name: WVDDIE
@@ -214,6 +485,8 @@ AI: Basic Trainer
 
 Eiscue @ Sitrus Berry  
 Ability: Ice Face  
+Level: 50  
+Tera Type: Ice  
 EVs: 4 HP / 252 Atk / 252 Spe  
 Adamant Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -224,6 +497,8 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Electrode @ Rocky Helmet  
 Ability: Static  
+Level: 50  
+Tera Type: Electric  
 EVs: 4 HP / 252 Def / 252 SpD  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
 - Thunderbolt  
@@ -233,6 +508,8 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Sylveon @ Throat Spray  
 Ability: Pixilate  
+Level: 50  
+Tera Type: Fairy  
 EVs: 116 HP / 140 SpA / 252 Spe  
 Modest Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -241,8 +518,10 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Wish  
 - Psychic  
 
-Blissey (F) @ Focus Sash  
+Blissey @ Focus Sash  
 Ability: Serene Grace  
+Level: 50  
+Tera Type: Normal  
 EVs: 252 SpA / 252 SpD / 4 Spe  
 Modest Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -295,9 +574,55 @@ Music: Aqua
 Double Battle: No
 AI: Basic Trainer
 
-Poochyena
-Level: 9
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Dratini @ Eviolite  
+Ability: Hospitality  
+Level: 50  
+Tera Type: Dragon  
+EVs: 252 HP / 4 Atk / 252 SpD  
+Careful Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Shed Tail  
+- Extreme Speed  
+- Haze  
+- Protect  
+
+Victini @ Life Orb  
+Ability: Hospitality  
+Level: 50  
+Tera Type: Psychic  
+EVs: 248 HP / 8 Atk / 252 SpD  
+Sassy Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- V-create  
+- Psychic  
+- Recover  
+- Imprison  
+
+Tyranitar @ Leftovers  
+Ability: Hospitality  
+Level: 50  
+Tera Type: Rock  
+EVs: 252 HP / 4 Atk / 252 Def  
+Impish Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Crunch  
+- Rock Slide  
+- Roar  
+- Protect  
+
+Xurkitree @ Magnet  
+Ability: Hospitality  
+Level: 50  
+Tera Type: Electric  
+EVs: 4 HP / 252 SpA / 252 Spe  
+Timid Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Volt Switch  
+- Tail Glow  
+- Energy Ball  
+- Protect  
+
+
 
 === TRAINER_BYRON1 ===
 Name: MARCEL
@@ -360,9 +685,43 @@ Music: Aqua
 Double Battle: No
 AI: Check Bad Move
 
-Carvanha
-Level: 36
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Shedinja @ Metronome  
+Ability: Sturdy  
+Level: 50  
+Tera Type: Bug  
+EVs: 252 Atk / 252 Spe  
+Jolly Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Swords Dance  
+- X-Scissor  
+- Poltergeist  
+- Sucker Punch  
+
+Pidgey  
+Ability: Keen Eye  
+Level: 50  
+Tera Type: Normal  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Peck  
+- Sand Attack  
+
+Zigzagoon  
+Ability: Pickup  
+Level: 50  
+Tera Type: Normal  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Tackle  
+- Growl  
+
+Flabebé  
+Ability: Flower Veil  
+Level: 50  
+Tera Type: Fairy  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Charm  
+- Fairy Wind  
+
+
 
 === TRAINER_DECLAN ===
 Name: DECLAN

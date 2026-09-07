@@ -172,7 +172,7 @@ VirtualCity_Hotel_YourRoom_Text_ResolutionTalk2Ernest::
 	.string "But what can we even do?$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk3Harriet::
-	.string "BETTER will just censor us, or worse,\n"
+	.string "{COLOR GREEN}BETTER{COLOR DARK_GRAY} will just censor us, or worse,\n"
 	.string "if we try to tell people.$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk4Sophie::
@@ -251,7 +251,7 @@ VirtualCity_Hotel_YourRoom_Text_ResolutionTalk18Ernest::
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk19Minh::
 	.string "Harriet, isn't that cheater exec still\n"
-	.string "the BETTER champion?$"
+	.string "the {COLOR GREEN}BETTER{COLOR DARK_GRAY} Champion?$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk20Harriet::
 	.string "Uh, yeah… no one's ever been able to\n"
