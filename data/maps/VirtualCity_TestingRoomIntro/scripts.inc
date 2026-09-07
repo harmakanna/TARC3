@@ -57,14 +57,14 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	@@more setflags TOFOLD, set healing place, etc. etc.
 
 	@----------------------------------------------------
-	setvar VAR_PETALBURG_CITY_STATE, 22
-	givemon SPECIES_ARCANINE, 50
-	givemon SPECIES_ARCANINE, 50
-	givemon SPECIES_ARCANINE, 50
-	givemon SPECIES_ARCANINE, 50
+	@setvar VAR_PETALBURG_CITY_STATE, 22
+	@givemon SPECIES_ARCANINE, 50
+	@givemon SPECIES_ARCANINE, 50
+	@givemon SPECIES_ARCANINE, 50
+	@givemon SPECIES_ARCANINE, 50
 	
-	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 7
-	waitstate
+	@warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 7
+	@waitstate
 
 
 	@----------------------------------------------------
@@ -153,6 +153,7 @@ VirtualCity_TestingRoomIntro_Eventscript_Minh::
 	goto_if_unset FLAG_DARKANINE_BATTLE_2, VirtualCity_TestingRoomIntro_Eventscript_SecondBattle
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_SubsequentBattleStart, Speaker_Minh, DIR_SOUTH
 	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE, 0, VirtualCity_TestingRoomIntro_Text_SubsequentBattleEndWin, VirtualCity_TestingRoomIntro_Text_SubsequentBattleEndLose
+	special HealPlayerParty
 	setspeaker Speaker_Minh
 	msgbox VirtualCity_TestingRoomIntro_Text_AdjustDarkanine, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine
