@@ -18,15 +18,15 @@ OutsideWorld_PrologueEndScene_Final_Really::
 	fadescreenspeed FADE_FROM_BLACK 5
 	delay 50
 	
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_SophiePrologue1, Speaker_Sophie, DIR_SOUTH
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_SophiePrologue1, SP_NAME_PLAYER, DIR_SOUTH
 	playse SE_SELECT
 	speak LOCALID_OW_MINH, OutsideWorld_MinhPrologue2, Speaker_Minh, DIR_SOUTH
 	playse SE_SELECT
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_SophiePrologue3, Speaker_Sophie, DIR_EAST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_SophiePrologue3, SP_NAME_PLAYER, DIR_EAST
 	playse SE_SELECT
 	speak LOCALID_OW_MINH, OutsideWorld_MinhPrologue4, Speaker_Minh, DIR_WEST
 	playse SE_SELECT
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_SophiePrologue5, Speaker_Sophie, DIR_EAST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_SophiePrologue5, SP_NAME_PLAYER, DIR_EAST
 	closemessage
 	delay 30
 	applymovement LOCALID_OW_MINH, OutsideWorld_Move_Minh1
@@ -155,7 +155,7 @@ OutsideWorld_Script_Dealer::
 	playse SE_SELECT
 	
 	@Kumatora - I think player_speak is broken? I put in the obvious workaround, but feel free to change back if it's fixed
-	@setspeaker Speaker_Sophie
+	@setspeaker SP_NAME_PLAYER
 	@msgbox OutsideWorld_Text_SophieHellNo, MSGBOX_NPC
 
 	player_speak OutsideWorld_Text_SophieHellNo

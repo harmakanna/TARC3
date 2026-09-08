@@ -30,9 +30,9 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_IntroScene::
 	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro1, Speaker_Harriet, DIR_SOUTH
 	closemessage
 	delay 30
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Eventscript_SophieIntro2, Speaker_Sophie, DIR_NORTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Eventscript_SophieIntro2, SP_NAME_PLAYER, DIR_NORTH
 	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro3, Speaker_Harriet, DIR_SOUTH
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Eventscript_SophieIntro4, Speaker_Sophie, DIR_NORTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Eventscript_SophieIntro4, SP_NAME_PLAYER, DIR_NORTH
 	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro5, Speaker_Harriet, DIR_SOUTH
 	closemessage
 
@@ -235,7 +235,7 @@ VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXRando5Rematch:
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXBroDude::
 	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXBroDude1, MSGBOX_NPC
-	setspeaker Speaker_Sophie
+	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattleXBroDude2, MSGBOX_NPC
 	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXBroDude3, MSGBOX_NPC
@@ -246,7 +246,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXBroDude::
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXWvddie::
 	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXWvddie1, MSGBOX_NPC
-	setspeaker Speaker_Sophie
+	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattleXWvddie2, MSGBOX_NPC
 	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXWvddie3, MSGBOX_NPC
@@ -257,7 +257,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXWvddie::
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXSilvaBullet::
 	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXSilvaBullet1, MSGBOX_NPC
-	setspeaker Speaker_Sophie
+	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattleXSilvaBullet2, MSGBOX_NPC
 	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXSilvaBullet3, MSGBOX_NPC
@@ -268,7 +268,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXSilvaBullet::
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXEarlGrey::
 	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXEarlGrey1, MSGBOX_NPC
-	setspeaker Speaker_Sophie
+	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattleXEarlGrey2, MSGBOX_NPC
 	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXEarlGrey3, MSGBOX_NPC
@@ -358,7 +358,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB1Scene::
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle1XByron0, MSGBOX_NPC
 	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle1XByron1, MSGBOX_NPC
-	setspeaker Speaker_Sophie
+	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle1XByron2, MSGBOX_NPC
 	setspeaker Speaker_Ernest
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle1XByron3, MSGBOX_NPC
@@ -373,13 +373,13 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2Scene::
 
 	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle2WinXByron1, MSGBOX_NPC
-	setspeaker Speaker_Sophie
+	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2WinXByron2, MSGBOX_NPC
 	setspeaker Speaker_Ernest
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle2WinXByron3, MSGBOX_NPC
 	setspeaker Speaker_Ernest
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle2WinXByron4, MSGBOX_NPC
-	setspeaker Speaker_Sophie
+	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2WinXByron5, MSGBOX_NPC
 	setspeaker Speaker_Ernest
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle2WinXByron6, MSGBOX_NPC
@@ -387,7 +387,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2Scene::
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle2WinXByron7, MSGBOX_NPC
 	setspeaker Speaker_Ernest
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle2WinXByron8, MSGBOX_NPC
-	setspeaker Speaker_Sophie
+	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2WinXByron9, MSGBOX_NPC	
 	closemessage
 	end
@@ -396,13 +396,13 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2SceneLose::
 	@if you lose
 	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle2LoseXByron1, MSGBOX_NPC
-	setspeaker Speaker_Sophie
+	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2LoseXByron2, MSGBOX_NPC
 	setspeaker Speaker_Ernest
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle2LoseXByron3, MSGBOX_NPC
 	setspeaker Speaker_Ernest
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle2LoseXByron4, MSGBOX_NPC
-	setspeaker Speaker_Sophie
+	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2LoseXByron5, MSGBOX_NPC
 	setspeaker Speaker_Ernest
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle2LoseXByron6, MSGBOX_NPC
@@ -410,14 +410,14 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2SceneLose::
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle2LoseXByron7, MSGBOX_NPC
 	setspeaker Speaker_Ernest
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle2LoseXByron8, MSGBOX_NPC
-	setspeaker Speaker_Sophie
+	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2LoseXByron9, MSGBOX_NPC	
 	closemessage
 	end
 
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB3Scene::
-	setspeaker Speaker_Sophie
+	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle3XByron1, MSGBOX_NPC
 	setspeaker Speaker_Ernest
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle3XByron2, MSGBOX_NPC
@@ -429,13 +429,13 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB3Scene::
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle3XByron5, MSGBOX_NPC
 	setspeaker Speaker_Ernest
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle3XByron6, MSGBOX_NPC
-	setspeaker Speaker_Sophie
+	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle3XByron7, MSGBOX_NPC
 	end
 
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronHackSuccess::
-	setspeaker Speaker_Sophie
+	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieHackSuccess1, MSGBOX_NPC
 	setspeaker Speaker_Ernest
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestHackSuccess2, MSGBOX_NPC

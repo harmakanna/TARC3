@@ -60,7 +60,7 @@ VirtualCity_Casino_Eventscript_Cluegiver6::
 	end
 
 VirtualCity_Casino_EventScript_CluegiverEnd::
-	call_if_ge, VAR_RESEARCHERS_SPOKEN_TO, 6, VirtualCity_Casino_EventScript_InfoObtained 
+	call_if_ge VAR_RESEARCHERS_SPOKEN_TO, 6, VirtualCity_Casino_EventScript_InfoObtained 
 	end
 
 VirtualCity_Casino_EventScript_InfoObtained::

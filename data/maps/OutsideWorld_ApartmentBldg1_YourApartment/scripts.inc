@@ -27,9 +27,9 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
 	delay 10
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk02Sophie, Speaker_Sophie, DIR_SOUTH
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk02Sophie, SP_NAME_PLAYER, DIR_SOUTH
 	playse SE_SELECT
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartmenT_Text_IntroTalk02_1_Sophie, Speaker_Sophie, DIR_EAST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartmenT_Text_IntroTalk02_1_Sophie, SP_NAME_PLAYER, DIR_EAST
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie01
 	waitmovement 0
@@ -41,7 +41,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie1
 	waitmovement 0
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk05Sophie, Speaker_Sophie, DIR_EAST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk05Sophie, SP_NAME_PLAYER, DIR_EAST
 	playse SE_SELECT
 	speak LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk06Harriet, Speaker_Harriet, DIR_NORTH
 
@@ -146,7 +146,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
 
 	speak LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk11Minh, Speaker_Minh, DIR_EAST
 	playse SE_SELECT
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk12Sophie, Speaker_Sophie, DIR_EAST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk12Sophie, SP_NAME_PLAYER, DIR_EAST
 	closemessage
 	applymovement LOCALID_HARRIET, Common_Movement_QuestionMark
 	applymovement LOCALID_ERNEST, Common_Movement_QuestionMark
@@ -203,7 +203,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
 
 	playse SE_SELECT
 
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk19Sophie, Speaker_Sophie, DIR_SOUTH
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk19Sophie, SP_NAME_PLAYER, DIR_SOUTH
 	playse SE_SELECT
 	speak LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk20Harriet, Speaker_Harriet, DIR_NORTH
 	closemessage
@@ -243,19 +243,19 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
 	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie4
 	waitmovement
 
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk23Sophie, Speaker_Sophie, DIR_EAST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk23Sophie, SP_NAME_PLAYER, DIR_EAST
 	playse SE_SELECT
 	speak LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk24Minh, Speaker_Minh, DIR_WEST
 	playse SE_SELECT
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk25Sophie, Speaker_Sophie, DIR_EAST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk25Sophie, SP_NAME_PLAYER, DIR_EAST
 	playse SE_SELECT
 	speak LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk26Minh, Speaker_Minh, DIR_WEST
 	playse SE_SELECT
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk27Sophie, Speaker_Sophie, DIR_EAST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk27Sophie, SP_NAME_PLAYER, DIR_EAST
 	playse SE_SELECT
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk28Sophie, Speaker_Sophie, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk28Sophie, SP_NAME_PLAYER, DIR_WEST
 	playse SE_SELECT
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk29Sophie, Speaker_Sophie, DIR_EAST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk29Sophie, SP_NAME_PLAYER, DIR_EAST
 	delay 50
 	fadescreenspeed FADE_TO_BLACK 5
 	closemessage
@@ -654,15 +654,15 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk29Sophie::
 
 
 OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_ActII_Opening::
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro1, Speaker_Sophie, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro1, SP_NAME_PLAYER, DIR_WEST
 	playse SE_SELECT
 	speak LOCALID_A2_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Text_ErnestActIIIntro2, Speaker_Ernest, DIR_EAST
 	playse SE_SELECT
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro3, Speaker_Sophie, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro3, SP_NAME_PLAYER, DIR_WEST
 	playse SE_SELECT
 	speak LOCALID_A2_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_HarrietActIIIntro4, Speaker_Harriet, DIR_NORTH
 	playse SE_SELECT
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro5, Speaker_Sophie, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro5, SP_NAME_PLAYER, DIR_WEST
 	closemessage
 
 	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_ActIII_Opening1
@@ -686,9 +686,9 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_ActII_Opening::
 	speak LOCALID_A2_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Text_MinhActIIIntro8, Speaker_Minh, DIR_EAST
 	speak LOCALID_A2_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Text_ErnestActIIIntro9, Speaker_Ernest, DIR_NORTH
 
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro10, Speaker_Sophie, DIR_SOUTH
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro10, SP_NAME_PLAYER, DIR_SOUTH
 	speak LOCALID_A2_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Text_MinhActIIIntro11, Speaker_Minh, DIR_SOUTH
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro12, Speaker_Sophie, DIR_SOUTH
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro12, SP_NAME_PLAYER, DIR_SOUTH
 
 	setflag FLAG_HIDE_ACT_II_INTRO_CHARS
 	clearflag FLAG_ACT_II_HIDE_HOTEL_FRIENDS

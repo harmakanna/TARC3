@@ -74,7 +74,7 @@ VirtualCity_CommsTower_1F_Eventscript_ActIIntro::
 	@waitmovement 0
 
 	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIIntro2, Speaker_Minh, DIR_SOUTH
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIIntro3, Speaker_Sophie, DIR_SOUTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIIntro3, SP_NAME_PLAYER, DIR_SOUTH
 	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIIntro4, Speaker_Minh, DIR_SOUTH
 
 	applymovement OBJ_EVENT_ID_CAMERA, VirtualCity_CommsTower_1F_Move_IntroCamera2
@@ -85,7 +85,7 @@ VirtualCity_CommsTower_1F_Eventscript_ActIIntro::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
 	waitmovement 0
 
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIIntro5, Speaker_Sophie, DIR_EAST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIIntro5, SP_NAME_PLAYER, DIR_EAST
 	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIIntro6, Speaker_Minh, DIR_WEST	
 	closemessage
 	setvar VAR_PETALBURG_CITY_STATE, 11
@@ -185,7 +185,7 @@ VirtualCity_CommsTower_1F_Text_MinhACTIIntroRepeat:
 VirtualCity_CommsTower_1F_Text_Eventscript_ACTIPokemonCheck::
 	setspeaker Speaker_Minh
 	msgbox VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheck, MSGBOX_NPC
-	setspeaker Speaker_Sophie
+	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheck, MSGBOX_NPC
 
 
@@ -206,15 +206,15 @@ VirtualCity_CommsTower_1F_Text_Eventscript_ACTIPokemonCheck::
 	dynmultipush PonytaChoice_Text_Choice14, 14
 	dynmultistack 0, 0, FALSE, 6, FALSE, 0, DYN_MULTICHOICE_CB_NONE
 	goto_if_eq VAR_RESULT, 8, VirtualCity_CommsTower_1F_Text_Eventscript_ACTIPokemonCheckSuccess
-	speak LOCALID_ARCANINE, VirtualCity_CommsTower_1F_Text_SophieACTIPokemonFailure, Speaker_Sophie, DIR_EAST
+	speak LOCALID_ARCANINE, VirtualCity_CommsTower_1F_Text_SophieACTIPokemonFailure, SP_NAME_PLAYER, DIR_EAST
 	end
 
 
 VirtualCity_CommsTower_1F_Text_Eventscript_ACTIPokemonCheckSuccess::
 	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheckSuccess1, Speaker_Minh, DIR_WEST
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheckSuccess2, Speaker_Sophie, DIR_EAST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheckSuccess2, SP_NAME_PLAYER, DIR_EAST
 	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheckSuccess3, Speaker_Minh, DIR_WEST
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheckSuccess4, Speaker_Sophie, DIR_EAST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheckSuccess4, SP_NAME_PLAYER, DIR_EAST
 	closemessage
 	setvar VAR_PETALBURG_CITY_STATE, 12
 	warpsilent MAP_VIRTUAL_CITY_WORK_YOUR_OFFICE, 13, 19

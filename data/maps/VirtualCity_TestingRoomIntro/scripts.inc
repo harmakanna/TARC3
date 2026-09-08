@@ -121,7 +121,7 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro01, Speaker_Minh, DIR_WEST
 	playse SE_SELECT
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro02, Speaker_Sophie, DIR_EAST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro02, SP_NAME_PLAYER, DIR_EAST
 	closemessage
 	playse SE_PIN
 	applymovement LOCALID_MINH, Common_Movement_ExclamationMark
@@ -129,7 +129,7 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	delay 60
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro03, Speaker_Minh, DIR_WEST
 	playse SE_SELECT
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro04, Speaker_Sophie, DIR_EAST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro04, SP_NAME_PLAYER, DIR_EAST
 	playse SE_SELECT
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro05, Speaker_Minh, DIR_WEST
 	closemessage
@@ -142,11 +142,11 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro06, Speaker_Minh, DIR_WEST
 	playse SE_SELECT
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro07, Speaker_Sophie, DIR_EAST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro07, SP_NAME_PLAYER, DIR_EAST
 	playse SE_SELECT
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro08, Speaker_Minh, DIR_WEST
 	playse SE_SELECT
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro09, Speaker_Sophie, DIR_EAST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro09, SP_NAME_PLAYER, DIR_EAST
 	playse SE_SELECT
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro10, Speaker_Minh, DIR_WEST
 	closemessage
