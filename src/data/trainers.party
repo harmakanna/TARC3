@@ -105,21 +105,31 @@ Music: Aqua
 Double Battle: Yes
 AI: Basic Trainer
 
-Comfey
-Level: 50
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Combee (F) @ Eviolite  
+Ability: Hustle  
+Level: 50  
+Tera Type: Bug  
+EVs: 252 Atk / 4 SpA / 252 Spe  
+Hasty Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Lunge  
+- Struggle Bug  
+- Sweet Scent  
+- Aerial Ace  
 
-Tropius
-Level: 50
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
+Comfey (F) @ Big Root  
+Ability: Flower Veil  
+Level: 50  
+Tera Type: Fairy  
+EVs: 4 HP / 252 SpA / 252 Spe  
+Timid Nature  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Floral Healing  
+- Draining Kiss  
+- Giga Drain  
+- Leech Seed  
 
-Dhelmise
-Level: 50
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
-Miltank
-Level: 50
-IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
 === TRAINER_RANDO1 ===
 Name: GRUNT

@@ -15,7 +15,7 @@
   "connections": null,
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_MINH_VR",
+      "graphics_id": "OBJ_EVENT_GFX_MINH_OUTSIDE",
       "x": 14,
       "y": 19,
       "elevation": 0,
@@ -25,7 +25,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "VirtualCity_Work_YourOffice_Eventscript_MinhACTI",
-      "flag": "0"
+      "flag": "FLAG_ACT_I_HIDE_MINH_OFFICE"
     },
     {
       "local_id": "LOCALID_PONYTAS_BALL",

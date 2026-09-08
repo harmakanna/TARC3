@@ -33,6 +33,9 @@ Speaker_Lola::
 Speaker_Announcement::
 	.string "Announcement$"
 
+Speaker_Autoscanner::
+	.string "Autoscanner$"
+
 Speaker_Byron::
 	.string "Byron$"
 
@@ -84,16 +87,16 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	@@more setflags TOFOLD, set healing place, etc. etc.
 
 	@----------------------------------------------------
-	setvar VAR_PETALBURG_CITY_STATE, 22
-	clearflag FLAG_SYS_PREVENT_MAP_FADE
-	givemon SPECIES_DARKANINE, 50
-	givemon SPECIES_PONYTA, 50
-	givemon SPECIES_TOXAPEX, 50
-	givemon SPECIES_LEDIAN, 50
-	givemon SPECIES_DRATINI, 50
+	@setvar VAR_PETALBURG_CITY_STATE, 22
+	@clearflag FLAG_SYS_PREVENT_MAP_FADE
+	@givemon SPECIES_DARKANINE, 50
+	@givemon SPECIES_PONYTA, 50
+	@givemon SPECIES_TOXAPEX, 50
+	@givemon SPECIES_LEDIAN, 50
+	@givemon SPECIES_DRATINI, 50
 	
-	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 7
-	waitstate
+	@warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 7
+	@waitstate
 
 
 	@----------------------------------------------------
@@ -270,7 +273,7 @@ VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine:
 
 	clearparty
 	givemon SPECIES_EXCADRILL, 50, nature=NATURE_JOLLY, gender=MON_MALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_EARTHQUAKE, move2=MOVE_ROCK_SLIDE, move3=MOVE_SWORDS_DANCE, move4=MOVE_PROTECT, nickname=Nickname_Ex, otName=OT_SoPhi99
-	warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT_BEDROOM, 5, 2
+	warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT_BEDROOM, 5, 2 @@@ exitvr JAMIEHELP
 	waitstate
 	end
 
@@ -372,7 +375,7 @@ VirtualCity_TestingRoomIntro_Text_Intro10:
 
 VirtualCity_TestingRoomIntro_Text_Intro11:
 	.string "{COLOR BLUE}DO {COLOR RED}YOU {COLOR BLUE}NEED A CHANGE OF SCENERY?\p"
-	.string "COME VISIT THE {COLOR GREEN}BETTER {COLOR BLUE}GARDEN AND\n"
+	.string "COME VISIT THE {COLOR GREEN}BETTER {COLOR BLUE}REFUGE AND\n"
 	.string "EXPERIENCE OUR STATE-OF-THE-ART\l"
 	.string "{COLOR RED}AUTUMN WONDERLAND!\p"
 	.string "{COLOR BLUE}THE COMPLIMENTARY {COLOR GREEN}F.R.E.S.H. {COLOR BLUE}BREATHING\n"

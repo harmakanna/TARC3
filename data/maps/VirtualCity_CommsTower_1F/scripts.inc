@@ -64,59 +64,124 @@ VirtualCity_CommsTower_1F_Eventscript_ActIIntro::
 
 	@speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIIntro1, Speaker_Minh, DIR_WEST
 	npc_speak Speaker_Minh, VirtualCity_CommsTower_1F_Text_MinhACTIIntro1
-	applymovement LOCALID_OFFICE_MINH, Common_Movement_FaceUp
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
+	@applymovement LOCALID_OFFICE_MINH, Common_Movement_FaceUp
+	@applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
 	special SpawnCameraObject 
 	call_if_eq VAR_FACING, DIR_EAST, VirtualCity_CommsTower_1F_EventScript_MoveIntroCameraEast
-	call_if_eq VAR_FACING, DIR_SOUTH, VirtualCity_CommsTower_1F_EventScript_MoveIntroCameraEast
-	call_if_eq VAR_FACING, DIR_WEST, VirtualCity_CommsTower_1F_EventScript_MoveIntroCameraEast
+	call_if_eq VAR_FACING, DIR_SOUTH, VirtualCity_CommsTower_1F_EventScript_MoveIntroCameraSouth
+	call_if_eq VAR_FACING, DIR_WEST, VirtualCity_CommsTower_1F_EventScript_MoveIntroCameraWest
 	@applymovement OBJ_EVENT_ID_CAMERA, VirtualCity_CommsTower_1F_Move_IntroCamera1
 	@waitmovement 0
 
-	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIIntro2, Speaker_Minh, DIR_SOUTH
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIIntro3, SP_NAME_PLAYER, DIR_SOUTH
-	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIIntro4, Speaker_Minh, DIR_SOUTH
+	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIIntro2, Speaker_Minh, DIR_NORTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIIntro3, SP_NAME_PLAYER, DIR_NORTH
+	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIIntro4, Speaker_Minh, DIR_NORTH
 
-	applymovement OBJ_EVENT_ID_CAMERA, VirtualCity_CommsTower_1F_Move_IntroCamera2
-	waitmovement 0
+	call_if_eq VAR_FACING, DIR_EAST, VirtualCity_CommsTower_1F_EventScript_MoveIntroCameraEastBack
+	call_if_eq VAR_FACING, DIR_SOUTH, VirtualCity_CommsTower_1F_EventScript_MoveIntroCameraSouthBack
+	call_if_eq VAR_FACING, DIR_WEST, VirtualCity_CommsTower_1F_EventScript_MoveIntroCameraWestBack
+	@applymovement OBJ_EVENT_ID_CAMERA, VirtualCity_CommsTower_1F_Move_IntroCamera1
+
+
+	@applymovement OBJ_EVENT_ID_CAMERA, VirtualCity_CommsTower_1F_Move_IntroCamera2
+	@waitmovement 0
 	special RemoveCameraObject 
 	delay 20
-	applymovement LOCALID_OFFICE_MINH, Common_Movement_FaceLeft
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
-	waitmovement 0
 
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIIntro5, SP_NAME_PLAYER, DIR_EAST
 	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIIntro6, Speaker_Minh, DIR_WEST	
 	closemessage
 	setvar VAR_PETALBURG_CITY_STATE, 11
 	setflag FLAG_ACT_I_STARTED
+	setflag FLAG_HIDE_LOLA_BEDROOM_PROLOGUE
+	clearflag FLAG_HIDE_ACT_I_RESEARCHERS
 	clearflag FLAG_HIDE_OUTSIDE_WORLD_PROLOGUE
 
 	end
 
 VirtualCity_CommsTower_1F_EventScript_MoveIntroCameraEast::
-	applymovement OBJ_EVENT_ID_CAMERA, VirtualCity_CommsTower_1F_Move_IntroCamera1
+	applymovement OBJ_EVENT_ID_CAMERA, VirtualCity_CommsTower_1F_Move_IntroCameraEast
 	waitmovement 0
 	return
 
-VirtualCity_CommsTower_1F_Move_IntroCamera1:
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
+VirtualCity_CommsTower_1F_EventScript_MoveIntroCameraSouth::
+	applymovement OBJ_EVENT_ID_CAMERA, VirtualCity_CommsTower_1F_Move_IntroCameraSouth
+	waitmovement 0
+	return
+
+VirtualCity_CommsTower_1F_EventScript_MoveIntroCameraWest::
+	applymovement OBJ_EVENT_ID_CAMERA, VirtualCity_CommsTower_1F_Move_IntroCameraWest
+	waitmovement 0
+	return
+
+VirtualCity_CommsTower_1F_EventScript_MoveIntroCameraEastBack::
+	applymovement OBJ_EVENT_ID_CAMERA, VirtualCity_CommsTower_1F_Move_IntroCameraEastBack
+	waitmovement 0
+	return
+
+VirtualCity_CommsTower_1F_EventScript_MoveIntroCameraSouthBack::
+	applymovement OBJ_EVENT_ID_CAMERA, VirtualCity_CommsTower_1F_Move_IntroCameraSouthBack
+	waitmovement 0
+	return
+
+VirtualCity_CommsTower_1F_EventScript_MoveIntroCameraWestBack::
+	applymovement OBJ_EVENT_ID_CAMERA, VirtualCity_CommsTower_1F_Move_IntroCameraWestBack
+	waitmovement 0
+	return
+
+
+
+VirtualCity_CommsTower_1F_Move_IntroCameraEast:
+	walk_diag_northwest
+	walk_diag_northwest
+	walk_diag_northwest
+	walk_diag_northwest
 	walk_up
 	walk_up
 	step_end
 
-VirtualCity_CommsTower_1F_Move_IntroCamera2:
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
+VirtualCity_CommsTower_1F_Move_IntroCameraSouth:
+	walk_diag_northwest
+	walk_diag_northwest
+	walk_diag_northwest
+	walk_diag_northwest
+	walk_diag_northwest
+	step_end
+
+VirtualCity_CommsTower_1F_Move_IntroCameraWest:
+	walk_diag_northwest
+	walk_diag_northwest
+	walk_diag_northwest
+	walk_diag_northwest
+	walk_diag_northwest
+	walk_diag_northwest
+	step_end
+
+
+VirtualCity_CommsTower_1F_Move_IntroCameraEastBack:
+	walk_diag_southeast
+	walk_diag_southeast
+	walk_diag_southeast
+	walk_diag_southeast
+	walk_down
+	walk_down
+	step_end
+
+VirtualCity_CommsTower_1F_Move_IntroCameraSouthBack:
+	walk_diag_southeast
+	walk_diag_southeast
+	walk_diag_southeast
+	walk_diag_southeast
+	walk_diag_southeast
+	step_end
+
+VirtualCity_CommsTower_1F_Move_IntroCameraWestBack:
+	walk_diag_southeast
+	walk_diag_southeast
+	walk_diag_southeast
+	walk_diag_southeast
+	walk_diag_southeast
+	walk_diag_southeast
 	step_end
 
 VirtualCity_CommsTower_1F_Text_MinhACTIIntro1:
@@ -148,7 +213,7 @@ VirtualCity_CommsTower_1F_Text_MinhACTIIntro4:
 	.string "If you fight that guard, people will\n"
 	.string "stop you, and we'll never find out\l"
 	.string "what's going on.\p"
-	.string "Only fight if you absolutely have to.$"
+	.string "Only battle if you absolutely have to.$"
 
 VirtualCity_CommsTower_1F_Text_SophieACTIIntro5:
 	.string "Ugh, fine.\p"
@@ -207,16 +272,22 @@ VirtualCity_CommsTower_1F_Text_Eventscript_ACTIPokemonCheck::
 	dynmultistack 0, 0, FALSE, 6, FALSE, 0, DYN_MULTICHOICE_CB_NONE
 	goto_if_eq VAR_RESULT, 8, VirtualCity_CommsTower_1F_Text_Eventscript_ACTIPokemonCheckSuccess
 	speak LOCALID_ARCANINE, VirtualCity_CommsTower_1F_Text_SophieACTIPokemonFailure, SP_NAME_PLAYER, DIR_EAST
+	closemessage
 	end
 
 
 VirtualCity_CommsTower_1F_Text_Eventscript_ACTIPokemonCheckSuccess::
-	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheckSuccess1, Speaker_Minh, DIR_WEST
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheckSuccess2, SP_NAME_PLAYER, DIR_EAST
-	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheckSuccess3, Speaker_Minh, DIR_WEST
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheckSuccess4, SP_NAME_PLAYER, DIR_EAST
-	closemessage
+	setspeaker Speaker_Minh
+	msgbox VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheckSuccess1, MSGBOX_NPC
+	setspeaker SP_NAME_PLAYER
+	msgbox VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheckSuccess2, MSGBOX_NPC
+	setspeaker Speaker_Minh
+	msgbox VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheckSuccess3,MSGBOX_NPC
+	setspeaker SP_NAME_PLAYER
+	msgbox VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheckSuccess4, MSGBOX_NPC
 	setvar VAR_PETALBURG_CITY_STATE, 12
+	clearflag FLAG_ACT_I_HIDE_MINH_OFFICE
+	setflag FLAG_SYS_PREVENT_MAP_FADE
 	warpsilent MAP_VIRTUAL_CITY_WORK_YOUR_OFFICE, 13, 19
 	waitstate
 	delay 100
@@ -281,7 +352,7 @@ VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheck:
 VirtualCity_CommsTower_1F_Text_SophieACTIPokemonFailure:
 	.string "Hmm, that doesn't sound right.\p"
 	.string "I'm sure {COLOR BLUE}one of them {COLOR DARK_GRAY}wasn't\n"
-	.string "describing about our mystery mon.\p"
+	.string "describing our mystery mon.\p"
 	.string "But which one?$"
 
 VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheckSuccess1:
@@ -311,21 +382,32 @@ Speaker_Guard::
 
 VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuard::
 	
-	@@check, how many Pokemon does the player have?
-	@getpartysize
-	@goto_if_eq VAR_RESULT, 0, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardEnter
-    @goto_if_ne VAR_RESULT, 1, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardStop
-	@@check what Pokemon it is 
-	@checkspecies SPECIES_PONYTA, NO_PARTY_SCREEN
-	@goto_if_eq VAR_RESULT, TRUE, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardPonyta
-	@checkspecies SPECIES_MAGIKARP, NO_PARTY_SCREEN
-	@goto_if_eq VAR_RESULT, TRUE, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardMagikarp
-	@goto VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardStop
-	
+	goto_if_set FLAG_ACT_III_POINTOFNORETURN, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardFight
+	goto_if_set FLAG_ACT_II_STARTED, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardTrouble
 	goto_if_set FLAG_ACT_I_EX_PONYTA_OBTAINED, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardPonyta
 	npc_speak Speaker_Guard, VirtualCity_CommsTower_1F_Text_NoPokemonGuardStop
 	closemessage
 	end
+
+VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardTrouble::
+	setspeaker Speaker_Guard
+	msgbox VirtualCity_CommsTower_1F_Text_NoPokemonGuardTrouble, MSGBOX_NPC
+	end
+
+VirtualCity_CommsTower_1F_Text_NoPokemonGuardTrouble:
+	.string "Oh, it's you again.\n"
+	.string "Stay out of trouble, y'hear?$"
+
+
+VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardFight::
+	setspeaker Speaker_Guard
+	msgbox VirtualCity_CommsTower_1F_Text_NoPokemonGuardFight, MSGBOX_NPC
+	@@ trainerbattle @TOFOLD
+	end
+
+VirtualCity_CommsTower_1F_Text_NoPokemonGuardFight:
+	.string "AAAAA WHAT IS THAT?$"
+
 
 
 VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardEnter:
@@ -350,27 +432,28 @@ VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardStop:
 	end
 
 VirtualCity_CommsTower_1F_Text_NoPokemonGuardStop:
-	.string "Hold it, you can't bring Pokemon here.\p"
-	.string "Too many trainers beating up us guards\n"
-	.string "and stealing what they want.\p"
-	.string "Only Pokemon related to what they're\n"
-	.string "making in there are allowed.$"
+	.string "Huh? You want to go to Research?\p"
+	.string "Research is pretty locked down; they're\n"
+	.string "working on something top secret.\p"
+	.string "Can't let you go there unless you\n"
+	.string "can prove they called for you, sorry.$"
 
 
 
 
 VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardPonyta:
-	npc_speak VirtualCity_CommsTower_1F_Text_NoPokemonGuardPonyta, Speaker_Guard
+	npc_speak Speaker_Guard, VirtualCity_CommsTower_1F_Text_NoPokemonGuardPonyta
 	applymovement LOCALID_GUARD, VirtualCity_CommsTower_1F_Move_NoPokemonGuardPonyta
 	waitmovement 0
 	setdynamicwarp MAP_VIRTUAL_CITY_COMMS_TOWER_RESEARCH, 0
+	setvar VAR_TEMP_0, 1
 	setspeaker Speaker_Guard
 	msgbox VirtualCity_CommsTower_1F_Text_NoPokemonGuardGoAhead, MSGBOX_SIGN
 	closemessage
 	end
 
 VirtualCity_CommsTower_1F_Text_NoPokemonGuardPonyta:
-	.string "Hold it, you can't…\p"
+	.string "Research? I'm sorry, I can't…\p"
 	.string "Oh, is it done? I barely recognized it…\n"
 	.string "It looks great!$"
 
@@ -381,7 +464,7 @@ VirtualCity_CommsTower_1F_Text_NoPokemonGuardGoAhead:
 @VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardMagikarp:
 @	speak LOCALID_GUARD, VirtualCity_CommsTower_1F_Text_NoPokemonGuardMagikarp, Speaker_Guard, DIR_SOUTH
 @	goto VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardMoves
-@	end
+	end
 
 
 @VirtualCity_CommsTower_1F_Text_NoPokemonGuardMagikarp:
@@ -486,23 +569,31 @@ Speaker_Receptionist::
 	.string "Receptionist$"
 
 VirtualCity_CommsTower_1F_Eventscript_Receptionist::
+	applymovement LOCALID_COMMS_RECEPTION, VirtualCity_CommsTower_1F_Move_Receptionist
 	goto_if_set FLAG_ACT_III_COMPLETE, VirtualCity_CommsTower_1F_Eventscript_Receptionist3
 	goto_if_set FLAG_ACT_II_COMPLETE, VirtualCity_CommsTower_1F_Eventscript_Receptionist2
+	setspeaker Speaker_Receptionist
 	speak LOCALID_ARCANINE, VirtualCity_CommsTower_1F_Text_Receptionist1, Speaker_Receptionist, DIR_EAST
+	closemessage
 	end
 
+VirtualCity_CommsTower_1F_Move_Receptionist:
+	face_player
+	step_end
+
 VirtualCity_CommsTower_1F_Text_Receptionist1:
-	.string "Hi! Welcome to… oh.\p"
-	.string "Hello, Sophie.\p"
-	.string "Don't think that just because you're\n"
-	.string "logged on to your personal account,\l"
-	.string "I don't recognize your skin.\p"
-	.string "There's a picture of it on a sticky\n"
-	.string "note under the counter here.$"
+	.string "Hi! Welcome to the {COLOR GREEN}BETTER{COLOR DARK_GRAY} Tower!\n"
+	.string "A {COLOR GREEN}BETTER{COLOR DARK_GRAY} Workplace!\p"
+	.string "Just walk up those stairs! The state-\n"
+	.string "of-the-art scanner will automatically\l"
+	.string "route you to your office!\p"
+	.string "Have a {COLOR GREEN}BETTER{COLOR DARK_GRAY} day!$"
 
 
 VirtualCity_CommsTower_1F_Eventscript_Receptionist2::
 	speak LOCALID_ARCANINE, VirtualCity_CommsTower_1F_Text_Receptionist2, Speaker_Receptionist, DIR_EAST
+	closemessage
+	end
 
 VirtualCity_CommsTower_1F_Text_Receptionist2:
 	.string "Aaaah, what is that?!\n"
@@ -511,7 +602,35 @@ VirtualCity_CommsTower_1F_Text_Receptionist2:
 
 VirtualCity_CommsTower_1F_Eventscript_Receptionist3::
 	speak LOCALID_ARCANINE, VirtualCity_CommsTower_1F_Text_Receptionist3, Speaker_Receptionist, DIR_EAST
+	closemessage
+	end
 
 VirtualCity_CommsTower_1F_Text_Receptionist3:
 	.string "!$"
 
+
+VirtualCity_CommsTower_1F_Autoscanner::
+	lockall
+	delay 10
+	playse SE_CONTEST_MONS_TURN
+	waitse
+	setspeaker Speaker_Autoscanner
+	msgbox VirtualCity_CommsTower_1F_Text_Autoscanner, MSGBOX_NPC
+	closemessage
+	releaseall
+	end
+
+VirtualCity_CommsTower_1F_Text_Autoscanner:
+	.string "Scan Complete. Welcome, Sophie.\n"
+	.string "Stairs Set To {COLOR GREEN}BETTER{COLOR DARK_GRAY} Design, Wing 5.$"
+
+
+VirtualCity_CommsTower_1F_AuthorizedSign::
+	msgbox VirtualCity_HotelLobby_Text_AuthorizedSign, MSGBOX_SIGN
+	closemessage
+	end
+
+
+VirtualCity_HotelLobby_Text_AuthorizedSign:
+	.string "{COLOR GREEN}BETTER Place{COLOR DARK_GRAY} Maintenance\n"
+	.string "AUTHORIZED PERSONNEL ONLY$"

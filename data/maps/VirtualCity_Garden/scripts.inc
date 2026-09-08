@@ -131,6 +131,8 @@ VirtualCity_Garden_BabySetBaby::
 	setspeaker Speaker_Baby
 	return
 
+@ KUMATORA - This guy is crashing
+
 VirtualCity_Garden_Plump::
 	goto_if_quest_not_active QUEST_LEDIAN, VirtualCity_Garden_PlumpYouCanBeAnyone
 	goto_if_set FLAG_LEDIAN_SPOKE_TO_PLUMP, VirtualCity_Garden_PlumpYouCanBeAnyone

@@ -50,6 +50,7 @@ OutsideWorld_PrologueEndScene_Final_Really::
 	waitdooranim
 	delay 50
 	delay 50
+	clearflag FLAG_HIDE_LOLA_BEDROOM_PROLOGUE
 	setvar VAR_PETALBURG_CITY_STATE, 4
 	warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_FLOOR1, 2,4
 	waitstate
@@ -279,7 +280,7 @@ OutsideWorld_MinhPrologue4::
 	.string "I'll ask around with my art friends.$"
 
 OutsideWorld_SophiePrologue5::
-	.string "Good plan. I'll see you tomorrow.\n"
+	.string "Good plan. We'll figure it out.\n"
 	.string "Meet at work in the Place.$"
 
 

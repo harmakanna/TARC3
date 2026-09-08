@@ -385,3 +385,31 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Eventscript_NoVRNow::
 
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Text_NoVRNow:
 	.string "I shouldn't go to the Place now.$"
+
+
+
+OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Eventscript_Diary::
+	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Text_Diary, MSGBOX_SIGN
+	closemessage
+	end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Text_Diary:
+	.string "It's Lola's diary, lying open.\n"
+	.string "She wears her heart on her sleeve.$"
+
+
+OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Eventscript_PrologueLola::
+	setspeaker Speaker_Lola
+	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Text_PrologueLola, MSGBOX_NPC
+	applymovement LOCALID_BEDROOM_LOLAPROLOGUE, Common_Movement_FaceUp
+	end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Text_PrologueLola:
+	.string "It's everything I imagined. It feels\n"
+	.string "so right, to have a Pokemon companion.\p"
+	.string "…You going back into the BETTER Place\n"
+	.string "tonight? Don't stay up too late.$"
+
+
+
+

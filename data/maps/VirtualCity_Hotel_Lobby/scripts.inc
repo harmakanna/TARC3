@@ -211,7 +211,7 @@ VirtualCity_HotelLobby_Text_SophieIsItWorthIt:
 	.string "So, like, whaddya need me for?$"
 
 VirtualCity_HotelLobby_Text_EarlGrayOfCourseItIs:
-	.string "I need you to deliver a message\n$"
+	.string "I need you to deliver a message\n"
 	.string "for me to this Neanderthal\p"
 	.string "He calls himself 'Cap'n Chino.'\p"
 	.string "Take this and read it straight to\n"
@@ -286,7 +286,35 @@ VirtualCity_HotelLobby_Text_Receptionist:
 	.string "Your rooms will be through the\n"
 	.string "right elevator.\p"
 	.string "Your floor is:{PAUSE 60}\n"
-	.string "FLOOR 42813\p"
+	.string "FLOOR 42813130\p"
 	.string "The center door is VIPs only.\p"
 	.string "Purchase a VIP room for only{PAUSE 60}\n"
 	.string "9{PAUSE 30}9{PAUSE 20}9{PAUSE 15}9{PAUSE 10}9{PAUSE 5}99999999.99!$"
+
+
+
+
+VirtualCity_HotelLobby_HotelAutoscanner::
+	lockall
+	delay 10
+	playse SE_CONTEST_MONS_TURN
+	waitse
+	setspeaker Speaker_Autoscanner
+	msgbox VirtualCity_HotelLobby_Text_HotelAutoscanner, MSGBOX_NPC
+	closemessage
+	releaseall
+	end
+
+VirtualCity_HotelLobby_Text_HotelAutoscanner:
+	.string "Scan Complete. Welcome, Sophie.\n"
+	.string "Elevator Set To Floor 42813130.$"
+
+
+VirtualCity_HotelLobby_HotelElevatorPanel::
+	msgbox VirtualCity_HotelLobby_Text_HotelElevatorPanel, MSGBOX_NPC
+	closemessage
+	end
+
+VirtualCity_HotelLobby_Text_HotelElevatorPanel:
+	.string "Visiting A Friend?\n"
+	.string "Input Custom Floor.$"

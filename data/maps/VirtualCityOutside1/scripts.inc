@@ -105,7 +105,7 @@ VirtualCityOutside_Text_CenterIdol:
 	.string "{COLOR DARK_GRAY}Make sure to sign up soon for\n"
 	.string "our next tournament extravaganza!\p"
 	.string "Test your mettle against all the\n"
-	.string "strongest trainers in the city!$"
+	.string "strongest trainers in the Place!$"
 
 VirtualCityOutside_Text_RightIdol:
 	.string "Yooooo!\n"
@@ -187,20 +187,31 @@ Speaker_CapnChino:
 	.string "Cap'n Chino$"
 
 Sign_Casino_Text:
-	.string "Better Place Casino$"
+	.string "{COLOR GREEN}BETTER{COLOR DARK_GRAY}'s Better's Paradise!\p"
+	.string "Games and Performances Every Night!\n"	
+	.string "A Casino for All Ages!$"
 
 Sign_Garden_Text:
-	.string "Better Place Refuge$"
+	.string "The {COLOR GREEN}BETTER{COLOR DARK_GRAY} Refuge\p"
+	.string "New Environments Every Week!\n"
+	.string "Nature Has Never Been So Real!$"
 
 Sign_CommsTower_Text:
-	.string "Better Place\n"
-	.string "Office Tower$"
+	.string "The {COLOR GREEN}BETTER{COLOR DARK_GRAY} Office Tower\p"
+	.string "We Make The World {COLOR GREEN}BETTER{COLOR DARK_GRAY}!\n"
+	.string "Help Us Make Reality Real!$"
 
 Sign_Shop_Text:
-	.string "Better Place Superstore$"
+	.string "The {COLOR GREEN}BETTER{COLOR DARK_GRAY} Cafe and Superstore\p"
+	.string "Everything You Could Ever Want!\n"
+	.string "And, You Can Afford It Here!$"
 
 Sign_Hotel_Text:
-	.string "Better Place Hotel$"
+	.string "The Grand {COLOR GREEN}BETTER{COLOR DARK_GRAY} Hotel and Stadium\p"
+	.string "An Infinite Number of Rooms!\n"
+	.string "A Place To Call Home!\l"
+	.string "And The Only Spot For Pokemon Battles!$"
+
 
 VirtualCity_Outside_Text_EarlGrayWhatAreYouOnAbout:
 	.string "What are you going on about,\n"

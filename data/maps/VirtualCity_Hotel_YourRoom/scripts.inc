@@ -90,11 +90,15 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution::
 	delay 40
 	playse SE_EXIT
 	delay 40
+	removeobject LOCALID_VRROOM_MINH
+	removeobject LOCALID_VRROOM_HARRIET
+	removeobject LOCALID_VRROOM_ERNEST
 	special RemoveCameraObject
 	setvar VAR_PETALBURG_CITY_STATE, 22
 	setflag FLAG_ACT_II_STARTED
 	setflag FLAG_ACT_II_HIDE_HOTEL_FRIENDS
 	clearflag FLAG_HIDE_ACT_II_HARRIET
+	clearflag FLAG_HIDE_LEDIAN_QUEST
 
 
 	end
@@ -130,7 +134,6 @@ VirtualCity_Hotel_YourRoom_Move_MinhLeaves:
 	walk_down
 	walk_down
 	walk_down
-	walk_left
 	walk_left
 	walk_left
 	walk_left

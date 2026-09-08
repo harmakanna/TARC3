@@ -86,7 +86,7 @@
     },
     {
       "local_id": "LOCALID_RANDO5",
-      "graphics_id": "OBJ_EVENT_GFX_COOLTRAINER_F",
+      "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
       "x": 13,
       "y": 13,
       "elevation": 0,
@@ -128,7 +128,7 @@
     },
     {
       "local_id": "LOCALID_SILVABULLET",
-      "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
+      "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
       "x": 13,
       "y": 13,
       "elevation": 0,
@@ -142,7 +142,7 @@
     },
     {
       "local_id": "LOCALID_BYRON",
-      "graphics_id": "OBJ_EVENT_GFX_TRAINER_TOWER_DUDE",
+      "graphics_id": "OBJ_EVENT_GFX_ROCKER",
       "x": 13,
       "y": 13,
       "elevation": 0,

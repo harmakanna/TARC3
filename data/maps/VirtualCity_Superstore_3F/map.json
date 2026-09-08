@@ -163,7 +163,7 @@
       "y": 3,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "NULL"
+      "script": "VirtualCity_Superstore_3F_EventScript_Idol"
     },
     {
       "type": "sign",
@@ -171,7 +171,7 @@
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_SOUTH",
-      "script": "NULL"
+      "script": "VirtualCity_Superstore_3F_EventScript_LowerIdol"
     }
   ]
 }

@@ -2791,7 +2791,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .height = 7,
         .weight = 404,
         .description = COMPOUND_STRING(
-            "Vanilla Set (1/XXXX)\n"
+            "Vanilla Set (0530/XXXX)\n"
             "No special attributes.\n"
             "can be destructive to subway tunnels,\n"
             "but it can also help with construction."),

@@ -268,9 +268,8 @@ VirtualCity_Casino_Text_SophieStopTalkingClanker:
 
 VirtualCity_Casino_Text_WaitressIdol2:
 	.string "Ooooo, you're playin' {COLOR RED}hard-to-get!!!\p"
-	.string "{COLOR DARK_GRAY}Remember, it's never too\n"
-	.string "late to start your journey with the\n"
-	.string "{COLOR GREEN}BETTER{COLOR DARK_GRAY}casino!!!\p"
+	.string "{COLOR DARK_GRAY}Remember, it's never too late to start\n"
+	.string "your journey with the {COLOR GREEN}BETTER{COLOR DARK_GRAY} casino!!!\p"
 	.string "Just say the word!$"
 
 VirtualCity_Casino_Text_Honchkrow:
