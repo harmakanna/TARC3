@@ -5028,7 +5028,7 @@ bool8 MovementType_RotateCounterclockwise_Step1(struct ObjectEvent *objectEvent,
 {
     if (ObjectEventExecSingleMovementAction(objectEvent, sprite))
     {
-        SetMovementDelay(sprite, 18);
+        SetMovementDelay(sprite, 8);
         sprite->sTypeFuncId = 2;
     }
     return FALSE;
@@ -5068,7 +5068,7 @@ bool8 MovementType_RotateClockwise_Step1(struct ObjectEvent *objectEvent, struct
 {
     if (ObjectEventExecSingleMovementAction(objectEvent, sprite))
     {
-        SetMovementDelay(sprite, 18);
+        SetMovementDelay(sprite, 8);
         sprite->sTypeFuncId = 2;
     }
     return FALSE;
