@@ -119,6 +119,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_PLATFORM_PIKACHU",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(PIKACHU)",
       "x": 5,
       "y": 15,
@@ -132,6 +133,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_EEVEE",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(EEVEE)",
       "x": 5,
       "y": 18,
@@ -210,6 +212,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_GIRATINA",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(GIRATINA)",
       "x": 5,
       "y": 17,
@@ -221,6 +224,30 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "VirtualCityOutside_EventScript_Giratina",
       "flag": "0"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(EEVEE)",
+      "x": 47,
+      "y": 18,
+      "target_local_id": "LOCALID_EEVEE",
+      "target_map": "MAP_VIRTUAL_CITY_OUTSIDE1"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(GIRATINA)",
+      "x": 47,
+      "y": 17,
+      "target_local_id": "LOCALID_GIRATINA",
+      "target_map": "MAP_VIRTUAL_CITY_OUTSIDE1"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(PIKACHU)",
+      "x": 47,
+      "y": 15,
+      "target_local_id": "LOCALID_PLATFORM_PIKACHU",
+      "target_map": "MAP_VIRTUAL_CITY_OUTSIDE1"
     }
   ],
   "warp_events": [
