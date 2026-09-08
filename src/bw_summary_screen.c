@@ -4275,16 +4275,19 @@ static void PrintTrait()
     const struct TarcTrait *traitList = GetSpeciesTraitList(&mon->box);
     if (traitList == NULL)
         return;
-    u8 modString[3][50];
+    u8 modString[50];
+    StringCopy(gStringVar4,COMPOUND_STRING(""));
     for (u32 i = 0; i < 3; i++)
     {
         traitIndex = sMonSummaryScreen->summary.mods[i];
-        CopyTraitString(modString[i], &traitList[traitIndex]);
+        if (traitIndex != 0)
+        {
+            CopyTraitString(modString, &traitList[traitIndex]);
+            if (i > 0)
+                StringAppend(gStringVar4, COMPOUND_STRING(","));
+            StringAppend(gStringVar4, modString);
+        }
     }
-    StringCopy(gStringVar1, modString[0]);
-    StringCopy(gStringVar2, modString[1]);
-    StringCopy(gStringVar3, modString[2]);
-    StringExpandPlaceholders(gStringVar4, COMPOUND_STRING("{STR_VAR_1},{STR_VAR_2},{STR_VAR_3}"));
     PrintTextOnWindowWithFont(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_MEMO), gStringVar4, 50, 0, 0, 0, FONT_SHORT_NARROWER);
 }
 
@@ -5817,7 +5820,7 @@ static u32 AbilityNumIncrement(s32 data, bool32 isReverse)
     for (u32 i = 1; i < NUM_ABILITY_SLOTS; i++)
     {
         s32 increment = isReverse ? -1 : 1;
-        s32 abilityIndex = (data + increment * i) % NUM_ABILITY_SLOTS;
+        s32 abilityIndex = (data + increment * i + NUM_ABILITY_SLOTS) % NUM_ABILITY_SLOTS;
         enum Ability newAbility = GetAbilityBySpecies(species, abilityIndex);
         if (newAbility != ABILITY_NONE && newAbility != currentAbility)
         {
