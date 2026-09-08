@@ -1827,7 +1827,7 @@ static void RotomPhone_OverworldMenu_PrintGreeting(void)
         break;
     }
 
-    StringAppend(textBuffer, gSaveBlock2Ptr->playerName);
+    StringAppend(textBuffer, gDigitalSophieName);
 
     if (messageRotom != RP_MESSAGE_GREETING_HOW_ARE_YOU)
         StringAppend(textBuffer, COMPOUND_STRING("."));
@@ -1911,7 +1911,7 @@ static void RotomPhone_OverworldMenu_PrintGoodbye(u8 taskId)
     default:
     case RP_MESSAGE_GOODBYE_GOODBYE:
         StringCopy(textBuffer, COMPOUND_STRING("Goodbye, "));
-        StringAppend(textBuffer, gSaveBlock2Ptr->playerName);
+        StringAppend(textBuffer, gDigitalSophieName);
         StringAppend(textBuffer, COMPOUND_STRING("."));
         RotomPhone_OverworldMenu_PrintRotomSpeech(textBuffer, TRUE, FALSE);
 
@@ -1921,7 +1921,7 @@ static void RotomPhone_OverworldMenu_PrintGoodbye(u8 taskId)
     
     case RP_MESSAGE_GOODBYE_SEE_YA:
         StringCopy(textBuffer, COMPOUND_STRING("See ya later, "));
-        StringAppend(textBuffer, gSaveBlock2Ptr->playerName);
+        StringAppend(textBuffer, gDigitalSophieName);
         StringAppend(textBuffer, COMPOUND_STRING("!"));
         RotomPhone_OverworldMenu_PrintRotomSpeech(textBuffer, TRUE, FALSE);
 
@@ -1934,7 +1934,7 @@ static void RotomPhone_OverworldMenu_PrintGoodbye(u8 taskId)
         RotomPhone_OverworldMenu_PrintRotomSpeech(textBuffer, TRUE, FALSE);
 
         StringCopy(textBuffer, COMPOUND_STRING("Catch you later, "));
-        StringAppend(textBuffer, gSaveBlock2Ptr->playerName);
+        StringAppend(textBuffer, gDigitalSophieName);
         StringAppend(textBuffer, COMPOUND_STRING("."));
         RotomPhone_OverworldMenu_PrintRotomSpeech(textBuffer, FALSE, FALSE);
         break;
@@ -1944,7 +1944,7 @@ static void RotomPhone_OverworldMenu_PrintGoodbye(u8 taskId)
         RotomPhone_OverworldMenu_PrintRotomSpeech(textBuffer, TRUE, FALSE);
 
         StringCopy(textBuffer, COMPOUND_STRING("Until next time, "));
-        StringAppend(textBuffer, gSaveBlock2Ptr->playerName);
+        StringAppend(textBuffer, gDigitalSophieName);
         StringAppend(textBuffer, COMPOUND_STRING("."));
         RotomPhone_OverworldMenu_PrintRotomSpeech(textBuffer, FALSE, FALSE);
         break;
