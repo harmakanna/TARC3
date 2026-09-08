@@ -709,68 +709,22 @@ gSongTable::
     song mus_pkmn_bw12_091, 0, 0
     song mus_pkmn_bw12_092, 0, 0
     song mus_pkmn_bw12_093, 0, 0
-    song mus_pkmn_bw12_094, 0, 0
-    song mus_pkmn_bw12_095, 0, 0
-    song mus_pkmn_bw12_096, 0, 0
-    song mus_pkmn_bw12_097, 0, 0
-    song mus_pkmn_bw12_098, 0, 0
-    song mus_pkmn_bw12_099, 0, 0
-    song mus_pkmn_bw12_100, 0, 0
-    song mus_pkmn_bw12_101, 0, 0
-    song mus_pkmn_bw12_102, 0, 0
-    song mus_pkmn_bw12_103, 0, 0
-    song mus_pkmn_bw12_104, 0, 0
     song mus_pkmn_bw12_105, 0, 0
-    song mus_pkmn_bw12_106, 0, 0
     song mus_pkmn_bw12_107, 0, 0
     song mus_pkmn_bw12_108, 0, 0
     song mus_pkmn_bw12_109, 0, 0
-    song mus_pkmn_bw12_110, 0, 0
-    song mus_pkmn_bw12_111, 0, 0
-    song mus_pkmn_bw12_112, 0, 0
     song mus_pkmn_bw12_113, 0, 0
-    song mus_pkmn_bw12_114, 0, 0
     song mus_pkmn_bw12_115, 0, 0
-    song mus_pkmn_bw12_116, 0, 0
-    song mus_pkmn_bw12_117, 0, 0
-    song mus_pkmn_bw12_118, 0, 0
-    song mus_pkmn_bw12_119, 0, 0
-    song mus_pkmn_bw12_120, 0, 0
-    song mus_pkmn_bw12_121, 0, 0
-    song mus_pkmn_bw12_122, 0, 0
-    song mus_pkmn_bw12_123, 0, 0
-    song mus_pkmn_bw12_124, 0, 0
     song mus_pkmn_bw12_125, 0, 0
     song mus_pkmn_bw12_126, 0, 0
-    song mus_pkmn_bw12_127, 0, 0
     song mus_pkmn_bw12_128, 0, 0
     song mus_pkmn_bw12_129, 0, 0
     song mus_pkmn_bw12_130, 0, 0
     song mus_pkmn_bw12_131, 0, 0
     song mus_pkmn_bw12_132, 0, 0
-    song mus_pkmn_bw12_133, 0, 0
-    song mus_pkmn_bw12_134, 0, 0
-    song mus_pkmn_bw12_135, 0, 0
-    song mus_pkmn_bw12_136, 0, 0
-    song mus_pkmn_bw12_137, 0, 0
-    song mus_pkmn_bw12_138, 0, 0
-    song mus_pkmn_bw12_139, 0, 0
-    song mus_pkmn_bw12_140, 0, 0
-    song mus_pkmn_bw12_141, 0, 0
     song mus_pkmn_bw12_142, 0, 0
-    song mus_pkmn_bw12_143, 0, 0
-    song mus_pkmn_bw12_144, 0, 0
-    song mus_pkmn_bw12_145, 0, 0
-    song mus_pkmn_bw12_146, 0, 0
     song mus_pkmn_bw12_147, 0, 0
-    song mus_pkmn_bw12_148, 0, 0
     song mus_pkmn_bw12_149, 0, 0
-    song mus_pkmn_bw12_150, 0, 0
-    song mus_pkmn_bw12_151, 0, 0
-    song mus_pkmn_bw12_152, 0, 0
-    song mus_pkmn_bw12_153, 0, 0
-    song mus_pkmn_bw12_154, 0, 0
-    song mus_pkmn_bw12_155, 0, 0
     song mus_pkmn_bw12_156, 0, 0
     song mus_pkmn_bw12_157, 0, 0
     song mus_pkmn_bw12_158, 0, 0
@@ -782,45 +736,15 @@ gSongTable::
     song mus_pkmn_bw12_164, 0, 0
     song mus_pkmn_bw12_165, 0, 0
     song mus_pkmn_bw12_166, 0, 0
-    song mus_pkmn_bw12_167, 0, 0
     song mus_pkmn_bw12_168, 0, 0
-    song mus_pkmn_bw12_169, 0, 0
     song mus_pkmn_bw12_170, 0, 0
-    song mus_pkmn_bw12_171, 0, 0
-    song mus_pkmn_bw12_172, 0, 0
-    song mus_pkmn_bw12_173, 0, 0
-    song mus_pkmn_bw12_174, 0, 0
-    song mus_pkmn_bw12_175, 0, 0
-    song mus_pkmn_bw12_176, 0, 0
-    song mus_pkmn_bw12_177, 0, 0
-    song mus_pkmn_bw12_178, 0, 0
-    song mus_pkmn_bw12_179, 0, 0
-    song mus_pkmn_bw12_180, 0, 0
-    song mus_pkmn_bw12_181, 0, 0
-    song mus_pkmn_bw12_182, 0, 0
-    song mus_pkmn_bw12_183, 0, 0
-    song mus_pkmn_bw12_184, 0, 0
     song mus_pkmn_bw12_185, 0, 0
     song mus_pkmn_bw12_186, 0, 0
     song mus_pkmn_bw12_187, 0, 0
     song mus_pkmn_bw12_188, 0, 0
-    song mus_pkmn_bw12_189, 0, 0
-    song mus_pkmn_bw12_190, 0, 0
-    song mus_pkmn_bw12_191, 0, 0
-    song mus_pkmn_bw12_192, 0, 0
-    song mus_pkmn_bw12_193, 0, 0
-    song mus_pkmn_bw12_194, 0, 0
-    song mus_pkmn_bw12_195, 0, 0
-    song mus_pkmn_bw12_196, 0, 0
-    song mus_pkmn_bw12_197, 0, 0
-    song mus_pkmn_bw12_198, 0, 0
     song mus_pkmn_bw12_199, 0, 0
-    song mus_pkmn_bw12_200, 0, 0
-    song mus_pkmn_bw12_201, 0, 0
-    song mus_pkmn_bw12_202, 0, 0
     song mus_pkmn_bw12_203, 0, 0
     song mus_pkmn_bw12_204, 0, 0
-    song mus_pkmn_bw12_205, 0, 0
 
 	.align 2
 dummy_song_header:
