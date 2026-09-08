@@ -161,7 +161,7 @@ VirtualCity_Work_YourOffice_Eventscript_MinhACTIOutro::
 	playse SE_SELECT
 	player_speak VirtualCity_Work_YourOffice_Text_SophieACTIOutro2
 	closemessage
-
+	applymovement LOCALID_YOUROFFICE_MINH, Common_Movement_FaceLeft
 	call_if_eq VAR_FACING, DIR_EAST, VirtualCity_Work_YourOffice_Eventscript_SophieOutroEast
 	call_if_eq VAR_FACING, DIR_NORTH, VirtualCity_Work_YourOffice_Eventscript_SophieOutroNorth
 	call_if_eq VAR_FACING, DIR_WEST, VirtualCity_Work_YourOffice_Eventscript_SophieOutroWest

@@ -15,7 +15,7 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution::
 	special SpawnCameraObject
 	applymovement LOCALID_CAMERA, Common_Movement_WalkDown
 	waitmovement 0
-	delay 100
+	delay 140
 	fadescreenspeed FADE_FROM_BLACK, 5
 	delay 100
 	speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk1Minh, Speaker_Minh, DIR_NORTH
@@ -49,7 +49,7 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution::
 	waitmovement 0
 	delay 40
 	setspeaker SP_NAME_PLAYER
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk8Sophie, SP_NAME_PLAYER, DIR_WEST
+	msgbox VirtualCity_Hotel_YourRoom_Text_ResolutionTalk8Sophie, MSGBOX_DEFAULT
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Move_ResolutionTalkSophie2
 	waitmovement 0
@@ -69,6 +69,9 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution::
 	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_Hotel_YourRoom_Text_ResolutionTalk11Sophie, MSGBOX_DEFAULT
 	playse SE_SELECT
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+	applymovement LOCALID_VRROOM_MINH, Common_Movement_FaceLeft
+	applymovement LOCALID_VRROOM_HARRIET, Common_Movement_FaceLeft
 	speak LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk12Ernest, Speaker_Ernest, DIR_NORTH
 	closemessage
 	playse SE_PIN
@@ -108,10 +111,13 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution::
 	applymovement LOCALID_VRROOM_ERNEST, Common_Movement_WalkLeft
 	waitmovement 0
 	delay 30
-	speak LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk16Ernest, Speaker_Ernest, DIR_WEST
+	setspeaker Speaker_Ernest
+	msgbox VirtualCity_Hotel_YourRoom_Text_ResolutionTalk16Ernest MSGBOX_DEFAULT
+	closemessage
+	delay 80
 	applymovement LOCALID_VRROOM_MINH, Common_Movement_FaceRight
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
-	playse SE_SELECT
+	applymovement LOCALID_VRROOM_ERNEST, Common_Movement_FaceRight
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk17Harriet, Speaker_Harriet, DIR_WEST
 	applymovement LOCALID_VRROOM_MINH, Common_Movement_FaceLeft
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
@@ -307,6 +313,7 @@ VirtualCity_Hotel_YourRoom_Text_ResolutionTalk16Ernest::
 	.string "But it might be… possible.$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk17Harriet::
+	.string "…\p"
 	.string "We'd need one of the execs' cards or\n"
 	.string "credentials to access the system.$"
 

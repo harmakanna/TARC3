@@ -4,14 +4,16 @@ VirtualCity_Stadium_Entrance_MapScripts::
 
 
 VirtualCity_Stadium_Entrance_EventScript_Act_II_Harriet::
+	lockall
 	goto_if_set FLAG_ACT_II_HARRIET_EXPLANATION, VirtualCity_Stadium_Entrance_EventScript_Harriet_Reexplains
-	setspeaker Speaker_Harriet
-	msgbox VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet1, MSGBOX_NPC
-	setspeaker SP_NAME_PLAYER
-	msgbox VirtualCity_Stadium_Entrance_Text_ActII_Intro_Sophie2, MSGBOX_NPC
-	setspeaker Speaker_Harriet
-	msgbox VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet3, MSGBOX_NPC
+	npc_speak Speaker_Harriet, VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet1
+	playse SE_SELECT
+	player_speak VirtualCity_Stadium_Entrance_Text_ActII_Intro_Sophie2
+	playse SE_SELECT
+	npc_speak Speaker_Harriet, VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet3
+	closemessage
 	setflag FLAG_ACT_II_HARRIET_EXPLANATION
+	releaseall
 	end
 
 
@@ -83,6 +85,7 @@ VirtualCity_Stadium_Entrance_Text_Gallade:
 	.string "You'll make waves out there!$"
 
 VirtualCity_Stadium_Entrance_Text_ReceptionistIntro::
+	.string "HIIIIIII!!!\p"
 	.string "Welcome to the {COLOR GREEN}BETTER {COLOR DARK_GRAY}Tournament!\n"
 	.string "It's {COLOR GREEN}BETTER {COLOR DARK_GRAY}than reality!\p"
 	.string "Are you here to register?$"
@@ -142,8 +145,8 @@ VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet1::
 	.string "somehow get Platinum, he'll fight you.\p"
 	.string "And Ernest reckons they can use his\n"
 	.string "hacked Pokemon as a backdoor to his ID.\p"
-	.string "But Sophie, can you really climb the ranks\n"
-	.string "without the expensive mons they'll have?$"
+	.string "But Sophie, CAN you climb the ranks\n"
+	.string "without the stupid mons they'll have?$"
 
 VirtualCity_Stadium_Entrance_Text_ActII_Intro_Sophie2::
 	.string "Don't worry.\p"

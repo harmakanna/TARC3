@@ -25,27 +25,7 @@
 #define QUEST_LEDIAN     7
 #define QUEST_TEA        8
 #define QUEST_10         9
-#define QUEST_11        10
-#define QUEST_12        11
-#define QUEST_13        12
-#define QUEST_14        13
-#define QUEST_15        14
-#define QUEST_16        15
-#define QUEST_17        16
-#define QUEST_18        17
-#define QUEST_19        18
-#define QUEST_20        19
-#define QUEST_21        20
-#define QUEST_22        21
-#define QUEST_23        22
-#define QUEST_24        23
-#define QUEST_25        24
-#define QUEST_26        25
-#define QUEST_27        26
-#define QUEST_28        27
-#define QUEST_29        28
-#define QUEST_30        29
-#define QUEST_COUNT     (QUEST_30 + 1)
+#define QUEST_COUNT     (QUEST_10 + 1)
 
 #define SUB_QUEST_COUNT 0
 

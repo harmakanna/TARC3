@@ -257,7 +257,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
 	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk29Sophie, SP_NAME_PLAYER, DIR_EAST
 	delay 50
-	fadescreenspeed FADE_TO_BLACK 5
+	fadescreenspeed FADE_TO_BLACK, 5
 	closemessage
 	setvar VAR_PETALBURG_CITY_STATE, 3
 	clearflag FLAG_SYS_NO_MUSIC_ON_TRANSITION
@@ -658,7 +658,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_ActII_Opening::
 	special SpawnCameraObject
 	applymovement LOCALID_CAMERA, Common_Movement_WalkLeft
 	waitmovement 0
-	fadescreen FADE_FROM_BLACK
+	fadescreenspeed FADE_FROM_BLACK, 5
 	delay 100
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro1, SP_NAME_PLAYER, DIR_WEST
 	playse SE_SELECT
@@ -710,7 +710,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_ActII_Opening::
 	clearflag FLAG_ACT_II_HIDE_HOTEL_FRIENDS
 	setvar VAR_PETALBURG_CITY_STATE, 21
 	fadescreenspeed FADE_TO_BLACK, 5
-	delay 100
+	delay 60
 	setflag FLAG_SYS_PREVENT_MAP_FADE
 	clearflag FLAG_SYS_NO_MUSIC_ON_TRANSITION
 	special RemoveCameraObject

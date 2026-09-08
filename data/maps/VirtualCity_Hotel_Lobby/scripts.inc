@@ -15,16 +15,21 @@ VirtualCity_HotelLobby_EarlGray::
 
 VirtualCity_HotelLobby_EarlGrayActivate::
 	npc_speak SP_NAME_EARL_GRAY, VirtualCity_HotelLobby_EarlGrayHmm
+	playse SE_SELECT
 	player_speak VirtualCity_HotelLobby_Text_SophieIsSomethingUp
+	playse SE_SELECT
 	call_if_set FLAG_FOUGHT_EARL_GRAY, VirtualCity_HotelLobby_EarlGrayActivateFought
 	call_if_unset FLAG_FOUGHT_EARL_GRAY, VirtualCity_HotelLobby_EarlGrayActivateUnfought
+	playse SE_SELECT
 	msgbox VirtualCity_HotelLobby_Text_EarlGrayThisBrute, MSGBOX_DEFAULT
+	playse SE_SELECT
 	player_speak VirtualCity_HotelLobby_Text_SophieIsItWorthIt
+	playse SE_SELECT
 	npc_speak SP_NAME_EARL_GRAY, VirtualCity_HotelLobby_Text_EarlGrayOfCourseItIs
-	giveitem ITEM_LETTER
-	playfanfare MUS_OBTAIN_ITEM
 	setspeaker NULL
-	message VirtualCity_HotelLobby_Text_ReceivedMessage
+	giveitem ITEM_LETTER
+	@playfanfare MUS_OBTAIN_ITEM
+	@message VirtualCity_HotelLobby_Text_ReceivedMessage
 	waitfanfare
 	player_speak VirtualCity_HotelLobby_Text_SophieConsiderItDone
 	startquest QUEST_TEA
@@ -193,7 +198,7 @@ VirtualCity_HotelLobby_Text_SophieIsSomethingUp:
 	.string "Is something up?$"
 
 VirtualCity_HotelLobby_Text_EarlGrayJustAtTheRightTime:
-	.string "Aha! Just at the right time!\n"
+	.string "Aha! Just at the right time!$"
 
 VirtualCity_HotelLobby_Text_EarlGrayTheGirlFromTheTournament:
 	.string "Ah, you're the girl from the\n"
@@ -212,7 +217,7 @@ VirtualCity_HotelLobby_Text_SophieIsItWorthIt:
 
 VirtualCity_HotelLobby_Text_EarlGrayOfCourseItIs:
 	.string "I need you to deliver a message\n"
-	.string "for me to this Neanderthal\p"
+	.string "for me to this Neanderthal!\p"
 	.string "He calls himself 'Cap'n Chino.'\p"
 	.string "Take this and read it straight to\n"
 	.string "his face!\p"

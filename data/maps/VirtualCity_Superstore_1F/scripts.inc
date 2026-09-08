@@ -82,10 +82,10 @@ VirtualCity_Superstore1F_Text_SophieTeaBetter:
 	.string "One second…\p"
 	.string "… … …\n"
 	.string "… … …\p"
-	.string "Teaaaa…{PAUSE 20} Is betterrrr…{PAUSE 20}\n"
+	.string "Teaaaa…{PAUSE 65} Is betterrrr…{PAUSE 65}\n"
 	.string "Than coffee?\p"
 	.string "And you can go guzzle a dumpster,\n"
-	.string "you uncivilized buffoon………{PAUSE 30}???$"
+	.string "you uncivilized buffoon………{PAUSE 90}???$"
 
 VirtualCity_Superstore1F_Text_CapnChinoWhyYouLittle:
 	.string "Why you little…\p"
