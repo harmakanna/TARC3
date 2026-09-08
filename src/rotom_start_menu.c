@@ -4051,6 +4051,7 @@ static void Task_RotomPhone_SaveProgress(u8 taskId)
     switch (gTasks[taskId].data[15])
     {
         case 0:
+            PlaySE(SE_SELECT);
             if (UseFlipPhone())
             {
                 u8 menuName[24];
@@ -4078,6 +4079,7 @@ static void Task_RotomPhone_SaveProgress(u8 taskId)
             gTasks[taskId].data[15]++;
             break;
         case 2:
+            PlaySE(SE_SAVE);
             RotomPhone_OverworldMenu_UpdateMenuPrompt(taskId);
             gTasks[taskId].func = Task_RotomPhone_OverworldMenu_HandleMainInput;
             break;
