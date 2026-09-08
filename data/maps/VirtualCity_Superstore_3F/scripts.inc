@@ -3,7 +3,7 @@ VirtualCity_Superstore_3F_MapScripts::
 
 VirtualCity_Superstore_3F_EventScript_Flabebe::
 	lock
-	face_player
+	faceplayer
 	msgbox VirtualCity_Superstore_3F_Text_Flabebe, MSGBOX_DEFAULT
 	closemessage
 	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
