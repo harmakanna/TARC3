@@ -318,6 +318,7 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Ending::
 	playse SE_PC_OFF
 	waitse
 	setvar VAR_PETALBURG_CITY_STATE, 40
+	setflag FLAG_HIDE_LOLA_BEDROOM_PROLOGUE
 	setflag FLAG_ACT_II_HIDE_HOTEL_FRIENDS
 	setflag FLAG_ACT_III_STARTED
 	clearflag FLAG_ACT_III_HIDE_BEDROOM_LOLA
