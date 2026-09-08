@@ -15,32 +15,43 @@ OutsideWorld_ApartmentBldg1_YourApartment_OnFrame:
 
 
 OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
-	playse SE_DOOR
-	applymovement LOCALID_LOLA, Common_Movement_FaceLeft
-	delay 50
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
-	waitmovement 0
-	special SpawnCameraObject
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
 	delay 10
 	speak LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk01Harriet, Speaker_Harriet, DIR_NORTH
+	closemessage
+	playbgm MUS_BW12_080, FALSE
+	special SpawnCameraObject
+	applymovement LOCALID_CAMERA, OutsideWorld_AptBldg1_YourApt_Movement_WalkDownSlow2
+	waitmovement 0
+	applymovement LOCALID_LOLA, Common_Movement_FaceLeft
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	delay 10
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk02Sophie, Speaker_Sophie, DIR_SOUTH
+	playse SE_SELECT
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartmenT_Text_IntroTalk02_1_Sophie, Speaker_Sophie, DIR_EAST
+	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie01
+	waitmovement 0
 	speak LOCALID_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk03Ernest, Speaker_Ernest, DIR_NORTH
 	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie001
 	applymovement LOCALID_LOLA, Common_Movement_FaceDown
+	playse SE_SELECT
 	speak LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk04Harriet, Speaker_Harriet, DIR_NORTH
+	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie1
 	waitmovement 0
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk05Sophie, Speaker_Sophie, DIR_EAST
+	playse SE_SELECT
 	speak LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk06Harriet, Speaker_Harriet, DIR_NORTH
 
-
-	playse SE_DOOR
-	addobject LOCALID_MINH
 	applymovement LOCALID_MINH, Common_Movement_FaceRight
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	playse SE_EXIT
+	delay 20
+	addobject LOCALID_MINH
 	speak LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk1Minh, Speaker_Minh, DIR_WEST
+	closemessage
 	applymovement LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh1
 	delay 10
 	waitmovement 0 
@@ -50,15 +61,22 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
 	waitse
 	waitmovement 0
 	speak LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk2Harriet, Speaker_Harriet, DIR_WEST
+	playse SE_SELECT
 	speak LOCALID_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk3Ernest, Speaker_Ernest, DIR_NORTH
+	playse SE_SELECT
 	speak LOCALID_LOLA, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk4Lola, Speaker_Lola, DIR_SOUTH
 	applymovement LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh2
 	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie2
 	applymovement LOCALID_HARRIET, Common_Movement_FaceUp
+	playse SE_SELECT
 	speak LOCALID_LOLA, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk5Lola, Speaker_Lola, DIR_SOUTH
+	closemessage
+	playse SE_BALL_THROW
 	addobject LOCALID_SNUBBULLS_BALL
+	waitse
 	delay 10
 	playse SE_BALL_OPEN
+	waitse
 	removeobject LOCALID_SNUBBULLS_BALL
 	addobject LOCALID_SNUBBULL
 	playse SE_PIN
@@ -70,32 +88,42 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
 	delay 60
 	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_SophieBackAway
 	playmoncry SPECIES_SNUBBULL, CRY_MODE_ENCOUNTER
+	waitmoncry
 	delay 40
 	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_SophieReturn
 
 	speak LOCALID_LOLA, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk6Lola, Speaker_Lola, DIR_SOUTH
+	closemessage
 	applymovement LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh3
 	applymovement LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Move_Harriet2
-	waitmovement
+	waitmovement 0
     applymovement LOCALID_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Move_Ernest1
-	waitmovement
+	waitmovement 0
+	delay 50
 	applymovement LOCALID_HARRIET, Common_Movement_Heart
+	playse SE_PIN
+	waitse
+	delay 50
 
 	applymovement LOCALID_SNUBBULL, OutsideWorld_ApartmentBldg1_YourApartment_Move_Harriet1
 	playse SE_LEDGE
 	waitse
 	playmoncry SPECIES_SNUBBULL, CRY_MODE_ENCOUNTER
+	waitmoncry
 	delay 30
 
 	speak LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk7Harriet, Speaker_Harriet, DIR_WEST
+	closemessage
 	applymovement LOCALID_SNUBBULL, Common_Movement_Heart
 	applymovement LOCALID_MINH, Common_Movement_ExclamationMark
-	waitmovement
+	playse SE_PIN
+	waitse
+	delay 50
 	applymovement LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh4
-	waitmovement
+	waitmovement 0
 	delay 30
 	applymovement LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh5
-	waitmovement
+	waitmovement 0
 	applymovement LOCALID_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Move_Ernest2
 
 
@@ -104,7 +132,9 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
 	waitmovement
 
 	speak LOCALID_LOLA, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk9Lola, Speaker_Lola, DIR_SOUTH
-	speak LOCALID_LOLA, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk10Lola, Speaker_Lola, DIR_SOUTH
+	playse SE_SELECT
+	speak LOCALID_LOLA, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk10Lola, Speaker_Lola, DIR_WEST
+	closemessage
 	applymovement LOCALID_HARRIET, Common_Movement_FaceLeft
 	applymovement LOCALID_ERNEST, Common_Movement_FaceLeft
 	applymovement LOCALID_LOLA, Common_Movement_FaceLeft
@@ -115,26 +145,43 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
 
 
 	speak LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk11Minh, Speaker_Minh, DIR_EAST
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk12Sophie, Speaker_Sophie, DIR_EAST
+	closemessage
 	applymovement LOCALID_HARRIET, Common_Movement_QuestionMark
 	applymovement LOCALID_ERNEST, Common_Movement_QuestionMark
+	playse SE_PIN
+	waitmovement 0
+	waitse
+	delay 50
 
 	speak LOCALID_LOLA, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk13Lola, Speaker_Lola, DIR_SOUTH
+	closemessage
 	applymovement LOCALID_LOLA, OutsideWorld_ApartmentBldg1_YourApartment_Move_Lola1
 	applymovement LOCALID_SNUBBULL, OutsideWorld_ApartmentBldg1_YourApartment_Move_Snubbull1
 	delay 10
 	applymovement LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh7
-
+	waitmovement LOCALID_MINH
 	speak LOCALID_LOLA, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk14Lola, Speaker_Lola, DIR_SOUTH
-	applymovement LOCALID_LOLA, OutsideWorld_ApartmentBldg1_YourApartment_Move_Lola2
+	closemessage
+	applymovement LOCALID_LOLA, Common_Movement_WalkUp
 	applymovement LOCALID_SNUBBULL, OutsideWorld_ApartmentBldg1_YourApartment_Move_Snubbull2
-	delay 16
-	removeobject LOCALID_LOLA
+	opendoor 4,1
 	playse SE_DOOR
+	waitse
+	waitdooranim
+	applymovement LOCALID_LOLA, Common_Movement_WalkUp
+	delay 8
+	applymovement LOCALID_SNUBBULL, Common_Movement_WalkUp
+	waitmovement LOCALID_LOLA
+	removeobject LOCALID_LOLA
+	playse SE_EXIT
 	delay 8
 	removeobject LOCALID_SNUBBULL
-	playse SE_DOOR
-
+	playse SE_EXIT
+	waitse
+	closedoor 4,1
+	waitdooranim
 	delay 20
 
 	applymovement LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh8
@@ -147,53 +194,75 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
 	waitmovement
 
 	speak LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk15Harriet, Speaker_Harriet, DIR_NORTH
+	playse SE_SELECT
 	speak LOCALID_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk16Ernest, Speaker_Ernest, DIR_NORTH
+	playse SE_SELECT
 	speak LOCALID_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk17Ernest, Speaker_Ernest, DIR_NORTH
+	playse SE_SELECT
 	speak LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk18Minh, Speaker_Minh, DIR_WEST
 
+	playse SE_SELECT
 
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk19Sophie, Speaker_Sophie, DIR_SOUTH
+	playse SE_SELECT
 	speak LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk20Harriet, Speaker_Harriet, DIR_NORTH
 	closemessage
 	applymovement LOCALID_ERNEST, Common_Movement_FaceLeft
 	applymovement LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Move_Harriet4
 	delay 40
 	removeobject LOCALID_HARRIET
-	playse SE_DOOR
+	playse SE_EXIT
 	delay 10
 
 	speak LOCALID_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk21Ernest, Speaker_Ernest, DIR_NORTH
+	closemessage
 	applymovement LOCALID_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Move_Ernest5
 	waitmovement
 	delay 50
 
 	speak LOCALID_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk21pt5Ernest, Speaker_Ernest, DIR_EAST
-	applymovement LOCALID_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Move_Ernest6
 	closemessage
-	delay 10
+	applymovement LOCALID_ERNEST, Common_Movement_FaceDown
+	waitmovement 0
+	delay 16
 	removeobject LOCALID_ERNEST
-	playse SE_DOOR
+	playse SE_EXIT
 	delay 20
-	special RemoveCameraObject
 
+	fadenewbgm MUS_NONE
+	delay 120
+	applymovement LOCALID_CAMERA, Common_Movement_WalkUp2
+	waitmovement LOCALID_CAMERA
+	special RemoveCameraObject
 	@Discuss with Minh
 	applymovement LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh9
 	waitmovement
 
 	speak LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk22Minh, Speaker_Minh, DIR_EAST
+	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_Sophie4
 	waitmovement
 
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk23Sophie, Speaker_Sophie, DIR_EAST
+	playse SE_SELECT
 	speak LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk24Minh, Speaker_Minh, DIR_WEST
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk25Sophie, Speaker_Sophie, DIR_EAST
+	playse SE_SELECT
 	speak LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk26Minh, Speaker_Minh, DIR_WEST
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk27Sophie, Speaker_Sophie, DIR_EAST
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk28Sophie, Speaker_Sophie, DIR_WEST
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk29Sophie, Speaker_Sophie, DIR_EAST
 	delay 50
 	fadescreenspeed FADE_TO_BLACK 5
+	closemessage
 	setvar VAR_PETALBURG_CITY_STATE, 3
+	clearflag FLAG_SYS_NO_MUSIC_ON_TRANSITION
+	clearflag FLAG_PROLOGUE_COMPLETE
+	clearflag FLAG_HIDE_LOLA_BEDROOM_PROLOGUE
 	setflag FLAG_SYS_PREVENT_MAP_FADE
 	warpsilent MAP_OUTSIDE_WORLD, 22, 20
 	waitstate
@@ -212,6 +281,10 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_NotFirstLoad::
 	end
 
 
+OutsideWorld_AptBldg1_YourApt_Movement_WalkDownSlow2:
+	walk_slow_down
+	walk_slow_down
+	step_end
 
 OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh1:
 	walk_fast_up
@@ -332,7 +405,8 @@ OutsideWorld_ApartmentBldg1_YourApartment_Move_Harriet3:
 OutsideWorld_ApartmentBldg1_YourApartment_Move_Harriet4:
 	walk_left
 	walk_left
-	walk_down
+	face_down
+	delay_16
 	step_end
 
 
@@ -378,6 +452,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Move_Lola1:
 
 OutsideWorld_ApartmentBldg1_YourApartment_Move_Lola2:
 	walk_up
+	delay_16
 	walk_up
 	step_end	
 
@@ -390,10 +465,14 @@ OutsideWorld_ApartmentBldg1_YourApartment_Move_Snubbull1:
 
 OutsideWorld_ApartmentBldg1_YourApartment_Move_Snubbull2:
 	walk_left
+	face_up
+	step_end
+
+
+OutsideWorld_ApartmentBldg1_YourApartment_Move_Snubbull3:
 	walk_up
 	walk_up
 	step_end
-
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk01Harriet::
 	.string "She's here!$"
@@ -401,7 +480,9 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk01Harriet::
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk02Sophie::
 	.string "Hey!\p"
 	.string "We just finished up. Minh got a head\n"
-	.string "start, so he'll be here any minute.\p"
+	.string "start, so he'll be here any minute.$"
+
+OutsideWorld_ApartmentBldg1_YourApartmenT_Text_IntroTalk02_1_Sophie:
 	.string "We're excited for your big day, Lola!$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk03Ernest::
@@ -574,10 +655,15 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk29Sophie::
 
 OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_ActII_Opening::
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro1, Speaker_Sophie, DIR_WEST
+	playse SE_SELECT
 	speak LOCALID_A2_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Text_ErnestActIIIntro2, Speaker_Ernest, DIR_EAST
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro3, Speaker_Sophie, DIR_WEST
+	playse SE_SELECT
 	speak LOCALID_A2_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_HarrietActIIIntro4, Speaker_Harriet, DIR_NORTH
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro5, Speaker_Sophie, DIR_WEST
+	closemessage
 
 	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_ActIII_Opening1
 	waitmovement 0

@@ -724,7 +724,8 @@ enum BattleEnvironments BattleSetup_GetEnvironmentId(void)
 
     tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
 
-    if (IsInVirtualWorld())
+    if (IsInVirtualWorld()
+    || gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_VIRTUAL_CITY_TESTING_ROOM_INTRO))
         return BATTLE_ENVIRONMENT_VIRTUAL;
     if (MetatileBehavior_IsTallGrass(tileBehavior))
         return BATTLE_ENVIRONMENT_GRASS;

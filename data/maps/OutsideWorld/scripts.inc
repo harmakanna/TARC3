@@ -13,11 +13,7 @@ OutsideWorld_OnFrame:
 
 
 OutsideWorld_PrologueEndScene_Final_Really::
-	setweather WEATHER_RAIN
-	doweather
-	addobject LOCALID_OW_MINH
-	delay 100
-	delay 100
+	delay 50
 	clearflag FLAG_SYS_PREVENT_MAP_FADE
 	fadescreenspeed FADE_FROM_BLACK 5
 	delay 50
@@ -33,7 +29,6 @@ OutsideWorld_PrologueEndScene_Final_Really::
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_SophiePrologue5, Speaker_Sophie, DIR_EAST
 	closemessage
 	delay 30
-	closemessage
 	applymovement LOCALID_OW_MINH, OutsideWorld_Move_Minh1
 	delay 100
 	delay 60
@@ -45,9 +40,15 @@ OutsideWorld_PrologueEndScene_Final_Really::
 	applymovement OBJ_EVENT_ID_CAMERA, OutsideWorld_Move_Camera1
 	delay 50
 	playse SE_DOOR
-	hideplayer
+	opendoor 23, 13
+	waitdooranim
+	waitse
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
 	waitmovement 0
-	delay 100
+	hideplayer
+	closedoor 23, 13
+	waitdooranim
+	delay 50
 	delay 50
 	setvar VAR_PETALBURG_CITY_STATE, 4
 	warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_FLOOR1, 2,4
@@ -96,7 +97,6 @@ OutsideWorld_Move_Sophie1:
 
 OutsideWorld_Move_Sophie2:
 	walk_right
-	walk_up
 	walk_up
 	step_end
 
@@ -155,11 +155,11 @@ OutsideWorld_Script_Dealer::
 	playse SE_SELECT
 	
 	@Kumatora - I think player_speak is broken? I put in the obvious workaround, but feel free to change back if it's fixed
-	setspeaker Speaker_Sophie
-	msgbox OutsideWorld_Text_SophieHellNo, MSGBOX_NPC
+	@setspeaker Speaker_Sophie
+	@msgbox OutsideWorld_Text_SophieHellNo, MSGBOX_NPC
 
-	@player_speak OutsideWorld_Text_SophieHellNo
-	@playse SE_SELECT
+	player_speak OutsideWorld_Text_SophieHellNo
+	playse SE_SELECT
 	npc_speak Speaker_Dodgy_Man, OutsideWorld_Text_DealerOkayOkay
 	closemessage
 	release
@@ -216,7 +216,7 @@ OutsideWorld_Text_PurpleBoy:
 	.string "Ever since {COLOR GREEN}BETTER{COLOR DARK_GRAY} figured out how to\n"
 	.string "transfer essentials like groceries\l"
 	.string "and meds through the PC, every store\l"
-	.string "here have shuttered their doors.\p"
+	.string "here has shuttered their doors.\p"
 	.string "What about those of us who can't\n"
 	.string "afford their subscription premiums?\p"
 	.string "Are we just out of luck?$"

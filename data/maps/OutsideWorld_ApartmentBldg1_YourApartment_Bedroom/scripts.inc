@@ -159,6 +159,22 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Move_LolaDontTellHer1:
 	face_down
 	step_end
 
+OutsideWorld_ApartmentBldg_YourBedroom_LolaIdle::
+	lock
+	msgbox OutsideWorld_ApartmentBldg_YourBedroom_Text_LolaIdle, MSGBOX_DEFAULT
+	closemessage
+	playse SE_PIN
+	applymovement LOCALID_BEDROOM_LOLAIDLE, Common_Movement_Heart
+	waitmovement 0
+	waitse
+	delay 50
+	release
+	end
+
+OutsideWorld_ApartmentBldg_YourBedroom_Text_LolaIdle:
+	.string "Snubbull-snubble Snubbubble!\n"
+	.string "Dreamy little Dreams!\p"
+	.string "I love you!$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaConfronts1:
 	.string "Sophie.$"
@@ -347,7 +363,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Eventscript_PC::
 	goto_if_eq VAR_RESULT, NO, Common_Eventscript_Cancel
 	closemessage
 	@@ Fancy transition TOFOLD
-	entervr_warp MAP_VIRTUAL_CITY_OUTSIDE1, 24, 24
+	entervr_warp MAP_VIRTUAL_CITY_OUTSIDE1, 24, 25
 	waitstate
 	end
 

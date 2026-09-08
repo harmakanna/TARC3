@@ -120,6 +120,7 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	@@ TOFOLD Transition Graphic
 
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro01, Speaker_Minh, DIR_WEST
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro02, Speaker_Sophie, DIR_EAST
 	closemessage
 	playse SE_PIN
@@ -127,7 +128,9 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	waitse
 	delay 60
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro03, Speaker_Minh, DIR_WEST
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro04, Speaker_Sophie, DIR_EAST
+	playse SE_SELECT
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro05, Speaker_Minh, DIR_WEST
 	closemessage
 	addobject LOCALID_DARKANINES_BALL
@@ -138,9 +141,13 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	delay 40
 
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro06, Speaker_Minh, DIR_WEST
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro07, Speaker_Sophie, DIR_EAST
+	playse SE_SELECT
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro08, Speaker_Minh, DIR_WEST
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_TestingRoomIntro_Text_Intro09, Speaker_Sophie, DIR_EAST
+	playse SE_SELECT
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro10, Speaker_Minh, DIR_WEST
 	closemessage
 	playse SE_PIN
@@ -160,6 +167,7 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	closemessage
 	delay 50
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro12, Speaker_Minh, DIR_WEST
+	closemessage
 
 	removeobject LOCALID_ARCANINE
 	addobject LOCALID_DARKANINES_BALL
@@ -222,7 +230,7 @@ VirtualCity_TestingRoomIntro_Eventscript_FirstBattle:
 	setspeaker Speaker_Minh
 	msgbox VirtualCity_TestingRoomIntro_Text_AdjustDarkanine, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine
-    goto_if_eq VAR_RESULT, YES, VirtualCity_TestingRoomIntro_EventScript_AdjustDarkanine
+    goto_if_eq VAR_RESULT, YES, VirtualCity_TestingRoomIntro_Eventscript_Minh
 	end
 
 VirtualCity_TestingRoomIntro_Eventscript_SecondBattle:
@@ -232,7 +240,7 @@ VirtualCity_TestingRoomIntro_Eventscript_SecondBattle:
 	setspeaker Speaker_Minh
 	msgbox VirtualCity_TestingRoomIntro_Text_AdjustDarkanine, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine
-    goto_if_eq VAR_RESULT, YES, VirtualCity_TestingRoomIntro_EventScript_AdjustDarkanine
+    goto_if_eq VAR_RESULT, YES, VirtualCity_TestingRoomIntro_Eventscript_Minh
 	end
 
 EventScript_End:
@@ -251,8 +259,8 @@ VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine:
 	applymovement LOCALID_MINH, VirtualCityIntro_Movement_LogOut
 	waitmovement 0
 	removeobject LOCALID_MINH
-	delay 40
-	
+	delay 100
+	setflag FLAG_SYS_NO_MUSIC_ON_TRANSITION
 	@@ fancy transition
 	@fadescreenspeed FADE_TO_BLACK, 5
 	setvar VAR_PETALBURG_CITY_STATE, 2
@@ -373,7 +381,7 @@ VirtualCity_TestingRoomIntro_Text_Intro11:
 VirtualCity_TestingRoomIntro_Text_Intro12:
 	.string "Ugh, ANOTHER Rotom Phone ad ping?\n"
 	@.string "I'm complimenting myself, a Rotom\l"
-	@.string "Phone ad interrupts it?"" 
+	@.string "Phone ad interrupts it?\p" 
 	.string "Hmph.\p"
 	.string "Anyways, work your magic on Darkanine,\n"
 	.string "and then we can run a simulator battle.\p"
