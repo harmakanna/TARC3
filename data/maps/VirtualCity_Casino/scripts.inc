@@ -223,9 +223,8 @@ VirtualCity_Casino_Text_Twin:
 	.string "lately…\p"
 	.string "The boss expects too much from me…\p"
 	.string "Gotta put in overtime to keep up…\p"
-	.string "Nothing to do but hit the sticks and\n"
-	.string "unwind with a can of lager after a\l"
-	.string "hard day…$"
+	.string "Nothing to do but hit the sticks with\n"
+	.string "a can of lager after a hard day…$"
 
 VirtualCity_Casino_Text_LittleBoy:
 	.string "my WIFE left me\p"
