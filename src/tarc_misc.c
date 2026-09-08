@@ -24,7 +24,7 @@ bool32 IsInWorkplace(void)
 
 const u8 *GetPlayerName(void)
 {
-    if (IsInVirtualWorld())
+    if (IsInVirtualWorld() && !IsInWorkplace())
         return gDigitalSophieName;
     else
         return gSophieName;
