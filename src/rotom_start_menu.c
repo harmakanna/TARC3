@@ -2207,7 +2207,7 @@ void Task_ExitVr(u8 taskId)
     case 1:
         if (!IsComputerScreenCloseEffectActive())
         {
-            DoWarp();
+            DoSilentWarp();
             DestroyTask(taskId);
         }
     }
