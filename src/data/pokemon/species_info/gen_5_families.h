@@ -30,8 +30,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .height = 4,
         .weight = 40,
         .description = COMPOUND_STRING(
-            "This Pokémon brings victory.\n"
-            "It is said that Trainers with Victini\n"
+            "Teatime Set (1/6)\n"
+            "Bonus Hospitality\n"
             "always win, regardless of the type\n"
             "of encounter."),
         .pokemonScale = 491,
@@ -2720,8 +2720,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .height = 3,
         .weight = 85,
         .description = COMPOUND_STRING(
-            "It can dig through the ground at a\n"
-            "speed of 30 mph by spinning its body.\n"
+            "Vanilla Set (1/XXXX)\n"
+            "No special attributes.\n"
             "It could give a car running aboveground\n"
             "a good race."),
         .pokemonScale = 530,
@@ -2791,8 +2791,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .height = 7,
         .weight = 404,
         .description = COMPOUND_STRING(
-            "More than 300 feet below the surface,\n"
-            "they build mazelike nests. Their activity\n"
+            "Vanilla Set (1/XXXX)\n"
+            "No special attributes.\n"
             "can be destructive to subway tunnels,\n"
             "but it can also help with construction."),
         .pokemonScale = 365,

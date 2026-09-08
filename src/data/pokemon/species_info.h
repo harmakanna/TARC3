@@ -204,8 +204,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .height = 19,
         .weight = 1550,
         .description = COMPOUND_STRING(
-            "This is a newly discovered Pokémon.\n"
-            "It is currently under investigation.\n"
+            "UNRELEASED\n"
+            "Property of {COLOR GREEN}BETTER{COLOR BLACK} Design Team.\n"
             "No detailed information is available\n"
             "at this time."),
         .pokemonScale = 256,
@@ -247,8 +247,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
             SHADOW_SIZE_M,
             TRACKS_FOOT,
             sAnimTable_Following,
-            gOverworldPalette_Arcanine,
-            gShinyOverworldPalette_Arcanine
+            gOverworldPalette_Darkanine,
+            gShinyOverworldPalette_Darkanine
         )
         .levelUpLearnset = sDarkanineLevelUpLearnset,
         .teachableLearnset = sNoneTeachableLearnset,

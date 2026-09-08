@@ -34,8 +34,10 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_IntroScene::
 	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro3, Speaker_Harriet, DIR_SOUTH
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Eventscript_SophieIntro4, Speaker_Sophie, DIR_NORTH
 	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro5, Speaker_Harriet, DIR_SOUTH
+	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro6, Speaker_Harriet, DIR_SOUTH
 	closemessage
-
+	call EventScript_AddRandomMod
+	setflag FLAG_ACT_II_MOD_INSTALLED
 	clearflag FLAG_ACT_II_HIDE_HARRIET_PREBATTLE
 	setvar VAR_PETALBURG_CITY_STATE, 23
 	end
@@ -58,10 +60,11 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro1:
 	.string "So, I signed myself up as your coach.\p"
 	.string "I'll scope out your opponents, try to\n"
 	.string "give you an edge.\p"
-	.string "I know you like modding your Pokemon,\n"
-	.string "so you can do it at that PC there.\p"
-	.string "You'll probably only have time for\n"
+	.string "I know you like modding your Pokemon;\n"
+	.string "You'll probably only have time for\l"
 	.string "one mod after each battle, though.\p"
+	.string "If you need to remove mods for better\n"
+	.string "ones, you can do it at that PC there.\p"
 	.string "And behind me is the door to the arena.$"
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_SophieIntro2:
@@ -79,18 +82,29 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_SophieIntro4:
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro5:
 	.string "Nothing! Anyway, your first opponent…\p"
-	.string "This guy doesn't have anything too\n"
-	.string "scary. Looks like he loves starters?$"
+	.string "This guy doesn't have anything scary.\n"
+	.string "Looks like he loves weak starters?$"
+
+VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro6:
+	.string "Anyway, get to modding!$"
 
 
 
 
 
+VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod::
+	call EventScript_AddRandomMod
+	setflag FLAG_ACT_II_MOD_INSTALLED
+	return
 
 
+
+VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietWellDone:
+	.string "Well done!$"
 
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_Harriet::
+	
 	goto_if_eq VAR_PETALBURG_CITY_STATE, 23, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXRando1
 	goto_if_eq VAR_PETALBURG_CITY_STATE, 24, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXRando2
 	goto_if_eq VAR_PETALBURG_CITY_STATE, 25, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXRando3
@@ -111,16 +125,21 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_Harriet::
 @@ TOFOLD add in rematches
 
 
+
+
+
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXRando1::
 	goto_if_set FLAG_ACT_II_FOUGHT_RANDO1, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXRando1Rematch
 	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXRando1, MSGBOX_NPC
 	setflag FLAG_ACT_II_FOUGHT_RANDO1
+	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXRando1Rematch::
 	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXRando1Rematch, MSGBOX_NPC
+	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
 
 
@@ -129,11 +148,13 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXRando2::
 	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXRando2, MSGBOX_NPC
 	setflag FLAG_ACT_II_FOUGHT_RANDO2
+	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXRando2Rematch::
 	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXRando2Rematch, MSGBOX_NPC
+	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
 
 
@@ -141,12 +162,14 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXRando3::
 	goto_if_set FLAG_ACT_II_FOUGHT_RANDO3, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXRando3Rematch
 	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXRando3, MSGBOX_NPC
+	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	setflag FLAG_ACT_II_FOUGHT_RANDO3
 	end
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXRando3Rematch::
 	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXRando3Rematch, MSGBOX_NPC
+	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
 
 
@@ -155,11 +178,13 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXRando4::
 	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXRando4, MSGBOX_NPC
 	setflag FLAG_ACT_II_FOUGHT_RANDO4
+	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXRando4Rematch::
 	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXRando4Rematch, MSGBOX_NPC
+	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
 
 
@@ -168,11 +193,13 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXRando5::
 	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXRando5, MSGBOX_NPC
 	setflag FLAG_ACT_II_FOUGHT_RANDO5
+	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXRando5Rematch::
 	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXRando5Rematch, MSGBOX_NPC
+	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
 
 
@@ -241,6 +268,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXBroDude::
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXBroDude3, MSGBOX_NPC
 	closemessage
 	setflag FLAG_ACT_II_FOUGHT_BRODUDE
+	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXWvddie::
@@ -252,6 +280,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXWvddie::
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXWvddie3, MSGBOX_NPC
 	closemessage
 	setflag FLAG_ACT_II_FOUGHT_WVDDIE
+	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXSilvaBullet::
@@ -263,6 +292,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXSilvaBullet::
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXSilvaBullet3, MSGBOX_NPC
 	closemessage
 	setflag FLAG_ACT_II_FOUGHT_SILVABULLET
+	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXEarlGrey::
@@ -274,6 +304,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXEarlGrey::
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXEarlGrey3, MSGBOX_NPC
 	closemessage
 	setflag FLAG_ACT_II_FOUGHT_EARLGREY
+	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
 
 
@@ -365,6 +396,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB1Scene::
 	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle1XByron0, MSGBOX_NPC
 	closemessage
+	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2Scene::
@@ -390,6 +422,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2Scene::
 	setspeaker Speaker_Sophie
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2WinXByron9, MSGBOX_NPC	
 	closemessage
+	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2SceneLose::
@@ -413,6 +446,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2SceneLose::
 	setspeaker Speaker_Sophie
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2LoseXByron9, MSGBOX_NPC	
 	closemessage
+	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
 
 
@@ -431,6 +465,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB3Scene::
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle3XByron6, MSGBOX_NPC
 	setspeaker Speaker_Sophie
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle3XByron7, MSGBOX_NPC
+	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
 
 
@@ -708,3 +743,20 @@ VirtualCity_Stadium_PreBattleRoom_Text_ErnestTaught:
 	.string "again if you want.$"
 
 
+VirtualCity_Stadium_PreBattleRoom_EventScript_PC::
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_PC, MSGBOX_YESNO
+    goto_if_eq VAR_RESULT, YES, VirtualCity_Stadium_PreBattleRoom_EventScript_PCRemoveMods
+	end
+
+VirtualCity_Stadium_PreBattleRoom_EventScript_PCRemoveMods::
+	special ChoosePartyMon
+	callnative RemoveModsFromSelectedMon
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_RemovalComplete, MSGBOX_DEFAULT
+	closemessage
+	end
+
+VirtualCity_Stadium_PreBattleRoom_Text_PC:
+	.string "Remove a Pokemon's mods?$"
+
+VirtualCity_Stadium_PreBattleRoom_Text_RemovalComplete:
+	.string "Removal complete.$"

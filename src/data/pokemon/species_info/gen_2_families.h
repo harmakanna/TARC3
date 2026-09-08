@@ -1257,8 +1257,8 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .height = 14,
         .weight = 356,
         .description = COMPOUND_STRING(
-            "It is said that in lands with clean air,\n"
-            "where the stars fill the sky, there live\n"
+            "Vanilla Set (1/XXXX)\n"
+            "No special attributes.\n"
             "many Ledian. For good reason, they use\n"
             "the light of the stars as energy."),
         .pokemonScale = 256,

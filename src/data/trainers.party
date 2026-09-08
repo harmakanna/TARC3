@@ -127,7 +127,7 @@ Class: Team Aqua
 Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
-Double Battle: No
+Double Battle: Yes
 AI: Check Bad Move
 
 Inteleon (M) @ Choice Specs  
@@ -186,7 +186,7 @@ Class: Team Aqua
 Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
-Double Battle: No
+Double Battle: Yes
 AI: Check Bad Move
 
 Torkoal (F) @ Heat Rock  
@@ -245,7 +245,7 @@ Class: Team Aqua
 Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
-Double Battle: No
+Double Battle: Yes
 AI: Check Bad Move
 
 Luvdisc (F) @ Iapapa Berry  
@@ -304,7 +304,7 @@ Class: Team Aqua
 Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
-Double Battle: No
+Double Battle: Yes
 AI: Check Bad Move
 
 Tyrogue @ Eviolite  
@@ -363,7 +363,7 @@ Class: Team Aqua
 Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
-Double Battle: No
+Double Battle: Yes
 AI: Check Bad Move
 
 Incineroar (M) @ Sitrus Berry  
@@ -422,7 +422,7 @@ Class: Team Aqua
 Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
-Double Battle: No
+Double Battle: Yes
 AI: Basic Trainer
 
 Sableye (M) @ Sablenite  
@@ -571,7 +571,7 @@ Class: Team Aqua
 Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
-Double Battle: No
+Double Battle: Yes
 AI: Basic Trainer
 
 Dratini @ Eviolite  
@@ -631,7 +631,7 @@ Pic: Cooltrainer M
 Gender: Male
 Music: Cool
 Items: Hyper Potion
-Double Battle: No
+Double Battle: Yes
 AI: Basic Trainer
 
 Manectric
@@ -648,7 +648,8 @@ Class: Bird Keeper
 Pic: Bird Keeper
 Gender: Male
 Music: Cool
-Double Battle: No
+Items: Hyper Potion
+Double Battle: Yes
 AI: Basic Trainer
 
 Pelipper
@@ -665,7 +666,8 @@ Class: Collector
 Pic: Collector
 Gender: Male
 Music: Suspicious
-Double Battle: No
+Items: Hyper Potion
+Double Battle: Yes
 AI: Check Bad Move
 
 Zangoose
@@ -682,7 +684,7 @@ Class: Team Aqua
 Pic: Aqua Grunt F
 Gender: Female
 Music: Aqua
-Double Battle: No
+Double Battle: Yes
 AI: Check Bad Move
 
 Shedinja @ Metronome  

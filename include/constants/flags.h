@@ -1263,7 +1263,7 @@
 #define FLAG_ACT_III_TELL_LOLA                                           0x4B9 // Unused Flag
 #define FLAG_ACT_III_POINTOFNORETURN                                          0x4BA // Unused Flag
 #define FLAG_ACT_III_HIDE_BEDROOM_FRIENDS                                          0x4BB // Unused Flag
-#define FLAG_UNUSED_0x4BC                                           0x4BC // Unused Flag
+#define FLAG_ACT_II_MOD_INSTALLED                                           0x4BC // Unused Flag
 #define FLAG_UNUSED_0x4BD                                           0x4BD // Unused Flag
 #define FLAG_UNUSED_0x4BE                                           0x4BE // Unused Flag
 #define FLAG_UNUSED_0x4BF                                           0x4BF // Unused Flag
