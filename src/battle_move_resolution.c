@@ -15,6 +15,8 @@
 #include "constants/battle_move_resolution.h"
 
 #include "battle_quanta.h"
+#include "battle_setup.h"
+#include "event_data.h"
 
 static void ValidateBattlers(void);
 static enum Move GetOriginallyUsedMove(enum Move chosenMove);
@@ -3006,6 +3008,11 @@ static enum MoveEndResult MoveEndUpdateLastMoves(struct BattleCalcValues *cv)
         RestoreTarget();
     }
 
+    //TARC hack
+    if (GetOriginallyUsedMove(gChosenMove) == MOVE_OCTAZOOKA && TRAINER_BATTLE_PARAM.opponentA == TRAINER_BYRON3)
+    {
+        FlagSet(FLAG_HIT_BYRON_WITH_HACKED_MOVE);
+    }
     enum BattleMoveEffects originalEffect = GetMoveEffect(GetOriginallyUsedMove(gChosenMove));
     if (IsBattlerAlive(cv->battlerAtk) // Why do we need to check if user fainted? We just want to set with what move the target got hit
      && originalEffect != EFFECT_BATON_PASS
