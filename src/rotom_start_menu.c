@@ -2195,7 +2195,7 @@ static void RotomPhone_OverworldMenu_DestroySprites(void)
     }
 }
 
-static void Task_ExitVr(u8 taskId)
+void Task_ExitVr(u8 taskId)
 {
     switch (gTasks[taskId].data[0])
     {

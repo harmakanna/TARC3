@@ -244,5 +244,6 @@ enum RotomPhone_Colours
 #define RP_CONFIG_USE_ROTOM_MENU          TRUE
 
 void RotomPhone_StartMenu_Open(bool32 firstInit);
+void Task_ExitVr(u8 taskId);
 
 #endif // GUARD_ROTOM_START_MENU_H
