@@ -1307,7 +1307,7 @@ static const struct RotomPhone_MenuOptions sRotomPhoneOptions[RP_MENU_COUNT] =
     {
         .menuName = COMPOUND_STRING("Bag"),
         .rotomSpeech = COMPOUND_STRING("to look through your Bag?"),
-        .unlockedFunc = RotomPhone_StartMenu_UnlockedFunc_Unlocked,
+        .unlockedFunc = RotomPhone_DisabledFunction,
         .selectedFunc = RotomPhone_StartMenu_SelectedFunc_Bag,
         .owIconPalSlot = PAL_ICON_BLUE,
         .owAnim = RP_ICON_ANIM_SEVEN,
