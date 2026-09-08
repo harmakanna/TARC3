@@ -94,10 +94,10 @@ VirtualCity_CommsTower_1F_Eventscript_ActIIntro::
 
 	end
 
-
-	call_if_eq VAR_FACING, DIR_EAST, VirtualCity_CommsTower_1F_EventScript_MoveIntroCameraEast
-	call_if_eq VAR_FACING, DIR_SOUTH, VirtualCity_CommsTower_1F_EventScript_MoveIntroCameraEast
-	call_if_eq VAR_FACING, DIR_WEST, VirtualCity_CommsTower_1F_EventScript_MoveIntroCameraEast
+VirtualCity_CommsTower_1F_EventScript_MoveIntroCameraEast::
+	applymovement OBJ_EVENT_ID_CAMERA, VirtualCity_CommsTower_1F_Move_IntroCamera1
+	waitmovement 0
+	return
 
 VirtualCity_CommsTower_1F_Move_IntroCamera1:
 	walk_up
@@ -360,7 +360,7 @@ VirtualCity_CommsTower_1F_Text_NoPokemonGuardStop:
 
 
 VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardPonyta:
-	npc_speakspeak VirtualCity_CommsTower_1F_Text_NoPokemonGuardPonyta, Speaker_Guard
+	npc_speak VirtualCity_CommsTower_1F_Text_NoPokemonGuardPonyta, Speaker_Guard
 	applymovement LOCALID_GUARD, VirtualCity_CommsTower_1F_Move_NoPokemonGuardPonyta
 	waitmovement 0
 	setdynamicwarp MAP_VIRTUAL_CITY_COMMS_TOWER_RESEARCH, 0
