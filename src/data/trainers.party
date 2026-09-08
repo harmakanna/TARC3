@@ -132,15 +132,15 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 
 === TRAINER_RANDO1 ===
-Name: GRUNT
-Class: Team Aqua
-Pic: Aqua Grunt M
+Name: RadDad4
+Class: Collector
+Pic: Collector
 Gender: Male
-Music: Aqua
+Music: Suspicious
 Double Battle: Yes
 AI: Check Bad Move
 
-Inteleon (M) @ Choice Specs  
+Inteleon (M) @ Choice Scarf  
 Ability: Sniper  
 Level: 50  
 Tera Type: Water  
@@ -191,11 +191,11 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 
 === TRAINER_RANDO2 ===
-Name: GRUNT
-Class: Team Aqua
-Pic: Aqua Grunt M
+Name: LilPaul
+Class: Ninja Boy
+Pic: Ninja Boy
 Gender: Male
-Music: Aqua
+Music: Suspicious
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -251,10 +251,10 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_RANDO3 ===
 Name: StlCute44
-Class: Team Aqua
-Pic: Aqua Grunt M
-Gender: Male
-Music: Aqua
+Class: Expert
+Pic: Expert F
+Gender: Female
+Music: Intense
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -309,11 +309,11 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 
 === TRAINER_RANDO4 ===
-Name: GRUNT
-Class: Team Aqua
-Pic: Aqua Grunt M
+Name: H1TM4N
+Class: Black Belt
+Pic: Black Belt
 Gender: Male
-Music: Aqua
+Music: Intense
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -369,10 +369,10 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_RANDO5 ===
 Name: GRUNT
-Class: Team Aqua
-Pic: Aqua Grunt M
-Gender: Male
-Music: Aqua
+Class: Battle Girl
+Pic: Battle Girl
+Gender: Female
+Music: Intense
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -690,10 +690,10 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_SILVABULLET ===
 Name: GRUNT
-Class: Team Aqua
-Pic: Aqua Grunt F
-Gender: Female
-Music: Aqua
+Class: Bug Catcher
+Pic: Bug Catcher
+Gender: Male
+Music: Male
 Double Battle: Yes
 AI: Check Bad Move
 
@@ -735,13 +735,93 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 
 
+
+
+=== TRAINER_RESEARCH_BOSS ===
+Name: DECLAN
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Music: Swimmer
+Double Battle: Yes
+AI: Check Bad Move
+
+Gyarados
+Level: 34
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_GUARDA ===
+Name: DECLAN
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Music: Swimmer
+Double Battle: Yes
+AI: Check Bad Move
+
+Gyarados
+Level: 34
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_GUARDB ===
+Name: DECLAN
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Music: Swimmer
+Double Battle: Yes
+AI: Check Bad Move
+
+Gyarados
+Level: 34
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_GUARDC ===
+Name: DECLAN
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Music: Swimmer
+Double Battle: Yes
+AI: Check Bad Move
+
+Gyarados
+Level: 34
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_GUARDD ===
+Name: DECLAN
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Music: Swimmer
+Double Battle: Yes
+AI: Check Bad Move
+
+Gyarados
+Level: 34
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_GUARDE ===
+Name: DECLAN
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Music: Swimmer
+Double Battle: Yes
+AI: Check Bad Move
+
+Gyarados
+Level: 34
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
 === TRAINER_DECLAN ===
 Name: DECLAN
 Class: Swimmer M
 Pic: Swimmer M
 Gender: Male
 Music: Swimmer
-Double Battle: No
+Double Battle: Yes
 AI: Check Bad Move
 
 Gyarados
@@ -4459,25 +4539,45 @@ Level: 31
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
 === TRAINER_JEFFREY_3 ===
-Name: JEFFREY
+Name: Minh
 Class: Bug Maniac
 Pic: Bug Maniac
 Gender: Male
 Music: Suspicious
-Double Battle: No
+Double Battle: Yes
 AI: Check Bad Move
 
-Surskit
-Level: 34
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+Mothim @ Power Herb  
+Ability: Swarm  
+Level: 50  
+EVs: 252 SpA / 4 SpD / 252 Spe  
+Modest Nature  
+- Sucker Punch  
+- Air Slash  
+- Quiver Dance  
+- U-turn  
 
-Surskit
-Level: 34
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+Fearow (F) @ Sitrus Berry  
+Ability: Keen Eye  
+Level: 50  
+EVs: 252 HP / 4 Atk / 252 Def  
+Relaxed Nature  
+- Drill Peck  
+- Shadow Claw  
+- Tailwind  
+- Roost  
 
-Masquerain
-Level: 34
-IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
+Corviknight (M) @ Rocky Helmet  
+Ability: Mirror Armor  
+Level: 50  
+EVs: 248 HP / 8 Atk / 252 SpD  
+Careful Nature  
+- Bulk Up  
+- Crunch  
+- Body Press  
+- Protect  
+
+
 
 === TRAINER_JEFFREY_4 ===
 Name: JEFFREY

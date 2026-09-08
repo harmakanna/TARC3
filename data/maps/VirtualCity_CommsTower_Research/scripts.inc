@@ -17,9 +17,8 @@ VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger::
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger5, SP_NAME_PLAYER, DIR_SOUTH
 	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger6, Speaker_Researcher, DIR_NORTH
 
-	@battle TOFOLD
+	@trainerbattle_nointro TRAINER_MISSY, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger7
 
-	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger7, Speaker_Researcher, DIR_NORTH
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger8, SP_NAME_PLAYER, DIR_SOUTH
 	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger9, Speaker_Researcher, DIR_NORTH
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger10, SP_NAME_PLAYER, DIR_SOUTH
@@ -114,11 +113,18 @@ VirtualCity_CommsTower_Research_Eventscript_PonytaBall::
 	givemon SPECIES_PONYTA, 50, nature=NATURE_NAIVE, gender=MON_FEMALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_FLARE_BLITZ, move2=MOVE_WILD_CHARGE, move3=MOVE_DRILL_RUN, move4=MOVE_PROTECT, otName=OT_Research
 	setflag FLAG_ACT_I_REAL_PONYTA_OBTAINED
 	removeobject LOCALID_REAL_PONYTA_BALL
+	setspeaker SP_NAME_PLAYER
+	msgbox VirtualCity_CommsTower_Research_Text_PonytaBall2, MSGBOX_NPC
 	end
 
 VirtualCity_CommsTower_Research_Text_PonytaBall:
 	.string "Hmm, it's one of the Ponyta…\n"
 	.string "This is the perfect evidence!$"
+
+VirtualCity_CommsTower_Research_Text_PonytaBall2:
+	.string "I should get back to the Design office\n"
+	.string "to show this to Minh…\p"
+	.string "And then, test it outside.$"
 
 
 VirtualCity_CommsTower_Research_Eventscript_ResearchBoss::

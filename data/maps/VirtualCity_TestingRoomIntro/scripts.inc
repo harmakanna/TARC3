@@ -279,7 +279,7 @@ VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine:
 
 
 
-VirtualCityIntro_Movement_LogOut:
+VirtualCityIntro_Movement_LogOut::
 	face_down
 	face_right
 	face_up
