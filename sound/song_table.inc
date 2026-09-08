@@ -745,6 +745,7 @@ gSongTable::
     song mus_pkmn_bw12_199, 0, 0
     song mus_pkmn_bw12_203, 0, 0
     song mus_pkmn_bw12_204, 0, 0
+    song mus_pkmn_bw12_167, 0, 0
 
 	.align 2
 dummy_song_header:
