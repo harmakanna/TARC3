@@ -32,12 +32,16 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution::
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk7Sophie, SP_NAME_PLAYER, DIR_SOUTH
 	applymovement OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Move_ResolutionTalkSophie1
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk8Sophie, SP_NAME_PLAYER, DIR_WEST
+	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Move_ResolutionTalkSophie2
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk9Sophie, SP_NAME_PLAYER, DIR_EAST
+	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Move_ResolutionTalkSophie3
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk10Sophie, SP_NAME_PLAYER, DIR_WEST
+	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Move_ResolutionTalkSophie4
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk11Sophie, SP_NAME_PLAYER, DIR_SOUTH
+	waitmovement 0
 	delay 50
 	speak LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk12Ernest, Speaker_Ernest, DIR_NORTH
 	delay 50
@@ -79,8 +83,8 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution::
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk26Harriet, Speaker_Harriet, DIR_WEST
 	closemessage
 	applymovement LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Move_MinhLeaves
-	applymovement LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Move_HarrietLeaves
-	applymovement LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Move_ErnestLeaves
+	applymovement LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Move_HarrietLeaves
+	applymovement LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Move_ErnestLeaves
 	delay 100
 	playse SE_EXIT
 	delay 40

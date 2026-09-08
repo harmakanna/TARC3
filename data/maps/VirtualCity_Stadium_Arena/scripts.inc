@@ -44,17 +44,33 @@ Common_Text_NotEnoughPokemon:
 
 VirtualCity_Stadium_Arena_Eventscript_Rando1Fight::
 	@play se crowds
-	setvar VAR_PETALBURG_CITY_STATE, 9
+	clearflag FLAG_ACT_II_MOD_INSTALLED
 	addobject LOCALID_RANDO1
 	applymovement LOCALID_RANDO1, VirtualCity_Stadium_Arena_Move_CommonApproachArena
-	@speak LOCALID_RANDO1, VirtualCity_Stadium_Arena_Text_Rando1Intro, Speaker_Challenger, DIR_WEST
+	waitmovement 0
+	speak LOCALID_RANDO1, VirtualCity_Stadium_Arena_Text_Rando1Intro, Speaker_Challenger, DIR_WEST
+
+	special SavePlayerParty
+	callnative ChooseVGCParty
+	waitstate
+	special ReducePlayerPartyToSelectedMons
+
 	setspeaker Speaker_Challenger
-	trainerbattle_double TRAINER_RANDO1, VirtualCity_Stadium_Arena_Text_Rando1Intro, VirtualCity_Stadium_Arena_Text_Rando1Win, Common_Text_NotEnoughPokemon
-	applymovement LOCALID_RANDO1, VirtualCity_Stadium_Arena_Move_CommonLeaveArena
+	@trainerbattle_double TRAINER_RANDO1, NULL, VirtualCity_Stadium_Arena_Text_Rando1Win, Common_Text_NotEnoughPokemon
+	trainerbattle_no_intro TRAINER_RANDO1, VirtualCity_Stadium_Arena_Text_Rando1Win
+	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostSilver
+	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
+    special CallFrontierUtilFunc
+    special LoadPlayerParty
+	special HealPlayerParty
 	
+	applymovement LOCALID_RANDO1, VirtualCity_Stadium_Arena_Move_CommonLeaveArena
+	waitmovement 0
+
 	setflag FLAG_ACT_II_FOUGHT_RANDO1
 	setvar VAR_PETALBURG_CITY_STATE, 24
 
+	playse SE_EXIT
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 2
 	waitstate
 	end
@@ -62,15 +78,31 @@ VirtualCity_Stadium_Arena_Eventscript_Rando1Fight::
 
 VirtualCity_Stadium_Arena_Eventscript_Rando2Fight::
 	@play se crowds
+	clearflag FLAG_ACT_II_MOD_INSTALLED
 	addobject LOCALID_RANDO2
 	applymovement LOCALID_RANDO2, VirtualCity_Stadium_Arena_Move_CommonApproachArena
+	waitmovement 0
 	speak LOCALID_RANDO2, VirtualCity_Stadium_Arena_Text_Rando2Intro, Speaker_Challenger, DIR_WEST
-	trainerbattle_double TRAINER_RANDO2, VirtualCity_Stadium_Arena_Text_Rando2Intro, VirtualCity_Stadium_Arena_Text_Rando2Win, Common_Text_NotEnoughPokemon
+
+	special SavePlayerParty
+	callnative ChooseVGCParty
+	waitstate
+	special ReducePlayerPartyToSelectedMons
+
+	setspeaker Speaker_Challenger
+	trainerbattle_no_intro TRAINER_RANDO2, VirtualCity_Stadium_Arena_Text_Rando2Win
+	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostSilver
+	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
+    special CallFrontierUtilFunc
+    special LoadPlayerParty
+	special HealPlayerParty
+
 	applymovement LOCALID_RANDO2, VirtualCity_Stadium_Arena_Move_CommonLeaveArena
-	
+	waitmovement 0
 	setflag FLAG_ACT_II_FOUGHT_RANDO2
 	setvar VAR_PETALBURG_CITY_STATE, 25
 
+	playse SE_EXIT
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 2
 	waitstate
 	end
@@ -78,15 +110,31 @@ VirtualCity_Stadium_Arena_Eventscript_Rando2Fight::
 
 VirtualCity_Stadium_Arena_Eventscript_Rando3Fight::
 	@play se crowds
+	clearflag FLAG_ACT_II_MOD_INSTALLED
 	addobject LOCALID_RANDO3
 	applymovement LOCALID_RANDO3, VirtualCity_Stadium_Arena_Move_CommonApproachArenaSlow
+	waitmovement 0
 	speak LOCALID_RANDO3, VirtualCity_Stadium_Arena_Text_Rando3Intro, Speaker_Challenger, DIR_WEST
-	trainerbattle_double TRAINER_RANDO3, VirtualCity_Stadium_Arena_Text_Rando3Intro, VirtualCity_Stadium_Arena_Text_Rando3Win, Common_Text_NotEnoughPokemon
+
+	special SavePlayerParty
+	callnative ChooseVGCParty
+	waitstate
+	special ReducePlayerPartyToSelectedMons
+
+	setspeaker Speaker_Challenger
+	trainerbattle_no_intro TRAINER_RANDO3, VirtualCity_Stadium_Arena_Text_Rando3Win
+	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostSilver
+	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
+    special CallFrontierUtilFunc
+    special LoadPlayerParty
+	special HealPlayerParty
+
 	applymovement LOCALID_RANDO3, VirtualCity_Stadium_Arena_Move_CommonLeaveArenaSlow
-	
+	waitmovement 0	
 	setflag FLAG_ACT_II_FOUGHT_RANDO3
 	setvar VAR_PETALBURG_CITY_STATE, 26
 
+	playse SE_EXIT
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 2
 	waitstate
 	end
@@ -94,15 +142,32 @@ VirtualCity_Stadium_Arena_Eventscript_Rando3Fight::
 
 VirtualCity_Stadium_Arena_Eventscript_Rando4Fight::
 	@play se crowds
+	clearflag FLAG_ACT_II_MOD_INSTALLED
 	addobject LOCALID_RANDO4
 	applymovement LOCALID_RANDO4, VirtualCity_Stadium_Arena_Move_CommonApproachArena
+	waitmovement 0
 	speak LOCALID_RANDO4, VirtualCity_Stadium_Arena_Text_Rando4Intro, Speaker_Challenger, DIR_WEST
-	trainerbattle_double TRAINER_RANDO4, VirtualCity_Stadium_Arena_Text_Rando4Intro, VirtualCity_Stadium_Arena_Text_Rando4Win, Common_Text_NotEnoughPokemon
+
+	special SavePlayerParty
+	callnative ChooseVGCParty
+	waitstate
+	special ReducePlayerPartyToSelectedMons
+
+	setspeaker Speaker_Challenger
+	trainerbattle_no_intro TRAINER_RANDO4, VirtualCity_Stadium_Arena_Text_Rando4Win
+	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostSilver
+	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
+    special CallFrontierUtilFunc
+    special LoadPlayerParty
+	special HealPlayerParty
+
 	applymovement LOCALID_RANDO4, VirtualCity_Stadium_Arena_Move_CommonLeaveArena
+	waitmovement 0
 	
 	setflag FLAG_ACT_II_FOUGHT_RANDO4
 	setvar VAR_PETALBURG_CITY_STATE, 27
 
+	playse SE_EXIT
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 2
 	waitstate
 	end
@@ -110,79 +175,174 @@ VirtualCity_Stadium_Arena_Eventscript_Rando4Fight::
 
 VirtualCity_Stadium_Arena_Eventscript_Rando5Fight::
 	@play se crowds
+	clearflag FLAG_ACT_II_MOD_INSTALLED
 	addobject LOCALID_RANDO5
 	applymovement LOCALID_RANDO5, VirtualCity_Stadium_Arena_Move_CommonApproachArena
+	waitmovement 0
 	speak LOCALID_RANDO5, VirtualCity_Stadium_Arena_Text_Rando5Intro, Speaker_Challenger, DIR_WEST
-	trainerbattle_double TRAINER_RANDO5, VirtualCity_Stadium_Arena_Text_Rando5Intro, VirtualCity_Stadium_Arena_Text_Rando5Win, Common_Text_NotEnoughPokemon
+
+	special SavePlayerParty
+	callnative ChooseVGCParty
+	waitstate
+	special ReducePlayerPartyToSelectedMons
+
+	setspeaker Speaker_Challenger
+	trainerbattle_no_intro TRAINER_RANDO5, VirtualCity_Stadium_Arena_Text_Rando5Win
+	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostSilver
+	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
+    special CallFrontierUtilFunc
+    special LoadPlayerParty
+	special HealPlayerParty
+
 	applymovement LOCALID_RANDO5, VirtualCity_Stadium_Arena_Move_CommonLeaveArena
+	waitmovement 0
 	
 	setflag FLAG_ACT_II_FOUGHT_RANDO5
 	setflag FLAG_ACT_II_HIDE_ERNEST_PREBATTLE
 	setvar VAR_PETALBURG_CITY_STATE, 28
 
+	playse SE_EXIT
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 2
 	waitstate
 	end
+
+
+
+
+VirtualCity_Stadium_Arena_Eventscript_LostSilver::
+	@TOFOLD
+	special HealPlayerParty
+	special LoadPlayerParty
+	end
+
 
 
 
 
 VirtualCity_Stadium_Arena_Eventscript_BrodudeFight::
 	@play se crowds
+	clearflag FLAG_ACT_II_MOD_INSTALLED
 	addobject LOCALID_BRODUDE
 	applymovement LOCALID_BRODUDE, VirtualCity_Stadium_Arena_Move_CommonApproachArena
+	waitmovement 0
 	speak LOCALID_BRODUDE, VirtualCity_Stadium_Arena_Text_BroDudeIntro, Speaker_BroDude69, DIR_WEST
-	trainerbattle_double TRAINER_BRODUDE, VirtualCity_Stadium_Arena_Text_BroDudeIntro, VirtualCity_Stadium_Arena_Text_BroDudeWin, Common_Text_NotEnoughPokemon
+
+	special SavePlayerParty
+	callnative ChooseVGCParty
+	waitstate
+	special ReducePlayerPartyToSelectedMons
+
+	setspeaker Speaker_BroDude69
+	trainerbattle_no_intro TRAINER_BRODUDE, VirtualCity_Stadium_Arena_Text_BroDudeWin
+	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostGold
+	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
+    special CallFrontierUtilFunc
+    special LoadPlayerParty
+	special HealPlayerParty
+
 	applymovement LOCALID_BRODUDE, VirtualCity_Stadium_Arena_Move_CommonLeaveArena
+	waitmovement 0
 	
 	setflag FLAG_ACT_II_FOUGHT_BRODUDE
 	setvar VAR_PETALBURG_CITY_STATE, 29
 
+	playse SE_EXIT
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 2
 	waitstate
 	end
 
 VirtualCity_Stadium_Arena_Eventscript_WvddieFight::
 	@play se crowds
+	clearflag FLAG_ACT_II_MOD_INSTALLED
 	addobject LOCALID_WVDDIE
 	applymovement LOCALID_WVDDIE, VirtualCity_Stadium_Arena_Move_CommonApproachArena
+	waitmovement 0
 	speak LOCALID_WVDDIE, VirtualCity_Stadium_Arena_Text_WvddieIntro, Speaker_Wvddie, DIR_WEST
-	trainerbattle_double TRAINER_WVDDIE, VirtualCity_Stadium_Arena_Text_WvddieIntro, VirtualCity_Stadium_Arena_Text_WvddieWin, Common_Text_NotEnoughPokemon
+
+	special SavePlayerParty
+	callnative ChooseVGCParty
+	waitstate
+	special ReducePlayerPartyToSelectedMons
+
+	setspeaker Speaker_Wvddie
+	trainerbattle_no_intro TRAINER_WVDDIE, VirtualCity_Stadium_Arena_Text_WvddieWin
+	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostGold
+	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
+    special CallFrontierUtilFunc
+    special LoadPlayerParty
+	special HealPlayerParty
+
 	applymovement LOCALID_WVDDIE, VirtualCity_Stadium_Arena_Move_CommonLeaveArena
+	waitmovement 0
 	
 	setflag FLAG_ACT_II_FOUGHT_WVDDIE
 	setvar VAR_PETALBURG_CITY_STATE, 30
 
+	playse SE_EXIT
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 2
 	waitstate
 	end
 
 VirtualCity_Stadium_Arena_Eventscript_SilvaBulletFight::
 	@play se crowds
+	clearflag FLAG_ACT_II_MOD_INSTALLED
 	addobject LOCALID_SILVABULLET
 	applymovement LOCALID_SILVABULLET, VirtualCity_Stadium_Arena_Move_CommonApproachArena
+	waitmovement 0
 	speak LOCALID_SILVABULLET, VirtualCity_Stadium_Arena_Text_SilvaBulletIntro, Speaker_SilvaBullet, DIR_WEST
-	trainerbattle_double TRAINER_SILVABULLET, VirtualCity_Stadium_Arena_Text_SilvaBulletIntro, VirtualCity_Stadium_Arena_Text_SilvaBulletWin, Common_Text_NotEnoughPokemon
+
+	special SavePlayerParty
+	callnative ChooseVGCParty
+	waitstate
+	special ReducePlayerPartyToSelectedMons
+
+	setspeaker Speaker_SilvaBullet
+	trainerbattle_no_intro TRAINER_SILVABULLET, VirtualCity_Stadium_Arena_Text_SilvaBulletWin
+	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostGold
+	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
+    special CallFrontierUtilFunc
+    special LoadPlayerParty
+	special HealPlayerParty
+
 	applymovement LOCALID_SILVABULLET, VirtualCity_Stadium_Arena_Move_CommonLeaveArena
+	waitmovement 0
 	
 	setflag FLAG_ACT_II_FOUGHT_SILVABULLET
 	setvar VAR_PETALBURG_CITY_STATE, 31
 
+	playse SE_EXIT
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 2
 	waitstate
 	end
 
 VirtualCity_Stadium_Arena_Eventscript_EarlGreyFight::
 	@play se crowds
+	clearflag FLAG_ACT_II_MOD_INSTALLED
 	addobject LOCALID_EARLGREY
 	applymovement LOCALID_EARLGREY, VirtualCity_Stadium_Arena_Move_CommonApproachArenaSlow
+	waitmovement 0
 	speak LOCALID_EARLGREY, VirtualCity_Stadium_Arena_Text_EarlGreyIntro, Speaker_EarlGrey, DIR_WEST
-	trainerbattle_double TRAINER_EARLGREY, VirtualCity_Stadium_Arena_Text_EarlGreyIntro, VirtualCity_Stadium_Arena_Text_EarlGreyWin, Common_Text_NotEnoughPokemon
+
+	special SavePlayerParty
+	callnative ChooseVGCParty
+	waitstate
+	special ReducePlayerPartyToSelectedMons
+
+	setspeaker Speaker_EarlGrey
+	trainerbattle_no_intro TRAINER_EARLGREY, VirtualCity_Stadium_Arena_Text_EarlGreyWin
+	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostGold
+	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
+    special CallFrontierUtilFunc
+    special LoadPlayerParty
+	special HealPlayerParty
+
 	applymovement LOCALID_EARLGREY, VirtualCity_Stadium_Arena_Move_CommonLeaveArenaSlow
+	waitmovement 0
 	
 	setflag FLAG_ACT_II_FOUGHT_EARLGREY
 	setvar VAR_PETALBURG_CITY_STATE, 32
 
+	playse SE_EXIT
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 2
 	waitstate
 	end
@@ -191,51 +351,138 @@ VirtualCity_Stadium_Arena_Eventscript_EarlGreyFight::
 
 VirtualCity_Stadium_Arena_Eventscript_ByronB1Fight::
 	@play se crowds
+	clearflag FLAG_ACT_II_MOD_INSTALLED
 	addobject LOCALID_BYRON
 	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_ByronApproachArena1
+	waitmovement 0
 	speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB1Intro1, Speaker_Byron, DIR_NORTH
 	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_ByronApproachArena2
 	speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB1Intro2, Speaker_Byron, DIR_WEST
-	trainerbattle_double TRAINER_BYRON1, VirtualCity_Stadium_Arena_Text_ByronB1Intro2, VirtualCity_Stadium_Arena_Text_ByronB1Win, Common_Text_NotEnoughPokemon
+
+	special SavePlayerParty
+	callnative ChooseVGCParty
+	waitstate
+	special ReducePlayerPartyToSelectedMons
+
+	setspeaker Speaker_Byron
+	trainerbattle_no_intro TRAINER_BYRON1, VirtualCity_Stadium_Arena_Text_ByronB1Win
+	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
+	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
+    special CallFrontierUtilFunc
+    special LoadPlayerParty
+	special HealPlayerParty
+
 	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_CommonLeaveArenaSlow
+	waitmovement 0
 	
 	setflag FLAG_ACT_II_FOUGHT_BYRONB1
 	setvar VAR_PETALBURG_CITY_STATE, 33
 
+	playse SE_EXIT
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 2
 	waitstate
 	end
 
 VirtualCity_Stadium_Arena_Eventscript_ByronB2Fight::
 	@play se crowds
+	clearflag FLAG_ACT_II_MOD_INSTALLED
+	goto_if_set FLAG_ACT_II_WON_BYRONB1, VirtualCity_Stadium_Arena_Eventscript_ByronB2FightWinner
 	addobject LOCALID_BYRON
-	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_ByronApproachArena1
-	speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB1Intro1, Speaker_Byron, DIR_NORTH
-	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_ByronApproachArena2
-	speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB1Intro2, Speaker_Byron, DIR_WEST
-	trainerbattle_double TRAINER_BYRON1, VirtualCity_Stadium_Arena_Text_ByronB1Intro2, VirtualCity_Stadium_Arena_Text_ByronB1Win, Common_Text_NotEnoughPokemon
-	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_CommonLeaveArenaSlow
+	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_CommonApproachArena
+	waitmovement 0
 	
-	setflag FLAG_ACT_II_FOUGHT_BYRONB1
+	speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB2YouLostIntro, Speaker_Byron, DIR_WEST
+
+	special SavePlayerParty
+	callnative ChooseVGCParty
+	waitstate
+	special ReducePlayerPartyToSelectedMons
+
+	setspeaker Speaker_Byron
+	trainerbattle_no_intro TRAINER_BYRON2, VirtualCity_Stadium_Arena_Text_ByronB2YouLostWin
+	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
+	@speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB2YouLostLose, Speaker_Byron, DIR_WEST
+	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
+    special CallFrontierUtilFunc
+    special LoadPlayerParty
+	special HealPlayerParty
+
+	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_CommonLeaveArenaSlow
+	waitmovement 0
+	
+	setflag FLAG_ACT_II_FOUGHT_BYRONB2
 	setvar VAR_PETALBURG_CITY_STATE, 34
 
+	playse SE_EXIT
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 2
 	waitstate
 	end
 
+VirtualCity_Stadium_Arena_Eventscript_ByronB2FightWinner::
+	addobject LOCALID_BYRON
+	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_CommonApproachArena
+	waitmovement 0
+	
+	speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB2YouWonIntro, Speaker_Byron, DIR_WEST
+
+	special SavePlayerParty
+	callnative ChooseVGCParty
+	waitstate
+	special ReducePlayerPartyToSelectedMons
+
+	setspeaker Speaker_Byron
+	trainerbattle_no_intro TRAINER_BYRON2, VirtualCity_Stadium_Arena_Text_ByronB2YouWonWin
+	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
+	@speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB2YouWonLose, Speaker_Byron, DIR_WEST
+	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
+    special CallFrontierUtilFunc
+    special LoadPlayerParty
+	special HealPlayerParty
+
+	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_CommonLeaveArenaSlow
+	waitmovement 0
+	
+	setflag FLAG_ACT_II_FOUGHT_BYRONB2
+	setvar VAR_PETALBURG_CITY_STATE, 34
+
+	playse SE_EXIT
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 2
+	waitstate
+	end
+
+
 VirtualCity_Stadium_Arena_Eventscript_ByronB3Fight::
 	@play se crowds
+	clearflag FLAG_ACT_II_MOD_INSTALLED
 	addobject LOCALID_BYRON
-	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_ByronApproachArena1
-	speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB1Intro1, Speaker_Byron, DIR_NORTH
-	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_ByronApproachArena2
-	speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB1Intro2, Speaker_Byron, DIR_WEST
-	trainerbattle_double TRAINER_BYRON1, VirtualCity_Stadium_Arena_Text_ByronB1Intro2, VirtualCity_Stadium_Arena_Text_ByronB1Win, Common_Text_NotEnoughPokemon
-	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_CommonLeaveArenaSlow
+	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_CommonApproachArena
+	waitmovement 0
+	speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB3Intro, Speaker_Byron, DIR_WEST
+
+	special SavePlayerParty
+	callnative ChooseVGCParty
+	waitstate
+	special ReducePlayerPartyToSelectedMons
+
+	setspeaker Speaker_Byron
+	trainerbattle_no_intro TRAINER_BYRON3, VirtualCity_Stadium_Arena_Text_ByronB3Win1
+	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
+	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
+    special CallFrontierUtilFunc
+    special LoadPlayerParty
+	special HealPlayerParty
+	@applymovement throw Zoroark TOFOLD
+	speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB3Win2, Speaker_Byron, DIR_WEST
 	
-	setflag FLAG_ACT_II_FOUGHT_BYRONB1
+
+	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_CommonLeaveArenaSlow
+	waitmovement 0
+	@applymovement retrieve Zoroark TOFOLD
+
+	setflag FLAG_ACT_II_FOUGHT_BYRONB3
 	setvar VAR_PETALBURG_CITY_STATE, 35
 
+	playse SE_EXIT
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 2
 	waitstate
 	end
@@ -244,16 +491,16 @@ VirtualCity_Stadium_Arena_Eventscript_ByronB3Fight::
 
 
 VirtualCity_Stadium_Arena_Move_CommonApproachArena::
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
-	walk_fast_up
-	walk_fast_left
-	walk_fast_left
-	walk_fast_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	walk_left
 	step_end
 
 VirtualCity_Stadium_Arena_Move_CommonApproachArenaSlow::
@@ -270,16 +517,16 @@ VirtualCity_Stadium_Arena_Move_CommonApproachArenaSlow::
 	step_end
 
 VirtualCity_Stadium_Arena_Move_CommonLeaveArena::
-	walk_fast_right
-	walk_fast_right
-	walk_fast_right
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
-	walk_fast_down
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
 	step_end
 
 VirtualCity_Stadium_Arena_Move_CommonLeaveArenaSlow::
@@ -318,7 +565,8 @@ VirtualCity_Stadium_Arena_Move_ByronApproachArena2::
 
 
 VirtualCity_Stadium_Arena_Text_Rando1Intro:
-	.string "Oh thank god, you look weak.$"
+	.string "Oh thank god, you look weak.\n"
+	.string "My Inteleon needs a win!$"
 
 VirtualCity_Stadium_Arena_Text_Rando1Win:
 	.string "Ugh, you weren't weak.\n"
@@ -385,7 +633,7 @@ VirtualCity_Stadium_Arena_Text_SilvaBulletWin:
 
 VirtualCity_Stadium_Arena_Text_EarlGreyIntro:
 	.string "My battling style is like black tea.\n"
-	.string "a thing or two, heh.$"
+	.string "It leaves you craving more.$"
 
 VirtualCity_Stadium_Arena_Text_EarlGreyWin:
 	.string "Hmph. Well done.\n"

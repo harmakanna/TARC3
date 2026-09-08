@@ -84,15 +84,16 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	@@more setflags TOFOLD, set healing place, etc. etc.
 
 	@----------------------------------------------------
-	@setvar VAR_PETALBURG_CITY_STATE, 22
-	@clearflag FLAG_SYS_PREVENT_MAP_FADE
-	@givemon SPECIES_ARCANINE, 50
-	@givemon SPECIES_ARCANINE, 50
-	@givemon SPECIES_ARCANINE, 50
-	@givemon SPECIES_ARCANINE, 50
+	setvar VAR_PETALBURG_CITY_STATE, 22
+	clearflag FLAG_SYS_PREVENT_MAP_FADE
+	givemon SPECIES_DARKANINE, 50
+	givemon SPECIES_PONYTA, 50
+	givemon SPECIES_TOXAPEX, 50
+	givemon SPECIES_LEDIAN, 50
+	givemon SPECIES_DRATINI, 50
 	
-	@warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 7
-	@waitstate
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 7
+	waitstate
 
 
 	@----------------------------------------------------
@@ -379,7 +380,7 @@ VirtualCity_TestingRoomIntro_Text_Intro11:
 
 
 VirtualCity_TestingRoomIntro_Text_Intro12:
-	.string "Ugh, ANOTHER Rotom Phone ad ping?\n"
+	.string "Ugh, ANOTHER Rotom Phone ad ping?\p"
 	@.string "I'm complimenting myself, a Rotom\l"
 	@.string "Phone ad interrupts it?\p" 
 	.string "Hmph.\p"

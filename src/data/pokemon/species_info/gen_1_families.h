@@ -7978,8 +7978,8 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .height = 19,
         .weight = 1550,
         .description = COMPOUND_STRING(
-            "This fleet-footed Pokémon is said to run\n"
-            "over 6,200 miles in a single day and night.\n"
+            "Vanilla Set (1/XXXX)\n"
+            "No special attributes.\n"
             "The fire that blazes wildly within its body\n"
             "is its source of power."),
         .pokemonScale = 256,
@@ -10031,8 +10031,8 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .height = 10,
         .weight = 300,
         .description = COMPOUND_STRING(
-            "A Ponyta is very weak at birth. It can\n"
-            "barely stand up. Its legs become stronger\n"
+            "UNRELEASED\n"
+            "Property of {COLOR GREEN}BETTER{COLOR BLACK} Research Team.\n"
             "as it stumbles and falls while trying to\n"
             "keep up with its parent."),
         .pokemonScale = 283,
@@ -20141,12 +20141,12 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #if P_FAMILY_DRATINI
     [SPECIES_DRATINI] =
     {
-        .baseHP        = 41,
-        .baseAttack    = 64,
-        .baseDefense   = 45,
-        .baseSpeed     = 50,
-        .baseSpAttack  = 50,
-        .baseSpDefense = 50,
+        .baseHP        = 51,
+        .baseAttack    = 74,
+        .baseDefense   = 55,
+        .baseSpeed     = 60,
+        .baseSpAttack  = 60,
+        .baseSpDefense = 60,
         .types = MON_TYPES(TYPE_DRAGON),
         .catchRate = 45,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 60 : 67,
@@ -20166,8 +20166,8 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .height = 18,
         .weight = 33,
         .description = COMPOUND_STRING(
-            "A Dratini continually molts and sloughs\n"
-            "off its old skin. It does so because the\n"
+            "Teatime Set (1/6)\n"
+            "+10 Base Stat Boost, Hospitality\n"
             "life energy within its body steadily builds\n"
             "to reach uncontrollable levels."),
         .pokemonScale = 256,

@@ -2622,7 +2622,7 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
 
     [SPECIES_TOXAPEX] =
     {
-        .baseHP        = 50,
+        .baseHP        = 80,
         .baseAttack    = 63,
         .baseDefense   = 152,
         .baseSpeed     = 35,
@@ -2647,8 +2647,8 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .height = 7,
         .weight = 145,
         .description = COMPOUND_STRING(
-            "Those attacked by Toxapex's poison will\n"
-            "suffer intense pain for three days and\n"
+            "conTENTment Sponsor Set (1/1)\n"
+            "HP Boost + conTENTment Sponsorship\n"
             "three nights. Post-recovery, there will be\n"
             "some aftereffects."),
         .pokemonScale = 365,
