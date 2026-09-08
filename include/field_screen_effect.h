@@ -23,6 +23,7 @@ void ReturnToFieldOpenStartMenu(void);
 void FieldCB_ReturnToFieldNoScript(void);
 void FieldCB_ReturnToFieldNoScriptCheckMusic(void);
 void DoWarp(void);
+void DoSilentWarp(void);
 void DoDiveWarp(void);
 void DoWhiteFadeWarp(void);
 void DoDoorWarp(void);
