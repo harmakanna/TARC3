@@ -195,8 +195,8 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     {
         GetInFrontOfPlayerPosition(&position);
         metatileBehavior = MapGridGetMetatileBehaviorAt(position.x, position.y);
-        if (TrySetUpWalkIntoSignpostScript(&position, metatileBehavior, playerDirection) == TRUE)
-            return TRUE;
+        //if (TrySetUpWalkIntoSignpostScript(&position, metatileBehavior, playerDirection) == TRUE)
+        //    return TRUE;
         GetPlayerPosition(&position);
         metatileBehavior = MapGridGetMetatileBehaviorAt(position.x, position.y);
     }
@@ -212,8 +212,8 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     GetInFrontOfPlayerPosition(&position);
     metatileBehavior = MapGridGetMetatileBehaviorAt(position.x, position.y);
 
-    if (input->heldDirection && (input->dpadDirection == playerDirection) && (TrySetUpWalkIntoSignpostScript(&position, metatileBehavior, playerDirection) == TRUE))
-        return TRUE;
+    // if (input->heldDirection && (input->dpadDirection == playerDirection) && (TrySetUpWalkIntoSignpostScript(&position, metatileBehavior, playerDirection) == TRUE))
+    //     return TRUE;
 
     if (input->pressedAButton && TryStartInteractionScript(&position, metatileBehavior, playerDirection) == TRUE)
         return TRUE;

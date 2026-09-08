@@ -70,7 +70,7 @@
 #define FLAG_SPOKE_TO_RESEARCHER_4    0x30 // Unused Flag
 #define FLAG_SPOKE_TO_RESEARCHER_5    0x31 // Unused Flag
 #define FLAG_SPOKE_TO_RESEARCHER_6    0x32 // Unused Flag
-#define FLAG_UNUSED_0x033    0x33 // Unused Flag
+#define FLAG_SET_RESEARCH_FLOOR       0x33 // Unused Flag
 #define FLAG_UNUSED_0x034    0x34 // Unused Flag
 #define FLAG_UNUSED_0x035    0x35 // Unused Flag
 #define FLAG_UNUSED_0x036    0x36 // Unused Flag

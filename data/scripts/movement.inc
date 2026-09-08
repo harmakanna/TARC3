@@ -140,6 +140,11 @@ Common_Movement_WalkDown2::
 	walk_down
 	step_end
 	
+Common_Movement_WalkDownFast2::
+	walk_fast_down
+	walk_fast_down
+	step_end
+
 Common_Movement_WalkRight::
 	walk_right
 	step_end

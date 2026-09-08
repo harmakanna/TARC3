@@ -148,9 +148,9 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
 	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk12Sophie, SP_NAME_PLAYER, DIR_EAST
 	closemessage
+	playse SE_PIN
 	applymovement LOCALID_HARRIET, Common_Movement_QuestionMark
 	applymovement LOCALID_ERNEST, Common_Movement_QuestionMark
-	playse SE_PIN
 	waitmovement 0
 	waitse
 	delay 50
@@ -654,6 +654,12 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk29Sophie::
 
 
 OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_ActII_Opening::
+	clearflag FLAG_SYS_PREVENT_MAP_FADE
+	special SpawnCameraObject
+	applymovement LOCALID_CAMERA, Common_Movement_WalkLeft
+	waitmovement 0
+	fadescreen FADE_FROM_BLACK
+	delay 100
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro1, SP_NAME_PLAYER, DIR_WEST
 	playse SE_SELECT
 	speak LOCALID_A2_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Text_ErnestActIIIntro2, Speaker_Ernest, DIR_EAST
@@ -672,27 +678,42 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_ActII_Opening::
 	addobject LOCALID_SNUBBULLS_BALL
 	delay 10
 	playse SE_BALL_OPEN
+	waitse
 	removeobject LOCALID_SNUBBULLS_BALL
 	addobject LOCALID_PONYTA_A2
 	applymovement LOCALID_A2_HARRIET, Common_Movement_ExclamationMark
 	applymovement LOCALID_A2_ERNEST, Common_Movement_ExclamationMark
+	playse SE_SELECT
 	waitse
+	waitmovement 0
+	delay 50
 	playmoncry SPECIES_PONYTA, CRY_MODE_ENCOUNTER
-	waitse
-	delay 40
+	waitmoncry
+	delay 20
 
 	speak LOCALID_A2_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_HarrietActIIIntro6, Speaker_Harriet, DIR_NORTH
+	playse SE_SELECT
 	speak LOCALID_A2_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_HarrietActIIIntro7, Speaker_Harriet, DIR_NORTH
-	speak LOCALID_A2_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Text_MinhActIIIntro8, Speaker_Minh, DIR_EAST
+	playse SE_SELECT
+	speak LOCALID_A2_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Text_MinhActIIIntro8, Speaker_Minh, DIR_SOUTH
+	playse SE_SELECT
 	speak LOCALID_A2_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Text_ErnestActIIIntro9, Speaker_Ernest, DIR_NORTH
 
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro10, SP_NAME_PLAYER, DIR_SOUTH
+	playse SE_SELECT
 	speak LOCALID_A2_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Text_MinhActIIIntro11, Speaker_Minh, DIR_SOUTH
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro12, SP_NAME_PLAYER, DIR_SOUTH
-
+	closemessage
 	setflag FLAG_HIDE_ACT_II_INTRO_CHARS
 	clearflag FLAG_ACT_II_HIDE_HOTEL_FRIENDS
 	setvar VAR_PETALBURG_CITY_STATE, 21
+	fadescreenspeed FADE_TO_BLACK, 5
+	delay 100
+	setflag FLAG_SYS_PREVENT_MAP_FADE
+	clearflag FLAG_SYS_NO_MUSIC_ON_TRANSITION
+	special RemoveCameraObject
 	warpsilent MAP_VIRTUAL_CITY_HOTEL_YOUR_ROOM, 12, 9
 	waitstate
 	

@@ -280,13 +280,13 @@ VirtualCity_HotelLobby_Text_EarlGrayCompletePostQuest:
 	.string "through the rest of the tournament!$"
 
 VirtualCity_HotelLobby_Text_Receptionist:
-	.string "Welcome to the Better Hotel!\p"
+	.string "Welcome to the {COLOR GREEN}BETTER {COLOR DARK_GRAY}Hotel!\p"
 	.string "If you're looking for the stadium,\n"
 	.string "head to the left.\p"
 	.string "Your rooms will be through the\n"
 	.string "right elevator.\p"
-	.string "Your floor is:{PAUSE 60}\n"
-	.string "FLOOR 42813130\p"
+	.string "Your floor is:{PAUSE 30}\n"
+	.string "FLOOR {PAUSE 45}42813130\p"
 	.string "The center door is VIPs only.\p"
 	.string "Purchase a VIP room for only{PAUSE 60}\n"
 	.string "9{PAUSE 30}9{PAUSE 20}9{PAUSE 15}9{PAUSE 10}9{PAUSE 5}99999999.99!$"

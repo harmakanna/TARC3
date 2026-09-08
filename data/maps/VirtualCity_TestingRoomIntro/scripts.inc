@@ -169,7 +169,9 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 
 	speak LOCALID_GUARD, VirtualCity_TestingRoomIntro_Text_Intro11, Speaker_Announcement, DIR_EAST 
 	closemessage
-	delay 50
+	playse SE_PC_OFF
+	waitse
+	delay 80
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_Intro12, Speaker_Minh, DIR_WEST
 	closemessage
 
@@ -273,7 +275,7 @@ VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine:
 
 	clearparty
 	givemon SPECIES_EXCADRILL, 50, nature=NATURE_JOLLY, gender=MON_MALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_EARTHQUAKE, move2=MOVE_ROCK_SLIDE, move3=MOVE_SWORDS_DANCE, move4=MOVE_PROTECT, nickname=Nickname_Ex, otName=OT_SoPhi99
-	warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT_BEDROOM, 5, 2 @@@ exitvr JAMIEHELP
+	exitvr_warp MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT_BEDROOM, 5, 2 @@@ exitvr JAMIEHELP
 	waitstate
 	end
 

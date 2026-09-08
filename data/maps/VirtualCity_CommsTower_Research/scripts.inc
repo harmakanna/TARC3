@@ -5,31 +5,45 @@ VirtualCity_CommsTower_Research_MapScripts::
 
 
 VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger::
-	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger1, Speaker_Researcher, DIR_NORTH
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+	speak LOCALID_RESEARCHBOSS, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger1, Speaker_Researcher, DIR_NORTH
+	closemessage
+	playse SE_PIN
 	applymovement LOCALID_RESEARCHBOSS, Common_Movement_ExclamationMark
-	waitmovement
-	delay 20
+	waitse
+	waitmovement 0
+	delay 50
 	applymovement LOCALID_RESEARCHBOSS, VirtualCity_CommsTower_Research_Move_ResearchBossTrigger1
 	waitmovement
-	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger2, Speaker_Researcher, DIR_NORTH
+	speak LOCALID_RESEARCHBOSS, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger2, Speaker_Researcher, DIR_NORTH
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger3, SP_NAME_PLAYER, DIR_SOUTH
-	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger4, Speaker_Researcher, DIR_NORTH
+	playse SE_SELECT
+	speak LOCALID_RESEARCHBOSS, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger4, Speaker_Researcher, DIR_NORTH
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger5, SP_NAME_PLAYER, DIR_SOUTH
-	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger6, Speaker_Researcher, DIR_NORTH
-
+	playse SE_SELECT
+	speak LOCALID_RESEARCHBOSS, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger6, Speaker_Researcher, DIR_NORTH
+	closemessage
 	@battle TOFOLD
 
-	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger7, Speaker_Researcher, DIR_NORTH
+	speak LOCALID_RESEARCHBOSS, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger7, Speaker_Researcher, DIR_NORTH
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger8, SP_NAME_PLAYER, DIR_SOUTH
-	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger9, Speaker_Researcher, DIR_NORTH
+	playse SE_SELECT
+	speak LOCALID_RESEARCHBOSS, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger9, Speaker_Researcher, DIR_NORTH
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger10, SP_NAME_PLAYER, DIR_SOUTH
-	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger11, Speaker_Researcher, DIR_NORTH
+	playse SE_SELECT
+	speak LOCALID_RESEARCHBOSS, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger11, Speaker_Researcher, DIR_NORTH
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger12, SP_NAME_PLAYER, DIR_SOUTH
-	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger13, Speaker_Researcher, DIR_NORTH
+	playse SE_SELECT
+	speak LOCALID_RESEARCHBOSS, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger13, Speaker_Researcher, DIR_NORTH
 	closemessage
 	applymovement LOCALID_RESEARCHBOSS, VirtualCity_CommsTower_Research_Move_ResearchBossTrigger2
 	waitmovement
-	setvar VAR_PETALBURG_CITY_STATE 16
+	setvar VAR_PETALBURG_CITY_STATE, 16
 	end
 
 
@@ -109,7 +123,7 @@ VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger13:
 
 
 VirtualCity_CommsTower_Research_Eventscript_PonytaBall::
-	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Text_PonytaBall, SP_NAME_PLAYER, DIR_NORTH
+	player_speak VirtualCity_CommsTower_Research_Text_PonytaBall
 	closemessage
 	givemon SPECIES_PONYTA, 50, nature=NATURE_NAIVE, gender=MON_FEMALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_FLARE_BLITZ, move2=MOVE_WILD_CHARGE, move3=MOVE_DRILL_RUN, move4=MOVE_PROTECT, otName=OT_Research
 	setflag FLAG_ACT_I_REAL_PONYTA_OBTAINED
@@ -122,7 +136,8 @@ VirtualCity_CommsTower_Research_Text_PonytaBall:
 
 
 VirtualCity_CommsTower_Research_Eventscript_ResearchBoss::
-	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Text_ResearchBoss1, SP_NAME_PLAYER, DIR_NORTH
+	player_speak VirtualCity_CommsTower_Research_Text_ResearchBoss1
+	playse SE_SELECT
 	speak LOCALID_RESEARCHBOSS, VirtualCity_CommsTower_Research_Text_ResearchBoss2, Speaker_Researcher, DIR_NORTH
 	closemessage
 	end

@@ -9,12 +9,21 @@ VirtualCity_Hotel_YourRoom_OnFrame::
 
 
 VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution::
+	lockall
 	@warpsilent MAP_VIRTUAL_CITY_HOTEL_YOUR_ROOM, 12, 9
 	@waitstate
 	special SpawnCameraObject
+	applymovement LOCALID_CAMERA, Common_Movement_WalkDown
+	waitmovement 0
+	delay 100
+	fadescreenspeed FADE_FROM_BLACK, 5
+	delay 100
 	speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk1Minh, Speaker_Minh, DIR_NORTH
+	playse SE_SELECT
 	speak LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk2Ernest, Speaker_Ernest, DIR_EAST
+	playse SE_SELECT
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk3Harriet, Speaker_Harriet, DIR_WEST
+	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
 	waitmovement 0
 	delay 40
@@ -23,28 +32,53 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution::
 	applymovement LOCALID_VRROOM_HARRIET, Common_Movement_FaceUp
 	delay 40
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk4Sophie, SP_NAME_PLAYER, DIR_NORTH
-	delay 10
+	closemessage
+	playse SE_PIN
 	applymovement LOCALID_VRROOM_MINH, Common_Movement_ExclamationMark
 	applymovement LOCALID_VRROOM_HARRIET, Common_Movement_ExclamationMark
-	delay 20
+	waitmovement 0
+	waitse
+	delay 50
 	speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk5Minh, Speaker_Minh, DIR_NORTH
+	playse SE_SELECT
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk6Harriet, Speaker_Harriet, DIR_NORTH
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk7Sophie, SP_NAME_PLAYER, DIR_SOUTH
+	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Move_ResolutionTalkSophie1
+	waitmovement 0
+	delay 40
+	setspeaker SP_NAME_PLAYER
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk8Sophie, SP_NAME_PLAYER, DIR_WEST
-	waitmovement 0
+	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Move_ResolutionTalkSophie2
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk9Sophie, SP_NAME_PLAYER, DIR_EAST
 	waitmovement 0
+	delay 40
+	setspeaker SP_NAME_PLAYER
+	msgbox VirtualCity_Hotel_YourRoom_Text_ResolutionTalk9Sophie, MSGBOX_DEFAULT
+	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Move_ResolutionTalkSophie3
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk10Sophie, SP_NAME_PLAYER, DIR_WEST
 	waitmovement 0
+	delay 40
+	setspeaker SP_NAME_PLAYER
+	msgbox VirtualCity_Hotel_YourRoom_Text_ResolutionTalk10Sophie, MSGBOX_DEFAULT
+	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Move_ResolutionTalkSophie4
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk11Sophie, SP_NAME_PLAYER, DIR_SOUTH
 	waitmovement 0
-	delay 50
+	delay 60
+	setspeaker SP_NAME_PLAYER
+	msgbox VirtualCity_Hotel_YourRoom_Text_ResolutionTalk11Sophie, MSGBOX_DEFAULT
+	playse SE_SELECT
 	speak LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk12Ernest, Speaker_Ernest, DIR_NORTH
-	delay 50
+	closemessage
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement LOCALID_VRROOM_MINH, Common_Movement_ExclamationMark
+	applymovement LOCALID_VRROOM_ERNEST, Common_Movement_ExclamationMark
+	applymovement LOCALID_VRROOM_HARRIET, Common_Movement_ExclamationMark
+	waitmovement 0
+	waitse
+	@delay 50
 	playse SE_NOTE_G
 	waitse
 	playse SE_NOTE_C
@@ -53,33 +87,54 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution::
 	waitse
 	playse SE_NOTE_D
 	waitse
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk12pt5Message, Speaker_Announcement, DIR_SOUTH
-	delay 50
+	setspeaker Speaker_Announcement
+	msgbox VirtualCity_Hotel_YourRoom_Text_ResolutionTalk12pt5Message, MSGBOX_DEFAULT
+	closemessage
+	playse SE_PC_OFF
+	waitse
+	delay 60
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
 	applymovement LOCALID_VRROOM_ERNEST, Common_Movement_FaceRight
 	applymovement LOCALID_VRROOM_HARRIET, Common_Movement_FaceLeft
 	delay 20
 	speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk13Minh, Speaker_Minh, DIR_NORTH
+	playse SE_SELECT
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk14Harriet, Speaker_Harriet, DIR_WEST
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk15Sophie, SP_NAME_PLAYER, DIR_WEST
+	closemessage
 	applymovement LOCALID_VRROOM_MINH, Common_Movement_FaceLeft
-	delay 50
-	speak LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk16Ernest, Speaker_Ernest, DIR_EAST
+	delay 90
+	applymovement LOCALID_VRROOM_ERNEST, Common_Movement_WalkLeft
+	waitmovement 0
+	delay 30
+	speak LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk16Ernest, Speaker_Ernest, DIR_WEST
 	applymovement LOCALID_VRROOM_MINH, Common_Movement_FaceRight
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	playse SE_SELECT
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk17Harriet, Speaker_Harriet, DIR_WEST
 	applymovement LOCALID_VRROOM_MINH, Common_Movement_FaceLeft
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	playse SE_SELECT
 	speak LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk18Ernest, Speaker_Ernest, DIR_EAST
 	applymovement LOCALID_VRROOM_MINH, Common_Movement_FaceUp
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+	playse SE_SELECT
 	speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk19Minh, Speaker_Minh, DIR_NORTH
+	playse SE_SELECT
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk20Harriet, Speaker_Harriet, DIR_WEST
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk21Sophie, SP_NAME_PLAYER, DIR_WEST
+	playse SE_SELECT
 	speak LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk22Ernest, Speaker_Ernest, DIR_EAST
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+	playse SE_SELECT
 	speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk23Minh, Speaker_Minh, DIR_NORTH
+	playse SE_SELECT
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk24Harriet, Speaker_Harriet, DIR_WEST
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk25Sophie, SP_NAME_PLAYER, DIR_WEST
+	playse SE_SELECT
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk26Harriet, Speaker_Harriet, DIR_WEST
 	closemessage
 	applymovement LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Move_MinhLeaves
@@ -93,14 +148,16 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution::
 	removeobject LOCALID_VRROOM_MINH
 	removeobject LOCALID_VRROOM_HARRIET
 	removeobject LOCALID_VRROOM_ERNEST
+	applymovement LOCALID_CAMERA, Common_Movement_WalkUp
+	waitmovement 0
 	special RemoveCameraObject
 	setvar VAR_PETALBURG_CITY_STATE, 22
 	setflag FLAG_ACT_II_STARTED
 	setflag FLAG_ACT_II_HIDE_HOTEL_FRIENDS
 	clearflag FLAG_HIDE_ACT_II_HARRIET
 	clearflag FLAG_HIDE_LEDIAN_QUEST
-
-
+	clearflag FLAG_SYS_PREVENT_MAP_FADE
+	releaseall
 	end
 
 VirtualCity_Hotel_YourRoom_Move_ResolutionTalkSophie1:
@@ -162,6 +219,7 @@ VirtualCity_Hotel_YourRoom_Move_ErnestLeaves:
 	walk_up
 	walk_up
 	walk_up
+	walk_right
 	walk_right
 	walk_up
 	step_end
@@ -227,10 +285,10 @@ VirtualCity_Hotel_YourRoom_Text_ResolutionTalk12Ernest::
 
 @@ BING!
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk12pt5Message::
-	.string "TODAY ONLY! HALF OFF ROOM EXPANSIONS!\p"
-	.string "GET THE HOLODECK OF YOUR DREAMS, NOW\n"
-	.string "WITH REALISTIC TRUESCENT TECHNOLOGY!\p"
-	.string "AVAILABLE FOR A LIMITED TIME!$"
+	.string "{COLOR RED}TODAY ONLY! {COLOR BLUE}HALF OFF ROOM EXPANSIONS!\p"
+	.string "GET THE {COLOR GREEN}HOLODECK {COLOR BLUE}OF YOUR {COLOR LIGHT_BLUE}DREAMS,{COLOR BLUE} NOW\n"
+	.string "WITH REALISTIC {COLOR RED}TRUESCENT TECHNOLOGY!\p"
+	.string "{COLOR BLUE}AVAILABLE FOR A LIMITED TIME!$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk13Minh::
 	.string "No way.$"
