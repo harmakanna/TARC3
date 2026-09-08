@@ -51,7 +51,7 @@ VirtualCity_Superstore1F_EventScript_BaristaIdol::
 
 VirtualCity_Superstore1F_Text_BaristaIdol:
 	.string "Hee hee! Let me fill you up with\n"
-	.string "BETTER's top-of-its-class hot cocoa!\p"
+	.string "{COLOR GREEN}BETTER{COLOR DARK_GRAY}'s top-of-its-class hot cocoa!\p"
 	.string "The best treat to shop our truly\n"
 	.string "SUPER store!$"
 

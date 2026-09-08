@@ -42,7 +42,7 @@ VirtualCity_Garden_LedianLoverReward::
 	
 VirtualCity_Garden_LedianLover_ReceiveLedian::
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_LEDIAN
-	givemon SPECIES_LEDIAN, 50
+	givemon SPECIES_LEDIAN, 50, nature=NATURE_CAREFUL, gender=MON_MALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_DRAIN_PUNCH, move2=MOVE_U_TURN, move3=MOVE_TOXIC, move4=MOVE_PROTECT, otName=OT_Ledian
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, VirtualCity_Garden_LedianLover_ReceiveLedianParty
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, VirtualCity_Garden_LedianLover_ReceiveLedianPC
 	goto Common_EventScript_NoMoreRoomForPokemon
@@ -246,7 +246,7 @@ VirtualCity_Garden_Text_Sign::
 	.string "Next Nature Refuge:\n"
 	.string "Asteroids\p"
 	.string "Buy your favorites for 59999.95\n"
-	.string "at the BETTER SUPERSTORE!$"
+	.string "at the {COLOR GREEN}BETTER{COLOR DARK_GRAY} SUPERSTORE!$"
 
 Speaker_LedianLover:
 	.string "Ledian Lover$"
@@ -262,7 +262,7 @@ VirtualCity_Garden_Text_LedianLover_NoRelease:
 	.string "What's up? I'll tell you\n"
 	.string "what's up!\p"
 	.string "Ledian's being done dirty by\n"
-	.string "those dingbats at BETTER!\p"
+	.string "those dingbats at {COLOR GREEN}BETTER{COLOR DARK_GRAY}!\p"
 	.string "My poor baby hasn't gotten a\n"
 	.string "new release in years…\l"
 	.string "It makes me wants to puke!\p"

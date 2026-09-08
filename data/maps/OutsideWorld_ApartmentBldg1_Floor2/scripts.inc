@@ -10,10 +10,11 @@ OutsideWorld_ApartmentBldg1_Floor2_Eventscript_Stairs::
 	special SpawnCameraObject
 	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_Floor2_Move_Sophie
 	applymovement OBJ_EVENT_ID_CAMERA, OutsideWorld_ApartmentBldg1_Floor2_Move_Camera
-	delay 70
+	waitmovement OBJ_EVENT_ID_PLAYER
 	playse SE_EXIT
 	hideplayer
-	waitmovement 0
+	waitse
+	waitmovement OBJ_EVENT_ID_CAMERA
 	delay 100
 	@TOFOLD
 	setvar VAR_PETALBURG_CITY_STATE, 10

@@ -164,7 +164,7 @@ VirtualCity_HotelLobby_Text_WiseMachoke1:
 	.string "My guy, don't be fooled!\p"
 	.string "None of the idols are actual,\n"
 	.string "in-the-flesh chicks! They're ALL AI!\p"
-	.string "BETTER uses all these virtual robot\n"
+	.string "{COLOR GREEN}BETTER{COLOR DARK_GRAY} uses all these virtual robot\n"
 	.string "girls to try and distract you from\l"
 	.string "true happiness!$"
 

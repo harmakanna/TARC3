@@ -7,7 +7,7 @@ VirtualCity_Superstore_2F_EventScript_Cycler::
 
 VirtualCity_Superstore_2F_EventScript_Misdreavus::
 	lock
-	face_player
+	faceplayer
 	msgbox VirtualCity_Superstore_2F_Text_Misdreavus, MSGBOX_DEFAULT
 	closemessage
 	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection

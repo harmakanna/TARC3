@@ -1591,7 +1591,8 @@ u16 GetRivalAvatarGraphicsIdByStateIdAndGender(u8 state, enum Gender gender)
 
 u16 GetPlayerAvatarGraphicsIdByStateIdAndGender(u8 state, enum Gender gender)
 {
-    if (IsInVirtualWorld())
+    if (IsInVirtualWorld()
+        && !(IsInWorkplace()))
         return OBJ_EVENT_GFX_DIGITAL_SOPHIE;
     else
          return sPlayerAvatarGfxIds[state][FEMALE];

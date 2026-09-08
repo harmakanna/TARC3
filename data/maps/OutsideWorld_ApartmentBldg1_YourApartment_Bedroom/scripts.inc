@@ -8,15 +8,29 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_OnFrame::
 
 
 
+
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_LolaConfronts::
+	addobject LOCALID_BEDROOM_LOLACONFRONT
+	clearflag FLAG_SYS_PREVENT_MAP_FADE
+	fadescreenspeed FADE_FROM_BLACK, 2
+
+    applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	waitmovement 0
+	delay 10
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+    waitse
+    delay 60
+
+
 	speak LOCALID_BEDROOM_LOLACONFRONT, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaConfronts1, Speaker_Lola, DIR_EAST
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaConfronts2, Speaker_Sophie, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaConfronts2, SP_NAME_PLAYER, DIR_WEST
 	speak LOCALID_BEDROOM_LOLACONFRONT, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaConfronts3, Speaker_Lola, DIR_EAST
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaConfronts4, Speaker_Sophie, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaConfronts4, SP_NAME_PLAYER, DIR_WEST
 	speak LOCALID_BEDROOM_LOLACONFRONT, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaConfronts5, Speaker_Lola, DIR_EAST
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaConfronts6, Speaker_Sophie, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaConfronts6, SP_NAME_PLAYER, DIR_WEST
 	speak LOCALID_BEDROOM_LOLACONFRONT, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaConfronts7, Speaker_Lola, DIR_EAST
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaConfronts8, Speaker_Sophie, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaConfronts8, SP_NAME_PLAYER, DIR_WEST
 	setspeaker Speaker_Lola
 	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaConfronts9, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_LolaTellHer
@@ -25,7 +39,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_LolaConfron
 
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_LolaTellHer::
 	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Move_LolaTellHer1
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer1, Speaker_Sophie, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer1, SP_NAME_PLAYER, DIR_WEST
 	fadescreen FADE_TO_BLACK
 	delay 100
 	addobject LOCALID_BEDROOM_MINH
@@ -39,16 +53,16 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_LolaTellHer
 	speak LOCALID_BEDROOM_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer4, Speaker_Harriet, DIR_NORTH
 	speak LOCALID_BEDROOM_LOLACONFRONT, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer5, Speaker_Lola, DIR_EAST
 	speak LOCALID_BEDROOM_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer6, Speaker_Minh, DIR_NORTH
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer7, Speaker_Sophie, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer7, SP_NAME_PLAYER, DIR_WEST
 	speak LOCALID_BEDROOM_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer8, Speaker_Harriet, DIR_NORTH
 	speak LOCALID_BEDROOM_LOLACONFRONT, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer9, Speaker_Lola, DIR_EAST
 
 	applymovement LOCALID_BEDROOM_LOLACONFRONT, Common_Movement_WalkRight
 
 	speak LOCALID_BEDROOM_LOLACONFRONT, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer10, Speaker_Lola, DIR_EAST
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer11, Speaker_Sophie, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer11, SP_NAME_PLAYER, DIR_WEST
 	speak LOCALID_BEDROOM_LOLACONFRONT, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer12, Speaker_Lola, DIR_EAST
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer13, Speaker_Sophie, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer13, SP_NAME_PLAYER, DIR_WEST
 	speak LOCALID_BEDROOM_LOLACONFRONT, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer14, Speaker_Lola, DIR_SOUTH
 
 	applymovement LOCALID_BEDROOM_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Move_LolaTellHer2
@@ -70,7 +84,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_LolaTellHer
 
 
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_LolaDontTellHer::
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaDontTellHer1, Speaker_Sophie, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaDontTellHer1, SP_NAME_PLAYER, DIR_WEST
 	speak LOCALID_BEDROOM_LOLACONFRONT, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaDontTellHer2, Speaker_Lola, DIR_EAST
 
 	applymovement LOCALID_BEDROOM_LOLACONFRONT, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Move_LolaTellHer3
@@ -97,7 +111,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_LolaDontTel
 
 	speak LOCALID_BEDROOM_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaDontTellHer3, Speaker_Minh, DIR_NORTH
 	speak LOCALID_BEDROOM_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaDontTellHer4, Speaker_Harriet, DIR_NORTH
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaDontTellHer5, Speaker_Sophie, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaDontTellHer5, SP_NAME_PLAYER, DIR_WEST
 	goto OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_Mission
 	end
 
@@ -145,6 +159,22 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Move_LolaDontTellHer1:
 	face_down
 	step_end
 
+OutsideWorld_ApartmentBldg_YourBedroom_LolaIdle::
+	lock
+	msgbox OutsideWorld_ApartmentBldg_YourBedroom_Text_LolaIdle, MSGBOX_DEFAULT
+	closemessage
+	playse SE_PIN
+	applymovement LOCALID_BEDROOM_LOLAIDLE, Common_Movement_Heart
+	waitmovement 0
+	waitse
+	delay 50
+	release
+	end
+
+OutsideWorld_ApartmentBldg_YourBedroom_Text_LolaIdle:
+	.string "Snubbull-snubble Snubbubble!\n"
+	.string "Dreamy little Dreams!\p"
+	.string "I love you!$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaConfronts1:
 	.string "Sophie.$"
@@ -234,7 +264,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer11:
 
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer12:
 	.string "You think I'm going to sit back and let\n"
-	.string "you destabilize BETTER without me?\p"
+	.string "you destabilize {COLOR GREEN}BETTER{COLOR DARK_GRAY} without me?\p"
 	.string "Dreams has a nasty bite. Put it to\n"
 	.string "good use.\p"
 
@@ -287,7 +317,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaDontTellHer5:
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_Mission1:
 	.string "Back to the mission.\p"
 	.string "The new identity is ready, and I set\n"
-	.string "it to spawn in the BETTER office.\p"
+	.string "it to spawn in the {COLOR GREEN}BETTER{COLOR DARK_GRAY} Office.\p"
 	.string "You should be able to open the eastern\n"
 	.string "security door and go up the stairs.\p"
 	.string "There's probably a lot of guards there,\n"
@@ -333,7 +363,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Eventscript_PC::
 	goto_if_eq VAR_RESULT, NO, Common_Eventscript_Cancel
 	closemessage
 	@@ Fancy transition TOFOLD
-	entervr_warp MAP_VIRTUAL_CITY_OUTSIDE1, 24, 24
+	entervr_warp MAP_VIRTUAL_CITY_OUTSIDE1, 24, 25
 	waitstate
 	end
 
@@ -347,7 +377,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Text_PC:
 
 
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Eventscript_NoVRNow::
-	setspeaker Speaker_Sophie
+	setspeaker SP_NAME_PLAYER
 	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Text_NoVRNow, MSGBOX_SIGN
 	closemessage
 	end

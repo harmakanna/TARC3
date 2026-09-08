@@ -59,19 +59,22 @@ VirtualCity_CommsTower_1F_Eventscript_ActIMinh::
 
 VirtualCity_CommsTower_1F_Eventscript_ActIIntro::
 	@warpsilent NEXT TO Minh
-	applymovement LOCALID_OFFICE_MINH, Common_Movement_FaceLeft
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	@applymovement LOCALID_OFFICE_MINH, Common_Movement_FaceLeft
+	@applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
 
-	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIIntro1, Speaker_Minh, DIR_WEST
-
+	@speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIIntro1, Speaker_Minh, DIR_WEST
+	npc_speak Speaker_Minh, VirtualCity_CommsTower_1F_Text_MinhACTIIntro1
 	applymovement LOCALID_OFFICE_MINH, Common_Movement_FaceUp
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
 	special SpawnCameraObject 
-	applymovement OBJ_EVENT_ID_CAMERA, VirtualCity_CommsTower_1F_Move_IntroCamera1
-	waitmovement 0
+	call_if_eq VAR_FACING, DIR_EAST, VirtualCity_CommsTower_1F_EventScript_MoveIntroCameraEast
+	call_if_eq VAR_FACING, DIR_SOUTH, VirtualCity_CommsTower_1F_EventScript_MoveIntroCameraEast
+	call_if_eq VAR_FACING, DIR_WEST, VirtualCity_CommsTower_1F_EventScript_MoveIntroCameraEast
+	@applymovement OBJ_EVENT_ID_CAMERA, VirtualCity_CommsTower_1F_Move_IntroCamera1
+	@waitmovement 0
 
 	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIIntro2, Speaker_Minh, DIR_SOUTH
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIIntro3, Speaker_Sophie, DIR_SOUTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIIntro3, SP_NAME_PLAYER, DIR_SOUTH
 	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIIntro4, Speaker_Minh, DIR_SOUTH
 
 	applymovement OBJ_EVENT_ID_CAMERA, VirtualCity_CommsTower_1F_Move_IntroCamera2
@@ -82,7 +85,7 @@ VirtualCity_CommsTower_1F_Eventscript_ActIIntro::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
 	waitmovement 0
 
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIIntro5, Speaker_Sophie, DIR_EAST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIIntro5, SP_NAME_PLAYER, DIR_EAST
 	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIIntro6, Speaker_Minh, DIR_WEST	
 	closemessage
 	setvar VAR_PETALBURG_CITY_STATE, 11
@@ -90,6 +93,11 @@ VirtualCity_CommsTower_1F_Eventscript_ActIIntro::
 	clearflag FLAG_HIDE_OUTSIDE_WORLD_PROLOGUE
 
 	end
+
+VirtualCity_CommsTower_1F_EventScript_MoveIntroCameraEast::
+	applymovement OBJ_EVENT_ID_CAMERA, VirtualCity_CommsTower_1F_Move_IntroCamera1
+	waitmovement 0
+	return
 
 VirtualCity_CommsTower_1F_Move_IntroCamera1:
 	walk_up
@@ -160,7 +168,8 @@ VirtualCity_CommsTower_1F_Text_MinhACTIIntro6:
 
 
 VirtualCity_CommsTower_1F_Eventscript_MinhACTIIntroRepeat::
-	speak LOCALID_ARCANINE, VirtualCity_CommsTower_1F_Text_MinhACTIIntroRepeat, Speaker_Minh, DIR_SOUTH
+	setspeaker Speaker_Minh
+	msgbox VirtualCity_CommsTower_1F_Text_MinhACTIIntroRepeat, MSGBOX_NPC
 	end
 
 
@@ -176,7 +185,7 @@ VirtualCity_CommsTower_1F_Text_MinhACTIIntroRepeat:
 VirtualCity_CommsTower_1F_Text_Eventscript_ACTIPokemonCheck::
 	setspeaker Speaker_Minh
 	msgbox VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheck, MSGBOX_NPC
-	setspeaker Speaker_Sophie
+	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheck, MSGBOX_NPC
 
 
@@ -197,15 +206,15 @@ VirtualCity_CommsTower_1F_Text_Eventscript_ACTIPokemonCheck::
 	dynmultipush PonytaChoice_Text_Choice14, 14
 	dynmultistack 0, 0, FALSE, 6, FALSE, 0, DYN_MULTICHOICE_CB_NONE
 	goto_if_eq VAR_RESULT, 8, VirtualCity_CommsTower_1F_Text_Eventscript_ACTIPokemonCheckSuccess
-	speak LOCALID_ARCANINE, VirtualCity_CommsTower_1F_Text_SophieACTIPokemonFailure, Speaker_Sophie, DIR_EAST
+	speak LOCALID_ARCANINE, VirtualCity_CommsTower_1F_Text_SophieACTIPokemonFailure, SP_NAME_PLAYER, DIR_EAST
 	end
 
 
 VirtualCity_CommsTower_1F_Text_Eventscript_ACTIPokemonCheckSuccess::
 	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheckSuccess1, Speaker_Minh, DIR_WEST
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheckSuccess2, Speaker_Sophie, DIR_EAST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheckSuccess2, SP_NAME_PLAYER, DIR_EAST
 	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheckSuccess3, Speaker_Minh, DIR_WEST
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheckSuccess4, Speaker_Sophie, DIR_EAST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheckSuccess4, SP_NAME_PLAYER, DIR_EAST
 	closemessage
 	setvar VAR_PETALBURG_CITY_STATE, 12
 	warpsilent MAP_VIRTUAL_CITY_WORK_YOUR_OFFICE, 13, 19
@@ -314,13 +323,14 @@ VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuard::
 	@goto VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardStop
 	
 	goto_if_set FLAG_ACT_I_EX_PONYTA_OBTAINED, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardPonyta
-	speak LOCALID_GUARD, VirtualCity_CommsTower_1F_Text_NoPokemonGuardStop, Speaker_Guard, DIR_SOUTH
+	npc_speak VirtualCity_CommsTower_1F_Text_NoPokemonGuardStop, Speaker_Guard
 	closemessage
 	end
 
 
 VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardEnter:
-	speak LOCALID_GUARD, VirtualCity_CommsTower_1F_Text_NoPokemonGuardEnter, Speaker_Guard, DIR_SOUTH
+	npc_speak VirtualCity_CommsTower_1F_Text_NoPokemonGuardEnter, Speaker_Guard
+	closemessage
 	goto VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardMoves
 	end
 
@@ -335,7 +345,8 @@ VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardMoves:
 
 
 VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardStop:
-	speak LOCALID_GUARD, VirtualCity_CommsTower_1F_Text_NoPokemonGuardStop, Speaker_Guard, DIR_SOUTH
+	npc_speak VirtualCity_CommsTower_1F_Text_NoPokemonGuardStop, Speaker_Guard
+	closemessage
 	end
 
 VirtualCity_CommsTower_1F_Text_NoPokemonGuardStop:
@@ -349,7 +360,7 @@ VirtualCity_CommsTower_1F_Text_NoPokemonGuardStop:
 
 
 VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardPonyta:
-	speak LOCALID_GUARD, VirtualCity_CommsTower_1F_Text_NoPokemonGuardPonyta, Speaker_Guard, DIR_SOUTH
+	npc_speak VirtualCity_CommsTower_1F_Text_NoPokemonGuardPonyta, Speaker_Guard
 	applymovement LOCALID_GUARD, VirtualCity_CommsTower_1F_Move_NoPokemonGuardPonyta
 	waitmovement 0
 	setdynamicwarp MAP_VIRTUAL_CITY_COMMS_TOWER_RESEARCH, 0

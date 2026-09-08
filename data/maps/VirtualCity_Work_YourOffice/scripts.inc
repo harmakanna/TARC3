@@ -12,7 +12,7 @@ VirtualCity_Work_YourOffice_Eventscript_MakingExPonyta::
 	applymovement LOCALID_MINH, Common_Movement_FaceUp
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
 	speak LOCALID_MINH, VirtualCity_Work_YourOffice_Text_MinhACTIPonytaDone1, Speaker_Minh, DIR_NORTH
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Work_YourOffice_Text_SophieACTIPonytaDone2, Speaker_Sophie, DIR_NORTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Work_YourOffice_Text_SophieACTIPonytaDone2, SP_NAME_PLAYER, DIR_NORTH
 	speak LOCALID_MINH, VirtualCity_Work_YourOffice_Text_MinhACTIPonytaDone3, Speaker_Minh, DIR_NORTH
 
 	applymovement LOCALID_MINH, Common_Movement_FaceDown
@@ -30,7 +30,7 @@ VirtualCity_Work_YourOffice_Eventscript_MakingExPonyta::
 
 
 	
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Work_YourOffice_Text_SophieACTIPonytaDone4, Speaker_Sophie, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Work_YourOffice_Text_SophieACTIPonytaDone4, SP_NAME_PLAYER, DIR_WEST
 
 
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
@@ -46,7 +46,7 @@ VirtualCity_Work_YourOffice_Eventscript_MakingExPonyta::
 	
 
 
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Work_YourOffice_Text_SophieACTIPonytaDone5, Speaker_Sophie, DIR_NORTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Work_YourOffice_Text_SophieACTIPonytaDone5, SP_NAME_PLAYER, DIR_NORTH
 	speak LOCALID_MINH, VirtualCity_Work_YourOffice_Text_MinhACTIPonytaDone6, Speaker_Minh, DIR_NORTH
 	setvar VAR_PETALBURG_CITY_STATE, 15
 	setflag FLAG_ACT_I_EX_PONYTA_OBTAINED
@@ -126,7 +126,7 @@ VirtualCity_Work_YourOffice_Eventscript_MinhACTIOutro::
 	@warpsilent next=to-minh!
 	
 	speak LOCALID_MINH, VirtualCity_Work_YourOffice_Text_MinhACTIOutro1, Speaker_Minh, DIR_WEST
-	speak LOCALID_MINH, VirtualCity_Work_YourOffice_Text_SophieACTIOutro2, Speaker_Sophie, DIR_EAST
+	speak LOCALID_MINH, VirtualCity_Work_YourOffice_Text_SophieACTIOutro2, SP_NAME_PLAYER, DIR_EAST
 	applymovement OBJ_EVENT_ID_PLAYER, VirtualCity_Work_YourOffice_Move_ACTIOutroSophie1
 
 	@addobject LOCALID_PONYTAS_BALL
@@ -140,7 +140,7 @@ VirtualCity_Work_YourOffice_Eventscript_MinhACTIOutro::
 
 
 	speak LOCALID_MINH, VirtualCity_Work_YourOffice_Text_MinhACTIOutro3, Speaker_Minh, DIR_WEST
-	speak LOCALID_MINH, VirtualCity_Work_YourOffice_Text_SophieACTIOutro4, Speaker_Sophie, DIR_EAST
+	speak LOCALID_MINH, VirtualCity_Work_YourOffice_Text_SophieACTIOutro4, SP_NAME_PLAYER, DIR_EAST
 	speak LOCALID_MINH, VirtualCity_Work_YourOffice_Text_MinhACTIOutro5, Speaker_Minh, DIR_WEST
 	clearparty
 	givemon SPECIES_EXCADRILL, 50

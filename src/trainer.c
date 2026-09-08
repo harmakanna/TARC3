@@ -33,7 +33,7 @@ enum TrainerPicID GetPlayerTrainerPic(enum Gender gender, enum GameVersion versi
             return GetEmeraldTrainerPic(gender);
     }
     */
-    if (IsInVirtualWorld())
+    if (IsInVirtualWorld() && !IsInWorkplace())
         return TRAINER_PIC_DIGITAL_SOPHIE;
     else
         return TRAINER_PIC_MAY;

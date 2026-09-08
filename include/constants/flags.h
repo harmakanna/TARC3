@@ -62,14 +62,14 @@
 #define FLAG_PRESENTED_EARLS_MESSAGE    0x28 // Unused Flag
 #define FLAG_DEFEATED_CAPN_CHINO    0x29 // Unused Flag
 #define FLAG_HIDE_OUTSIDE_WORLD_PROLOGUE    0x2A // Unused Flag
-#define FLAG_UNUSED_0x02B    0x2B // Unused Flag
-#define FLAG_UNUSED_0x02C    0x2C // Unused Flag
-#define FLAG_UNUSED_0x02D    0x2D // Unused Flag
-#define FLAG_UNUSED_0x02E    0x2E // Unused Flag
-#define FLAG_UNUSED_0x02F    0x2F // Unused Flag
-#define FLAG_UNUSED_0x030    0x30 // Unused Flag
-#define FLAG_UNUSED_0x031    0x31 // Unused Flag
-#define FLAG_UNUSED_0x032    0x32 // Unused Flag
+#define FLAG_HIDE_INTRO_ARCANINE    0x2B // Unused Flag
+#define FLAG_HIDE_LOLA_BEDROOM_PROLOGUE    0x2C // Unused Flag
+#define FLAG_SPOKE_TO_RESEARCHER_1    0x2D // Unused Flag
+#define FLAG_SPOKE_TO_RESEARCHER_2    0x2E // Unused Flag
+#define FLAG_SPOKE_TO_RESEARCHER_3    0x2F // Unused Flag
+#define FLAG_SPOKE_TO_RESEARCHER_4    0x30 // Unused Flag
+#define FLAG_SPOKE_TO_RESEARCHER_5    0x31 // Unused Flag
+#define FLAG_SPOKE_TO_RESEARCHER_6    0x32 // Unused Flag
 #define FLAG_UNUSED_0x033    0x33 // Unused Flag
 #define FLAG_UNUSED_0x034    0x34 // Unused Flag
 #define FLAG_UNUSED_0x035    0x35 // Unused Flag
@@ -1388,7 +1388,7 @@
 #define FLAG_NURSE_UNION_ROOM_REMINDER              (SYSTEM_FLAGS + 0x20)
 
 #define FLAG_SYS_PREVENT_MAP_FADE                           (SYSTEM_FLAGS + 0x21) // Unused Flag
-#define FLAG_UNUSED_0x882                           (SYSTEM_FLAGS + 0x22) // Unused Flag
+#define FLAG_SYS_NO_MUSIC_ON_TRANSITION                          (SYSTEM_FLAGS + 0x22) // Unused Flag
 #define FLAG_UNUSED_0x883                           (SYSTEM_FLAGS + 0x23) // Unused Flag
 #define FLAG_UNUSED_0x884                           (SYSTEM_FLAGS + 0x24) // Unused Flag
 #define FLAG_UNUSED_0x885                           (SYSTEM_FLAGS + 0x25) // Unused Flag

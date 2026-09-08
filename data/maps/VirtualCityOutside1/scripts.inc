@@ -100,9 +100,9 @@ VirtualCityOutside_EventScript_LeftIdol::
 	end
 
 VirtualCityOutside_Text_CenterIdol:
-	.string "Hiiiiiii~\n"
-	.string "Welcome to the BETTER PLACE~\p"
-	.string "Make sure to sign up soon for\n"
+	.string "Hiiiiiii!\n"
+	.string "Welcome to the {COLOR GREEN}BETTER PLACE!\p"
+	.string "{COLOR DARK_GRAY}Make sure to sign up soon for\n"
 	.string "our next tournament extravaganza!\p"
 	.string "Test your mettle against all the\n"
 	.string "strongest trainers in the city!$"
@@ -111,7 +111,7 @@ VirtualCityOutside_Text_RightIdol:
 	.string "Yooooo!\n"
 	.string "What's up!\p"
 	.string "Ready for a night on the town?\n"
-	.string "You won't believe what BETTER just\l"
+	.string "You won't believe what {COLOR GREEN}BETTER{COLOR DARK_GRAY} just\l"
 	.string "dropped on us!\p"
 	.string "We GOTTA check out the supershop for\n"
 	.string "their new UPSIDE-DOWN POKéMON\l"
@@ -122,7 +122,7 @@ VirtualCityOutside_Text_LeftIdol:
 	.string "Hey bestie!!!!\p"
 	.string "The casino's waitin'! How 'bout I\n"
 	.string "meet you there for a quick round\l"
-	.string "of hold'em to start the day?$"
+	.string "of Hold'em to start the day?$"
 	
 Speaker_Giratina:
 	.string "Gitarita$"
@@ -175,12 +175,12 @@ VirtualCityOutside_Text_Doppelganger2:
 
 VirtualCityOutside_Text_Triangle:
 	.string "You'll never know what wacky\n"
-	.string "avatar you'll find in BETTER!\p"
-	.string "Some people have been around a\n"
+	.string "avatar you'll find in {COLOR GREEN}BETTER!\p"
+	.string "{COLOR DARK_GRAY}Some people have been around a\n"
 	.string "long time and got some real rare\l"
 	.string "skins from the early days!\p"
 	.string "You can always buy 'em on the\n"
-	.string "BETTER user marketplace, but good\l"
+	.string "{COLOR GREEN}BETTER{COLOR DARK_GRAY} user marketplace, but good\l"
 	.string "luck if you ain't loaded!$"
 
 Speaker_CapnChino:

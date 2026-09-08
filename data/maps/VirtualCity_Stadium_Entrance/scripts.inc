@@ -7,7 +7,7 @@ VirtualCity_Stadium_Entrance_EventScript_Act_II_Harriet::
 	goto_if_set FLAG_ACT_II_HARRIET_EXPLANATION, VirtualCity_Stadium_Entrance_EventScript_Harriet_Reexplains
 	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet1, MSGBOX_NPC
-	setspeaker Speaker_Sophie
+	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_Stadium_Entrance_Text_ActII_Intro_Sophie2, MSGBOX_NPC
 	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet3, MSGBOX_NPC

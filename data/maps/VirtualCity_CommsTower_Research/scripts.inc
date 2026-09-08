@@ -12,19 +12,19 @@ VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger::
 	applymovement LOCALID_RESEARCHBOSS, VirtualCity_CommsTower_Research_Move_ResearchBossTrigger1
 	waitmovement
 	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger2, Speaker_Researcher, DIR_NORTH
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger3, Speaker_Sophie, DIR_SOUTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger3, SP_NAME_PLAYER, DIR_SOUTH
 	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger4, Speaker_Researcher, DIR_NORTH
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger5, Speaker_Sophie, DIR_SOUTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger5, SP_NAME_PLAYER, DIR_SOUTH
 	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger6, Speaker_Researcher, DIR_NORTH
 
 	@battle TOFOLD
 
 	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger7, Speaker_Researcher, DIR_NORTH
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger8, Speaker_Sophie, DIR_SOUTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger8, SP_NAME_PLAYER, DIR_SOUTH
 	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger9, Speaker_Researcher, DIR_NORTH
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger10, Speaker_Sophie, DIR_SOUTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger10, SP_NAME_PLAYER, DIR_SOUTH
 	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger11, Speaker_Researcher, DIR_NORTH
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger12, Speaker_Sophie, DIR_SOUTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger12, SP_NAME_PLAYER, DIR_SOUTH
 	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger13, Speaker_Researcher, DIR_NORTH
 	applymovement LOCALID_RESEARCHBOSS, VirtualCity_CommsTower_Research_Move_ResearchBossTrigger2
 	waitmovement
@@ -62,7 +62,7 @@ VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger3:
 VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger4:
 	.string "What?! Wait, it's done!\p"
 	.string "He finished working on it at the Casino?\n"
-	.string "Now that's BETTER behavior right there.\p"
+	.string "Now that's {COLOR GREEN}BETTER{COLOR DARK_GRAY} behavior right there.\p"
 	.string "So, you've balanced it already, I assume?$"
 
 VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger5:
@@ -108,7 +108,7 @@ VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger13:
 
 
 VirtualCity_CommsTower_Research_Eventscript_PonytaBall::
-	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Text_PonytaBall, Speaker_Sophie, DIR_NORTH
+	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Text_PonytaBall, SP_NAME_PLAYER, DIR_NORTH
 	givemon SPECIES_PONYTA, 50
 	setflag FLAG_ACT_I_REAL_PONYTA_OBTAINED
 	removeobject LOCALID_REAL_PONYTA_BALL
@@ -120,7 +120,7 @@ VirtualCity_CommsTower_Research_Text_PonytaBall:
 
 
 VirtualCity_CommsTower_Research_Eventscript_ResearchBoss::
-	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Text_ResearchBoss1, Speaker_Sophie, DIR_NORTH
+	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Text_ResearchBoss1, SP_NAME_PLAYER, DIR_NORTH
 	speak LOCALID_RESEARCHBOSS, VirtualCity_CommsTower_Research_Text_ResearchBoss2, Speaker_Researcher, DIR_NORTH
 	end
 

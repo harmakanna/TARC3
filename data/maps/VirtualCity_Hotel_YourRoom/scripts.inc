@@ -22,22 +22,22 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution::
 	applymovement LOCALID_VRROOM_ERNEST, Common_Movement_FaceUp
 	applymovement LOCALID_VRROOM_HARRIET, Common_Movement_FaceUp
 	delay 40
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk4Sophie, Speaker_Sophie, DIR_NORTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk4Sophie, SP_NAME_PLAYER, DIR_NORTH
 	delay 10
 	applymovement LOCALID_VRROOM_MINH, Common_Movement_ExclamationMark
 	applymovement LOCALID_VRROOM_HARRIET, Common_Movement_ExclamationMark
 	delay 20
 	speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk5Minh, Speaker_Minh, DIR_NORTH
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk6Harriet, Speaker_Harriet, DIR_NORTH
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk7Sophie, Speaker_Sophie, DIR_SOUTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk7Sophie, SP_NAME_PLAYER, DIR_SOUTH
 	applymovement OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Move_ResolutionTalkSophie1
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk8Sophie, Speaker_Sophie, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk8Sophie, SP_NAME_PLAYER, DIR_WEST
 	applymovement OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Move_ResolutionTalkSophie2
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk9Sophie, Speaker_Sophie, DIR_EAST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk9Sophie, SP_NAME_PLAYER, DIR_EAST
 	applymovement OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Move_ResolutionTalkSophie3
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk10Sophie, Speaker_Sophie, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk10Sophie, SP_NAME_PLAYER, DIR_WEST
 	applymovement OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Move_ResolutionTalkSophie4
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk11Sophie, Speaker_Sophie, DIR_SOUTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk11Sophie, SP_NAME_PLAYER, DIR_SOUTH
 	delay 50
 	speak LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk12Ernest, Speaker_Ernest, DIR_NORTH
 	delay 50
@@ -57,7 +57,7 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution::
 	delay 20
 	speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk13Minh, Speaker_Minh, DIR_NORTH
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk14Harriet, Speaker_Harriet, DIR_WEST
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk15Sophie, Speaker_Sophie, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk15Sophie, SP_NAME_PLAYER, DIR_WEST
 	applymovement LOCALID_VRROOM_MINH, Common_Movement_FaceLeft
 	delay 50
 	speak LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk16Ernest, Speaker_Ernest, DIR_EAST
@@ -71,11 +71,11 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
 	speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk19Minh, Speaker_Minh, DIR_NORTH
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk20Harriet, Speaker_Harriet, DIR_WEST
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk21Sophie, Speaker_Sophie, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk21Sophie, SP_NAME_PLAYER, DIR_WEST
 	speak LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk22Ernest, Speaker_Ernest, DIR_EAST
 	speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk23Minh, Speaker_Minh, DIR_NORTH
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk24Harriet, Speaker_Harriet, DIR_WEST
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk25Sophie, Speaker_Sophie, DIR_WEST
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk25Sophie, SP_NAME_PLAYER, DIR_WEST
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk26Harriet, Speaker_Harriet, DIR_WEST
 	closemessage
 	applymovement LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Move_MinhLeaves
@@ -172,7 +172,7 @@ VirtualCity_Hotel_YourRoom_Text_ResolutionTalk2Ernest::
 	.string "But what can we even do?$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk3Harriet::
-	.string "BETTER will just censor us, or worse,\n"
+	.string "{COLOR GREEN}BETTER{COLOR DARK_GRAY} will just censor us, or worse,\n"
 	.string "if we try to tell people.$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk4Sophie::
@@ -251,7 +251,7 @@ VirtualCity_Hotel_YourRoom_Text_ResolutionTalk18Ernest::
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk19Minh::
 	.string "Harriet, isn't that cheater exec still\n"
-	.string "the BETTER champion?$"
+	.string "the {COLOR GREEN}BETTER{COLOR DARK_GRAY} Champion?$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk20Harriet::
 	.string "Uh, yeah… no one's ever been able to\n"
@@ -297,15 +297,15 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Ending::
 	@ TOFOLD some movement would be great
 	speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ActII_Ending1Minh, Speaker_Minh, DIR_NORTH
 	speak LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Text_ActII_Ending2Ernest, Speaker_Ernest, DIR_EAST
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ActII_Ending3Sophie, Speaker_Sophie, DIR_SOUTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ActII_Ending3Sophie, SP_NAME_PLAYER, DIR_SOUTH
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ActII_Ending4Harriet, Speaker_Harriet, DIR_WEST
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ActII_Ending5Sophie, Speaker_Sophie, DIR_SOUTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ActII_Ending5Sophie, SP_NAME_PLAYER, DIR_SOUTH
 	speak LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Text_ActII_Ending6Ernest, Speaker_Ernest, DIR_EAST
 	speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ActII_Ending7Minh, Speaker_Minh, DIR_NORTH
 	speak LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Text_ActII_Ending8Ernest, Speaker_Ernest, DIR_EAST
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ActII_Ending9Harriet, Speaker_Harriet, DIR_WEST
 	speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ActII_Ending10Minh, Speaker_Minh, DIR_NORTH
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ActII_Ending11Sophie, Speaker_Sophie, DIR_SOUTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ActII_Ending11Sophie, SP_NAME_PLAYER, DIR_SOUTH
 	closemessage
 	special RemoveCameraObject
 	removeobject LOCALID_VRROOM_MINH
@@ -318,6 +318,7 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Ending::
 	playse SE_PC_OFF
 	waitse
 	setvar VAR_PETALBURG_CITY_STATE, 40
+	setflag FLAG_HIDE_LOLA_BEDROOM_PROLOGUE
 	setflag FLAG_ACT_II_HIDE_HOTEL_FRIENDS
 	setflag FLAG_ACT_III_STARTED
 	clearflag FLAG_ACT_III_HIDE_BEDROOM_LOLA

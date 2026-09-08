@@ -13,30 +13,25 @@ OutsideWorld_OnFrame:
 
 
 OutsideWorld_PrologueEndScene_Final_Really::
-	setweather WEATHER_RAIN
-	doweather
-	addobject LOCALID_OW_MINH
-	delay 100
-	delay 100
+	delay 50
+	clearflag FLAG_SYS_PREVENT_MAP_FADE
 	fadescreenspeed FADE_FROM_BLACK 5
 	delay 50
 	
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_SophiePrologue1, Speaker_Sophie, DIR_SOUTH
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_SophiePrologue1, SP_NAME_PLAYER, DIR_SOUTH
 	playse SE_SELECT
 	speak LOCALID_OW_MINH, OutsideWorld_MinhPrologue2, Speaker_Minh, DIR_SOUTH
 	playse SE_SELECT
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_SophiePrologue3, Speaker_Sophie, DIR_EAST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_SophiePrologue3, SP_NAME_PLAYER, DIR_EAST
 	playse SE_SELECT
 	speak LOCALID_OW_MINH, OutsideWorld_MinhPrologue4, Speaker_Minh, DIR_WEST
 	playse SE_SELECT
-	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_SophiePrologue5, Speaker_Sophie, DIR_EAST
+	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_SophiePrologue5, SP_NAME_PLAYER, DIR_EAST
 	closemessage
 	delay 30
-	closemessage
 	applymovement LOCALID_OW_MINH, OutsideWorld_Move_Minh1
 	delay 100
-	delay 100
-	delay 100
+	delay 60
 	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_Move_Sophie1
 	waitmovement 0
 	removeobject LOCALID_OW_MINH
@@ -45,9 +40,15 @@ OutsideWorld_PrologueEndScene_Final_Really::
 	applymovement OBJ_EVENT_ID_CAMERA, OutsideWorld_Move_Camera1
 	delay 50
 	playse SE_DOOR
-	hideplayer
+	opendoor 23, 13
+	waitdooranim
+	waitse
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
 	waitmovement 0
-	delay 100
+	hideplayer
+	closedoor 23, 13
+	waitdooranim
+	delay 50
 	delay 50
 	setvar VAR_PETALBURG_CITY_STATE, 4
 	warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_FLOOR1, 2,4
@@ -88,11 +89,14 @@ OutsideWorld_Move_Sophie1:
 	walk_up
 	walk_up
 	face_left
+	delay_16
+	delay_16
+	delay_16
+	delay_16
 	step_end
 
 OutsideWorld_Move_Sophie2:
 	walk_right
-	walk_up
 	walk_up
 	step_end
 
@@ -149,6 +153,11 @@ OutsideWorld_Script_Dealer::
 	lock
 	npc_speak Speaker_Dodgy_Man, OutsideWorld_Text_Dealer
 	playse SE_SELECT
+	
+	@Kumatora - I think player_speak is broken? I put in the obvious workaround, but feel free to change back if it's fixed
+	@setspeaker SP_NAME_PLAYER
+	@msgbox OutsideWorld_Text_SophieHellNo, MSGBOX_NPC
+
 	player_speak OutsideWorld_Text_SophieHellNo
 	playse SE_SELECT
 	npc_speak Speaker_Dodgy_Man, OutsideWorld_Text_DealerOkayOkay
@@ -199,15 +208,15 @@ OutsideWorld_Text_ToOldMan:
 
 OutsideWorld_Text_YoungBoy:
 	.string "IM BOOOOOORED I HATE THIS\p"
-	.string "DAD BANNED ME FROM BETTER FOR A WEEK\p"
+	.string "DAD BANNED ME FROM {COLOR GREEN}BETTER{COLOR DARK_GRAY} FOR A WEEK\p"
 	.string "THERES NOTHING TO DO OUTSIDE THOUGH\p"
 	.string "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA$"
 
 OutsideWorld_Text_PurpleBoy:
-	.string "Ever since BETTER figured out how to\n"
+	.string "Ever since {COLOR GREEN}BETTER{COLOR DARK_GRAY} figured out how to\n"
 	.string "transfer essentials like groceries\l"
 	.string "and meds through the PC, every store\l"
-	.string "here have shuttered their doors.\p"
+	.string "here has shuttered their doors.\p"
 	.string "What about those of us who can't\n"
 	.string "afford their subscription premiums?\p"
 	.string "Are we just out of luck?$"
@@ -265,7 +274,7 @@ OutsideWorld_SophiePrologue3::
 
 OutsideWorld_MinhPrologue4::
 	.string "…Okay.\p"
-	.string "Whoever it is, they work for BETTER,\n"
+	.string "Whoever it is, they work for {COLOR GREEN}BETTER{COLOR DARK_GRAY},\n"
 	.string "and they've got artists.\p"
 	.string "I'll ask around with my art friends.$"
 
