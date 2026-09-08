@@ -9,41 +9,67 @@ VirtualCity_Casino_Eventscript_Cluegiver1::
 	setspeaker Speaker_Researcher
 	msgbox VirtualCity_Casino_Text_Cluegiver1, MSGBOX_SIGN
 	closemessage
+	goto_if_set FLAG_SPOKE_TO_RESEARCHER_1, VirtualCity_Casino_EventScript_CluegiverEnd
+	setflag FLAG_SPOKE_TO_RESEARCHER_1
+	addvar VAR_RESEARCHERS_SPOKEN_TO, 1
 	end
 
 VirtualCity_Casino_Eventscript_Cluegiver2::
 	setspeaker Speaker_Researcher
 	msgbox VirtualCity_Casino_Text_Cluegiver2, MSGBOX_SIGN
 	closemessage
+	goto_if_set FLAG_SPOKE_TO_RESEARCHER_2, VirtualCity_Casino_EventScript_CluegiverEnd
+	setflag FLAG_SPOKE_TO_RESEARCHER_2
+	addvar VAR_RESEARCHERS_SPOKEN_TO, 1
 	end
 
 VirtualCity_Casino_Eventscript_Cluegiver3::
 	setspeaker Speaker_Researcher
 	msgbox VirtualCity_Casino_Text_Cluegiver3, MSGBOX_SIGN
 	closemessage
+	goto_if_set FLAG_SPOKE_TO_RESEARCHER_3, VirtualCity_Casino_EventScript_CluegiverEnd
+	setflag FLAG_SPOKE_TO_RESEARCHER_3
+	addvar VAR_RESEARCHERS_SPOKEN_TO, 1
 	end
 
 VirtualCity_Casino_Eventscript_Cluegiver4::
 	setspeaker Speaker_Researcher
 	msgbox VirtualCity_Casino_Text_Cluegiver4, MSGBOX_SIGN
 	closemessage
+	goto_if_set FLAG_SPOKE_TO_RESEARCHER_4, VirtualCity_Casino_EventScript_CluegiverEnd
+	setflag FLAG_SPOKE_TO_RESEARCHER_4
+	addvar VAR_RESEARCHERS_SPOKEN_TO, 1
 	end
 
 VirtualCity_Casino_Eventscript_Cluegiver5::
 	setspeaker Speaker_Researcher
 	msgbox VirtualCity_Casino_Text_Cluegiver5, MSGBOX_SIGN
 	closemessage
+	goto_if_set FLAG_SPOKE_TO_RESEARCHER_5, VirtualCity_Casino_EventScript_CluegiverEnd
+	setflag FLAG_SPOKE_TO_RESEARCHER_5
+	addvar VAR_RESEARCHERS_SPOKEN_TO, 1
 	end
 
 VirtualCity_Casino_Eventscript_Cluegiver6::
-	setflag FLAG_ACT_I_INFO_OBTAINED
 	setspeaker Speaker_Researcher
 	msgbox VirtualCity_Casino_Text_Cluegiver6, MSGBOX_SIGN
 	closemessage
+	goto_if_set FLAG_SPOKE_TO_RESEARCHER_6, VirtualCity_Casino_EventScript_CluegiverEnd
+	setflag FLAG_SPOKE_TO_RESEARCHER_6
+	addvar VAR_RESEARCHERS_SPOKEN_TO, 1
 	end
+
+VirtualCity_Casino_EventScript_CluegiverEnd::
+	call_if_ge, VAR_RESEARCHERS_SPOKEN_TO, 6, VirtualCity_Casino_EventScript_InfoObtained 
+	end
+
+VirtualCity_Casino_EventScript_InfoObtained::
+	setflag FLAG_ACT_I_INFO_OBTAINED
+	return
 
 VirtualCity_Casino_EventScript_Kumatora::
 	msgbox VirtualCity_Casino_Text_Kumatora, MSGBOX_NPC
+	end
 
 VirtualCity_Casino_EventScript_Boat::
 	lock
@@ -148,7 +174,7 @@ VirtualCity_Casino_EventScript_SuaveMan::
 
 VirtualCity_Casino_Text_SuaveMan:
 	.string "Ohohohon… {COLOR GREEN}BETTER{COLOR DARK_GRAY} knowz how too\n"
-	.string "treet itz honorred guestz…$"
+	.string "treet itz honorred guestz…\p"
 	.string "What zey don't tell you eez zat\n"
 	.string "ze more membership duez you pay,\l"
 	.string "ze better your oddz get!\p"
@@ -167,8 +193,8 @@ VirtualCity_Casino_Text_QuintyPlump:
 
 VirtualCity_Casino_Text_Grumpig:
 	.string "You know, is it kinda weird that those\n"
-	.string "forty-something mid-career salarymen are\l"
-	.string "playing the slots with those skins?\p"
+	.string "forty-something mid-career salarymen\l"
+	.string "are gambling with those skins?\p"
 	.string "I know they're not ACTUALLY kids, but\n"
 	.string "something about it feels… wrong?$"
 
@@ -212,10 +238,10 @@ VirtualCity_Casino_Text_Purrloin:
 	.string "buying a lucky cat skin would be enough\l"
 	.string "to start winning at the slots!\p"
 	.string "The idol told ME I'm so smart for seeing\n"
-	.string "through that myth and buying a PURRLOIN\l"
-	.string "skin instead!\p"
-	.string "My winnings'll start pouring in any second\n"
-	.string "now!$"
+	.string "through that myth and buying a\l"
+	.string "PURRLOIN skin instead!\p"
+	.string "My winnings'll start pouring in any\n"
+	.string "second now!$"
 
 VirtualCity_Casino_Text_Meowth1:
 	.string "One of the idols told me buying\n"
@@ -244,8 +270,8 @@ VirtualCity_Casino_Text_SophieStopTalkingClanker:
 VirtualCity_Casino_Text_WaitressIdol2:
 	.string "Ooooo, you're playin' {COLOR RED}hard-to-get!!!\p"
 	.string "{COLOR DARK_GRAY}Remember, it's never too\n"
-	.string "late to start your journey with {COLOR GREEN}BETTER{COLOR DARK_GRAY}\n"
-	.string "casino!!!\p"
+	.string "late to start your journey with the\n"
+	.string "{COLOR GREEN}BETTER{COLOR DARK_GRAY}casino!!!\p"
 	.string "Just say the word!$"
 
 VirtualCity_Casino_Text_Honchkrow:
