@@ -7,17 +7,21 @@ VirtualCity_Work_YourOffice_OnFrame:
 	.2byte 0
 
 VirtualCity_Work_YourOffice_Eventscript_MakingExPonyta::
+	delay 100
 	clearparty
 	givemon SPECIES_DRILBUR, 50
-	applymovement LOCALID_MINH, Common_Movement_FaceUp
+	applymovement LOCALID_YOUROFFICE_MINH, Common_Movement_FaceUp
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
 	clearflag FLAG_SYS_PREVENT_MAP_FADE
 	fadescreenspeed FADE_FROM_BLACK, 5
-	speak LOCALID_MINH, VirtualCity_Work_YourOffice_Text_MinhACTIPonytaDone1, Speaker_Minh, DIR_NORTH
+	speak LOCALID_YOUROFFICE_MINH, VirtualCity_Work_YourOffice_Text_MinhACTIPonytaDone1, Speaker_Minh, DIR_NORTH
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Work_YourOffice_Text_SophieACTIPonytaDone2, SP_NAME_PLAYER, DIR_NORTH
-	speak LOCALID_MINH, VirtualCity_Work_YourOffice_Text_MinhACTIPonytaDone3, Speaker_Minh, DIR_NORTH
+	playse SE_SELECT
+	speak LOCALID_YOUROFFICE_MINH, VirtualCity_Work_YourOffice_Text_MinhACTIPonytaDone3, Speaker_Minh, DIR_NORTH
+	closemessage
 
-	applymovement LOCALID_MINH, Common_Movement_FaceLeft
+	applymovement LOCALID_YOUROFFICE_MINH, Common_Movement_FaceLeft
 	applymovement OBJ_EVENT_ID_PLAYER, VirtualCity_Work_YourOffice_Move_Sophie1
 	waitmovement 0
 
@@ -30,13 +34,14 @@ VirtualCity_Work_YourOffice_Eventscript_MakingExPonyta::
 	removeobject LOCALID_PONYTAS_BALL
 	addobject LOCALID_PONYTAEX
 	playse SE_PIN
-	applymovement LOCALID_MINH, Common_Movement_ExclamationMark
+	applymovement LOCALID_YOUROFFICE_MINH, Common_Movement_ExclamationMark
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	waitse
 	delay 60
 
 	playmoncry SPECIES_PONYTA, CRY_MODE_ENCOUNTER
-	delay 40
+	waitmoncry
+	delay 20
 
 
 	
@@ -45,7 +50,7 @@ VirtualCity_Work_YourOffice_Eventscript_MakingExPonyta::
 
 	applymovement LOCALID_PONYTAEX, VirtualCity_Work_YourOffice_Move_Ex1
 	playse SE_LEDGE
-	delay 60
+	delay 78
 	playse SE_LEDGE
 	waitmovement 0
 	waitse
@@ -64,8 +69,9 @@ VirtualCity_Work_YourOffice_Eventscript_MakingExPonyta::
 	
 
 
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Work_YourOffice_Text_SophieACTIPonytaDone5, SP_NAME_PLAYER, DIR_NORTH
-	speak LOCALID_MINH, VirtualCity_Work_YourOffice_Text_MinhACTIPonytaDone6, Speaker_Minh, DIR_NORTH
+	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Work_YourOffice_Text_SophieACTIPonytaDone5, SP_NAME_PLAYER, DIR_EAST
+	playse SE_SELECT
+	speak LOCALID_YOUROFFICE_MINH, VirtualCity_Work_YourOffice_Text_MinhACTIPonytaDone6, Speaker_Minh, DIR_WEST
 	closemessage
 	setvar VAR_PETALBURG_CITY_STATE, 15
 	setflag FLAG_ACT_I_EX_PONYTA_OBTAINED
@@ -152,10 +158,10 @@ VirtualCity_Work_YourOffice_Text_MinhACTIPonytaDoneRepeat:
 
 VirtualCity_Work_YourOffice_Eventscript_MinhACTIOutro::
 	npc_speak Speaker_Minh, VirtualCity_Work_YourOffice_Text_MinhACTIOutro1
-	setspeaker SP_NAME_PLAYER
-	msgbox VirtualCity_Work_YourOffice_Text_SophieACTIOutro2, MSGBOX_NPC
+	playse SE_SELECT
+	player_speak VirtualCity_Work_YourOffice_Text_SophieACTIOutro2
 	closemessage
-
+	applymovement LOCALID_YOUROFFICE_MINH, Common_Movement_FaceLeft
 	call_if_eq VAR_FACING, DIR_EAST, VirtualCity_Work_YourOffice_Eventscript_SophieOutroEast
 	call_if_eq VAR_FACING, DIR_NORTH, VirtualCity_Work_YourOffice_Eventscript_SophieOutroNorth
 	call_if_eq VAR_FACING, DIR_WEST, VirtualCity_Work_YourOffice_Eventscript_SophieOutroWest
@@ -169,18 +175,22 @@ VirtualCity_Work_YourOffice_Eventscript_MinhACTIOutro::
 	removeobject LOCALID_PONYTAS_BALL
 	addobject LOCALID_PONYTA
 	playse SE_PIN
-	applymovement LOCALID_MINH, Common_Movement_ExclamationMark
+	applymovement LOCALID_YOUROFFICE_MINH, Common_Movement_ExclamationMark
 	waitse
 	delay 60
 
 	playmoncry SPECIES_PONYTA, CRY_MODE_ENCOUNTER
-	delay 40
+	waitmoncry
+	delay 20
 	
 
 
-	speak LOCALID_MINH, VirtualCity_Work_YourOffice_Text_MinhACTIOutro3, Speaker_Minh, DIR_WEST
+	speak LOCALID_YOUROFFICE_MINH, VirtualCity_Work_YourOffice_Text_MinhACTIOutro3, Speaker_Minh, DIR_WEST
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Work_YourOffice_Text_SophieACTIOutro4, SP_NAME_PLAYER, DIR_EAST
-	speak LOCALID_MINH, VirtualCity_Work_YourOffice_Text_MinhACTIOutro5, Speaker_Minh, DIR_WEST
+	playse SE_SELECT
+	speak LOCALID_YOUROFFICE_MINH, VirtualCity_Work_YourOffice_Text_MinhACTIOutro5, Speaker_Minh, DIR_WEST
+	closemessage
 	clearparty
 	givemon SPECIES_EXCADRILL, 50
 	givemon SPECIES_PONYTA, 50
@@ -189,6 +199,12 @@ VirtualCity_Work_YourOffice_Eventscript_MinhACTIOutro::
 	clearflag FLAG_HIDE_ACT_2_TEA_QUEST
 	clearflag FLAG_HIDE_ACT_II_INTRO_CHARS
 	setflag FLAG_ACT_I_HIDE_MINH_OFFICE
+	setflag FLAG_HIDE_LOLA_BEDROOM_PROLOGUE
+	setflag FLAG_SYS_PREVENT_MAP_FADE
+	setflag FLAG_SYS_NO_MUSIC_ON_TRANSITION
+	fadenewbgm MUS_NONE
+	fadescreenspeed FADE_TO_BLACK, 5
+	delay 150
 	warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT, 7,4
 	waitstate
 	end
@@ -253,7 +269,7 @@ VirtualCity_Work_YourOffice_Text_SophieACTIOutro4:
 	.string "Let get back to the outside.\n"
 	.string "I bet this Ponyta comes with us.\p"
 	.string "If it does, it's like Lola's Snubbull.\n"
-	.string "Not real. Faked by BETTER.$"
+	.string "Not real. Faked by {COLOR GREEN}BETTER.$"
 
 VirtualCity_Work_YourOffice_Text_MinhACTIOutro5:
 	.string "Let's meet up with the gang.\p"

@@ -2,7 +2,7 @@
   "id": "MAP_VIRTUAL_CITY_TESTING_ROOM_INTRO",
   "name": "VirtualCity_TestingRoomIntro",
   "layout": "LAYOUT_VIRTUAL_CITY_TESTING_ROOM_INTRO",
-  "music": "MUS_HALL_OF_FAME_ROOM",
+  "music": "MUS_BW12_067",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

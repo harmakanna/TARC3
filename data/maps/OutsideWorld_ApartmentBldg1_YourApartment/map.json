@@ -2,7 +2,7 @@
   "id": "MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT",
   "name": "OutsideWorld_ApartmentBldg1_YourApartment",
   "layout": "LAYOUT_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT",
-  "music": "MUS_NONE",
+  "music": "MUS_BW12_030",
   "region_map_section": "MAPSEC_ALTERING_CAVE",
   "requires_flash": false,
   "weather": "WEATHER_SHADE",

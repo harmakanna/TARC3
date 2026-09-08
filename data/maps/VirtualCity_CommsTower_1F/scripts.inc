@@ -64,8 +64,9 @@ VirtualCity_CommsTower_1F_Eventscript_ActIIntro::
 
 	@speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIIntro1, Speaker_Minh, DIR_WEST
 	npc_speak Speaker_Minh, VirtualCity_CommsTower_1F_Text_MinhACTIIntro1
-	@applymovement LOCALID_OFFICE_MINH, Common_Movement_FaceUp
-	@applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
+	closemessage
+	applymovement LOCALID_OFFICE_MINH, Common_Movement_FaceUp
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
 	special SpawnCameraObject 
 	call_if_eq VAR_FACING, DIR_EAST, VirtualCity_CommsTower_1F_EventScript_MoveIntroCameraEast
 	call_if_eq VAR_FACING, DIR_SOUTH, VirtualCity_CommsTower_1F_EventScript_MoveIntroCameraSouth
@@ -74,9 +75,11 @@ VirtualCity_CommsTower_1F_Eventscript_ActIIntro::
 	@waitmovement 0
 
 	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIIntro2, Speaker_Minh, DIR_NORTH
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIIntro3, SP_NAME_PLAYER, DIR_NORTH
+	playse SE_SELECT
 	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIIntro4, Speaker_Minh, DIR_NORTH
-
+	closemessage
 	call_if_eq VAR_FACING, DIR_EAST, VirtualCity_CommsTower_1F_EventScript_MoveIntroCameraEastBack
 	call_if_eq VAR_FACING, DIR_SOUTH, VirtualCity_CommsTower_1F_EventScript_MoveIntroCameraSouthBack
 	call_if_eq VAR_FACING, DIR_WEST, VirtualCity_CommsTower_1F_EventScript_MoveIntroCameraWestBack
@@ -88,8 +91,9 @@ VirtualCity_CommsTower_1F_Eventscript_ActIIntro::
 	special RemoveCameraObject 
 	delay 20
 
-	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_1F_Text_SophieACTIIntro5, SP_NAME_PLAYER, DIR_EAST
-	speak LOCALID_OFFICE_MINH, VirtualCity_CommsTower_1F_Text_MinhACTIIntro6, Speaker_Minh, DIR_WEST	
+	player_speak VirtualCity_CommsTower_1F_Text_SophieACTIIntro5
+	playse SE_SELECT
+	npc_speak Speaker_Minh, VirtualCity_CommsTower_1F_Text_MinhACTIIntro6	
 	closemessage
 	setvar VAR_PETALBURG_CITY_STATE, 11
 	setflag FLAG_ACT_I_STARTED
@@ -248,10 +252,9 @@ VirtualCity_CommsTower_1F_Text_MinhACTIIntroRepeat:
 
 
 VirtualCity_CommsTower_1F_Text_Eventscript_ACTIPokemonCheck::
-	setspeaker Speaker_Minh
-	msgbox VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheck, MSGBOX_NPC
-	setspeaker SP_NAME_PLAYER
-	msgbox VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheck, MSGBOX_NPC
+	npc_speak Speaker_Minh, VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheck
+	playse SE_SELECT
+	player_speak VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheck
 
 
 
@@ -271,26 +274,25 @@ VirtualCity_CommsTower_1F_Text_Eventscript_ACTIPokemonCheck::
 	dynmultipush PonytaChoice_Text_Choice14, 14
 	dynmultistack 0, 0, FALSE, 6, FALSE, 0, DYN_MULTICHOICE_CB_NONE
 	goto_if_eq VAR_RESULT, 8, VirtualCity_CommsTower_1F_Text_Eventscript_ACTIPokemonCheckSuccess
-	speak LOCALID_ARCANINE, VirtualCity_CommsTower_1F_Text_SophieACTIPokemonFailure, SP_NAME_PLAYER, DIR_EAST
+	player_speak VirtualCity_CommsTower_1F_Text_SophieACTIPokemonFailure
 	closemessage
 	end
 
 
 VirtualCity_CommsTower_1F_Text_Eventscript_ACTIPokemonCheckSuccess::
-	setspeaker Speaker_Minh
-	msgbox VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheckSuccess1, MSGBOX_NPC
-	setspeaker SP_NAME_PLAYER
-	msgbox VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheckSuccess2, MSGBOX_NPC
-	setspeaker Speaker_Minh
-	msgbox VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheckSuccess3,MSGBOX_NPC
-	setspeaker SP_NAME_PLAYER
-	msgbox VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheckSuccess4, MSGBOX_NPC
+	npc_speak Speaker_Minh, VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheckSuccess1
+	playse SE_SELECT
+	player_speak VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheckSuccess2
+	playse SE_SELECT
+	npc_speak Speaker_Minh, VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheckSuccess3
+	playse SE_SELECT
+	player_speak VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheckSuccess4
+	closemessage
 	setvar VAR_PETALBURG_CITY_STATE, 12
 	clearflag FLAG_ACT_I_HIDE_MINH_OFFICE
 	setflag FLAG_SYS_PREVENT_MAP_FADE
 	warpsilent MAP_VIRTUAL_CITY_WORK_YOUR_OFFICE, 13, 19
 	waitstate
-	delay 100
 	end
 
 

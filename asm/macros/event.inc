@@ -477,6 +477,11 @@
 	formatwarp \map, \a, \b, \c
 	.endm
 
+	.macro exitvr_warp map:req, a, b, c
+	callnative Callnative_exitvr
+	formatwarp \map, \a, \b, \c
+	.endm
+
 	@ Warps the player to the specified map.
 	@ Warp commands can be given either the id of which warp location to go to on the destination map
 	@ or a pair of x/y coordinates to go to directly on the destination map.
@@ -2047,7 +2052,7 @@
 	questmenu QUEST_MENU_BUFFER_QUEST_NAME \quest
     bufferstring 1 gText_QuestComplete
 	message gText_QuestAnnounce
-	playfanfare MUS_OBTAIN_TMHM
+	playfanfare MUS_BW12_006
 	waitfanfare
 	waitmessage
 	delay 10

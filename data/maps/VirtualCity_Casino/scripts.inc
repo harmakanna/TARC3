@@ -12,6 +12,7 @@ VirtualCity_Casino_Eventscript_Cluegiver1::
 	goto_if_set FLAG_SPOKE_TO_RESEARCHER_1, VirtualCity_Casino_EventScript_CluegiverEnd
 	setflag FLAG_SPOKE_TO_RESEARCHER_1
 	addvar VAR_RESEARCHERS_SPOKEN_TO, 1
+	goto VirtualCity_Casino_EventScript_CluegiverEnd
 	end
 
 VirtualCity_Casino_Eventscript_Cluegiver2::
@@ -21,6 +22,7 @@ VirtualCity_Casino_Eventscript_Cluegiver2::
 	goto_if_set FLAG_SPOKE_TO_RESEARCHER_2, VirtualCity_Casino_EventScript_CluegiverEnd
 	setflag FLAG_SPOKE_TO_RESEARCHER_2
 	addvar VAR_RESEARCHERS_SPOKEN_TO, 1
+	goto VirtualCity_Casino_EventScript_CluegiverEnd
 	end
 
 VirtualCity_Casino_Eventscript_Cluegiver3::
@@ -30,6 +32,7 @@ VirtualCity_Casino_Eventscript_Cluegiver3::
 	goto_if_set FLAG_SPOKE_TO_RESEARCHER_3, VirtualCity_Casino_EventScript_CluegiverEnd
 	setflag FLAG_SPOKE_TO_RESEARCHER_3
 	addvar VAR_RESEARCHERS_SPOKEN_TO, 1
+	goto VirtualCity_Casino_EventScript_CluegiverEnd
 	end
 
 VirtualCity_Casino_Eventscript_Cluegiver4::
@@ -39,6 +42,7 @@ VirtualCity_Casino_Eventscript_Cluegiver4::
 	goto_if_set FLAG_SPOKE_TO_RESEARCHER_4, VirtualCity_Casino_EventScript_CluegiverEnd
 	setflag FLAG_SPOKE_TO_RESEARCHER_4
 	addvar VAR_RESEARCHERS_SPOKEN_TO, 1
+	goto VirtualCity_Casino_EventScript_CluegiverEnd
 	end
 
 VirtualCity_Casino_Eventscript_Cluegiver5::
@@ -48,6 +52,7 @@ VirtualCity_Casino_Eventscript_Cluegiver5::
 	goto_if_set FLAG_SPOKE_TO_RESEARCHER_5, VirtualCity_Casino_EventScript_CluegiverEnd
 	setflag FLAG_SPOKE_TO_RESEARCHER_5
 	addvar VAR_RESEARCHERS_SPOKEN_TO, 1
+	goto VirtualCity_Casino_EventScript_CluegiverEnd
 	end
 
 VirtualCity_Casino_Eventscript_Cluegiver6::
@@ -57,6 +62,7 @@ VirtualCity_Casino_Eventscript_Cluegiver6::
 	goto_if_set FLAG_SPOKE_TO_RESEARCHER_6, VirtualCity_Casino_EventScript_CluegiverEnd
 	setflag FLAG_SPOKE_TO_RESEARCHER_6
 	addvar VAR_RESEARCHERS_SPOKEN_TO, 1
+	goto VirtualCity_Casino_EventScript_CluegiverEnd
 	end
 
 VirtualCity_Casino_EventScript_CluegiverEnd::

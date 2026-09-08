@@ -70,7 +70,7 @@
 #define FLAG_SPOKE_TO_RESEARCHER_4    0x30 // Unused Flag
 #define FLAG_SPOKE_TO_RESEARCHER_5    0x31 // Unused Flag
 #define FLAG_SPOKE_TO_RESEARCHER_6    0x32 // Unused Flag
-#define FLAG_UNUSED_0x033    0x33 // Unused Flag
+#define FLAG_SET_RESEARCH_FLOOR       0x33 // Unused Flag
 #define FLAG_UNUSED_0x034    0x34 // Unused Flag
 #define FLAG_UNUSED_0x035    0x35 // Unused Flag
 #define FLAG_UNUSED_0x036    0x36 // Unused Flag
@@ -518,7 +518,7 @@
 #define FLAG_ENABLE_TATE_AND_LIZA_MATCH_CALL 0x1D8
 #define FLAG_ENABLE_JUAN_MATCH_CALL          0x1D9
 
-#define FLAG_UNUSED_0x1DA                    0x1DA // Unused Flag
+#define FLAG_HIT_BYRON_WITH_HACKED_MOVE      0x1DA
 
 #define FLAG_SHOWN_MYSTIC_TICKET             0x1DB
 #define FLAG_DEFEATED_HO_OH                  0x1DC

@@ -3,7 +3,7 @@
   "name": "VirtualCity_Garden",
   "layout": "LAYOUT_VIRTUAL_CITY_GARDEN",
   "music": "MUS_BW12_028",
-  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "region_map_section": "MAPSEC_ANCIENT_TOMB",
   "requires_flash": false,
   "weather": "WEATHER_LEAVES",
   "map_type": "MAP_TYPE_ROUTE",

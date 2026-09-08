@@ -2529,7 +2529,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .description = COMPOUND_STRING(
             "A powerful quake that\n"
             "hits all other POKéMON."),
-        .effect = EFFECT_CONTINUOUS,
+        .effect = EFFECT_EARTHQUAKE,
         .power = 50,
         .type = TYPE_GROUND,
         .accuracy = 100,

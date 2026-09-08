@@ -195,8 +195,8 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     {
         GetInFrontOfPlayerPosition(&position);
         metatileBehavior = MapGridGetMetatileBehaviorAt(position.x, position.y);
-        if (TrySetUpWalkIntoSignpostScript(&position, metatileBehavior, playerDirection) == TRUE)
-            return TRUE;
+        //if (TrySetUpWalkIntoSignpostScript(&position, metatileBehavior, playerDirection) == TRUE)
+        //    return TRUE;
         GetPlayerPosition(&position);
         metatileBehavior = MapGridGetMetatileBehaviorAt(position.x, position.y);
     }
@@ -212,8 +212,8 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     GetInFrontOfPlayerPosition(&position);
     metatileBehavior = MapGridGetMetatileBehaviorAt(position.x, position.y);
 
-    if (input->heldDirection && (input->dpadDirection == playerDirection) && (TrySetUpWalkIntoSignpostScript(&position, metatileBehavior, playerDirection) == TRUE))
-        return TRUE;
+    // if (input->heldDirection && (input->dpadDirection == playerDirection) && (TrySetUpWalkIntoSignpostScript(&position, metatileBehavior, playerDirection) == TRUE))
+    //     return TRUE;
 
     if (input->pressedAButton && TryStartInteractionScript(&position, metatileBehavior, playerDirection) == TRUE)
         return TRUE;
@@ -410,6 +410,15 @@ static const u8 *GetInteractedObjectEventScript(struct MapPosition *position, u8
 
     gSelectedObjectEvent = objectEventId;
     gSpecialVar_LastTalked = gObjectEvents[objectEventId].localId;
+
+    if (gObjectEvents[objectEventId].movementType >= MOVEMENT_TYPE_WANDER_AROUND && gObjectEvents[objectEventId].movementType <= MOVEMENT_TYPE_WANDER_RIGHT_AND_LEFT)
+    {
+        if (gObjectEvents[objectEventId].initialCoords.x != gObjectEvents[objectEventId].currentCoords.x
+        || gObjectEvents[objectEventId].initialCoords.y != gObjectEvents[objectEventId].currentCoords.y)
+        {
+            return NULL;
+        }
+    }
 
     if (PlayerHasFollowerNPC() && objectEventId == GetFollowerNPCObjectId())
         script = GetFollowerNPCScriptPointer();
