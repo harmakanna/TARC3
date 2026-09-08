@@ -2047,7 +2047,7 @@
 	questmenu QUEST_MENU_BUFFER_QUEST_NAME \quest
     bufferstring 1 gText_QuestComplete
 	message gText_QuestAnnounce
-	playfanfare MUS_OBTAIN_TMHM
+	playfanfare MUS_BW12_006
 	waitfanfare
 	waitmessage
 	delay 10
