@@ -1307,7 +1307,7 @@ static const struct RotomPhone_MenuOptions sRotomPhoneOptions[RP_MENU_COUNT] =
     {
         .menuName = COMPOUND_STRING("Bag"),
         .rotomSpeech = COMPOUND_STRING("to look through your Bag?"),
-        .unlockedFunc = RotomPhone_StartMenu_UnlockedFunc_Unlocked,
+        .unlockedFunc = RotomPhone_DisabledFunction,
         .selectedFunc = RotomPhone_StartMenu_SelectedFunc_Bag,
         .owIconPalSlot = PAL_ICON_BLUE,
         .owAnim = RP_ICON_ANIM_SEVEN,
@@ -1827,7 +1827,7 @@ static void RotomPhone_OverworldMenu_PrintGreeting(void)
         break;
     }
 
-    StringAppend(textBuffer, gSaveBlock2Ptr->playerName);
+    StringAppend(textBuffer, gDigitalSophieName);
 
     if (messageRotom != RP_MESSAGE_GREETING_HOW_ARE_YOU)
         StringAppend(textBuffer, COMPOUND_STRING("."));
@@ -1911,7 +1911,7 @@ static void RotomPhone_OverworldMenu_PrintGoodbye(u8 taskId)
     default:
     case RP_MESSAGE_GOODBYE_GOODBYE:
         StringCopy(textBuffer, COMPOUND_STRING("Goodbye, "));
-        StringAppend(textBuffer, gSaveBlock2Ptr->playerName);
+        StringAppend(textBuffer, gDigitalSophieName);
         StringAppend(textBuffer, COMPOUND_STRING("."));
         RotomPhone_OverworldMenu_PrintRotomSpeech(textBuffer, TRUE, FALSE);
 
@@ -1921,7 +1921,7 @@ static void RotomPhone_OverworldMenu_PrintGoodbye(u8 taskId)
     
     case RP_MESSAGE_GOODBYE_SEE_YA:
         StringCopy(textBuffer, COMPOUND_STRING("See ya later, "));
-        StringAppend(textBuffer, gSaveBlock2Ptr->playerName);
+        StringAppend(textBuffer, gDigitalSophieName);
         StringAppend(textBuffer, COMPOUND_STRING("!"));
         RotomPhone_OverworldMenu_PrintRotomSpeech(textBuffer, TRUE, FALSE);
 
@@ -1934,7 +1934,7 @@ static void RotomPhone_OverworldMenu_PrintGoodbye(u8 taskId)
         RotomPhone_OverworldMenu_PrintRotomSpeech(textBuffer, TRUE, FALSE);
 
         StringCopy(textBuffer, COMPOUND_STRING("Catch you later, "));
-        StringAppend(textBuffer, gSaveBlock2Ptr->playerName);
+        StringAppend(textBuffer, gDigitalSophieName);
         StringAppend(textBuffer, COMPOUND_STRING("."));
         RotomPhone_OverworldMenu_PrintRotomSpeech(textBuffer, FALSE, FALSE);
         break;
@@ -1944,7 +1944,7 @@ static void RotomPhone_OverworldMenu_PrintGoodbye(u8 taskId)
         RotomPhone_OverworldMenu_PrintRotomSpeech(textBuffer, TRUE, FALSE);
 
         StringCopy(textBuffer, COMPOUND_STRING("Until next time, "));
-        StringAppend(textBuffer, gSaveBlock2Ptr->playerName);
+        StringAppend(textBuffer, gDigitalSophieName);
         StringAppend(textBuffer, COMPOUND_STRING("."));
         RotomPhone_OverworldMenu_PrintRotomSpeech(textBuffer, FALSE, FALSE);
         break;
@@ -2195,7 +2195,7 @@ static void RotomPhone_OverworldMenu_DestroySprites(void)
     }
 }
 
-static void Task_ExitVr(u8 taskId)
+void Task_ExitVr(u8 taskId)
 {
     switch (gTasks[taskId].data[0])
     {
@@ -4051,6 +4051,7 @@ static void Task_RotomPhone_SaveProgress(u8 taskId)
     switch (gTasks[taskId].data[15])
     {
         case 0:
+            PlaySE(SE_SELECT);
             if (UseFlipPhone())
             {
                 u8 menuName[24];
@@ -4078,6 +4079,7 @@ static void Task_RotomPhone_SaveProgress(u8 taskId)
             gTasks[taskId].data[15]++;
             break;
         case 2:
+            PlaySE(SE_SAVE);
             RotomPhone_OverworldMenu_UpdateMenuPrompt(taskId);
             gTasks[taskId].func = Task_RotomPhone_OverworldMenu_HandleMainInput;
             break;

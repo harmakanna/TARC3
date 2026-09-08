@@ -1497,7 +1497,14 @@ void Task_HandleChooseMonInput(u8 taskId)
             HandleChooseMonSelection(taskId, slotPtr);
             break;
         case B_BUTTON: // Selected Cancel / pressed B
-            HandleChooseMonCancel(taskId, slotPtr);
+            if (sPartyMenuInternal->chooseHalf && VarGet(VAR_FRONTIER_FACILITY) == VGC_BATTLE)
+            {
+                PlaySE(SE_FAILURE);
+            }
+            else
+            {
+                HandleChooseMonCancel(taskId, slotPtr);
+            }
             break;
         case START_BUTTON:
             if (sPartyMenuInternal->chooseHalf)
@@ -1921,7 +1928,10 @@ static void UpdatePartySelectionSingleLayout(s8 *slotPtr, s8 movementDir)
         case MENU_DIR_UP:
             if (*slotPtr == 0)
             {
-                *slotPtr = PARTY_SIZE + 1;
+                if (sPartyMenuInternal->chooseHalf && VarGet(VAR_FRONTIER_FACILITY) == VGC_BATTLE)
+                    *slotPtr = PARTY_SIZE;
+                else
+                    *slotPtr = PARTY_SIZE + 1;
             }
             else if (*slotPtr == PARTY_SIZE)
             {
@@ -1956,7 +1966,10 @@ static void UpdatePartySelectionSingleLayout(s8 *slotPtr, s8 movementDir)
                 else if(*slotPtr+2 < gPlayerPartyCount)
                 {
                     *slotPtr += 2;//(*slotPtr)++;
-                }else
+                }
+                else if (sPartyMenuInternal->chooseHalf && VarGet(VAR_FRONTIER_FACILITY) == VGC_BATTLE && *slotPtr == PARTY_SIZE)
+                    *slotPtr = 0;
+                else
                     (*slotPtr)++;
             }
             break;
