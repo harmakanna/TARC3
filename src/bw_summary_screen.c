@@ -5820,7 +5820,7 @@ static u32 AbilityNumIncrement(s32 data, bool32 isReverse)
     for (u32 i = 1; i < NUM_ABILITY_SLOTS; i++)
     {
         s32 increment = isReverse ? -1 : 1;
-        s32 abilityIndex = (data + increment * i) % NUM_ABILITY_SLOTS;
+        s32 abilityIndex = (data + increment * i + NUM_ABILITY_SLOTS) % NUM_ABILITY_SLOTS;
         enum Ability newAbility = GetAbilityBySpecies(species, abilityIndex);
         if (newAbility != ABILITY_NONE && newAbility != currentAbility)
         {
