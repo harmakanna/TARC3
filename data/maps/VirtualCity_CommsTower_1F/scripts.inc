@@ -323,13 +323,13 @@ VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuard::
 	@goto VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardStop
 	
 	goto_if_set FLAG_ACT_I_EX_PONYTA_OBTAINED, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardPonyta
-	npc_speak VirtualCity_CommsTower_1F_Text_NoPokemonGuardStop, Speaker_Guard
+	npc_speak Speaker_Guard, VirtualCity_CommsTower_1F_Text_NoPokemonGuardStop
 	closemessage
 	end
 
 
 VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardEnter:
-	npc_speak VirtualCity_CommsTower_1F_Text_NoPokemonGuardEnter, Speaker_Guard
+	npc_speak Speaker_Guard, VirtualCity_CommsTower_1F_Text_NoPokemonGuardEnter
 	closemessage
 	goto VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardMoves
 	end
@@ -345,7 +345,7 @@ VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardMoves:
 
 
 VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardStop:
-	npc_speak VirtualCity_CommsTower_1F_Text_NoPokemonGuardStop, Speaker_Guard
+	npc_speak Speaker_Guard, VirtualCity_CommsTower_1F_Text_NoPokemonGuardStop
 	closemessage
 	end
 

@@ -205,7 +205,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .weight = 1550,
         .description = COMPOUND_STRING(
             "UNRELEASED\n"
-            "Property of {COLOR GREEN}BETTER{COLOR BLACK} Design Team.\n"
+            "Property of {COLOR GREEN}BETTER{COLOR DARK_GRAY} Design Team.\n"
             "No detailed information is available\n"
             "at this time."),
         .pokemonScale = 256,
