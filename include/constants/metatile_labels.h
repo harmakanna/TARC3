@@ -6,8 +6,8 @@
 
 // gTileset_BattleDome
 #define METATILE_BattleDome_Door_Corridor       0x25E
-#define METATILE_BattleDome_Door_Lobby          0x209
-#define METATILE_BattleDome_Door_PreBattleRoom  0x20A
+#define METATILE_BattleDome_Door_Lobby          0x809
+#define METATILE_BattleDome_Door_PreBattleRoom  0x80A
 
 // gTileset_BattleFrontier
 #define METATILE_BattleFrontier_CorridorOpenDoor_Bottom   0x20F

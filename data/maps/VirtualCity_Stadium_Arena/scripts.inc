@@ -16,6 +16,7 @@ VirtualCity_Stadium_Arena_EventScript_SetUpFight::
 	waitstate
 	special ReducePlayerPartyToSelectedMons
 	@fadescreen FADE_FROM_BLACK
+	clearflag FLAG_SYS_PREVENT_MAP_FADE
 	goto_if_eq VAR_PETALBURG_CITY_STATE, 23, VirtualCity_Stadium_Arena_Eventscript_Rando1Fight
 	goto_if_eq VAR_PETALBURG_CITY_STATE, 24, VirtualCity_Stadium_Arena_Eventscript_Rando2Fight
 	goto_if_eq VAR_PETALBURG_CITY_STATE, 25, VirtualCity_Stadium_Arena_Eventscript_Rando3Fight

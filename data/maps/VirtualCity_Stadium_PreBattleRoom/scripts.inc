@@ -130,7 +130,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietAreYouReady::
 	delay 10
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
 	waitmovement 0
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_SetInvisible
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_SetInvisible
 	waitmovement 0
 	delay 10
 	closedoor 4, 1
