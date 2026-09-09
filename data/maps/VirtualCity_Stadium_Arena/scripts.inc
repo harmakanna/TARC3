@@ -39,7 +39,7 @@ Speaker_SilvaBullet::
 Speaker_EarlGrey::
 	.string "Earl Grey$"
 
-Common_Text_NotEnoughPokemon:
+Common_Text_NotEnoughPokemon::
 	.string "Bug! Error code: 0x000071$"
 
 VirtualCity_Stadium_Arena_Eventscript_Rando1Fight::

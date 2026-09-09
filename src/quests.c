@@ -367,11 +367,11 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 	      0
 	),
 	side_quest(
-	      gText_SideQuestName_10,
-	      gText_SideQuestDesc_10,
-	      gText_SideQuestDoneDesc_10,
-	      gText_SideQuestMap10,
-	      OBJ_EVENT_GFX_WALLY,
+	      gText_SideQuestName_Contentment,
+	      gText_SideQuestDesc_Contentment,
+	      gText_SideQuestDoneDesc_Contentment,
+	      gText_SideQuestMapContentment,
+	      OBJ_EVENT_GFX_SPECIES(TOXAPEX),
 	      OBJECT,
 	      NULL,
 	      0

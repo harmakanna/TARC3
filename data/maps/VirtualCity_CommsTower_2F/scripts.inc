@@ -32,3 +32,37 @@ VirtualCity_CommsTower_2F_EventScript_Door::
 	goto EventScript_OpenDoor
 	end
 
+VirtualCity_CommsTower_2F_EventScript_GuardA::
+	trainerbattle_double TRAINER_IMANI, VirtualCity_CommsTower_2F_Text_GuardAIntro, VirtualCity_CommsTower_2F_Text_GuardADefeated, Common_Text_NotEnoughPokemon
+	special HealPlayerParty
+	playse SE_PC_OFF
+	applymovement LOCALID_GUARDA, VirtualCityIntro_Movement_LogOut
+	waitmovement 0
+	removeobject LOCALID_GUARDA
+	end
+
+VirtualCity_CommsTower_2F_Text_GuardAIntro::
+	.string "What the…?\n"
+	.string "Stop!$"
+
+VirtualCity_CommsTower_2F_Text_GuardADefeated::
+	.string "It's a disguised skin…?\n"
+	.string "I've gotta call the boss!$"
+
+
+
+
+VirtualCity_CommsTower_2F_EventScript_GuardB::
+	trainerbattle_double TRAINER_BEVERLY, VirtualCity_CommsTower_2F_Text_GuardBIntro, VirtualCity_CommsTower_2F_Text_GuardBDefeated, Common_Text_NotEnoughPokemon
+	special HealPlayerParty
+	playse SE_PC_OFF
+	applymovement LOCALID_GUARDB, VirtualCityIntro_Movement_LogOut
+	waitmovement 0
+	removeobject LOCALID_GUARDB
+	end
+
+VirtualCity_CommsTower_2F_Text_GuardBIntro::
+	.string "We're under attack!$"
+
+VirtualCity_CommsTower_2F_Text_GuardBDefeated::
+	.string "Don't hurt me, virus!$"

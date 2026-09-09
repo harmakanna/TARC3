@@ -106,6 +106,7 @@ VirtualCity_Superstore_3F_EventScript_Idol_Passimian::
 	goto_if_set FLAG_BOUGHT_PASSIMIAN, VirtualCity_Superstore_3F_EventScript_Idol_AlreadyBought
 	msgbox VirtualCity_Superstore_3F_Text_Passimian, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, VirtualCity_Superstore_3F_EventScript_Idol_BuyPassimian
+	closemessage
 	end
 
 VirtualCity_Superstore_3F_EventScript_Idol_BuyPassimian::
@@ -121,6 +122,7 @@ VirtualCity_Superstore_3F_EventScript_Idol_Sableye::
 	goto_if_set FLAG_BOUGHT_SABLEYE, VirtualCity_Superstore_3F_EventScript_Idol_AlreadyBought
 	msgbox VirtualCity_Superstore_3F_Text_Sableye, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, VirtualCity_Superstore_3F_EventScript_Idol_BuySableye
+	closemessage
 	end
 
 VirtualCity_Superstore_3F_EventScript_Idol_BuySableye::
@@ -137,6 +139,7 @@ VirtualCity_Superstore_3F_EventScript_Idol_Electrode::
 	goto_if_set FLAG_BOUGHT_ELECTRODE, VirtualCity_Superstore_3F_EventScript_Idol_AlreadyBought
 	msgbox VirtualCity_Superstore_3F_Text_Electrode, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, VirtualCity_Superstore_3F_EventScript_Idol_BuyElectrode
+	closemessage
 	end
 
 VirtualCity_Superstore_3F_EventScript_Idol_BuyElectrode::
@@ -153,6 +156,7 @@ VirtualCity_Superstore_3F_EventScript_Idol_Snover::
 	goto_if_set FLAG_BOUGHT_SNOVER, VirtualCity_Superstore_3F_EventScript_Idol_AlreadyBought
 	msgbox VirtualCity_Superstore_3F_Text_Snover, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, VirtualCity_Superstore_3F_EventScript_Idol_BuySnover
+	closemessage
 	end
 
 VirtualCity_Superstore_3F_EventScript_Idol_BuySnover::
@@ -169,6 +173,7 @@ VirtualCity_Superstore_3F_EventScript_Idol_Solrock::
 	goto_if_set FLAG_BOUGHT_SOLROCK, VirtualCity_Superstore_3F_EventScript_Idol_AlreadyBought
 	msgbox VirtualCity_Superstore_3F_Text_Solrock, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, VirtualCity_Superstore_3F_EventScript_Idol_BuySolrock
+	closemessage
 	end
 
 VirtualCity_Superstore_3F_EventScript_Idol_BuySolrock::
@@ -184,8 +189,8 @@ VirtualCity_Superstore_3F_EventScript_Idol_BuySolrock::
 VirtualCity_Superstore_3F_Text_Passimian:
 	.string "Excellent choice!\p"
 	.string "Sassy Passy is a part of the Sportsman\n"
-	.string "set, so it's got a new move and a boost\p"
-	.string "to its Attack and Defense!\n"
+	.string "set, so it's got a new move and a boost\l"
+	.string "to its Attack and Defense!\p"
 	.string "Great for the sports fan in your life!\p"
 	.string "That comes to 249999.99, but if you've\n"
 	.string "got a coupon, we accept those too!\p"
@@ -204,7 +209,7 @@ VirtualCity_Superstore_3F_Text_Electrode:
 	.string "Now this is a fun one!\p"
 	.string "The UpsideDown set swaps offenses\n"
 	.string "with defenses, and HP with Speed!\p"
-	.string "So this blazing Electrode is now!\n"
+	.string "So this speedster Electrode is now\n"
 	.string "a powerful tank! Shocking!\p"
 	.string "That comes to 249999.99, but if you've\n"
 	.string "got a coupon, we accept those too!\p"
@@ -214,7 +219,7 @@ VirtualCity_Superstore_3F_Text_Snover:
 	.string "Double weaknesses are such a pain!\p"
 	.string "But the Immortal set turns that\n"
 	.string "weakness into a strength!\p"
-	.string "When your enemies see this Snover!\n"
+	.string "When your enemies see this Snover\n"
 	.string "with Flash Fire, they'll know.\p"
 	.string "It's so Snover!\p"
 	.string "That comes to 199999.99, but if you've\n"
@@ -223,7 +228,7 @@ VirtualCity_Superstore_3F_Text_Snover:
 
 VirtualCity_Superstore_3F_Text_Solrock:
 	.string "This one's great!\p"
-	.string "It's a Ninja set! And Solrockis a \n"
+	.string "It's a Ninja set! And Solrock is a\n"
 	.string "sharp throwing star!\p"
 	.string "And of course, ninjas get a huge\n"
 	.string "boost to their Speed!\p"

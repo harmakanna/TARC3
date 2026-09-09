@@ -636,3 +636,17 @@ VirtualCity_CommsTower_1F_AuthorizedSign::
 VirtualCity_HotelLobby_Text_AuthorizedSign:
 	.string "{COLOR GREEN}BETTER Place{COLOR DARK_GRAY} Maintenance\n"
 	.string "AUTHORIZED PERSONNEL ONLY$"
+
+
+
+VirtualCity_CommsTower_1F_CantLeave::
+	setspeaker SP_NAME_PLAYER
+	msgbox VirtualCity_HotelLobby_Text_CantLeave, MSGBOX_SIGN
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
+	waitmovement 0
+	end
+
+VirtualCity_HotelLobby_Text_CantLeave:
+	.string "I can't leave now! I have to\n"
+	.string "get to the Rotom Phone console!$"
