@@ -735,7 +735,7 @@ static const struct WindowTemplate sPageSkillsTemplate[] =
         .tilemapTop = 15,
         .width = 24,
         .height = 5,
-        .paletteNum = 6,
+        .paletteNum = 14,
         .baseBlock = 491,
     },
 };
@@ -775,6 +775,8 @@ static const u8 sTextColors[][3] =
     {0, 3, 4},
     {0, 5, 6},
     {0, 7, 8},
+    {0, 10, 15},
+    
 };
 
 static void (*const sTextPrinterFunctions[])(void) =
@@ -2003,6 +2005,8 @@ static bool8 LoadGraphics(void)
         gMain.state++;
         break;
     case 25:
+        gPlttBufferUnfaded[BG_PLTT_ID(14) + 15] = 0x5ad6;
+        gPlttBufferFaded[BG_PLTT_ID(14) + 15] = 0x5ad6;
         BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
         gPaletteFade.bufferTransferDisabled = 0;
         gMain.state++;
@@ -4047,7 +4051,7 @@ static void PrintMonAbilityName(void)
 
 static void PrintMonAbilityDescription(void)
 {
-    PrintTextOnWindow_BW_Font(AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_ABILITY), gSpeciesInfo[sMonSummaryScreen->summary.species].description, 4, 15, 0, 0);
+    PrintTextOnWindow_BW_Font(AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_ABILITY), gSpeciesInfo[sMonSummaryScreen->summary.species].description, 4, 15, 0, 13);
 }
 
 /*

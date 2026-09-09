@@ -5461,8 +5461,10 @@ static void HandleEndTurn_RanFromBattle(void)
     }
     else if (CanPlayerForfeitNormalTrainerBattle())
     {
-        gBattlescriptCurrInstr = BattleScript_ForfeitBattleGaveMoney;
-        gBattleOutcome = B_OUTCOME_FORFEITED;
+        HandleEndTurn_BattleLost();
+        return;
+        //gBattlescriptCurrInstr = BattleScript_ForfeitBattleGaveMoney;
+        //gBattleOutcome = B_OUTCOME_FORFEITED;
     }
     else
     {
