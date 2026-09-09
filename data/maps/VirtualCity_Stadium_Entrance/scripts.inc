@@ -105,7 +105,8 @@ VirtualCity_Stadium_Entrance_Text_Receptionist4or5Pokemon::
 	.string "Ooh, honey, you sure you don't want\n"
 	.string "to enter with a full team of six?\p"
 	.string "There's a lot of tough trainers here,\n"
-	.string "you know! You sure?$"
+	.string "you know\p"
+	.string "You sure?$"
 
 VirtualCity_Stadium_Entrance_Text_ReceptionistStartTourney::
 	.string "Okay, honey, good luck!\n"
@@ -130,7 +131,7 @@ VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet1::
 	.string "Hey Sophie!\p"
 	.string "So, I've been scoping it out. There's\n"
 	.string "three tiers of competition here.\p"
-	.string "All VGC rules - bring six, use four.\p"
+	.string "Bring six, use four.\p"
 	.string "There's the Silver rank, where mostly\n"
 	.string "amateurs fight for fun.\p"
 	.string "There's the Gold rank, for rich folks\n"
@@ -141,11 +142,13 @@ VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet1::
 	.string "Unreleased Pokemon, hacked stats, you\n"
 	.string "know the drill.\p"
 	.string "Byron, the champ, is in Platinum, and\n"
-	.string "loves, uh, pwning noobs. So if you can\l"
-	.string "somehow get Platinum, he'll fight you.\p"
+	.string "loves…{PAUSE 30} Uh…\p"
+	.string "Pwning noobs.\p"
+	.string "So if you can somehow get Platinum,\n"
+	.string "he'll fight you.\p"
 	.string "And Ernest reckons they can use his\n"
 	.string "hacked Pokemon as a backdoor to his ID.\p"
-	.string "But Sophie, CAN you climb the ranks\n"
+	.string "Sophie.\pCAN you climb the ranks\n"
 	.string "without the stupid mons they'll have?$"
 
 VirtualCity_Stadium_Entrance_Text_ActII_Intro_Sophie2::
@@ -156,11 +159,13 @@ VirtualCity_Stadium_Entrance_Text_ActII_Intro_Sophie2::
 	.string "can make them stronger each battle.$"
 
 VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet3::
-	.string "If you say so. Well, anyway, you'll\n"
-	.string "need at least four Pokemon to enter.\p"
+	.string "If you say so.\p"
+	.string "Well, anyway, you'll need at least\n"
+	.string "four Pokemon to enter.\p"
 	.string "There's a lot of folks around who need\n"
-	.string "help with something - see if any of\l"
-	.string "them have dupes you can borrow.$"
+	.string "help with something!\p"
+	.string "See if any of them have dupes\n"
+	.string "you can borrow.$"
 
 
 

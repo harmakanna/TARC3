@@ -135,10 +135,10 @@
     {
       "local_id": "LOCALID_EEVEE",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(EEVEE)",
-      "x": 5,
-      "y": 18,
+      "x": 4,
+      "y": 17,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -147,6 +147,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_RED_RIGHT",
       "graphics_id": "OBJ_EVENT_GFX_RED",
       "x": 35,
       "y": 24,
@@ -160,6 +161,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_RED_LEFT",
       "graphics_id": "OBJ_EVENT_GFX_RED",
       "x": 34,
       "y": 24,
@@ -228,8 +230,8 @@
     {
       "type": "clone",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(EEVEE)",
-      "x": 47,
-      "y": 18,
+      "x": 46,
+      "y": 17,
       "target_local_id": "LOCALID_EEVEE",
       "target_map": "MAP_VIRTUAL_CITY_OUTSIDE1"
     },
@@ -250,30 +252,20 @@
       "target_map": "MAP_VIRTUAL_CITY_OUTSIDE1"
     },
     {
+      "type": "clone",
       "graphics_id": "OBJ_EVENT_GFX_RED",
       "x": -7,
       "y": 24,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "VirtualCityOutside_EventScript_Doppelganger2",
-      "flag": "0"
+      "target_local_id": "LOCALID_RED_RIGHT",
+      "target_map": "MAP_VIRTUAL_CITY_OUTSIDE1"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_RED",
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_BRENDAN_NORMAL",
       "x": -8,
       "y": 24,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "VirtualCityOutside_EventScript_Doppelganger1",
-      "flag": "0"
+      "target_local_id": "LOCALID_RED_LEFT",
+      "target_map": "MAP_VIRTUAL_CITY_OUTSIDE1"
     }
   ],
   "warp_events": [
