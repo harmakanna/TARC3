@@ -344,6 +344,8 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_Ernest::
 	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_Ernest1, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Common_Eventscript_Cancel
 	setflag FLAG_SPOOFING_EXECUTIVE
+	setflag FLAG_ACT_III_POINTOFNORETURN
+	setvar VAR_PETALBURG_CITY_STATE, 50
 	warpsilent MAP_VIRTUAL_CITY_COMMS_TOWER_1F, 5,10
 	waitstate
 	end

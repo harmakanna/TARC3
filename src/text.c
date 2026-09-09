@@ -287,9 +287,10 @@ static const struct FontInfo sFontInfos[] =
         .maxLetterHeight = 14,
         .letterSpacing = 0,
         .lineSpacing = 0,
-        .fgColor = 2,
-        .bgColor = 1,
-        .shadowColor = 3,
+        .color.foreground = 2,
+        .color.background = 1,
+        .color.accent = 1,
+        .color.shadow = 3,
     },
     [FONT_SHORT_NARROWER] = {
         .fontFunction = FontFunc_ShortNarrower,

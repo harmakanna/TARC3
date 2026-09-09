@@ -119,7 +119,6 @@
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_PLATFORM_PIKACHU",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(PIKACHU)",
       "x": 5,
       "y": 15,
@@ -133,7 +132,6 @@
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_EEVEE",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(EEVEE)",
       "x": 4,
       "y": 17,
@@ -189,7 +187,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(CHARIZARD)",
-      "x": 33,
+      "x": 34,
       "y": 31,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
@@ -214,7 +212,6 @@
       "flag": "0"
     },
     {
-      "local_id": "LOCALID_GIRATINA",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(GIRATINA)",
       "x": 5,
       "y": 17,

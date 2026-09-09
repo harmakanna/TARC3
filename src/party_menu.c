@@ -1598,6 +1598,14 @@ static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
             SwitchSelectedMons(taskId);
             break;
         case PARTY_ACTION_CHOOSE_AND_CLOSE:
+            if (gPartyMenu.menuType == PARTY_MENU_TYPE_ADD_MOD)
+            {
+                if (GetMonData(&gParties[B_TRAINER_PLAYER][*slotPtr], MON_DATA_TRAIT_INDEX3) != 0)
+                {
+                    //PlaySE(SE_FAILURE);
+                    return;
+                }
+            }
             PlaySE(SE_SELECT);
             Task_ClosePartyMenu(taskId);
             break;
@@ -3117,8 +3125,8 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_SWITCH);
         if (ItemIsMail(GetMonData(&mons[slotId], MON_DATA_HELD_ITEM)))
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_MAIL);
-        else
-            AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_ITEM);
+        //else
+        // /    AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_ITEM);
     }
     AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_CANCEL1);
 }
