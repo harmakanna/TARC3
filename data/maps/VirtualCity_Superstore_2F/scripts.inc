@@ -37,27 +37,6 @@ VirtualCity_Superstore_2F_Text_Sign:
 	.string "Last week's REFUGE, 'Tide Pools',\n"
 	.string "NOW ON SALE!!!$"
 
-VirtualCity_Superstore_2F_Text_PinkIdol:
-	.string "Welcome to the second floor\n"
-	.string "of {COLOR GREEN}BETTER's{COLOR DARK_GRAY} SUPER STORE!\p"
-	.string "We got avatars, rooms,\n"
-	.string "and cosmetics galore!$"
-
-VirtualCity_Superstore_2F_Text_BlueIdol:
-	.string "Heeeyyyyy!\p"
-	.string "We're having a limited-edition sale\n"
-	.string "on {PAUSE 50}{COLOR GREEN}JUNGLE CLOTHING AND ACCESSORIES\l"
-	.string "{PAUSE 50}{COLOR DARK_GRAY}for your avatar!\p"
-	.string "You DON'T wanna miss out on this!$"
-
-VirtualCity_Superstore_2F_Text_YellowIdol:
-	.string "Bestie!!!!\p"
-	.string "Have you tried this virtual\n"
-	.string "makeup yet?\p"
-	.string "I think it'd look absolutely\n"
-	.string "FABULOUS on you!\p"
-	.string "Only 1{PAUSE 30}2{PAUSE 25}5{PAUSE 20}9{PAUSE 15}9.99!$"
-
 VirtualCity_Superstore_2F_Text_Cycler:
 	.string "I CAN'T WAIT!\p"
 	.string "They're finally selling the rare\n"
@@ -73,14 +52,9 @@ VirtualCity_Superstore_2F_Text_Misdreavus:
 	.string "I want the blush in pink, blue, red,\n"
 	.string "silver, chartreuse, plum…$"
 
-
-
-VirtualCity_Superstore_2F_EventScript_TopIdol::
-	msgbox VirtualCity_Superstore_2F_Text_TopIdol, MSGBOX_NPC
-	end
-
-VirtualCity_Superstore_2F_Text_TopIdol:
-	.string "Hiiiiiiiiii!\n"
+VirtualCity_Superstore_2F_Text_PinkIdol:
+	.string "Welcome to the second floor\n"
+	.string "of {COLOR GREEN}BETTER's{COLOR DARK_GRAY} SUPER STORE!\p"
 	.string "This is the Room Enhancement Counter!\p"
 	.string "Oh my gosh, you came to the right place!\p"
 	.string "A little birdie tells me that you've\n"
@@ -88,31 +62,16 @@ VirtualCity_Superstore_2F_Text_TopIdol:
 	.string "And not{PAUSE 20} even{PAUSE 20} one{PAUSE 20} single{PAUSE 20} chair or sofa!\p"
 	.string "Let's change that, the {COLOR GREEN}BETTER{COLOR DARK_GRAY} way!$"
 
+VirtualCity_Superstore_2F_Text_BlueIdol:
+	.string "Heeeyyyyy!\p"
+	.string "We're having a limited-edition sale\n"
+	.string "on {PAUSE 50}{COLOR GREEN}JUNGLE CLOTHING AND ACCESSORIES\l"
+	.string "{PAUSE 50}{COLOR DARK_GRAY}for your avatar!\p"
+	.string "You DON'T wanna miss out on this!$"
 
 
-VirtualCity_Superstore_2F_EventScript_LeftIdol::
-	msgbox VirtualCity_Superstore_2F_Text_LeftIdol, MSGBOX_NPC
-	end
-
-VirtualCity_Superstore_2F_Text_LeftIdol:
-	.string "Hey girlfriend!\n"
-	.string "You know the joy of buying a new skin?\p"
-	.string "It feels so good to own something new,\n"
-	.string "just for you, right?\p"
-	.string "Now you can have that feeling over and\n"
-	.string "over, with Accessories!\p"
-	.string "Wait, your skin - it's from before the\n"
-	.string "accessory update! Oh no!\p"
-	.string "Go visit my girl over there, buy a skin,\n"
-	.string "and then I'll show you the accessories!\p"
-	.string "Don't keep me waiting, cutie!$"
-
-VirtualCity_Superstore_2F_EventScript_RightIdol::
-	msgbox VirtualCity_Superstore_2F_Text_RightIdol, MSGBOX_NPC
-	end
-
-VirtualCity_Superstore_2F_Text_RightIdol:
-	.string "Heyyy!\n"
+VirtualCity_Superstore_2F_Text_YellowIdol:
+	.string "Hey girlfriend!\p"
 	.string "Ooooh! My autoscanner tells me you're\n"
 	.string "trying to catch someone's eye!\p"
 	.string "What you need is a beautiful new skin,\n"
@@ -120,3 +79,5 @@ VirtualCity_Superstore_2F_Text_RightIdol:
 	.string "Pokemon, Brands, Objects... and some\n"
 	.string "real hotties that'll help you get the\l"
 	.string "person of your dreams!$"
+
+
