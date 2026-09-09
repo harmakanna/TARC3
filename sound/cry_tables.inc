@@ -1103,9 +1103,7 @@ gCryTable::
 .endif @ P_FAMILY_GROUDON
 .if P_FAMILY_RAYQUAZA == TRUE
 	cry Cry_Rayquaza
-.if P_MODIFIED_MEGA_CRIES == TRUE
 	cry Cry_RayquazaMega
-.endif @ P_MODIFIED_MEGA_CRIES
 .endif @ P_FAMILY_RAYQUAZA
 .if P_FAMILY_JIRACHI == TRUE
 	cry Cry_Jirachi
