@@ -4,23 +4,57 @@ VirtualCity_Stadium_Arena_MapScripts::
 
 
 VirtualCity_Stadium_Arena_OnFrame:
-	map_script_2 VAR_PETALBURG_CITY_STATE, 23, VirtualCity_Stadium_Arena_Eventscript_Rando1Fight
-	map_script_2 VAR_PETALBURG_CITY_STATE, 24, VirtualCity_Stadium_Arena_Eventscript_Rando2Fight
-	map_script_2 VAR_PETALBURG_CITY_STATE, 25, VirtualCity_Stadium_Arena_Eventscript_Rando3Fight
-	map_script_2 VAR_PETALBURG_CITY_STATE, 26, VirtualCity_Stadium_Arena_Eventscript_Rando4Fight
-	map_script_2 VAR_PETALBURG_CITY_STATE, 27, VirtualCity_Stadium_Arena_Eventscript_Rando5Fight
-	map_script_2 VAR_PETALBURG_CITY_STATE, 28, VirtualCity_Stadium_Arena_Eventscript_BrodudeFight
-	map_script_2 VAR_PETALBURG_CITY_STATE, 29, VirtualCity_Stadium_Arena_Eventscript_WvddieFight
-	map_script_2 VAR_PETALBURG_CITY_STATE, 30, VirtualCity_Stadium_Arena_Eventscript_SilvaBulletFight
-	map_script_2 VAR_PETALBURG_CITY_STATE, 31, VirtualCity_Stadium_Arena_Eventscript_EarlGreyFight
-	map_script_2 VAR_PETALBURG_CITY_STATE, 32, VirtualCity_Stadium_Arena_Eventscript_ByronB1Fight
-	map_script_2 VAR_PETALBURG_CITY_STATE, 33, VirtualCity_Stadium_Arena_Eventscript_ByronB2Fight
-	map_script_2 VAR_PETALBURG_CITY_STATE, 34, VirtualCity_Stadium_Arena_Eventscript_ByronB3Fight
+	map_script_2 VAR_ALWAYS_ZERO, 0, VirtualCity_Stadium_Arena_EventScript_SetUpFight
 	end
 
+VirtualCity_Stadium_Arena_EventScript_SetUpFight::
+	special SpawnCameraObject
+	applymovement LOCALID_CAMERA, VirtualCity_Stadium_Arena_Movement_PositionCameraToCenter
+	waitmovement 0
+	special SavePlayerParty
+	callnative ChooseVGCParty
+	waitstate
+	special ReducePlayerPartyToSelectedMons
+	@fadescreen FADE_FROM_BLACK
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 23, VirtualCity_Stadium_Arena_Eventscript_Rando1Fight
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 24, VirtualCity_Stadium_Arena_Eventscript_Rando2Fight
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 25, VirtualCity_Stadium_Arena_Eventscript_Rando3Fight
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 26, VirtualCity_Stadium_Arena_Eventscript_Rando4Fight
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 27, VirtualCity_Stadium_Arena_Eventscript_Rando5Fight
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 28, VirtualCity_Stadium_Arena_Eventscript_BrodudeFight
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 29, VirtualCity_Stadium_Arena_Eventscript_WvddieFight
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 30, VirtualCity_Stadium_Arena_Eventscript_SilvaBulletFight
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 31, VirtualCity_Stadium_Arena_Eventscript_EarlGreyFight
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 32, VirtualCity_Stadium_Arena_Eventscript_ByronB1Fight
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 33, VirtualCity_Stadium_Arena_Eventscript_ByronB2Fight
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 34, VirtualCity_Stadium_Arena_Eventscript_ByronB3Fight
+	end
 
+VirtualCity_Stadium_Arena_Movement_PositionCameraToCenter:
+	walk_faster_up
+	walk_faster_up
+	walk_faster_up
+	walk_faster_up
+	walk_faster_up
+	walk_faster_up
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	walk_faster_right
+	step_end
 
-
+VirtualCity_Stadium_Arena_Movement_SophieWalksToPosition:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	step_end
 
 @ Extra Speakers
 
@@ -49,11 +83,6 @@ VirtualCity_Stadium_Arena_Eventscript_Rando1Fight::
 	applymovement LOCALID_RANDO1, VirtualCity_Stadium_Arena_Move_CommonApproachArena
 	waitmovement 0
 	speak LOCALID_RANDO1, VirtualCity_Stadium_Arena_Text_Rando1Intro, Speaker_Challenger, DIR_WEST
-
-	special SavePlayerParty
-	callnative ChooseVGCParty
-	waitstate
-	special ReducePlayerPartyToSelectedMons
 
 	setspeaker Speaker_Challenger
 	@trainerbattle_double TRAINER_RANDO1, NULL, VirtualCity_Stadium_Arena_Text_Rando1Win, Common_Text_NotEnoughPokemon
@@ -84,11 +113,6 @@ VirtualCity_Stadium_Arena_Eventscript_Rando2Fight::
 	waitmovement 0
 	speak LOCALID_RANDO2, VirtualCity_Stadium_Arena_Text_Rando2Intro, Speaker_Challenger, DIR_WEST
 
-	special SavePlayerParty
-	callnative ChooseVGCParty
-	waitstate
-	special ReducePlayerPartyToSelectedMons
-
 	setspeaker Speaker_Challenger
 	trainerbattle_no_intro TRAINER_RANDO2, VirtualCity_Stadium_Arena_Text_Rando2Win
 	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostSilver
@@ -115,11 +139,6 @@ VirtualCity_Stadium_Arena_Eventscript_Rando3Fight::
 	applymovement LOCALID_RANDO3, VirtualCity_Stadium_Arena_Move_CommonApproachArenaSlow
 	waitmovement 0
 	speak LOCALID_RANDO3, VirtualCity_Stadium_Arena_Text_Rando3Intro, Speaker_Challenger, DIR_WEST
-
-	special SavePlayerParty
-	callnative ChooseVGCParty
-	waitstate
-	special ReducePlayerPartyToSelectedMons
 
 	setspeaker Speaker_Challenger
 	trainerbattle_no_intro TRAINER_RANDO3, VirtualCity_Stadium_Arena_Text_Rando3Win
@@ -148,11 +167,6 @@ VirtualCity_Stadium_Arena_Eventscript_Rando4Fight::
 	waitmovement 0
 	speak LOCALID_RANDO4, VirtualCity_Stadium_Arena_Text_Rando4Intro, Speaker_Challenger, DIR_WEST
 
-	special SavePlayerParty
-	callnative ChooseVGCParty
-	waitstate
-	special ReducePlayerPartyToSelectedMons
-
 	setspeaker Speaker_Challenger
 	trainerbattle_no_intro TRAINER_RANDO4, VirtualCity_Stadium_Arena_Text_Rando4Win
 	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostSilver
@@ -180,11 +194,6 @@ VirtualCity_Stadium_Arena_Eventscript_Rando5Fight::
 	applymovement LOCALID_RANDO5, VirtualCity_Stadium_Arena_Move_CommonApproachArena
 	waitmovement 0
 	speak LOCALID_RANDO5, VirtualCity_Stadium_Arena_Text_Rando5Intro, Speaker_Challenger, DIR_WEST
-
-	special SavePlayerParty
-	callnative ChooseVGCParty
-	waitstate
-	special ReducePlayerPartyToSelectedMons
 
 	setspeaker Speaker_Challenger
 	trainerbattle_no_intro TRAINER_RANDO5, VirtualCity_Stadium_Arena_Text_Rando5Win
@@ -227,11 +236,6 @@ VirtualCity_Stadium_Arena_Eventscript_BrodudeFight::
 	waitmovement 0
 	speak LOCALID_BRODUDE, VirtualCity_Stadium_Arena_Text_BroDudeIntro, Speaker_BroDude69, DIR_WEST
 
-	special SavePlayerParty
-	callnative ChooseVGCParty
-	waitstate
-	special ReducePlayerPartyToSelectedMons
-
 	setspeaker Speaker_BroDude69
 	trainerbattle_no_intro TRAINER_BRODUDE, VirtualCity_Stadium_Arena_Text_BroDudeWin
 	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostGold
@@ -258,11 +262,6 @@ VirtualCity_Stadium_Arena_Eventscript_WvddieFight::
 	applymovement LOCALID_WVDDIE, VirtualCity_Stadium_Arena_Move_CommonApproachArena
 	waitmovement 0
 	speak LOCALID_WVDDIE, VirtualCity_Stadium_Arena_Text_WvddieIntro, Speaker_Wvddie, DIR_WEST
-
-	special SavePlayerParty
-	callnative ChooseVGCParty
-	waitstate
-	special ReducePlayerPartyToSelectedMons
 
 	setspeaker Speaker_Wvddie
 	trainerbattle_no_intro TRAINER_WVDDIE, VirtualCity_Stadium_Arena_Text_WvddieWin
@@ -291,11 +290,6 @@ VirtualCity_Stadium_Arena_Eventscript_SilvaBulletFight::
 	waitmovement 0
 	speak LOCALID_SILVABULLET, VirtualCity_Stadium_Arena_Text_SilvaBulletIntro, Speaker_SilvaBullet, DIR_WEST
 
-	special SavePlayerParty
-	callnative ChooseVGCParty
-	waitstate
-	special ReducePlayerPartyToSelectedMons
-
 	setspeaker Speaker_SilvaBullet
 	trainerbattle_no_intro TRAINER_SILVABULLET, VirtualCity_Stadium_Arena_Text_SilvaBulletWin
 	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostGold
@@ -322,11 +316,6 @@ VirtualCity_Stadium_Arena_Eventscript_EarlGreyFight::
 	applymovement LOCALID_EARLGREY, VirtualCity_Stadium_Arena_Move_CommonApproachArenaSlow
 	waitmovement 0
 	speak LOCALID_EARLGREY, VirtualCity_Stadium_Arena_Text_EarlGreyIntro, Speaker_EarlGrey, DIR_WEST
-
-	special SavePlayerParty
-	callnative ChooseVGCParty
-	waitstate
-	special ReducePlayerPartyToSelectedMons
 
 	setspeaker Speaker_EarlGrey
 	trainerbattle_no_intro TRAINER_EARLGREY, VirtualCity_Stadium_Arena_Text_EarlGreyWin
@@ -359,11 +348,6 @@ VirtualCity_Stadium_Arena_Eventscript_ByronB1Fight::
 	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_ByronApproachArena2
 	speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB1Intro2, Speaker_Byron, DIR_WEST
 
-	special SavePlayerParty
-	callnative ChooseVGCParty
-	waitstate
-	special ReducePlayerPartyToSelectedMons
-
 	setspeaker Speaker_Byron
 	trainerbattle_no_intro TRAINER_BYRON1, VirtualCity_Stadium_Arena_Text_ByronB1Win
 	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
@@ -393,11 +377,6 @@ VirtualCity_Stadium_Arena_Eventscript_ByronB2Fight::
 	
 	speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB2YouLostIntro, Speaker_Byron, DIR_WEST
 
-	special SavePlayerParty
-	callnative ChooseVGCParty
-	waitstate
-	special ReducePlayerPartyToSelectedMons
-
 	setspeaker Speaker_Byron
 	trainerbattle_no_intro TRAINER_BYRON2, VirtualCity_Stadium_Arena_Text_ByronB2YouLostWin
 	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
@@ -424,11 +403,6 @@ VirtualCity_Stadium_Arena_Eventscript_ByronB2FightWinner::
 	waitmovement 0
 	
 	speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB2YouWonIntro, Speaker_Byron, DIR_WEST
-
-	special SavePlayerParty
-	callnative ChooseVGCParty
-	waitstate
-	special ReducePlayerPartyToSelectedMons
 
 	setspeaker Speaker_Byron
 	trainerbattle_no_intro TRAINER_BYRON2, VirtualCity_Stadium_Arena_Text_ByronB2YouWonWin
@@ -458,11 +432,6 @@ VirtualCity_Stadium_Arena_Eventscript_ByronB3Fight::
 	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_CommonApproachArena
 	waitmovement 0
 	speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB3Intro, Speaker_Byron, DIR_WEST
-
-	special SavePlayerParty
-	callnative ChooseVGCParty
-	waitstate
-	special ReducePlayerPartyToSelectedMons
 
 	setspeaker Speaker_Byron
 	trainerbattle_no_intro TRAINER_BYRON3, VirtualCity_Stadium_Arena_Text_ByronB3Win1

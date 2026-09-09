@@ -34,8 +34,8 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_IntroScene::
 	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_FaceLeft
 	msgbox VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro1_2, MSGBOX_DEFAULT
 	playse SE_SELECT
-	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_FaceUp
-	msgbox VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro1_2, MSGBOX_DEFAULT
+	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_FaceRight
+	msgbox VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro1_3, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_FaceDown
 	delay 30
@@ -117,7 +117,51 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod::
 	setflag FLAG_ACT_II_MOD_INSTALLED
 	return
 
+VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietAreYouReady::
+	lockall
+	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_WalkInPlaceRight
+	speak LOCALID_HARRIET_PREBATTLE2, VirtualCity_Stadium_PreBattleRoom_Text_HarrietAreYouReady, Speaker_Harriet, DIR_EAST, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, VirtualCity_Stadium_PreBattleRoom_EventScript_HarrietNoWorries
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietGoGetEm, MSGBOX_DEFAULT
+	closemessage
+	delay 10
+	opendoor 4, 1
+	waitdooranim
+	delay 10
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_SetInvisible
+	waitmovement 0
+	delay 10
+	closedoor 4, 1
+	waitdooranim
+	fadescreen FADE_TO_BLACK
+	setflag FLAG_SYS_PREVENT_MAP_FADE
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_ARENA, 4, 12
+	waitstate
+	end
 
+VirtualCity_Stadium_PreBattleRoom_EventScript_HarrietNoWorries::
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietNoWorries, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_FaceDown
+	applymovement LOCALID_HARRIET_PREBATTLE2, Common_Movement_FaceDown
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	waitmovement 0
+	releaseall
+	end
+
+VirtualCity_Stadium_PreBattleRoom_Text_HarrietAreYouReady:
+	.string "You ready to go?$"
+
+VirtualCity_Stadium_PreBattleRoom_Text_HarrietNoWorries:
+	.string "No worries!\p"
+	.string "Step up once you feel good and\n"
+	.string "ready!$"
+
+VirtualCity_Stadium_PreBattleRoom_Text_HarrietGoGetEm:
+	.string "Alright!\p Choose your team and\n"
+	.string "go get 'em, Soph!$"
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietWellDone:
 	.string "Well done!$"
