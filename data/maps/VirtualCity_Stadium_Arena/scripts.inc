@@ -33,7 +33,6 @@ VirtualCity_Stadium_Arena_EventScript_SetUpObjects::
 
 @ Add audience members to supplement the permanent object event audience
 VirtualCity_Stadium_Arena_EventScript_AddAudience::
-	setvar VAR_TEMP_E, 0
 	call_if_set FLAG_ACT_II_WON_RANDO3, VirtualCity_Stadium_Arena_SetVarE1
 	call_if_set FLAG_ACT_II_WON_BRODUDE, VirtualCity_Stadium_Arena_SetVarE2
 	call_if_set FLAG_ACT_II_WON_EARL_GRAY, VirtualCity_Stadium_Arena_SetVarE3
@@ -482,8 +481,8 @@ VirtualCity_Stadium_Arena_Eventscript_BrodudeFight::
     special CallFrontierUtilFunc
     special LoadPlayerParty
 	special HealPlayerParty
-	setflag FLAG_ACT_II_WON_BRODUDE
 
+	setflag FLAG_ACT_II_WON_BRODUDE
 	call VirtualCity_Stadium_Arena_EventScript_WonMatch
 
 	applymovement LOCALID_BRODUDE, VirtualCity_Stadium_Arena_Move_CommonLeaveArena
@@ -576,8 +575,8 @@ VirtualCity_Stadium_Arena_Eventscript_EarlGreyFight::
     special CallFrontierUtilFunc
     special LoadPlayerParty
 	special HealPlayerParty
-
 	setflag FLAG_ACT_II_WON_EARL_GRAY
+
 	call VirtualCity_Stadium_Arena_EventScript_WonMatch
 
 	applymovement LOCALID_EARLGREY, VirtualCity_Stadium_Arena_Move_CommonLeaveArenaSlow
