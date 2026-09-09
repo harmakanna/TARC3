@@ -14,11 +14,16 @@ VirtualCity_Garden_LedianLover::
 	end
 
 VirtualCity_Garden_LedianLoverActivate::
-	npc_speak VirtualCity_Garden_Text_LedianLover_ThisIsAnOutrage, Speaker_LedianLover
+	npc_speak Speaker_LedianLover, VirtualCity_Garden_Text_LedianLover_ThisIsAnOutrage
+	playse SE_SELECT
 	player_speak VirtualCity_Garden_Text_Sophie_WhatsUp
-	npc_speak VirtualCity_Garden_Text_LedianLover_NoRelease, Speaker_LedianLover
+	playse SE_SELECT
+	npc_speak Speaker_LedianLover, VirtualCity_Garden_Text_LedianLover_NoRelease
+	playse SE_SELECT
 	player_speak VirtualCity_Garden_Text_Sophie_UmmImACreator
-	npc_speak VirtualCity_Garden_Text_LedianLover_HugePower, Speaker_LedianLover
+	playse SE_SELECT
+	npc_speak Speaker_LedianLover, VirtualCity_Garden_Text_LedianLover_HugePower
+	playse SE_SELECT
 	player_speak VirtualCity_Garden_Text_Sophie_SureThingBuddy
 	startquest QUEST_LEDIAN
 	releaseall
@@ -31,11 +36,15 @@ VirtualCity_Garden_LedianLoverActive::
 	end
 
 VirtualCity_Garden_LedianLoverReward::
-	npc_speak VirtualCity_Garden_Text_LedianLover_WhatDoPeopleSay, Speaker_LedianLover
+	npc_speak Speaker_LedianLover, VirtualCity_Garden_Text_LedianLover_WhatDoPeopleSay
+	playse SE_SELECT
 	player_speak VirtualCity_Garden_Text_Sophie_PeopleDontCare
-	npc_speak VirtualCity_Garden_Text_LedianLover_ButLedian, Speaker_LedianLover
+	playse SE_SELECT
+	npc_speak Speaker_LedianLover, VirtualCity_Garden_Text_LedianLover_ButLedian
+	playse SE_SELECT
 	player_speak VirtualCity_Garden_Text_Sophie_ThemsTheChops
-	npc_speak VirtualCity_Garden_Text_LedianLover_Reward, Speaker_LedianLover
+	playse SE_SELECT
+	npc_speak Speaker_LedianLover, VirtualCity_Garden_Text_LedianLover_Reward
 	setspeaker NULL
 	goto VirtualCity_Garden_LedianLover_ReceiveLedian
 	end
@@ -95,8 +104,10 @@ VirtualCity_Garden_Baby::
 	goto_if_quest_not_active QUEST_LEDIAN, VirtualCity_Garden_BabyImBaby
 	goto_if_set FLAG_LEDIAN_SPOKE_TO_BABY, VirtualCity_Garden_BabyImBaby
 	player_speak VirtualCity_Garden_Text_Sophie_WhatDoYouThinkShort
+	playse SE_SELECT
 	call_if_set FLAG_IM_BABY, VirtualCity_Garden_BabyLedianKnown
 	call_if_unset FLAG_IM_BABY, VirtualCity_Garden_BabyLedianUnknown
+	playse SE_SELECT
 	player_speak VirtualCity_Garden_Text_Sophie_Okayyyy
 	closemessage
 	setflag FLAG_LEDIAN_SPOKE_TO_BABY
@@ -106,15 +117,19 @@ VirtualCity_Garden_Baby::
 	end
 
 VirtualCity_Garden_BabyLedianKnown::
-	npc_speak VirtualCity_Garden_Text_Togepi_LediansNotBaby, Speaker_Baby
+	npc_speak Speaker_Baby, VirtualCity_Garden_Text_Togepi_LediansNotBaby
+	playse SE_SELECT
 	player_speak VirtualCity_Garden_Text_Sophie_IUhh
-	npc_speak VirtualCity_Garden_Text_Togepi_LediansNotBaby2, Speaker_Baby
+	playse SE_SELECT
+	npc_speak Speaker_Baby, VirtualCity_Garden_Text_Togepi_LediansNotBaby2
 	return
 
 VirtualCity_Garden_BabyLedianUnknown::
-	npc_speak VirtualCity_Garden_Text_Togepi_LediansNotBaby, NULL
+	npc_speak NULL, VirtualCity_Garden_Text_Togepi_LediansNotBaby
+	playse SE_SELECT
 	player_speak VirtualCity_Garden_Text_Sophie_IUhh
-	npc_speak VirtualCity_Garden_Text_Togepi_LediansNotBaby2, NULL
+	playse SE_SELECT
+	npc_speak NULL, VirtualCity_Garden_Text_Togepi_LediansNotBaby2
 	return
 
 VirtualCity_Garden_BabyImBaby::
@@ -138,7 +153,9 @@ VirtualCity_Garden_Plump::
 	goto_if_set FLAG_LEDIAN_SPOKE_TO_PLUMP, VirtualCity_Garden_PlumpYouCanBeAnyone
 	lock
 	player_speak VirtualCity_Garden_Text_Sophie_WhatDoYouThink
-	npc_speak VirtualCity_Garden_Text_Plump_LedianStinks, NULL
+	playse SE_SELECT
+	npc_speak NULL, VirtualCity_Garden_Text_Plump_LedianStinks
+	playse SE_SELECT
 	player_speak VirtualCity_Garden_Text_Sophie_Speechless
 	closemessage
 	setflag FLAG_LEDIAN_SPOKE_TO_PLUMP
@@ -147,9 +164,11 @@ VirtualCity_Garden_Plump::
 
 VirtualCity_Garden_PlumpYouCanBeAnyone::
 	lock
-	npc_speak VirtualCity_Garden_Text_Plump_YouCanBeAnyone, NULL
+	npc_speak NULL, VirtualCity_Garden_Text_Plump_YouCanBeAnyone
+	playse SE_SELECT
 	player_speak VirtualCity_Garden_Text_Sophie_Freaky
-	npc_speak VirtualCity_Garden_Text_Plump_EveryonesACritic, NULL
+	playse SE_SELECT
+	npc_speak NULL, VirtualCity_Garden_Text_Plump_EveryonesACritic
 	closemessage
 	releaseall
 	end 
@@ -159,23 +178,26 @@ VirtualCity_Garden_OldWoman::
 	goto_if_set FLAG_LEDIAN_SPOKE_TO_OLD_WOMAN, VirtualCity_Garden_OldWomanImYoung
 	lock
 	player_speak VirtualCity_Garden_Text_Sophie_WhatDoYouThink
-	npc_speak VirtualCity_Garden_Text_OldWoman_WhyLedian, NULL
+	playse SE_SELECT
+	npc_speak NULL, VirtualCity_Garden_Text_OldWoman_WhyLedian
 	multichoice 0, 0, MULTI_WHY_LEDIAN, TRUE
 	switch VAR_RESULT
 	case 0, VirtualCity_Garden_OldWoman_LedianCute
 	case 1, VirtualCity_Garden_OldWoman_LedianBulky
 	@Stays in the script if the last option is chosen
-	npc_speak VirtualCity_Garden_Text_OldWoman_PunchesTickle, NULL
+	playse SE_SELECT
+	npc_speak NULL, VirtualCity_Garden_Text_OldWoman_PunchesTickle
 	goto VirtualCity_Garden_OldWoman_EndQuest
 	end
 
 VirtualCity_Garden_OldWoman_LedianCute::
-	npc_speak VirtualCity_Garden_Text_OldWoman_CutiePie, NULL
+	playse SE_SELECT
+	npc_speak NULL, VirtualCity_Garden_Text_OldWoman_CutiePie
 	goto VirtualCity_Garden_OldWoman_EndQuest
 	end
 
 VirtualCity_Garden_OldWoman_LedianBulky::
-	npc_speak VirtualCity_Garden_Text_OldWoman_SpecialBulk, NULL
+	npc_speak NULL, VirtualCity_Garden_Text_OldWoman_SpecialBulk
 	goto VirtualCity_Garden_OldWoman_EndQuest
 	end
 
@@ -194,7 +216,7 @@ VirtualCity_Garden_DepressedMan::
 	goto_if_set FLAG_LEDIAN_SPOKE_TO_MAN, VirtualCity_Garden_DepressedManBeaches
 	lock
 	player_speak VirtualCity_Garden_Text_Sophie_WhatDoYouThink
-	npc_speak VirtualCity_Garden_Text_Man_IGuessLedian, NULL
+	npc_speak NULL, VirtualCity_Garden_Text_Man_IGuessLedian
 	closemessage
 	setflag FLAG_LEDIAN_SPOKE_TO_MAN
 	goto VirtualCity_Garden_CheckIfLedianQuestComplete
@@ -209,9 +231,11 @@ VirtualCity_Garden_JesusChrist::
 	goto_if_set FLAG_LEDIAN_SPOKE_TO_JESUS, VirtualCity_Garden_JesusChristIAmHe
 	lock
 	faceplayer
-	npc_speak VirtualCity_Garden_Text_JesusChrist_Ledian, NULL
+	npc_speak NULL, VirtualCity_Garden_Text_JesusChrist_Ledian
+	playse SE_SELECT
 	player_speak VirtualCity_Garden_Text_Sophie_IHadntAsked
-	npc_speak VirtualCity_Garden_Text_JesusChrist_Overheard, NULL
+	playse SE_SELECT
+	npc_speak NULL, VirtualCity_Garden_Text_JesusChrist_Overheard
 	closemessage
 	setflag FLAG_LEDIAN_SPOKE_TO_JESUS
 	goto VirtualCity_Garden_CheckIfLedianQuestComplete
