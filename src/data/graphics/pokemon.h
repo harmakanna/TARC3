@@ -14057,7 +14057,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonFootprint_Groudon[] = INCGFX_U8("graphics/pokemon/groudon/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
-    const u32 gObjectEventPic_Groudon[] = INCGFX_COMP("graphics/pokemon/groudon/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
+    const u32 gObjectEventPic_Groudon[] = INCGFX_U32("graphics/pokemon/groudon/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
     const u16 gOverworldPalette_Groudon[] = INCGFX_U16("graphics/pokemon/groudon/overworld_normal.pal", ".gbapal");
     const u16 gShinyOverworldPalette_Groudon[] = INCGFX_U16("graphics/pokemon/groudon/overworld_shiny.pal", ".gbapal");
@@ -15907,7 +15907,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonFootprint_GiratinaAltered[] = INCGFX_U8("graphics/pokemon/giratina/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
-    const u32 gObjectEventPic_GiratinaAltered[] = INCGFX_COMP("graphics/pokemon/giratina/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
+    const u32 gObjectEventPic_GiratinaAltered[] = INCGFX_U32("graphics/pokemon/giratina/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
     const u16 gOverworldPalette_GiratinaAltered[] = INCGFX_U16("graphics/pokemon/giratina/overworld_normal.pal", ".gbapal");
     const u16 gShinyOverworldPalette_GiratinaAltered[] = INCGFX_U16("graphics/pokemon/giratina/overworld_shiny.pal", ".gbapal");
@@ -15923,7 +15923,7 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u8 gMonFootprint_GiratinaOrigin[] = INCGFX_U8("graphics/pokemon/giratina/origin/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
-    const u32 gObjectEventPic_GiratinaOrigin[] = INCGFX_COMP("graphics/pokemon/giratina/origin/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
+    const u32 gObjectEventPic_GiratinaOrigin[] = INCGFX_U32("graphics/pokemon/giratina/origin/overworld.png", ".4bpp", "-mwidth 8 -mheight 8");
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
     const u16 gOverworldPalette_GiratinaOrigin[] = INCGFX_U16("graphics/pokemon/giratina/origin/overworld_normal.pal", ".gbapal");
     const u16 gShinyOverworldPalette_GiratinaOrigin[] = INCGFX_U16("graphics/pokemon/giratina/origin/overworld_shiny.pal", ".gbapal");

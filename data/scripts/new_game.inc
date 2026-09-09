@@ -131,6 +131,7 @@ EventScript_ResetAllMapFlags::
 	setflag FLAG_HIDE_CONTEST_POKE_BALL
 	setflag FLAG_ACT_I_HIDE_MINH_OFFICE
 	setflag FLAG_HIDE_ACT_I_RESEARCHERS
+	setflag FLAG_SYS_NO_WHITEOUT
 
 
 

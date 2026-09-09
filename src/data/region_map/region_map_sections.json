@@ -490,7 +490,7 @@
     },
     {
       "id": "MAPSEC_ABANDONED_SHIP",
-      "name": "THE BETTER PLACE",
+      "name": "VIRTUAL CITY",
       "x": 6,
       "y": 14,
       "width": 1,
@@ -666,7 +666,7 @@
     },
     {
       "id": "MAPSEC_ANCIENT_TOMB",
-      "name": "THE BETTER REFUGE",
+      "name": "ANCIENT TOMB",
       "x": 13,
       "y": 2,
       "width": 1,
@@ -1557,7 +1557,7 @@
     },
     {
       "id": "MAPSEC_ARTISAN_CAVE",
-      "name": "THE BETTER HOTEL",
+      "name": "ARTISAN CAVE",
       "x": 22,
       "y": 12,
       "width": 1,

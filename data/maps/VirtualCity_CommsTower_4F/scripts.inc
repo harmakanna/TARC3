@@ -31,3 +31,59 @@ VirtualCity_CommsTower_4F_EventScript_Door::
 	goto_if_set FLAG_COMMS_4F_DOOR, EventScript_DoorUnlocked
 	goto EventScript_OpenDoor
 	end
+
+
+
+VirtualCity_CommsTower_2F_EventScript_GuardD::
+	trainerbattle_double TRAINER_DENISE, VirtualCity_CommsTower_2F_Text_GuardDIntro, VirtualCity_CommsTower_2F_Text_GuardDDefeated, Common_Text_NotEnoughPokemon
+	special HealPlayerParty
+	playse SE_PC_OFF
+	applymovement LOCALID_GUARDD, VirtualCityIntro_Movement_LogOut
+	waitmovement 0
+	removeobject LOCALID_GUARDD
+	end
+
+VirtualCity_CommsTower_2F_Text_GuardDIntro::
+	.string "We've barricaded the area!\n"
+	.string "You're not getting through us!$"
+
+VirtualCity_CommsTower_2F_Text_GuardDDefeated::
+	.string "Damn. It's up to you two!$"
+
+
+VirtualCity_CommsTower_2F_EventScript_GuardE::
+	trainerbattle_double TRAINER_BETH, VirtualCity_CommsTower_2F_Text_GuardEIntro, VirtualCity_CommsTower_2F_Text_GuardEDefeated, Common_Text_NotEnoughPokemon
+	special HealPlayerParty
+	playse SE_PC_OFF
+	applymovement LOCALID_GUARDE, VirtualCityIntro_Movement_LogOut
+	waitmovement 0
+	removeobject LOCALID_GUARDE
+	end
+
+VirtualCity_CommsTower_2F_Text_GuardEIntro::
+	.string "I saw it!\n"
+	.string "It's healing between fights!$"
+
+VirtualCity_CommsTower_2F_Text_GuardEDefeated::
+	.string "It just set the HP to max!\n"
+	.string "I saw it!$"
+
+
+VirtualCity_CommsTower_2F_EventScript_GuardF::
+	trainerbattle_double TRAINER_TARA, VirtualCity_CommsTower_2F_Text_GuardFIntro, VirtualCity_CommsTower_2F_Text_GuardFDefeated, Common_Text_NotEnoughPokemon
+	special HealPlayerParty
+	playse SE_PC_OFF
+	applymovement LOCALID_GUARDF, VirtualCityIntro_Movement_LogOut
+	waitmovement 0
+	removeobject LOCALID_GUARDF
+	end
+
+VirtualCity_CommsTower_2F_Text_GuardFIntro::
+	.string "I know I can't beat you.\n"
+	.string "But I have to try.$"
+
+VirtualCity_CommsTower_2F_Text_GuardFDefeated::
+	.string "Um.\p"
+	.string "Just between you and me.\p"
+	.string "{FONT_SMALL}Break it.$"
+

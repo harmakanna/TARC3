@@ -58,7 +58,7 @@
     .paletteSlot = PALSLOT_NPC_1,                                                                                                       \
     .shadowSize = shadow,                                                                                                               \
     .inanimate = FALSE,                                                                                                                 \
-    .compressed = COMP,                                                                                                                 \
+    .compressed = (_size == SIZE_64x64) ? FALSE : COMP,                                                                                                                 \
     .tracks = _tracks,                                                                                                                  \
     .oam = (_size == SIZE_32x32 ? &gObjectEventBaseOam_32x32 : &gObjectEventBaseOam_64x64),                                             \
     .subspriteTables = (_size == SIZE_32x32 ? sOamTables_32x32 : sOamTables_64x64),                                                     \

@@ -16,7 +16,7 @@
   "object_events": [
     {
       "local_id": "LOCALID_GUARD",
-      "graphics_id": "OBJ_EVENT_GFX_OFFICER_M",
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
       "x": 6,
       "y": 2,
       "elevation": 0,
@@ -100,6 +100,15 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "VirtualCity_CommsTower_1F_Autoscanner"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_PETALBURG_CITY_STATE",
+      "var_value": "50",
+      "script": "VirtualCity_CommsTower_1F_CantLeave"
     }
   ],
   "bg_events": [

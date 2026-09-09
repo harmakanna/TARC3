@@ -24,8 +24,8 @@
 #define QUEST_7          6
 #define QUEST_LEDIAN     7
 #define QUEST_TEA        8
-#define QUEST_10         9
-#define QUEST_COUNT     (QUEST_10 + 1)
+#define QUEST_CONTENTMENT         9
+#define QUEST_COUNT     (QUEST_CONTENTMENT + 1)
 
 #define SUB_QUEST_COUNT 0
 

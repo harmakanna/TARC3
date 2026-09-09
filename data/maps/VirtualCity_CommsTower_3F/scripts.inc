@@ -31,3 +31,21 @@ VirtualCity_CommsTower_3F_EventScript_Door::
 	goto_if_set FLAG_COMMS_3F_DOOR, EventScript_DoorUnlocked
 	goto EventScript_OpenDoor
 	end
+
+
+VirtualCity_CommsTower_2F_EventScript_GuardC::
+	trainerbattle_double TRAINER_KYLA, VirtualCity_CommsTower_2F_Text_GuardCIntro, VirtualCity_CommsTower_2F_Text_GuardCDefeated, Common_Text_NotEnoughPokemon
+	special HealPlayerParty
+	playse SE_PC_OFF
+	applymovement LOCALID_GUARDC, VirtualCityIntro_Movement_LogOut
+	waitmovement 0
+	removeobject LOCALID_GUARDC
+	end
+
+VirtualCity_CommsTower_2F_Text_GuardCIntro::
+	.string "Whoa!$"
+	.string "I always wanted to fight a terrorist!$"
+
+VirtualCity_CommsTower_2F_Text_GuardCDefeated::
+	.string "I didn't want to lose to a terrorist!$"
+

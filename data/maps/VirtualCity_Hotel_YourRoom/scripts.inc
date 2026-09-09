@@ -348,8 +348,8 @@ VirtualCity_Hotel_YourRoom_Text_ResolutionTalk22Ernest::
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk23Minh::
 	.string "I like this plan…\p"
-	.string "Maybe I can help you find more\n"
-	.string "Pokemon to battle with?$"
+	.string "I can help gather more evidence and\n"
+	.string "prepare the message.$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk24Harriet::
 	.string "Which leaves me to scout out your\n"

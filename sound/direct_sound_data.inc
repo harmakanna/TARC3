@@ -3917,13 +3917,11 @@ Cry_Rayquaza::
 	.incbin "sound/direct_sound_samples/cries/rayquaza.bin"
 .endif
 
-.if P_MODIFIED_MEGA_CRIES == TRUE
 	.align 2
 Cry_RayquazaMega::
 .if TESTING == FALSE
 	.incbin "sound/direct_sound_samples/cries/rayquaza_mega.bin"
 .endif
-.endif @ P_MODIFIED_MEGA_CRIES
 .endif @ P_FAMILY_RAYQUAZA
 
 .if P_FAMILY_JIRACHI == TRUE

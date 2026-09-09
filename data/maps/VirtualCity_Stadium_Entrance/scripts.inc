@@ -11,6 +11,11 @@ VirtualCity_Stadium_Entrance_EventScript_Act_II_Harriet::
 	player_speak VirtualCity_Stadium_Entrance_Text_ActII_Intro_Sophie2
 	playse SE_SELECT
 	npc_speak Speaker_Harriet, VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet3
+	playse SE_SELECT
+	additem ITEM_SPELL_TAG, 1
+	player_speak VirtualCity_Stadium_Entrance_Text_ActII_Intro_Sophie4
+	playse SE_SELECT
+	npc_speak Speaker_Harriet, VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet5
 	closemessage
 	setflag FLAG_ACT_II_HARRIET_EXPLANATION
 	releaseall
@@ -165,9 +170,22 @@ VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet3::
 	.string "There's a lot of folks around who need\n"
 	.string "help with something!\p"
 	.string "See if any of them have dupes\n"
-	.string "you can borrow.$"
+	.string "you can borrow.\p"
+	.string "And, um, take this.$"
 
+VirtualCity_Stadium_Entrance_Text_ActII_Intro_Sophie4::
+	.string "What? A Pokemon Shop coupon?\n"
+	.string "No, I can't-$"
 
+VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet5::
+	.string "Hush!\p"
+	.string "Not a word.\p"
+	.string "You're the one who's going\n"
+	.string "who's going to be at risk!\p"
+	.string "We all chipped in, and this is\n"
+	.string "the least we can do.\p"
+	.string "Get to the third floor of the store\n"
+	.string "and make yourself a team!$"
 
 
 VirtualCity_Stadium_Entrance_Text_ActII_Intro_HarrietReexplains::
@@ -180,5 +198,103 @@ VirtualCity_Stadium_Entrance_Text_ActII_Intro_HarrietReexplains::
 
 
 
+VirtualCity_Stadium_Entrance_EventScript_Contentment::
+	goto_if_set FLAG_CONTENTMENT_QUEST_COMPLETE, VirtualCity_Stadium_Entrance_EventScript_ContentmentCompleteRepeat
+	goto_if_set FLAG_CONTENTMENT_QUEST_MOVE_USED, VirtualCity_Stadium_Entrance_EventScript_ContentmentComplete
+	goto_if_set FLAG_CONTENTMENT_QUEST_STARTED, VirtualCity_Stadium_Entrance_EventScript_ContentmentRepeat
+
+	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart1, MSGBOX_NPC
+	setspeaker SP_NAME_PLAYER
+	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart2, MSGBOX_NPC
+	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart3, MSGBOX_NPC
+	setspeaker SP_NAME_PLAYER
+	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart4, MSGBOX_NPC
+	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart5, MSGBOX_NPC
+	setspeaker SP_NAME_PLAYER
+	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart6, MSGBOX_NPC
+	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart7, MSGBOX_NPC
+	startquest QUEST_CONTENTMENT
+	setflag FLAG_CONTENTMENT_QUEST_STARTED
+	givemon SPECIES_TOXAPEX, 50, nature=NATURE_CALM, gender=MON_FEMALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_TOXIC, move2=MOVE_SCALD, move3=MOVE_ICY_WIND, move4=MOVE_CELEBRATE, otName=OT_Contentment
+	end
+
+VirtualCity_Stadium_Entrance_EventScript_ContentmentRepeat::
+	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestRepeat, MSGBOX_NPC
+	closemessage
+	end
+
+VirtualCity_Stadium_Entrance_EventScript_ContentmentComplete::
+	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestComplete, MSGBOX_NPC
+	completequest QUEST_CONTENTMENT
+	setflag FLAG_CONTENTMENT_QUEST_COMPLETE
+	closemessage
+	end
+
+VirtualCity_Stadium_Entrance_EventScript_ContentmentCompleteRepeat::
+	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestCompleteRepeat, MSGBOX_NPC
+	closemessage
+	end
 
 
+VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart1::
+	.string "Hello! You look like a fine trainer!\n"
+	.string "Would you be interested in a sponsor?\p"
+	.string "The world-renowned camping and hiking\n"
+	.string "brand, conTENTment, is diversifying!$"
+
+VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart2::
+	.string "Um, okay?$"
+
+VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart3::
+	.string "People aren't going camping as much\n"
+	.string "as much as they used to, you see.\p"
+	.string "We both know {COLOR BLUE}the way{COLOR DARK_GRAY} to experience\n"
+	.string "a city park is from a tent, but\l"
+	.string "the quarterly numbers don't agree.\p"
+	.string "So, we're releasing a new line of\n"
+	.string "virtual tents and supplies!\p"
+	.string "Soon you too can camp out under\n"
+	.string "the stars, just like old times!$"
+
+VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart4::
+	.string "Can you, maybe, get to the point?$"
+
+VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart5::
+	.string "We need as many brand ambassadors\n"
+	.string "as we can get!\p"
+	.string "It's simple! All you have to do is\n"
+	.string "bring our custom Pokemon into the\l"
+	.string "arena, and use the {COLOR BLUE}promotional move{COLOR DARK_GRAY}!\p"
+	.string "And you'll get to keep the Pokemon!\n"
+	.string "{FONT_SMALL}As long as you battle with it quarterly.$"
+
+VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart6::
+	.string "I- I guess I'm interested.$"	
+
+VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart7::
+	.string "Wonderful! If you'll just sign here…\p"
+	.string "…\p"
+	.string "Perfect. Now, use the move in a Stadium\p"
+	.string "battle, and come back when you're done!$"
+
+
+VirtualCity_Stadium_Entrance_Text_ContentmentQuestRepeat::
+	.string "What are you waiting for?\n"
+	.string "Shareholders won't wait forever!$"
+
+
+VirtualCity_Stadium_Entrance_Text_ContentmentQuestComplete::
+	.string "Um, hi. Good news and bad news.\p"
+	.string "The good news is that the ad reached\n"
+	.string "a lot of eyes.\p"
+	.string "The bad news is that people started\n"
+	.string "questioning why conTENTment would\l"
+	.string "represent themselves with a Toxapex.\p"
+	.string "So, well done, and keep the Pokemon,\n"
+	.string "but please never do that again.\p"
+	.string "It could really damage the brand.$"
+
+
+VirtualCity_Stadium_Entrance_Text_ContentmentQuestCompleteRepeat::
+	.string "Um. Please don't stand near me.\n"
+	.string "People might make associations again!$"
