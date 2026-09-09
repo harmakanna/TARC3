@@ -62,7 +62,8 @@ VirtualCity_Superstore_3F_Text_ExasperatedMan:
 
 
 VirtualCity_Superstore_3F_EventScript_Idol::
-	msgbox VirtualCity_Superstore_3F_Text_Idol, MSGBOX_NPC
+	lockall
+	speak LOCALID_SHOPKEEP_IDOL, VirtualCity_Superstore_3F_Text_Idol, NULL, DIR_SOUTH
 	dynmultipush Store_Text_Choice1, 1
 	dynmultipush Store_Text_Choice2, 2
 	dynmultipush Store_Text_Choice3, 3
@@ -74,6 +75,9 @@ VirtualCity_Superstore_3F_EventScript_Idol::
 	goto_if_eq VAR_RESULT, 3, VirtualCity_Superstore_3F_EventScript_Idol_Electrode
 	goto_if_eq VAR_RESULT, 4, VirtualCity_Superstore_3F_EventScript_Idol_Snover
 	goto_if_eq VAR_RESULT, 5, VirtualCity_Superstore_3F_EventScript_Idol_Solrock
+	msgbox Store_Text_IdolByeBye, MSGBOX_DEFAULT
+	closemessage
+	releaseall
 	end
 
 
@@ -101,37 +105,43 @@ Store_Text_Choice4:
 Store_Text_Choice5:
 	.string "Solrock$"
 
+Store_Text_IdolByeBye:
+	.string "Nothing today?\p"
+	.string "Aww…\nOh well…\p"
+	.string "Bye-bye then!\nCome back soon!$"
 
 VirtualCity_Superstore_3F_EventScript_Idol_Passimian::
 	goto_if_set FLAG_BOUGHT_PASSIMIAN, VirtualCity_Superstore_3F_EventScript_Idol_AlreadyBought
 	msgbox VirtualCity_Superstore_3F_Text_Passimian, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, VirtualCity_Superstore_3F_EventScript_Idol_BuyPassimian
+	msgbox Store_Text_IdolByeBye, MSGBOX_DEFAULT
 	closemessage
+	releaseall
 	end
 
 VirtualCity_Superstore_3F_EventScript_Idol_BuyPassimian::
 	removeitem ITEM_SPELL_TAG, 1
 	goto_if_eq VAR_RESULT, NO, VirtualCity_Superstore_3F_EventScript_Idol_CantAfford
 	setflag FLAG_BOUGHT_PASSIMIAN
-	givemon SPECIES_PASSIMIAN, 50
+	goto VirtualCity_Superstore_3F_ShopkeepIdol_ReceivePassimian
 	@add pass details TOFOLD
-	msgbox VirtualCity_Superstore_3F_Text_EnjoyIt, MSGBOX_NPC
 	end
 
 VirtualCity_Superstore_3F_EventScript_Idol_Sableye::
 	goto_if_set FLAG_BOUGHT_SABLEYE, VirtualCity_Superstore_3F_EventScript_Idol_AlreadyBought
 	msgbox VirtualCity_Superstore_3F_Text_Sableye, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, VirtualCity_Superstore_3F_EventScript_Idol_BuySableye
+	msgbox Store_Text_IdolByeBye, MSGBOX_DEFAULT
 	closemessage
+	releaseall
 	end
 
 VirtualCity_Superstore_3F_EventScript_Idol_BuySableye::
 	removeitem ITEM_SPELL_TAG, 1
 	goto_if_eq VAR_RESULT, NO, VirtualCity_Superstore_3F_EventScript_Idol_CantAfford
 	setflag FLAG_BOUGHT_SABLEYE
-	givemon SPECIES_SABLEYE, 50
+	goto VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSableye
 	@add pass details TOFOLD
-	msgbox VirtualCity_Superstore_3F_Text_EnjoyIt, MSGBOX_NPC
 	end
 
 
@@ -139,16 +149,17 @@ VirtualCity_Superstore_3F_EventScript_Idol_Electrode::
 	goto_if_set FLAG_BOUGHT_ELECTRODE, VirtualCity_Superstore_3F_EventScript_Idol_AlreadyBought
 	msgbox VirtualCity_Superstore_3F_Text_Electrode, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, VirtualCity_Superstore_3F_EventScript_Idol_BuyElectrode
+	msgbox Store_Text_IdolByeBye, MSGBOX_DEFAULT
 	closemessage
+	releaseall
 	end
 
 VirtualCity_Superstore_3F_EventScript_Idol_BuyElectrode::
 	removeitem ITEM_SPELL_TAG, 1
 	goto_if_eq VAR_RESULT, NO, VirtualCity_Superstore_3F_EventScript_Idol_CantAfford
 	setflag FLAG_BOUGHT_ELECTRODE
-	givemon SPECIES_ELECTRODE, 50
+	goto VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveElectrode
 	@add pass details TOFOLD
-	msgbox VirtualCity_Superstore_3F_Text_EnjoyIt, MSGBOX_NPC
 	end
 
 
@@ -156,16 +167,17 @@ VirtualCity_Superstore_3F_EventScript_Idol_Snover::
 	goto_if_set FLAG_BOUGHT_SNOVER, VirtualCity_Superstore_3F_EventScript_Idol_AlreadyBought
 	msgbox VirtualCity_Superstore_3F_Text_Snover, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, VirtualCity_Superstore_3F_EventScript_Idol_BuySnover
+	msgbox Store_Text_IdolByeBye, MSGBOX_DEFAULT
 	closemessage
+	releaseall
 	end
 
 VirtualCity_Superstore_3F_EventScript_Idol_BuySnover::
 	removeitem ITEM_SPELL_TAG, 1
 	goto_if_eq VAR_RESULT, NO, VirtualCity_Superstore_3F_EventScript_Idol_CantAfford
 	setflag FLAG_BOUGHT_SNOVER
-	givemon SPECIES_SNOVER, 50
+	goto VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSnover
 	@add pass details TOFOLD
-	msgbox VirtualCity_Superstore_3F_Text_EnjoyIt, MSGBOX_NPC
 	end
 
 
@@ -173,16 +185,17 @@ VirtualCity_Superstore_3F_EventScript_Idol_Solrock::
 	goto_if_set FLAG_BOUGHT_SOLROCK, VirtualCity_Superstore_3F_EventScript_Idol_AlreadyBought
 	msgbox VirtualCity_Superstore_3F_Text_Solrock, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, VirtualCity_Superstore_3F_EventScript_Idol_BuySolrock
+	msgbox Store_Text_IdolByeBye, MSGBOX_DEFAULT
 	closemessage
+	releaseall
 	end
 
 VirtualCity_Superstore_3F_EventScript_Idol_BuySolrock::
 	removeitem ITEM_SPELL_TAG, 1
 	goto_if_eq VAR_RESULT, NO, VirtualCity_Superstore_3F_EventScript_Idol_CantAfford
 	setflag FLAG_BOUGHT_SOLROCK
-	givemon SPECIES_SOLROCK, 50
+	goto VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSolrock
 	@add pass details TOFOLD
-	msgbox VirtualCity_Superstore_3F_Text_EnjoyIt, MSGBOX_NPC
 	end
 
 
@@ -240,14 +253,18 @@ VirtualCity_Superstore_3F_Text_Solrock:
 
 
 VirtualCity_Superstore_3F_EventScript_Idol_AlreadyBought::
-	msgbox VirtualCity_Superstore_3F_Text_AlreadyBought, MSGBOX_NPC
+	msgbox VirtualCity_Superstore_3F_Text_AlreadyBought, MSGBOX_DEFAULT
+	closemessage
+	releaseall
 	end
 	
 VirtualCity_Superstore_3F_Text_AlreadyBought:
 	.string "Honey, you already bought one!$"
 
 VirtualCity_Superstore_3F_EventScript_Idol_CantAfford::
-	msgbox VirtualCity_Superstore_3F_Text_Idol_CantAfford, MSGBOX_NPC
+	msgbox VirtualCity_Superstore_3F_Text_Idol_CantAfford, MSGBOX_DEFAULT
+	closemessage
+	releaseall
 	end
 
 VirtualCity_Superstore_3F_Text_Idol_CantAfford:
@@ -294,5 +311,214 @@ VirtualCity_Superstore_3F_Text_LowerIdol3:
 VirtualCity_Superstore_3F_Text_LowerIdol4:
 	.string "Installing Updates - 68% Complete.$"
 
+	
+VirtualCity_Superstore_3F_ShopkeepIdol_ReceivePassimian::
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_PASSIMIAN
+	givemon SPECIES_PASSIMIAN, 50
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, VirtualCity_Superstore_3F_ShopkeepIdol_ReceivePassimianParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, VirtualCity_Superstore_3F_ShopkeepIdol_ReceivePassimianPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
 
+VirtualCity_Superstore_3F_ShopkeepIdol_ReceivePassimianParty::
+	call VirtualCity_Superstore_3F_ShopkeepIdol_ReceivePassimianFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, VirtualCity_Superstore_3F_ShopkeepIdol_FinishReceivingPokemon
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto VirtualCity_Superstore_3F_ShopkeepIdol_FinishReceivingPokemon
+	end
 
+VirtualCity_Superstore_3F_ShopkeepIdol_ReceivePassimianPC::
+	call VirtualCity_Superstore_3F_ShopkeepIdol_ReceivePassimianFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, VirtualCity_Superstore_3F_ShopkeepIdol_TransferPassimianToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto VirtualCity_Superstore_3F_ShopkeepIdol_TransferPassimianToPC
+	end
+
+VirtualCity_Superstore_3F_ShopkeepIdol_TransferPassimianToPC::
+	call Common_EventScript_TransferredToPC
+	goto VirtualCity_Superstore_3F_ShopkeepIdol_FinishReceivingPokemon
+	end
+
+VirtualCity_Superstore_3F_ShopkeepIdol_ReceivePassimianFanfare::
+	playfanfare MUS_OBTAIN_ITEM
+	message VirtualCity_Superstore_3F_Text_YouReceivedPassimian
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_PASSIMIAN
+	return
+	
+VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSableye::
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_SABLEYE
+	givemon SPECIES_SABLEYE, 50
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSableyeParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSableyePC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSableyeParty::
+	call VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSableyeFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, VirtualCity_Superstore_3F_ShopkeepIdol_FinishReceivingPokemon
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto VirtualCity_Superstore_3F_ShopkeepIdol_FinishReceivingPokemon
+	end
+
+VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSableyePC::
+	call VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSableyeFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, VirtualCity_Superstore_3F_ShopkeepIdol_TransferSableyeToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto VirtualCity_Superstore_3F_ShopkeepIdol_TransferSableyeToPC
+	end
+
+VirtualCity_Superstore_3F_ShopkeepIdol_TransferSableyeToPC::
+	call Common_EventScript_TransferredToPC
+	goto VirtualCity_Superstore_3F_ShopkeepIdol_FinishReceivingPokemon
+	end
+
+VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSableyeFanfare::
+	playfanfare MUS_OBTAIN_ITEM
+	message VirtualCity_Superstore_3F_Text_YouReceivedSableye
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_SABLEYE
+	return
+
+VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveElectrode::
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ELECTRODE
+	givemon SPECIES_ELECTRODE, 50
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveElectrodeParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveElectrodePC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveElectrodeParty::
+	call VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveElectrodeFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, VirtualCity_Superstore_3F_ShopkeepIdol_FinishReceivingPokemon
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto VirtualCity_Superstore_3F_ShopkeepIdol_FinishReceivingPokemon
+	end
+
+VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveElectrodePC::
+	call VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveElectrodeFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, VirtualCity_Superstore_3F_ShopkeepIdol_TransferElectrodeToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto VirtualCity_Superstore_3F_ShopkeepIdol_TransferElectrodeToPC
+	end
+
+VirtualCity_Superstore_3F_ShopkeepIdol_TransferElectrodeToPC::
+	call Common_EventScript_TransferredToPC
+	goto VirtualCity_Superstore_3F_ShopkeepIdol_FinishReceivingPokemon
+	end
+
+VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveElectrodeFanfare::
+	playfanfare MUS_OBTAIN_ITEM
+	message VirtualCity_Superstore_3F_Text_YouReceivedElectrode
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_ELECTRODE
+	return
+	
+VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSnover::
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_SNOVER
+	givemon SPECIES_SNOVER, 50
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSnoverParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSnoverPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSnoverParty::
+	call VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSnoverFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, VirtualCity_Superstore_3F_ShopkeepIdol_FinishReceivingPokemon
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto VirtualCity_Superstore_3F_ShopkeepIdol_FinishReceivingPokemon
+	end
+
+VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSnoverPC::
+	call VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSnoverFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, VirtualCity_Superstore_3F_ShopkeepIdol_TransferSnoverToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto VirtualCity_Superstore_3F_ShopkeepIdol_TransferSnoverToPC
+	end
+
+VirtualCity_Superstore_3F_ShopkeepIdol_TransferSnoverToPC::
+	call Common_EventScript_TransferredToPC
+	goto VirtualCity_Superstore_3F_ShopkeepIdol_FinishReceivingPokemon
+	end
+
+VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSnoverFanfare::
+	playfanfare MUS_OBTAIN_ITEM
+	message VirtualCity_Superstore_3F_Text_YouReceivedSnover
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_SNOVER
+	return
+
+VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSolrock::
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_SOLROCK
+	givemon SPECIES_SOLROCK, 50
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSolrockParty
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSolrockPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSolrockParty::
+	call VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSolrockFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, VirtualCity_Superstore_3F_ShopkeepIdol_FinishReceivingPokemon
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto VirtualCity_Superstore_3F_ShopkeepIdol_FinishReceivingPokemon
+	end
+
+VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSolrockPC::
+	call VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSolrockFanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, VirtualCity_Superstore_3F_ShopkeepIdol_TransferSolrockToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto VirtualCity_Superstore_3F_ShopkeepIdol_TransferSolrockToPC
+	end
+
+VirtualCity_Superstore_3F_ShopkeepIdol_TransferSolrockToPC::
+	call Common_EventScript_TransferredToPC
+	goto VirtualCity_Superstore_3F_ShopkeepIdol_FinishReceivingPokemon
+	end
+
+VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSolrockFanfare::
+	playfanfare MUS_OBTAIN_ITEM
+	message VirtualCity_Superstore_3F_Text_YouReceivedSolrock
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_SOLROCK
+	return
+
+VirtualCity_Superstore_3F_ShopkeepIdol_FinishReceivingPokemon::
+	msgbox VirtualCity_Superstore_3F_Text_EnjoyIt, MSGBOX_DEFAULT
+	closemessage
+	releaseall
+	end
+
+VirtualCity_Superstore_3F_Text_YouReceivedPassimian:
+	.string "You bought a Passimian!$"
+
+VirtualCity_Superstore_3F_Text_YouReceivedSableye:
+	.string "You bought a Sableye!$"
+
+VirtualCity_Superstore_3F_Text_YouReceivedElectrode:
+	.string "You bought a Electrode!$"
+
+VirtualCity_Superstore_3F_Text_YouReceivedSnover:
+	.string "You bought a Snover!$"
+
+VirtualCity_Superstore_3F_Text_YouReceivedSolrock:
+	.string "You bought a Solrock!$"

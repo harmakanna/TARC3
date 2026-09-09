@@ -119,6 +119,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_PLATFORM_PIKACHU",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(PIKACHU)",
       "x": 5,
       "y": 15,
@@ -132,6 +133,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_EEVEE",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(EEVEE)",
       "x": 4,
       "y": 17,
@@ -212,6 +214,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_GIRATINA",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(GIRATINA)",
       "x": 5,
       "y": 17,
@@ -258,7 +261,7 @@
     },
     {
       "type": "clone",
-      "graphics_id": "OBJ_EVENT_GFX_BRENDAN_NORMAL",
+      "graphics_id": "OBJ_EVENT_GFX_RED",
       "x": -8,
       "y": 24,
       "target_local_id": "LOCALID_RED_LEFT",

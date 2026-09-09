@@ -15,9 +15,54 @@ VirtualCity_Superstore_2F_EventScript_Misdreavus::
 	release
 	end
 
+VirtualCity_Superstore_2F_EventScript_PinkIdol::
+	msgbox VirtualCity_Superstore_2F_Text_PinkIdol, MSGBOX_NPC
+	end
+
+VirtualCity_Superstore_2F_EventScript_BlueIdol::
+	msgbox VirtualCity_Superstore_2F_Text_BlueIdol, MSGBOX_NPC
+	end
+
+VirtualCity_Superstore_2F_EventScript_YellowIdol::
+	msgbox VirtualCity_Superstore_2F_Text_YellowIdol, MSGBOX_NPC
+	end
+
+VirtualCity_Superstore_2F_EventScript_Sign::
+	msgbox VirtualCity_Superstore_2F_Text_Sign, MSGBOX_SIGN
+	end
+
+VirtualCity_Superstore_2F_Text_Sign:
+	.string "The {COLOR GREEN}BETTER {COLOR DARK_GRAY}\n"
+	.string "Superstore 2F\p"
+	.string "Last week's REFUGE, 'Tide Pools',\n"
+	.string "NOW ON SALE!!!$"
+
+VirtualCity_Superstore_2F_Text_PinkIdol:
+	.string "Welcome to the second floor\n"
+	.string "of {COLOR GREEN}BETTER's{COLOR DARK_GRAY} SUPER STORE!\p"
+	.string "We got avatars, rooms,\n"
+	.string "and cosmetics galore!$"
+
+VirtualCity_Superstore_2F_Text_BlueIdol:
+	.string "Heeeyyyyy!\p"
+	.string "We're having a limited-edition sale\n"
+	.string "on {PAUSE 50}{COLOR GREEN}JUNGLE CLOTHING AND ACCESSORIES\l"
+	.string "{PAUSE 50}{COLOR DARK_GRAY}for your avatar!\p"
+	.string "You DON'T wanna miss out on this!$"
+
+VirtualCity_Superstore_2F_Text_YellowIdol:
+	.string "Bestie!!!!\p"
+	.string "Have you tried this virtual\n"
+	.string "makeup yet?\p"
+	.string "I think it'd look absolutely\n"
+	.string "FABULOUS on you!\p"
+	.string "Only 1{PAUSE 30}2{PAUSE 25}5{PAUSE 20}9{PAUSE 15}9.99!$"
+
 VirtualCity_Superstore_2F_Text_Cycler:
-	.string "So many cool skins and rooms, yet\n"
-	.string "so, so little to spend…$"
+	.string "I CAN'T WAIT!\p"
+	.string "They're finally selling the rare\n"
+	.string "ASTEROIDS Refuge soon!\p"
+	.string "I've been saving up for MONTHS!$"
 
 VirtualCity_Superstore_2F_Text_Misdreavus:
 	.string "The cosmetics here are out of\n"
