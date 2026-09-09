@@ -1,7 +1,17 @@
 VirtualCity_Stadium_PreBattleRoom_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, VirtualCity_Stadium_PreBattleRoom_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, VirtualCity_Stadium_PreBattleRoom_OnFrame
 	.byte 0
 
+VirtualCity_Stadium_PreBattleRoom_OnTransition::
+	call_if_gt VAR_PETALBURG_CITY_STATE, 22, VirtualCity_Stadium_PreBattleRoom_EventScript_PositionHarrietPreBattle
+	end
+
+VirtualCity_Stadium_PreBattleRoom_EventScript_PositionHarrietPreBattle:
+	setobjectxyperm LOCALID_HARRIET_PREBATTLE, 3, 2
+	setobjectmovementtype LOCALID_HARRIET_PREBATTLE, MOVEMENT_TYPE_FACE_DOWN
+	return
+	
 VirtualCity_Stadium_PreBattleRoom_OnFrame::
 	map_script_2 VAR_PETALBURG_CITY_STATE, 22, VirtualCity_Stadium_PreBattleRoom_Eventscript_IntroScene
 	map_script_2 VAR_PETALBURG_CITY_STATE, 32, VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB1Scene
