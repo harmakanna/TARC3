@@ -334,7 +334,7 @@ const struct TrainerClass gTrainerClasses[TRAINER_CLASS_COUNT] =
     [TRAINER_CLASS_KINDLER] = { _("KINDLER"), 8 },
     [TRAINER_CLASS_CAMPER] = { _("CAMPER"), 4 },
     [TRAINER_CLASS_PICNICKER] = { _("PICNICKER"), 4 },
-    [TRAINER_CLASS_BUG_MANIAC] = { _("BUG MANIAC"), 15 },
+    [TRAINER_CLASS_BUG_MANIAC] = { _("VR ARTIST"), 15 },
     [TRAINER_CLASS_PSYCHIC] = { _("PSYCHIC"), 6 },
     [TRAINER_CLASS_GENTLEMAN] = { _("GENTLEMAN"), 20, BALL_LUXURY },
     [TRAINER_CLASS_ELITE_FOUR] = { _("ELITE FOUR"), 25, BALL_ULTRA },
@@ -5461,8 +5461,10 @@ static void HandleEndTurn_RanFromBattle(void)
     }
     else if (CanPlayerForfeitNormalTrainerBattle())
     {
-        gBattlescriptCurrInstr = BattleScript_ForfeitBattleGaveMoney;
-        gBattleOutcome = B_OUTCOME_FORFEITED;
+        HandleEndTurn_BattleLost();
+        return;
+        //gBattlescriptCurrInstr = BattleScript_ForfeitBattleGaveMoney;
+        //gBattleOutcome = B_OUTCOME_FORFEITED;
     }
     else
     {

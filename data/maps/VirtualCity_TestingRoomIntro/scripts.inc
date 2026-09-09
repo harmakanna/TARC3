@@ -215,45 +215,26 @@ VirtualCity_TestingRoomIntro_Eventscript_Minh::
 	goto_if_unset FLAG_DARKANINE_BATTLE_1, VirtualCity_TestingRoomIntro_Eventscript_FirstBattle
 	goto_if_unset FLAG_DARKANINE_BATTLE_2, VirtualCity_TestingRoomIntro_Eventscript_SecondBattle
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_SubsequentBattleStart, Speaker_Minh, DIR_WEST
-	@trainerbattle_no_intro_no_whiteout TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE, VirtualCity_TestingRoomIntro_Text_SubsequentBattleEndWin, VirtualCity_TestingRoomIntro_Text_SubsequentBattleEndLose
-	specialvar VAR_RESULT, GetBattleOutcome
-
+VirtualCity_TestingRoomIntro_EventScript_MinhIntroBattle:
+	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE, 0, VirtualCity_TestingRoomIntro_Text_SubsequentBattleEndWin, VirtualCity_TestingRoomIntro_Text_SubsequentBattleEndLose
 	special HealPlayerParty
 	setspeaker Speaker_Minh
-
-VirtualCity_TestingRoomIntro_EventScript_AdjustDarkanine::
 	msgbox VirtualCity_TestingRoomIntro_Text_AdjustDarkanine, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine
     goto_if_eq VAR_RESULT, YES, VirtualCity_TestingRoomIntro_Eventscript_Minh
-	end
-
-VirtualCity_TestingRoomIntro_Eventscript_StatsIncorrect:
-	setspeaker Speaker_Minh
-	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_WrongAdjustment, Speaker_Minh, DIR_WEST
 	end
 
 VirtualCity_TestingRoomIntro_Eventscript_FirstBattle:
 	setflag FLAG_DARKANINE_BATTLE_1
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_FirstBattleStart, Speaker_Minh, DIR_WEST
-	
-	@@HALP
-	@trainerbattle_no_intro_no_whiteout TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE, VirtualCity_TestingRoomIntro_Text_FirstBattleEndWin, VirtualCity_TestingRoomIntro_Text_FirstBattleEndLose
-	
-
-	setspeaker Speaker_Minh
-	msgbox VirtualCity_TestingRoomIntro_Text_AdjustDarkanine, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine
-    goto_if_eq VAR_RESULT, YES, VirtualCity_TestingRoomIntro_Eventscript_Minh
+	goto VirtualCity_TestingRoomIntro_EventScript_MinhIntroBattle
 	end
+
 
 VirtualCity_TestingRoomIntro_Eventscript_SecondBattle:
 	setflag FLAG_DARKANINE_BATTLE_2
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_SecondBattleStart, Speaker_Minh, DIR_WEST
-	@trainerbattle_no_intro_no_whiteout TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE, VirtualCity_TestingRoomIntro_Text_SecondBattleEndWin, VirtualCity_TestingRoomIntro_Text_SecondBattleEndLose
-	setspeaker Speaker_Minh
-	msgbox VirtualCity_TestingRoomIntro_Text_AdjustDarkanine, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine
-    goto_if_eq VAR_RESULT, YES, VirtualCity_TestingRoomIntro_Eventscript_Minh
+	goto VirtualCity_TestingRoomIntro_EventScript_MinhIntroBattle
 	end
 
 EventScript_End:
@@ -261,7 +242,7 @@ EventScript_End:
 
 VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine:
 	msgbox VirtualCity_TestingRoomIntro_Text_ConfirmDarkanine, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_EventScript_AdjustDarkanine
+	goto_if_eq VAR_RESULT, NO, VirtualCity_TestingRoomIntro_Eventscript_Minh
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_DarkanineConfirmed, Speaker_Minh, DIR_WEST
 	closemessage
 	delay 50

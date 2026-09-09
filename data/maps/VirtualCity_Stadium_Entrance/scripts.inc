@@ -13,6 +13,11 @@ VirtualCity_Stadium_Entrance_EventScript_Act_II_Harriet::
 	npc_speak Speaker_Harriet, VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet3
 	playse SE_SELECT
 	additem ITEM_SPELL_TAG, 1
+	setspeaker NULL
+	playfanfare MUS_OBTAIN_ITEM
+	message VirtualCity_Stadium_Entrance_Text_ReceivedCoupon
+	waitfanfare
+	delay 560
 	player_speak VirtualCity_Stadium_Entrance_Text_ActII_Intro_Sophie4
 	playse SE_SELECT
 	npc_speak Speaker_Harriet, VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet5
@@ -110,7 +115,8 @@ VirtualCity_Stadium_Entrance_Text_Receptionist4or5Pokemon::
 	.string "Ooh, honey, you sure you don't want\n"
 	.string "to enter with a full team of six?\p"
 	.string "There's a lot of tough trainers here,\n"
-	.string "you know! You sure?$"
+	.string "you know\p"
+	.string "You sure?$"
 
 VirtualCity_Stadium_Entrance_Text_ReceptionistStartTourney::
 	.string "Okay, honey, good luck!\n"
@@ -124,7 +130,8 @@ VirtualCity_Stadium_Entrance_EventScript_Harriet_Reexplains::
 	msgbox VirtualCity_Stadium_Entrance_Text_ActII_Intro_HarrietReexplains, MSGBOX_NPC
 	end
 
-
+VirtualCity_Stadium_Entrance_Text_ReceivedCoupon:
+	.string "You received a BETTER Coupon!$"
 
 
 
@@ -135,7 +142,7 @@ VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet1::
 	.string "Hey Sophie!\p"
 	.string "So, I've been scoping it out. There's\n"
 	.string "three tiers of competition here.\p"
-	.string "All VGC rules - bring six, use four.\p"
+	.string "Bring six, use four.\p"
 	.string "There's the Silver rank, where mostly\n"
 	.string "amateurs fight for fun.\p"
 	.string "There's the Gold rank, for rich folks\n"
@@ -146,12 +153,14 @@ VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet1::
 	.string "Unreleased Pokemon, hacked stats, you\n"
 	.string "know the drill.\p"
 	.string "Byron, the champ, is in Platinum, and\n"
-	.string "loves, uh, pwning noobs. So if you can\l"
-	.string "somehow get Platinum, he'll fight you.\p"
+	.string "loves…{PAUSE 30} Uh…\p"
+	.string "Pwning noobs.\p"
+	.string "So if you can somehow get Platinum,\n"
+	.string "he'll fight you.\p"
 	.string "And Ernest reckons they can use his\n"
 	.string "hacked Pokemon as a backdoor to his ID.\p"
-	.string "But Sophie, CAN you climb the ranks\n"
-	.string "without the stupid mons they'll have?$"
+	.string "Sophie.\pCAN you climb the ranks without the\n"
+	.string "stupid mons they'll have?$"
 
 VirtualCity_Stadium_Entrance_Text_ActII_Intro_Sophie2::
 	.string "Don't worry.\p"
@@ -161,11 +170,13 @@ VirtualCity_Stadium_Entrance_Text_ActII_Intro_Sophie2::
 	.string "can make them stronger each battle.$"
 
 VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet3::
-	.string "If you say so. Well, anyway, you'll\n"
-	.string "need at least four Pokemon to enter.\p"
+	.string "If you say so.\p"
+	.string "Well, anyway, you'll need at least\n"
+	.string "four Pokemon to enter.\p"
 	.string "There's a lot of folks around who need\n"
-	.string "help with something - see if any of\l"
-	.string "them have dupes you can borrow.\p"
+	.string "help with something!\p"
+	.string "See if any of them have dupes\n"
+	.string "you can borrow.\p"
 	.string "And, um, take this.$"
 
 VirtualCity_Stadium_Entrance_Text_ActII_Intro_Sophie4::
@@ -173,9 +184,11 @@ VirtualCity_Stadium_Entrance_Text_ActII_Intro_Sophie4::
 	.string "No, I can't-$"
 
 VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet5::
-	.string "Hush! Not a word. You're the one\n"
+	.string "Hush!\p"
+	.string "Not a word.\p"
+	.string "You're the one who's going\n"
 	.string "who's going to be at risk!\p"
-	.string "We all chipped in, and this is\n"
+	.string "We all chipped in. This is\n"
 	.string "the least we can do.\p"
 	.string "Get to the third floor of the store\n"
 	.string "and make yourself a team!$"
@@ -196,23 +209,20 @@ VirtualCity_Stadium_Entrance_EventScript_Contentment::
 	goto_if_set FLAG_CONTENTMENT_QUEST_MOVE_USED, VirtualCity_Stadium_Entrance_EventScript_ContentmentComplete
 	goto_if_set FLAG_CONTENTMENT_QUEST_STARTED, VirtualCity_Stadium_Entrance_EventScript_ContentmentRepeat
 
-	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart1, MSGBOX_NPC
-	setspeaker SP_NAME_PLAYER
-	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart2, MSGBOX_DEFAULT
+	npc_speak NULL, VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart1
 	playse SE_SELECT
-	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart3, MSGBOX_DEFAULT
+	player_speak VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart2
 	playse SE_SELECT
-	setspeaker SP_NAME_PLAYER
-	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart4, MSGBOX_DEFAULT
+	npc_speak NULL, VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart3
 	playse SE_SELECT
-	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart5, MSGBOX_DEFAULT
+	player_speak VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart4
 	playse SE_SELECT
-	setspeaker SP_NAME_PLAYER
-	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart6, MSGBOX_DEFAULT
+	npc_speak NULL, VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart5
 	playse SE_SELECT
-	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart7, MSGBOX_DEFAULT
+	player_speak VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart6
 	playse SE_SELECT
-	closemessage
+	npc_speak NULL, VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart7
+
 	startquest QUEST_CONTENTMENT
 	setflag FLAG_CONTENTMENT_QUEST_STARTED
 	givemon SPECIES_TOXAPEX, 50, nature=NATURE_CALM, gender=MON_FEMALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_TOXIC, move2=MOVE_SCALD, move3=MOVE_ICY_WIND, move4=MOVE_CELEBRATE, otName=OT_Contentment
@@ -220,14 +230,14 @@ VirtualCity_Stadium_Entrance_EventScript_Contentment::
 
 VirtualCity_Stadium_Entrance_EventScript_ContentmentRepeat::
 	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestRepeat, MSGBOX_NPC
-	closemessage
 	end
 
 VirtualCity_Stadium_Entrance_EventScript_ContentmentComplete::
-	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestComplete, MSGBOX_NPC
+	lock
+	player_speak VirtualCity_Stadium_Entrance_Text_ContentmentQuestSophieComplete
+	npc_speak NULL, VirtualCity_Stadium_Entrance_Text_ContentmentQuestComplete
 	completequest QUEST_CONTENTMENT
 	setflag FLAG_CONTENTMENT_QUEST_COMPLETE
-	closemessage
 	end
 
 VirtualCity_Stadium_Entrance_EventScript_ContentmentCompleteRepeat::
@@ -269,7 +279,7 @@ VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart5::
 	.string "{FONT_SMALL}As long as you battle with it quarterly.$"
 
 VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart6::
-	.string "I- I guess I'm interested.$"	
+	.string "I-{PAUSE 20} I guess I'm interested.$"	
 
 VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart7::
 	.string "Wonderful! If you'll just sign here…\p"
@@ -282,17 +292,20 @@ VirtualCity_Stadium_Entrance_Text_ContentmentQuestRepeat::
 	.string "What are you waiting for?\n"
 	.string "Shareholders won't wait forever!$"
 
+VirtualCity_Stadium_Entrance_Text_ContentmentQuestSophieComplete::
+	.string "Hi, I celebrated with Toxapex…$"
 
 VirtualCity_Stadium_Entrance_Text_ContentmentQuestComplete::
 	.string "Um, hi. Good news and bad news.\p"
 	.string "The good news is that the ad reached\n"
 	.string "a lot of eyes.\p"
-	.string "The bad news is that people started\n"
-	.string "questioning why conTENTment would\l"
-	.string "represent themselves with a Toxapex.\p"
+	.string "The bad news?\p"
+	.string "People started questioning why we'd\n"
+	.string "represent ourselves with a Toxapex.\p"
 	.string "So, well done, and keep the Pokemon,\n"
-	.string "but please never do that again.\p"
-	.string "It could really damage the brand.$"
+	.string "but please…\p"
+	.string "{COLOR RED}Never do that again.\p"
+	.string "{COLOR DARK_GRAY}It could really damage the brand.$"
 
 
 VirtualCity_Stadium_Entrance_Text_ContentmentQuestCompleteRepeat::

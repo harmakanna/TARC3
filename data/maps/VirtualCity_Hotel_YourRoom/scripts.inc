@@ -21,8 +21,8 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution::
 	speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk1Minh, Speaker_Minh, DIR_NORTH
 	playse SE_SELECT
 	speak LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk2Ernest, Speaker_Ernest, DIR_EAST
-	playse SE_SELECT
-	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk3Harriet, Speaker_Harriet, DIR_WEST
+	@playse SE_SELECT
+	@speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk3Harriet, Speaker_Harriet, DIR_WEST
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
 	waitmovement 0
@@ -39,8 +39,8 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution::
 	waitmovement 0
 	waitse
 	delay 50
-	speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk5Minh, Speaker_Minh, DIR_NORTH
-	playse SE_SELECT
+	@speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk5Minh, Speaker_Minh, DIR_NORTH
+	@playse SE_SELECT
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk6Harriet, Speaker_Harriet, DIR_NORTH
 	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk7Sophie, SP_NAME_PLAYER, DIR_SOUTH
@@ -140,6 +140,7 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution::
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk24Harriet, Speaker_Harriet, DIR_WEST
 	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk25Sophie, SP_NAME_PLAYER, DIR_WEST
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
 	playse SE_SELECT
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ResolutionTalk26Harriet, Speaker_Harriet, DIR_WEST
 	closemessage
@@ -238,11 +239,14 @@ VirtualCity_Hotel_YourRoom_Text_ResolutionTalk1Minh::
 	.string "and no one else knows.$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk2Ernest::
-	.string "You two work on VR Pokemon - you can\n"
-	.string "see the signs that we can't.\p"
-	.string "But what can we even do?$"
+	.string "Okay, sure.\p"
+	.string "You two work on VR Pokemon.\p"
+	.string "You can see the signs Harriet and I,\n"
+	.string "and others, can't.\p"
+	.string "But what can we even DO about it?\p"
 
-VirtualCity_Hotel_YourRoom_Text_ResolutionTalk3Harriet::
+@Making it so Harriet doesn't continue the dialogue, as it's one single thought.
+@VirtualCity_Hotel_YourRoom_Text_ResolutionTalk3Harriet::
 	.string "{COLOR GREEN}BETTER{COLOR DARK_GRAY} will just censor us, or worse,\n"
 	.string "if we try to tell people.$"
 
@@ -255,39 +259,40 @@ VirtualCity_Hotel_YourRoom_Text_ResolutionTalk5Minh::
 	.string "Sophie! Let's think about this!$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk6Harriet::
-	.string "Sophie, even you wouldn't want a\n" 
-	.string "repeat of the Rare Candy incident…$"
+	.string "Sophie! Let's think about this!\p"
+	.string "You wouldn't want a repeat of the\n" 
+	.string "Rare Candy incident…$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk7Sophie::
 	.string "It's not going to be like that.\n" 
 	.string "We'll do it right.$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk8Sophie::
-	.string "We can't fight the corpo -\n" 
-	.string "they're just too powerful.$" 
+	.string "We can't fight the corpo.{PAUSE 50}\n" 
+	.string "They're just too powerful.$" 
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk9Sophie::
-	.string "We can't boycott them -\n" 
-	.string "they're everywhere.$" 
+	.string "We can't boycott them.{PAUSE 50}\n" 
+	.string "They're everywhere.$" 
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk10Sophie::
 	.string "We can't save any real Pokemon\n" 
 	.string "that might be out there.$" 
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk11Sophie::
-	.string "But maybe we can do something.\n"
+	.string "But maybe we can do something.{PAUSE 30}\n"
 	.string "Something small.\p"
-	.string "If we can just… expose this scam,\n"
+	.string "If we can just… {PAUSE 30}EXPOSE this scam…{PAUSE 30}\n"
 	.string "maybe people will stop buying them.\p"
-	.string "And maybe… people will demand to know\n"
+	.string "And maybe… {PAUSE 30}people will demand to know\n"
 	.string "what's really going on.$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk12Ernest::
-	.string "But… how?\n"
-	.string "It would have to be anonymous…\p"
-	.string "Where could we put a message that\n"
-	.string "everyone could see, that couldn't be\l"
-	.string "traced back to us?$"
+	.string "But how?\p"
+	.string "We would have to be anonymou-$"
+	@.string "Where could we put a message that\n"
+	@.string "everyone could see, that couldn't be\l"
+	@.string "traced back to us?$"
 
 @@ BING!
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk12pt5Message::
@@ -297,46 +302,49 @@ VirtualCity_Hotel_YourRoom_Text_ResolutionTalk12pt5Message::
 	.string "{COLOR BLUE}AVAILABLE FOR A LIMITED TIME!$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk13Minh::
-	.string "No way.$"
+	.string "No way. Can we?$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk14Harriet::
 	.string "The Rotom Phone messaging system?$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk15Sophie::
-	.string "Ernest, can it be done?$"
+	.string "Ernest, can we use it?$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk16Ernest::
 	.string "…\p"
-	.string "You want… to hack the Rotom phone?\n"
-	.string "To warn the public… about fakes?\p"
-	.string "It's… it's risky. And illegal.\n"
-	.string "But it might be… possible.$"
+	.string "You want to HACK the Rotom phone.\p"
+	.string "To warn the public about fakes.\p"
+	.string "It's…{PAUSE 50}it's risky. And illegal.\p"
+	.string "But it might be possible.$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk17Harriet::
 	.string "…\p"
-	.string "We'd need one of the execs' cards or\n"
+	.string "We'd need an executive's ID card or\n"
 	.string "credentials to access the system.$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk18Ernest::
-	.string "And then you'd need to impersonate…\n"
-	.string "the exec to get into the tower.$"
+	.string "And then you'd need to impersonate…{PAUSE 30}\n"
+	.string "this exec…{PAUSE 30} to get into the tower.$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk19Minh::
-	.string "Harriet, isn't that cheater exec still\n"
-	.string "the {COLOR GREEN}BETTER{COLOR DARK_GRAY} Champion?$"
+	.string "Harriet, isn't that one cheater exec\n"
+	.string "still the {COLOR GREEN}BETTER{COLOR DARK_GRAY} Champion?$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk20Harriet::
-	.string "Uh, yeah… no one's ever been able to\n"
+	.string "Uh, yeah…\p"
+	.string "No one's ever been able to\n"
 	.string "cheat hard enough to beat him.$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk21Sophie::
-	.string "That'll be our exec, then!\n"
-	.string "I'll get his ID when I battle him.$"
+	.string "That'll be our executive, then!\p"
+	.string "I'll battle my way up to him and\n"
+	.string "snag his ID when we duke it out!$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk22Ernest::
-	.string "She's in one of those moods again…\p"
-	.string "Oh well, I've always wanted to hack into\n"
-	.string "something wildly dangerous.$"
+	.string "… … …\p"
+	.string "She's in one of THOSE moods again…\p"
+	.string "Sure! Why not!\p"
+	.string "I'll play along.$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk23Minh::
 	.string "I like this plan…\p"
@@ -345,9 +353,7 @@ VirtualCity_Hotel_YourRoom_Text_ResolutionTalk23Minh::
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk24Harriet::
 	.string "Which leaves me to scout out your\n"
-	.string "opponents. I can handle that.\p"
-	.string "And you'll do the battling. None of us\n"
-	.string "know the meta like you do, Sophie.$"
+	.string "opponents!$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk25Sophie::
 	.string "I can beat him.\p"
@@ -355,8 +361,8 @@ VirtualCity_Hotel_YourRoom_Text_ResolutionTalk25Sophie::
 	.string "adapt to him. No one else can do that.$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk26Harriet::
-	.string "That's the spirit. Go get ready,\n"
-	.string "and meet me at the Stadium.\p"
+	.string "That's the spirit! Go get ready,\n"
+	.string "then meet me at the Stadium.\p"
 	.string "Let's do this, everyone!$"
 
 

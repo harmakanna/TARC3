@@ -655,6 +655,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk29Sophie::
 
 OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_ActII_Opening::
 	clearflag FLAG_SYS_PREVENT_MAP_FADE
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
 	special SpawnCameraObject
 	applymovement LOCALID_CAMERA, Common_Movement_WalkLeft
 	waitmovement 0
@@ -673,7 +674,9 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_ActII_Opening::
 
 	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Move_ActIII_Opening1
 	waitmovement 0
-	
+	applymovement LOCALID_A2_ERNEST, Common_Movement_FaceUp
+	applymovement LOCALID_A2_HARRIET, Common_Movement_FaceUp
+	applymovement LOCALID_A2_MINH, Common_Movement_FaceUp
 
 	addobject LOCALID_SNUBBULLS_BALL
 	delay 10
@@ -691,6 +694,9 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_ActII_Opening::
 	waitmoncry
 	delay 20
 
+	applymovement LOCALID_A2_MINH, Common_Movement_FaceDown
+	applymovement LOCALID_A2_ERNEST, Common_Movement_FaceRight
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
 	speak LOCALID_A2_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_HarrietActIIIntro6, Speaker_Harriet, DIR_NORTH
 	playse SE_SELECT
 	speak LOCALID_A2_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_HarrietActIIIntro7, Speaker_Harriet, DIR_NORTH
@@ -701,7 +707,10 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_ActII_Opening::
 
 	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro10, SP_NAME_PLAYER, DIR_SOUTH
-	playse SE_SELECT
+	closemessage
+	applymovement LOCALID_A2_MINH, Common_Movement_FaceUp
+	waitmovement 0
+	delay 100
 	speak LOCALID_A2_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Text_MinhActIIIntro11, Speaker_Minh, DIR_SOUTH
 	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro12, SP_NAME_PLAYER, DIR_SOUTH
@@ -753,13 +762,13 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_HarrietActIIIntro4::
 OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro5::
 	.string "When Lola showed us her Snubbull, Minh\n"
 	.string "and I both noticed something wrong.\p"
-	.string "So we did some digging… and…$"
+	.string "So we did some digging…{PAUSE 40}and…$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_HarrietActIIIntro6::
 	.string "What? You got one? How did you afford…$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_HarrietActIIIntro7::
-	.string "Aaaah! What is… Why is it unfinished?!$"
+	.string "AAAAH!\pWhat is…\n…{PAUSE 50}Why is it unfinished?!$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_MinhActIIIntro8::
 	.string "Because it's not real. {COLOR GREEN}BETTER{COLOR DARK_GRAY} has a way\n"
@@ -771,16 +780,16 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_ErnestActIIIntro9::
 	.string "a real flesh-and-blood Pokemon?$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro10::
-	.string "Yeah. And Minh and I are going to do\n"
+	.string "Yeah.\pMinh and I are going to do\n"
 	.string "something about it.$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_MinhActIIIntro11::
-	.string "What Sophie means is that she wanted\n"
+	.string "What Sophie MEANS is that she wanted\n"
 	.string "to go in guns blazing.\p"
 	.string "I managed to convince her that you two\n"
 	.string "would want to help.\p"
-	.string "(And help me stop her from doing\n"
-	.string "something really dangerous.)$"
+	.string "…{PAUSE 30}And help me stop her from doing\n"
+	.string "something really dangerous.$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro12::
 	.string "We can't talk here, Lola's gonna be back\n"

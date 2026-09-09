@@ -26,15 +26,27 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_IntroScene::
 	applymovement LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Move_HarrietEnters
 	delay 30
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
+	waitmovement LOCALID_HARRIET_PREBATTLE
+	applymovement OBJ_EVENT_ID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Move_SophieWalksUp
 	waitmovement 0
 	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro1, Speaker_Harriet, DIR_SOUTH
+	playse SE_SELECT
+	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_FaceLeft
+	msgbox VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro1_2, MSGBOX_DEFAULT
+	playse SE_SELECT
+	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_FaceRight
+	msgbox VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro1_3, MSGBOX_DEFAULT
 	closemessage
+	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_FaceDown
 	delay 30
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Eventscript_SophieIntro2, SP_NAME_PLAYER, DIR_NORTH
+	playse SE_SELECT
 	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro3, Speaker_Harriet, DIR_SOUTH
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Eventscript_SophieIntro4, SP_NAME_PLAYER, DIR_NORTH
+	playse SE_SELECT
 	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro5, Speaker_Harriet, DIR_SOUTH
-	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro6, Speaker_Harriet, DIR_SOUTH
+	@speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro6, Speaker_Harriet, DIR_SOUTH
 	closemessage
 	call EventScript_AddRandomMod
 	setflag FLAG_ACT_II_MOD_INSTALLED
@@ -52,19 +64,26 @@ VirtualCity_Stadium_PreBattleRoom_Move_HarrietEnters:
 	face_down
 	step_end
 
+VirtualCity_Stadium_PreBattleRoom_Move_SophieWalksUp:
+	walk_up
+	walk_up
+	walk_left
+	walk_up
+	step_end
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro0:
-	.string "Nice, we have the place to ourselves.$"
+	.string "Nice, we have the place to ourselves!$"
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro1:
-	.string "So, I signed myself up as your coach.\p"
-	.string "I'll scope out your opponents, try to\n"
-	.string "give you an edge.\p"
-	.string "I know you like modding your Pokemon;\n"
-	.string "You'll probably only have time for\l"
-	.string "one mod after each battle, though.\p"
-	.string "If you need to remove mods for better\n"
-	.string "ones, you can do it at that PC there.\p"
+	.string "So, I signed myself up as your coach\n"
+	.string "to scope out your opponents.\p"
+	.string "I know you like modding your Pokemon.\p"
+	.string "You'll probably only have time for\n"
+	.string "one mod after each battle, though.$"
+VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro1_2:
+	.string "If you gotta remove mods for better\n"
+	.string "ones, you can do it at that PC there.$"
+VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro1_3:
 	.string "And behind me is the door to the arena.$"
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_SophieIntro2:
@@ -72,8 +91,8 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_SophieIntro2:
 	.string "What do you know about my first fight?$"
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro3:
-	.string "I know you'll crush it!\n"
-	.string "(And if you don't you can just try again)\p"
+	.string "I know you'll crush it!\p"
+	.string "(And if you don't,\nyou can just try again)\p"
 	.string "(actuallyyoukeepyourrankevenifyou\n"
 	.string "losesojusthavefunandhumiliateByron)$"
 
@@ -83,7 +102,8 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_SophieIntro4:
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro5:
 	.string "Nothing! Anyway, your first opponent…\p"
 	.string "This guy doesn't have anything scary.\n"
-	.string "Looks like he loves weak starters?$"
+	.string "Looks like he loves weak starters?\p"
+	.string "Anyway, get to modding!$"
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro6:
 	.string "Anyway, get to modding!$"
@@ -97,7 +117,51 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod::
 	setflag FLAG_ACT_II_MOD_INSTALLED
 	return
 
+VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietAreYouReady::
+	lockall
+	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_WalkInPlaceRight
+	speak LOCALID_HARRIET_PREBATTLE2, VirtualCity_Stadium_PreBattleRoom_Text_HarrietAreYouReady, Speaker_Harriet, DIR_EAST, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, VirtualCity_Stadium_PreBattleRoom_EventScript_HarrietNoWorries
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietGoGetEm, MSGBOX_DEFAULT
+	closemessage
+	delay 10
+	opendoor 4, 1
+	waitdooranim
+	delay 10
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_SetInvisible
+	waitmovement 0
+	delay 10
+	closedoor 4, 1
+	waitdooranim
+	fadescreen FADE_TO_BLACK
+	setflag FLAG_SYS_PREVENT_MAP_FADE
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_ARENA, 4, 12
+	waitstate
+	end
 
+VirtualCity_Stadium_PreBattleRoom_EventScript_HarrietNoWorries::
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietNoWorries, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_FaceDown
+	applymovement LOCALID_HARRIET_PREBATTLE2, Common_Movement_FaceDown
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	waitmovement 0
+	releaseall
+	end
+
+VirtualCity_Stadium_PreBattleRoom_Text_HarrietAreYouReady:
+	.string "You ready to go?$"
+
+VirtualCity_Stadium_PreBattleRoom_Text_HarrietNoWorries:
+	.string "No worries!\p"
+	.string "Step up once you feel good and\n"
+	.string "ready!$"
+
+VirtualCity_Stadium_PreBattleRoom_Text_HarrietGoGetEm:
+	.string "Alright!\p Choose your team and\n"
+	.string "go get 'em, Soph!$"
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietWellDone:
 	.string "Well done!$"
@@ -751,6 +815,7 @@ VirtualCity_Stadium_PreBattleRoom_Text_ErnestTaught:
 VirtualCity_Stadium_PreBattleRoom_EventScript_PC::
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_PC, MSGBOX_YESNO
     goto_if_eq VAR_RESULT, YES, VirtualCity_Stadium_PreBattleRoom_EventScript_PCRemoveMods
+	closemessage
 	end
 
 VirtualCity_Stadium_PreBattleRoom_EventScript_PCRemoveMods::
