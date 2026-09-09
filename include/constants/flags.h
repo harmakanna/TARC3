@@ -71,8 +71,8 @@
 #define FLAG_SPOKE_TO_RESEARCHER_5    0x31 // Unused Flag
 #define FLAG_SPOKE_TO_RESEARCHER_6    0x32 // Unused Flag
 #define FLAG_SET_RESEARCH_FLOOR       0x33 // Unused Flag
-#define FLAG_ACT_II_WON_RANDO5    0x34 // Unused Flag
-#define FLAG_ACT_II_WON_SILVA_BULLET    0x35 // Unused Flag
+#define FLAG_ACT_II_WON_RANDO3    0x34 // Unused Flag
+#define FLAG_ACT_II_WON_BRODUDE    0x35 // Unused Flag
 #define FLAG_ACT_II_WON_EARL_GRAY    0x36 // Unused Flag
 #define FLAG_UNUSED_0x037    0x37 // Unused Flag
 #define FLAG_UNUSED_0x038    0x38 // Unused Flag

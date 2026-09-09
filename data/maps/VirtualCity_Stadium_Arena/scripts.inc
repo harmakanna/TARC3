@@ -33,8 +33,9 @@ VirtualCity_Stadium_Arena_EventScript_SetUpObjects::
 
 @ Add audience members to supplement the permanent object event audience
 VirtualCity_Stadium_Arena_EventScript_AddAudience::
-	call_if_set FLAG_ACT_II_WON_RANDO5, VirtualCity_Stadium_Arena_SetVarE1
-	call_if_set FLAG_ACT_II_WON_SILVA_BULLET, VirtualCity_Stadium_Arena_SetVarE2
+	setvar VAR_TEMP_E, 0
+	call_if_set FLAG_ACT_II_WON_RANDO3, VirtualCity_Stadium_Arena_SetVarE1
+	call_if_set FLAG_ACT_II_WON_BRODUDE, VirtualCity_Stadium_Arena_SetVarE2
 	call_if_set FLAG_ACT_II_WON_EARL_GRAY, VirtualCity_Stadium_Arena_SetVarE3
 	call VirtualCity_Stadium_Arena_EventScript_AddRound1Audience
 	call_if_eq VAR_TEMP_E, 1, VirtualCity_Stadium_Arena_EventScript_AddRound2Audience
@@ -111,7 +112,7 @@ VirtualCity_Stadium_Arena_EventScript_AddFinalAudience::
 	createvobject OBJ_EVENT_GFX_STEVEN, 1, 3, 0
 	createvobject OBJ_EVENT_GFX_RED, 2, 15, 0
 	createvobject OBJ_EVENT_GFX_PIKACHU, 3, 5, 0
-	createvobject OBJ_EVENT_GFX_EXPERT_F, 4, 6, 0
+	createvobject OBJ_EVENT_GFX_KECLEON, 4, 6, 0
 	createvobject OBJ_EVENT_GFX_SCIENTIST_2, 5, 7, 0
 	createvobject OBJ_EVENT_GFX_BRAWLY, 6, 8, 0
 	createvobject OBJ_EVENT_GFX_QUINTY_PLUMP, 7, 9, 0
@@ -126,7 +127,7 @@ VirtualCity_Stadium_Arena_EventScript_AddFinalAudience::
 	createvobject OBJ_EVENT_GFX_RED, 17, 4, 1
 	createvobject OBJ_EVENT_GFX_KECLEON, 18, 3, 2
 	createvobject OBJ_EVENT_GFX_LATIAS, 35, 7, 1
-	createvobject OBJ_EVENT_GFX_EXPERT_F, 20, 9, 1
+	createvobject OBJ_EVENT_GFX_UNUSED_PORYGON2_DOLL, 35, 9, 1
 	createvobject OBJ_EVENT_GFX_KIRLIA, 21, 10, 1
 	createvobject OBJ_EVENT_GFX_MR_BRINEYS_BOAT, 22, 11, 1
 	createvobject OBJ_EVENT_GFX_MAXIE, 23, 13, 1
@@ -363,6 +364,8 @@ VirtualCity_Stadium_Arena_Eventscript_Rando3Fight::
     special LoadPlayerParty
 	special HealPlayerParty
 
+	setflag FLAG_ACT_II_WON_RANDO3
+
 	call VirtualCity_Stadium_Arena_EventScript_WonMatch
 
 	applymovement LOCALID_RANDO3, VirtualCity_Stadium_Arena_Move_CommonLeaveArenaSlow
@@ -425,7 +428,6 @@ VirtualCity_Stadium_Arena_Eventscript_Rando5Fight::
     special CallFrontierUtilFunc
     special LoadPlayerParty
 	special HealPlayerParty
-
 	call VirtualCity_Stadium_Arena_EventScript_WonMatch
 
 	applymovement LOCALID_RANDO5, VirtualCity_Stadium_Arena_Move_CommonLeaveArena
@@ -480,6 +482,7 @@ VirtualCity_Stadium_Arena_Eventscript_BrodudeFight::
     special CallFrontierUtilFunc
     special LoadPlayerParty
 	special HealPlayerParty
+	setflag FLAG_ACT_II_WON_BRODUDE
 
 	call VirtualCity_Stadium_Arena_EventScript_WonMatch
 
@@ -574,6 +577,7 @@ VirtualCity_Stadium_Arena_Eventscript_EarlGreyFight::
     special LoadPlayerParty
 	special HealPlayerParty
 
+	setflag FLAG_ACT_II_WON_EARL_GRAY
 	call VirtualCity_Stadium_Arena_EventScript_WonMatch
 
 	applymovement LOCALID_EARLGREY, VirtualCity_Stadium_Arena_Move_CommonLeaveArenaSlow
