@@ -1189,10 +1189,10 @@ const u8 gText_QuestComplete[] =_("complete");
 const u8 gText_QuestActive[] =_("active");
 
 //names
-const u8 gText_SideQuestName_1[] = _("Side Quest 1");
-const u8 gText_SideQuestName_2[] = _("Side Quest 2");
-const u8 gText_SideQuestName_3[] = _("Side Quest 3");
-const u8 gText_SideQuestName_4[] = _("Side Quest 4");
+const u8 gText_SideQuestName_Prologue[] = _("Prologue");
+const u8 gText_SideQuestName_ActI[] = _("Act I");
+const u8 gText_SideQuestName_ActII[] = _("Act II");
+const u8 gText_SideQuestName_ActIII[] = _("Act III");
 const u8 gText_SideQuestName_5[] = _("Side Quest 5");
 const u8 gText_SideQuestName_6[] = _("Side Quest 6");
 const u8 gText_SideQuestName_7[] = _("Side Quest 7");
@@ -1221,10 +1221,10 @@ const u8 gText_SideQuestName_29[] = _("Side Quest 29");
 const u8 gText_SideQuestName_30[] = _("Side Quest 30");
 
 //descriptions
-const u8 gText_SideQuestDesc_1[] = _("Description 1");
-const u8 gText_SideQuestDesc_2[] = _("Description 2");
-const u8 gText_SideQuestDesc_3[] = _("Description 3");
-const u8 gText_SideQuestDesc_4[] = _("Description 4");
+const u8 gText_SideQuestDesc_Prologue[] = _("Hurry up and balance Darkanine so\nyou can go home and see a real Pokemon!");
+const u8 gText_SideQuestDesc_ActI[] = _("It can't be true… But you won't\nknow until you find some hard evidence.");
+const u8 gText_SideQuestDesc_ActII[] = _("Crush the cheating exec! Oh right,\nwe need his credentials for the hack too.");
+const u8 gText_SideQuestDesc_ActIII[] = _("Climb the Tower while disguised,\nand let the Place know about the fakes!");
 const u8 gText_SideQuestDesc_5[] = _("Description 5");
 const u8 gText_SideQuestDesc_6[] = _("Description 6");
 const u8 gText_SideQuestDesc_7[] = _("Description 7");
@@ -1253,10 +1253,10 @@ const u8 gText_SideQuestDesc_29[] = _("Description 29");
 const u8 gText_SideQuestDesc_30[] = _("Description 30");
 
 //completed quest description
-const u8 gText_SideQuestDoneDesc_1[] = _("Completed Quest 1");
-const u8 gText_SideQuestDoneDesc_2[] = _("Completed Quest 2");
-const u8 gText_SideQuestDoneDesc_3[] = _("Completed Quest 3");
-const u8 gText_SideQuestDoneDesc_4[] = _("Completed Quest 4");
+const u8 gText_SideQuestDoneDesc_Prologue[] = _("It wasn't real.\nAnd Lola doesn't know.");
+const u8 gText_SideQuestDoneDesc_ActI[] = _("A half-finished Ponyta, just\nstanding in your living room.");
+const u8 gText_SideQuestDoneDesc_ActII[] = _("Got him. Both his pride and\nhis credentials.");
+const u8 gText_SideQuestDoneDesc_ActIII[] = _("Now everyone knows what's happening.\nWill they take action?");
 const u8 gText_SideQuestDoneDesc_5[] = _("Completed Quest 5");
 const u8 gText_SideQuestDoneDesc_6[] = _("Completed Quest 6");
 const u8 gText_SideQuestDoneDesc_7[] = _("Completed Quest 7");
@@ -1285,10 +1285,10 @@ const u8 gText_SideQuestDoneDesc_29[] = _("Completed Quest 29");
 const u8 gText_SideQuestDoneDesc_30[] = _("Completed Quest 30");
 
 //map
-const u8 gText_SideQuestMap1[] = _("Map 1");
-const u8 gText_SideQuestMap2[] = _("Map 2");
-const u8 gText_SideQuestMap3[] = _("Map 3");
-const u8 gText_SideQuestMap4[] = _("Map 4");
+const u8 gText_SideQuestMapPrologue[] = _("Sophie and Lola's Apt");
+const u8 gText_SideQuestMapActI[] = _("BETTER Office Tower");
+const u8 gText_SideQuestMapActII[] = _("BETTER Stadium");
+const u8 gText_SideQuestMapActIII[] = _("BETTER Office Tower");
 const u8 gText_SideQuestMap5[] = _("Map 5");
 const u8 gText_SideQuestMap6[] = _("Map 6");
 const u8 gText_SideQuestMap7[] = _("Map 7");

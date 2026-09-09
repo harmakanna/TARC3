@@ -4065,8 +4065,8 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
     [SPECIES_PASSIMIAN] =
     {
         .baseHP        = 100,
-        .baseAttack    = 120,
-        .baseDefense   = 90,
+        .baseAttack    = 140,
+        .baseDefense   = 110,
         .baseSpeed     = 80,
         .baseSpAttack  = 40,
         .baseSpDefense = 60,
@@ -4088,8 +4088,8 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .height = 20,
         .weight = 828,
         .description = COMPOUND_STRING(
-            "They battle with hard berries for weapons.\n"
-            "They form groups of about 20 individuals.\n"
+            "Sportsman Set (12/19)\n"
+            "Boosted Attack and Def, New Move\n"
             "Their techniques are passed from the boss\n"
             "to the group, generation upon generation."),
         .pokemonScale = 261,

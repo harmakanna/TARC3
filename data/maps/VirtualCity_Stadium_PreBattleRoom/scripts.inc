@@ -5,9 +5,9 @@ VirtualCity_Stadium_PreBattleRoom_MapScripts::
 VirtualCity_Stadium_PreBattleRoom_OnFrame::
 	map_script_2 VAR_PETALBURG_CITY_STATE, 22, VirtualCity_Stadium_PreBattleRoom_Eventscript_IntroScene
 	map_script_2 VAR_PETALBURG_CITY_STATE, 32, VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB1Scene
-	map_script_2 VAR_PETALBURG_CITY_STATE, 33, VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2Scene
-	map_script_2 VAR_PETALBURG_CITY_STATE, 34, VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB3Scene
-	map_script_2 VAR_PETALBURG_CITY_STATE, 35, VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronHackSuccess
+	map_script_2 VAR_PETALBURG_CITY_STATE, 34, VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2Scene
+	map_script_2 VAR_PETALBURG_CITY_STATE, 36, VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB3Scene
+	map_script_2 VAR_PETALBURG_CITY_STATE, 38, VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronHackSuccess
 	.2byte 0
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_IntroScene::
@@ -382,8 +382,8 @@ VirtualCity_Stadium_PreBattleRoom_Text_SophieBattleXBroDude2:
 	.string "…oh. Oh no.$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXBroDude3:
-	.string "Oh yeah. Looks like a standard CoolBro\p"
-	.string "Dark spam team coming up.\n"
+	.string "Oh yeah. Looks like a standard CoolBro\n"
+	.string "Dark spam team coming up.\p"
 	.string "The guy's actual username is BroDude69.\n"
 	.string "Hope you've got a resist!$"
 
@@ -410,7 +410,7 @@ VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXWvddie3:
 VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXSilvaBullet1:
 	.string "Remember how I said all the cheaters\n"
 	.string "were ranked in Platinum?\p"
-	.string "Turns out one of them is so bad at it\p"
+	.string "Turns out one of them is so bad at it\n"
 	.string "that they're in Gold.$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_SophieBattleXSilvaBullet2:
@@ -428,7 +428,7 @@ VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXSilvaBullet3:
 VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXEarlGrey1:
 	.string "Well, your next fight is against a guy\n"
 	.string "who calls himself Earl Grey.\p"
-	.string "You remember the Teatime pack? It came\p"
+	.string "You remember the Teatime pack? It came\n"
 	.string "out a few years ago.$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_SophieBattleXEarlGrey2:
@@ -461,6 +461,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB1Scene::
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle1XByron0, MSGBOX_NPC
 	closemessage
 	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
+	setvar VAR_PETALBURG_CITY_STATE, 33
 	end
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2Scene::
@@ -486,6 +487,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2Scene::
 	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2WinXByron9, MSGBOX_NPC	
 	closemessage
+	setvar VAR_PETALBURG_CITY_STATE, 35
 	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
 
@@ -510,6 +512,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2SceneLose::
 	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2LoseXByron9, MSGBOX_NPC	
 	closemessage
+	setvar VAR_PETALBURG_CITY_STATE, 35
 	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
 
@@ -529,6 +532,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB3Scene::
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle3XByron6, MSGBOX_NPC
 	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle3XByron7, MSGBOX_NPC
+	setvar VAR_PETALBURG_CITY_STATE, 37
 	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
 
@@ -543,6 +547,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronHackSuccess::
 	setspeaker Speaker_Ernest
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestHackSuccess4, MSGBOX_NPC
 	clearflag FLAG_ACT_II_HIDE_HOTEL_FRIENDS
+	setvar VAR_PETALBURG_CITY_STATE, 39
 	warpsilent MAP_VIRTUAL_CITY_HOTEL_YOUR_ROOM, 12,9
 	waitstate
 	end

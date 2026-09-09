@@ -123,6 +123,7 @@ VirtualCity_Superstore_3F_EventScript_Idol_BuyPassimian::
 	removeitem ITEM_SPELL_TAG, 1
 	goto_if_eq VAR_RESULT, NO, VirtualCity_Superstore_3F_EventScript_Idol_CantAfford
 	setflag FLAG_BOUGHT_PASSIMIAN
+	givemon SPECIES_PASSIMIAN, 50, nature=NATURE_JOLLY, abilityNum=1, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_PYRO_BALL, move2=MOVE_CLOSE_COMBAT, move3=MOVE_U_TURN, move4=MOVE_BULLDOZE, otName=OT_SoPhi99
 	goto VirtualCity_Superstore_3F_ShopkeepIdol_ReceivePassimian
 	@add pass details TOFOLD
 	end
@@ -140,6 +141,7 @@ VirtualCity_Superstore_3F_EventScript_Idol_BuySableye::
 	removeitem ITEM_SPELL_TAG, 1
 	goto_if_eq VAR_RESULT, NO, VirtualCity_Superstore_3F_EventScript_Idol_CantAfford
 	setflag FLAG_BOUGHT_SABLEYE
+	givemon SPECIES_SABLEYE, 50, nature=NATURE_CAREFUL, abilityNum=1, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_FOUL_PLAY, move2=MOVE_NIGHT_SHADE, move3=MOVE_PAIN_SPLIT, move4=MOVE_FAKE_OUT, otName=OT_SoPhi99
 	goto VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSableye
 	@add pass details TOFOLD
 	end
@@ -158,6 +160,8 @@ VirtualCity_Superstore_3F_EventScript_Idol_BuyElectrode::
 	removeitem ITEM_SPELL_TAG, 1
 	goto_if_eq VAR_RESULT, NO, VirtualCity_Superstore_3F_EventScript_Idol_CantAfford
 	setflag FLAG_BOUGHT_ELECTRODE
+	givemon SPECIES_ELECTRODE, 50, nature=NATURE_IMPISH, abilityNum=1, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_VOLT_SWITCH, move2=MOVE_THUNDER_WAVE, move3=MOVE_TORMENT, move4=MOVE_EXPLOSION, otName=OT_SoPhi99
+	msgbox VirtualCity_Superstore_3F_Text_EnjoyIt, MSGBOX_NPC
 	goto VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveElectrode
 	@add pass details TOFOLD
 	end
@@ -176,6 +180,7 @@ VirtualCity_Superstore_3F_EventScript_Idol_BuySnover::
 	removeitem ITEM_SPELL_TAG, 1
 	goto_if_eq VAR_RESULT, NO, VirtualCity_Superstore_3F_EventScript_Idol_CantAfford
 	setflag FLAG_BOUGHT_SNOVER
+	givemon SPECIES_SNOVER, 50, nature=NATURE_QUIET, abilityNum=1, gender=MON_MALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_BLIZZARD, move2=MOVE_GIGA_DRAIN, move3=MOVE_LEECH_SEED, move4=MOVE_WORRY_SEED, otName=OT_SoPhi99
 	goto VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSnover
 	@add pass details TOFOLD
 	end
@@ -194,6 +199,7 @@ VirtualCity_Superstore_3F_EventScript_Idol_BuySolrock::
 	removeitem ITEM_SPELL_TAG, 1
 	goto_if_eq VAR_RESULT, NO, VirtualCity_Superstore_3F_EventScript_Idol_CantAfford
 	setflag FLAG_BOUGHT_SOLROCK
+	givemon SPECIES_SOLROCK, 50, nature=NATURE_IMPISH, abilityNum=1, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_METEOR_MASH, move2=MOVE_ROCK_TOMB, move3=MOVE_MORNING_SUN, move4=MOVE_GRAVITY, otName=OT_SoPhi99
 	goto VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSolrock
 	@add pass details TOFOLD
 	end

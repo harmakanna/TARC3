@@ -82,5 +82,102 @@
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 7,
+      "y": 14,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VirtualCity_Work_YourOffice_Eventscript_Poster1"
+    },
+    {
+      "type": "sign",
+      "x": 12,
+      "y": 14,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VirtualCity_Work_YourOffice_Eventscript_Poster2"
+    },
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 15,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VirtualCity_Work_YourOffice_Eventscript_RolandBook"
+    },
+    {
+      "type": "sign",
+      "x": 14,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VirtualCity_Work_YourOffice_Eventscript_YourDesk"
+    },
+    {
+      "type": "sign",
+      "x": 14,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VirtualCity_Work_YourOffice_Eventscript_MinhDesk"
+    },
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VirtualCity_Work_YourOffice_Eventscript_MinhBook"
+    },
+    {
+      "type": "sign",
+      "x": 15,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VirtualCity_Work_YourOffice_Eventscript_YourBook"
+    },
+    {
+      "type": "sign",
+      "x": 14,
+      "y": 15,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VirtualCity_Work_YourOffice_Eventscript_RolandDesk"
+    },
+    {
+      "type": "sign",
+      "x": 13,
+      "y": 15,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VirtualCity_Work_YourOffice_Eventscript_RolandDesk"
+    },
+    {
+      "type": "sign",
+      "x": 13,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VirtualCity_Work_YourOffice_Eventscript_MinhDesk"
+    },
+    {
+      "type": "sign",
+      "x": 13,
+      "y": 21,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VirtualCity_Work_YourOffice_Eventscript_YourDesk"
+    },
+    {
+      "type": "sign",
+      "x": 3,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VirtualCity_Work_YourOffice_Eventscript_BossDesk"
+    }
+  ]
 }
