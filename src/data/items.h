@@ -9121,8 +9121,6 @@ const struct ItemInfo gItemsInfo[] =
     {
         .name = ITEM_NAME("BETTER Coupon"),
         .price = TYPE_BOOSTING_PRICE,
-        .holdEffect = HOLD_EFFECT_TYPE_POWER,
-        .holdEffectParam = TYPE_BOOST_PARAM,
         .description = COMPOUND_STRING(
             "Can be redeemed for\n"
             "a Pokemon at the\n"
@@ -9131,7 +9129,6 @@ const struct ItemInfo gItemsInfo[] =
         .sortType = ITEM_TYPE_TYPE_BOOST_HELD_ITEM,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
-        .secondaryId = TYPE_GHOST,
         .flingPower = 30,
         .iconPic = gItemIcon_SpellTag,
         .iconPalette = gItemIconPalette_SpellTag,

@@ -13,6 +13,11 @@ VirtualCity_Stadium_Entrance_EventScript_Act_II_Harriet::
 	npc_speak Speaker_Harriet, VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet3
 	playse SE_SELECT
 	additem ITEM_SPELL_TAG, 1
+	setspeaker NULL
+	playfanfare MUS_OBTAIN_ITEM
+	message VirtualCity_Stadium_Entrance_Text_ReceivedCoupon
+	waitfanfare
+	delay 560
 	player_speak VirtualCity_Stadium_Entrance_Text_ActII_Intro_Sophie4
 	playse SE_SELECT
 	npc_speak Speaker_Harriet, VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet5
@@ -125,7 +130,8 @@ VirtualCity_Stadium_Entrance_EventScript_Harriet_Reexplains::
 	msgbox VirtualCity_Stadium_Entrance_Text_ActII_Intro_HarrietReexplains, MSGBOX_NPC
 	end
 
-
+VirtualCity_Stadium_Entrance_Text_ReceivedCoupon:
+	.string "You received a BETTER Coupon!$"
 
 
 
