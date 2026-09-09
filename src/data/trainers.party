@@ -108,7 +108,6 @@ AI: Basic Trainer
 Combee (F) @ Eviolite  
 Ability: Hustle  
 Level: 50  
-Tera Type: Bug  
 EVs: 252 Atk / 4 SpA / 252 Spe  
 Hasty Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -120,7 +119,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Comfey (F) @ Big Root  
 Ability: Flower Veil  
 Level: 50  
-Tera Type: Fairy  
 EVs: 4 HP / 252 SpA / 252 Spe  
 Timid Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -143,7 +141,6 @@ AI: Check Bad Move
 Inteleon (M) @ Choice Scarf  
 Ability: Sniper  
 Level: 50  
-Tera Type: Water  
 EVs: 252 HP / 252 Spe  
 Timid Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -155,7 +152,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Bayleef (M) @ Eviolite  
 Ability: Overgrow  
 Level: 50  
-Tera Type: Grass  
 EVs: 252 HP / 252 Def  
 Adamant Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -167,7 +163,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Treecko (F) @ Focus Sash  
 Ability: Overgrow  
 Level: 50  
-Tera Type: Grass  
 EVs: 248 HP / 248 Spe  
 Hasty Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -179,7 +174,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Eevee (M) @ Custap Berry  
 Ability: Adaptability  
 Level: 50  
-Tera Type: Normal  
 EVs: 252 HP / 252 Atk  
 Naughty Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -202,7 +196,6 @@ AI: Check Bad Move
 Torkoal (F) @ Heat Rock  
 Ability: Drought  
 Level: 50  
-Tera Type: Fire  
 EVs: 252 HP / 252 Def / 4 SpA  
 Modest Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -214,7 +207,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Braixen (F) @ Choice Scarf  
 Ability: Blaze  
 Level: 50  
-Tera Type: Fire  
 EVs: 248 Def / 248 SpA / 8 Spe  
 Bold Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -226,7 +218,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Rufflet @ Life Orb  
 Ability: Keen Eye  
 Level: 50  
-Tera Type: Normal  
 EVs: 252 Atk / 252 Spe  
 Jolly Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -238,7 +229,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Crustle (M) @ Leftovers  
 Ability: Anger Shell  
 Level: 50  
-Tera Type: Rock  
 EVs: 252 HP / 4 Atk / 252 SpD  
 Brave Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -261,7 +251,6 @@ AI: Check Bad Move
 Luvdisc (F) @ Iapapa Berry  
 Ability: Swift Swim  
 Level: 50  
-Tera Type: Water  
 EVs: 252 HP / 4 SpA / 252 Spe  
 Timid Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -273,7 +262,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Cutiefly @ Mental Herb  
 Ability: Honey Gather  
 Level: 50  
-Tera Type: Bug  
 EVs: 252 HP / 4 Atk / 252 Spe  
 Hasty Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -285,7 +273,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Snom @ Focus Sash  
 Ability: Shield Dust  
 Level: 50  
-Tera Type: Ice  
 EVs: 252 HP / 4 Atk / 252 Def  
 Relaxed Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -297,7 +284,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Teddiursa @ Leftovers  
 Ability: Quick Feet  
 Level: 50  
-Tera Type: Normal  
 EVs: 252 HP / 4 Atk / 252 SpD  
 Careful Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -320,7 +306,6 @@ AI: Check Bad Move
 Tyrogue @ Eviolite  
 Ability: Guts  
 Level: 50  
-Tera Type: Fighting  
 EVs: 252 HP / 252 Def  
 Impish Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -332,7 +317,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Hitmontop @ Assault Vest  
 Ability: Intimidate  
 Level: 50  
-Tera Type: Fighting  
 EVs: 248 Atk / 248 SpD / 8 Spe  
 Adamant Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -344,7 +328,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Hitmonchan @ Salac Berry  
 Ability: Iron Fist  
 Level: 50  
-Tera Type: Fighting  
 EVs: 252 HP / 252 Atk / 4 Spe  
 Jolly Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -356,7 +339,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Hitmonlee @ Aguav Berry  
 Ability: Unburden  
 Level: 50  
-Tera Type: Fighting  
 EVs: 4 HP / 252 Atk / 252 Spe  
 Jolly Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -379,7 +361,6 @@ AI: Check Bad Move
 Incineroar (M) @ Sitrus Berry  
 Ability: Intimidate  
 Level: 50  
-Tera Type: Fire  
 EVs: 252 HP / 252 Atk / 4 SpD  
 Adamant Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -391,7 +372,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Clawitzer (F) @ Choice Specs  
 Ability: Mega Launcher  
 Level: 50  
-Tera Type: Water  
 EVs: 252 HP / 252 SpA / 4 SpD  
 Modest Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -403,7 +383,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Trevenant @ Sitrus Berry 
 Ability: Harvest  
 Level: 50  
-Tera Type: Grass  
 EVs: 4 HP / 252 Atk / 252 Spe  
 Jolly Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -415,7 +394,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Seviper @ Leftovers  
 Ability: Shed Skin  
 Level: 50  
-Tera Type: Poison  
 EVs: 252 HP / 4 Atk / 252 SpD  
 Careful Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -438,7 +416,6 @@ AI: Basic Trainer
 Sableye (M) @ Sablenite  
 Ability: Prankster  
 Level: 50  
-Tera Type: Dark  
 EVs: 252 HP / 252 Def / 4 SpD  
 Impish Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -450,7 +427,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Absol (M) @ Black Glasses  
 Ability: Super Luck  
 Level: 50  
-Tera Type: Dark  
 EVs: 252 Atk / 252 Spe  
 Jolly Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -461,8 +437,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Krookodile (M) @ Black Glasses  
 Ability: Intimidate  
-Level: 50  
-Tera Type: Ground  
+Level: 50   
 EVs: 4 HP / 252 Atk / 252 Spe  
 Jolly Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -474,7 +449,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Hydreigon (M) @ Black Glasses  
 Ability: Levitate  
 Level: 50  
-Tera Type: Dark  
 EVs: 252 Atk / 252 SpA / 4 Spe  
 Mild Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -496,7 +470,6 @@ AI: Basic Trainer
 Eiscue @ Sitrus Berry  
 Ability: Ice Face  
 Level: 50  
-Tera Type: Ice  
 EVs: 4 HP / 252 Atk / 252 Spe  
 Adamant Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -507,8 +480,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Electrode @ Rocky Helmet  
 Ability: Static  
-Level: 50  
-Tera Type: Electric  
+Level: 50   
 EVs: 4 HP / 252 Def / 252 SpD  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
 - Thunderbolt  
@@ -519,7 +491,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Sylveon @ Throat Spray  
 Ability: Pixilate  
 Level: 50  
-Tera Type: Fairy  
 EVs: 116 HP / 140 SpA / 252 Spe  
 Modest Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -531,7 +502,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Blissey @ Focus Sash  
 Ability: Serene Grace  
 Level: 50  
-Tera Type: Normal  
 EVs: 252 SpA / 252 SpD / 4 Spe  
 Modest Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -587,7 +557,6 @@ AI: Basic Trainer
 Dratini @ Eviolite  
 Ability: Hospitality  
 Level: 50  
-Tera Type: Dragon  
 EVs: 252 HP / 4 Atk / 252 SpD  
 Careful Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -599,7 +568,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Victini @ Life Orb  
 Ability: Hospitality  
 Level: 50  
-Tera Type: Psychic  
 EVs: 248 HP / 8 Atk / 252 SpD  
 Sassy Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -611,7 +579,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Tyranitar @ Leftovers  
 Ability: Hospitality  
 Level: 50  
-Tera Type: Rock  
 EVs: 252 HP / 4 Atk / 252 Def  
 Impish Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -622,8 +589,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Xurkitree @ Magnet  
 Ability: Hospitality  
-Level: 50  
-Tera Type: Electric  
+Level: 50   
 EVs: 4 HP / 252 SpA / 252 Spe  
 Timid Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -700,7 +666,6 @@ AI: Check Bad Move
 Shedinja @ Metronome  
 Ability: Sturdy  
 Level: 50  
-Tera Type: Bug  
 EVs: 252 Atk / 252 Spe  
 Jolly Nature  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
@@ -712,15 +677,13 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Pidgey  
 Ability: Keen Eye  
 Level: 50  
-Tera Type: Normal  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
 - Peck  
 - Sand Attack  
 
 Zigzagoon  
 Ability: Pickup  
-Level: 50  
-Tera Type: Normal  
+Level: 50    
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
 - Tackle  
 - Growl  
@@ -728,7 +691,6 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Flabebé  
 Ability: Flower Veil  
 Level: 50  
-Tera Type: Fairy  
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
 - Charm  
 - Fairy Wind  
