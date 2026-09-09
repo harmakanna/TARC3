@@ -1,11 +1,16 @@
 VirtualCity_Stadium_Arena_MapScripts::
 	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, VirtualCity_Stadium_Arena_OnWarp
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, VirtualCity_Stadium_Arena_OnFrame
-	map_script MAP_SCRIPT_ON_RESUME, VirtualCity_Stadium_Arena_OnResume
+	@map_script MAP_SCRIPT_ON_RESUME, VirtualCity_Stadium_Arena_OnResume
+	map_script MAP_SCRIPT_ON_RETURN_TO_FIELD, VirtualCity_Stadium_Arena_OnReturn
 	.byte 0
 
+VirtualCity_Stadium_Arena_OnReturn:
+	call VirtualCity_Stadium_Arena_EventScript_AddAudience
+	end
+
 VirtualCity_Stadium_Arena_OnWarp:
-	map_script_2 VAR_TEMP_1, 0, VirtualCity_Stadium_Arena_EventScript_SetUpObjects
+	map_script_2 VAR_ALWAYS_ZERO, 0, VirtualCity_Stadium_Arena_EventScript_SetUpObjects
 	.2byte 0
 	
 VirtualCity_Stadium_Arena_OnFrame:
@@ -28,97 +33,111 @@ VirtualCity_Stadium_Arena_EventScript_SetUpObjects::
 
 @ Add audience members to supplement the permanent object event audience
 VirtualCity_Stadium_Arena_EventScript_AddAudience::
+	call_if_set FLAG_ACT_II_WON_RANDO5, VirtualCity_Stadium_Arena_SetVarE1
+	call_if_set FLAG_ACT_II_WON_SILVA_BULLET, VirtualCity_Stadium_Arena_SetVarE2
+	call_if_set FLAG_ACT_II_WON_EARL_GRAY, VirtualCity_Stadium_Arena_SetVarE3
 	call VirtualCity_Stadium_Arena_EventScript_AddRound1Audience
-	call_if_set FLAG_ACT_II_WON_RANDO5, VirtualCity_Stadium_Arena_EventScript_AddRound2Audience
-	call_if_set FLAG_ACT_II_WON_SILVA_BULLET, VirtualCity_Stadium_Arena_EventScript_AddSemifinalAudience
-	call_if_set FLAG_ACT_II_WON_EARL_GRAY, VirtualCity_Stadium_Arena_EventScript_AddFinalAudience
+	call_if_eq VAR_TEMP_E, 1, VirtualCity_Stadium_Arena_EventScript_AddRound2Audience
+	call_if_eq VAR_TEMP_E, 2, VirtualCity_Stadium_Arena_EventScript_AddSemifinalAudience
+	call_if_eq VAR_TEMP_E, 3, VirtualCity_Stadium_Arena_EventScript_AddFinalAudience
+	return
+
+VirtualCity_Stadium_Arena_SetVarE1::
+	setvar VAR_TEMP_E, 1
+	return
+
+VirtualCity_Stadium_Arena_SetVarE2::
+	setvar VAR_TEMP_E, 2
+	return
+	
+VirtualCity_Stadium_Arena_SetVarE3::
+	setvar VAR_TEMP_E, 3
 	return
 
 VirtualCity_Stadium_Arena_EventScript_AddRound1Audience::
-	createvobject OBJ_EVENT_GFX_CAMPER, 15, 8, 1
-	createvobject OBJ_EVENT_GFX_FAT_MAN, 31, 12, 1
-	createvobject OBJ_EVENT_GFX_EXPERT_M, 32, 16, 1
-	createvobject OBJ_EVENT_GFX_MAN_1, 33, 4, 2
-	createvobject OBJ_EVENT_GFX_TWIN, 34, 7, 2
-	createvobject OBJ_EVENT_GFX_BOY_1, 35, 9, 2
-	createvobject OBJ_EVENT_GFX_GIRL_1, 36, 10, 2
-	createvobject OBJ_EVENT_GFX_BOY_2, 37, 11, 2
-	createvobject OBJ_EVENT_GFX_GIRL_2, 1, 13, 2
-	createvobject OBJ_EVENT_GFX_WOMAN_3, 10, 14, 2
-	createvobject OBJ_EVENT_GFX_NINJA_BOY, 38, 16, 2
+	createvobject OBJ_EVENT_GFX_PIKACHU, 1, 8, 1
+	createvobject OBJ_EVENT_GFX_FAT_MAN, 4, 12, 1
+	createvobject OBJ_EVENT_GFX_JUAN, 7, 16, 1
+	createvobject OBJ_EVENT_GFX_ZIGZAGOON_1, 9, 4, 2
+	createvobject OBJ_EVENT_GFX_TWIN, 12, 7, 2
+	createvobject OBJ_EVENT_GFX_FOSSIL, 35, 9, 2
+	createvobject OBJ_EVENT_GFX_RED, 20, 10, 2
+	createvobject OBJ_EVENT_GFX_DEOXYS_TRIANGLE, 35, 13, 2
+	createvobject OBJ_EVENT_GFX_KIRLIA, 10, 14, 2
+	createvobject OBJ_EVENT_GFX_DUSCLOPS, 22, 15, 2
 	return
 
 VirtualCity_Stadium_Arena_EventScript_AddRound2Audience::
 	createvobject OBJ_EVENT_GFX_SCIENTIST_1, 1, 3, 0
-	createvobject OBJ_EVENT_GFX_EXPERT_F, 4, 6, 0
+	createvobject OBJ_EVENT_GFX_QUINTY_PLUMP, 4, 6, 0
 	createvobject OBJ_EVENT_GFX_NINJA_BOY, 6, 8, 0
-	createvobject OBJ_EVENT_GFX_LITTLE_GIRL, 9, 11, 0
-	createvobject OBJ_EVENT_GFX_SCIENTIST_1, 11, 13, 0
-	createvobject OBJ_EVENT_GFX_MAN_5, 13, 15, 0
-	createvobject OBJ_EVENT_GFX_BEAUTY, 19, 7, 1
-	createvobject OBJ_EVENT_GFX_WOMAN_5, 22, 11, 1
+	createvobject OBJ_EVENT_GFX_TWIN, 9, 11, 0
+	createvobject OBJ_EVENT_GFX_PIKACHU, 11, 13, 0
+	createvobject OBJ_EVENT_GFX_RED, 13, 15, 0
+	createvobject OBJ_EVENT_GFX_SWABLU_DOLL, 35, 7, 1
+	createvobject OBJ_EVENT_GFX_ZIGZAGOON_1, 22, 11, 1
 	createvobject OBJ_EVENT_GFX_LITTLE_BOY, 25, 15, 1
-	createvobject OBJ_EVENT_GFX_YOUNGSTER, 26, 2, 2
-	createvobject OBJ_EVENT_GFX_SCHOOL_KID_M, 29, 5, 1
+	createvobject OBJ_EVENT_GFX_EXPERT_M, 7, 5, 2
+	createvobject OBJ_EVENT_GFX_KIRLIA, 26, 2, 2
+	createvobject OBJ_EVENT_GFX_SUDOWOODO, 35, 5, 1
 	return
 
 VirtualCity_Stadium_Arena_EventScript_AddSemifinalAudience::
 	createvobject OBJ_EVENT_GFX_SCIENTIST_1, 1, 3, 0
-	createvobject OBJ_EVENT_GFX_EXPERT_F, 4, 6, 0
-	createvobject OBJ_EVENT_GFX_NINJA_BOY, 6, 8, 0
-	createvobject OBJ_EVENT_GFX_WOMAN_2, 7, 9, 0
+	createvobject OBJ_EVENT_GFX_PIKACHU, 4, 6, 0
+	createvobject OBJ_EVENT_GFX_FOSSIL, 35, 8, 0
+	createvobject OBJ_EVENT_GFX_KECLEON, 7, 9, 0
 	createvobject OBJ_EVENT_GFX_LITTLE_GIRL, 9, 11, 0
-	createvobject OBJ_EVENT_GFX_LASS, 10, 12, 0
+	createvobject OBJ_EVENT_GFX_FOSSIL, 35, 12, 0
 	createvobject OBJ_EVENT_GFX_SCIENTIST_1, 11, 13, 0
-	createvobject OBJ_EVENT_GFX_MAN_5, 13, 15, 0
-	createvobject OBJ_EVENT_GFX_GENTLEMAN, 15, 2, 1
-	createvobject OBJ_EVENT_GFX_NINJA_BOY, 16, 3, 1
+	createvobject OBJ_EVENT_GFX_PIKACHU, 13, 15, 0
+	createvobject OBJ_EVENT_GFX_QUINTY_PLUMP, 15, 2, 1
+	createvobject OBJ_EVENT_GFX_UNUSED_PORYGON2_DOLL, 35, 3, 1
 	createvobject OBJ_EVENT_GFX_WOMAN_2, 17, 4, 1
 	createvobject OBJ_EVENT_GFX_BEAUTY, 19, 7, 1
-	createvobject OBJ_EVENT_GFX_EXPERT_F, 20, 9, 1
+	createvobject OBJ_EVENT_GFX_DEOXYS_TRIANGLE, 35, 9, 1
 	createvobject OBJ_EVENT_GFX_WOMAN_5, 22, 11, 1
-	createvobject OBJ_EVENT_GFX_SCIENTIST_1, 23, 13, 1
-	createvobject OBJ_EVENT_GFX_LITTLE_BOY, 25, 15, 1
-	createvobject OBJ_EVENT_GFX_YOUNGSTER, 26, 2, 2
-	createvobject OBJ_EVENT_GFX_HEX_MANIAC, 28, 5, 2
-	createvobject OBJ_EVENT_GFX_SCHOOL_KID_M, 29, 5, 1
-	createvobject OBJ_EVENT_GFX_MART_EMPLOYEE, 30, 6, 2
-	createvobject OBJ_EVENT_GFX_WOMAN_5, 31, 8, 2
+	createvobject OBJ_EVENT_GFX_QUINTY_PLUMP, 23, 13, 1
+	createvobject OBJ_EVENT_GFX_RED, 25, 15, 1
+	createvobject OBJ_EVENT_GFX_RED, 26, 2, 2
+	createvobject OBJ_EVENT_GFX_MR_BRINEYS_BOAT, 29, 5, 1
+	createvobject OBJ_EVENT_GFX_PHOEBE, 30, 6, 2
+	createvobject OBJ_EVENT_GFX_WINGULL, 31, 8, 2
+	createvobject OBJ_EVENT_GFX_EXPERT_M, 7, 5, 2
 	return
 
 VirtualCity_Stadium_Arena_EventScript_AddFinalAudience::
-	createvobject OBJ_EVENT_GFX_NINJA_BOY, 0, 2, 0
-	createvobject OBJ_EVENT_GFX_SCIENTIST_1, 1, 3, 0
-	createvobject OBJ_EVENT_GFX_BEAUTY, 2, 15, 0
-	createvobject OBJ_EVENT_GFX_MAN_5, 3, 5, 0
+	createvobject OBJ_EVENT_GFX_AZURILL, 0, 2, 0
+	createvobject OBJ_EVENT_GFX_STEVEN, 1, 3, 0
+	createvobject OBJ_EVENT_GFX_RED, 2, 15, 0
+	createvobject OBJ_EVENT_GFX_PIKACHU, 3, 5, 0
 	createvobject OBJ_EVENT_GFX_EXPERT_F, 4, 6, 0
-	createvobject OBJ_EVENT_GFX_SCIENTIST_1, 5, 7, 0
-	createvobject OBJ_EVENT_GFX_NINJA_BOY, 6, 8, 0
-	createvobject OBJ_EVENT_GFX_WOMAN_2, 7, 9, 0
-	createvobject OBJ_EVENT_GFX_WOMAN_3, 8, 10, 0
-	createvobject OBJ_EVENT_GFX_LITTLE_GIRL, 9, 11, 0
-	createvobject OBJ_EVENT_GFX_LASS, 10, 12, 0
+	createvobject OBJ_EVENT_GFX_SCIENTIST_2, 5, 7, 0
+	createvobject OBJ_EVENT_GFX_BRAWLY, 6, 8, 0
+	createvobject OBJ_EVENT_GFX_QUINTY_PLUMP, 7, 9, 0
+	createvobject OBJ_EVENT_GFX_DUSCLOPS, 8, 10, 0
+	createvobject OBJ_EVENT_GFX_SS_TIDAL, 35, 11, 0
+	createvobject OBJ_EVENT_GFX_SUDOWOODO, 35, 12, 0
 	createvobject OBJ_EVENT_GFX_SCIENTIST_1, 11, 13, 0
-	createvobject OBJ_EVENT_GFX_BEAUTY, 12, 14, 0
-	createvobject OBJ_EVENT_GFX_MAN_5, 13, 15, 2
-	createvobject OBJ_EVENT_GFX_HIKER, 14, 12, 2
-	createvobject OBJ_EVENT_GFX_GENTLEMAN, 15, 2, 1
-	createvobject OBJ_EVENT_GFX_NINJA_BOY, 16, 3, 1
-	createvobject OBJ_EVENT_GFX_WOMAN_2, 17, 4, 1
-	createvobject OBJ_EVENT_GFX_WOMAN_3, 18, 6, 1
-	createvobject OBJ_EVENT_GFX_BEAUTY, 19, 7, 1
+	createvobject OBJ_EVENT_GFX_MR_BRINEYS_BOAT, 12, 14, 0
+	createvobject OBJ_EVENT_GFX_LATIOS, 35, 12, 2
+	createvobject OBJ_EVENT_GFX_ROXANNE, 15, 2, 1
+	createvobject OBJ_EVENT_GFX_WINGULL, 16, 3, 1
+	createvobject OBJ_EVENT_GFX_RED, 17, 4, 1
+	createvobject OBJ_EVENT_GFX_KECLEON, 18, 3, 2
+	createvobject OBJ_EVENT_GFX_LATIAS, 35, 7, 1
 	createvobject OBJ_EVENT_GFX_EXPERT_F, 20, 9, 1
-	createvobject OBJ_EVENT_GFX_MAN_2, 21, 10, 1
-	createvobject OBJ_EVENT_GFX_WOMAN_5, 22, 11, 1
-	createvobject OBJ_EVENT_GFX_SCIENTIST_1, 23, 13, 1
-	createvobject OBJ_EVENT_GFX_GENTLEMAN, 24, 14, 1
-	createvobject OBJ_EVENT_GFX_LITTLE_BOY, 25, 15, 1
-	createvobject OBJ_EVENT_GFX_YOUNGSTER, 26, 2, 2
-	createvobject OBJ_EVENT_GFX_FAT_MAN, 27, 3, 2
-	createvobject OBJ_EVENT_GFX_HEX_MANIAC, 28, 5, 2
-	createvobject OBJ_EVENT_GFX_SCHOOL_KID_M, 29, 5, 1
-	createvobject OBJ_EVENT_GFX_MART_EMPLOYEE, 30, 6, 2
-	createvobject OBJ_EVENT_GFX_WOMAN_5, 31, 8, 2
+	createvobject OBJ_EVENT_GFX_KIRLIA, 21, 10, 1
+	createvobject OBJ_EVENT_GFX_MR_BRINEYS_BOAT, 22, 11, 1
+	createvobject OBJ_EVENT_GFX_MAXIE, 23, 13, 1
+	createvobject OBJ_EVENT_GFX_HOOH, 24, 14, 1
+	createvobject OBJ_EVENT_GFX_SKITTY, 25, 15, 1
+	createvobject OBJ_EVENT_GFX_SUDOWOODO, 35, 2, 2
+	createvobject OBJ_EVENT_GFX_RAYQUAZA, 35, 3, 2
+	createvobject OBJ_EVENT_GFX_QUINTY_PLUMP, 29, 5, 1
+	createvobject OBJ_EVENT_GFX_FOSSIL, 35, 6, 2
+	createvobject OBJ_EVENT_GFX_AZURILL, 31, 8, 2
+	createvobject OBJ_EVENT_GFX_PIKACHU, 7, 5, 2
 	return
 
 VirtualCity_Stadium_Arena_EventScript_AudienceLookAround::
@@ -1122,91 +1141,3 @@ VirtualCity_Stadium_Arena_Text_AnnounceLoss:
 VirtualCity_Stadium_Arena_Text_AnnounceWin:
 	.string "AND THE WINNER IS…{PAUSE 50}\n"
 	.string "SOPHI99!$"
-
-
-VirtualCity_Stadium_Arena_EventScript_AddRound1AudienceAlt::
-	@createvobject OBJ_EVENT_GFX_PIKACHU, 15, 8, 1
-	createvobject OBJ_EVENT_GFX_FAT_MAN, 31, 12, 1
-	createvobject OBJ_EVENT_GFX_POKEFAN_M, 31, 16, 1
-	@createvobject OBJ_EVENT_GFX_ZIGZAGOON_1, 31, 4, 2
-	@createvobject OBJ_EVENT_GFX_MINH_VR, 31, 7, 2
-	createvobject OBJ_EVENT_GFX_CAMPER, 31, 9, 2
-	createvobject OBJ_EVENT_GFX_GENTLEMAN, 31, 10, 2
-	createvobject OBJ_EVENT_GFX_BOY_3, 31, 11, 2
-	@createvobject OBJ_EVENT_GFX_DUSCLOPS, 1, 13, 2
-	@createvobject OBJ_EVENT_GFX_OFFICER_F, 10, 14, 2
-	createvobject OBJ_EVENT_GFX_STEVEN, 31, 16, 2
-	return
-
-VirtualCity_Stadium_Arena_EventScript_AddRound2AudienceAlt::
-	createvobject OBJ_EVENT_GFX_WINGULL, 1, 3, 0
-	createvobject OBJ_EVENT_GFX_EXPERT_F, 4, 6, 0
-	createvobject OBJ_EVENT_GFX_WINGULL, 6, 8, 0
-	createvobject OBJ_EVENT_GFX_QUINTY_PLUMP, 9, 11, 0
-	createvobject OBJ_EVENT_GFX_JUAN, 11, 13, 0
-	createvobject OBJ_EVENT_GFX_RED, 13, 15, 0
-	createvobject OBJ_EVENT_GFX_BEAUTY, 19, 7, 1
-	createvobject OBJ_EVENT_GFX_SCOTT, 22, 11, 1
-	createvobject OBJ_EVENT_GFX_LITTLE_BOY, 25, 15, 1
-	createvobject OBJ_EVENT_GFX_YOUNGSTER, 26, 2, 2
-	createvobject OBJ_EVENT_GFX_SCHOOL_KID_M, 29, 5, 1
-	return
-
-VirtualCity_Stadium_Arena_EventScript_AddSemifinalAudienceAlt::
-	createvobject OBJ_EVENT_GFX_SCIENTIST_1, 1, 3, 0
-	createvobject OBJ_EVENT_GFX_EXPERT_F, 4, 6, 0
-	createvobject OBJ_EVENT_GFX_SKITTY, 6, 8, 0
-	createvobject OBJ_EVENT_GFX_WOMAN_2, 7, 9, 0
-	createvobject OBJ_EVENT_GFX_KIRLIA, 9, 11, 0
-	createvobject OBJ_EVENT_GFX_LASS, 10, 12, 0
-	createvobject OBJ_EVENT_GFX_SCIENTIST_2, 11, 13, 0
-	createvobject OBJ_EVENT_GFX_MAN_5, 13, 15, 0
-	createvobject OBJ_EVENT_GFX_NORMAN, 15, 2, 1
-	createvobject OBJ_EVENT_GFX_RED, 16, 3, 1
-	createvobject OBJ_EVENT_GFX_MR_BRINEYS_BOAT, 17, 4, 1
-	createvobject OBJ_EVENT_GFX_BEAUTY, 19, 7, 1
-	createvobject OBJ_EVENT_GFX_ARCHIE, 20, 9, 1
-	createvobject OBJ_EVENT_GFX_KYOGRE_FRONT, 22, 11, 1
-	createvobject OBJ_EVENT_GFX_SCIENTIST_1, 23, 13, 1
-	createvobject OBJ_EVENT_GFX_PIKACHU, 25, 15, 1
-	createvobject OBJ_EVENT_GFX_YOUNGSTER, 26, 2, 2
-	createvobject OBJ_EVENT_GFX_HEX_MANIAC, 28, 5, 2
-	createvobject OBJ_EVENT_GFX_SUDOWOODO, 29, 5, 1
-	createvobject OBJ_EVENT_GFX_MART_EMPLOYEE, 30, 6, 2
-	createvobject OBJ_EVENT_GFX_KIRLIA, 31, 8, 2
-	return
-
-VirtualCity_Stadium_Arena_EventScript_AddFinalAudienceAlt::
-	createvobject OBJ_EVENT_GFX_NINJA_BOY, 0, 2, 0
-	createvobject OBJ_EVENT_GFX_GROUDON_FRONT, 1, 3, 0
-	createvobject OBJ_EVENT_GFX_BEAUTY, 2, 15, 0
-	createvobject OBJ_EVENT_GFX_MAN_5, 3, 5, 0
-	createvobject OBJ_EVENT_GFX_EXPERT_F, 4, 6, 0
-	createvobject OBJ_EVENT_GFX_SCIENTIST_1, 5, 7, 0
-	createvobject OBJ_EVENT_GFX_QUINTY_PLUMP, 6, 8, 0
-	createvobject OBJ_EVENT_GFX_ANABEL, 7, 9, 0
-	createvobject OBJ_EVENT_GFX_DEOXYS_TRIANGLE, 8, 10, 0
-	createvobject OBJ_EVENT_GFX_LATIAS, 9, 11, 0
-	createvobject OBJ_EVENT_GFX_LASS, 10, 12, 0
-	createvobject OBJ_EVENT_GFX_LATIOS, 11, 13, 0
-	createvobject OBJ_EVENT_GFX_BEAUTY, 12, 14, 0
-	createvobject OBJ_EVENT_GFX_MAN_5, 13, 15, 2
-	createvobject OBJ_EVENT_GFX_HIKER, 14, 12, 2
-	createvobject OBJ_EVENT_GFX_FAIRY_TALE_GIRL, 15, 2, 1
-	createvobject OBJ_EVENT_GFX_NINJA_BOY, 16, 3, 1
-	createvobject OBJ_EVENT_GFX_MR_BRINEYS_BOAT, 17, 4, 1
-	createvobject OBJ_EVENT_GFX_WOMAN_3, 18, 6, 1
-	createvobject OBJ_EVENT_GFX_KUMATORA, 19, 7, 1
-	createvobject OBJ_EVENT_GFX_QUINTY_PLUMP, 20, 9, 1
-	createvobject OBJ_EVENT_GFX_HOOH, 21, 10, 1
-	createvobject OBJ_EVENT_GFX_WOMAN_5, 22, 11, 1
-	createvobject OBJ_EVENT_GFX_SCIENTIST_1, 23, 13, 1
-	createvobject OBJ_EVENT_GFX_BRAWLY, 24, 14, 1
-	createvobject OBJ_EVENT_GFX_FOSSIL, 25, 15, 1
-	createvobject OBJ_EVENT_GFX_OFFICER_F, 26, 2, 2
-	createvobject OBJ_EVENT_GFX_FAT_MAN, 27, 3, 2
-	createvobject OBJ_EVENT_GFX_WINGULL, 28, 5, 2
-	createvobject OBJ_EVENT_GFX_SCHOOL_KID_M, 29, 5, 1
-	createvobject OBJ_EVENT_GFX_SIDNEY, 30, 6, 2
-	createvobject OBJ_EVENT_GFX_PHOEBE, 31, 8, 2
-	return

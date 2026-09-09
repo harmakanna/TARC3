@@ -147,7 +147,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietAreYouReady::
 	waitdooranim
 	fadescreen FADE_TO_BLACK
 	setflag FLAG_SYS_PREVENT_MAP_FADE
-	warpsilent MAP_VIRTUAL_CITY_STADIUM_ARENA, 8, 5
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_ARENA, 9, 5
 	waitstate
 	end
 
