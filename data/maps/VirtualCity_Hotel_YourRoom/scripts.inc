@@ -4,7 +4,7 @@ VirtualCity_Hotel_YourRoom_MapScripts::
 
 VirtualCity_Hotel_YourRoom_OnFrame::
 	map_script_2 VAR_PETALBURG_CITY_STATE, 21, VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution
-	map_script_2 VAR_PETALBURG_CITY_STATE, 35, VirtualCity_Hotel_YourRoom_Eventscript_ActII_Ending
+	map_script_2 VAR_PETALBURG_CITY_STATE, 39, VirtualCity_Hotel_YourRoom_Eventscript_ActII_Ending
 	.2byte 0
 
 
@@ -412,7 +412,7 @@ VirtualCity_Hotel_YourRoom_Text_ActII_Ending2Ernest::
 	.string "still has to get to the control room.\p"
 	.string "I have a way to scramble your ID.\p"
 	.string "You'll look like Byron to the system,\n"
-	.string "And your sprite will be blurred.\p"
+	.string "And your skin will be blurred.\p"
 	.string "You'll have to enter the Place with\n"
 	.string "a different body.$"
 

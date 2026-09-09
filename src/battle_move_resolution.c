@@ -3009,6 +3009,10 @@ static enum MoveEndResult MoveEndUpdateLastMoves(struct BattleCalcValues *cv)
     }
 
     //TARC hack
+    if (GetOriginallyUsedMove(gChosenMove) == MOVE_CELEBRATE)
+    {
+        FlagSet(FLAG_CONTENTMENT_QUEST_MOVE_USED);
+    }
     if (GetOriginallyUsedMove(gChosenMove) == MOVE_OCTAZOOKA && TRAINER_BATTLE_PARAM.opponentA == TRAINER_BYRON3)
     {
         FlagSet(FLAG_HIT_BYRON_WITH_HACKED_MOVE);
