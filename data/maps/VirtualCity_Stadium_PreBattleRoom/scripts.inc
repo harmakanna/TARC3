@@ -1,6 +1,16 @@
 VirtualCity_Stadium_PreBattleRoom_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, VirtualCity_Stadium_PreBattleRoom_OnTransition
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, VirtualCity_Stadium_PreBattleRoom_OnFrame
 	.byte 0
+
+VirtualCity_Stadium_PreBattleRoom_OnTransition::
+	call_if_gt VAR_PETALBURG_CITY_STATE, 22, VirtualCity_Stadium_PreBattleRoom_EventScript_PositionHarrietPreBattle
+	end
+
+VirtualCity_Stadium_PreBattleRoom_EventScript_PositionHarrietPreBattle:
+	setobjectxyperm LOCALID_HARRIET_PREBATTLE, 3, 2
+	setobjectmovementtype LOCALID_HARRIET_PREBATTLE, MOVEMENT_TYPE_FACE_DOWN
+	return
 
 VirtualCity_Stadium_PreBattleRoom_OnFrame::
 	map_script_2 VAR_PETALBURG_CITY_STATE, 22, VirtualCity_Stadium_PreBattleRoom_Eventscript_IntroScene
@@ -14,9 +24,10 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_IntroScene::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
 	waitmovement 0
 	delay 30
-	playse SE_DOOR
+	playse SE_SLIDING_DOOR
 	addobject LOCALID_HARRIET_PREBATTLE
-	delay 20
+	waitse
+	delay 10
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
 	waitmovement 0
 	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro0, Speaker_Harriet, DIR_NORTH
@@ -36,9 +47,9 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_IntroScene::
 	playse SE_SELECT
 	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_FaceRight
 	msgbox VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro1_3, MSGBOX_DEFAULT
-	closemessage
+	@closemessage
 	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_FaceDown
-	delay 30
+	@delay 30
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Eventscript_SophieIntro2, SP_NAME_PLAYER, DIR_NORTH
 	playse SE_SELECT
 	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro3, Speaker_Harriet, DIR_SOUTH
@@ -119,8 +130,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod::
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietAreYouReady::
 	lockall
-	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_WalkInPlaceRight
-	speak LOCALID_HARRIET_PREBATTLE2, VirtualCity_Stadium_PreBattleRoom_Text_HarrietAreYouReady, Speaker_Harriet, DIR_EAST, MSGBOX_YESNO
+	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Text_HarrietAreYouReady, Speaker_Harriet, DIR_EAST, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, VirtualCity_Stadium_PreBattleRoom_EventScript_HarrietNoWorries
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietGoGetEm, MSGBOX_DEFAULT
 	closemessage
@@ -137,7 +147,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietAreYouReady::
 	waitdooranim
 	fadescreen FADE_TO_BLACK
 	setflag FLAG_SYS_PREVENT_MAP_FADE
-	warpsilent MAP_VIRTUAL_CITY_STADIUM_ARENA, 4, 12
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_ARENA, 8, 5
 	waitstate
 	end
 
@@ -145,7 +155,6 @@ VirtualCity_Stadium_PreBattleRoom_EventScript_HarrietNoWorries::
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietNoWorries, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_FaceDown
-	applymovement LOCALID_HARRIET_PREBATTLE2, Common_Movement_FaceDown
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
 	waitmovement 0
 	releaseall
@@ -160,7 +169,7 @@ VirtualCity_Stadium_PreBattleRoom_Text_HarrietNoWorries:
 	.string "ready!$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_HarrietGoGetEm:
-	.string "Alright!\p Choose your team and\n"
+	.string "Alright!\pChoose your team and\n"
 	.string "go get 'em, Soph!$"
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietWellDone:
