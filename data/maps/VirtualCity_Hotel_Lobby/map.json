@@ -143,7 +143,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "VirtualCity_HotelLobby_HotelElevatorPanel"
+      "script": "VirtualCity_HotelLobby_HotelAutoscanner"
     }
   ],
   "bg_events": [

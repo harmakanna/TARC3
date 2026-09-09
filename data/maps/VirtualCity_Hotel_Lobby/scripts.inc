@@ -64,7 +64,7 @@ VirtualCity_HotelLobby_EarlGrayReward::
 	
 VirtualCity_HotelLobby_EarlGray_ReceiveDrateani::
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_DRATINI
-	givemon SPECIES_DRATINI, 50
+	givemon SPECIES_DRATINI, 50, nature=NATURE_JOLLY, gender=MON_MALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1 = MOVE_SHED_TAIL, move2 = MOVE_EXTREMESPEED, move3 = MOVE_DRAGON_TAIL, move4 = MOVE_HAZE, otName=OT_EarlGrey
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, VirtualCity_HotelLobby_EarlGray_ReceiveDratiniParty
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, VirtualCity_HotelLobby_EarlGray_ReceiveDratiniPC
 	goto Common_EventScript_NoMoreRoomForPokemon
