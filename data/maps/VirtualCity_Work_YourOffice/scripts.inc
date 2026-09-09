@@ -179,7 +179,7 @@ VirtualCity_Work_YourOffice_Eventscript_MinhACTIOutro::
 	waitse
 	delay 60
 
-	playmoncry SPECIES_PONYTA, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_EXCADRILL, CRY_MODE_ENCOUNTER
 	waitmoncry
 	delay 20
 	
@@ -192,8 +192,8 @@ VirtualCity_Work_YourOffice_Eventscript_MinhACTIOutro::
 	speak LOCALID_YOUROFFICE_MINH, VirtualCity_Work_YourOffice_Text_MinhACTIOutro5, Speaker_Minh, DIR_WEST
 	closemessage
 	clearparty
-	givemon SPECIES_EXCADRILL, 50
-	givemon SPECIES_PONYTA, 50
+	givemon SPECIES_EXCADRILL, 50, nature=NATURE_JOLLY, abilityNum=1, gender=MON_MALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_EARTHQUAKE, move2=MOVE_ROCK_SLIDE, move3=MOVE_SWORDS_DANCE, move4=MOVE_PROTECT, nickname=Nickname_Ex, otName=OT_SoPhi99
+	givemon SPECIES_PONYTA, 50, nature=NATURE_NAIVE, abilityNum=1, gender=MON_FEMALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_FLARE_BLITZ, move2=MOVE_WILD_CHARGE, move3=MOVE_DRILL_RUN, move4=MOVE_PROTECT, otName=OT_Research
 	setvar VAR_PETALBURG_CITY_STATE, 20
 	setflag FLAG_ACT_I_COMPLETE
 	clearflag FLAG_HIDE_ACT_2_TEA_QUEST
@@ -278,3 +278,87 @@ VirtualCity_Work_YourOffice_Text_MinhACTIOutro5:
 
 
 
+VirtualCity_Work_YourOffice_Eventscript_Poster1::
+	msgbox VirtualCity_Work_YourOffice_Text_Poster1, MSGBOX_SIGN
+	end
+
+VirtualCity_Work_YourOffice_Eventscript_Poster2::
+	msgbox VirtualCity_Work_YourOffice_Text_Poster2, MSGBOX_SIGN
+	end
+
+VirtualCity_Work_YourOffice_Eventscript_RolandDesk::
+	msgbox VirtualCity_Work_YourOffice_Text_RolandDesk, MSGBOX_SIGN
+	end
+
+VirtualCity_Work_YourOffice_Eventscript_RolandBook::
+	msgbox VirtualCity_Work_YourOffice_Text_RolandBook, MSGBOX_SIGN
+	end
+
+VirtualCity_Work_YourOffice_Eventscript_YourDesk::
+	msgbox VirtualCity_Work_YourOffice_Text_YourDesk, MSGBOX_SIGN
+	end
+
+VirtualCity_Work_YourOffice_Eventscript_YourBook::
+	msgbox VirtualCity_Work_YourOffice_Text_YourBook, MSGBOX_SIGN
+	end
+
+VirtualCity_Work_YourOffice_Eventscript_MinhDesk::
+	msgbox VirtualCity_Work_YourOffice_Text_MinhDesk, MSGBOX_SIGN
+	end
+
+VirtualCity_Work_YourOffice_Eventscript_MinhBook::
+	msgbox VirtualCity_Work_YourOffice_Text_MinhBook, MSGBOX_SIGN
+	end
+
+VirtualCity_Work_YourOffice_Eventscript_BossDesk::
+	msgbox VirtualCity_Work_YourOffice_Text_BossDesk, MSGBOX_SIGN
+	end
+
+
+
+VirtualCity_Work_YourOffice_Text_Poster1::
+	.string "The {COLOR GREEN}BETTER{COLOR DARK_GRAY} Work Ethic:\p"
+	.string "The things we make don't have to be\n"
+	.string "just good; they have to be {COLOR GREEN}BETTER{COLOR DARK_GRAY}.$"
+
+VirtualCity_Work_YourOffice_Text_Poster2::
+	.string "NOTICE:\p"
+	.string "Design, especially Pokemon Design, is\n"
+	.string "{COLOR RED}highly{COLOR DARK_GRAY} confidential.\p"
+	.string "Do not reveal details of any unreleased\n"
+	.string "Pokemon to anyone outside this office.\p"
+	.string "If you see something, say something.$"
+
+
+VirtualCity_Work_YourOffice_Text_RolandDesk::
+	.string "Ugh, it's Roland's desk.\p"
+	.string "He's supposed to work on concepts, but\n"
+	.string "he spends most of his time whining.$"
+
+VirtualCity_Work_YourOffice_Text_RolandBook::
+	.string "It's a sketch of Littlest Eevee, the\n"
+	.string "best-selling Pokemon of all time.$"
+
+
+VirtualCity_Work_YourOffice_Text_YourDesk::
+	.string "Your desk is spotless, because\n"
+	.string "organizing is easy in the Place.$"
+
+VirtualCity_Work_YourOffice_Text_YourBook::
+	.string "A thick guidebook on types, abilities,\n"
+	.string "and everything Pokemon.$"
+
+
+VirtualCity_Work_YourOffice_Text_MinhDesk::
+	.string "Minh works here, and you can tell\n"
+	.string "because of all the doodles of himself.$"
+
+VirtualCity_Work_YourOffice_Text_MinhBook::
+	.string "Minh's got a book of art styles here.\n"
+	.string "Does he actually reference this?$"
+
+
+VirtualCity_Work_YourOffice_Text_BossDesk::
+	.string "As usual, the boss's computer is\n"
+	.string "running some game.\p"
+	.string "Looks like it's a factory sim today.$"

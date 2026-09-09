@@ -209,7 +209,7 @@ VirtualCity_TestingRoomIntro_Eventscript_Minh::
 
 	@clonefirstmon
 	givemon SPECIES_ARCANINE, 50, otName=OT_Design
-	givemon SPECIES_EXCADRILL, 50, nature=NATURE_JOLLY, gender=MON_MALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_EARTHQUAKE, move2=MOVE_ROCK_SLIDE, move3=MOVE_SWORDS_DANCE, move4=MOVE_PROTECT, nickname=Nickname_Ex, otName=OT_SoPhi99
+	givemon SPECIES_EXCADRILL, 50, nature=NATURE_JOLLY, abilityNum=1, gender=MON_MALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_EARTHQUAKE, move2=MOVE_ROCK_SLIDE, move3=MOVE_SWORDS_DANCE, move4=MOVE_PROTECT, nickname=Nickname_Ex, otName=OT_SoPhi99
 	givemon SPECIES_TOXAPEX, 50, move1=MOVE_CELEBRATE
 
 	goto_if_unset FLAG_DARKANINE_BATTLE_1, VirtualCity_TestingRoomIntro_Eventscript_FirstBattle
@@ -281,7 +281,7 @@ VirtualCity_TestingRoomIntro_EventScript_ConfirmDarkanine:
 
 
 	clearparty
-	givemon SPECIES_EXCADRILL, 50, nature=NATURE_JOLLY, gender=MON_MALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_EARTHQUAKE, move2=MOVE_ROCK_SLIDE, move3=MOVE_SWORDS_DANCE, move4=MOVE_PROTECT, nickname=Nickname_Ex, otName=OT_SoPhi99
+	givemon SPECIES_EXCADRILL, 50, nature=NATURE_JOLLY, abilityNum=1, gender=MON_MALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_EARTHQUAKE, move2=MOVE_ROCK_SLIDE, move3=MOVE_SWORDS_DANCE, move4=MOVE_PROTECT, nickname=Nickname_Ex, otName=OT_SoPhi99
 	exitvr_warp MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT_BEDROOM, 5, 2 @@@ exitvr JAMIEHELP
 	waitstate
 	end
@@ -398,8 +398,8 @@ VirtualCity_TestingRoomIntro_Text_Intro12:
 	.string "Hmph.\p"
 	.string "Anyways, work your magic on Darkanine,\n"
 	.string "and then we can run a simulator battle.\p"
-	.string "I got the meta's top three Pokemon you\n"
-	.string "wanted here, for the test battle.$"
+	.string "I got the other three Pokemon in the\n"
+	.string "Macabre set here, for the test battle.$"
 
 
 VirtualCity_TestingRoomIntro_Text_AdjustDarkanine:

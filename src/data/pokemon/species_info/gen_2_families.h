@@ -4999,8 +4999,8 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .height = 6,
         .weight = 78,
         .description = COMPOUND_STRING(
-            "By baring its fangs and making a scary\n"
-            "face, it sends smaller Pokémon scurrying\n"
+            "---VR AVATAR OF REAL POKEMON---\n"
+            "No special attributes.\n"
             "in terror. The Snubbull does seem a\n"
             "little sad at making its foes flee."),
         .pokemonScale = 465,

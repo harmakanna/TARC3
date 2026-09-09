@@ -6818,8 +6818,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .height = 16,
         .weight = 811,
         .description = COMPOUND_STRING(
-            "Bonds between these Pokémon are very\n"
-            "strong. It protects the safety of its\n"
+            "cool combo pokmon to surprise em\n"
+            "versatile bt not super tough\n"
             "pack by tricking its opponents. They\n"
             "defend their lair with illusory scenery."),
         .pokemonScale = 259,

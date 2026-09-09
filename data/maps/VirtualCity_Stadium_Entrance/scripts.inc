@@ -198,14 +198,21 @@ VirtualCity_Stadium_Entrance_EventScript_Contentment::
 
 	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart1, MSGBOX_NPC
 	setspeaker SP_NAME_PLAYER
-	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart2, MSGBOX_NPC
-	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart3, MSGBOX_NPC
+	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart2, MSGBOX_DEFAULT
+	playse SE_SELECT
+	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart3, MSGBOX_DEFAULT
+	playse SE_SELECT
 	setspeaker SP_NAME_PLAYER
-	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart4, MSGBOX_NPC
-	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart5, MSGBOX_NPC
+	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart4, MSGBOX_DEFAULT
+	playse SE_SELECT
+	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart5, MSGBOX_DEFAULT
+	playse SE_SELECT
 	setspeaker SP_NAME_PLAYER
-	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart6, MSGBOX_NPC
-	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart7, MSGBOX_NPC
+	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart6, MSGBOX_DEFAULT
+	playse SE_SELECT
+	msgbox VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart7, MSGBOX_DEFAULT
+	playse SE_SELECT
+	closemessage
 	startquest QUEST_CONTENTMENT
 	setflag FLAG_CONTENTMENT_QUEST_STARTED
 	givemon SPECIES_TOXAPEX, 50, nature=NATURE_CALM, gender=MON_FEMALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_TOXIC, move2=MOVE_SCALD, move3=MOVE_ICY_WIND, move4=MOVE_CELEBRATE, otName=OT_Contentment
@@ -267,7 +274,7 @@ VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart6::
 VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart7::
 	.string "Wonderful! If you'll just sign here…\p"
 	.string "…\p"
-	.string "Perfect. Now, use the move in a Stadium\p"
+	.string "Perfect. Now, use the move in a Stadium\n"
 	.string "battle, and come back when you're done!$"
 
 

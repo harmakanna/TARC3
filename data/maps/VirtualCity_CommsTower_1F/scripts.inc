@@ -387,9 +387,20 @@ VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuard::
 	goto_if_set FLAG_ACT_III_POINTOFNORETURN, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardFight
 	goto_if_set FLAG_ACT_II_STARTED, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardTrouble
 	goto_if_set FLAG_ACT_I_EX_PONYTA_OBTAINED, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardPonyta
-	npc_speak Speaker_Guard, VirtualCity_CommsTower_1F_Text_NoPokemonGuardStop
+	goto_if_set FLAG_ACT_I_STARTED, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardNoResearch
+	npc_speak Speaker_Guard, VirtualCity_CommsTower_1F_Text_NoPokemonGuardPreActI
 	closemessage
 	end
+
+VirtualCity_CommsTower_1F_Text_NoPokemonGuardPreActI:
+	.string "Hiya! The scanner's got you as Design.\n"
+	.string "Let me know if you want it changed!\p"
+	.string "Have a {COLOR GREEN}BETTER{COLOR DARK_GRAY} day!$"
+
+VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardNoResearch::
+	npc_speak Speaker_Guard, VirtualCity_CommsTower_1F_Text_NoPokemonGuardStop
+	end
+
 
 VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardTrouble::
 	setspeaker Speaker_Guard
