@@ -2899,7 +2899,7 @@ BattleScript_RivalBattleLostSkipMonRecall::
 	trainerslidein BS_ATTACKER
 	waitstate
 	printstring STRINGID_TRAINER1WINTEXT
-	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, 2, BattleScript_LocalBattleLostPrintWhiteOut
+	waitmessage B_WAIT_TIME_LONG
 	end2
 
 BattleScript_LocalBattleLost::
@@ -6229,13 +6229,7 @@ BattleScript_QuestionForfeitBattle::
 	endselectionscript
 
 BattleScript_ForfeitBattleGaveMoney::
-	//getmoneyreward
-///.if B_WHITEOUT_MONEY >= GEN_4
-//	printstring STRINGID_PLAYERWHITEOUT2_TRAINER
-//.else
-	printstring STRINGID_PLAYERWHITEOUT3
-//.endif
-	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_LocalBattleLost
 	end2
 
 BattleScript_Attackstring::

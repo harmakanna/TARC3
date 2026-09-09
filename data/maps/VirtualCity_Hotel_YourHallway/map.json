@@ -3,7 +3,7 @@
   "name": "VirtualCity_Hotel_YourHallway",
   "layout": "LAYOUT_VIRTUAL_CITY_HOTEL_YOUR_HALLWAY",
   "music": "MUS_BW12_167",
-  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "region_map_section": "MAPSEC_ARTISAN_CAVE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
