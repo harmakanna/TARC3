@@ -1846,7 +1846,14 @@ static void RotomPhone_OverworldMenu_PrintGreeting(void)
 
     */
 
-    StringExpandPlaceholders(textBuffer, sRotomPhoneAds[Random() % ADS_NUMBER]);
+    if (FlagGet(FLAG_SPOOFING_EXECUTIVE))
+    {
+        StringCopy(textBuffer, COMPOUND_STRING("- ERROR -"));
+    }
+    else
+    {
+        StringExpandPlaceholders(textBuffer, sRotomPhoneAds[Random() % ADS_NUMBER]);
+    }
 
     RotomPhone_OverworldMenu_PrintRotomSpeech(textBuffer, TRUE, TRUE);
     PlaySE(SE_PC_ON);
@@ -1855,7 +1862,14 @@ static void RotomPhone_OverworldMenu_PrintGreeting(void)
 static void RotomPhone_OverworldMenu_PrintAd(u8 taskId)
 {
     u8 textBuffer[80];
-    StringExpandPlaceholders(textBuffer, sRotomPhoneAds[Random() % ADS_NUMBER]);
+    if (FlagGet(FLAG_SPOOFING_EXECUTIVE))
+    {
+        StringCopy(textBuffer, COMPOUND_STRING("- ERROR -"));
+    }
+    else
+    {
+        StringExpandPlaceholders(textBuffer, sRotomPhoneAds[Random() % ADS_NUMBER]);
+    }
     RotomPhone_OverworldMenu_PrintRotomSpeech(textBuffer, TRUE, TRUE);
     tRotomUpdateMessage = RotomPhone_OverworldMenu_GetRandomMessage();
 }
@@ -1945,6 +1959,13 @@ static void RotomPhone_OverworldMenu_PrintGoodbye(u8 taskId)
 {
     u8 textBuffer[80];
     enum RotomPhone_Overworld_MessagesGoodbye messageRotom = Random() % RP_MESSAGE_GOODBYE_COUNT;
+
+    if (FlagGet(FLAG_SPOOFING_EXECUTIVE))
+    {
+        StringCopy(textBuffer, COMPOUND_STRING("- SYSTEM FAILURE -"));
+        RotomPhone_OverworldMenu_PrintRotomSpeech(textBuffer, FALSE, TRUE);
+        return;
+    }
 
     switch (messageRotom)
     {
@@ -4121,6 +4142,7 @@ static void Task_RotomPhone_SaveProgress(u8 taskId)
         case 2:
             PlaySE(SE_SAVE);
             RotomPhone_OverworldMenu_UpdateMenuPrompt(taskId);
+            RotomPhone_OverworldMenu_CheckUpdateMessage(taskId);
             gTasks[taskId].func = Task_RotomPhone_OverworldMenu_HandleMainInput;
             break;
     }
@@ -4219,13 +4241,25 @@ static void RotomPhone_StartMenu_SelectedFunc_Quests(void)
 
 static void RotomPhone_StartMenu_SelectedFunc_ExitVR(void)
 {
-    sRotomPhone_StartMenu->menuOverworldLoading = FALSE;
-    SetWarpDestination(1, 8, -1, 5, 2);
-    ResetInitialPlayerAvatarState();
-    isExitingVR = TRUE;
-    u8 taskId = FindTaskIdByFunc(Task_RotomPhone_OverworldMenu_HandleMainInput);
-    gTasks[taskId].func = Task_RotomPhone_OverworldMenu_RotomShutdown;
-    RotomPhone_StartMenu_RotomShutdownPreparation(taskId, TRUE);
+    if (FlagGet(FLAG_SPOOFING_EXECUTIVE))
+    {
+        u8 textBuffer[80];
+        StringCopy(textBuffer, COMPOUND_STRING("- ERROR -"));
+        RotomPhone_OverworldMenu_PrintRotomSpeech(textBuffer, TRUE, TRUE);
+        StringCopy(textBuffer, COMPOUND_STRING("- CANNOT IDENTIFY USER TO LOG OUT OF -"));
+        RotomPhone_OverworldMenu_PrintRotomSpeech(textBuffer, FALSE, TRUE);
+        sRotomPhone_StartMenu->menuOverworldLoading = FALSE;
+    }
+    else
+    {
+        sRotomPhone_StartMenu->menuOverworldLoading = FALSE;
+        SetWarpDestination(1, 8, -1, 5, 2);
+        ResetInitialPlayerAvatarState();
+        isExitingVR = TRUE;
+        u8 taskId = FindTaskIdByFunc(Task_RotomPhone_OverworldMenu_HandleMainInput);
+        gTasks[taskId].func = Task_RotomPhone_OverworldMenu_RotomShutdown;
+        RotomPhone_StartMenu_RotomShutdownPreparation(taskId, TRUE);
+    }
 }
 
 
