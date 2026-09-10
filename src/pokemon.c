@@ -5264,6 +5264,14 @@ bool32 IsSpeciesInHoennDex(enum Species species)
         return TRUE;
 }
 
+bool32 IsInArena(void)
+{
+    if (FlagGet(FLAG_IN_ARENA))
+        return TRUE;
+    else   
+        return FALSE;
+}
+
 u16 GetBattleBGM(void)
 {
     if (gBattleTypeFlags & BATTLE_TYPE_LEGENDARY)
@@ -5301,6 +5309,16 @@ u16 GetBattleBGM(void)
         else
             trainerClass = GetTrainerClassFromId(TRAINER_BATTLE_PARAM.opponentA);
 
+        if (IsInArena())
+        {
+            if(VarGet(VAR_PETALBURG_CITY_STATE) >= 28
+                && VarGet(VAR_PETALBURG_CITY_STATE) <= 31)
+                {
+                    return MUS_BW12_VS_ELITE_FOUR;
+                }
+            else if(VarGet(VAR_PETALBURG_CITY_STATE) < 28)
+                return MUS_BW12_VS_GYM_LEADER_2;
+        }
         switch (trainerClass)
         {
         case TRAINER_CLASS_AQUA_LEADER:
@@ -5361,6 +5379,8 @@ void PlayBattleBGM(void)
 
 void PlayMapChosenOrBattleBGM(u16 songId)
 {
+    if (FlagGet(FLAG_SPOOFING_EXECUTIVE))
+        return;
     ResetMapMusic();
     m4aMPlayAllStop();
     if (songId)

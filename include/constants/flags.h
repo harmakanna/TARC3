@@ -74,9 +74,9 @@
 #define FLAG_ACT_II_WON_RANDO3    0x34 // Unused Flag
 #define FLAG_ACT_II_WON_BRODUDE    0x35 // Unused Flag
 #define FLAG_ACT_II_WON_EARL_GRAY    0x36 // Unused Flag
-#define FLAG_UNUSED_0x037    0x37 // Unused Flag
-#define FLAG_UNUSED_0x038    0x38 // Unused Flag
-#define FLAG_UNUSED_0x039    0x39 // Unused Flag
+#define FLAG_HIDE_LOLA_CONFRONT    0x37 // Unused Flag
+#define FLAG_HIDE_COMMS1F_GUARD    0x38 // Unused Flag
+#define FLAG_IN_ARENA    0x39 // Unused Flag
 #define FLAG_UNUSED_0x03A    0x3A // Unused Flag
 #define FLAG_UNUSED_0x03B    0x3B // Unused Flag
 #define FLAG_UNUSED_0x03C    0x3C // Unused Flag

@@ -1251,4 +1251,24 @@ const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_DigitalSophie, gTrainerPalette_DigitalSophie),
         .backPic = TRAINER_BACK_PIC(4, gTrainerBackPic_DigitalSophie, gTrainerPalette_DigitalSophie, sBackAnims_OldManPokedude),
     },
+    [TRAINER_PIC_IDOL_PINK] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_IdolPink, gTrainerPalette_IdolPink),
+    },
+    [TRAINER_PIC_IDOL_BLUE] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_IdolBlue, gTrainerPalette_IdolBlue),
+    },
+    [TRAINER_PIC_IDOL_YELLOW] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_IdolYellow, gTrainerPalette_IdolYellow),
+    },
+    [TRAINER_PIC_OFFICER_M] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_OfficerM, gTrainerPalette_OfficerM),
+    },
+    [TRAINER_PIC_OFFICER_F] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_OfficerF, gTrainerPalette_OfficerF),
+    },
 };

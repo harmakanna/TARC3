@@ -56,7 +56,7 @@ VirtualCity_CommsTower_4F_Text_GuardDIntro::
 	.string "You're not getting through us!$"
 
 VirtualCity_CommsTower_4F_Text_GuardDDefeated::
-	.string "Damn. It's up to you two!$"
+	.string "Noooo! It's up to you two!$"
 
 
 VirtualCity_CommsTower_4F_EventScript_GuardE::

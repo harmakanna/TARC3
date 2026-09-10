@@ -423,13 +423,50 @@ VirtualCity_CommsTower_1F_Text_NoPokemonGuardTrouble:
 
 
 VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardFight::
+	lockall
+	faceplayer
 	setspeaker Speaker_Guard
-	msgbox VirtualCity_CommsTower_1F_Text_NoPokemonGuardFight, MSGBOX_NPC
-	@@ trainerbattle @TOFOLD
+	msgbox VirtualCity_CommsTower_1F_Text_NoPokemonGuardFight, MSGBOX_DEFAULT
+	closemessage
+	goto_if_eq VAR_FACING, DIR_EAST, VirtualCity_CommsTower_1F_EventScript_GuardRunAwayEast
+	applymovement LOCALID_GUARD, VirtualCity_CommsTower_1F_Movement_GuardRunAway
+	waitmovement 0
+	playse SE_EXIT
+	delay 10
+	removeobject LOCALID_GUARD
+	waitse
+	releaseall
 	end
 
+VirtualCity_CommsTower_1F_EventScript_GuardRunAwayEast::
+	applymovement LOCALID_GUARD, VirtualCity_CommsTower_1F_Movement_GuardRunAwayEast
+	waitmovement 0
+	playse SE_EXIT
+	delay 10
+	removeobject LOCALID_GUARD
+	waitse
+	releaseall
+	end
+VirtualCity_CommsTower_1F_Movement_GuardRunAway:
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	step_end
+
+VirtualCity_CommsTower_1F_Movement_GuardRunAwayEast:
+	walk_faster_down
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	walk_faster_up
+	walk_faster_left
+	step_end
+
 VirtualCity_CommsTower_1F_Text_NoPokemonGuardFight:
-	.string "AAAAA WHAT IS THAT?$"
+	.string "AAAAAAAAAAAAAAAAAA!\p"
+	.string "WHAT IS THAT?\p"
+	.string "SECURITY!!!!!$"
 
 
 
@@ -664,8 +701,8 @@ VirtualCity_CommsTower_1F_Text_Autoscanner:
 VirtualCity_CommsTower_1F_AutoscannerCantID::
 	setspeaker Speaker_Autoscanner
 	msgbox VirtualCity_CommsTower_1F_Text_AutoscannerCantID, MSGBOX_DEFAULT
-	setspeaker SP_NAME_PLAYER
-	msgbox VirtualCity_CommsTower_1F_Text_AutoscannerCantID2, MSGBOX_DEFAULT
+	@setspeaker SP_NAME_PLAYER
+	@msgbox VirtualCity_CommsTower_1F_Text_AutoscannerCantID2, MSGBOX_DEFAULT
 	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight
 	waitmovement 0
@@ -696,6 +733,7 @@ VirtualCity_HotelLobby_Text_AuthorizedSign:
 VirtualCity_CommsTower_1F_Eventscript_Ready::
 	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_HotelLobby_Text_Ready, MSGBOX_SIGN
+	setflag FLAG_ACT_III_HIDE_BEDROOM_FRIENDS
 	setvar VAR_PETALBURG_CITY_STATE, 51
 	setvar VAR_TEMP_0, 5
 	end
@@ -746,7 +784,7 @@ VirtualCity_CommsTower_1F_ActIII_Revived::
 
 	
 VirtualCity_CommsTower_1F_Text_ActIII_Revived:
-	.string "Damn. Well, looks like Ernest's\n"
+	.string "Dang. Well, looks like Ernest's\n"
 	.string "auto-relog script worked.\p"
 	.string "Maybe a quick mod will give me.\n"
 	.string "an edge.$"

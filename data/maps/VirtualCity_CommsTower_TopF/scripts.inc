@@ -10,10 +10,16 @@ VirtualCity_CommsTower_TopF_EventScript_HackRotomPhone::
 	@KUMATORA, got a song for the ending?
 	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_CommsTower_TopF_Text_HackRotomPhone1 MSGBOX_DEFAULT
+	closemessage
+	playse SE_PC_LOGIN
+	waitse
+	delay 40
 	setspeaker Speaker_System
 	msgbox VirtualCity_CommsTower_TopF_Text_HackRotomPhone2 MSGBOX_DEFAULT
+	playse SE_PIN
 	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_CommsTower_TopF_Text_HackRotomPhone3 MSGBOX_DEFAULT
+	playse SE_PIN
 	setspeaker Speaker_System
 	msgbox VirtualCity_CommsTower_TopF_Text_HackRotomPhone4 MSGBOX_DEFAULT
 	fadescreenspeed FADE_TO_BLACK, 5

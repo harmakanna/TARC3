@@ -21,6 +21,7 @@ VirtualCity_Stadium_Arena_OnResume:
 	call_if_eq VAR_TEMP_9, 1, VirtualCity_Stadium_Arena_EventScript_CallAddAudience
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_RAN, VirtualCity_Stadium_Arena_Eventscript_SetModFlag
+	clearflag FLAG_IN_ARENA
 	end
 
 VirtualCity_Stadium_Arena_EventScript_CallAddAudience::
@@ -64,7 +65,7 @@ VirtualCity_Stadium_Arena_EventScript_AddRound1Audience::
 	createvobject OBJ_EVENT_GFX_TWIN, 12, 7, 2
 	createvobject OBJ_EVENT_GFX_FOSSIL, 35, 9, 2
 	createvobject OBJ_EVENT_GFX_RED, 20, 10, 2
-	createvobject OBJ_EVENT_GFX_DEOXYS_TRIANGLE, 35, 13, 2
+	createvobject OBJ_EVENT_GFX_PUSHABLE_BOULDER, 35, 13, 2
 	createvobject OBJ_EVENT_GFX_KIRLIA, 10, 14, 2
 	createvobject OBJ_EVENT_GFX_DUSCLOPS, 22, 15, 2
 	return
@@ -222,6 +223,7 @@ VirtualCity_Stadium_Arena_EventScript_SetUpFight::
 	call VirtualCity_Stadium_Arena_EventScript_Announcer
 	playse SE_M_ENCORE2
 	call VirtualCity_Stadium_Arena_EventScript_AudienceLookAround
+	setflag FLAG_IN_ARENA
 	waitmovement 0
 	applymovement LOCALID_CUTSCENE_SOPHIE, VirtualCity_Stadium_Arena_Movement_SophieWalksToPosition
 	goto_if_eq VAR_PETALBURG_CITY_STATE, 23, VirtualCity_Stadium_Arena_Eventscript_Rando1Fight
@@ -739,7 +741,7 @@ VirtualCity_Stadium_Arena_Eventscript_ByronB2FightWinner::
 	call VirtualCity_Stadium_Arena_EventScript_WonMatch
 
 	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_CommonLeaveArenaSlow
-	waitmovement 0
+waitmovement 0
 	
 	setflag FLAG_ACT_II_FOUGHT_BYRONB2
 	@setvar VAR_PETALBURG_CITY_STATE, 36

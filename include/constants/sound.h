@@ -19,6 +19,8 @@
 #define FANFARE_OBTAIN_B_POINTS     15
 #define FANFARE_OBTAIN_SYMBOL       16
 #define FANFARE_REGISTER_MATCH_CALL 17
+#define FANFARE_BW12_002            18
+#define FANFARE_BW12_006            19
 
 #define CRY_MODE_NORMAL        0 // Default
 #define CRY_MODE_DOUBLES       1 // Shortened cry for double battles

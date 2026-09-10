@@ -28,7 +28,7 @@ VirtualCity_HotelLobby_EarlGrayActivate::
 	npc_speak SP_NAME_EARL_GRAY, VirtualCity_HotelLobby_Text_EarlGrayOfCourseItIs
 	setspeaker NULL
 	giveitem ITEM_LETTER
-	@playfanfare MUS_OBTAIN_ITEM
+	@playfanfare MUS_BW12_003
 	@message VirtualCity_HotelLobby_Text_ReceivedMessage
 	waitfanfare
 	player_speak VirtualCity_HotelLobby_Text_SophieConsiderItDone
@@ -93,7 +93,7 @@ VirtualCity_HotelLobby_EarlGray_TransferDratiniToPC::
 	end
 
 VirtualCity_HotelLobby_EarlGray_ReceiveDratiniFanfare::
-	playfanfare MUS_OBTAIN_ITEM
+	playfanfare MUS_BW12_003
 	message VirtualCity_HotelLobby_Text_YouReceivedDrateani
 	waitmessage
 	waitfanfare

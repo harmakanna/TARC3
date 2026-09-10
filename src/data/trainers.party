@@ -104,6 +104,7 @@ Gender: Male
 Music: Aqua
 Double Battle: Yes
 AI: Basic Trainer
+Mugshot: Purple
 
 Combee (F) @ Eviolite  
 Ability: Hustle  
@@ -546,13 +547,14 @@ Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_EARLGREY ===
-Name: GRUNT
+Name: EARL GREY
 Class: Gentleman
 Pic: Gentleman
 Gender: Male
 Music: Aqua
 Double Battle: Yes
 AI: Basic Trainer
+Mugshot: Green
 
 Dratini @ Eviolite  
 Ability: Hospitality  
@@ -599,15 +601,15 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Protect  
 
 
-
 === TRAINER_BYRON1 ===
 Name: Byron
 Class: Magma Leader
-Pic: Magma Leader Maxie
+Pic: Steven
 Gender: Male
 Music: Magma
 Double Battle: Yes
 AI: Basic Trainer
+Mugshot: Blue
 
 Zoroark (M) @ Focus Sash  
 Ability: Illusion  
@@ -648,11 +650,12 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_BYRON2 ===
 Name: Byron
 Class: Magma Leader
-Pic: Magma Leader Maxie
+Pic: Steven
 Gender: Male
 Music: Magma
 Double Battle: Yes
 AI: Basic Trainer
+Mugshot: Blue
 
 Zoroark (M) @ Focus Sash  
 Ability: Illusion  
@@ -693,16 +696,16 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_BYRON3 ===
 Name: Byron
 Class: Magma Leader
-Pic: Magma Leader Maxie
+Pic: Steven
 Gender: Male
 Music: Magma
 Double Battle: Yes
-AI: Check Bad Move
+AI: Basic Trainer
+Mugshot: Blue
 
 Zoroark (M) @ Focus Sash  
 Ability: Illusion  
 Level: 50  
-Tera Type: Dark  
 IVs: 0 Atk  
 - Spore  
 - Sheer Cold  
@@ -710,9 +713,8 @@ IVs: 0 Atk
 - Leech Seed  
 
 Rayquaza @ Life Orb  
-Ability: Air Lock  
+Ability: Delta Stream  
 Level: 50  
-Tera Type: Dragon  
 - Dragon Ascent  
 - Draco Meteor  
 - Extreme Speed  
@@ -721,7 +723,6 @@ Tera Type: Dragon
 Arceus @ Leftovers  
 Ability: Multitype  
 Level: 50  
-Tera Type: Normal  
 - Doom Desire  
 - Tachyon Cutter  
 - Extreme Speed  
@@ -730,7 +731,6 @@ Tera Type: Normal
 Xerneas @ Sitrus Berry  
 Ability: Fairy Aura  
 Level: 50  
-Tera Type: Fairy  
 IVs: 0 Atk  
 - Geomancy  
 - Moonblast  
@@ -8686,8 +8686,8 @@ IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
 === TRAINER_BEVERLY ===
 Name: BEVERLY
-Class: Swimmer F
-Pic: Swimmer F
+Class: Officer M
+Pic: Officer M
 Gender: Female
 Music: Swimmer
 Double Battle: No
@@ -8703,8 +8703,8 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_IMANI ===
 Name: IMANI
-Class: Swimmer F
-Pic: Swimmer F
+Class: Officer F
+Pic: Officer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
@@ -8716,8 +8716,8 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_KYLA ===
 Name: KYLA
-Class: Swimmer F
-Pic: Swimmer F
+Class: Officer F
+Pic: Officer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
@@ -8729,8 +8729,8 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_DENISE ===
 Name: DENISE
-Class: Swimmer F
-Pic: Swimmer F
+Class: Officer F
+Pic: Officer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
@@ -8746,8 +8746,8 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_BETH ===
 Name: BETH
-Class: Swimmer F
-Pic: Swimmer F
+Class: Officer M
+Pic: Officer M
 Gender: Female
 Music: Swimmer
 Double Battle: No
@@ -8759,8 +8759,8 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_TARA ===
 Name: TARA
-Class: Swimmer F
-Pic: Swimmer F
+Class: Officer M
+Pic: Officer M
 Gender: Female
 Music: Swimmer
 Double Battle: No

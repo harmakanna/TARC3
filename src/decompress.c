@@ -1130,8 +1130,18 @@ void LoadSpecialPokePic(void *dest, enum Species species, u32 personality, bool8
     LoadSpecialPokePicIsEgg(dest, species, personality, isFrontPic, FALSE);
 }
 
+#include "event_data.h"
+static const u32 sMonBackPic_MissingNo[] = INCGFX_U32("graphics/pokemon/missingno/back.png", ".4bpp.smol");
+
 void LoadSpecialPokePicIsEgg(void *dest, enum Species species, u32 personality, bool8 isFrontPic, bool32 isEgg)
 {
+
+    if(FlagGet(FLAG_SPOOFING_EXECUTIVE) && isFrontPic == FALSE)
+    {
+        DecompressDataWithHeaderWram(sMonBackPic_MissingNo, dest);
+        return;
+    }
+
     species = SanitizeSpeciesId(species);
     if (species == SPECIES_UNOWN)
         species = GetUnownSpeciesId(personality);

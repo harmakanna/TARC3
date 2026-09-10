@@ -80,7 +80,7 @@ VirtualCity_Garden_LedianLover_TransferLedianToPC::
 	end
 
 VirtualCity_Garden_LedianLover_ReceiveLedianFanfare::
-	playfanfare MUS_OBTAIN_ITEM
+	playfanfare MUS_BW12_003
 	message VirtualCity_Garden_Text_YouReceivedLedian
 	waitmessage
 	waitfanfare
@@ -147,8 +147,6 @@ VirtualCity_Garden_BabyImBaby::
 VirtualCity_Garden_BabySetBaby::
 	setspeaker Speaker_Baby
 	return
-
-@ KUMATORA - This guy is crashing
 
 VirtualCity_Garden_Plump::
 	goto_if_quest_not_active QUEST_LEDIAN, VirtualCity_Garden_PlumpYouCanBeAnyone
