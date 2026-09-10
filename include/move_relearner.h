@@ -13,5 +13,6 @@ bool32 HasMoveToRelearn(struct BoxPokemon *boxMon, enum MoveRelearnerStates stat
 
 extern enum MoveRelearnerStates gMoveRelearnerState;
 extern enum RelearnMode gRelearnMode;
+extern enum Move gForgottenMove;
 
 #endif //GUARD_MOVE_RELEARNER_H

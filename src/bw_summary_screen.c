@@ -2970,6 +2970,7 @@ static void Task_HandleInput_MoveSelect(u8 taskId)
         }
         else if (JOY_NEW(A_BUTTON))
         {
+            gForgottenMove = GetMonData(&gParties[B_TRAINER_PLAYER][sMonSummaryScreen->curMonIndex], MON_DATA_MOVE1 + sMonSummaryScreen->firstMoveIndex);
             enum Move tmp = MOVE_NONE;
             SetMonData(&gParties[B_TRAINER_PLAYER][sMonSummaryScreen->curMonIndex], MON_DATA_MOVE1 + sMonSummaryScreen->firstMoveIndex, &tmp);
             sMonSummaryScreen->callback = CB2_InitLearnMove;
@@ -2978,7 +2979,8 @@ static void Task_HandleInput_MoveSelect(u8 taskId)
             gRelearnMode = RELEARN_MODE_PSS_PAGE_BATTLE_MOVES;
             StopPokemonAnimations();
             PlaySE(SE_SELECT);
-            BeginCloseSummaryScreen(taskId);
+            BeginNormalPaletteFade(PALETTES_ALL, -2, 0, 16, RGB_BLACK);
+            gTasks[taskId].func = CloseSummaryScreen;
         }
         else if (JOY_NEW(B_BUTTON))
         {
