@@ -522,6 +522,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Eventscript_PCFirstWarp::
 	setspeaker Speaker_PC
 	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Text_PCFirstWarp, MSGBOX_DEFAULT
 	closemessage
+	setflag FLAG_FIRST_VR_WARP
 	entervr_warp MAP_VIRTUAL_CITY_OUTSIDE1, 24, 25
 	waitstate
 	end
