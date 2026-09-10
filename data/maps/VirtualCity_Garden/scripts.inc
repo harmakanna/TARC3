@@ -89,6 +89,8 @@ VirtualCity_Garden_LedianLover_ReceiveLedianFanfare::
 
 VirtualCity_Garden_LedianLover_FinishReceivingLedian::
 	completequest QUEST_LEDIAN
+	clearflag FLAG_HIDE_BABY_QUEST
+	setflag FLAG_HIDE_BABY_GARDEN
 	releaseall
 	end
 

@@ -8,14 +8,18 @@ OutsideWorld_ApartmentBldg1_Floor1_OnFrame::
 
 OutsideWorld_ApartmentBldg1_Floor1_Eventscript_Stairs::
 	special SpawnCameraObject
-	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_Floor1_Move_Sophie
 	applymovement OBJ_EVENT_ID_CAMERA, OutsideWorld_ApartmentBldg1_Floor1_Move_Camera
+	waitmovement OBJ_EVENT_ID_CAMERA
+	clearflag FLAG_SYS_PREVENT_MAP_FADE
+	fadescreenspeed FADE_FROM_BLACK 2
+	delay 10
+	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_Floor1_Move_Sophie
 	waitmovement OBJ_EVENT_ID_PLAYER
 	playse SE_EXIT
 	hideplayer
 	waitse
-	waitmovement OBJ_EVENT_ID_CAMERA
 	delay 100
+	setflag FLAG_SYS_PREVENT_MAP_FADE
 	clearflag FLAG_HIDE_OUTSIDE_WORLD_PROLOGUE
 	warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_FLOOR2, 5,1
 	waitstate
@@ -32,10 +36,9 @@ OutsideWorld_ApartmentBldg1_Floor1_Move_Sophie::
 OutsideWorld_ApartmentBldg1_Floor1_Move_Camera::
 	walk_up
 	walk_up
-	walk_left
 	walk_up
 	walk_up
-	walk_up
+	walk_right
 	step_end
 
 AptBldg_Floor1_Man::

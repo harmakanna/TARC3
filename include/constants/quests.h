@@ -21,7 +21,7 @@
 #define QUEST_ACTIII     3
 #define QUEST_5          4
 #define QUEST_6          5
-#define QUEST_7          6
+#define QUEST_BABY          6
 #define QUEST_LEDIAN     7
 #define QUEST_TEA        8
 #define QUEST_CONTENTMENT         9
