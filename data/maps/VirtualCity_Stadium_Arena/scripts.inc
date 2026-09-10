@@ -21,6 +21,7 @@ VirtualCity_Stadium_Arena_OnResume:
 	call_if_eq VAR_TEMP_9, 1, VirtualCity_Stadium_Arena_EventScript_CallAddAudience
 	specialvar VAR_RESULT, GetBattleOutcome
 	call_if_eq VAR_RESULT, B_OUTCOME_RAN, VirtualCity_Stadium_Arena_Eventscript_SetModFlag
+	clearflag FLAG_IN_ARENA
 	end
 
 VirtualCity_Stadium_Arena_EventScript_CallAddAudience::
@@ -222,6 +223,7 @@ VirtualCity_Stadium_Arena_EventScript_SetUpFight::
 	call VirtualCity_Stadium_Arena_EventScript_Announcer
 	playse SE_M_ENCORE2
 	call VirtualCity_Stadium_Arena_EventScript_AudienceLookAround
+	setflag FLAG_IN_ARENA
 	waitmovement 0
 	applymovement LOCALID_CUTSCENE_SOPHIE, VirtualCity_Stadium_Arena_Movement_SophieWalksToPosition
 	goto_if_eq VAR_PETALBURG_CITY_STATE, 23, VirtualCity_Stadium_Arena_Eventscript_Rando1Fight

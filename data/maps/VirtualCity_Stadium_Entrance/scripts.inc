@@ -14,7 +14,7 @@ VirtualCity_Stadium_Entrance_EventScript_Act_II_Harriet::
 	playse SE_SELECT
 	additem ITEM_SPELL_TAG, 1
 	setspeaker NULL
-	playfanfare MUS_OBTAIN_ITEM
+	playfanfare MUS_BW12_003
 	message VirtualCity_Stadium_Entrance_Text_ReceivedCoupon
 	waitfanfare
 	delay 100
@@ -331,11 +331,19 @@ VirtualCity_Stadium_Entrance_Text_ContentmentQuestCompleteRepeat::
 VirtualCity_Stadium_Entrance_EventScript_Baby::
 	goto_if_set FLAG_BABY_QUEST_COMPLETE, VirtualCity_Stadium_Entrance_EventScript_BabyComplete
 	goto_if_set FLAG_BABY_QUEST_STARTED, VirtualCity_Stadium_Entrance_EventScript_BabyCheck
+	call_if_set FLAG_IM_BABY, VirtualCity_Stadium_Entrance_EventScript_SpeakerBaby
 	npc_speak Speaker_Baby, VirtualCity_Stadium_Entrance_Text_BabyIntro
 	closemessage
 	startquest QUEST_BABY
 	setflag FLAG_BABY_QUEST_STARTED
 	end
+
+VirtualCity_Stadium_Entrance_EventScript_SpeakerBaby::
+	setspeaker Speaker_Baby
+	return
+
+Speaker_Fight_Baby:
+	.string "fight baby$"
 
 VirtualCity_Stadium_Entrance_EventScript_BabyCheck::
 
@@ -356,6 +364,7 @@ VirtualCity_Stadium_Entrance_EventScript_BabyCheck::
 	checkspecies SPECIES_DARKANINE
 	goto_if_eq VAR_RESULT, TRUE, VirtualCity_Stadium_Entrance_EventScript_BabyFail
 
+	setspeaker Speaker_Fight_Baby
 	npc_speak Speaker_Baby, VirtualCity_Stadium_Entrance_Text_BabyMaybeBaby
 	closemessage
 	trainerbattle_no_intro TRAINER_BYRON2, VirtualCity_Stadium_Entrance_Text_BabyThinking
@@ -363,6 +372,7 @@ VirtualCity_Stadium_Entrance_EventScript_BabyCheck::
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, 2, VirtualCity_Stadium_Entrance_EventScript_BabyLose
 	
+	setspeaker Speaker_Fight_Baby
 	npc_speak Speaker_Baby, VirtualCity_Stadium_Entrance_Text_BabyUBaby
 	closemessage
 	applymovement LOCALID_STADIUMBABY, Common_Movement_WalkInPlaceDown
@@ -371,7 +381,7 @@ VirtualCity_Stadium_Entrance_EventScript_BabyCheck::
 	delay 50
 	additem ITEM_SPELL_TAG, 1
 	setspeaker NULL
-	playfanfare MUS_OBTAIN_ITEM
+	playfanfare MUS_BW12_003
 	message VirtualCity_Stadium_Entrance_Text_ReceivedCoupon
 	waitfanfare
 	delay 100
@@ -382,16 +392,19 @@ VirtualCity_Stadium_Entrance_EventScript_BabyCheck::
 
 
 VirtualCity_Stadium_Entrance_EventScript_BabyFail::
+	setspeaker Speaker_Fight_Baby
 	npc_speak Speaker_Baby, VirtualCity_Stadium_Entrance_Text_BabyNotBaby
 	closemessage
 	end
 
 VirtualCity_Stadium_Entrance_EventScript_BabyLose::
+	setspeaker Speaker_Fight_Baby
 	npc_speak Speaker_Baby, VirtualCity_Stadium_Entrance_Text_BabyMaybeBaby
 	closemessage
 
 
 VirtualCity_Stadium_Entrance_EventScript_BabyComplete::
+	setspeaker Speaker_Fight_Baby
 	npc_speak Speaker_Baby, VirtualCity_Stadium_Entrance_Text_BabyWeBaby
 	closemessage
 	end
@@ -417,4 +430,4 @@ VirtualCity_Stadium_Entrance_Text_BabyUBaby:
 	.string "u baby$"
 
 VirtualCity_Stadium_Entrance_Text_BabyWeBaby:
-	.string "we baby$"
+	.string "we babys$"

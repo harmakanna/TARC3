@@ -391,10 +391,14 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Ending::
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ActII_Ending4Harriet, Speaker_Harriet, DIR_WEST
 	closemessage
 	playse SE_LEDGE
+	applymovement LOCALID_VRROOM_ERNEST, Common_Movement_FaceUp
+	applymovement LOCALID_VRROOM_HARRIET, Common_Movement_FaceUp
 	applymovement LOCALID_PLAYER, VirtualCity_Hotel_YourRoom_Movement_SophieExcited
 	waitmovement 0
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ActII_Ending5Sophie, SP_NAME_PLAYER, DIR_SOUTH
-	playse SE_SELECT
+	closemessage
+	delay 80
+	applymovement LOCALID_VRROOM_HARRIET, Common_Movement_FaceLeft
 	speak LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Text_ActII_Ending6Ernest, Speaker_Ernest, DIR_EAST
 	playse SE_SELECT
 	speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ActII_Ending7Minh, Speaker_Minh, DIR_NORTH

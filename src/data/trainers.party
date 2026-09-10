@@ -104,6 +104,7 @@ Gender: Male
 Music: Aqua
 Double Battle: Yes
 AI: Basic Trainer
+Mugshot: Purple
 
 Combee (F) @ Eviolite  
 Ability: Hustle  
@@ -546,13 +547,14 @@ Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_EARLGREY ===
-Name: GRUNT
+Name: EARL GREY
 Class: Gentleman
 Pic: Gentleman
 Gender: Male
 Music: Aqua
 Double Battle: Yes
 AI: Basic Trainer
+Mugshot: Green
 
 Dratini @ Eviolite  
 Ability: Hospitality  
@@ -599,15 +601,15 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Protect  
 
 
-
 === TRAINER_BYRON1 ===
 Name: Byron
 Class: Magma Leader
-Pic: Magma Leader Maxie
+Pic: Steven
 Gender: Male
 Music: Magma
 Double Battle: Yes
 AI: Basic Trainer
+Mugshot: Blue
 
 Zoroark (M) @ Focus Sash  
 Ability: Illusion  
@@ -648,11 +650,12 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_BYRON2 ===
 Name: Byron
 Class: Magma Leader
-Pic: Magma Leader Maxie
+Pic: Steven
 Gender: Male
 Music: Magma
 Double Battle: Yes
 AI: Basic Trainer
+Mugshot: Blue
 
 Zoroark (M) @ Focus Sash  
 Ability: Illusion  
@@ -693,11 +696,12 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 === TRAINER_BYRON3 ===
 Name: Byron
 Class: Magma Leader
-Pic: Magma Leader Maxie
+Pic: Steven
 Gender: Male
 Music: Magma
 Double Battle: Yes
-AI: Check Bad Move
+AI: Basic Trainer
+Mugshot: Blue
 
 Zoroark (M) @ Focus Sash  
 Ability: Illusion  
