@@ -35,16 +35,17 @@ def extract_repo_tutors() -> typing.Generator[str, None, None]:
     Yield MOVE constants which are *likely* assigned to a move tutor. This isn't
     foolproof, but it's suitable.
     """
+
     for inc_fname in chain(glob.glob("./data/scripts/*.inc"), glob.glob("./data/maps/*/scripts.inc")):
         with open(inc_fname, "r") as inc_fp:
             incfile = inc_fp.read()
+            for move in INCFILE_MOVE_PAT2.finditer(incfile):
+                yield move.group(1)
+
             if not INCFILE_HAS_TUTOR_PAT.search(incfile) and not INCFILE_HAS_TUTOR_PAT2.search(incfile):
                 continue
 
             for move in INCFILE_MOVE_PAT.finditer(incfile):
-                yield move.group(1)
-
-            for move in INCFILE_MOVE_PAT2.finditer(incfile):
                 yield move.group(1)
 
 def dump_output(file, data):
