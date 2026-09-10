@@ -833,7 +833,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_Lola_Coupon::
 	playfanfare MUS_OBTAIN_ITEM
 	message VirtualCity_Stadium_Entrance_Text_ReceivedCoupon
 	waitfanfare
-	delay 560
+	delay 100
 	setspeaker Speaker_Lola
 	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon4, MSGBOX_DEFAULT
 	playse SE_SELECT
@@ -845,7 +845,6 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_Lola_Coupon::
 	playse SE_SELECT
 	setspeaker Speaker_Lola
 	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon7, MSGBOX_DEFAULT
-	playse SE_SELECT
 	closemessage
 	applymovement LOCALID_LOLA_COUPON, Common_Movement_FaceDown
 	waitmovement 0

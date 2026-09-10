@@ -118,6 +118,24 @@
       "var": "VAR_TEMP_0",
       "var_value": "5",
       "script": "VirtualCity_CommsTower_1F_Autoscanner"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_PETALBURG_CITY_STATE",
+      "var_value": "51",
+      "script": "VirtualCity_CommsTower_1F_CantLeave"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_PETALBURG_CITY_STATE",
+      "var_value": "52",
+      "script": "VirtualCity_CommsTower_1F_CantLeave"
     }
   ],
   "bg_events": [

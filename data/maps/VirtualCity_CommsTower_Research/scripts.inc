@@ -26,7 +26,7 @@ VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger::
 	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger6, Speaker_Researcher, DIR_NORTH
 	closemessage
 	@TOFOLD
-	trainerbattle_nointro TRAINER_MISSY, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger7
+	trainerbattle_no_intro TRAINER_MISSY, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger7
 	special HealPlayerParty
 
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger8, SP_NAME_PLAYER, DIR_SOUTH

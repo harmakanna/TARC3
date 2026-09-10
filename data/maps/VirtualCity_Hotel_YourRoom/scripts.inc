@@ -399,11 +399,12 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Ending::
 	playse SE_PC_OFF
 	waitse
 	setvar VAR_PETALBURG_CITY_STATE, 40
-	questmenu QUEST_MENU_COMPLETE_QUEST, QUEST_PROLOGUE
-	questmenu QUEST_MENU_SET_ACTIVE, QUEST_ACTI
+	questmenu QUEST_MENU_COMPLETE_QUEST, QUEST_ACTII
+	questmenu QUEST_MENU_SET_ACTIVE, QUEST_ACTIII
 	setflag FLAG_HIDE_LOLA_BEDROOM_PROLOGUE
 	setflag FLAG_ACT_II_HIDE_HOTEL_FRIENDS
 	setflag FLAG_ACT_III_STARTED
+	setflag FLAG_HIDE_ACT_II_HARRIET
 	clearflag FLAG_ACT_III_HIDE_BEDROOM_LOLA
 	end
 
@@ -434,8 +435,8 @@ VirtualCity_Hotel_YourRoom_Text_ActII_Ending5Sophie::
 
 VirtualCity_Hotel_YourRoom_Text_ActII_Ending6Ernest::
 	.string "The autoscanner won't work when you're\n"
-	.string "scrambled, so you'll have to go through\l"
-	.string "the tower manually.\p"
+	.string "scrambled, so you'll have to climb the\l"
+	.string "maintenance side of the tower manually.\p"
 	.string "You won't be able to turn back when we\n"
 	.string "start.$"
 

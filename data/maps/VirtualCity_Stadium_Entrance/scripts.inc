@@ -17,7 +17,7 @@ VirtualCity_Stadium_Entrance_EventScript_Act_II_Harriet::
 	playfanfare MUS_OBTAIN_ITEM
 	message VirtualCity_Stadium_Entrance_Text_ReceivedCoupon
 	waitfanfare
-	delay 560
+	delay 100
 	player_speak VirtualCity_Stadium_Entrance_Text_ActII_Intro_Sophie4
 	playse SE_SELECT
 	npc_speak Speaker_Harriet, VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet5
@@ -28,10 +28,17 @@ VirtualCity_Stadium_Entrance_EventScript_Act_II_Harriet::
 
 
 VirtualCity_Stadium_Entrance_EventScript_Receptionist::
+	goto_if_set FLAG_ACT_II_COMPLETE, VirtualCity_Stadium_Entrance_EventScript_ReceptionistNoWay
 	setspeaker Speaker_Receptionist
 	msgbox VirtualCity_Stadium_Entrance_Text_ReceptionistIntro, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, VirtualCity_Stadium_Entrance_EventScript_ReceptionistEnd
     goto_if_eq VAR_RESULT, YES, VirtualCity_Stadium_Entrance_Eventscript_ReceptionistCheckPokemon
+	end
+
+VirtualCity_Stadium_Entrance_EventScript_ReceptionistNoWay::
+	setspeaker SP_NAME_PLAYER
+	msgbox VirtualCity_Stadium_Entrance_Text_ReceptionistNoWay, MSGBOX_DEFAULT
+	closemessage
 	end
 
 
@@ -122,6 +129,9 @@ VirtualCity_Stadium_Entrance_Text_ReceptionistStartTourney::
 	.string "Okay, honey, good luck!\n"
 	.string "Have a {COLOR GREEN}BETTER {COLOR DARK_GRAY}day!$"
 
+VirtualCity_Stadium_Entrance_Text_ReceptionistNoWay::
+	.string "No way am I signing up again!\n"
+	.string "Well, not until the postgame…$"
 
 
 
@@ -142,6 +152,7 @@ VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet1::
 	.string "Hey Sophie!\p"
 	.string "So, I've been scoping it out. There's\n"
 	.string "three tiers of competition here.\p"
+	.string "It's a classic format:\p"
 	.string "Bring six, use four.\p"
 	.string "There's the Silver rank, where mostly\n"
 	.string "amateurs fight for fun.\p"
@@ -186,8 +197,8 @@ VirtualCity_Stadium_Entrance_Text_ActII_Intro_Sophie4::
 VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet5::
 	.string "Hush!\p"
 	.string "Not a word.\p"
-	.string "You're the one who's going\n"
-	.string "who's going to be at risk!\p"
+	.string "You're the one who's going to be in\n"
+	.string "danger, here!\p"
 	.string "We all chipped in. This is\n"
 	.string "the least we can do.\p"
 	.string "Get to the third floor of the store\n"
@@ -294,7 +305,7 @@ VirtualCity_Stadium_Entrance_Text_ContentmentQuestRepeat::
 	.string "Shareholders won't wait forever!$"
 
 VirtualCity_Stadium_Entrance_Text_ContentmentQuestSophieComplete::
-	.string "Hi, I celebrated with Toxapex…$"
+	.string "Hi, I played your ad in battle…$"
 
 VirtualCity_Stadium_Entrance_Text_ContentmentQuestComplete::
 	.string "Um, hi. Good news and bad news.\p"
@@ -311,7 +322,7 @@ VirtualCity_Stadium_Entrance_Text_ContentmentQuestComplete::
 
 VirtualCity_Stadium_Entrance_Text_ContentmentQuestCompleteRepeat::
 	.string "Um. Please don't stand near me.\n"
-	.string "People might make associations again!$"
+	.string "People might make associations.$"
 
 
 
@@ -320,7 +331,7 @@ VirtualCity_Stadium_Entrance_Text_ContentmentQuestCompleteRepeat::
 VirtualCity_Stadium_Entrance_EventScript_Baby::
 	goto_if_set FLAG_BABY_QUEST_COMPLETE, VirtualCity_Stadium_Entrance_EventScript_BabyComplete
 	goto_if_set FLAG_BABY_QUEST_STARTED, VirtualCity_Stadium_Entrance_EventScript_BabyCheck
-	npc_speak NULL, VirtualCity_Stadium_Entrance_Text_BabyIntro
+	npc_speak Speaker_Baby, VirtualCity_Stadium_Entrance_Text_BabyIntro
 	closemessage
 	startquest QUEST_BABY
 	setflag FLAG_BABY_QUEST_STARTED
@@ -345,14 +356,14 @@ VirtualCity_Stadium_Entrance_EventScript_BabyCheck::
 	checkspecies SPECIES_DARKANINE
 	goto_if_eq VAR_RESULT, TRUE, VirtualCity_Stadium_Entrance_EventScript_BabyFail
 
-	npc_speak NULL, VirtualCity_Stadium_Entrance_Text_BabyMaybeBaby
+	npc_speak Speaker_Baby, VirtualCity_Stadium_Entrance_Text_BabyMaybeBaby
 	closemessage
 	trainerbattle_no_intro TRAINER_BYRON2, VirtualCity_Stadium_Entrance_Text_BabyThinking
 	special HealPlayerParty
 	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, 2, VirtualCity_Stadium_Entrance_EventScript_BabyFail
+	goto_if_eq VAR_RESULT, 2, VirtualCity_Stadium_Entrance_EventScript_BabyLose
 	
-	npc_speak NULL, VirtualCity_Stadium_Entrance_Text_BabyUBaby
+	npc_speak Speaker_Baby, VirtualCity_Stadium_Entrance_Text_BabyUBaby
 	closemessage
 	applymovement LOCALID_STADIUMBABY, Common_Movement_WalkInPlaceDown
 	waitmovement 0
@@ -363,7 +374,7 @@ VirtualCity_Stadium_Entrance_EventScript_BabyCheck::
 	playfanfare MUS_OBTAIN_ITEM
 	message VirtualCity_Stadium_Entrance_Text_ReceivedCoupon
 	waitfanfare
-	delay 560
+	delay 100
 	completequest QUEST_BABY
 	setflag FLAG_BABY_QUEST_COMPLETE
 	end
@@ -371,13 +382,17 @@ VirtualCity_Stadium_Entrance_EventScript_BabyCheck::
 
 
 VirtualCity_Stadium_Entrance_EventScript_BabyFail::
-	npc_speak NULL, VirtualCity_Stadium_Entrance_Text_BabyNotBaby
+	npc_speak Speaker_Baby, VirtualCity_Stadium_Entrance_Text_BabyNotBaby
 	closemessage
 	end
 
+VirtualCity_Stadium_Entrance_EventScript_BabyLose::
+	npc_speak Speaker_Baby, VirtualCity_Stadium_Entrance_Text_BabyMaybeBaby
+	closemessage
+
 
 VirtualCity_Stadium_Entrance_EventScript_BabyComplete::
-	npc_speak NULL, VirtualCity_Stadium_Entrance_Text_BabyWeBaby
+	npc_speak Speaker_Baby, VirtualCity_Stadium_Entrance_Text_BabyWeBaby
 	closemessage
 	end
 
@@ -388,7 +403,9 @@ VirtualCity_Stadium_Entrance_Text_BabyIntro:
 	.string "im fight baby$"
 
 VirtualCity_Stadium_Entrance_Text_BabyNotBaby:
-	.string "u not baby!!!!!$"
+	.string "u not baby\p"
+	.string "fight\p"
+	.string "only baby$"
 
 VirtualCity_Stadium_Entrance_Text_BabyMaybeBaby:
 	.string "u baby?$"

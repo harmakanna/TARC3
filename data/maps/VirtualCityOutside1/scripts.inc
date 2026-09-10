@@ -145,7 +145,7 @@ VirtualCityOutside_Text_Mimikyu:
 	.string "You gotta tell me!$"
 
 VirtualCityOutside_Text_BottomCharizard:
-	.string "One of those two asked me to\n"
+	.string "One of those two Reds asked me to\n"
 	.string "cosplay with him, but I don't\l"
 	.string "remember which…\p"
 	.string "Oh well. RAAAAAAAH!!!$"

@@ -1223,11 +1223,11 @@ const u8 gText_SideQuestName_30[] = _("Side Quest 30");
 //descriptions
 const u8 gText_SideQuestDesc_Prologue[] = _("Hurry up and balance Darkanine so\nyou can go home and see a real Pokemon!");
 const u8 gText_SideQuestDesc_ActI[] = _("It can't be true… But you won't\nknow until you find some hard evidence.");
-const u8 gText_SideQuestDesc_ActII[] = _("Crush the cheating exec! Oh right,\nwe need his credentials for the hack too.");
+const u8 gText_SideQuestDesc_ActII[] = _("Crush the cheating exec! Oh right,\nwe need his credentials I guess.");
 const u8 gText_SideQuestDesc_ActIII[] = _("Climb the Tower while disguised,\nand let the Place know about the fakes!");
-const u8 gText_SideQuestDesc_Ledian[] = _("Ledian hasn't had a new release in\nAGES! Get the word out & right this wrong!");
+const u8 gText_SideQuestDesc_Ledian[] = _("Ledian hasn't had a new release in\nAGES! Get the word out!");
 const u8 gText_SideQuestDesc_Tea[] = _("Deliver my message to that\ntasteless skunk posthaste!");
-const u8 gText_SideQuestDesc_Contentment[] = _("Use 'Promotion' in a tournament\nto solidfy conTENTment's new brand!");
+const u8 gText_SideQuestDesc_Contentment[] = _("Use 'Paid Promo' in a tournament\nto solidfy conTENTment's new brand!");
 const u8 gText_SideQuestDesc_Baby[] = _("baby wants to know if ur baby");
 const u8 gText_SideQuestDesc_8[] = _("Description 8");
 const u8 gText_SideQuestDesc_9[] = _("Description 9");

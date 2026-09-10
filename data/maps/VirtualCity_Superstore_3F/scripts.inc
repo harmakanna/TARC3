@@ -125,7 +125,6 @@ VirtualCity_Superstore_3F_EventScript_Idol_BuyPassimian::
 	setflag FLAG_BOUGHT_PASSIMIAN
 	givemon SPECIES_PASSIMIAN, 50, nature=NATURE_JOLLY, abilityNum=1, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_PYRO_BALL, move2=MOVE_CLOSE_COMBAT, move3=MOVE_U_TURN, move4=MOVE_BULLDOZE, otName=OT_SoPhi99
 	goto VirtualCity_Superstore_3F_ShopkeepIdol_ReceivePassimian
-	@add pass details TOFOLD
 	end
 
 VirtualCity_Superstore_3F_EventScript_Idol_Sableye::
@@ -143,7 +142,6 @@ VirtualCity_Superstore_3F_EventScript_Idol_BuySableye::
 	setflag FLAG_BOUGHT_SABLEYE
 	givemon SPECIES_SABLEYE, 50, nature=NATURE_CAREFUL, abilityNum=1, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_FOUL_PLAY, move2=MOVE_NIGHT_SHADE, move3=MOVE_PAIN_SPLIT, move4=MOVE_FAKE_OUT, otName=OT_SoPhi99
 	goto VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSableye
-	@add pass details TOFOLD
 	end
 
 
@@ -226,7 +224,7 @@ VirtualCity_Superstore_3F_Text_Sableye:
 
 VirtualCity_Superstore_3F_Text_Electrode:
 	.string "Now this is a fun one!\p"
-	.string "The UpsideDown set swaps offenses\n"
+	.string "The Topsy Turvy set swaps offenses\n"
 	.string "with defenses, and HP with Speed!\p"
 	.string "So this speedster Electrode is now\n"
 	.string "a powerful tank! Shocking!\p"

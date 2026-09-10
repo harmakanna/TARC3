@@ -408,6 +408,7 @@ VirtualCity_CommsTower_1F_Text_NoPokemonGuardPreActI:
 
 VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardNoResearch::
 	npc_speak Speaker_Guard, VirtualCity_CommsTower_1F_Text_NoPokemonGuardStop
+	closemessage
 	end
 
 
@@ -445,7 +446,6 @@ VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardMoves:
 	@ guard moves out of the way depending on where you are standing TOFOLD
 	applymovement LOCALID_GUARD, Common_Movement_WalkDown
 	end
-
 
 
 VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardStop:

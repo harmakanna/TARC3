@@ -406,7 +406,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_BRODUDE ===
 Name: BroDude69
-Class: Team Aqua
+Class: Cooltrainer
 Pic: Aqua Grunt M
 Gender: Male
 Music: Aqua
@@ -460,8 +460,8 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_WVDDIE ===
 Name: WVDDIE
-Class: Team Aqua
-Pic: Aqua Grunt M
+Class: Elite Four
+Pic: Elite Four Glacia
 Gender: Female
 Music: Aqua
 Double Battle: Yes
@@ -547,8 +547,8 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_EARLGREY ===
 Name: GRUNT
-Class: Team Aqua
-Pic: Aqua Grunt M
+Class: Gentleman
+Pic: Gentleman
 Gender: Male
 Music: Aqua
 Double Battle: Yes
@@ -601,58 +601,142 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 
 === TRAINER_BYRON1 ===
-Name: MARCEL
-Class: Cooltrainer
-Pic: Cooltrainer M
+Name: Byron
+Class: Magma Leader
+Pic: Magma Leader Maxie
 Gender: Male
-Music: Cool
-Items: Hyper Potion
+Music: Magma
 Double Battle: Yes
 AI: Basic Trainer
 
-Manectric
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Zoroark (M) @ Focus Sash  
+Ability: Illusion  
+Level: 50  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Spore  
+- Sheer Cold  
+- Foul Play  
+- Leech Seed  
 
-Shiftry
-Level: 29
-IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
+Xerneas @ Sitrus Berry  
+Ability: Fairy Aura  
+Level: 50  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Geomancy  
+- Moonblast  
+- Protect  
+
+Zacian @ Rusted Sword  
+Ability: Intrepid Sword  
+Level: 50  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Behemoth Blade  
+- Force Palm  
+- Protect  
+
+Arceus @ Leftovers  
+Ability: Multitype  
+Level: 50  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Doom Desire  
+- Tachyon Cutter  
+- Extreme Speed  
+- Protect  
+
+
 
 === TRAINER_BYRON2 ===
-Name: ALBERTO
-Class: Bird Keeper
-Pic: Bird Keeper
+Name: Byron
+Class: Magma Leader
+Pic: Magma Leader Maxie
 Gender: Male
-Music: Cool
-Items: Hyper Potion
+Music: Magma
 Double Battle: Yes
 AI: Basic Trainer
 
-Pelipper
-Level: 30
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Zoroark (M) @ Focus Sash  
+Ability: Illusion  
+Level: 50  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Spore  
+- Sheer Cold  
+- Foul Play  
+- Leech Seed  
 
-Xatu
-Level: 30
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Zacian @ Rusted Sword  
+Ability: Intrepid Sword  
+Level: 50  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Behemoth Blade  
+- Force Palm  
+- Protect  
+
+Xerneas @ Sitrus Berry  
+Ability: Fairy Aura  
+Level: 50  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Geomancy  
+- Moonblast  
+- Protect  
+
+Spiritomb (F) @ Rocky Helmet  
+Ability: Wonder Guard  
+Level: 50  
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe  
+- Shadow Sneak  
+- Toxic  
+- Will-O-Wisp  
+- Destiny Bond  
+
+
 
 === TRAINER_BYRON3 ===
-Name: ED
-Class: Collector
-Pic: Collector
+Name: Byron
+Class: Magma Leader
+Pic: Magma Leader Maxie
 Gender: Male
-Music: Suspicious
-Items: Hyper Potion
+Music: Magma
 Double Battle: Yes
 AI: Check Bad Move
 
-Zangoose
-Level: 30
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Zoroark (M) @ Focus Sash  
+Ability: Illusion  
+Level: 50  
+Tera Type: Dark  
+IVs: 0 Atk  
+- Spore  
+- Sheer Cold  
+- Foul Play  
+- Leech Seed  
 
-Seviper
-Level: 30
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Rayquaza @ Life Orb  
+Ability: Air Lock  
+Level: 50  
+Tera Type: Dragon  
+- Dragon Ascent  
+- Draco Meteor  
+- Extreme Speed  
+- Dragon Dance  
+
+Arceus @ Leftovers  
+Ability: Multitype  
+Level: 50  
+Tera Type: Normal  
+- Doom Desire  
+- Tachyon Cutter  
+- Extreme Speed  
+- Protect  
+
+Xerneas @ Sitrus Berry  
+Ability: Fairy Aura  
+Level: 50  
+Tera Type: Fairy  
+IVs: 0 Atk  
+- Geomancy  
+- Moonblast  
+- Protect  
+
+
 
 === TRAINER_SILVABULLET ===
 Name: GRUNT
@@ -8691,17 +8775,21 @@ Level: 25
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_MISSY ===
-Name: MISSY
-Class: Swimmer F
-Pic: Swimmer F
-Gender: Female
+Name: Benny
+Class: Collector
+Pic: Collector
+Gender: Male
 Music: Swimmer
 Double Battle: No
 AI: Check Bad Move
 
-Goldeen
-Level: 26
+Minun
+Level: 50
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+- Volt Switch  
+- Thunder Wave  
+- Thundershock  
+- Play Nice  
 
 === TRAINER_ALICE ===
 Name: ALICE

@@ -385,7 +385,7 @@ VirtualCity_TestingRoomIntro_Text_Intro12:
 
 
 VirtualCity_TestingRoomIntro_Text_AdjustDarkanine:
-	.string "Adjust Darkanine?$"
+	.string "Rebalance Darkanine?$"
 
 VirtualCity_TestingRoomIntro_Text_WrongAdjustment:
 	.string "Huh? You're not done adjusting it,\n"

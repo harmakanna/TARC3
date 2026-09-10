@@ -103,9 +103,14 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro1:
 	.string "I know you like modding your POKéMON.\p"
 	.string "You'll probably only have time for\n"
 	.string "one mod after each battle, though.$"
+
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro1_2:
 	.string "If you gotta remove mods for better\n"
-	.string "ones, you can do it at that PC there.$"
+	.string "ones, you can do it at that PC there.\p"
+	.string "And don't forget that you can make\n"
+	.string "easy changes, like items and abilities,\l"
+	.string "right in the POKéMON's info.$"
+
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro1_3:
 	.string "And behind me is the door to the arena.$"
 
@@ -239,9 +244,9 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_Harriet::
 	goto_if_eq VAR_PETALBURG_CITY_STATE, 30, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXSilvaBullet
 	goto_if_eq VAR_PETALBURG_CITY_STATE, 31, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXEarlGrey
 
-	@goto_if_eq VAR_PETALBURG_CITY_STATE, 33, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXByronB1
-	@goto_if_eq VAR_PETALBURG_CITY_STATE, 35, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXByronB2
-	@goto_if_eq VAR_PETALBURG_CITY_STATE, 37, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXByronB3
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 33, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXByronB1
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 35, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXByronB2
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 37, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXByronB3
 	end
 
 @@ SILVER
@@ -549,6 +554,10 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2Scene::
 	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle2WinXByron1, Speaker_Harriet, DIR_SOUTH
 	playse SE_SELECT
 	speak LOCALID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2WinXByron2, SP_NAME_PLAYER, DIR_NORTH
+	playse SE_SELECT
+	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2WinXByronInfodump, Speaker_Harriet, DIR_SOUTH
+	playse SE_SELECT
+	speak LOCALID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2XByron2pt5, SP_NAME_PLAYER, DIR_NORTH
 	applymovement LOCALID_PLAYER, Common_Movement_FaceLeft
 	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_FaceLeft
 	playse SE_SELECT
@@ -584,6 +593,10 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2SceneLose::
 	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle2LoseXByron1, Speaker_Harriet, DIR_SOUTH
 	playse SE_SELECT
 	speak LOCALID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2LoseXByron2, SP_NAME_PLAYER, DIR_NORTH
+	playse SE_SELECT
+	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2WinXByronInfodump, Speaker_Harriet, DIR_SOUTH
+	playse SE_SELECT
+	speak LOCALID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2XByron2pt5, SP_NAME_PLAYER, DIR_NORTH
 	applymovement LOCALID_PLAYER, Common_Movement_FaceLeft
 	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_FaceLeft
 	playse SE_SELECT
@@ -652,14 +665,17 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB3Scene::
 
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXByronB1::
+	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle1XByronInfo, MSGBOX_NPC
 	end
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXByronB2::
+	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2WinXByronInfodump, MSGBOX_NPC
 	end
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXByronB3::
+	setspeaker Speaker_Harriet
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2WinXByronInfodump, MSGBOX_NPC
 	end
 
@@ -773,7 +789,7 @@ VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2WinXByronInfodump:
 	.string "Wow, that's an awful team.\n"
 	.string "Um, good luck.$"
 
-VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2WinXByron2pt5:
+VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2XByron2pt5:
 	.string "Wow.\p"
 	.string "Um, Ernest, any good news for me?$"
 
@@ -1003,7 +1019,7 @@ VirtualCity_Stadium_PreBattleRoom_Text_ErnestWhich:
 	.string "if you want.$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_ErnestDeclined:
-	.string "Don't take too long!$"
+	.string "We don't have a lot of time…$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_ErnestTaught:
 	.string "Okay, it's done. I can teach it\n"
