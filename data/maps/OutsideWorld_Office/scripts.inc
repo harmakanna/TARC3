@@ -6,7 +6,7 @@ OutsideWorld_Office_MapScripts::
 OutsideWorld_Office_Text_IntroTalk1::
 	.string "You ready to go?\n"
 	.string "I can't believe the day's finally come!\p"
-	.string "Lola's gonna get that real Pokemon!\n"
+	.string "Lola's gonna get that real POKéMON!\n"
 	.string "How long has she been saving up for?$"
 
 OutsideWorld_Office_Text_IntroTalk2::
@@ -14,16 +14,16 @@ OutsideWorld_Office_Text_IntroTalk2::
 	.string "All those times she skipped going\n"
 	.string "out to dinner with us…\p"
 	.string "And she never bought any virtual\n"
-	.string "Pokemon - not even one.$"
+	.string "POKéMON - not even one.$"
 
 OutsideWorld_Office_Text_IntroTalk3::
 	.string "My grandma used to tell me stories\n"
-	.string "about Pokemon being everywhere…\p"
-	.string "Imagine, real Pokemon for free!$"
+	.string "about POKéMON being everywhere…\p"
+	.string "Imagine, real POKéMON for free!$"
 
 OutsideWorld_Office_Text_IntroTalk4::
 	.string "I can't wait to see it. I bet it's\n"
-	.string "nothing like the virtual Pokemon\p"
+	.string "nothing like the virtual POKéMON\p"
 	.string "we're used to!$"
 
 OutsideWorld_Office_Text_IntroTalk5::
@@ -63,7 +63,7 @@ OutsideWorld_Office_Text_IntroTalk5::
 @@		.string "Don't skimp with the ability,\n"
 @@		.string "Sophie. Make it exciting.\p"
 @@		.string "I don't care about power creep, I care\n"
-@@		.string "about people buying this Pokemon.$"
+@@		.string "about people buying this POKéMON.$"
 @@	
 @@	OutsideWorld_Office_Text_IntroBoss4::
 @@		.string "...Okay, boss.$"

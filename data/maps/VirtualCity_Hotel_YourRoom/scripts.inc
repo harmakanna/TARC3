@@ -235,12 +235,12 @@ VirtualCity_Hotel_YourRoom_Move_ErnestLeaves:
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk1Minh::
 	.string "We have to do something.\p"
-	.string "Pokemon are being replaced with fakes\n"
+	.string "POKéMON are being replaced with fakes\n"
 	.string "and no one else knows.$"
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk2Ernest::
 	.string "Okay, sure.\p"
-	.string "You two work on VR Pokemon.\p"
+	.string "You two work on VR POKéMON.\p"
 	.string "You can see the signs Harriet and I,\n"
 	.string "and others, can't.\p"
 	.string "But what can we even DO about it?\p"
@@ -276,7 +276,7 @@ VirtualCity_Hotel_YourRoom_Text_ResolutionTalk9Sophie::
 	.string "They're everywhere.$" 
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk10Sophie::
-	.string "We can't save any real Pokemon\n" 
+	.string "We can't save any real POKéMON\n" 
 	.string "that might be out there.$" 
 
 VirtualCity_Hotel_YourRoom_Text_ResolutionTalk11Sophie::

@@ -7,7 +7,7 @@ OutsideWorld_Traveling_MapScripts::
 
 OutsideWorld_Traveling_Text_IntroTalk3Minh::
 	.string "My grandma was a trainer! So I got to\n"
-	.string "see loads of Pokemon as a child!\p"
+	.string "see loads of POKéMON as a child!\p"
 	.string "That's part of how I got the artist\n"
 	.string "job, actually. I'm working off of real\l"
 	.string "experience, not just photos!$"

@@ -105,7 +105,7 @@ VirtualCity_Stadium_Entrance_Text_ReceptionistEnd::
 
 VirtualCity_Stadium_Entrance_Text_ReceptionistNotEnoughPokemon::
 	.string "Ooh, honey, it looks like you don't\n"
-	.string "have enough Pokemon!\p"
+	.string "have enough POKéMON!\p"
 	.string "You need at least four to compete,\n"
 	.string "but you should get a full team of six!\p"
 	.string "Come back when you save up for them!\p"
@@ -150,7 +150,7 @@ VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet1::
 	.string "And then there's Platinum rank, which\n"
 	.string "is more serious - it's a best of three.\p"
 	.string "But… these days it's all cheaters.\p"
-	.string "Unreleased Pokemon, hacked stats, you\n"
+	.string "Unreleased POKéMON, hacked stats, you\n"
 	.string "know the drill.\p"
 	.string "Byron, the champ, is in Platinum, and\n"
 	.string "loves…{PAUSE 30} Uh…\p"
@@ -158,7 +158,7 @@ VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet1::
 	.string "So if you can somehow get Platinum,\n"
 	.string "he'll fight you.\p"
 	.string "And Ernest reckons they can use his\n"
-	.string "hacked Pokemon as a backdoor to his ID.\p"
+	.string "hacked POKéMON as a backdoor to his ID.\p"
 	.string "Sophie.\pCAN you climb the ranks without the\n"
 	.string "stupid mons they'll have?$"
 
@@ -166,13 +166,13 @@ VirtualCity_Stadium_Entrance_Text_ActII_Intro_Sophie2::
 	.string "Don't worry.\p"
 	.string "Byron may have paid a hacker, but he\n"
 	.string "can't modify them himself.\p"
-	.string "My Pokemon will start weaker, but I\n"
+	.string "My POKéMON will start weaker, but I\n"
 	.string "can make them stronger each battle.$"
 
 VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet3::
 	.string "If you say so.\p"
 	.string "Well, anyway, you'll need at least\n"
-	.string "four Pokemon to enter.\p"
+	.string "four POKéMON to enter.\p"
 	.string "There's a lot of folks around who need\n"
 	.string "help with something!\p"
 	.string "See if any of them have dupes\n"
@@ -180,7 +180,7 @@ VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet3::
 	.string "And, um, take this.$"
 
 VirtualCity_Stadium_Entrance_Text_ActII_Intro_Sophie4::
-	.string "What? A Pokemon Shop coupon?\n"
+	.string "What? A POKéMON Shop coupon?\n"
 	.string "No, I can't-$"
 
 VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet5::
@@ -196,7 +196,7 @@ VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet5::
 
 VirtualCity_Stadium_Entrance_Text_ActII_Intro_HarrietReexplains::
 	.string "Didja get a team yet?\p"
-	.string "Six Pokemon is the best, but you\n"
+	.string "Six POKéMON is the best, but you\n"
 	.string "might be able to manage with five.\p"
 	.string "Talk to the attendant if you're ready.$"
 
@@ -273,9 +273,9 @@ VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart5::
 	.string "We need as many brand ambassadors\n"
 	.string "as we can get!\p"
 	.string "It's simple! All you have to do is\n"
-	.string "bring our custom Pokemon into the\l"
+	.string "bring our custom POKéMON into the\l"
 	.string "arena, and use the {COLOR BLUE}promotional move{COLOR DARK_GRAY}!\p"
-	.string "And you'll get to keep the Pokemon!\n"
+	.string "And you'll get to keep the POKéMON!\n"
 	.string "{FONT_SMALL}As long as you battle with it quarterly.$"
 
 VirtualCity_Stadium_Entrance_Text_ContentmentQuestStart6::
@@ -302,7 +302,7 @@ VirtualCity_Stadium_Entrance_Text_ContentmentQuestComplete::
 	.string "The bad news?\p"
 	.string "People started questioning why we'd\n"
 	.string "represent ourselves with a Toxapex.\p"
-	.string "So, well done, and keep the Pokemon,\n"
+	.string "So, well done, and keep the POKéMON,\n"
 	.string "but please…\p"
 	.string "{COLOR RED}Never do that again.\p"
 	.string "{COLOR DARK_GRAY}It could really damage the brand.$"

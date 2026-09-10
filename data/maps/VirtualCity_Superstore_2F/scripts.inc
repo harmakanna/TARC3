@@ -76,7 +76,7 @@ VirtualCity_Superstore_2F_Text_YellowIdol:
 	.string "trying to catch someone's eye!\p"
 	.string "What you need is a beautiful new skin,\n"
 	.string "much better than your old collectible!\p"
-	.string "Pokemon, Brands, Objects... and some\n"
+	.string "POKéMON, Brands, Objects... and some\n"
 	.string "real hotties that'll help you get the\l"
 	.string "person of your dreams!$"
 

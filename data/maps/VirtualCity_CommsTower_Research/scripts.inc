@@ -104,7 +104,7 @@ VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger10:
 
 VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger11:
 	.string "Yeah, I swear Byron wants practically\n"
-	.string "every Pokemon done this way.\p"
+	.string "every POKéMON done this way.\p"
 	.string "You don't know about it because they\n"
 	.string "haven't needed to be balanced for-\p"
 	.string "Hey, why did Brady give you this one\n"

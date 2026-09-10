@@ -216,6 +216,7 @@ VirtualCity_Stadium_Arena_EventScript_SetUpFight::
 	special ReducePlayerPartyToSelectedMons
 	@fadescreen FADE_FROM_BLACK
 	clearflag FLAG_SYS_PREVENT_MAP_FADE
+	setvar VAR_WALK_DOWN_IN_VIRTUAL_PREBATTLE_ROOM, 1
 	call VirtualCity_Stadium_Arena_EventScript_Announcer
 	playse SE_M_ENCORE2
 	call VirtualCity_Stadium_Arena_EventScript_AudienceLookAround
@@ -309,7 +310,7 @@ VirtualCity_Stadium_Arena_Eventscript_Rando1Fight::
 	setvar VAR_PETALBURG_CITY_STATE, 24
 
 	playse SE_EXIT
-	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 3
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 1
 	waitstate
 	end
 
@@ -340,7 +341,7 @@ VirtualCity_Stadium_Arena_Eventscript_Rando2Fight::
 	setvar VAR_PETALBURG_CITY_STATE, 25
 
 	playse SE_EXIT
-	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 3
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 1
 	waitstate
 	end
 
@@ -373,7 +374,7 @@ VirtualCity_Stadium_Arena_Eventscript_Rando3Fight::
 	setvar VAR_PETALBURG_CITY_STATE, 26
 
 	playse SE_EXIT
-	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 3
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 1
 	waitstate
 	end
 
@@ -405,7 +406,7 @@ VirtualCity_Stadium_Arena_Eventscript_Rando4Fight::
 	setvar VAR_PETALBURG_CITY_STATE, 27
 
 	playse SE_EXIT
-	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 3
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 1
 	waitstate
 	end
 
@@ -437,7 +438,7 @@ VirtualCity_Stadium_Arena_Eventscript_Rando5Fight::
 	setvar VAR_PETALBURG_CITY_STATE, 28
 
 	playse SE_EXIT
-	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 3
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 1
 	waitstate
 	end
 
@@ -456,7 +457,7 @@ VirtualCity_Stadium_Arena_Eventscript_LostSilver::
 	special LoadPlayerParty
 
 	playse SE_EXIT
-	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 3
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 1
 	waitstate
 	end
 
@@ -492,7 +493,7 @@ VirtualCity_Stadium_Arena_Eventscript_BrodudeFight::
 	setvar VAR_PETALBURG_CITY_STATE, 29
 
 	playse SE_EXIT
-	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 3
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 1
 	waitstate
 	end
 
@@ -523,7 +524,7 @@ VirtualCity_Stadium_Arena_Eventscript_WvddieFight::
 	setvar VAR_PETALBURG_CITY_STATE, 30
 
 	playse SE_EXIT
-	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 3
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 1
 	waitstate
 	end
 
@@ -554,7 +555,7 @@ VirtualCity_Stadium_Arena_Eventscript_SilvaBulletFight::
 	setvar VAR_PETALBURG_CITY_STATE, 31
 
 	playse SE_EXIT
-	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 3
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 1
 	waitstate
 	end
 
@@ -586,7 +587,7 @@ VirtualCity_Stadium_Arena_Eventscript_EarlGreyFight::
 	setvar VAR_PETALBURG_CITY_STATE, 32
 
 	playse SE_EXIT
-	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 3
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 1
 	waitstate
 	end
 
@@ -601,7 +602,7 @@ VirtualCity_Stadium_Arena_EventScript_LostGold::
 	special LoadPlayerParty
 
 	playse SE_EXIT
-	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 3
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 1
 	waitstate
 	end
 
@@ -635,7 +636,7 @@ VirtualCity_Stadium_Arena_Eventscript_ByronB1Fight::
 	setvar VAR_PETALBURG_CITY_STATE, 33
 
 	playse SE_EXIT
-	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 3
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 1
 	waitstate
 	end
 
@@ -669,7 +670,7 @@ VirtualCity_Stadium_Arena_Eventscript_ByronB2Fight::
 	setvar VAR_PETALBURG_CITY_STATE, 34
 
 	playse SE_EXIT
-	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 3
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 1
 	waitstate
 	end
 
@@ -700,7 +701,7 @@ VirtualCity_Stadium_Arena_Eventscript_ByronB2FightWinner::
 	setvar VAR_PETALBURG_CITY_STATE, 34
 
 	playse SE_EXIT
-	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 3
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 1
 	waitstate
 	end
 
@@ -737,7 +738,7 @@ VirtualCity_Stadium_Arena_Eventscript_ByronB3Fight::
 	setvar VAR_PETALBURG_CITY_STATE, 35
 
 	playse SE_EXIT
-	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 3
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 1
 	waitstate
 	end
 
@@ -752,7 +753,7 @@ VirtualCity_Stadium_Arena_EventScript_LostPlatinum::
 	special LoadPlayerParty
 
 	playse SE_EXIT
-	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 3
+	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 1
 	waitstate
 	end
 
@@ -881,7 +882,7 @@ VirtualCity_Stadium_Arena_Text_Rando5Intro:
 
 VirtualCity_Stadium_Arena_Text_Rando5Win:
 	.string "Hmph. You delivered.\n"
-	.string "Off meta Pokemon, but used well.$"
+	.string "Off meta POKéMON, but used well.$"
 
 
 
@@ -931,7 +932,7 @@ VirtualCity_Stadium_Arena_Text_ByronB1Intro2:
 
 VirtualCity_Stadium_Arena_Text_ByronB1Lose:
 	.string "Wow, that was a pathetic team.\p"
-	.string "Mismatched, cheap Pokemon just can't\n"
+	.string "Mismatched, cheap POKéMON just can't\n"
 	.string "compete with the best of the best.$"
 
 
@@ -994,7 +995,7 @@ VirtualCity_Stadium_Arena_Text_ByronB3Intro:
 
 VirtualCity_Stadium_Arena_Text_ByronB3Win1:
 	.string "It's rigged! It's rigged!\p"
-	.string "Stupid, useless Pokemon!\n"
+	.string "Stupid, useless POKéMON!\n"
 	.string "Can't do anything right!$"
 
 VirtualCity_Stadium_Arena_Text_ByronB3Win2:
@@ -1004,7 +1005,7 @@ VirtualCity_Stadium_Arena_Text_ByronB3Win2:
 
 VirtualCity_Stadium_Arena_Text_ByronB3Lose:
 	.string "Wasn't even close.\p"
-	.string "I've got better Pokemon, better skill,\n"
+	.string "I've got better POKéMON, better skill,\n"
 	.string "better predictions…\p"
 	.string "And all you got is luck.$"
 

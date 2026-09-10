@@ -492,7 +492,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk03Ernest::
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk04Harriet::
 	.string "Sophie, we were just discussing…\p"
 	.string "When was the last time you saw a\n"
-	.string "Pokemon, you know, in real life?$"
+	.string "POKéMON, you know, in real life?$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk05Sophie::
 	.string "Gosh, I don't even remember.\p"
@@ -522,7 +522,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk4Lola::
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk5Lola::
 	.string "You all know better than anyone how\n"
-	.string "much I wanted a real Pokemon.\p"
+	.string "much I wanted a real POKéMON.\p"
 	.string "So many people called it a stupid,\n"
 	.string "unrealistic dream.\p"
 	.string "Back then, I couldn't explain why it\n" 
@@ -532,9 +532,9 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk5Lola::
 	
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk6Lola::
 	.string "Go on, pet him! Like you would a\n"
-	.string "VR Pokemon. He's super friendly!\p"
+	.string "VR POKéMON. He's super friendly!\p"
 	.string "And you'll understand it.\n"
-	.string "Why real Pokemon are so important.$"
+	.string "Why real POKéMON are so important.$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk7Harriet::
 	.string "OMG he's so precious! And warm!\n"
@@ -616,12 +616,12 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk25Sophie::
 	.string "The mouth, too.\p"
 	.string "That's… that's not a real Snubbull.\p"
 	.string "It looked… drawn.\p"
-	.string "Like the VR Pokemon you design…\n"
+	.string "Like the VR POKéMON you design…\n"
 	.string "but not as skillful.$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk26Minh::
 	.string "Are you saying… does {COLOR GREEN}BETTER{COLOR DARK_GRAY} have a\n"
-	.string "way to make fake IRL Pokemon?!\p"
+	.string "way to make fake IRL POKéMON?!\p"
 	.string "And Lola just spent her life savings\n"
 	.string "on one, thinking it was real?!$"
 
@@ -632,14 +632,14 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk27Sophie::
 	.string "worse than Lola getting scammed.$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk28Sophie::
-	.string "We haven't seen any Pokemon in years.\n"
+	.string "We haven't seen any POKéMON in years.\n"
 	.string "Real ones, I mean.\p"
 	.string "And when we finally see one, it's a\n"
 	.string "very convincing fake.$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk29Sophie::
 	.string "Minh…\p"
-	.string "{COLOR RED}Are there even any real Pokemon left?$"
+	.string "{COLOR RED}Are there even any real POKéMON left?$"
 
 
 
@@ -777,7 +777,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_MinhActIIIntro8::
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_ErnestActIIIntro9::
 	.string "Fakes? You mean, Lola's Snubbull isn't\n"
-	.string "a real flesh-and-blood Pokemon?$"
+	.string "a real flesh-and-blood POKéMON?$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro10::
 	.string "Yeah.\pMinh and I are going to do\n"

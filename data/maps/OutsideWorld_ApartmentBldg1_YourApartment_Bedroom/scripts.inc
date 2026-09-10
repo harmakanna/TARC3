@@ -203,7 +203,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaConfronts6:
 
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaConfronts7:
 	.string "Is it because it's unethical to keep a\n"
-	.string "Pokemon in an apartment this small?\p"
+	.string "POKéMON in an apartment this small?\p"
 	.string "Because I can't give him up. I can't,\n"
 	.string "Sophie. He's become my whole world.$"
 
@@ -232,13 +232,13 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer2:
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer3:
 	.string "It's terribly cruel.\p"
 	.string "But you know how much Sophie loves Ex.\n"
-	.string "Virtual Pokemon can be worthy of love.$"
+	.string "Virtual POKéMON can be worthy of love.$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer4:
 	.string "Listen to them, Lola.$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer5:
-	.string "There may not even be any Pokemon left!$"
+	.string "There may not even be any POKéMON left!$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer6:
 	.string "We don't know that! We can't know it.$"
@@ -408,7 +408,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Eventscript_PrologueLola::
 
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Text_PrologueLola:
 	.string "It's everything I imagined. It feels\n"
-	.string "so right, to have a Pokemon companion.\p"
+	.string "so right, to have a POKéMON companion.\p"
 	.string "…You going back into the BETTER Place\n"
 	.string "tonight? Don't stay up too late.$"
 

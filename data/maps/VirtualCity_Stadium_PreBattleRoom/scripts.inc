@@ -4,8 +4,13 @@ VirtualCity_Stadium_PreBattleRoom_MapScripts::
 	.byte 0
 
 VirtualCity_Stadium_PreBattleRoom_OnTransition::
+	call_if_eq VAR_PETALBURG_CITY_STATE, 32, VirtualCity_Stadium_PreBattleRoom_EventScript_ClearErnestFlag
 	call_if_gt VAR_PETALBURG_CITY_STATE, 22, VirtualCity_Stadium_PreBattleRoom_EventScript_PositionHarrietPreBattle
 	end
+
+VirtualCity_Stadium_PreBattleRoom_EventScript_ClearErnestFlag::
+	clearflag FLAG_ACT_II_HIDE_ERNEST_PREBATTLE
+	return
 
 VirtualCity_Stadium_PreBattleRoom_EventScript_PositionHarrietPreBattle:
 	setobjectxyperm LOCALID_HARRIET_PREBATTLE, 3, 2
@@ -15,10 +20,18 @@ VirtualCity_Stadium_PreBattleRoom_EventScript_PositionHarrietPreBattle:
 VirtualCity_Stadium_PreBattleRoom_OnFrame::
 	map_script_2 VAR_PETALBURG_CITY_STATE, 22, VirtualCity_Stadium_PreBattleRoom_Eventscript_IntroScene
 	map_script_2 VAR_PETALBURG_CITY_STATE, 32, VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB1Scene
-	map_script_2 VAR_PETALBURG_CITY_STATE, 33, VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2Scene
-	map_script_2 VAR_PETALBURG_CITY_STATE, 34, VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB3Scene
-	map_script_2 VAR_PETALBURG_CITY_STATE, 35, VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronHackSuccess
+	map_script_2 VAR_PETALBURG_CITY_STATE, 34, VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2Scene
+	map_script_2 VAR_PETALBURG_CITY_STATE, 36, VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB3Scene
+	map_script_2 VAR_PETALBURG_CITY_STATE, 38, VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronHackSuccess
+	map_script_2 VAR_WALK_DOWN_IN_VIRTUAL_PREBATTLE_ROOM, 1, VirtualCity_Stadium_PreBattleRoom_EventScript_WalkDownInVirtualPreBattleRoom
 	.2byte 0
+
+VirtualCity_Stadium_PreBattleRoom_EventScript_WalkDownInVirtualPreBattleRoom::
+	applymovement LOCALID_PLAYER, Common_Movement_WalkDown
+	waitmovement 0
+	setvar VAR_WALK_DOWN_IN_VIRTUAL_PREBATTLE_ROOM, 0
+	releaseall
+	end
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_IntroScene::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkUp
@@ -87,7 +100,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro0:
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro1:
 	.string "So, I signed myself up as your coach\n"
 	.string "to scope out your opponents.\p"
-	.string "I know you like modding your Pokemon.\p"
+	.string "I know you like modding your POKéMON.\p"
 	.string "You'll probably only have time for\n"
 	.string "one mod after each battle, though.$"
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietIntro1_2:
@@ -131,7 +144,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietAreYouReady::
 	lockall
 
 @Calls to check if the player has learned the hack move when they need to learn the hack move
-	call_if_eq VAR_PETALBURG_CITY_STATE, 34, VirtualCity_Stadium_PreBattleRoom_EventScript_CheckForHackLearn
+	call_if_eq VAR_PETALBURG_CITY_STATE, 37, VirtualCity_Stadium_PreBattleRoom_EventScript_CheckForHackLearn
 	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Text_HarrietAreYouReady, Speaker_Harriet, DIR_EAST, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, VirtualCity_Stadium_PreBattleRoom_EventScript_HarrietNoWorries
 	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_EventScript_HarrietYouSure
@@ -223,9 +236,9 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_Harriet::
 	goto_if_eq VAR_PETALBURG_CITY_STATE, 30, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXSilvaBullet
 	goto_if_eq VAR_PETALBURG_CITY_STATE, 31, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXEarlGrey
 
-	@goto_if_eq VAR_PETALBURG_CITY_STATE, 32, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXByronB1
-	@goto_if_eq VAR_PETALBURG_CITY_STATE, 33, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXByronB2
-	@goto_if_eq VAR_PETALBURG_CITY_STATE, 34, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXByronB3
+	@goto_if_eq VAR_PETALBURG_CITY_STATE, 33, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXByronB1
+	@goto_if_eq VAR_PETALBURG_CITY_STATE, 35, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXByronB2
+	@goto_if_eq VAR_PETALBURG_CITY_STATE, 37, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXByronB3
 	end
 
 @@ SILVER
@@ -333,7 +346,7 @@ VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXRando2Rematch:
 
 VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXRando3:
 	.string "This next one's an old lady with a lot\n"
-	.string "of cute Pokemon - not battle-ready.\p"
+	.string "of cute POKéMON - not battle-ready.\p"
 	.string "Why is she here?$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXRando3Rematch:
@@ -351,13 +364,13 @@ VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXRando4Rematch:
 
 
 VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXRando5:
-	.string "Okay, she's got vanilla Pokemon, but you\n"
+	.string "Okay, she's got vanilla POKéMON, but you\n"
 	.string "can tell she's serious.\p"
 	.string "She's rocking a fire-water-grass core,\n"
 	.string "and some decent synergy.$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXRando5Rematch:
-	.string "The ace trainer with the fire-water-grass\n"
+	.string "The Ace with the fire-water-grass\n"
 	.string "core is next. She looks tough!$"
 
 
@@ -449,7 +462,7 @@ VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXWvddie3:
 VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXSilvaBullet1:
 	.string "Remember how I said all the cheaters\n"
 	.string "were ranked in Platinum?\p"
-	.string "Turns out one of them is so bad at it\p"
+	.string "Turns out one of them is so bad at it\n"
 	.string "that they're in Gold.$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_SophieBattleXSilvaBullet2:
@@ -467,11 +480,11 @@ VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXSilvaBullet3:
 VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXEarlGrey1:
 	.string "Well, your next fight is against a guy\n"
 	.string "who calls himself Earl Grey.\p"
-	.string "You remember the Teatime pack? It came\p"
-	.string "out a few years ago.$"
+	.string "You remember the Teatime pack? It\n"
+	.string "came out a few years ago.$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_SophieBattleXEarlGrey2:
-	.string "Riiiight, all those Pokemon with\n"
+	.string "Riiiight, all those POKéMON with\n"
 	.string "Hospitality. Fun to use.$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXEarlGrey3:
@@ -484,13 +497,20 @@ VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattleXEarlGrey3:
 
 
 VirtualCity_Stadium_PreBattleRoom_Movement_SophieIntoPlace:
-	walk_right
+	walk_down
+	walk_left
 	face_up
+	step_end
+
+VirtualCity_Stadium_PreBattleRoom_Movement_SophieIntoPlace2:
+	walk_down
+	walk_left
 	step_end
 
 @@ BYRON
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB1Scene::
+	setvar VAR_WALK_DOWN_IN_VIRTUAL_PREBATTLE_ROOM, 0
 	applymovement LOCALID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Movement_SophieIntoPlace
 	waitmovement 0
 	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle1XByron0, Speaker_Harriet, DIR_SOUTH
@@ -504,11 +524,13 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB1Scene::
 	playse SE_SELECT
 	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle1XByron4, Speaker_Harriet, DIR_SOUTH
 	closemessage
+	setvar VAR_PETALBURG_CITY_STATE, 33
 	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2Scene::
 	@This is if you beat Byron
+	setvar VAR_WALK_DOWN_IN_VIRTUAL_PREBATTLE_ROOM, 0
 	applymovement LOCALID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Movement_SophieIntoPlace
 	waitmovement 0
 	goto VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2SceneLose
@@ -537,11 +559,13 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2Scene::
 	closemessage
 	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
 	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_FaceDown
+	setvar VAR_PETALBURG_CITY_STATE, 35
 	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2SceneLose::
 	@if you lose
+	setvar VAR_WALK_DOWN_IN_VIRTUAL_PREBATTLE_ROOM, 0
 	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle2LoseXByron1, Speaker_Harriet, DIR_SOUTH
 	playse SE_SELECT
 	speak LOCALID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2LoseXByron2, SP_NAME_PLAYER, DIR_NORTH
@@ -566,12 +590,14 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2SceneLose::
 	closemessage
 	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
 	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_FaceDown
+	setvar VAR_PETALBURG_CITY_STATE, 35
 	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
 
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB3Scene::
-	applymovement LOCALID_PLAYER, Common_Movement_WalkLeft
+	setvar VAR_WALK_DOWN_IN_VIRTUAL_PREBATTLE_ROOM, 0
+	applymovement LOCALID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Movement_SophieIntoPlace2
 	waitmovement 0
 	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_FaceLeft
 	speak LOCALID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle3XByron1, SP_NAME_PLAYER, DIR_WEST
@@ -596,12 +622,13 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB3Scene::
 	closemessage
 	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
 	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_FaceDown
+	setvar VAR_PETALBURG_CITY_STATE, 37
 	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
 
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronHackSuccess::
-	applymovement LOCALID_PLAYER, Common_Movement_WalkLeft
+	applymovement LOCALID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Movement_SophieIntoPlace2
 	waitmovement 0
 	speak LOCALID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Text_SophieHackSuccess1, SP_NAME_PLAYER, DIR_EAST
 	playse SE_SELECT
@@ -616,6 +643,8 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronHackSuccess::
 	speak LOCALID_ERNEST_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Text_ErnestHackSuccess4, Speaker_Ernest, DIR_EAST
 	closemessage
 	clearflag FLAG_ACT_II_HIDE_HOTEL_FRIENDS
+	setflag FLAG_ACT_II_HIDE_ERNEST_PREBATTLE
+	setvar VAR_PETALBURG_CITY_STATE, 39
 	warpsilent MAP_VIRTUAL_CITY_HOTEL_YOUR_ROOM, 12,9
 	waitstate
 	end
@@ -628,18 +657,18 @@ VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle1XByron0:
 	.string "and boy does he have a nasty team.\p"
 	.string "Legendaries, boosted stats, absurd\n"
 	.string "and illegal abilities and movesets.\p"
-	.string "And he's got a shadowy Pokemon I\n"
+	.string "And he's got a shadowy POKéMON I\n"
 	.string "couldn't even identify.$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle1XByron2:
-	.string "I've boosted up my Pokemon, but I don't\n"
+	.string "I've boosted up my POKéMON, but I don't\n"
 	.string "know if it'll be enough.$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle1XByron3:
 	.string "It doesn't have to be enough.\n"
 	.string "You don't have to win.\p"
 	.string "All I have to do is figure out how his\n"
-	.string "Pokemon were hacked, and I might be able\l"
+	.string "POKéMON were hacked, and I might be able\l"
 	.string "to find and exploit a backdoor.\p"
 	.string "I just know it's a hack job.$"
 
@@ -665,14 +694,18 @@ VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2WinXByron2:
 	.string "Ernest, any progress?$"
 
 @KUMATORA (I used my limited cybersecurity vocabulary to make something up here - if you have suggestions, it's all you)
+@TOFOLD Check the changed dialogue to make sure it's okay?
 
 VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle2WinXByron3:
-	.string "I.\p"
-	.string "Cannot.\p"
-	.string "Believe.\p"
-	.string "How dumb. He is.\p"
-	.string "There's no encryption - I just gotta\n"
-	.string "get into the system somehow. But how?\p"
+	.string "I.{PAUSE 50}Cannot.\p"
+	.string "BELIEVE!\p"
+	.string "How STUPID he is!\p"
+	.string "He disables the encrypted tunnel from\n"
+	.string "{COLOR GREEN}BETTER's{COLOR DARK_GRAY}website to\l"
+	.string "his own laptop's IP!\p"
+	.string "That's how he submits such hogwash teams!"
+	.string "His data's exposed - I just gotta\n"
+	.string "break into his laptop somehow. But how?\p"
 	.string "…\p"
 	.string "I got it.$"
 
@@ -713,12 +746,15 @@ VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2LoseXByron2:
 @KUMATORA (I used my limited cybersecurity vocabulary to make something up here - if you have suggestions, it's all you)
 
 VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle2LoseXByron3:
-	.string "I.\p"
-	.string "Cannot.\p"
-	.string "Believe.\p"
-	.string "How dumb. He is.\p"
-	.string "There's no encryption - I just gotta\n"
-	.string "get into the system somehow. But how?\p"
+	.string "I.{PAUSE 50}Cannot.\p"
+	.string "BELIEVE!\p"
+	.string "How STUPID he is!\p"
+	.string "He disables the encrypted tunnel from\n"
+	.string "{COLOR GREEN}BETTER's{COLOR DARK_GRAY}website to\l"
+	.string "his own laptop's IP!\p"
+	.string "That's how he submits such hogwash teams!"
+	.string "His data's exposed - I just gotta\n"
+	.string "break into his laptop somehow. But how?\p"
 	.string "…\p"
 	.string "I got it.$"
 
@@ -762,23 +798,27 @@ VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle3XByron3:
 
 VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle3XByron4:
 	.string "It's called a TM. Trainers used to use\n"
-	.string "them to teach Pokemon moves.$"
+	.string "them to teach POKéMON moves.$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle3XByron5:
-	.string "Discs taught Pokemon moves?\n"
-	.string "Were… Were Pokemon always just code?$"
+	.string "Discs taught POKéMON moves?\n"
+	.string "Were… Were POKéMON always just code?$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle3XByron6:
 	.string "No, it was just a way…\p"
 	.string "Um, anyway, I can use it to teach one\n"
-	.string "of your Pokemon a move I just made.\p"
+	.string "of your POKéMON a move I just made.\p"
 	.string "It's got the viral load in it, so when\n"
-	.string "it hits one of his hacked Pokemon,\l"
-	.string "I'll be able to get access.\p"
+	.string "it hits one of his hacked POKéMON,\l"
+	.string "I can get access.\p"
+	.string "That infected POKéMON will give me an in\n"
+	.string "to his computer after the match, when the\l"
+	.string "final match validation occurs.\p"
 	.string "The move's high priority and accurate,\n"
 	.string "so it shouldn't be hard to hit.\p"
 	.string "After that, doesn't matter if you win\n"
-	.string "or lose - I'll be in.$"
+	.string "or lose.\p"
+	.string "I'll be in the system!$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle3XByron7:
 	.string "I just gotta hit him, huh?\p"
@@ -791,7 +831,7 @@ VirtualCity_Stadium_PreBattleRoom_Text_SophieHackSuccess1:
 	.string "It's done.$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_ErnestHackSuccess2:
-	.string "I see it. What an amateur.$"
+	.string "I see it. What an amateur!$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_HarrietHackSuccess3:
 	.string "Well done! Now, what next?$"
@@ -808,10 +848,10 @@ VirtualCity_Stadium_PreBattleRoom_Text_ErnestHackSuccess4:
 @ Ernest
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_Ernest::
-	goto_if_eq VAR_PETALBURG_CITY_STATE, 35, VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestLetsGo
-	goto_if_eq VAR_PETALBURG_CITY_STATE, 34, VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestTutor
-	goto_if_eq VAR_PETALBURG_CITY_STATE, 33, VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestWork
-	goto_if_eq VAR_PETALBURG_CITY_STATE, 32, VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestWait
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 39, VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestLetsGo
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 37, VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestTutor
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 35, VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestWork
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 33, VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestWait
 	end
 
 
@@ -892,7 +932,7 @@ VirtualCity_Stadium_PreBattleRoom_EventScript_PCRemoveMods::
 	end
 
 VirtualCity_Stadium_PreBattleRoom_Text_PC:
-	.string "Remove a Pokemon's mods?$"
+	.string "Remove a POKéMON's mods?$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_RemovalComplete:
 	.string "Removal complete.$"

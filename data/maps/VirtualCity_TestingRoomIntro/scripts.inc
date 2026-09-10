@@ -312,7 +312,7 @@ VirtualCity_TestingRoomIntro_Text_Intro01:
 VirtualCity_TestingRoomIntro_Text_Intro02:
 	.string "Hmm?\p"
 	.string "You mean, am I ready to see a real live\n"
-	.string "Pokemon tonight?$"
+	.string "POKéMON tonight?$"
 
 VirtualCity_TestingRoomIntro_Text_Intro03:
 	.string "What? No!\p Sophieeeee!\p"
@@ -379,7 +379,7 @@ VirtualCity_TestingRoomIntro_Text_Intro12:
 	.string "Hmph.\p"
 	.string "Anyways, work your magic on Darkanine,\n"
 	.string "and then we can run a simulator battle.\p"
-	.string "I got the other three Pokemon in the\n"
+	.string "I got the other three POKéMON in the\n"
 	.string "Macabre set here, for the test battle.$"
 
 
@@ -410,7 +410,7 @@ VirtualCity_TestingRoomIntro_Text_FirstBattleEndWin:
 
 VirtualCity_TestingRoomIntro_Text_FirstBattleEndLose:
 	.string "Either you went easy on me, or these\n"
-	.string "meta Pokemon are too strong!\p"
+	.string "meta POKéMON are too strong!\p"
 	.string "Did it feel good to use? Wanna\n"
 	.string "modify it some more?$"
 
@@ -435,7 +435,7 @@ VirtualCity_TestingRoomIntro_Text_SubsequentBattleStart:
 VirtualCity_TestingRoomIntro_Text_SubsequentBattleEndWin:
 	.string "I know you can't rush art, but when\n"
 	.string "you finish this, we get to go home!\p"
-	.string "And see a real live Pokemon!\p"
+	.string "And see a real live POKéMON!\p"
 	.string "Do you really need to tune it\n"
 	.string "even more?$"
 
@@ -458,6 +458,6 @@ VirtualCity_TestingRoomIntro_Text_DarkanineConfirmed:
 	@.string "The Rotom Phone's logout works in here.\p"
 	.string "Tell them to wait for me, I'll run there\n"
 	.string "as fast as I can!\p"
-	.string "Don't you dare pet the new Pokemon\n"
+	.string "Don't you dare pet the new POKéMON\n"
 	.string "without me!$"
 

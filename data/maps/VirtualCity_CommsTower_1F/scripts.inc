@@ -198,7 +198,7 @@ VirtualCity_CommsTower_1F_Text_MinhACTIIntro1:
 	.string "They're working in {COLOR GREEN}BETTER{COLOR DARK_GRAY}'s Research\n"
 	.string "Department, which is pretty suspicious.\p"
 	.string "We need to get into the department and\n"
-	.string "see if they're making fake IRL Pokemon.\p"
+	.string "see if they're making fake IRL POKéMON.\p"
 	.string "But, of course, there's a problem.$"
 
 VirtualCity_CommsTower_1F_Text_MinhACTIIntro2:
@@ -221,7 +221,7 @@ VirtualCity_CommsTower_1F_Text_MinhACTIIntro4:
 
 VirtualCity_CommsTower_1F_Text_SophieACTIIntro5:
 	.string "Ugh, fine.\p"
-	.string "So, no Pokemon? My bare hands should\n"
+	.string "So, no POKéMON? My bare hands should\n"
 	.string "be enough to-$"
 
 VirtualCity_CommsTower_1F_Text_MinhACTIIntro6:
@@ -231,7 +231,7 @@ VirtualCity_CommsTower_1F_Text_MinhACTIIntro6:
 	.string "Maybe you can eavesdrop, and find out\n"
 	.string "what they're working on?\p"
 	.string "If you figure it out, maybe we can find\n"
-	.string "that Pokemon and show the guard?\p"
+	.string "that POKéMON and show the guard?\p"
 	.string "Sigh… I dunno. You're the pro battler.\n"
 	.string "My art skills don't really help here.$"
 
@@ -246,7 +246,7 @@ VirtualCity_CommsTower_1F_Text_MinhACTIIntroRepeat:
 	.string "You remember what to do, right?\p"
 	.string "Get to the Casino and eavesdrop on\n"
 	.string "researchers, and see if you can\l"
-	.string "find out what Pokemon they'll let in.\p"
+	.string "find out what POKéMON they'll let in.\p"
 	.string "We'll plan it from there.$"
 
 
@@ -341,13 +341,13 @@ PonytaChoice_Text_Choice14:
 
 
 VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheck:
-	.string "Did you get any info on what Pokemon\n"
+	.string "Did you get any info on what POKéMON\n"
 	.string "you can get past the guard?$"
 
 VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheck:
 	.string "You mentioned {COLOR BLUE}five {COLOR DARK_GRAY}researchers… but I\n"
 	.string "saw {COLOR RED}six {COLOR DARK_GRAY}different researchers, talking\l"
-	.string "about a Pokemon they were working on…\p"
+	.string "about a POKéMON they were working on…\p"
 	.string "{COLOR BLUE}One of them must have been unrelated.\p"
 	.string "{COLOR DARK_GRAY}I think they were talking about…$"
 
@@ -430,7 +430,7 @@ VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardEnter:
 	end
 
 VirtualCity_CommsTower_1F_Text_NoPokemonGuardEnter:
-	.string "Ah good, no Pokemon.$"
+	.string "Ah good, no POKéMON.$"
 
 VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardMoves:
 	@ guard moves out of the way depending on where you are standing TOFOLD
@@ -481,7 +481,7 @@ VirtualCity_CommsTower_1F_Text_NoPokemonGuardGoAhead:
 
 
 @VirtualCity_CommsTower_1F_Text_NoPokemonGuardMagikarp:
-@	.string "Hold it, you can't bring Pokemon here.\p"
+@	.string "Hold it, you can't bring POKéMON here.\p"
 @	.string "Too many… wait, is that a Magikarp?\n"
 @	.string "Ahahahahahaha!\p"
 @	.string "Go on through, heh. Ain't no way you're\n"

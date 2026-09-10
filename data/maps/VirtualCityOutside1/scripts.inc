@@ -210,7 +210,7 @@ Sign_Hotel_Text:
 	.string "The Grand {COLOR GREEN}BETTER{COLOR DARK_GRAY} Hotel and Stadium\p"
 	.string "An Infinite Number of Rooms!\n"
 	.string "A Place To Call Home!\l"
-	.string "And The Only Spot For Pokemon Battles!$"
+	.string "And The Only Spot For POKéMON Battles!$"
 
 
 VirtualCity_Outside_Text_EarlGrayWhatAreYouOnAbout:
