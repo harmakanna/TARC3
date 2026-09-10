@@ -10,7 +10,8 @@
       "MOVE_RETURN",
       "MOVE_SECRET_POWER",
       "MOVE_SUBSTITUTE",
-      "MOVE_TERA_BLAST"
+      "MOVE_TERA_BLAST",
+      "MOVE_OCTAZOOKA"
     ],
   "signatureTeachables":
     [

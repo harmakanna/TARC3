@@ -2530,7 +2530,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
             "A powerful quake that\n"
             "hits all other POKéMON."),
         .effect = EFFECT_EARTHQUAKE,
-        .power = 50,
+        .power = 100,
         .type = TYPE_GROUND,
         .accuracy = 100,
         .pp = 10,

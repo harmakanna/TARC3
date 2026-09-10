@@ -82,6 +82,7 @@ static EWRAM_DATA struct {
 
 EWRAM_DATA enum MoveRelearnerStates gMoveRelearnerState = MOVE_RELEARNER_LEVEL_UP_MOVES;
 EWRAM_DATA enum RelearnMode gRelearnMode = RELEARN_MODE_NONE;
+EWRAM_DATA enum Move gForgottenMove = 0;
 
 static const u16 sUI_Pal[] = INCGFX_U16("graphics/interface/ui_learn_move.png", ".gbapal");
 
@@ -347,7 +348,7 @@ static void CB2_InitLearnMove_Basic(void)
         ClearScheduledBgCopiesToVram();
         SetVBlankCallback(VBlankCB_MoveRelearner);
         gMain.state++;
-        break;
+        //break;
     case 1:
         InitMoveRelearnerBackgroundLayers();
         InitMoveRelearnerWindows(gTasks[sMoveRelearnerStruct->mainTask].tCategory == CONTEST_INFO);
@@ -358,7 +359,7 @@ static void CB2_InitLearnMove_Basic(void)
         LoadSpritePalette(&sMoveRelearnerPalette);
         CreateUISprites();
         gMain.state++;
-        break;
+        //break;
     case 3:
         StoreMoveText();
         CreateLearnableMovesList();
@@ -369,9 +370,9 @@ static void CB2_InitLearnMove_Basic(void)
         ShowTeachMoveText();
         MoveRelearnerShowHideHearts(GetCurrentSelectedMove());
         SetBackdropFromColor(RGB_BLACK);
-        BeginNormalPaletteFade(PALETTES_ALL, -2, 16, 0, RGB_BLACK);
+        BeginNormalPaletteFade(PALETTES_ALL, -1, 16, 0, RGB_BLACK);
         gMain.state++;
-        break;
+        //break;
     case 5:
         UpdatePaletteFade();
         if (!gPaletteFade.active)
@@ -572,6 +573,7 @@ static void Task_MoveRelearner_Giveup_Answer(u8 taskId)
     case 0: // Yes
         if (gRelearnMode == RELEARN_MODE_SCRIPT)
             gSpecialVar_Result = FALSE;
+        GiveMoveToBoxMon(&(gParties[B_TRAINER_PLAYER][gTasks[taskId].data[1]].box), gForgottenMove);
         gTasks[taskId].func = Task_MoveRelearner_Quit;
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
         break;
@@ -636,6 +638,7 @@ static void Task_MoveRelearner_HandleInput(u8 taskId)
         break;
     case LIST_CANCEL:
         PlaySE(SE_SELECT);
+        /*
         RemoveScrollArrows();
         gTasks[taskId].func = Task_MoveRelearner_Giveup_Prompt;
         if (gRelearnMode == RELEARN_MODE_SCRIPT)
@@ -643,6 +646,10 @@ static void Task_MoveRelearner_HandleInput(u8 taskId)
         else
             StringExpandPlaceholders(gStringVar4, gText_MoveRelearnerStop);
         MoveRelearnerPrintMessage(gStringVar4);
+        */
+        GiveMoveToBoxMon(&(gParties[B_TRAINER_PLAYER][gTasks[taskId].data[1]].box), gForgottenMove);
+        gTasks[taskId].func = Task_MoveRelearner_Quit;
+        BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
         break;
     default:
         PlaySE(SE_SELECT);

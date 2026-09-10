@@ -2716,13 +2716,20 @@ void BufferStringBattle(enum StringID stringID, enum BattlerId battler)
         }
         break;
     case STRINGID_USEDMOVE: // Pokémon used a move msg
-        if (gBattleMsgDataPtr->currentMove >= MOVES_COUNT
-         && !IsZMove(gBattleMsgDataPtr->currentMove)
-         && !IsMaxMove(gBattleMsgDataPtr->currentMove))
-            StringCopy(gBattleTextBuff3, gTypesInfo[*(&gBattleStruct->stringMoveType)].generic);
+        if(FlagGet(FLAG_SPOOFING_EXECUTIVE) && (gBattlerAttacker & BIT_SIDE) == 0)
+        {
+            stringPtr = COMPOUND_STRING("????? used --ERROR--");
+        }
         else
-            StringCopy(gBattleTextBuff3, GetMoveName(gBattleMsgDataPtr->currentMove));
-        stringPtr = sText_AttackerUsedX;
+        {
+            if (gBattleMsgDataPtr->currentMove >= MOVES_COUNT
+             && !IsZMove(gBattleMsgDataPtr->currentMove)
+             && !IsMaxMove(gBattleMsgDataPtr->currentMove))
+                StringCopy(gBattleTextBuff3, gTypesInfo[*(&gBattleStruct->stringMoveType)].generic);
+            else
+                StringCopy(gBattleTextBuff3, GetMoveName(gBattleMsgDataPtr->currentMove));
+            stringPtr = sText_AttackerUsedX;
+        }
         break;
     case STRINGID_CONTINUEDMOVE: // Pokémon used a move msg
         if (gBattleMsgDataPtr->currentMove >= MOVES_COUNT
