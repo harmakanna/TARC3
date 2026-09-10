@@ -307,6 +307,13 @@ static const u16 *const sRotomPhone_StartMenu_Palettes[ROTOM_PHONE_COLOUR_COUNT]
     [ROTOM_PHONE_GOLD] =        sRotomPhonePalette_Gold,
 };
 
+static const u8 * const sRotomPhoneAds[] = {
+    COMPOUND_STRING("This is around the max length you can write"),
+    COMPOUND_STRING("10% off all hats at the BETTER Superstore")
+};
+
+#define ADS_NUMBER ARRAY_COUNT(sRotomPhoneAds)
+
 static const u16 *RotomPhone_StartMenu_GetPhoneColour(void)
 {
     if (UseFlipPhone())
@@ -575,6 +582,8 @@ enum RotomPhone_Overworld_Messages
     RP_MESSAGE_PERSONALITY,
     RP_MESSAGE_FUN,
     RP_MESSAGE_ADVENTURE,
+    RP_MESSAGE_AD,
+    RP_MESSAGE_CONSPIRACY,
     RP_MESSAGE_COUNT,
 };
 
@@ -1537,6 +1546,8 @@ static void RotomPhone_OverworldMenu_Init(bool32 firstInit)
     RotomPhone_OverworldMenu_ContinueInit(FALSE);
 }
 
+static enum RotomPhone_Overworld_Messages RotomPhone_OverworldMenu_GetRandomMessage(void);
+
 static void RotomPhone_OverworldMenu_ContinueInit(bool32 firstInit)
 {
     u8 taskId = FindTaskIdByFunc(Task_RotomPhone_OverworldMenu_PhoneSlideOpen);
@@ -1568,7 +1579,7 @@ static void RotomPhone_OverworldMenu_ContinueInit(bool32 firstInit)
     tPhoneHighlightComfyAnimId = CreateComfyAnim_Spring(&config);
 
     tRotomUpdateTimer = ROTOM_PHONE_OW_MESSGAGE_TIMER / RP_CONFIG_NUM_MINUTES_TO_UPDATE;
-    tRotomUpdateMessage = RP_MESSAGE_TIME;
+    tRotomUpdateMessage =RotomPhone_OverworldMenu_GetRandomMessage();
 
     if (GetSafariZoneFlag())
         tRotomUpdateMessage = RP_MESSAGE_SAFARI;
@@ -1787,8 +1798,7 @@ static void RotomPhone_OverworldMenu_PrintGreeting(void)
         return;
     
     u8 textBuffer[80];
-    enum RotomPhone_Overworld_MessagesGreeting messageRotom = Random() % RP_MESSAGE_GREETING_COUNT;
-
+    /*
     switch (messageRotom)
     {
     default:
@@ -1834,8 +1844,28 @@ static void RotomPhone_OverworldMenu_PrintGreeting(void)
     else
         StringAppend(textBuffer, COMPOUND_STRING("?"));
 
+    */
+
+    StringExpandPlaceholders(textBuffer, sRotomPhoneAds[Random() % ADS_NUMBER]);
+
     RotomPhone_OverworldMenu_PrintRotomSpeech(textBuffer, TRUE, TRUE);
     PlaySE(SE_PC_ON);
+}
+
+static void RotomPhone_OverworldMenu_PrintAd(u8 taskId)
+{
+    u8 textBuffer[80];
+    StringExpandPlaceholders(textBuffer, sRotomPhoneAds[Random() % ADS_NUMBER]);
+    RotomPhone_OverworldMenu_PrintRotomSpeech(textBuffer, TRUE, TRUE);
+    tRotomUpdateMessage = RotomPhone_OverworldMenu_GetRandomMessage();
+}
+
+static void RotomPhone_OverworldMenu_PrintConspiracy(u8 taskId)
+{
+    u8 textBuffer[80];
+    StringCopy(textBuffer, COMPOUND_STRING("IRL Pokemon are fake, scam conspiracy by BETTER."));
+    RotomPhone_OverworldMenu_PrintRotomSpeech(textBuffer, TRUE, TRUE);
+    tRotomUpdateMessage = RotomPhone_OverworldMenu_GetRandomMessage();
 }
 
 static enum RotomPhone_Overworld_Messages RotomPhone_OverworldMenu_GetRandomMessage(void)
@@ -1843,6 +1873,10 @@ static enum RotomPhone_Overworld_Messages RotomPhone_OverworldMenu_GetRandomMess
     if (!RP_CONFIG_UPDATE_MESSAGE)
         return RP_MESSAGE_TIME;
     
+    if (FALSE)
+        return RP_MESSAGE_CONSPIRACY;
+
+    return RP_MESSAGE_AD;
     enum RotomPhone_Overworld_Messages messageRandom;
     messageRandom = Random() % RP_MESSAGE_COUNT;
     while (messageRandom == RP_MESSAGE_GOODBYE
@@ -1888,6 +1922,12 @@ static void RotomPhone_OverworldMenu_CheckUpdateMessage(u8 taskId)
 
         case RP_MESSAGE_ADVENTURE:
             RotomPhone_OverworldMenu_PrintAdventure(taskId);
+            break;
+        case RP_MESSAGE_AD:
+            RotomPhone_OverworldMenu_PrintAd(taskId);
+            break;
+        case RP_MESSAGE_CONSPIRACY:
+            RotomPhone_OverworldMenu_PrintConspiracy(taskId);
             break;
         }
         tRotomUpdateTimer = ROTOM_PHONE_OW_MESSGAGE_TIMER;
