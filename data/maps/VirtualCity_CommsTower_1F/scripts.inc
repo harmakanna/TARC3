@@ -393,7 +393,7 @@ Speaker_Guard::
 
 VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuard::
 	
-	goto_if_set FLAG_ACT_III_POINTOFNORETURN, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardFight
+	goto_if_set FLAG_SPOOFING_EXECUTIVE, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardFight
 	goto_if_set FLAG_ACT_II_STARTED, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardTrouble
 	goto_if_set FLAG_ACT_I_EX_PONYTA_OBTAINED, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardPonyta
 	goto_if_set FLAG_ACT_I_STARTED, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardNoResearch
@@ -591,12 +591,16 @@ Speaker_Receptionist::
 	.string "Receptionist$"
 
 VirtualCity_CommsTower_1F_Eventscript_Receptionist::
+	goto_if_set FLAG_ACT_III_RECEPTIONAFRAID, VirtualCity_CommsTower_1F_End
 	applymovement LOCALID_COMMS_RECEPTION, VirtualCity_CommsTower_1F_Move_Receptionist
 	goto_if_set FLAG_ACT_III_COMPLETE, VirtualCity_CommsTower_1F_Eventscript_Receptionist3
-	goto_if_set FLAG_ACT_II_COMPLETE, VirtualCity_CommsTower_1F_Eventscript_Receptionist2
+	goto_if_set FLAG_SPOOFING_EXECUTIVE, VirtualCity_CommsTower_1F_Eventscript_Receptionist2
 	setspeaker Speaker_Receptionist
 	speak LOCALID_ARCANINE, VirtualCity_CommsTower_1F_Text_Receptionist1, Speaker_Receptionist, DIR_EAST
 	closemessage
+	end
+
+VirtualCity_CommsTower_1F_End::
 	end
 
 VirtualCity_CommsTower_1F_Move_Receptionist:
@@ -615,11 +619,18 @@ VirtualCity_CommsTower_1F_Text_Receptionist1:
 VirtualCity_CommsTower_1F_Eventscript_Receptionist2::
 	speak LOCALID_ARCANINE, VirtualCity_CommsTower_1F_Text_Receptionist2, Speaker_Receptionist, DIR_EAST
 	closemessage
+	applymovement LOCALID_COMMS_RECEPTION, VirtualCity_CommsTower_1F_Move_ReceptionistRunaway
+	setflag FLAG_ACT_III_RECEPTIONAFRAID
 	end
 
 VirtualCity_CommsTower_1F_Text_Receptionist2:
 	.string "Aaaah, what is that?!\n"
 	.string "SECURITY!$"
+
+VirtualCity_CommsTower_1F_Move_ReceptionistRunaway:
+	walk_left
+	walk_up
+	step_end
 
 
 VirtualCity_CommsTower_1F_Eventscript_Receptionist3::
@@ -655,6 +666,7 @@ VirtualCity_CommsTower_1F_AutoscannerCantID::
 	msgbox VirtualCity_CommsTower_1F_Text_AutoscannerCantID, MSGBOX_DEFAULT
 	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_CommsTower_1F_Text_AutoscannerCantID2, MSGBOX_DEFAULT
+	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight
 	waitmovement 0
 	end
@@ -712,6 +724,7 @@ VirtualCity_HotelLobby_Text_CantLeave:
 
 
 VirtualCity_CommsTower_1F_ActIII_Failed::
+	special HealPlayerParty
 	playse SE_PC_OFF
 	applymovement OBJ_EVENT_ID_PLAYER, VirtualCityIntro_Movement_LogOut
 	waitmovement 0

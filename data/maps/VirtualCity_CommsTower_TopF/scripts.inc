@@ -6,6 +6,8 @@ Speaker_System::
 
 
 VirtualCity_CommsTower_TopF_EventScript_HackRotomPhone::
+	fadeoutbgm 4
+	@KUMATORA, got a song for the ending?
 	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_CommsTower_TopF_Text_HackRotomPhone1 MSGBOX_DEFAULT
 	setspeaker Speaker_System
@@ -30,7 +32,8 @@ VirtualCity_CommsTower_TopF_EventScript_HackRotomPhone::
 	playse SE_PC_OFF
 	waitse
 	delay 60
-	@@ GO TO CREDITS
+	special CB2_StartCreditsSequence
+	waitstate
 	end
 
 

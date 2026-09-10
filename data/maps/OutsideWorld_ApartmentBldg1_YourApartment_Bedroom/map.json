@@ -39,7 +39,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_Minh",
       "flag": "FLAG_SYS_B_DASH"
     },
     {
@@ -53,7 +53,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_Harriet",
       "flag": "FLAG_ACT_III_HIDE_BEDROOM_FRIENDS"
     },
     {
@@ -67,7 +67,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_Ernest",
       "flag": "FLAG_ACT_III_HIDE_BEDROOM_FRIENDS"
     },
     {
@@ -81,7 +81,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_Ernest",
       "flag": "FLAG_SYS_B_DASH"
     },
     {
@@ -95,7 +95,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_Harriet",
       "flag": "FLAG_SYS_B_DASH"
     },
     {
@@ -109,7 +109,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_Minh",
       "flag": "FLAG_SYS_B_DASH"
     },
     {
@@ -123,7 +123,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_Minh",
       "flag": "FLAG_ACT_III_HIDE_BEDROOM_FRIENDS"
     },
     {

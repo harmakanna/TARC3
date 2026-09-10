@@ -152,7 +152,8 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_Mission::
 	speak LOCALID_BEDROOM_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_Mission2, Speaker_Ernest, DIR_SOUTH
 	speak LOCALID_BEDROOM_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_Mission3, Speaker_Minh, DIR_NORTH
 	speak LOCALID_BEDROOM_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_Mission4, Speaker_Harriet, DIR_NORTH
-	clearflag FLAG_ACT_III_HIDE_BEDROOM_FRIENDS
+	closemessage
+	@clearflag FLAG_ACT_III_HIDE_BEDROOM_FRIENDS
 	setvar VAR_PETALBURG_CITY_STATE, 41
 	end
 
@@ -301,7 +302,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer13:
 	.string "…Thanks, Lola.$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer14:
-	.string "Now. I need to clear my head.$"
+	.string "Now. I need to clear my head.\p"
 	.string "Now that it looks like my life's\n"
 	.string "central ambition was a lie, I need to\l"
 	.string "think about what I'm going to do.\p"
@@ -377,6 +378,16 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_Ernest::
 	setvar VAR_PETALBURG_CITY_STATE, 50
 	warpsilent MAP_VIRTUAL_CITY_COMMS_TOWER_1F, 5,10
 	waitstate
+	end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_Harriet::
+	setspeaker Speaker_Harriet
+	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_Mission4, MSGBOX_NPC
+	end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_Minh::
+	setspeaker Speaker_Minh
+	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_Mission3, MSGBOX_NPC
 	end
 
 
