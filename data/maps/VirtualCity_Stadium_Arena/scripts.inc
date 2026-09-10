@@ -65,7 +65,7 @@ VirtualCity_Stadium_Arena_EventScript_AddRound1Audience::
 	createvobject OBJ_EVENT_GFX_TWIN, 12, 7, 2
 	createvobject OBJ_EVENT_GFX_FOSSIL, 35, 9, 2
 	createvobject OBJ_EVENT_GFX_RED, 20, 10, 2
-	createvobject OBJ_EVENT_GFX_DEOXYS_TRIANGLE, 35, 13, 2
+	createvobject OBJ_EVENT_GFX_PUSHABLE_BOULDER, 35, 13, 2
 	createvobject OBJ_EVENT_GFX_KIRLIA, 10, 14, 2
 	createvobject OBJ_EVENT_GFX_DUSCLOPS, 22, 15, 2
 	return
