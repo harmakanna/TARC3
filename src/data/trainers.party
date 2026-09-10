@@ -702,7 +702,6 @@ AI: Check Bad Move
 Zoroark (M) @ Focus Sash  
 Ability: Illusion  
 Level: 50  
-Tera Type: Dark  
 IVs: 0 Atk  
 - Spore  
 - Sheer Cold  
@@ -710,9 +709,8 @@ IVs: 0 Atk
 - Leech Seed  
 
 Rayquaza @ Life Orb  
-Ability: Air Lock  
+Ability: Delta Stream  
 Level: 50  
-Tera Type: Dragon  
 - Dragon Ascent  
 - Draco Meteor  
 - Extreme Speed  
@@ -721,7 +719,6 @@ Tera Type: Dragon
 Arceus @ Leftovers  
 Ability: Multitype  
 Level: 50  
-Tera Type: Normal  
 - Doom Desire  
 - Tachyon Cutter  
 - Extreme Speed  
@@ -730,7 +727,6 @@ Tera Type: Normal
 Xerneas @ Sitrus Berry  
 Ability: Fairy Aura  
 Level: 50  
-Tera Type: Fairy  
 IVs: 0 Atk  
 - Geomancy  
 - Moonblast  

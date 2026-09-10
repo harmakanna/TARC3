@@ -135,6 +135,7 @@ EventScript_ResetAllMapFlags::
 	setflag FLAG_HIDE_OPENING_CREDITS
 	setflag FLAG_HIDE_LOLA_APT_COUPON
 	setflag FLAG_HIDE_BABY_QUEST
+setflag FLAG_HIDE_LOLA_CONFRONT
 
 
 

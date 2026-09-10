@@ -739,7 +739,7 @@ VirtualCity_Stadium_Arena_Eventscript_ByronB2FightWinner::
 	call VirtualCity_Stadium_Arena_EventScript_WonMatch
 
 	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_CommonLeaveArenaSlow
-	waitmovement 0
+waitmovement 0
 	
 	setflag FLAG_ACT_II_FOUGHT_BYRONB2
 	@setvar VAR_PETALBURG_CITY_STATE, 36

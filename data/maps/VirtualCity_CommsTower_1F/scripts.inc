@@ -593,7 +593,7 @@ Speaker_Receptionist::
 VirtualCity_CommsTower_1F_Eventscript_Receptionist::
 	applymovement LOCALID_COMMS_RECEPTION, VirtualCity_CommsTower_1F_Move_Receptionist
 	goto_if_set FLAG_ACT_III_COMPLETE, VirtualCity_CommsTower_1F_Eventscript_Receptionist3
-	goto_if_set FLAG_ACT_II_COMPLETE, VirtualCity_CommsTower_1F_Eventscript_Receptionist2
+	goto_if_set FLAG_SPOOFING_EXECUTIVE, VirtualCity_CommsTower_1F_Eventscript_Receptionist2
 	setspeaker Speaker_Receptionist
 	speak LOCALID_ARCANINE, VirtualCity_CommsTower_1F_Text_Receptionist1, Speaker_Receptionist, DIR_EAST
 	closemessage
@@ -655,6 +655,7 @@ VirtualCity_CommsTower_1F_AutoscannerCantID::
 	msgbox VirtualCity_CommsTower_1F_Text_AutoscannerCantID, MSGBOX_DEFAULT
 	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_CommsTower_1F_Text_AutoscannerCantID2, MSGBOX_DEFAULT
+	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight
 	waitmovement 0
 	end
@@ -733,7 +734,7 @@ VirtualCity_CommsTower_1F_ActIII_Revived::
 
 	
 VirtualCity_CommsTower_1F_Text_ActIII_Revived:
-	.string "Damn. Well, looks like Ernest's\n"
+	.string "Dang. Well, looks like Ernest's\n"
 	.string "auto-relog script worked.\p"
 	.string "Maybe a quick mod will give me.\n"
 	.string "an edge.$"

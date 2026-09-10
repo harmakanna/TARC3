@@ -6,6 +6,7 @@ VirtualCity_Stadium_PreBattleRoom_MapScripts::
 VirtualCity_Stadium_PreBattleRoom_OnTransition::
 	call_if_eq VAR_PETALBURG_CITY_STATE, 32, VirtualCity_Stadium_PreBattleRoom_EventScript_ClearErnestFlag
 	call_if_gt VAR_PETALBURG_CITY_STATE, 22, VirtualCity_Stadium_PreBattleRoom_EventScript_PositionHarrietPreBattle
+	call VirtualCity_Stadium_PreBattleRoom_EventScript_TryRepositionErnest
 	end
 
 VirtualCity_Stadium_PreBattleRoom_EventScript_ClearErnestFlag::
@@ -25,6 +26,17 @@ VirtualCity_Stadium_PreBattleRoom_OnFrame::
 	map_script_2 VAR_PETALBURG_CITY_STATE, 38, VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronHackSuccess
 	map_script_2 VAR_WALK_DOWN_IN_VIRTUAL_PREBATTLE_ROOM, 1, VirtualCity_Stadium_PreBattleRoom_EventScript_WalkDownInVirtualPreBattleRoom
 	.2byte 0
+
+VirtualCity_Stadium_PreBattleRoom_EventScript_TryRepositionErnest::
+	call_if_eq VAR_PETALBURG_CITY_STATE, 33, VirtualCity_Stadium_PreBattleRoom_EventScript_RepositionErnest
+	call_if_eq VAR_PETALBURG_CITY_STATE, 35, VirtualCity_Stadium_PreBattleRoom_EventScript_RepositionErnest
+	call_if_eq VAR_PETALBURG_CITY_STATE, 37, VirtualCity_Stadium_PreBattleRoom_EventScript_RepositionErnest
+	return
+
+VirtualCity_Stadium_PreBattleRoom_EventScript_RepositionErnest::
+	setobjectxyperm LOCALID_ERNEST_PREBATTLE, 1, 5
+	setobjectmovementtype LOCALID_ERNEST_PREBATTLE, MOVEMENT_TYPE_FACE_LEFT
+	return
 
 VirtualCity_Stadium_PreBattleRoom_EventScript_WalkDownInVirtualPreBattleRoom::
 	applymovement LOCALID_PLAYER, Common_Movement_WalkDown
@@ -168,6 +180,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietAreYouReady2::
 	delay 10
 	closedoor 4, 1
 	waitdooranim
+	fadenewbgm MUS_NONE
 	fadescreen FADE_TO_BLACK
 	setflag FLAG_SYS_PREVENT_MAP_FADE
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_ARENA, 9, 5
@@ -705,6 +718,9 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronHackSuccess::
 	clearflag FLAG_ACT_II_HIDE_HOTEL_FRIENDS
 	setflag FLAG_ACT_II_HIDE_ERNEST_PREBATTLE
 	setvar VAR_PETALBURG_CITY_STATE, 39
+	setflag FLAG_SYS_PREVENT_MAP_FADE
+	fadescreen FADE_TO_BLACK
+	delay 80
 	warpsilent MAP_VIRTUAL_CITY_HOTEL_YOUR_ROOM, 12,9
 	waitstate
 	end
@@ -806,7 +822,7 @@ VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle2WinXByron3:
 	.string "laptop's IP!\p"
 	.string "That's how he submits such\nHOGWASH teams!\p"
 	.string "His data's exposed - I just gotta\n"
-	.string "break into his laptop somehow. But how?\p"
+	.string "break into his laptop somehow.\pBut how?\p"
 	.string "…\p"
 	.string "I got it.$"
 
@@ -855,7 +871,7 @@ VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle2LoseXByron3:
 	.string "laptop's IP!\p"
 	.string "That's how he submits such\nHOGWASH teams!\p"
 	.string "His data's exposed - I just gotta\n"
-	.string "break into his laptop somehow. But how?\p"
+	.string "break into his laptop somehow.\pBut how?\p"
 	.string "…\p"
 	.string "I got it.$"
 

@@ -318,7 +318,53 @@
       "dest_warp_id": "VirtualCity_CommsTower_Exit"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_VIRTUAL_CITY_OUTSIDE_STATE",
+      "var_value": "1",
+      "script": "VirtualCityOutside_EventScript_SophieNowsNotTheTime"
+    },
+    {
+      "type": "trigger",
+      "x": 34,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_VIRTUAL_CITY_OUTSIDE_STATE",
+      "var_value": "1",
+      "script": "VirtualCityOutside_EventScript_SophieNowsNotTheTime"
+    },
+    {
+      "type": "trigger",
+      "x": 35,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_VIRTUAL_CITY_OUTSIDE_STATE",
+      "var_value": "1",
+      "script": "VirtualCityOutside_EventScript_SophieNowsNotTheTime"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_VIRTUAL_CITY_OUTSIDE_STATE",
+      "var_value": "1",
+      "script": "VirtualCityOutside_EventScript_SophieNowsNotTheTime"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 27,
+      "elevation": 0,
+      "var": "VAR_VIRTUAL_CITY_OUTSIDE_STATE",
+      "var_value": "1",
+      "script": "VirtualCityOutside_EventScript_SophieNowsNotTheTime"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",
