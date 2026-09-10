@@ -33,14 +33,19 @@ VirtualCity_CommsTower_2F_EventScript_Door::
 	end
 
 VirtualCity_CommsTower_2F_EventScript_GuardA::
-	trainerbattle_double TRAINER_IMANI, VirtualCity_CommsTower_2F_Text_GuardAIntro, VirtualCity_CommsTower_2F_Text_GuardADefeated, Common_Text_NotEnoughPokemon
-	special HealPlayerParty
+	trainerbattle_double TRAINER_IMANI, VirtualCity_CommsTower_2F_Text_GuardAIntro, VirtualCity_CommsTower_2F_Text_GuardADefeated, Common_Text_NotEnoughPokemon, event_script = VirtualCity_CommsTower_2F_EventScript_GuardACheck
+	end
+
+VirtualCity_CommsTower_2F_EventScript_GuardACheck::
+	cleartrainerflag TRAINER_IMANI
 	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, 2, VirtualCity_CommsTower_1F_ActIII_Failed
-	goto_if_eq VAR_RESULT, 9, VirtualCity_CommsTower_1F_ActIII_Failed
+	goto_if_ne VAR_RESULT, 1, VirtualCity_CommsTower_1F_ActIII_Failed
+	@goto_if_eq VAR_RESULT, 9, VirtualCity_CommsTower_1F_ActIII_Failed
 	playse SE_PC_OFF
+	special HealPlayerParty
 	applymovement LOCALID_GUARDA, VirtualCityIntro_Movement_LogOut
 	waitmovement 0
+	settrainerflag TRAINER_IMANI
 	removeobject LOCALID_GUARDA
 	end
 
@@ -56,14 +61,19 @@ VirtualCity_CommsTower_2F_Text_GuardADefeated::
 
 
 VirtualCity_CommsTower_2F_EventScript_GuardB::
-	trainerbattle_double TRAINER_BEVERLY, VirtualCity_CommsTower_2F_Text_GuardBIntro, VirtualCity_CommsTower_2F_Text_GuardBDefeated, Common_Text_NotEnoughPokemon
+	trainerbattle_double TRAINER_BEVERLY, VirtualCity_CommsTower_2F_Text_GuardBIntro, VirtualCity_CommsTower_2F_Text_GuardBDefeated, Common_Text_NotEnoughPokemon,event_script = VirtualCity_CommsTower_2F_EventScript_GuardBCheck
+	end
+
+VirtualCity_CommsTower_2F_EventScript_GuardBCheck::
 	special HealPlayerParty
+	cleartrainerflag TRAINER_BEVERLY
 	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, 2, VirtualCity_CommsTower_1F_ActIII_Failed
-	goto_if_eq VAR_RESULT, 9, VirtualCity_CommsTower_1F_ActIII_Failed
+	goto_if_ne VAR_RESULT, 1, VirtualCity_CommsTower_1F_ActIII_Failed
+	@goto_if_eq VAR_RESULT, 9, VirtualCity_CommsTower_1F_ActIII_Failed
 	playse SE_PC_OFF
 	applymovement LOCALID_GUARDB, VirtualCityIntro_Movement_LogOut
 	waitmovement 0
+	settrainerflag TRAINER_BEVERLY
 	removeobject LOCALID_GUARDB
 	end
 

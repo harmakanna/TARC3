@@ -24,7 +24,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "VirtualCity_CommsTower_3F_EventScript_ScaredyCat",
       "flag": "0"
     },
     {
@@ -37,7 +37,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "VirtualCity_CommsTower_3F_EventScript_ObliviousCat",
       "flag": "0"
     },
     {
@@ -50,7 +50,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "VirtualCity_CommsTower_3F_EventScript_ResignedCat",
       "flag": "0"
     },
     {
@@ -64,8 +64,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "2",
-      "script": "VirtualCity_CommsTower_2F_EventScript_GuardC",
-      "flag": "0"
+      "script": "VirtualCity_CommsTower_3F_EventScript_GuardC",
+      "flag": "FLAG_GUARDC"
     }
   ],
   "warp_events": [
@@ -119,6 +119,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "VirtualCity_CommsTower_3F_EventScript_Door"
+    },
+    {
+      "type": "sign",
+      "x": 10,
+      "y": 10,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VirtualCity_CommsTower_3F_EventScript_ScreenIdols"
     }
   ],
   "floor_number": 3

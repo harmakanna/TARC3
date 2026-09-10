@@ -2268,6 +2268,13 @@ void Task_ExitVr(u8 taskId)
     case 1:
         if (!IsComputerScreenCloseEffectActive())
         {
+            //Flags set when warping back into outside for Lola confrontation cutscene
+            if (VarGet(VAR_PETALBURG_CITY_STATE) == 40)
+            {
+                FlagSet(FLAG_SYS_NO_MUSIC_ON_TRANSITION);
+                FlagSet(FLAG_SYS_PREVENT_MAP_FADE);
+                FlagClear(FLAG_HIDE_LOLA_CONFRONT);
+            }
             DoSilentWarp();
             DestroyTask(taskId);
         }

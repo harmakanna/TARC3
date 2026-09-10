@@ -34,65 +34,80 @@ VirtualCity_CommsTower_4F_EventScript_Door::
 
 
 
-VirtualCity_CommsTower_2F_EventScript_GuardD::
-	trainerbattle_double TRAINER_DENISE, VirtualCity_CommsTower_2F_Text_GuardDIntro, VirtualCity_CommsTower_2F_Text_GuardDDefeated, Common_Text_NotEnoughPokemon
+VirtualCity_CommsTower_4F_EventScript_GuardD::
+	trainerbattle_double TRAINER_DENISE, VirtualCity_CommsTower_4F_Text_GuardDIntro, VirtualCity_CommsTower_4F_Text_GuardDDefeated, Common_Text_NotEnoughPokemon, VirtualCity_CommsTower_4F_EventScript_GuardDCheck
+	end
+
+VirtualCity_CommsTower_4F_EventScript_GuardDCheck::
 	special HealPlayerParty
+	cleartrainerflag TRAINER_DENISE
 	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, 2, VirtualCity_CommsTower_1F_ActIII_Failed
-	goto_if_eq VAR_RESULT, 9, VirtualCity_CommsTower_1F_ActIII_Failed
+	goto_if_ne VAR_RESULT, 1, VirtualCity_CommsTower_1F_ActIII_Failed
+	@goto_if_eq VAR_RESULT, 9, VirtualCity_CommsTower_1F_ActIII_Failed
 	playse SE_PC_OFF
 	applymovement LOCALID_GUARDD, VirtualCityIntro_Movement_LogOut
 	waitmovement 0
+	settrainerflag TRAINER_DENISE
 	removeobject LOCALID_GUARDD
 	end
 
-VirtualCity_CommsTower_2F_Text_GuardDIntro::
+VirtualCity_CommsTower_4F_Text_GuardDIntro::
 	.string "We've barricaded the area!\n"
 	.string "You're not getting through us!$"
 
-VirtualCity_CommsTower_2F_Text_GuardDDefeated::
-	.string "Damn. It's up to you two!$"
+VirtualCity_CommsTower_4F_Text_GuardDDefeated::
+	.string "Noooo! It's up to you two!$"
 
 
-VirtualCity_CommsTower_2F_EventScript_GuardE::
-	trainerbattle_double TRAINER_BETH, VirtualCity_CommsTower_2F_Text_GuardEIntro, VirtualCity_CommsTower_2F_Text_GuardEDefeated, Common_Text_NotEnoughPokemon
+VirtualCity_CommsTower_4F_EventScript_GuardE::
+	trainerbattle_double TRAINER_BETH, VirtualCity_CommsTower_4F_Text_GuardEIntro, VirtualCity_CommsTower_4F_Text_GuardEDefeated, Common_Text_NotEnoughPokemon, event_script=VirtualCity_CommsTower_4F_EventScript_GuardECheck
+	end
+
+VirtualCity_CommsTower_4F_EventScript_GuardECheck::
 	special HealPlayerParty
+	cleartrainerflag TRAINER_BETH
 	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, 2, VirtualCity_CommsTower_1F_ActIII_Failed
-	goto_if_eq VAR_RESULT, 9, VirtualCity_CommsTower_1F_ActIII_Failed
+	goto_if_ne VAR_RESULT, 1, VirtualCity_CommsTower_1F_ActIII_Failed
+	@goto_if_eq VAR_RESULT, 9, VirtualCity_CommsTower_1F_ActIII_Failed
 	playse SE_PC_OFF
 	applymovement LOCALID_GUARDE, VirtualCityIntro_Movement_LogOut
 	waitmovement 0
+	settrainerflag TRAINER_BETH
 	removeobject LOCALID_GUARDE
 	end
 
-VirtualCity_CommsTower_2F_Text_GuardEIntro::
+VirtualCity_CommsTower_4F_Text_GuardEIntro::
 	.string "I saw it!\n"
 	.string "It's healing between fights!$"
 
-VirtualCity_CommsTower_2F_Text_GuardEDefeated::
+VirtualCity_CommsTower_4F_Text_GuardEDefeated::
 	.string "It just set the HP to max!\n"
 	.string "I saw it!$"
 
 
-VirtualCity_CommsTower_2F_EventScript_GuardF::
-	trainerbattle_double TRAINER_TARA, VirtualCity_CommsTower_2F_Text_GuardFIntro, VirtualCity_CommsTower_2F_Text_GuardFDefeated, Common_Text_NotEnoughPokemon
+VirtualCity_CommsTower_4F_EventScript_GuardF::
+	trainerbattle_double TRAINER_TARA, VirtualCity_CommsTower_4F_Text_GuardFIntro, VirtualCity_CommsTower_4F_Text_GuardFDefeated, Common_Text_NotEnoughPokemon, event_script=VirtualCity_CommsTower_4F_EventScript_GuardFCheck
+	end
+
+VirtualCity_CommsTower_4F_EventScript_GuardFCheck::
 	special HealPlayerParty
+	cleartrainerflag TRAINER_TARA
 	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, 2, VirtualCity_CommsTower_1F_ActIII_Failed
-	goto_if_eq VAR_RESULT, 9, VirtualCity_CommsTower_1F_ActIII_Failed
+	goto_if_ne VAR_RESULT, 1, VirtualCity_CommsTower_1F_ActIII_Failed
+	@goto_if_eq VAR_RESULT, 9, VirtualCity_CommsTower_1F_ActIII_Failed
 	playse SE_PC_OFF
 	applymovement LOCALID_GUARDF, VirtualCityIntro_Movement_LogOut
 	waitmovement 0
+	settrainerflag TRAINER_TARA
 	removeobject LOCALID_GUARDF
 	end
 
-VirtualCity_CommsTower_2F_Text_GuardFIntro::
+VirtualCity_CommsTower_4F_Text_GuardFIntro::
 	.string "I know I can't beat you.\n"
 	.string "But I have to try.$"
 
-VirtualCity_CommsTower_2F_Text_GuardFDefeated::
+VirtualCity_CommsTower_4F_Text_GuardFDefeated::
 	.string "Um.\p"
 	.string "Just between you and me.\p"
-	.string "{FONT_SMALL}Break it.$"
+	.string "Break it.$"
 

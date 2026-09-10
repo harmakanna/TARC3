@@ -374,30 +374,59 @@ VirtualCity_Hotel_YourRoom_Text_ResolutionTalk26Harriet::
 
 
 VirtualCity_Hotel_YourRoom_Eventscript_ActII_Ending::
+	delay 50
 	special SpawnCameraObject
+	applymovement LOCALID_CAMERA, Common_Movement_WalkDown
+	waitmovement 0
+	clearflag FLAG_SYS_PREVENT_MAP_FADE
+	fadescreen FADE_FROM_BLACK
+	delay 100
 	@ TOFOLD some movement would be great
 	speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ActII_Ending1Minh, Speaker_Minh, DIR_NORTH
+	playse SE_SELECT
 	speak LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Text_ActII_Ending2Ernest, Speaker_Ernest, DIR_EAST
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ActII_Ending3Sophie, SP_NAME_PLAYER, DIR_SOUTH
+	playse SE_SELECT
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ActII_Ending4Harriet, Speaker_Harriet, DIR_WEST
+	closemessage
+	playse SE_LEDGE
+	applymovement LOCALID_VRROOM_ERNEST, Common_Movement_FaceUp
+	applymovement LOCALID_VRROOM_HARRIET, Common_Movement_FaceUp
+	applymovement LOCALID_PLAYER, VirtualCity_Hotel_YourRoom_Movement_SophieExcited
+	waitmovement 0
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ActII_Ending5Sophie, SP_NAME_PLAYER, DIR_SOUTH
+	closemessage
+	delay 80
+	applymovement LOCALID_VRROOM_HARRIET, Common_Movement_FaceLeft
 	speak LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Text_ActII_Ending6Ernest, Speaker_Ernest, DIR_EAST
+	playse SE_SELECT
 	speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ActII_Ending7Minh, Speaker_Minh, DIR_NORTH
+	playse SE_SELECT
 	speak LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Text_ActII_Ending8Ernest, Speaker_Ernest, DIR_EAST
+	playse SE_SELECT
 	speak LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Text_ActII_Ending9Harriet, Speaker_Harriet, DIR_WEST
-	speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ActII_Ending10Minh, Speaker_Minh, DIR_NORTH
+	playse SE_SELECT
+	speak LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Text_ActII_Ending10Minh, Speaker_Minh, DIR_EAST
+	applymovement LOCALID_VRROOM_MINH, Common_Movement_FaceUp
+	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Hotel_YourRoom_Text_ActII_Ending11Sophie, SP_NAME_PLAYER, DIR_SOUTH
 	closemessage
-	special RemoveCameraObject
+	playse SE_PC_OFF
+	applymovement LOCALID_VRROOM_MINH, VirtualCity_Hotel_YourRoom_Movement_LogOff
+	waitmovement 0
 	removeobject LOCALID_VRROOM_MINH
 	playse SE_PC_OFF
-	waitse
+	applymovement LOCALID_VRROOM_ERNEST, VirtualCity_Hotel_YourRoom_Movement_LogOff
+	waitmovement 0
 	removeobject LOCALID_VRROOM_ERNEST
 	playse SE_PC_OFF
-	waitse
+	applymovement LOCALID_VRROOM_HARRIET, VirtualCity_Hotel_YourRoom_Movement_LogOff
+	waitmovement 0
 	removeobject LOCALID_VRROOM_HARRIET
-	playse SE_PC_OFF
-	waitse
+	applymovement LOCALID_CAMERA, Common_Movement_WalkUp
+	waitmovement 0
+	special RemoveCameraObject
 	setvar VAR_PETALBURG_CITY_STATE, 40
 	questmenu QUEST_MENU_COMPLETE_QUEST, QUEST_ACTII
 	questmenu QUEST_MENU_SET_ACTIVE, QUEST_ACTIII
@@ -408,6 +437,35 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Ending::
 	clearflag FLAG_ACT_III_HIDE_BEDROOM_LOLA
 	end
 
+VirtualCity_Hotel_YourRoom_Movement_SophieExcited:
+	jump_in_place_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	step_end
+
+VirtualCity_Hotel_YourRoom_Movement_LogOff:
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	face_left
+	face_up
+	face_right
+	face_down
+	step_end
 
 VirtualCity_Hotel_YourRoom_Text_ActII_Ending1Minh::
 	.string "So, that's it? We can hack the Rotom\n"
@@ -416,9 +474,11 @@ VirtualCity_Hotel_YourRoom_Text_ActII_Ending1Minh::
 VirtualCity_Hotel_YourRoom_Text_ActII_Ending2Ernest::
 	.string "We have the credentials. But Sophie\n"
 	.string "still has to get to the control room.\p"
-	.string "I have a way to scramble your ID.\p"
+	.string "I can now encrypt your avatar and\n"
+	.string "spoof your user ID.\p"
 	.string "You'll look like Byron to the system,\n"
-	.string "And your skin will be blurred.\p"
+	.string "but as for you avatar…\p"
+	.string "Just wait and see!\p"
 	.string "You'll have to enter the Place with\n"
 	.string "a different body.$"
 
@@ -431,36 +491,36 @@ VirtualCity_Hotel_YourRoom_Text_ActII_Ending4Harriet::
 	.string "So, um, yeah?$"
 
 VirtualCity_Hotel_YourRoom_Text_ActII_Ending5Sophie::
-	.string "Excellent!$"
+	.string "LETS GOOOOOOOOOOOOOOOOOOOOOOOOOOO!$"
 
 VirtualCity_Hotel_YourRoom_Text_ActII_Ending6Ernest::
-	.string "The autoscanner won't work when you're\n"
-	.string "scrambled, so you'll have to climb the\l"
-	.string "maintenance side of the tower manually.\p"
+	.string "The autoscanner won't work while you're\n"
+	.string "all spooky, so you'll have to climb the\l"
+	.string "maintenance side of the tower,\l"
+	.string "all old-fashioned-like.\p"
 	.string "You won't be able to turn back when we\n"
 	.string "start.$"
 
 VirtualCity_Hotel_YourRoom_Text_ActII_Ending7Minh::
 	.string "I've prepared the message and the\n"
 	.string "overworld footage of the Ponyta.\p"
-	.string "Let's bring it home.$"
+	.string "Let's bring it home!$"
 
 VirtualCity_Hotel_YourRoom_Text_ActII_Ending8Ernest::
-	.string "Let's meet back at your apt, Sophie.\p"
+	.string "Let's meet back at your apartment,\nSophie.\p"
 	.string "Finish up what you have to do first,\n"
 	.string "and we'll meet there and prepare.$"
 
 VirtualCity_Hotel_YourRoom_Text_ActII_Ending9Harriet::
-	.string "Let's goooooo! Crush the system!$"
+	.string "That's right! Crush the system!$"
 
 VirtualCity_Hotel_YourRoom_Text_ActII_Ending10Minh::
-	.string "Or in our case, stage the smallest\n"
-	.string "possible rebellion against the system.$"
+	.string "You mean, stage the smallest\n"
+	.string "possible rebellion against the system!$"
 
 VirtualCity_Hotel_YourRoom_Text_ActII_Ending11Sophie::
-	.string "Hush, Minh.\p"
-	.string "Okay, I'll finish up anything I need\n"
-	.string "to do before this gauntlet, and meet\l"
-	.string "you all back at my place. See ya!$"
+	.string "Shush, Minh!\p"
+	.string "This is NOBLE what we're doing!\p"
+	.string "Anyways, meet you all back at my place\nwhen I'm ready!$"
 
 

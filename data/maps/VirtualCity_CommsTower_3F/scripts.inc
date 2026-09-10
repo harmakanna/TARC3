@@ -33,22 +33,88 @@ VirtualCity_CommsTower_3F_EventScript_Door::
 	end
 
 
-VirtualCity_CommsTower_2F_EventScript_GuardC::
-	trainerbattle_double TRAINER_KYLA, VirtualCity_CommsTower_2F_Text_GuardCIntro, VirtualCity_CommsTower_2F_Text_GuardCDefeated, Common_Text_NotEnoughPokemon
+VirtualCity_CommsTower_3F_EventScript_GuardC::
+	trainerbattle_double TRAINER_KYLA, VirtualCity_CommsTower_3F_Text_GuardCIntro, VirtualCity_CommsTower_3F_Text_GuardCDefeated, Common_Text_NotEnoughPokemon, event_script = VirtualCity_CommsTower_3F_EventScript_GuardCCheck
+	end
+
+VirtualCity_CommsTower_3F_EventScript_GuardCCheck::
+	cleartrainerflag TRAINER_KYLA
 	special HealPlayerParty
 	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, 2, VirtualCity_CommsTower_1F_ActIII_Failed
-	goto_if_eq VAR_RESULT, 9, VirtualCity_CommsTower_1F_ActIII_Failed
+	goto_if_ne VAR_RESULT, 1, VirtualCity_CommsTower_1F_ActIII_Failed
+	@goto_if_eq VAR_RESULT, 9, VirtualCity_CommsTower_1F_ActIII_Failed
 	playse SE_PC_OFF
 	applymovement LOCALID_GUARDC, VirtualCityIntro_Movement_LogOut
 	waitmovement 0
+	settrainerflag TRAINER_KYLA
 	removeobject LOCALID_GUARDC
 	end
 
-VirtualCity_CommsTower_2F_Text_GuardCIntro::
-	.string "Whoa!$"
+
+
+VirtualCity_CommsTower_3F_Text_GuardCIntro::
+	.string "Whoa!\n"
 	.string "I always wanted to fight a terrorist!$"
 
-VirtualCity_CommsTower_2F_Text_GuardCDefeated::
+VirtualCity_CommsTower_3F_Text_GuardCDefeated::
 	.string "I didn't want to lose to a terrorist!$"
+
+
+VirtualCity_CommsTower_3F_EventScript_ScaredyCat::
+	msgbox VirtualCity_CommsTower_3F_Text_ScaredyCat, MSGBOX_DEFAULT
+	setspeaker SP_NAME_PLAYER
+	msgbox VirtualCity_CommsTower_3F_Text_ScaredyCat2, MSGBOX_DEFAULT
+	closemessage
+	end
+
+VirtualCity_CommsTower_3F_Text_ScaredyCat:
+	.string "As long as I stare at this screen,\n"
+	.string "and get my work done,\l"
+	.string "{FONT_SMALL}nothing will come and get me.$"
+
+VirtualCity_CommsTower_3F_Text_ScaredyCat2:
+	.string "…$"
+
+
+VirtualCity_CommsTower_3F_EventScript_ResignedCat::
+	msgbox VirtualCity_CommsTower_3F_Text_ResignedCat, MSGBOX_NPC
+	closemessage
+	releaseall
+	end
+
+VirtualCity_CommsTower_3F_Text_ResignedCat::
+	.string "Ah.\p"
+	.string "With all the things {COLOR GREEN}BETTER{COLOR DARK_GRAY} does, I\n"
+	.string "guess it was only a matter of time.$"
+
+
+VirtualCity_CommsTower_3F_EventScript_ObliviousCat::
+	msgbox VirtualCity_CommsTower_3F_Text_ObliviousCat, MSGBOX_NPC
+	setspeaker SP_NAME_PLAYER
+	msgbox VirtualCity_CommsTower_3F_Text_ObliviousCat2, MSGBOX_DEFAULT
+	closemessage
+	releaseall
+	end
+
+VirtualCity_CommsTower_3F_Text_ObliviousCat:
+	.string "Woahhhhh!\p"
+	.string "Never seen a skin like that!\n"
+	.string "It's so mysterious! Love it!$"
+
+VirtualCity_CommsTower_3F_Text_ObliviousCat2:
+	.string "…really?$"
+
+
+
+VirtualCity_CommsTower_3F_EventScript_ScreenIdols::
+	msgbox VirtualCity_CommsTower_3F_Text_ScreenIdols, MSGBOX_SIGN
+	closemessage
+	releaseall
+	end
+
+VirtualCity_CommsTower_3F_Text_ScreenIdols:
+	.string "It's a bunch of small videos, like a\n"
+	.string "surveillance board.\p"
+	.string "Three of them are spinning wildly…\n"	
+	.string "The idols' camera feeds get sent here?$"	
 

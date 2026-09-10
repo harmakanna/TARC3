@@ -359,7 +359,7 @@ const struct TrainerClass gTrainerClasses[TRAINER_CLASS_COUNT] =
     [TRAINER_CLASS_RIVAL] = { _("{PKMN} TRAINER"), 15 },
     [TRAINER_CLASS_BUG_CATCHER] = { _("BUG CATCHER"), 4 },
     [TRAINER_CLASS_PKMN_RANGER] = { _("{PKMN} RANGER"), 12 },
-    [TRAINER_CLASS_MAGMA_LEADER] = { _("MAGMA LEADER"), 20, BALL_MASTER },
+    [TRAINER_CLASS_MAGMA_LEADER] = { _("VICE PRES."), 20, BALL_MASTER },
     [TRAINER_CLASS_LASS] = { _("LASS"), 4 },
     [TRAINER_CLASS_YOUNG_COUPLE] = { _("YOUNG COUPLE"), 8 },
     [TRAINER_CLASS_OLD_COUPLE] = { _("OLD COUPLE"), 10 },
@@ -373,8 +373,8 @@ const struct TrainerClass gTrainerClasses[TRAINER_CLASS_COUNT] =
     [TRAINER_CLASS_PYRAMID_KING] = { _("PYRAMID KING") },
     [TRAINER_CLASS_RS_PROTAG] = { _("{PKMN} TRAINER") },
     [TRAINER_CLASS_IDOL] = { _("IDOL"), 12, BALL_LOVE },
-    [TRAINER_CLASS_OFFICER_M] = { _("OFFICER M"), 9 },
-    [TRAINER_CLASS_OFFICER_F] = { _("OFFICER M"), 9 },
+    [TRAINER_CLASS_OFFICER_M] = { _("OFFICER M"), 9, BALL_GREAT },
+    [TRAINER_CLASS_OFFICER_F] = { _("OFFICER F"), 9, BALL_GREAT },
 
     [TRAINER_CLASS_YOUNGSTER_FRLG] =       { _("YOUNGSTER"), 4 },
     [TRAINER_CLASS_BUG_CATCHER_FRLG] =     { _("BUG CATCHER"), 3 },
@@ -5372,24 +5372,24 @@ static void HandleEndTurn_BattleWon(void)
         {
             switch (GetTrainerClassFromId(TRAINER_BATTLE_PARAM.opponentA))
             {
-            case TRAINER_CLASS_ELITE_FOUR:
-            case TRAINER_CLASS_CHAMPION:
-                PlayBGM(MUS_BW12_052);
-                break;
-            case TRAINER_CLASS_TEAM_AQUA:
-            case TRAINER_CLASS_TEAM_MAGMA:
-            case TRAINER_CLASS_AQUA_ADMIN:
-            case TRAINER_CLASS_AQUA_LEADER:
-            case TRAINER_CLASS_MAGMA_ADMIN:
-            case TRAINER_CLASS_MAGMA_LEADER:
-                PlayBGM(MUS_BW12_050);
-                break;
-            case TRAINER_CLASS_LEADER:
-                PlayBGM(MUS_BW12_052);
-                break;
-            default:
-                PlayBGM(MUS_BW12_050);
-                break;
+                case TRAINER_CLASS_ELITE_FOUR:
+                case TRAINER_CLASS_CHAMPION:
+                    PlayBGM(MUS_BW12_052);
+                    break;
+                case TRAINER_CLASS_TEAM_AQUA:
+                case TRAINER_CLASS_TEAM_MAGMA:
+                case TRAINER_CLASS_AQUA_ADMIN:
+                case TRAINER_CLASS_AQUA_LEADER:
+                case TRAINER_CLASS_MAGMA_ADMIN:
+                    PlayBGM(MUS_BW12_050);
+                    break;
+                case TRAINER_CLASS_MAGMA_LEADER:
+                case TRAINER_CLASS_LEADER:
+                    PlayBGM(MUS_BW12_052);
+                    break;
+                default:
+                    PlayBGM(MUS_BW12_050);
+                    break;
             }
         }
     }
