@@ -248,6 +248,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_Harriet::
 
 
 
+
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXRando1::
 	goto_if_set FLAG_ACT_II_FOUGHT_RANDO1, VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXRando1Rematch
 	setspeaker Speaker_Harriet
@@ -627,6 +628,26 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB3Scene::
 	end
 
 
+
+VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXByronB1::
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle1XByronInfo, MSGBOX_NPC
+	end
+
+VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXByronB2::
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2WinXByronInfodump, MSGBOX_NPC
+	end
+
+VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietBattleXByronB3::
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2WinXByronInfodump, MSGBOX_NPC
+	end
+
+
+
+
+
+
+
+
 VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronHackSuccess::
 	applymovement LOCALID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Movement_SophieIntoPlace2
 	waitmovement 0
@@ -767,7 +788,7 @@ VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle2LoseXByron1:
 
 VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2LoseXByron2:
 	.string "It's okay, I know what to expect now.\p"
-	.string "Ernest, any progress?$"
+	.string "What were those Pokemon, though?$"
 
 @KUMATORA (I used my limited cybersecurity vocabulary to make something up here - if you have suggestions, it's all you)
 
@@ -809,8 +830,13 @@ VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2LoseXByron9:
 
 
 
-
-
+VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle1XByronInfo:
+	.string "I don't know much about his team.\p"
+	.string "Legendaries, boosted stats, absurd\n"
+	.string "and illegal abilities and movesets.\p"
+	.string "And he's got a shadowy POKéMON I\n"
+	.string "couldn't even identify.$"
+	.string "I'll need some time to research them.$"
 
 
 VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle3XByron1:

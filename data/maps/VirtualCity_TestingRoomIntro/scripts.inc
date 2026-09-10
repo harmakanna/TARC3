@@ -181,6 +181,7 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	delay 10
 	removeobject LOCALID_DARKANINES_BALL
 	setvar VAR_PETALBURG_CITY_STATE, 0
+	questmenu QUEST_MENU_SET_ACTIVE, QUEST_PROLOGUE
 	@fadescreenspeed FADE_TO_BLACK, 2
 	@special SpawnCameraObject
 	@applymovement LOCALID_CAMERA, Common_Movement_WalkUp
@@ -210,7 +211,7 @@ VirtualCity_TestingRoomIntro_Eventscript_Minh::
 	@clonefirstmon
 	givemon SPECIES_ARCANINE, 50, otName=OT_Design
 	givemon SPECIES_EXCADRILL, 50, nature=NATURE_JOLLY, abilityNum=1, gender=MON_MALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_EARTHQUAKE, move2=MOVE_ROCK_SLIDE, move3=MOVE_SWORDS_DANCE, move4=MOVE_PROTECT, nickname=Nickname_Ex, otName=OT_SoPhi99
-	givemon SPECIES_TOXAPEX, 50, move1=MOVE_CELEBRATE
+	@givemon SPECIES_TOXAPEX, 50, move1=MOVE_CELEBRATE
 
 	goto_if_unset FLAG_DARKANINE_BATTLE_1, VirtualCity_TestingRoomIntro_Eventscript_FirstBattle
 	goto_if_unset FLAG_DARKANINE_BATTLE_2, VirtualCity_TestingRoomIntro_Eventscript_SecondBattle

@@ -1,6 +1,15 @@
 VirtualCity_CommsTower_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, VirtualCity_CommsTower_1F_OnLoad
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, VirtualCity_CommsTower_1F_OnFrame
 	.byte 0
+
+VirtualCity_CommsTower_1F_OnFrame::
+	map_script_2 VAR_PETALBURG_CITY_STATE, 50, VirtualCity_CommsTower_1F_Eventscript_Ready
+	map_script_2 VAR_PETALBURG_CITY_STATE, 52, VirtualCity_CommsTower_1F_ActIII_Revived
+	.2byte 0
+
+
+
 
 VirtualCity_CommsTower_1F_OnLoad::
 	call_if_unset FLAG_COMMS_1F_DOOR, EventScript_CloseComms1FDoor
@@ -353,7 +362,7 @@ VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheck:
 
 VirtualCity_CommsTower_1F_Text_SophieACTIPokemonFailure:
 	.string "Hmm, that doesn't sound right.\p"
-	.string "I'm sure {COLOR BLUE}one of them {COLOR DARK_GRAY}wasn't\n"
+	.string "I'm sure {COLOR BLUE}one of the researchers {COLOR DARK_GRAY}wasn't\n"
 	.string "describing our mystery mon.\p"
 	.string "But which one?$"
 
@@ -627,8 +636,11 @@ VirtualCity_CommsTower_1F_Autoscanner::
 	delay 10
 	playse SE_CONTEST_MONS_TURN
 	waitse
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 50, VirtualCity_CommsTower_1F_AutoscannerCantID
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 52, VirtualCity_CommsTower_1F_AutoscannerCantID
+	goto_if_set FLAG_SPOOFING_EXECUTIVE, VirtualCity_CommsTower_1F_AutoscannerCantID
 	setspeaker Speaker_Autoscanner
-	msgbox VirtualCity_CommsTower_1F_Text_Autoscanner, MSGBOX_NPC
+	msgbox VirtualCity_CommsTower_1F_Text_Autoscanner, MSGBOX_DEFAULT
 	closemessage
 	releaseall
 	end
@@ -636,6 +648,24 @@ VirtualCity_CommsTower_1F_Autoscanner::
 VirtualCity_CommsTower_1F_Text_Autoscanner:
 	.string "Scan Complete. Welcome, Sophie.\n"
 	.string "Stairs Set To {COLOR GREEN}BETTER{COLOR DARK_GRAY} Design, Wing 5.$"
+
+
+VirtualCity_CommsTower_1F_AutoscannerCantID::
+	setspeaker Speaker_Autoscanner
+	msgbox VirtualCity_CommsTower_1F_Text_AutoscannerCantID, MSGBOX_DEFAULT
+	setspeaker SP_NAME_PLAYER
+	msgbox VirtualCity_CommsTower_1F_Text_AutoscannerCantID2, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight
+	waitmovement 0
+	end
+
+VirtualCity_CommsTower_1F_Text_AutoscannerCantID:
+	.string "Scan Failed. Stairs disabled.\n"
+	.string "Please consult a representative.$"
+
+VirtualCity_CommsTower_1F_Text_AutoscannerCantID2:
+	.string "I can't go up to the office - I\n"
+	.string "have to get through that gate!$"
 
 
 VirtualCity_CommsTower_1F_AuthorizedSign::
@@ -650,6 +680,22 @@ VirtualCity_HotelLobby_Text_AuthorizedSign:
 
 
 
+
+VirtualCity_CommsTower_1F_Eventscript_Ready::
+	setspeaker SP_NAME_PLAYER
+	msgbox VirtualCity_HotelLobby_Text_Ready, MSGBOX_SIGN
+	setvar VAR_PETALBURG_CITY_STATE, 51
+	setvar VAR_TEMP_0, 5
+	end
+
+VirtualCity_HotelLobby_Text_Ready:
+	.string "I'm in, and I'm anonymous.\n"
+	.string "Time to break into the system!$"
+
+
+
+
+
 VirtualCity_CommsTower_1F_CantLeave::
 	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_HotelLobby_Text_CantLeave, MSGBOX_SIGN
@@ -661,3 +707,33 @@ VirtualCity_CommsTower_1F_CantLeave::
 VirtualCity_HotelLobby_Text_CantLeave:
 	.string "I can't leave now! I have to\n"
 	.string "get to the Rotom Phone console!$"
+
+
+
+
+VirtualCity_CommsTower_1F_ActIII_Failed::
+	playse SE_PC_OFF
+	applymovement OBJ_EVENT_ID_PLAYER, VirtualCityIntro_Movement_LogOut
+	waitmovement 0
+	hideplayer
+	setvar VAR_PETALBURG_CITY_STATE, 52
+	warpsilent MAP_VIRTUAL_CITY_COMMS_TOWER_1F, 5,10
+	waitstate
+	
+
+VirtualCity_CommsTower_1F_ActIII_Revived::
+	playse SE_PC_LOGIN
+	setvar VAR_PETALBURG_CITY_STATE, 51
+	setvar VAR_TEMP_0, 5
+	msgbox VirtualCity_CommsTower_1F_Text_ActIII_Revived, MSGBOX_DEFAULT
+	closemessage
+	call EventScript_AddRandomMod
+	end
+
+
+	
+VirtualCity_CommsTower_1F_Text_ActIII_Revived:
+	.string "Damn. Well, looks like Ernest's\n"
+	.string "auto-relog script worked.\p"
+	.string "Maybe a quick mod will give me.\n"
+	.string "an edge.$"

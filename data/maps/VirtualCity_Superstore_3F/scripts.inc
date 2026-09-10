@@ -320,7 +320,7 @@ VirtualCity_Superstore_3F_Text_LowerIdol4:
 	
 VirtualCity_Superstore_3F_ShopkeepIdol_ReceivePassimian::
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_PASSIMIAN
-	givemon SPECIES_PASSIMIAN, 50
+	givemon SPECIES_PASSIMIAN, 50, nature=NATURE_JOLLY, abilityNum=1, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_PYRO_BALL, move2=MOVE_CLOSE_COMBAT, move3=MOVE_U_TURN, move4=MOVE_BULLDOZE, otName=OT_SoPhi99
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, VirtualCity_Superstore_3F_ShopkeepIdol_ReceivePassimianParty
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, VirtualCity_Superstore_3F_ShopkeepIdol_ReceivePassimianPC
 	goto Common_EventScript_NoMoreRoomForPokemon
@@ -358,7 +358,7 @@ VirtualCity_Superstore_3F_ShopkeepIdol_ReceivePassimianFanfare::
 	
 VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSableye::
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_SABLEYE
-	givemon SPECIES_SABLEYE, 50
+	givemon SPECIES_SABLEYE, 50, nature=NATURE_CAREFUL, abilityNum=1, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_FOUL_PLAY, move2=MOVE_NIGHT_SHADE, move3=MOVE_PAIN_SPLIT, move4=MOVE_FAKE_OUT, otName=OT_SoPhi99
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSableyeParty
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSableyePC
 	goto Common_EventScript_NoMoreRoomForPokemon
@@ -396,7 +396,7 @@ VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSableyeFanfare::
 
 VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveElectrode::
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ELECTRODE
-	givemon SPECIES_ELECTRODE, 50
+	givemon SPECIES_ELECTRODE, 50, nature=NATURE_IMPISH, abilityNum=1, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_VOLT_SWITCH, move2=MOVE_THUNDER_WAVE, move3=MOVE_TORMENT, move4=MOVE_EXPLOSION, otName=OT_SoPhi99
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveElectrodeParty
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveElectrodePC
 	goto Common_EventScript_NoMoreRoomForPokemon
@@ -434,7 +434,7 @@ VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveElectrodeFanfare::
 	
 VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSnover::
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_SNOVER
-	givemon SPECIES_SNOVER, 50
+	givemon SPECIES_SNOVER, 50, nature=NATURE_QUIET, abilityNum=1, gender=MON_MALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_BLIZZARD, move2=MOVE_GIGA_DRAIN, move3=MOVE_LEECH_SEED, move4=MOVE_WORRY_SEED, otName=OT_SoPhi99
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSnoverParty
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSnoverPC
 	goto Common_EventScript_NoMoreRoomForPokemon
@@ -472,7 +472,7 @@ VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSnoverFanfare::
 
 VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSolrock::
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_SOLROCK
-	givemon SPECIES_SOLROCK, 50
+	givemon SPECIES_SOLROCK, 50, nature=NATURE_IMPISH, abilityNum=1, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_METEOR_MASH, move2=MOVE_ROCK_TOMB, move3=MOVE_MORNING_SUN, move4=MOVE_GRAVITY, otName=OT_SoPhi99
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSolrockParty
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSolrockPC
 	goto Common_EventScript_NoMoreRoomForPokemon

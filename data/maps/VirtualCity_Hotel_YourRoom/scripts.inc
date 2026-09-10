@@ -158,6 +158,8 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution::
 	applymovement LOCALID_CAMERA, Common_Movement_WalkUp
 	waitmovement 0
 	special RemoveCameraObject
+	questmenu QUEST_MENU_COMPLETE_QUEST, QUEST_ACTI
+	questmenu QUEST_MENU_SET_ACTIVE, QUEST_ACTII
 	setvar VAR_PETALBURG_CITY_STATE, 22
 	setflag FLAG_ACT_II_STARTED
 	setflag FLAG_ACT_II_HIDE_HOTEL_FRIENDS
@@ -397,6 +399,8 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Ending::
 	playse SE_PC_OFF
 	waitse
 	setvar VAR_PETALBURG_CITY_STATE, 40
+	questmenu QUEST_MENU_COMPLETE_QUEST, QUEST_PROLOGUE
+	questmenu QUEST_MENU_SET_ACTIVE, QUEST_ACTI
 	setflag FLAG_HIDE_LOLA_BEDROOM_PROLOGUE
 	setflag FLAG_ACT_II_HIDE_HOTEL_FRIENDS
 	setflag FLAG_ACT_III_STARTED
@@ -441,7 +445,7 @@ VirtualCity_Hotel_YourRoom_Text_ActII_Ending7Minh::
 	.string "Let's bring it home.$"
 
 VirtualCity_Hotel_YourRoom_Text_ActII_Ending8Ernest::
-	.string "Let's meet back at your place, Sophie.\p"
+	.string "Let's meet back at your apt, Sophie.\p"
 	.string "Finish up what you have to do first,\n"
 	.string "and we'll meet there and prepare.$"
 
@@ -454,7 +458,7 @@ VirtualCity_Hotel_YourRoom_Text_ActII_Ending10Minh::
 
 VirtualCity_Hotel_YourRoom_Text_ActII_Ending11Sophie::
 	.string "Hush, Minh.\p"
-	.string "Okay, I'll finish up anything I need.\n"
+	.string "Okay, I'll finish up anything I need\n"
 	.string "to do before this gauntlet, and meet\l"
 	.string "you all back at my place. See ya!$"
 

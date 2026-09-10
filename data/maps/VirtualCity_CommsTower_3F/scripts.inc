@@ -36,6 +36,9 @@ VirtualCity_CommsTower_3F_EventScript_Door::
 VirtualCity_CommsTower_2F_EventScript_GuardC::
 	trainerbattle_double TRAINER_KYLA, VirtualCity_CommsTower_2F_Text_GuardCIntro, VirtualCity_CommsTower_2F_Text_GuardCDefeated, Common_Text_NotEnoughPokemon
 	special HealPlayerParty
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, 2, VirtualCity_CommsTower_1F_ActIII_Failed
+	goto_if_eq VAR_RESULT, 9, VirtualCity_CommsTower_1F_ActIII_Failed
 	playse SE_PC_OFF
 	applymovement LOCALID_GUARDC, VirtualCityIntro_Movement_LogOut
 	waitmovement 0

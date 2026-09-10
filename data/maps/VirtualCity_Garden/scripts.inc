@@ -51,7 +51,7 @@ VirtualCity_Garden_LedianLoverReward::
 	
 VirtualCity_Garden_LedianLover_ReceiveLedian::
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_LEDIAN
-	givemon SPECIES_LEDIAN, 50, nature=NATURE_CAREFUL, gender=MON_MALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_DRAIN_PUNCH, move2=MOVE_U_TURN, move3=MOVE_TOXIC, move4=MOVE_PROTECT, otName=OT_Ledian
+	givemon SPECIES_LEDIAN, 50, nature=NATURE_CAREFUL, gender=MON_MALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_DRAIN_PUNCH, move2=MOVE_U_TURN, move3=MOVE_TOXIC, move4=MOVE_FOLLOW_ME, otName=OT_Ledian
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, VirtualCity_Garden_LedianLover_ReceiveLedianParty
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, VirtualCity_Garden_LedianLover_ReceiveLedianPC
 	goto Common_EventScript_NoMoreRoomForPokemon

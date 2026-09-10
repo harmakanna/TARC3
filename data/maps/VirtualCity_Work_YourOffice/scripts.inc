@@ -9,7 +9,7 @@ VirtualCity_Work_YourOffice_OnFrame:
 VirtualCity_Work_YourOffice_Eventscript_MakingExPonyta::
 	delay 100
 	clearparty
-	givemon SPECIES_DRILBUR, 50
+	givemon SPECIES_DRILBUR, 50, nature=NATURE_JOLLY, gender=MON_MALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_EARTHQUAKE, move2=MOVE_ROCK_SLIDE, move3=MOVE_SWORDS_DANCE, move4=MOVE_PROTECT, nickname=Nickname_Ex, otName=OT_SoPhi99
 	applymovement LOCALID_YOUROFFICE_MINH, Common_Movement_FaceUp
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
 	clearflag FLAG_SYS_PREVENT_MAP_FADE
@@ -39,7 +39,7 @@ VirtualCity_Work_YourOffice_Eventscript_MakingExPonyta::
 	waitse
 	delay 60
 
-	playmoncry SPECIES_PONYTA, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_EXCADRILL, CRY_MODE_ENCOUNTER
 	waitmoncry
 	delay 20
 
@@ -179,7 +179,7 @@ VirtualCity_Work_YourOffice_Eventscript_MinhACTIOutro::
 	waitse
 	delay 60
 
-	playmoncry SPECIES_EXCADRILL, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_PONYTA, CRY_MODE_ENCOUNTER
 	waitmoncry
 	delay 20
 	

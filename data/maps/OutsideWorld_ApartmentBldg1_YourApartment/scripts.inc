@@ -806,6 +806,8 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndSceneButReallyT
 	setspeaker SP_NAME_PLAYER
 	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Text_PrologueEndSceneButReallyThisTime, MSGBOX_DEFAULT
 	closemessage
+	questmenu QUEST_MENU_COMPLETE_QUEST, QUEST_PROLOGUE
+	questmenu QUEST_MENU_SET_ACTIVE, QUEST_ACTI
 	setvar VAR_PETALBURG_CITY_STATE, 10
 	end
 

@@ -37,6 +37,9 @@ VirtualCity_CommsTower_4F_EventScript_Door::
 VirtualCity_CommsTower_2F_EventScript_GuardD::
 	trainerbattle_double TRAINER_DENISE, VirtualCity_CommsTower_2F_Text_GuardDIntro, VirtualCity_CommsTower_2F_Text_GuardDDefeated, Common_Text_NotEnoughPokemon
 	special HealPlayerParty
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, 2, VirtualCity_CommsTower_1F_ActIII_Failed
+	goto_if_eq VAR_RESULT, 9, VirtualCity_CommsTower_1F_ActIII_Failed
 	playse SE_PC_OFF
 	applymovement LOCALID_GUARDD, VirtualCityIntro_Movement_LogOut
 	waitmovement 0
@@ -54,6 +57,9 @@ VirtualCity_CommsTower_2F_Text_GuardDDefeated::
 VirtualCity_CommsTower_2F_EventScript_GuardE::
 	trainerbattle_double TRAINER_BETH, VirtualCity_CommsTower_2F_Text_GuardEIntro, VirtualCity_CommsTower_2F_Text_GuardEDefeated, Common_Text_NotEnoughPokemon
 	special HealPlayerParty
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, 2, VirtualCity_CommsTower_1F_ActIII_Failed
+	goto_if_eq VAR_RESULT, 9, VirtualCity_CommsTower_1F_ActIII_Failed
 	playse SE_PC_OFF
 	applymovement LOCALID_GUARDE, VirtualCityIntro_Movement_LogOut
 	waitmovement 0
@@ -72,6 +78,9 @@ VirtualCity_CommsTower_2F_Text_GuardEDefeated::
 VirtualCity_CommsTower_2F_EventScript_GuardF::
 	trainerbattle_double TRAINER_TARA, VirtualCity_CommsTower_2F_Text_GuardFIntro, VirtualCity_CommsTower_2F_Text_GuardFDefeated, Common_Text_NotEnoughPokemon
 	special HealPlayerParty
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, 2, VirtualCity_CommsTower_1F_ActIII_Failed
+	goto_if_eq VAR_RESULT, 9, VirtualCity_CommsTower_1F_ActIII_Failed
 	playse SE_PC_OFF
 	applymovement LOCALID_GUARDF, VirtualCityIntro_Movement_LogOut
 	waitmovement 0
