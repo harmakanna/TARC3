@@ -1,5 +1,7 @@
 #include "global.h"
 #include "event_data.h"
+#include "palette.h"
+#include "constants/rgb.h"
 
 const u8 gSophieName[] = _("Sophie");
 const u8 gDigitalSophieName[] = _("SoPhi99");
@@ -33,4 +35,9 @@ const u8 *GetPlayerName(void)
 void CloneFirstMon(void)
 {
     memcpy(&gParties[B_TRAINER_PLAYER][1], &gParties[B_TRAINER_PLAYER][0], sizeof(struct Pokemon));
+}
+
+void StartBlueScreen(void)
+{
+    CpuFill16(RGB_BLUE, gPlttBufferFaded, PLTT_SIZE);
 }

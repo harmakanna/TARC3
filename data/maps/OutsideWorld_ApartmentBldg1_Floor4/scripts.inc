@@ -15,9 +15,17 @@ OutsideWorld_ApartmentBldg1_Floor4_Eventscript_Stairs::
 	delay 10
 	applymovement OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_Floor4_Move_Sophie
 	waitmovement OBJ_EVENT_ID_PLAYER
-	playse SE_EXIT
+	playse SE_DOOR
+	opendoor 5, 1
+	waitdooranim
+	waitse
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp
+	waitmovement 0
+	delay 10
 	hideplayer
 	waitse
+	closedoor 5, 1
+	waitdooranim
 	delay 100
 	setvar VAR_PETALBURG_CITY_STATE, 5
 	setflag FLAG_HIDE_OPENING_CREDITS
@@ -28,7 +36,7 @@ OutsideWorld_ApartmentBldg1_Floor4_Eventscript_Stairs::
 OutsideWorld_ApartmentBldg1_Floor4_Move_Sophie::
 	walk_right
 	walk_right
-	walk_up
+	face_up
 	step_end
 
 OutsideWorld_ApartmentBldg1_Floor4_Move_Camera::
