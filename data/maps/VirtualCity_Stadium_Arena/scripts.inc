@@ -19,6 +19,7 @@ VirtualCity_Stadium_Arena_OnFrame:
 
 VirtualCity_Stadium_Arena_OnResume:
 	call_if_eq VAR_TEMP_9, 1, VirtualCity_Stadium_Arena_EventScript_CallAddAudience
+	specialvar VAR_RESULT, GetBattleOutcome
 	end
 
 VirtualCity_Stadium_Arena_EventScript_CallAddAudience::
@@ -294,7 +295,9 @@ VirtualCity_Stadium_Arena_Eventscript_Rando1Fight::
 	setvar VAR_TEMP_9, 1
 	@trainerbattle_double TRAINER_RANDO1, NULL, VirtualCity_Stadium_Arena_Text_Rando1Win, Common_Text_NotEnoughPokemon
 	trainerbattle_no_intro TRAINER_RANDO1, VirtualCity_Stadium_Arena_Text_Rando1Win
-	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostSilver
+	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, VirtualCity_Stadium_Arena_Eventscript_LostSilver
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, VirtualCity_Stadium_Arena_Eventscript_LostSilver
+	goto_if_eq VAR_RESULT, B_OUTCOME_FORFEITED, VirtualCity_Stadium_Arena_Eventscript_LostSilver
 	setvar VAR_TEMP_9, 0
 	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
     special CallFrontierUtilFunc
@@ -326,7 +329,9 @@ VirtualCity_Stadium_Arena_Eventscript_Rando2Fight::
 	setspeaker Speaker_Challenger
 	setvar VAR_TEMP_9, 1
 	trainerbattle_no_intro TRAINER_RANDO2, VirtualCity_Stadium_Arena_Text_Rando2Win
-	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostSilver
+	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, VirtualCity_Stadium_Arena_Eventscript_LostSilver
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, VirtualCity_Stadium_Arena_Eventscript_LostSilver
+	goto_if_eq VAR_RESULT, B_OUTCOME_FORFEITED, VirtualCity_Stadium_Arena_Eventscript_LostSilver
 	setvar VAR_TEMP_9, 0
 	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
     special CallFrontierUtilFunc
@@ -357,7 +362,9 @@ VirtualCity_Stadium_Arena_Eventscript_Rando3Fight::
 	setspeaker Speaker_Challenger
 	setvar VAR_TEMP_9, 1
 	trainerbattle_no_intro TRAINER_RANDO3, VirtualCity_Stadium_Arena_Text_Rando3Win
-	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostSilver
+	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, VirtualCity_Stadium_Arena_Eventscript_LostSilver
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, VirtualCity_Stadium_Arena_Eventscript_LostSilver
+	goto_if_eq VAR_RESULT, B_OUTCOME_FORFEITED, VirtualCity_Stadium_Arena_Eventscript_LostSilver
 	setvar VAR_TEMP_9, 0
 	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
     special CallFrontierUtilFunc
@@ -390,7 +397,9 @@ VirtualCity_Stadium_Arena_Eventscript_Rando4Fight::
 	setspeaker Speaker_Challenger
 	setvar VAR_TEMP_9, 1
 	trainerbattle_no_intro TRAINER_RANDO4, VirtualCity_Stadium_Arena_Text_Rando4Win
-	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostSilver
+	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, VirtualCity_Stadium_Arena_Eventscript_LostSilver
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, VirtualCity_Stadium_Arena_Eventscript_LostSilver
+	goto_if_eq VAR_RESULT, B_OUTCOME_FORFEITED, VirtualCity_Stadium_Arena_Eventscript_LostSilver
 	setvar VAR_TEMP_9, 0
 	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
     special CallFrontierUtilFunc
@@ -422,7 +431,9 @@ VirtualCity_Stadium_Arena_Eventscript_Rando5Fight::
 	setspeaker Speaker_Challenger
 	setvar VAR_TEMP_9, 1
 	trainerbattle_no_intro TRAINER_RANDO5, VirtualCity_Stadium_Arena_Text_Rando5Win
-	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostSilver
+	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, VirtualCity_Stadium_Arena_Eventscript_LostSilver
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, VirtualCity_Stadium_Arena_Eventscript_LostSilver
+	goto_if_eq VAR_RESULT, B_OUTCOME_FORFEITED, VirtualCity_Stadium_Arena_Eventscript_LostSilver
 	setvar VAR_TEMP_9, 0
 	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
     special CallFrontierUtilFunc
@@ -476,7 +487,9 @@ VirtualCity_Stadium_Arena_Eventscript_BrodudeFight::
 	setspeaker Speaker_BroDude69
 	setvar VAR_TEMP_9, 1
 	trainerbattle_no_intro TRAINER_BRODUDE, VirtualCity_Stadium_Arena_Text_BroDudeWin
-	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostGold
+	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, VirtualCity_Stadium_Arena_Eventscript_LostGold
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, VirtualCity_Stadium_Arena_Eventscript_LostGold
+	goto_if_eq VAR_RESULT, B_OUTCOME_FORFEITED, VirtualCity_Stadium_Arena_Eventscript_LostGold
 	setvar VAR_TEMP_9, 0
 	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
     special CallFrontierUtilFunc
@@ -508,7 +521,9 @@ VirtualCity_Stadium_Arena_Eventscript_WvddieFight::
 	setspeaker Speaker_Wvddie
 	setvar VAR_TEMP_9, 1
 	trainerbattle_no_intro TRAINER_WVDDIE, VirtualCity_Stadium_Arena_Text_WvddieWin
-	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostGold
+	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, VirtualCity_Stadium_Arena_Eventscript_LostGold
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, VirtualCity_Stadium_Arena_Eventscript_LostGold
+	goto_if_eq VAR_RESULT, B_OUTCOME_FORFEITED, VirtualCity_Stadium_Arena_Eventscript_LostGold
 	setvar VAR_TEMP_9, 0
 	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
     special CallFrontierUtilFunc
@@ -539,7 +554,9 @@ VirtualCity_Stadium_Arena_Eventscript_SilvaBulletFight::
 	setspeaker Speaker_SilvaBullet
 	setvar VAR_TEMP_9, 1
 	trainerbattle_no_intro TRAINER_SILVABULLET, VirtualCity_Stadium_Arena_Text_SilvaBulletWin
-	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostGold
+	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, VirtualCity_Stadium_Arena_Eventscript_LostGold
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, VirtualCity_Stadium_Arena_Eventscript_LostGold
+	goto_if_eq VAR_RESULT, B_OUTCOME_FORFEITED, VirtualCity_Stadium_Arena_Eventscript_LostGold
 	setvar VAR_TEMP_9, 0
 	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
     special CallFrontierUtilFunc
@@ -570,7 +587,9 @@ VirtualCity_Stadium_Arena_Eventscript_EarlGreyFight::
 	setspeaker Speaker_EarlGrey
 	setvar VAR_TEMP_9, 1
 	trainerbattle_no_intro TRAINER_EARLGREY, VirtualCity_Stadium_Arena_Text_EarlGreyWin
-	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostGold
+	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, VirtualCity_Stadium_Arena_Eventscript_LostGold
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, VirtualCity_Stadium_Arena_Eventscript_LostGold
+	goto_if_eq VAR_RESULT, B_OUTCOME_FORFEITED, VirtualCity_Stadium_Arena_Eventscript_LostGold
 	setvar VAR_TEMP_9, 0
 	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
     special CallFrontierUtilFunc
@@ -591,7 +610,7 @@ VirtualCity_Stadium_Arena_Eventscript_EarlGreyFight::
 	waitstate
 	end
 
-VirtualCity_Stadium_Arena_EventScript_LostGold::
+VirtualCity_Stadium_Arena_Eventscript_LostGold::
 	setvar VAR_TEMP_9, 0
 	speak LOCALID_STADIUM_ANNOUNCER, VirtualCity_Stadium_Arena_Text_AnnounceLoss, Speaker_Announcer, DIR_SOUTH
 	playse SE_M_ENCORE2
@@ -620,7 +639,9 @@ VirtualCity_Stadium_Arena_Eventscript_ByronB1Fight::
 	setspeaker Speaker_Byron
 	setvar VAR_TEMP_9, 1
 	trainerbattle_no_intro TRAINER_BYRON1, VirtualCity_Stadium_Arena_Text_ByronB1Win
-	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
+	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
+	goto_if_eq VAR_RESULT, B_OUTCOME_FORFEITED, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
 	setvar VAR_TEMP_9, 0
 	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
     special CallFrontierUtilFunc
@@ -653,7 +674,9 @@ VirtualCity_Stadium_Arena_Eventscript_ByronB2Fight::
 	setspeaker Speaker_Byron
 	setvar VAR_TEMP_9, 1
 	trainerbattle_no_intro TRAINER_BYRON2, VirtualCity_Stadium_Arena_Text_ByronB2YouLostWin
-	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
+	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
+	goto_if_eq VAR_RESULT, B_OUTCOME_FORFEITED, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
 	setvar VAR_TEMP_9, 0
 	@speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB2YouLostLose, Speaker_Byron, DIR_WEST
 	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
@@ -684,7 +707,9 @@ VirtualCity_Stadium_Arena_Eventscript_ByronB2FightWinner::
 	setspeaker Speaker_Byron
 	setvar VAR_TEMP_9, 1
 	trainerbattle_no_intro TRAINER_BYRON2, VirtualCity_Stadium_Arena_Text_ByronB2YouWonWin
-	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
+	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
+	goto_if_eq VAR_RESULT, B_OUTCOME_FORFEITED, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
 	setvar VAR_TEMP_9, 0
 	@speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB2YouWonLose, Speaker_Byron, DIR_WEST
 	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
@@ -717,7 +742,9 @@ VirtualCity_Stadium_Arena_Eventscript_ByronB3Fight::
 	setspeaker Speaker_Byron
 	setvar VAR_TEMP_9, 1
 	trainerbattle_no_intro TRAINER_BYRON3, VirtualCity_Stadium_Arena_Text_ByronB3Win1
-	@goto_if_eq VAR_RESULT, 1, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
+	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
+	goto_if_eq VAR_RESULT, B_OUTCOME_FORFEITED, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
 	setvar VAR_TEMP_9, 0
 	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
     special CallFrontierUtilFunc
@@ -742,9 +769,9 @@ VirtualCity_Stadium_Arena_Eventscript_ByronB3Fight::
 	waitstate
 	end
 
-VirtualCity_Stadium_Arena_EventScript_LostPlatinum::
+VirtualCity_Stadium_Arena_Eventscript_LostPlatinum::
 	setvar VAR_TEMP_9, 0
-	speak LOCALID_STADIUM_ANNOUNCER, VirtualCity_Stadium_Arena_Text_AnnounceLoss, Speaker_Announcer, DIR_SOUTH
+	speak LOCALID_STADIUM_ANNOUNCER, VirtualCity_Stadium_Arena_Text_AnnounceLossPlatinum, Speaker_Announcer, DIR_SOUTH
 	playse SE_M_ENCORE2
 	call VirtualCity_Stadium_Arena_EventScript_AudienceLookAround
 	waitse
@@ -1145,3 +1172,7 @@ VirtualCity_Stadium_Arena_Text_AnnounceLoss:
 VirtualCity_Stadium_Arena_Text_AnnounceWin:
 	.string "AND THE WINNER IS…{PAUSE 50}\n"
 	.string "SOPHI99!$"
+
+VirtualCity_Stadium_Arena_Text_AnnounceLossPlatinum:
+	.string "AND THE WINNER IS…{PAUSE 50}\n"
+	.string "BYRON!$"
