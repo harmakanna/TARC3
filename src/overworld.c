@@ -1308,6 +1308,8 @@ void Overworld_PlaySpecialMapMusic(void)
 {
     u16 music = GetCurrLocationDefaultMusic();
 
+    if (FlagGet(FLAG_SPOOFING_EXECUTIVE) && GetCurrentMapMusic() == MUS_BW12_187)
+        return;
     if (gDisableMapMusicChangeOnMapLoad == MUSIC_DISABLE_STOP)
     {
         StopMapMusic();
