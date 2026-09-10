@@ -5361,6 +5361,8 @@ void PlayBattleBGM(void)
 
 void PlayMapChosenOrBattleBGM(u16 songId)
 {
+    if (FlagGet(FLAG_SPOOFING_EXECUTIVE))
+        return;
     ResetMapMusic();
     m4aMPlayAllStop();
     if (songId)
