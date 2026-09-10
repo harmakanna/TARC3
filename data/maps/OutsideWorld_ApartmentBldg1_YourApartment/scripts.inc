@@ -45,12 +45,13 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk05Sophie, SP_NAME_PLAYER, DIR_EAST
 	playse SE_SELECT
 	speak LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk06Harriet, Speaker_Harriet, DIR_NORTH
-
+	closemessage
 	applymovement LOCALID_MINH, Common_Movement_FaceRight
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
 	playse SE_EXIT
 	delay 20
 	addobject LOCALID_MINH
+	delay 20
 	speak LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk1Minh, Speaker_Minh, DIR_WEST
 	closemessage
 	applymovement LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh1
@@ -514,8 +515,8 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk2Harriet::
 	.string "been waiting for so long!$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk3Ernest::
-	.string "To be fair… she's been waiting…\n"
-	.string "for twenty-two… years.$"
+	.string "To be fair… she's been waiting…{PAUSE 50}\n"
+	.string "for twenty-two years.$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk4Lola::
 	.string "…\p"
@@ -527,7 +528,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk5Lola::
 	.string "So many people called it a stupid,\n"
 	.string "unrealistic dream.\p"
 	.string "Back then, I couldn't explain why it\n" 
-	.string "felt so… so necessary.\p"
+	.string "felt so… {PAUSE 40}so necessary.\p"
 	.string "Well, I still can't explain it.\n"
 	.string "But look at him!$"
 	
@@ -542,7 +543,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk7Harriet::
 	.string "His fur feels like a blanket!$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk8Ernest::
-	.string "What's… his name, Lola?$"
+	.string "What's…{PAUSE 30} his name, Lola?$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk9Lola::
 	.string "Dreams. Dreams the Snubbull.$"
@@ -604,27 +605,27 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk21pt5Ernest::
 
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk22Minh::
-	.string "Sophie? You… you saw it too?$"
+	.string "Sophie? You…{PAUSE 50} you saw it too?$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk23Sophie::
 	.string "I saw it.\p"
-	.string "There's… there's no doubt.$"
+	.string "There's…{PAUSE 20} there's no doubt.$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk24Minh::
-	.string "The eyes… they were wrong.$"
+	.string "The eyes…{PAUSE 30} they were wrong.$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk25Sophie::
 	.string "The mouth, too.\p"
-	.string "That's… that's not a real Snubbull.\p"
-	.string "It looked… drawn.\p"
+	.string "That's…{PAUSE 20} that's not a real Snubbull.\p"
+	.string "It looked…{PAUSE 50} drawn.\p"
 	.string "Like the VR POKéMON you design…\n"
 	.string "but not as skillful.$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk26Minh::
 	.string "Are you saying… does {COLOR GREEN}BETTER{COLOR DARK_GRAY} have a\n"
 	.string "way to make fake IRL POKéMON?!\p"
-	.string "And Lola just spent her life savings\n"
-	.string "on one, thinking it was real?!$"
+	.string "And Lola just got scammed out of her\n"
+	.string "life savings on one?!$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk27Sophie::
 	.string "Minh, hush!\n"

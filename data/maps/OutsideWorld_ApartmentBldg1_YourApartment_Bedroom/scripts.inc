@@ -427,13 +427,50 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_Ernest::
 	setspeaker Speaker_Ernest
 	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_Ernest1, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Common_Eventscript_Cancel
+	player_speak OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_SophieReady
+	playse SE_SELECT
+	npc_speak Speaker_Ernest, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_ErnestGoodLuck
+	closemessage
+	applymovement VAR_LAST_TALKED, Common_Movement_FaceRight
+	call_if_eq VAR_FACING, DIR_WEST, ActIII_EventScript_FacePC
+	call_if_ne VAR_FACING, DIR_WEST, ActIII_EventScript_WalkToPC
+	fadenewbgm MUS_NONE
+	delay 20
+	fadescreenspeed FADE_TO_BLACK, 2
+	delay 120
+	playse SE_PC_LOGIN
+	waitse
+	setspeaker Speaker_PC
+	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Text_PCGlitchWarp, MSGBOX_DEFAULT
+	message OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Text_PCGlitchWarp2
+	waitmessage
+	message OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Text_PCGlitchWarp3
+	waitmessage
 	setflag FLAG_SPOOFING_EXECUTIVE
 	setflag FLAG_ACT_III_POINTOFNORETURN
 	setvar VAR_VIRTUAL_CITY_OUTSIDE_STATE, 1
 	setvar VAR_PETALBURG_CITY_STATE, 50
-	warpsilent MAP_VIRTUAL_CITY_OUTSIDE1, 24, 25
+	entervr_warp MAP_VIRTUAL_CITY_OUTSIDE1, 24, 25
 	waitstate
 	end
+
+ActIII_EventScript_FacePC::
+	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
+	waitmovement 0
+	return
+
+ActIII_EventScript_WalkToPC::
+	applymovement LOCALID_PLAYER, ActIII_Movement_WalkToPC
+	waitmovement 0
+	return
+
+ActIII_Movement_WalkToPC:
+	walk_right
+	walk_up
+	step_end
+	
+Speaker_PC:
+	.string "PC$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_Ernest1:
 	.string "If you go into VR now,\n"
@@ -442,7 +479,13 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_Ernest1:
 	.string "{COLOR RED}EVERYTHING{COLOR DARK_GRAY} you need to do first.\p"
 	.string "Are you ready?$"
 
+OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_SophieReady:
+	.string "Ready as I'll ever be.$"
 
+OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_ErnestGoodLuck:
+	.string "Alright Sophie.\p"
+	.string "Good luck in there.$"
+	
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Eventscript_PC::
 	lockall
 	goto_if_eq VAR_PETALBURG_CITY_STATE, 2, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Eventscript_NoVRNow
@@ -450,10 +493,45 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Eventscript_PC::
 	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Text_PC, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Common_Eventscript_Cancel
 	closemessage
+	goto_if_unset FLAG_FIRST_VR_WARP, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Eventscript_PCFirstWarp
 	@@ Fancy transition TOFOLD
 	entervr_warp MAP_VIRTUAL_CITY_OUTSIDE1, 24, 25
 	waitstate
 	end
+
+
+OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Text_PCGlitchWarp:
+	.string "Verifying identity…{PAUSE 50} …{PAUSE 50} …{PAUSE 50} …\p"
+	.string "{COLOR RED}-ERROR-\p"
+	.string "-ERROR--ERROR--ERROR-\n"
+	.string "-ERROR--ERROR--ERROR-\p"
+	.string "CANNOT VERI-dwÂd…sÓ89u…fgjkiÓ…Âs$"
+
+OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Text_PCGlitchWarp2:
+	.string "{COLOR RED}ÉÉÉ{COLOR GREEN}ÉÉÉÉÉÉ{COLOR GREEN}ÉÉÉ{COLOR RED}ÉÉÉÉÉÉ{COLOR BLUE}ÉÉÉÉ{COLOR GREEN}ÉÉÉÉÉÉÉÉÉÉ{COLOR RED}ÉÉÉÉÉÉ{COLOR GREEN}ÉÉÉ{COLOR RED}ÉÉÉ{COLOR BLUE}ÉÉÉÉÉÓÂ{COLOR RED}yÓÂyÓÂyÓÂyÓÂy{COLOR GREEN}ÓÂyÓÂyÓÂy\n"
+	.string "ÉÉÉÉÉ{COLOR RED}ÉÉÉÉÉ{COLOR BLUE}É{COLOR RED}É{COLOR BLUE}ÉÉ{COLOR GREEN}É{COLOR BLUE}ÉÉÉ{COLOR RED}ÉÉÉÉÉ{COLOR BLUE}ÉÉÉÉÉ{COLOR RED}ÉÉÉÉÉÉÉ{COLOR GREEN}ÉÉÉÉÉÉÉ{COLOR BLUE}ÉÉÉÉÉÉÉ{COLOR RED}ÓÂyÓÂyÓÂyÓÂyÓÂyÓÂ{COLOR BLUE}yÓÂyÓÂy$"
+
+OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Text_PCGlitchWarp3:
+	.string "{COLOR RED}ÓÂyÓÂy{COLOR GREEN}ÓÂyÓÂyÓ{COLOR BLUE}ÂyÓÂyÓÂyÓÂyFFFFF-$"
+
+OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Eventscript_PCFirstWarp::
+	fadescreenspeed FADE_TO_BLACK, 2
+	delay 80
+	playse SE_PC_LOGIN
+	waitse
+	setspeaker Speaker_PC
+	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Text_PCFirstWarp, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_FIRST_VR_WARP
+	entervr_warp MAP_VIRTUAL_CITY_OUTSIDE1, 24, 25
+	waitstate
+	end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Text_PCFirstWarp:
+	.string "Verifying identity…{PAUSE 50} …{PAUSE 50} …{PAUSE 50} …\p"
+	.string "Identity verified.\p"
+	.string "Welcome back to the {COLOR GREEN}BETTER Place{COLOR DARK_GRAY},\n"
+	.string "{COLOR BLUE}{PLAYER}!$"
 
 Common_Eventscript_Cancel::
 	closemessage
@@ -472,7 +550,8 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Eventscript_NoVRNow::
 
 
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Text_NoVRNow:
-	.string "I shouldn't go to the Place now.$"
+	.string "I just logged off!\n"
+	.string "I don't need to go back in!$"
 
 
 

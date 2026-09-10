@@ -77,7 +77,7 @@
 #define FLAG_HIDE_LOLA_CONFRONT    0x37 // Unused Flag
 #define FLAG_HIDE_COMMS1F_GUARD    0x38 // Unused Flag
 #define FLAG_IN_ARENA    0x39 // Unused Flag
-#define FLAG_UNUSED_0x03A    0x3A // Unused Flag
+#define FLAG_FIRST_VR_WARP    0x3A // Unused Flag
 #define FLAG_UNUSED_0x03B    0x3B // Unused Flag
 #define FLAG_UNUSED_0x03C    0x3C // Unused Flag
 #define FLAG_UNUSED_0x03D    0x3D // Unused Flag
