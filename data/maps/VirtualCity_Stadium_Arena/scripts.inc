@@ -20,6 +20,7 @@ VirtualCity_Stadium_Arena_OnFrame:
 VirtualCity_Stadium_Arena_OnResume:
 	call_if_eq VAR_TEMP_9, 1, VirtualCity_Stadium_Arena_EventScript_CallAddAudience
 	specialvar VAR_RESULT, GetBattleOutcome
+	call_if_eq VAR_RESULT, B_OUTCOME_RAN, VirtualCity_Stadium_Arena_Eventscript_SetModFlag
 	end
 
 VirtualCity_Stadium_Arena_EventScript_CallAddAudience::
@@ -131,7 +132,7 @@ VirtualCity_Stadium_Arena_EventScript_AddFinalAudience::
 	createvobject OBJ_EVENT_GFX_KIRLIA, 21, 10, 1
 	createvobject OBJ_EVENT_GFX_MR_BRINEYS_BOAT, 22, 11, 1
 	createvobject OBJ_EVENT_GFX_MAXIE, 23, 13, 1
-	createvobject OBJ_EVENT_GFX_HOOH, 24, 14, 1
+	createvobject OBJ_EVENT_GFX_HOOH, 35, 14, 1
 	createvobject OBJ_EVENT_GFX_SKITTY, 25, 15, 1
 	createvobject OBJ_EVENT_GFX_SUDOWOODO, 35, 2, 2
 	createvobject OBJ_EVENT_GFX_RAYQUAZA, 35, 3, 2
@@ -233,8 +234,8 @@ VirtualCity_Stadium_Arena_EventScript_SetUpFight::
 	goto_if_eq VAR_PETALBURG_CITY_STATE, 30, VirtualCity_Stadium_Arena_Eventscript_SilvaBulletFight
 	goto_if_eq VAR_PETALBURG_CITY_STATE, 31, VirtualCity_Stadium_Arena_Eventscript_EarlGreyFight
 	goto_if_eq VAR_PETALBURG_CITY_STATE, 33, VirtualCity_Stadium_Arena_Eventscript_ByronB1Fight
-	goto_if_eq VAR_PETALBURG_CITY_STATE, 34, VirtualCity_Stadium_Arena_Eventscript_ByronB2Fight
-	goto_if_eq VAR_PETALBURG_CITY_STATE, 35, VirtualCity_Stadium_Arena_Eventscript_ByronB3Fight
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 35, VirtualCity_Stadium_Arena_Eventscript_ByronB2Fight
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 37, VirtualCity_Stadium_Arena_Eventscript_ByronB3Fight
 	end
 
 VirtualCity_Stadium_Arena_Movement_PositionCameraToCenter:
@@ -474,7 +475,6 @@ VirtualCity_Stadium_Arena_Eventscript_LostSilver::
 	special HealPlayerParty
 	special LoadPlayerParty
 
-	call_if_eq VAR_RESULT, B_OUTCOME_RAN, VirtualCity_Stadium_Arena_Eventscript_SetModFlag
 	playse SE_EXIT
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 1
 	waitstate
@@ -631,7 +631,6 @@ VirtualCity_Stadium_Arena_Eventscript_LostGold::
 	@TOFOLD
 	special HealPlayerParty
 	special LoadPlayerParty
-	call_if_eq VAR_RESULT, B_OUTCOME_RAN, VirtualCity_Stadium_Arena_Eventscript_SetModFlag
 
 	playse SE_EXIT
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 1
@@ -646,16 +645,19 @@ VirtualCity_Stadium_Arena_Eventscript_ByronB1Fight::
 	waitmovement 0
 	speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB1Intro1, Speaker_Byron, DIR_NORTH
 	closemessage
+	playse SE_M_ENCORE2
+	call VirtualCity_Stadium_Arena_EventScript_AudienceLookAround
 	applymovement LOCALID_BYRON, VirtualCity_Stadium_Arena_Move_ByronApproachArena2
+	waitmovement 0
 	speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB1Intro2, Speaker_Byron, DIR_WEST
 
 	setspeaker Speaker_Byron
 	setvar VAR_TEMP_9, 1
 	trainerbattle_no_intro TRAINER_BYRON1, VirtualCity_Stadium_Arena_Text_ByronB1Win
-	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
-	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
-	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
-	goto_if_eq VAR_RESULT, B_OUTCOME_FORFEITED, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, VirtualCity_Stadium_Arena_Eventscript_LostByronB1
+	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, VirtualCity_Stadium_Arena_Eventscript_LostByronB1
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, VirtualCity_Stadium_Arena_Eventscript_LostByronB1
+	goto_if_eq VAR_RESULT, B_OUTCOME_FORFEITED, VirtualCity_Stadium_Arena_Eventscript_LostByronB1
 	setvar VAR_TEMP_9, 0
 	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
     special CallFrontierUtilFunc
@@ -668,7 +670,8 @@ VirtualCity_Stadium_Arena_Eventscript_ByronB1Fight::
 	waitmovement 0
 	
 	setflag FLAG_ACT_II_FOUGHT_BYRONB1
-	setvar VAR_PETALBURG_CITY_STATE, 33
+	setflag FLAG_ACT_II_WON_BYRONB1
+	setvar VAR_PETALBURG_CITY_STATE, 34
 
 	playse SE_EXIT
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 1
@@ -688,10 +691,10 @@ VirtualCity_Stadium_Arena_Eventscript_ByronB2Fight::
 	setspeaker Speaker_Byron
 	setvar VAR_TEMP_9, 1
 	trainerbattle_no_intro TRAINER_BYRON2, VirtualCity_Stadium_Arena_Text_ByronB2YouLostWin
-	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
-	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
-	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
-	goto_if_eq VAR_RESULT, B_OUTCOME_FORFEITED, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, VirtualCity_Stadium_Arena_Eventscript_LostByronB2
+	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, VirtualCity_Stadium_Arena_Eventscript_LostByronB2
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, VirtualCity_Stadium_Arena_Eventscript_LostByronB2
+	goto_if_eq VAR_RESULT, B_OUTCOME_FORFEITED, VirtualCity_Stadium_Arena_Eventscript_LostByronB2
 	setvar VAR_TEMP_9, 0
 	@speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB2YouLostLose, Speaker_Byron, DIR_WEST
 	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
@@ -705,7 +708,7 @@ VirtualCity_Stadium_Arena_Eventscript_ByronB2Fight::
 	waitmovement 0
 	
 	setflag FLAG_ACT_II_FOUGHT_BYRONB2
-	setvar VAR_PETALBURG_CITY_STATE, 34
+	setvar VAR_PETALBURG_CITY_STATE, 36
 
 	playse SE_EXIT
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 1
@@ -722,10 +725,10 @@ VirtualCity_Stadium_Arena_Eventscript_ByronB2FightWinner::
 	setspeaker Speaker_Byron
 	setvar VAR_TEMP_9, 1
 	trainerbattle_no_intro TRAINER_BYRON2, VirtualCity_Stadium_Arena_Text_ByronB2YouWonWin
-	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
-	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
-	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
-	goto_if_eq VAR_RESULT, B_OUTCOME_FORFEITED, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, VirtualCity_Stadium_Arena_Eventscript_LostByronB2AfterWin
+	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, VirtualCity_Stadium_Arena_Eventscript_LostByronB2AfterWin
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, VirtualCity_Stadium_Arena_Eventscript_LostByronB2AfterWin
+	goto_if_eq VAR_RESULT, B_OUTCOME_FORFEITED, VirtualCity_Stadium_Arena_Eventscript_LostByronB2AfterWin
 	setvar VAR_TEMP_9, 0
 	@speak LOCALID_BYRON, VirtualCity_Stadium_Arena_Text_ByronB2YouWonLose, Speaker_Byron, DIR_WEST
 	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
@@ -739,7 +742,7 @@ VirtualCity_Stadium_Arena_Eventscript_ByronB2FightWinner::
 	waitmovement 0
 	
 	setflag FLAG_ACT_II_FOUGHT_BYRONB2
-	setvar VAR_PETALBURG_CITY_STATE, 34
+	@setvar VAR_PETALBURG_CITY_STATE, 36
 
 	playse SE_EXIT
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 1
@@ -758,10 +761,10 @@ VirtualCity_Stadium_Arena_Eventscript_ByronB3Fight::
 	setspeaker Speaker_Byron
 	setvar VAR_TEMP_9, 1
 	trainerbattle_no_intro TRAINER_BYRON3, VirtualCity_Stadium_Arena_Text_ByronB3Win1
-	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
-	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
-	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
-	goto_if_eq VAR_RESULT, B_OUTCOME_FORFEITED, VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, VirtualCity_Stadium_Arena_Eventscript_LostByronB3
+	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, VirtualCity_Stadium_Arena_Eventscript_LostByronB3
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, VirtualCity_Stadium_Arena_Eventscript_LostByronB3
+	goto_if_eq VAR_RESULT, B_OUTCOME_FORFEITED, VirtualCity_Stadium_Arena_Eventscript_LostByronB3
 	setvar VAR_TEMP_9, 0
 	setvar VAR_0x8004, FRONTIER_UTIL_FUNC_SAVE_PARTY
     special CallFrontierUtilFunc
@@ -779,11 +782,34 @@ VirtualCity_Stadium_Arena_Eventscript_ByronB3Fight::
 	@applymovement retrieve Zoroark TOFOLD
 
 	setflag FLAG_ACT_II_FOUGHT_BYRONB3
-	setvar VAR_PETALBURG_CITY_STATE, 35
+	call_if_set FLAG_HIT_BYRON_WITH_HACKED_MOVE, VirtualCity_Stadium_Arena_Eventscript_UsedHackMoveOnByron
 
 	playse SE_EXIT
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 1
 	waitstate
+	end
+
+VirtualCity_Stadium_Arena_Eventscript_LostByronB1::
+	setvar VAR_PETALBURG_CITY_STATE, 34
+	goto VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
+	end
+
+VirtualCity_Stadium_Arena_Eventscript_LostByronB2AfterWin::
+	setvar VAR_PETALBURG_CITY_STATE, 36
+	goto VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
+	end
+
+VirtualCity_Stadium_Arena_Eventscript_UsedHackMoveOnByron::
+	setvar VAR_PETALBURG_CITY_STATE, 38
+	return
+
+VirtualCity_Stadium_Arena_Eventscript_LostByronB2::
+	goto VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
+	end
+
+VirtualCity_Stadium_Arena_Eventscript_LostByronB3::
+	call_if_set FLAG_HIT_BYRON_WITH_HACKED_MOVE, VirtualCity_Stadium_Arena_Eventscript_UsedHackMoveOnByron
+	goto VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
 	end
 
 VirtualCity_Stadium_Arena_Eventscript_LostPlatinum::
@@ -796,7 +822,6 @@ VirtualCity_Stadium_Arena_Eventscript_LostPlatinum::
 	special HealPlayerParty
 	special LoadPlayerParty
 
-	call_if_eq VAR_RESULT, B_OUTCOME_RAN, VirtualCity_Stadium_Arena_Eventscript_SetModFlag
 	playse SE_EXIT
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 1
 	waitstate
@@ -1014,7 +1039,7 @@ VirtualCity_Stadium_Arena_Text_ByronB2YouWonLose:
 	.string "Not so tough now, huh?\p"
 	.string "And, unfortunately for you, it was\n"
 	.string "less than half of a point.\p"
-	.string "I'm gonna whip you a hundred more\n"
+	.string "I'm gonna whip you a zhundred more\n"
 	.string "times so you can pay your debt to me.$"
 
 
@@ -1034,7 +1059,7 @@ VirtualCity_Stadium_Arena_Text_ByronB3Intro:
 	.string "You know what my problem is?\p"
 	.string "I'm too tolerant. \p"
 	.string "A roach crawls into my house, and I\n"
-	.string "let it be for a while, instead of\p"
+	.string "let it be for a while, instead of\l"
 	.string "crushing it immediately.\p"
 	.string "Not gonna make that mistake again.$"
 
@@ -1064,9 +1089,9 @@ VirtualCity_Stadium_Arena_EventScript_Announcer::
 	call_if_eq VAR_PETALBURG_CITY_STATE, 29, VirtualCity_Stadium_Arena_Eventscript_WvddieFightAnnouncer
 	call_if_eq VAR_PETALBURG_CITY_STATE, 30, VirtualCity_Stadium_Arena_Eventscript_SilvaBulletFightAnnouncer
 	call_if_eq VAR_PETALBURG_CITY_STATE, 31, VirtualCity_Stadium_Arena_Eventscript_EarlGreyFightAnnouncer
-	call_if_eq VAR_PETALBURG_CITY_STATE, 32, VirtualCity_Stadium_Arena_Eventscript_ByronB1FightAnnouncer
-	call_if_eq VAR_PETALBURG_CITY_STATE, 33, VirtualCity_Stadium_Arena_Eventscript_ByronB2FightAnnouncer
-	call_if_eq VAR_PETALBURG_CITY_STATE, 34, VirtualCity_Stadium_Arena_Eventscript_ByronB3FightAnnouncer
+	call_if_eq VAR_PETALBURG_CITY_STATE, 33, VirtualCity_Stadium_Arena_Eventscript_ByronB1FightAnnouncer
+	call_if_eq VAR_PETALBURG_CITY_STATE, 35, VirtualCity_Stadium_Arena_Eventscript_ByronB2FightAnnouncer
+	call_if_eq VAR_PETALBURG_CITY_STATE, 37, VirtualCity_Stadium_Arena_Eventscript_ByronB3FightAnnouncer
 	closemessage
 	return
 

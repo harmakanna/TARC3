@@ -142,9 +142,11 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod::
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietAreYouReady::
 	lockall
+	@Calls to check if the player has learned the hack move when they need to learn the hack move
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 37, VirtualCity_Stadium_PreBattleRoom_EventScript_CheckForHackLearn
 
-@Calls to check if the player has learned the hack move when they need to learn the hack move
-	call_if_eq VAR_PETALBURG_CITY_STATE, 37, VirtualCity_Stadium_PreBattleRoom_EventScript_CheckForHackLearn
+	@Intentional fallthrough - allows us to use trigger and return here after the check, as calls don't work well if you don't return all the way.
+VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietAreYouReady2::
 	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Text_HarrietAreYouReady, Speaker_Harriet, DIR_EAST, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, VirtualCity_Stadium_PreBattleRoom_EventScript_HarrietNoWorries
 	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_EventScript_HarrietYouSure
@@ -169,7 +171,8 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietAreYouReady::
 
 VirtualCity_Stadium_PreBattleRoom_EventScript_CheckForHackLearn::
 	goto_if_unset FLAG_ACT_II_MOVE_TAUGHT, VirtualCity_Stadium_PreBattleRoom_Text_HarrietHoldOn
-	return
+	goto VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietAreYouReady2
+	end
 	
 VirtualCity_Stadium_PreBattleRoom_EventScript_HarrietYouSure::
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_HarrietYouSure, MSGBOX_YESNO
@@ -186,7 +189,7 @@ VirtualCity_Stadium_PreBattleRoom_EventScript_HarrietNoWorries::
 	end
 
 VirtualCity_Stadium_PreBattleRoom_EventScript_HarrietHoldOn::
-	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Text_HarrietHoldOn, Speaker_Harriet, DIR_EAST, MSGBOX_YESNO
+	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Text_HarrietHoldOn, Speaker_Harriet, DIR_EAST
 	closemessage
 	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_FaceDown
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
@@ -216,7 +219,7 @@ VirtualCity_Stadium_PreBattleRoom_Text_HarrietNoWorries:
 	.string "ready!$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_HarrietGoGetEm:
-	.string "Alright!\p Choose your team and\n"
+	.string "Alright!\pChoose your team and\n"
 	.string "go get 'em, Soph!$"
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietWellDone:
@@ -511,8 +514,11 @@ VirtualCity_Stadium_PreBattleRoom_Movement_SophieIntoPlace2:
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB1Scene::
 	setvar VAR_WALK_DOWN_IN_VIRTUAL_PREBATTLE_ROOM, 0
-	applymovement LOCALID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Movement_SophieIntoPlace
+	applymovement LOCALID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Movement_SophieIntoPlace2
 	waitmovement 0
+	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_FaceLeft
+	speak LOCALID_ERNEST_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Text_ErnestIveArrived, Speaker_Ernest, DIR_EAST 
+	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
 	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle1XByron0, Speaker_Harriet, DIR_SOUTH
 	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle1XByron2, SP_NAME_PLAYER, DIR_NORTH
@@ -524,6 +530,10 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB1Scene::
 	playse SE_SELECT
 	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle1XByron4, Speaker_Harriet, DIR_SOUTH
 	closemessage
+	applymovement LOCALID_ERNEST_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Movement_ErnestToPlace
+	waitmovement 0
+	setobjectxyperm LOCALID_ERNEST_PREBATTLE, 1, 5
+	setobjectmovementtype LOCALID_ERNEST_PREBATTLE, MOVEMENT_TYPE_FACE_LEFT
 	setvar VAR_PETALBURG_CITY_STATE, 33
 	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
@@ -533,7 +543,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2Scene::
 	setvar VAR_WALK_DOWN_IN_VIRTUAL_PREBATTLE_ROOM, 0
 	applymovement LOCALID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Movement_SophieIntoPlace
 	waitmovement 0
-	goto VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2SceneLose
+	goto_if_unset FLAG_ACT_II_WON_BYRONB1, VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2SceneLose
 
 	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle2WinXByron1, Speaker_Harriet, DIR_SOUTH
 	playse SE_SELECT
@@ -559,6 +569,10 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2Scene::
 	closemessage
 	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
 	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_FaceDown
+	applymovement LOCALID_ERNEST_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Movement_ErnestToPlace
+	waitmovement 0
+	setobjectxyperm LOCALID_ERNEST_PREBATTLE, 1, 5
+	setobjectmovementtype LOCALID_ERNEST_PREBATTLE, MOVEMENT_TYPE_FACE_LEFT
 	setvar VAR_PETALBURG_CITY_STATE, 35
 	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
@@ -590,6 +604,10 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB2SceneLose::
 	closemessage
 	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
 	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_FaceDown
+	applymovement LOCALID_ERNEST_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Movement_ErnestToPlace
+	waitmovement 0
+	setobjectxyperm LOCALID_ERNEST_PREBATTLE, 1, 5
+	setobjectmovementtype LOCALID_ERNEST_PREBATTLE, MOVEMENT_TYPE_FACE_LEFT
 	setvar VAR_PETALBURG_CITY_STATE, 35
 	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
@@ -603,9 +621,8 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB3Scene::
 	speak LOCALID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle3XByron1, SP_NAME_PLAYER, DIR_WEST
 	playse SE_SELECT
 	speak LOCALID_ERNEST_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle3XByron2, Speaker_Ernest, DIR_EAST
-	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
 	playse SE_SELECT
-	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle3XByron3, Speaker_Harriet, DIR_SOUTH
+	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle3XByron3, Speaker_Harriet, DIR_WEST
 	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_FaceLeft
 	applymovement LOCALID_PLAYER, Common_Movement_FaceLeft
 	playse SE_SELECT
@@ -622,18 +639,24 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB3Scene::
 	closemessage
 	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
 	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_FaceDown
+	applymovement LOCALID_ERNEST_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Movement_ErnestToPlace
+	waitmovement 0
+	setobjectxyperm LOCALID_ERNEST_PREBATTLE, 1, 5
+	setobjectmovementtype LOCALID_ERNEST_PREBATTLE, MOVEMENT_TYPE_FACE_LEFT
 	setvar VAR_PETALBURG_CITY_STATE, 37
+	setvar VAR_PRE_BATTLE_ROOM_STATE, 1
 	call_if_unset FLAG_ACT_II_MOD_INSTALLED, VirtualCity_Stadium_PreBattleRoom_Eventscript_InstallMod
 	end
 
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronHackSuccess::
-	applymovement LOCALID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Movement_SophieIntoPlace2
+	applymovement LOCALID_ERNEST_PREBATTLE, Common_Movement_WalkRight
+	applymovement LOCALID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Movement_SophieIntoPlace3
 	waitmovement 0
-	speak LOCALID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Text_SophieHackSuccess1, SP_NAME_PLAYER, DIR_EAST
+	speak LOCALID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Text_SophieHackSuccess1, SP_NAME_PLAYER, DIR_WEST
 	playse SE_SELECT
 	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_FaceLeft
-	speak LOCALID_ERNEST_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Text_ErnestHackSuccess2, Speaker_Ernest, DIR_WEST
+	speak LOCALID_ERNEST_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Text_ErnestHackSuccess2, Speaker_Ernest, DIR_EAST
 	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
 	playse SE_SELECT
 	speak LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Text_HarrietHackSuccess3, Speaker_Harriet, DIR_SOUTH
@@ -649,9 +672,24 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronHackSuccess::
 	waitstate
 	end
 
+VirtualCity_Stadium_PreBattleRoom_Movement_SophieIntoPlace3:
+	walk_down
+	face_left
+	step_end
 
+VirtualCity_Stadium_PreBattleRoom_Movement_ErnestToPlace:
+	walk_down
+	walk_down
+	face_left
+	step_end
+
+VirtualCity_Stadium_PreBattleRoom_Text_ErnestIveArrived:
+	.string "I've arriiiiiived!\p"
+	.string "Good work getting to Byron,\n"
+	.string "Sophie!$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle1XByron0:
+	.string "That's right.\p"
 	.string "Next. It's him. It's Byron.\p"
 	.string "This is the guy we came here to fight,\n"
 	.string "and boy does he have a nasty team.\p"
@@ -668,15 +706,15 @@ VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle1XByron3:
 	.string "It doesn't have to be enough.\n"
 	.string "You don't have to win.\p"
 	.string "All I have to do is figure out how his\n"
-	.string "POKéMON were hacked, and I might be able\l"
-	.string "to find and exploit a backdoor.\p"
+	.string "POKéMON were hacked, and I might\l"
+	.string "find and exploit a backdoor.\p"
 	.string "I just know it's a hack job.$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle1XByron4:
-	.string "But wouldn't it be something to wipe that\n"
-	.string "smirk off his face?\p"	
-	.string "You're smarter and a better battler - I\n"
-	.string "think you have a chance.\p"
+	.string "But wouldn't it be something to wipe\n"
+	.string "that smirk off his face?\p"	
+	.string "You're smarter AND a better battler!\p"
+	.string "I think you have a chance.\p"
 	.string "And don't forget - this is a best of\n"
 	.string "three. You can afford one loss.\p"
 	.string "Good luck!$"
@@ -723,13 +761,13 @@ VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2WinXByron2pt5:
 @TOFOLD Check the changed dialogue to make sure it's okay?
 
 VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle2WinXByron3:
-	.string "I.{PAUSE 50}Cannot.\p"
+	.string "I. {PAUSE 50}Cannot.\p"
 	.string "BELIEVE!\p"
 	.string "How STUPID he is!\p"
 	.string "He disables the encrypted tunnel from\n"
-	.string "{COLOR GREEN}BETTER's{COLOR DARK_GRAY}website to\l"
-	.string "his own laptop's IP!\p"
-	.string "That's how he submits such hogwash teams!"
+	.string "{COLOR GREEN}BETTER's{COLOR DARK_GRAY} website to his own\l"
+	.string "laptop's IP!\p"
+	.string "That's how he submits such\nHOGWASH teams!\p"
 	.string "His data's exposed - I just gotta\n"
 	.string "break into his laptop somehow. But how?\p"
 	.string "…\p"
@@ -772,13 +810,13 @@ VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2LoseXByron2:
 @KUMATORA (I used my limited cybersecurity vocabulary to make something up here - if you have suggestions, it's all you)
 
 VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle2LoseXByron3:
-	.string "I.{PAUSE 50}Cannot.\p"
+	.string "I. {PAUSE 50}Cannot.\p"
 	.string "BELIEVE!\p"
 	.string "How STUPID he is!\p"
 	.string "He disables the encrypted tunnel from\n"
-	.string "{COLOR GREEN}BETTER's{COLOR DARK_GRAY}website to\l"
-	.string "his own laptop's IP!\p"
-	.string "That's how he submits such hogwash teams!"
+	.string "{COLOR GREEN}BETTER's{COLOR DARK_GRAY} website to his own\l"
+	.string "laptop's IP!\p"
+	.string "That's how he submits such\nHOGWASH teams!\p"
 	.string "His data's exposed - I just gotta\n"
 	.string "break into his laptop somehow. But how?\p"
 	.string "…\p"
@@ -838,8 +876,8 @@ VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle3XByron6:
 	.string "it hits one of his hacked POKéMON,\l"
 	.string "I can get access.\p"
 	.string "That infected POKéMON will give me an in\n"
-	.string "to his computer after the match, when the\l"
-	.string "final match validation occurs.\p"
+	.string "to his computer after the match, when\l"
+	.string "the final match validation occurs.\p"
 	.string "The move's high priority and accurate,\n"
 	.string "so it shouldn't be hard to hit.\p"
 	.string "After that, doesn't matter if you win\n"
@@ -847,7 +885,6 @@ VirtualCity_Stadium_PreBattleRoom_Text_ErnestBattle3XByron6:
 	.string "I'll be in the system!$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle3XByron7:
-	.string "I just gotta hit him, huh?\p"
 	.string "I can do that.$"
 
 
@@ -888,7 +925,7 @@ VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestWait::
 
 VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestWork::
 	setspeaker Speaker_Ernest
-	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestWait, MSGBOX_NPC
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestWork, MSGBOX_NPC
 	end
 
 VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestLetsGo::
@@ -913,8 +950,10 @@ VirtualCity_Stadium_PreBattleRoom_Text_ErnestLetsGo:
 VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestTutor::
 	lock
 	faceplayer
-	move_tutor MOVE_OCTAZOOKA, VirtualCity_Stadium_PreBattleRoom_Text_ErnestTeach, VirtualCity_Stadium_PreBattleRoom_Text_ErnestWhich, VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestDeclined, VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestTaught, FLAG_MOVE_TUTOR_TAUGHT_DYNAMICPUNCH
-	clearflag FLAG_MOVE_TUTOR_TAUGHT_DYNAMICPUNCH
+	move_tutor MOVE_OCTAZOOKA, VirtualCity_Stadium_PreBattleRoom_Text_ErnestTeach, VirtualCity_Stadium_PreBattleRoom_Text_ErnestWhich, VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestDeclined, VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestTaught
+	@clearflag FLAG_MOVE_TUTOR_TAUGHT_DYNAMICPUNCH
+	setvar VAR_PRE_BATTLE_ROOM_STATE, 0
+	setflag FLAG_ACT_II_MOVE_TAUGHT
 	end
 
 VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestDeclined::
@@ -924,6 +963,7 @@ VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestDeclined::
 
 VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestTaught::
 	msgbox VirtualCity_Stadium_PreBattleRoom_Text_ErnestTaught, MSGBOX_DEFAULT
+	setvar VAR_PRE_BATTLE_ROOM_STATE, 0
 	setflag FLAG_ACT_II_MOVE_TAUGHT
 	release
 	end
