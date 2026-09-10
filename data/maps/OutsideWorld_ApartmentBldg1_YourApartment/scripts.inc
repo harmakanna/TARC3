@@ -10,6 +10,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_OnTransition:
 
 OutsideWorld_ApartmentBldg1_YourApartment_OnFrame:
 	map_script_2 VAR_PETALBURG_CITY_STATE, 2, OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene
+	map_script_2 VAR_PETALBURG_CITY_STATE, 5, OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndSceneButReallyThisTime
 	map_script_2 VAR_PETALBURG_CITY_STATE, 20, OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_ActII_Opening
 	.2byte 0
 
@@ -800,3 +801,86 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro12::
 
 
 
+OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndSceneButReallyThisTime::
+	delay 20
+	setspeaker SP_NAME_PLAYER
+	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Text_PrologueEndSceneButReallyThisTime, MSGBOX_DEFAULT
+	closemessage
+	setvar VAR_PETALBURG_CITY_STATE, 10
+	end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Text_PrologueEndSceneButReallyThisTime::
+	.string "I gotta log in to the Place and figure\n"
+	.string "out how this could have happened.\p"
+	.string "…{PAUSE 30}I really hope Lola's asleep.$"
+
+
+OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_Lola_Coupon::
+	faceplayer
+	setspeaker Speaker_Lola
+	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon1, MSGBOX_DEFAULT
+	playse SE_SELECT
+	setspeaker SP_NAME_PLAYER
+	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon2, MSGBOX_DEFAULT
+	playse SE_SELECT
+	setspeaker Speaker_Lola
+	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon3, MSGBOX_DEFAULT
+	playse SE_SELECT
+	additem ITEM_SPELL_TAG, 1
+	setspeaker NULL
+	playfanfare MUS_OBTAIN_ITEM
+	message VirtualCity_Stadium_Entrance_Text_ReceivedCoupon
+	waitfanfare
+	delay 560
+	setspeaker Speaker_Lola
+	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon4, MSGBOX_DEFAULT
+	playse SE_SELECT
+	setspeaker SP_NAME_PLAYER
+	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon5, MSGBOX_DEFAULT
+	playse SE_SELECT
+	setspeaker Speaker_Lola
+	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon6, MSGBOX_DEFAULT
+	playse SE_SELECT
+	setspeaker Speaker_Lola
+	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon7, MSGBOX_DEFAULT
+	playse SE_SELECT
+	closemessage
+	applymovement LOCALID_LOLA_COUPON, Common_Movement_FaceDown
+	waitmovement 0
+	delay 16
+	removeobject LOCALID_LOLA_COUPON
+	playse SE_EXIT
+	delay 20
+	setflag FLAG_HIDE_LOLA_APT_COUPON
+	end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon1::
+	.string "Sophie! Just who I wanted to see.$"
+
+OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon2::
+	.string "Oh, um, hi Lola.\p"
+	.string "How's, uh, how's Dreams doing?$"
+
+OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon3::
+	.string "A little tuckered out, the poor thing!\n"
+	.string "The way he sleeps is {PAUSE 30}s{PAUSE 5}o{PAUSE 5}o{PAUSE 5}o{PAUSE 5}o {PAUSE 10}cute!!!\p"
+	.string "But anyway, I wanted you to have this.$"
+
+OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon4::
+	.string "It's a redeem code for a free Pokemon\n"
+	.string "from the BETTER Superstore.\p"
+	.string "It was kinda my backup plan, you know?\p"
+	.string "But now I've got Dreams, and I can tell\n"
+	.string "I'll never want a VR Pokemon again.$"
+
+OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon5::
+	.string "Lola, I can't accept-$"
+
+OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon6::
+	.string "Oh, shut it. You let me use your stuff\n"
+	.string "so many times while I was saving up,\l"
+	.string "it's practically a drop in the bucket.$"
+
+OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon7::
+	.string "Now, I gotta run. We're taking the train\n"
+	.string "to the park today!$"

@@ -691,7 +691,33 @@ VirtualCity_Stadium_PreBattleRoom_Text_HarrietBattle2WinXByron1:
 
 VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2WinXByron2:
 	.string "Phew, I can't believe it either.\p"
-	.string "Ernest, any progress?$"
+	.string "What was that team???$"
+
+
+@TOFOLD Incorporate these two (both win and lose)
+
+VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2WinXByronInfodump:
+	.string "I've got the info you need, on, erm,\n"
+	.string "five of the six he has.\p"
+	.string "He's got… Futuristic Arceus from the\n"
+	.string "original 'Cyber' set;\p"
+	.string "an ultra-rare 'Wild Christmas' Xerneas,\n"
+	.string "BEFORE the nerf;\p"
+	.string "The banned 'Intergalactic' Spiritomb,\n"
+	.string "and yes it does have Wonder Guard;\p"
+	.string "a 'Secret Sith' Lightsaber Zacian,\n"
+	.string "with a Fire-type Behemoth Blade;\p"
+	.string "oh lord, a Mega Rayquaza that can Mega\n"
+	.string "evolve into 'Double Mega Rayquaza';\p"
+	.string "and a shadowy thing that looks like\n"
+	.string "a Zoroark but definitely isn't one.\p"
+	.string "Wow, that's an awful team.\n"
+	.string "Um, good luck.$"
+
+VirtualCity_Stadium_PreBattleRoom_Text_SophieBattle2WinXByron2pt5:
+	.string "Wow.\p"
+	.string "Um, Ernest, any good news for me?$"
+
 
 @KUMATORA (I used my limited cybersecurity vocabulary to make something up here - if you have suggestions, it's all you)
 @TOFOLD Check the changed dialogue to make sure it's okay?

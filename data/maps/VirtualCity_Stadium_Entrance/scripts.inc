@@ -130,7 +130,7 @@ VirtualCity_Stadium_Entrance_EventScript_Harriet_Reexplains::
 	msgbox VirtualCity_Stadium_Entrance_Text_ActII_Intro_HarrietReexplains, MSGBOX_NPC
 	end
 
-VirtualCity_Stadium_Entrance_Text_ReceivedCoupon:
+VirtualCity_Stadium_Entrance_Text_ReceivedCoupon::
 	.string "You received a BETTER Coupon!$"
 
 
@@ -225,6 +225,7 @@ VirtualCity_Stadium_Entrance_EventScript_Contentment::
 
 	startquest QUEST_CONTENTMENT
 	setflag FLAG_CONTENTMENT_QUEST_STARTED
+	clearflag FLAG_CONTENTMENT_QUEST_MOVE_USED
 	givemon SPECIES_TOXAPEX, 50, nature=NATURE_CALM, gender=MON_FEMALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_TOXIC, move2=MOVE_SCALD, move3=MOVE_ICY_WIND, move4=MOVE_CELEBRATE, otName=OT_Contentment
 	end
 
@@ -311,3 +312,92 @@ VirtualCity_Stadium_Entrance_Text_ContentmentQuestComplete::
 VirtualCity_Stadium_Entrance_Text_ContentmentQuestCompleteRepeat::
 	.string "Um. Please don't stand near me.\n"
 	.string "People might make associations again!$"
+
+
+
+
+
+VirtualCity_Stadium_Entrance_EventScript_Baby::
+	goto_if_set FLAG_BABY_QUEST_COMPLETE, VirtualCity_Stadium_Entrance_EventScript_BabyComplete
+	goto_if_set FLAG_BABY_QUEST_STARTED, VirtualCity_Stadium_Entrance_EventScript_BabyCheck
+	npc_speak NULL, VirtualCity_Stadium_Entrance_Text_BabyIntro
+	closemessage
+	startquest QUEST_BABY
+	setflag FLAG_BABY_QUEST_STARTED
+	end
+
+VirtualCity_Stadium_Entrance_EventScript_BabyCheck::
+
+	checkspecies SPECIES_EXCADRILL
+	goto_if_eq VAR_RESULT, TRUE, VirtualCity_Stadium_Entrance_EventScript_BabyFail
+	checkspecies SPECIES_TOXAPEX
+	goto_if_eq VAR_RESULT, TRUE, VirtualCity_Stadium_Entrance_EventScript_BabyFail
+	checkspecies SPECIES_LEDIAN
+	goto_if_eq VAR_RESULT, TRUE, VirtualCity_Stadium_Entrance_EventScript_BabyFail
+	checkspecies SPECIES_SOLROCK
+	goto_if_eq VAR_RESULT, TRUE, VirtualCity_Stadium_Entrance_EventScript_BabyFail
+	checkspecies SPECIES_PASSIMIAN
+	goto_if_eq VAR_RESULT, TRUE, VirtualCity_Stadium_Entrance_EventScript_BabyFail
+	checkspecies SPECIES_SABLEYE
+	goto_if_eq VAR_RESULT, TRUE, VirtualCity_Stadium_Entrance_EventScript_BabyFail
+	checkspecies SPECIES_ELECTRODE
+	goto_if_eq VAR_RESULT, TRUE, VirtualCity_Stadium_Entrance_EventScript_BabyFail
+	checkspecies SPECIES_DARKANINE
+	goto_if_eq VAR_RESULT, TRUE, VirtualCity_Stadium_Entrance_EventScript_BabyFail
+
+	npc_speak NULL, VirtualCity_Stadium_Entrance_Text_BabyMaybeBaby
+	closemessage
+	trainerbattle_no_intro TRAINER_BYRON2, VirtualCity_Stadium_Entrance_Text_BabyThinking
+	special HealPlayerParty
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, 2, VirtualCity_Stadium_Entrance_EventScript_BabyFail
+	
+	npc_speak NULL, VirtualCity_Stadium_Entrance_Text_BabyUBaby
+	closemessage
+	applymovement LOCALID_STADIUMBABY, Common_Movement_WalkInPlaceDown
+	waitmovement 0
+	faceplayer
+	delay 50
+	additem ITEM_SPELL_TAG, 1
+	setspeaker NULL
+	playfanfare MUS_OBTAIN_ITEM
+	message VirtualCity_Stadium_Entrance_Text_ReceivedCoupon
+	waitfanfare
+	delay 560
+	completequest QUEST_BABY
+	setflag FLAG_BABY_QUEST_COMPLETE
+	end
+
+
+
+VirtualCity_Stadium_Entrance_EventScript_BabyFail::
+	npc_speak NULL, VirtualCity_Stadium_Entrance_Text_BabyNotBaby
+	closemessage
+	end
+
+
+VirtualCity_Stadium_Entrance_EventScript_BabyComplete::
+	npc_speak NULL, VirtualCity_Stadium_Entrance_Text_BabyWeBaby
+	closemessage
+	end
+
+
+VirtualCity_Stadium_Entrance_Text_BabyIntro:
+	.string "im baby\p"
+	.string "awena\p"
+	.string "im fight baby$"
+
+VirtualCity_Stadium_Entrance_Text_BabyNotBaby:
+	.string "u not baby!!!!!$"
+
+VirtualCity_Stadium_Entrance_Text_BabyMaybeBaby:
+	.string "u baby?$"
+
+VirtualCity_Stadium_Entrance_Text_BabyThinking:
+	.string "…$"
+
+VirtualCity_Stadium_Entrance_Text_BabyUBaby:
+	.string "u baby$"
+
+VirtualCity_Stadium_Entrance_Text_BabyWeBaby:
+	.string "we baby$"

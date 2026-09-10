@@ -161,6 +161,7 @@ VirtualCity_Hotel_YourRoom_Eventscript_ActII_Resolution::
 	setvar VAR_PETALBURG_CITY_STATE, 22
 	setflag FLAG_ACT_II_STARTED
 	setflag FLAG_ACT_II_HIDE_HOTEL_FRIENDS
+	clearflag FLAG_HIDE_LOLA_APT_COUPON
 	clearflag FLAG_HIDE_ACT_II_HARRIET
 	clearflag FLAG_HIDE_LEDIAN_QUEST
 	clearflag FLAG_SYS_PREVENT_MAP_FADE
