@@ -34,7 +34,7 @@ VirtualCityOutside_Sign_Hotel::
 	end
 
 VirtualCityOutside_EventScript_Triangle::
-	goto_if_set FLAG_SPOOFING_EXECUTIVE, VirtualCityOutside_Text_TriangleSpoof
+	goto_if_set FLAG_SPOOFING_EXECUTIVE, VirtualCityOutside_EventScript_TriangleSpoof
 	msgbox VirtualCityOutside_Text_Triangle, MSGBOX_NPC
 	end
 	
@@ -44,7 +44,7 @@ VirtualCityOutside_EventScript_TriangleSpoof::
 
 VirtualCityOutside_EventScript_Doppelganger1::
 	lock
-	goto_if_set FLAG_SPOOFING_EXECUTIVE, VirtualCityOutside_Text_Doppelganger1Spoof
+	goto_if_set FLAG_SPOOFING_EXECUTIVE, VirtualCityOutside_EventScript_Doppelganger1Spoof
 	msgbox VirtualCityOutside_Text_Doppelganger1, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -58,7 +58,7 @@ VirtualCityOutside_EventScript_Doppelganger1Spoof::
 
 VirtualCityOutside_EventScript_Doppelganger2::
 	lock
-	goto_if_set FLAG_SPOOFING_EXECUTIVE, VirtualCityOutside_Text_Doppelganger2Spoof
+	goto_if_set FLAG_SPOOFING_EXECUTIVE, VirtualCityOutside_EventScript_Doppelganger2Spoof
 	msgbox VirtualCityOutside_Text_Doppelganger2, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -71,7 +71,7 @@ VirtualCityOutside_EventScript_Doppelganger2Spoof::
 	end
 
 VirtualCityOutside_EventScript_StorePikachu::
-	goto_if_ge VAR_PETALBURG_CITY_STATE, 1, VirtualCityOutside_Text_StorePikachuSpoof
+	goto_if_ge VAR_VIRTUAL_CITY_OUTSIDE_STATE, 1, VirtualCityOutside_EventScript_StorePikachuSpoof
 	msgbox VirtualCityOutside_Text_StorePikachu, MSGBOX_NPC
 	end
 
@@ -119,6 +119,7 @@ VirtualCityOutside_EventScript_PlatformPikachu::
 VirtualCityOutside_EventScript_PlatformPikachuSpoof::
 	msgbox VirtualCityOutside_Text_PlatformPikachuSpoof, MSGBOX_NPC
 	end
+	
 VirtualCityOutside_EventScript_Giratina::
 	lock
 	faceplayer
@@ -132,10 +133,12 @@ VirtualCityOutside_EventScript_Giratina::
 	end
 
 VirtualCityOutside_EventScript_CenterIdol::
+	goto_if_set FLAG_SPOOFING_EXECUTIVE, VirtualCityOutside_EventScript_IdolError
 	msgbox VirtualCityOutside_Text_CenterIdol, MSGBOX_NPC
 	end
 	
 VirtualCityOutside_EventScript_RightIdol::
+	goto_if_set FLAG_SPOOFING_EXECUTIVE, VirtualCityOutside_EventScript_IdolError
 	msgbox VirtualCityOutside_Text_RightIdol, MSGBOX_NPC
 	end
 	

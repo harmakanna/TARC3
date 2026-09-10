@@ -8682,8 +8682,8 @@ IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
 === TRAINER_BEVERLY ===
 Name: BEVERLY
-Class: Swimmer F
-Pic: Swimmer F
+Class: Officer M
+Pic: Officer M
 Gender: Female
 Music: Swimmer
 Double Battle: No
@@ -8699,8 +8699,8 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_IMANI ===
 Name: IMANI
-Class: Swimmer F
-Pic: Swimmer F
+Class: Officer F
+Pic: Officer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
@@ -8712,8 +8712,8 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_KYLA ===
 Name: KYLA
-Class: Swimmer F
-Pic: Swimmer F
+Class: Officer F
+Pic: Officer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
@@ -8725,8 +8725,8 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_DENISE ===
 Name: DENISE
-Class: Swimmer F
-Pic: Swimmer F
+Class: Officer F
+Pic: Officer F
 Gender: Female
 Music: Swimmer
 Double Battle: No
@@ -8742,8 +8742,8 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_BETH ===
 Name: BETH
-Class: Swimmer F
-Pic: Swimmer F
+Class: Officer M
+Pic: Officer M
 Gender: Female
 Music: Swimmer
 Double Battle: No
@@ -8755,8 +8755,8 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_TARA ===
 Name: TARA
-Class: Swimmer F
-Pic: Swimmer F
+Class: Officer M
+Pic: Officer M
 Gender: Female
 Music: Swimmer
 Double Battle: No

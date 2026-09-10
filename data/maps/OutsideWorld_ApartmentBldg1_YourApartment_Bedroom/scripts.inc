@@ -15,7 +15,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_LolaConfron
 	clearflag FLAG_SYS_PREVENT_MAP_FADE
 	fadescreenspeed FADE_FROM_BLACK, 2
 
-    delay 120
+    delay 80
 	speak LOCALID_BEDROOM_LOLACONFRONT, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaConfronts1, Speaker_Lola, DIR_EAST
 	closemessage
 	playse SE_PIN
@@ -60,6 +60,8 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_LolaTellHer
 
 	speak LOCALID_BEDROOM_LOLACONFRONT, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer2, Speaker_Lola, DIR_EAST
 	playse SE_SELECT
+	playbgm MUS_BW12_UNWAVERING_EMOTIONS, FALSE
+	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer2_1, MSGBOX_DEFAULT
 	speak LOCALID_BEDROOM_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer3, Speaker_Ernest, DIR_SOUTH
 	playse SE_SELECT
 	speak LOCALID_BEDROOM_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer4, Speaker_Harriet, DIR_NORTH
@@ -146,16 +148,30 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_LolaDontTel
 
 	applymovement LOCALID_PLAYER, Common_Movement_WalkLeft
 	waitmovement 0
-	speak LOCALID_BEDROOM_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaDontTellHer3, Speaker_Minh, DIR_NORTH
+	speak LOCALID_BEDROOM_MINHDONTTELL, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaDontTellHer3, Speaker_Minh, DIR_NORTH
 	playse SE_SELECT
-	speak LOCALID_BEDROOM_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaDontTellHer4, Speaker_Harriet, DIR_NORTH
+	speak LOCALID_BEDROOM_HARRIETDONTTELL, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaDontTellHer4, Speaker_Harriet, DIR_NORTH
 	playse SE_SELECT
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaDontTellHer5, SP_NAME_PLAYER, DIR_WEST
 	closemessage
 	delay 90
-	speak LOCALID_BEDROOM_ERNEST, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_Mission0, Speaker_Ernest, DIR_SOUTH
+	speak LOCALID_BEDROOM_ERNESTDONTTELL, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_Mission0, Speaker_Ernest, DIR_SOUTH
 	playse SE_SELECT
-	goto OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_Mission
+	
+	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
+	setspeaker Speaker_Ernest
+	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_Mission1, MSGBOX_DEFAULT
+	@playse SE_SELECT
+	@speak LOCALID_BEDROOM_ERNESTDONTTELL, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_Mission2, Speaker_Ernest, DIR_SOUTH
+	playse SE_SELECT
+	speak LOCALID_BEDROOM_MINHDONTTELL, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_Mission3, Speaker_Minh, DIR_NORTH
+	playse SE_SELECT
+	speak LOCALID_BEDROOM_HARRIETDONTTELL, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_Mission4, Speaker_Harriet, DIR_NORTH
+	closemessage
+	clearflag FLAG_SYS_NO_MUSIC_ON_TRANSITION
+	clearflag FLAG_ACT_III_HIDE_BEDROOM_FRIENDS
+	setvar VAR_PETALBURG_CITY_STATE, 41
+
 	end
 
 
@@ -172,8 +188,8 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_Mission::
 	playse SE_SELECT
 	speak LOCALID_BEDROOM_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_Mission4, Speaker_Harriet, DIR_NORTH
 	closemessage
-	clearflag FLAG_ACT_III_HIDE_BEDROOM_FRIENDS
 	clearflag FLAG_SYS_NO_MUSIC_ON_TRANSITION
+	clearflag FLAG_ACT_III_HIDE_BEDROOM_FRIENDS
 	setvar VAR_PETALBURG_CITY_STATE, 41
 	end
 
@@ -189,6 +205,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Move_LolaTellHer1:
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Move_LolaTellHer2:
 	walk_down
 	walk_left
+	face_right
 	step_end
 
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Move_LolaTellHer3:
@@ -278,7 +295,9 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer1:
 
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer2:
 	.string "… … …\n"
-	.string "…{PAUSE 50} …{PAUSE 50} …{PAUSE 50}Snivel…\p"
+	.string "…{PAUSE 50} …{PAUSE 50} …{PAUSE 50}Snivel…$"
+
+OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer2_1:
 	.string "WAAAAAAAAAAAAAH!!!$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer3:
@@ -324,10 +343,11 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer13:
 	.string "…Thanks, Lola.$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer14:
-	.string "Now. I need to clear my head.$"
+	.string "Now. I need to clear my head.\p"
 	.string "Now that it looks like my life's\n"
-	.string "central ambition was a lie, I need to\l"
-	.string "think about what I'm going to do.\p"
+	.string "central ambition was a BIG FAT LIE…\p"
+	.string "I need to think about what I'm\n"
+	.string "going to do.\p"
 	.string "Good luck.$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_LolaTellHer15:
@@ -415,12 +435,11 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_Ernest::
 	waitstate
 	end
 
-
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_Ernest1:
 	.string "If you go into VR now,\n"
 	.string "{COLOR RED}you won't be able to return.\p"
 	.string "{COLOR DARK_GRAY}Make sure you've finished up\n"
-	.string "{COLOR RED}EVERYTHING{COLOR DARK_GRAY}you need to do first.\p"
+	.string "{COLOR RED}EVERYTHING{COLOR DARK_GRAY} you need to do first.\p"
 	.string "Are you ready?$"
 
 

@@ -52,7 +52,7 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "VirtualCity_Stadium_Entrance_EventScript_Contentment",
       "flag": "FLAG_HIDE_LEDIAN_QUEST",
-      "quest_id": 9
+      "quest_id": 6
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(GALLADE)",
@@ -92,7 +92,8 @@
       "trainer_type": "TRAINER_TYPE_QUEST_GIVER",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "VirtualCity_Stadium_Entrance_EventScript_Baby",
-      "flag": "FLAG_HIDE_BABY_QUEST"
+      "flag": "FLAG_HIDE_BABY_QUEST",
+      "quest_id": 7
     }
   ],
   "warp_events": [
