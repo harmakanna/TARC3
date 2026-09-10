@@ -459,8 +459,10 @@ VirtualCity_Stadium_Arena_Eventscript_Rando5Fight::
 	end
 
 
-
-
+VirtualCity_Stadium_Arena_Eventscript_SetModFlag::
+	setflag FLAG_ACT_II_MOD_INSTALLED
+	return
+	
 VirtualCity_Stadium_Arena_Eventscript_LostSilver::
 
 	setvar VAR_TEMP_9, 0
@@ -472,6 +474,7 @@ VirtualCity_Stadium_Arena_Eventscript_LostSilver::
 	special HealPlayerParty
 	special LoadPlayerParty
 
+	call_if_eq VAR_RESULT, B_OUTCOME_RAN, VirtualCity_Stadium_Arena_Eventscript_SetModFlag
 	playse SE_EXIT
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 1
 	waitstate
@@ -628,6 +631,7 @@ VirtualCity_Stadium_Arena_Eventscript_LostGold::
 	@TOFOLD
 	special HealPlayerParty
 	special LoadPlayerParty
+	call_if_eq VAR_RESULT, B_OUTCOME_RAN, VirtualCity_Stadium_Arena_Eventscript_SetModFlag
 
 	playse SE_EXIT
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 1
@@ -792,6 +796,7 @@ VirtualCity_Stadium_Arena_Eventscript_LostPlatinum::
 	special HealPlayerParty
 	special LoadPlayerParty
 
+	call_if_eq VAR_RESULT, B_OUTCOME_RAN, VirtualCity_Stadium_Arena_Eventscript_SetModFlag
 	playse SE_EXIT
 	warpsilent MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM, 4, 1
 	waitstate
