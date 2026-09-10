@@ -442,8 +442,12 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Eventscript_Ernest::
 	waitse
 	setspeaker Speaker_PC
 	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Text_PCGlitchWarp, MSGBOX_DEFAULT
+	@playmoncry SPECIES_ELECTABUZZ, CRY_MODE_ENCOUNTER
+	playbgm MUS_VS_REGI, FALSE
+	callnative StartBlueScreen
 	message OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Text_PCGlitchWarp2
 	waitmessage
+	playmoncry SPECIES_ELECTABUZZ, CRY_MODE_ENCOUNTER
 	message OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Text_PCGlitchWarp3
 	waitmessage
 	setflag FLAG_SPOOFING_EXECUTIVE
