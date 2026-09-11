@@ -13079,8 +13079,8 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .height = 12,
         .weight = 666,
         .description = COMPOUND_STRING(
-            "They appear in great numbers at electric\n"
-            "power plants. Because they feed on\n"
+            "Topsy Turvy Set (3/15)\n"
+            "HP/Speed swap; Off/Def swap.\n"
             "electricity, they cause massive and\n"
             "chaotic blackouts in nearby cities."),
         .pokemonScale = 256,

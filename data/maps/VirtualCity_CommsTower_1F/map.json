@@ -16,7 +16,7 @@
   "object_events": [
     {
       "local_id": "LOCALID_GUARD",
-      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
+      "graphics_id": "OBJ_EVENT_GFX_OFFICER_M",
       "x": 6,
       "y": 2,
       "elevation": 0,
@@ -26,7 +26,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuard",
-      "flag": "0"
+      "flag": "FLAG_HIDE_COMMS1F_GUARD"
     },
     {
       "local_id": "LOCALID_OFFICE_MINH",
@@ -108,6 +108,33 @@
       "elevation": 0,
       "var": "VAR_PETALBURG_CITY_STATE",
       "var_value": "50",
+      "script": "VirtualCity_CommsTower_1F_CantLeave"
+    },
+    {
+      "type": "trigger",
+      "x": 2,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "5",
+      "script": "VirtualCity_CommsTower_1F_Autoscanner"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_PETALBURG_CITY_STATE",
+      "var_value": "51",
+      "script": "VirtualCity_CommsTower_1F_CantLeave"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_PETALBURG_CITY_STATE",
+      "var_value": "52",
       "script": "VirtualCity_CommsTower_1F_CantLeave"
     }
   ],

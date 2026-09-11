@@ -72,7 +72,7 @@ EventScript_NoRoomForItem::
 	return
 
 EventScript_PlayFanfareObtainedItem::
-	playfanfare MUS_OBTAIN_ITEM
+	playfanfare MUS_BW12_003
 	return
 
 EventScript_PlayFanfareObtainedTMHM::

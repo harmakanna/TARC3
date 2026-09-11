@@ -9,7 +9,7 @@ VirtualCity_Work_YourOffice_OnFrame:
 VirtualCity_Work_YourOffice_Eventscript_MakingExPonyta::
 	delay 100
 	clearparty
-	givemon SPECIES_DRILBUR, 50
+	givemon SPECIES_DRILBUR, 50, nature=NATURE_JOLLY, gender=MON_MALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_EARTHQUAKE, move2=MOVE_ROCK_SLIDE, move3=MOVE_SWORDS_DANCE, move4=MOVE_PROTECT, nickname=Nickname_Ex, otName=OT_SoPhi99
 	applymovement LOCALID_YOUROFFICE_MINH, Common_Movement_FaceUp
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
 	clearflag FLAG_SYS_PREVENT_MAP_FADE
@@ -39,7 +39,7 @@ VirtualCity_Work_YourOffice_Eventscript_MakingExPonyta::
 	waitse
 	delay 60
 
-	playmoncry SPECIES_PONYTA, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_EXCADRILL, CRY_MODE_ENCOUNTER
 	waitmoncry
 	delay 20
 
@@ -138,7 +138,7 @@ VirtualCity_Work_YourOffice_Text_MinhACTIPonytaDone6:
 	.string "Ahem. The guard should let you into\n"
 	.string "the Research Department now.\p"
 	.string "See if you can find some evidence of\n"
-	.string "fake IRL Pokemon being made there!$"
+	.string "fake IRL POKéMON being made there!$"
 
 
 
@@ -152,7 +152,7 @@ VirtualCity_Work_YourOffice_Text_MinhACTIPonytaDoneRepeat:
 	.string "as soon as you're done.\p"
 	.string "Remember, you gotta get into Research\n"
 	.string "with Ex and find hard evidence that\l"
-	.string "they're making fake Pokemon!$"
+	.string "they're making fake POKéMON!$"
 
 
 
@@ -179,7 +179,7 @@ VirtualCity_Work_YourOffice_Eventscript_MinhACTIOutro::
 	waitse
 	delay 60
 
-	playmoncry SPECIES_EXCADRILL, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_PONYTA, CRY_MODE_ENCOUNTER
 	waitmoncry
 	delay 20
 	
@@ -323,10 +323,10 @@ VirtualCity_Work_YourOffice_Text_Poster1::
 
 VirtualCity_Work_YourOffice_Text_Poster2::
 	.string "NOTICE:\p"
-	.string "Design, especially Pokemon Design, is\n"
+	.string "Design, especially POKéMON Design, is\n"
 	.string "{COLOR RED}highly{COLOR DARK_GRAY} confidential.\p"
 	.string "Do not reveal details of any unreleased\n"
-	.string "Pokemon to anyone outside this office.\p"
+	.string "POKéMON to anyone outside this office.\p"
 	.string "If you see something, say something.$"
 
 
@@ -337,7 +337,7 @@ VirtualCity_Work_YourOffice_Text_RolandDesk::
 
 VirtualCity_Work_YourOffice_Text_RolandBook::
 	.string "It's a sketch of Littlest Eevee, the\n"
-	.string "best-selling Pokemon of all time.$"
+	.string "best-selling POKéMON of all time.$"
 
 
 VirtualCity_Work_YourOffice_Text_YourDesk::
@@ -346,7 +346,7 @@ VirtualCity_Work_YourOffice_Text_YourDesk::
 
 VirtualCity_Work_YourOffice_Text_YourBook::
 	.string "A thick guidebook on types, abilities,\n"
-	.string "and everything Pokemon.$"
+	.string "and everything POKéMON.$"
 
 
 VirtualCity_Work_YourOffice_Text_MinhDesk::

@@ -7590,6 +7590,7 @@ static u8 GetMinBattleEntries(void)
     switch (VarGet(VAR_FRONTIER_FACILITY))
     {
     case VGC_BATTLE:
+        return 4;
     case FACILITY_MULTI_OR_EREADER:
         return 1;
     case FACILITY_UNION_ROOM:

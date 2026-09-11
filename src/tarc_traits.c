@@ -51,10 +51,10 @@ static const struct TarcTrait sMudskipTraits[] = {
 static const struct TarcTrait sDarkanineTraits[] = {
     { .type = NULL_MOD },
     { .type = EXTRA_TYPE, .arg1 = TYPE_FIRE },
-    { .type = EXTRA_STAT, .arg1 = STAT_HP,   .arg2 = 20},
-    { .type = EXTRA_STAT, .arg1 = STAT_SPEED, .arg2 = 20},
-    { .type = ALL_STAT_BONUS, .arg1 = 5},
-    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_ATK,  .arg2 = STAT_DEF, .arg3 = 20},
+    { .type = EXTRA_STAT, .arg1 = STAT_HP,   .arg2 = 25},
+    { .type = EXTRA_STAT, .arg1 = STAT_SPEED, .arg2 = 25},
+    { .type = ALL_STAT_BONUS, .arg1 = 10},
+    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_ATK,  .arg2 = STAT_DEF, .arg3 = 25},
     { .type = EXTRA_IMMUNITY, .arg1 = TYPE_NORMAL },
     { .type = NULL_MOD },
 };
@@ -63,33 +63,43 @@ static const struct TarcTrait sDratiniTraits[] = {
     { .type = NULL_MOD },
     { .type = EXTRA_TYPE, .arg1 = TYPE_NORMAL },
     { .type = EXTRA_STAT, .arg1 = STAT_HP,   .arg2 = 45},
+    { .type = EXTRA_STAT, .arg1 = STAT_ATK, .arg2 = 30},
     { .type = EXTRA_STAT, .arg1 = STAT_DEF, .arg2 = 45},
     { .type = EXTRA_STAT, .arg1 = STAT_SPDEF, .arg2 = 45},
     { .type = ALL_STAT_BONUS, .arg1 = 15},
     { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_ATK,  .arg2 = STAT_SPEED, .arg3 = 45},
     { .type = EXTRA_IMMUNITY, .arg1 = TYPE_ICE },
+    { .type = EXTRA_IMMUNITY, .arg1 = TYPE_DRAGON },
     { .type = NULL_MOD },
 };
 
 static const struct TarcTrait sExcadrillTraits[] = {
     { .type = NULL_MOD },
-    { .type = EXTRA_STAT, .arg1 = STAT_ATK,   .arg2 = 30},
-    { .type = EXTRA_STAT, .arg1 = STAT_SPEED, .arg2 = 30},
+    { .type = EXTRA_TYPE, .arg1 = TYPE_ROCK },
+    { .type = EXTRA_STAT, .arg1 = STAT_ATK,   .arg2 = 25},
+    { .type = EXTRA_STAT, .arg1 = STAT_SPEED, .arg2 = 25},
     { .type = ALL_STAT_BONUS, .arg1 = 10},
-    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_SPEED,  .arg2 = STAT_DEF, .arg3 = 30},
+    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_SPEED,  .arg2 = STAT_DEF, .arg3 = 25},
+    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_SPEED,  .arg2 = STAT_SPDEF, .arg3 = 25},
+    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_DEF,  .arg2 = STAT_ATK, .arg3 = 25},
     { .type = EXTRA_IMMUNITY, .arg1 = TYPE_GROUND },
+    { .type = EXTRA_IMMUNITY, .arg1 = TYPE_WATER },
     { .type = NULL_MOD },
 };
 
 static const struct TarcTrait sLedianTraits[] = {
     { .type = NULL_MOD },
     { .type = EXTRA_TYPE, .arg1 = TYPE_FIGHTING },
-    { .type = EXTRA_STAT, .arg1 = STAT_HP,   .arg2 = 30},
-    { .type = EXTRA_STAT, .arg1 = STAT_SPEED, .arg2 = 30},
-    { .type = ALL_STAT_BONUS, .arg1 = 10},
-    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_ATK,  .arg2 = STAT_SPDEF, .arg3 = 30},
-    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_SPATK,  .arg2 = STAT_SPDEF, .arg3 = 30},
+    { .type = EXTRA_TYPE, .arg1 = TYPE_STEEL },
+    { .type = EXTRA_STAT, .arg1 = STAT_HP,   .arg2 = 45},
+    { .type = EXTRA_STAT, .arg1 = STAT_SPEED, .arg2 = 45},
+    { .type = EXTRA_STAT, .arg1 = STAT_DEF, .arg2 = 45},
+    { .type = ALL_STAT_BONUS, .arg1 = 15},
+    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_ATK,  .arg2 = STAT_SPDEF, .arg3 = 45},
+    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_SPATK,  .arg2 = STAT_SPDEF, .arg3 = 45},
     { .type = EXTRA_IMMUNITY, .arg1 = TYPE_ROCK },
+    { .type = EXTRA_IMMUNITY, .arg1 = TYPE_FIRE },
+    { .type = EXTRA_IMMUNITY, .arg1 = TYPE_FLYING },
     { .type = NULL_MOD },
 };
 
@@ -101,11 +111,124 @@ static const struct TarcTrait sPonytaTraits[] = {
     { .type = ALL_STAT_BONUS, .arg1 = 15},
     { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_ATK,  .arg2 = STAT_SPDEF, .arg3 = 45},
     { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_SPEED,  .arg2 = STAT_SPATK, .arg3 = 45},
-    { .type = EXTRA_IMMUNITY, .arg1 = TYPE_ROCK },
+    { .type = EXTRA_IMMUNITY, .arg1 = TYPE_WATER },
+    { .type = EXTRA_IMMUNITY, .arg1 = TYPE_GROUND },
     { .type = NULL_MOD },
 };
 
+static const struct TarcTrait sSnubbullTraits[] = {
+    { .type = NULL_MOD },
+    { .type = EXTRA_TYPE, .arg1 = TYPE_NORMAL },
+    { .type = EXTRA_TYPE, .arg1 = TYPE_DARK },
+    { .type = EXTRA_STAT, .arg1 = STAT_ATK,   .arg2 = 50},
+    { .type = EXTRA_STAT, .arg1 = STAT_SPEED, .arg2 = 50},
+    { .type = ALL_STAT_BONUS, .arg1 = 15},
+    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_ATK,  .arg2 = STAT_DEF, .arg3 = 50},
+    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_SPDEF,  .arg2 = STAT_ATK, .arg3 = 50},
+    { .type = EXTRA_IMMUNITY, .arg1 = TYPE_STEEL },
+    { .type = EXTRA_IMMUNITY, .arg1 = TYPE_POISON },
+    { .type = NULL_MOD },
+};
 
+static const struct TarcTrait sSnoverTraits[] = {
+    { .type = NULL_MOD },
+    { .type = EXTRA_TYPE, .arg1 = TYPE_WATER },
+    { .type = EXTRA_TYPE, .arg1 = TYPE_POISON },
+    { .type = EXTRA_STAT, .arg1 = STAT_SPATK,   .arg2 = 45},
+    { .type = EXTRA_STAT, .arg1 = STAT_SPEED, .arg2 = 45},
+    { .type = ALL_STAT_BONUS, .arg1 = 15},
+    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_SPATK,  .arg2 = STAT_SPDEF, .arg3 = 45},
+    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_SPATK,  .arg2 = STAT_SPEED, .arg3 = 30},
+    { .type = EXTRA_IMMUNITY, .arg1 = TYPE_ROCK },
+    { .type = EXTRA_IMMUNITY, .arg1 = TYPE_FLYING },
+    { .type = NULL_MOD },
+};
+
+static const struct TarcTrait sElectrodeTraits[] = {
+    { .type = NULL_MOD },
+    { .type = EXTRA_TYPE, .arg1 = TYPE_PSYCHIC },
+    { .type = EXTRA_TYPE, .arg1 = TYPE_FLYING },
+    { .type = EXTRA_STAT, .arg1 = STAT_ATK,   .arg2 = 30},
+    { .type = EXTRA_STAT, .arg1 = STAT_SPATK,   .arg2 = 30},
+    { .type = EXTRA_STAT, .arg1 = STAT_SPEED, .arg2 = 30},
+    { .type = ALL_STAT_BONUS, .arg1 = 10},
+    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_SPATK,  .arg2 = STAT_SPDEF, .arg3 = 30},
+    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_SPEED,  .arg2 = STAT_DEF, .arg3 = 30},
+    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_SPDEF,  .arg2 = STAT_SPEED, .arg3 = 30},
+    { .type = EXTRA_IMMUNITY, .arg1 = TYPE_GROUND },
+    { .type = EXTRA_IMMUNITY, .arg1 = TYPE_GHOST },
+    { .type = NULL_MOD },
+};
+
+static const struct TarcTrait sPassimianTraits[] = {
+    { .type = NULL_MOD },
+    { .type = EXTRA_TYPE, .arg1 = TYPE_FIRE },
+    { .type = EXTRA_STAT, .arg1 = STAT_DEF,   .arg2 = 20},
+    { .type = EXTRA_STAT, .arg1 = STAT_SPEED, .arg2 = 20},
+    { .type = ALL_STAT_BONUS, .arg1 = 5},
+    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_DEF,  .arg2 = STAT_ATK, .arg3 = 20},
+    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_SPEED,  .arg2 = STAT_DEF, .arg3 = 20},
+    { .type = EXTRA_IMMUNITY, .arg1 = TYPE_FLYING },
+    { .type = EXTRA_IMMUNITY, .arg1 = TYPE_PSYCHIC },
+    { .type = EXTRA_IMMUNITY, .arg1 = TYPE_GROUND },
+    { .type = EXTRA_IMMUNITY, .arg1 = TYPE_WATER },
+    { .type = NULL_MOD },
+};
+
+static const struct TarcTrait sSolrockTraits[] = {
+    { .type = NULL_MOD },
+    { .type = EXTRA_TYPE, .arg1 = TYPE_NORMAL },
+    { .type = EXTRA_TYPE, .arg1 = TYPE_STEEL },
+    { .type = EXTRA_STAT, .arg1 = STAT_ATK,   .arg2 = 30},
+    { .type = EXTRA_STAT, .arg1 = STAT_SPEED, .arg2 = 30},
+    { .type = ALL_STAT_BONUS, .arg1 = 10},
+    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_ATK,  .arg2 = STAT_SPDEF, .arg3 = 30},
+    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_SPEED,  .arg2 = STAT_SPATK, .arg3 = 30},
+    { .type = EXTRA_IMMUNITY, .arg1 = TYPE_WATER },
+    { .type = EXTRA_IMMUNITY, .arg1 = TYPE_DARK },
+    { .type = NULL_MOD },
+};
+
+static const struct TarcTrait sSableyeTraits[] = {
+    { .type = NULL_MOD },
+    { .type = EXTRA_TYPE, .arg1 = TYPE_POISON },
+    { .type = EXTRA_TYPE, .arg1 = TYPE_FAIRY },
+    { .type = EXTRA_STAT, .arg1 = STAT_DEF,   .arg2 = 30},
+    { .type = EXTRA_STAT, .arg1 = STAT_SPDEF, .arg2 = 30},
+    { .type = ALL_STAT_BONUS, .arg1 = 10},
+    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_ATK,  .arg2 = STAT_SPDEF, .arg3 = 30},
+    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_ATK,  .arg2 = STAT_DEF, .arg3 = 30},
+    { .type = EXTRA_IMMUNITY, .arg1 = TYPE_FAIRY },
+    { .type = NULL_MOD },
+};
+
+static const struct TarcTrait sToxapexTraits[] = {
+    { .type = NULL_MOD },
+    { .type = EXTRA_TYPE, .arg1 = TYPE_DARK },
+    { .type = EXTRA_TYPE, .arg1 = TYPE_STEEL },
+    { .type = EXTRA_STAT, .arg1 = STAT_SPATK,   .arg2 = 25},
+    { .type = EXTRA_STAT, .arg1 = STAT_SPEED, .arg2 = 25},
+    { .type = ALL_STAT_BONUS, .arg1 = 10},
+    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_SPATK,  .arg2 = STAT_SPDEF, .arg3 = 25},
+    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_SPATK,  .arg2 = STAT_DEF, .arg3 = 25},
+    { .type = EXTRA_IMMUNITY, .arg1 = TYPE_ELECTRIC },
+    { .type = EXTRA_IMMUNITY, .arg1 = TYPE_PSYCHIC },
+    { .type = NULL_MOD },
+};
+
+static const struct TarcTrait sDrilburTraits[] = {
+    { .type = NULL_MOD },
+    { .type = EXTRA_TYPE, .arg1 = TYPE_ROCK },
+    { .type = EXTRA_STAT, .arg1 = STAT_ATK,   .arg2 = 25},
+    { .type = EXTRA_STAT, .arg1 = STAT_SPEED, .arg2 = 25},
+    { .type = ALL_STAT_BONUS, .arg1 = 10},
+    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_SPEED,  .arg2 = STAT_DEF, .arg3 = 25},
+    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_SPEED,  .arg2 = STAT_SPDEF, .arg3 = 25},
+    { .type = EXTRA_STAT_DRAWBACK, .arg1 = STAT_DEF,  .arg2 = STAT_ATK, .arg3 = 25},
+    { .type = EXTRA_IMMUNITY, .arg1 = TYPE_GROUND },
+    { .type = EXTRA_IMMUNITY, .arg1 = TYPE_WATER },
+    { .type = NULL_MOD },
+};
 
 
 
@@ -118,6 +241,14 @@ static const struct SpeciesTraits sTarcTraits[] = {
     { .species = SPECIES_EXCADRILL, .traits = sExcadrillTraits },
     { .species = SPECIES_PONYTA, .traits = sPonytaTraits },
     { .species = SPECIES_LEDIAN, .traits = sLedianTraits },
+    { .species = SPECIES_SNUBBULL, .traits = sSnubbullTraits },
+    { .species = SPECIES_ELECTRODE, .traits = sElectrodeTraits },
+    { .species = SPECIES_PASSIMIAN, .traits = sPassimianTraits },
+    { .species = SPECIES_SOLROCK, .traits = sSolrockTraits },
+    { .species = SPECIES_SNOVER, .traits = sSnoverTraits },
+    { .species = SPECIES_SABLEYE, .traits = sSableyeTraits },
+    { .species = SPECIES_TOXAPEX, .traits = sToxapexTraits },
+    { .species = SPECIES_DRILBUR, .traits = sDrilburTraits },
     { .species = SPECIES_NONE, .traits = NULL },
 };
 

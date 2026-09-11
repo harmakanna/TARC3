@@ -75,9 +75,10 @@ VirtualCity_Superstore_2F_Text_YellowIdol:
 	.string "Ooooh! My autoscanner tells me you're\n"
 	.string "trying to catch someone's eye!\p"
 	.string "What you need is a beautiful new skin,\n"
-	.string "much better than your old collectible!\p"
-	.string "Pokemon, Brands, Objects... and some\n"
-	.string "real hotties that'll help you get the\l"
-	.string "person of your dreams!$"
+	.string "much better than your old antique!\p"
+	.string "You could become a POKéMON! Support\n"
+	.string "your favorite brand! Or…\p"
+	.string "You could be a real hottie!!\n"
+	.string "Get the person of your dreams!$"
 
 

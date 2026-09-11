@@ -16,6 +16,7 @@ VirtualCity_Superstore1F_CapnChino::
 @Fallthrough into next script
 VirtualCity_Superstore1F_CapnChinoFight::
 	trainerbattle_no_intro TRAINER_CAPN_CHINO, VirtualCity_Superstore1F_CapnChinoDefeated
+	special HealPlayerParty
 	npc_speak SP_NAME_CAPN_CHINO, VirtualCity_Superstore1F_Text_CapnChinoLetMeBe
 	questmenu QUEST_MENU_SET_REWARD, QUEST_TEA
 	setflag FLAG_DEFEATED_CAPN_CHINO

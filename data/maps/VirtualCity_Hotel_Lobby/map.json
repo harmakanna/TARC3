@@ -39,7 +39,7 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "VirtualCity_HotelLobby_EarlGray",
       "flag": "FLAG_HIDE_ACT_2_TEA_QUEST",
-      "quest_id": 8
+      "quest_id": 5
     },
     {
       "local_id": "LOCALID_ENAMORED_MAN",

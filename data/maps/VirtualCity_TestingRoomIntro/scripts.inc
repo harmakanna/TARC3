@@ -181,6 +181,7 @@ VirtualCity_TestingRoomIntro_Eventscript_IntroScene:
 	delay 10
 	removeobject LOCALID_DARKANINES_BALL
 	setvar VAR_PETALBURG_CITY_STATE, 0
+	questmenu QUEST_MENU_SET_ACTIVE, QUEST_PROLOGUE
 	@fadescreenspeed FADE_TO_BLACK, 2
 	@special SpawnCameraObject
 	@applymovement LOCALID_CAMERA, Common_Movement_WalkUp
@@ -210,13 +211,13 @@ VirtualCity_TestingRoomIntro_Eventscript_Minh::
 	@clonefirstmon
 	givemon SPECIES_ARCANINE, 50, otName=OT_Design
 	givemon SPECIES_EXCADRILL, 50, nature=NATURE_JOLLY, abilityNum=1, gender=MON_MALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_EARTHQUAKE, move2=MOVE_ROCK_SLIDE, move3=MOVE_SWORDS_DANCE, move4=MOVE_PROTECT, nickname=Nickname_Ex, otName=OT_SoPhi99
-	givemon SPECIES_TOXAPEX, 50, move1=MOVE_CELEBRATE
+	@givemon SPECIES_TOXAPEX, 50, move1=MOVE_CELEBRATE
 
 	goto_if_unset FLAG_DARKANINE_BATTLE_1, VirtualCity_TestingRoomIntro_Eventscript_FirstBattle
 	goto_if_unset FLAG_DARKANINE_BATTLE_2, VirtualCity_TestingRoomIntro_Eventscript_SecondBattle
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_SubsequentBattleStart, Speaker_Minh, DIR_WEST
-VirtualCity_TestingRoomIntro_EventScript_MinhIntroBattle:
 	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE, 0, VirtualCity_TestingRoomIntro_Text_SubsequentBattleEndWin, VirtualCity_TestingRoomIntro_Text_SubsequentBattleEndLose
+VirtualCity_TestingRoomIntro_EventScript_MinhIntroBattle:
 	special HealPlayerParty
 	setspeaker Speaker_Minh
 	msgbox VirtualCity_TestingRoomIntro_Text_AdjustDarkanine, MSGBOX_YESNO
@@ -227,6 +228,7 @@ VirtualCity_TestingRoomIntro_EventScript_MinhIntroBattle:
 VirtualCity_TestingRoomIntro_Eventscript_FirstBattle:
 	setflag FLAG_DARKANINE_BATTLE_1
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_FirstBattleStart, Speaker_Minh, DIR_WEST
+	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE, 0, VirtualCity_TestingRoomIntro_Text_FirstBattleEndWin, VirtualCity_TestingRoomIntro_Text_FirstBattleEndLose
 	goto VirtualCity_TestingRoomIntro_EventScript_MinhIntroBattle
 	end
 
@@ -234,6 +236,7 @@ VirtualCity_TestingRoomIntro_Eventscript_FirstBattle:
 VirtualCity_TestingRoomIntro_Eventscript_SecondBattle:
 	setflag FLAG_DARKANINE_BATTLE_2
 	speak LOCALID_MINH, VirtualCity_TestingRoomIntro_Text_SecondBattleStart, Speaker_Minh, DIR_WEST
+	trainerbattle_earlyrival TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE, 0, VirtualCity_TestingRoomIntro_Text_SecondBattleEndWin, VirtualCity_TestingRoomIntro_Text_SecondBattleEndLose
 	goto VirtualCity_TestingRoomIntro_EventScript_MinhIntroBattle
 	end
 
@@ -312,7 +315,7 @@ VirtualCity_TestingRoomIntro_Text_Intro01:
 VirtualCity_TestingRoomIntro_Text_Intro02:
 	.string "Hmm?\p"
 	.string "You mean, am I ready to see a real live\n"
-	.string "Pokemon tonight?$"
+	.string "POKéMON tonight?$"
 
 VirtualCity_TestingRoomIntro_Text_Intro03:
 	.string "What? No!\p Sophieeeee!\p"
@@ -379,12 +382,12 @@ VirtualCity_TestingRoomIntro_Text_Intro12:
 	.string "Hmph.\p"
 	.string "Anyways, work your magic on Darkanine,\n"
 	.string "and then we can run a simulator battle.\p"
-	.string "I got the other three Pokemon in the\n"
+	.string "I got the other three POKéMON in the\n"
 	.string "Macabre set here, for the test battle.$"
 
 
 VirtualCity_TestingRoomIntro_Text_AdjustDarkanine:
-	.string "Adjust Darkanine?$"
+	.string "Rebalance Darkanine?$"
 
 VirtualCity_TestingRoomIntro_Text_WrongAdjustment:
 	.string "Huh? You're not done adjusting it,\n"
@@ -410,7 +413,7 @@ VirtualCity_TestingRoomIntro_Text_FirstBattleEndWin:
 
 VirtualCity_TestingRoomIntro_Text_FirstBattleEndLose:
 	.string "Either you went easy on me, or these\n"
-	.string "meta Pokemon are too strong!\p"
+	.string "meta POKéMON are too strong!\p"
 	.string "Did it feel good to use? Wanna\n"
 	.string "modify it some more?$"
 
@@ -435,7 +438,7 @@ VirtualCity_TestingRoomIntro_Text_SubsequentBattleStart:
 VirtualCity_TestingRoomIntro_Text_SubsequentBattleEndWin:
 	.string "I know you can't rush art, but when\n"
 	.string "you finish this, we get to go home!\p"
-	.string "And see a real live Pokemon!\p"
+	.string "And see a real live POKéMON!\p"
 	.string "Do you really need to tune it\n"
 	.string "even more?$"
 
@@ -458,6 +461,6 @@ VirtualCity_TestingRoomIntro_Text_DarkanineConfirmed:
 	@.string "The Rotom Phone's logout works in here.\p"
 	.string "Tell them to wait for me, I'll run there\n"
 	.string "as fast as I can!\p"
-	.string "Don't you dare pet the new Pokemon\n"
+	.string "Don't you dare pet the new POKéMON\n"
 	.string "without me!$"
 

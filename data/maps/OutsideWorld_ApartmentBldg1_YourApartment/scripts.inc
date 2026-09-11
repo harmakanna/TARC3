@@ -10,6 +10,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_OnTransition:
 
 OutsideWorld_ApartmentBldg1_YourApartment_OnFrame:
 	map_script_2 VAR_PETALBURG_CITY_STATE, 2, OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene
+	map_script_2 VAR_PETALBURG_CITY_STATE, 5, OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndSceneButReallyThisTime
 	map_script_2 VAR_PETALBURG_CITY_STATE, 20, OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_ActII_Opening
 	.2byte 0
 
@@ -44,12 +45,13 @@ OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndScene::
 	speak OBJ_EVENT_ID_PLAYER, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk05Sophie, SP_NAME_PLAYER, DIR_EAST
 	playse SE_SELECT
 	speak LOCALID_HARRIET, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk06Harriet, Speaker_Harriet, DIR_NORTH
-
+	closemessage
 	applymovement LOCALID_MINH, Common_Movement_FaceRight
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
 	playse SE_EXIT
 	delay 20
 	addobject LOCALID_MINH
+	delay 20
 	speak LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk1Minh, Speaker_Minh, DIR_WEST
 	closemessage
 	applymovement LOCALID_MINH, OutsideWorld_ApartmentBldg1_YourApartment_Move_Minh1
@@ -492,7 +494,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk03Ernest::
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk04Harriet::
 	.string "Sophie, we were just discussing…\p"
 	.string "When was the last time you saw a\n"
-	.string "Pokemon, you know, in real life?$"
+	.string "POKéMON, you know, in real life?$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk05Sophie::
 	.string "Gosh, I don't even remember.\p"
@@ -513,8 +515,8 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk2Harriet::
 	.string "been waiting for so long!$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk3Ernest::
-	.string "To be fair… she's been waiting…\n"
-	.string "for twenty-two… years.$"
+	.string "To be fair… she's been waiting…{PAUSE 50}\n"
+	.string "for twenty-two years.$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk4Lola::
 	.string "…\p"
@@ -522,26 +524,26 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk4Lola::
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk5Lola::
 	.string "You all know better than anyone how\n"
-	.string "much I wanted a real Pokemon.\p"
+	.string "much I wanted a real POKéMON.\p"
 	.string "So many people called it a stupid,\n"
 	.string "unrealistic dream.\p"
 	.string "Back then, I couldn't explain why it\n" 
-	.string "felt so… so necessary.\p"
+	.string "felt so… {PAUSE 40}so necessary.\p"
 	.string "Well, I still can't explain it.\n"
 	.string "But look at him!$"
 	
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk6Lola::
 	.string "Go on, pet him! Like you would a\n"
-	.string "VR Pokemon. He's super friendly!\p"
+	.string "VR POKéMON. He's super friendly!\p"
 	.string "And you'll understand it.\n"
-	.string "Why real Pokemon are so important.$"
+	.string "Why real POKéMON are so important.$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk7Harriet::
 	.string "OMG he's so precious! And warm!\n"
 	.string "His fur feels like a blanket!$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk8Ernest::
-	.string "What's… his name, Lola?$"
+	.string "What's…{PAUSE 30} his name, Lola?$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk9Lola::
 	.string "Dreams. Dreams the Snubbull.$"
@@ -603,27 +605,27 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk21pt5Ernest::
 
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk22Minh::
-	.string "Sophie? You… you saw it too?$"
+	.string "Sophie? You…{PAUSE 50} you saw it too?$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk23Sophie::
 	.string "I saw it.\p"
-	.string "There's… there's no doubt.$"
+	.string "There's…{PAUSE 20} there's no doubt.$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk24Minh::
-	.string "The eyes… they were wrong.$"
+	.string "The eyes…{PAUSE 30} they were wrong.$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk25Sophie::
 	.string "The mouth, too.\p"
-	.string "That's… that's not a real Snubbull.\p"
-	.string "It looked… drawn.\p"
-	.string "Like the VR Pokemon you design…\n"
+	.string "That's…{PAUSE 20} that's not a real Snubbull.\p"
+	.string "It looked…{PAUSE 50} drawn.\p"
+	.string "Like the VR POKéMON you design…\n"
 	.string "but not as skillful.$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk26Minh::
 	.string "Are you saying… does {COLOR GREEN}BETTER{COLOR DARK_GRAY} have a\n"
-	.string "way to make fake IRL Pokemon?!\p"
-	.string "And Lola just spent her life savings\n"
-	.string "on one, thinking it was real?!$"
+	.string "way to make fake IRL POKéMON?!\p"
+	.string "And Lola just got scammed out of her\n"
+	.string "life savings on one?!$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk27Sophie::
 	.string "Minh, hush!\n"
@@ -632,14 +634,14 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk27Sophie::
 	.string "worse than Lola getting scammed.$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk28Sophie::
-	.string "We haven't seen any Pokemon in years.\n"
+	.string "We haven't seen any POKéMON in years.\n"
 	.string "Real ones, I mean.\p"
 	.string "And when we finally see one, it's a\n"
 	.string "very convincing fake.$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_IntroTalk29Sophie::
 	.string "Minh…\p"
-	.string "{COLOR RED}Are there even any real Pokemon left?$"
+	.string "{COLOR RED}Are there even any real POKéMON left?$"
 
 
 
@@ -777,7 +779,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_MinhActIIIntro8::
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_ErnestActIIIntro9::
 	.string "Fakes? You mean, Lola's Snubbull isn't\n"
-	.string "a real flesh-and-blood Pokemon?$"
+	.string "a real flesh-and-blood POKéMON?$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro10::
 	.string "Yeah.\pMinh and I are going to do\n"
@@ -800,3 +802,87 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_SophieActIIIntro12::
 
 
 
+OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_PrologueEndSceneButReallyThisTime::
+	delay 20
+	setspeaker SP_NAME_PLAYER
+	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Text_PrologueEndSceneButReallyThisTime, MSGBOX_DEFAULT
+	closemessage
+	questmenu QUEST_MENU_COMPLETE_QUEST, QUEST_PROLOGUE
+	questmenu QUEST_MENU_SET_ACTIVE, QUEST_ACTI
+	setvar VAR_PETALBURG_CITY_STATE, 10
+	end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Text_PrologueEndSceneButReallyThisTime::
+	.string "I gotta log in to the Place and figure\n"
+	.string "out how this could have happened.\p"
+	.string "…{PAUSE 30}I really hope Lola's asleep.$"
+
+
+OutsideWorld_ApartmentBldg1_YourApartment_Eventscript_Lola_Coupon::
+	faceplayer
+	setspeaker Speaker_Lola
+	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon1, MSGBOX_DEFAULT
+	playse SE_SELECT
+	setspeaker SP_NAME_PLAYER
+	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon2, MSGBOX_DEFAULT
+	playse SE_SELECT
+	setspeaker Speaker_Lola
+	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon3, MSGBOX_DEFAULT
+	playse SE_SELECT
+	additem ITEM_SPELL_TAG, 1
+	setspeaker NULL
+	playfanfare MUS_OBTAIN_ITEM
+	message VirtualCity_Stadium_Entrance_Text_ReceivedCoupon
+	waitfanfare
+	delay 100
+	setspeaker Speaker_Lola
+	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon4, MSGBOX_DEFAULT
+	playse SE_SELECT
+	setspeaker SP_NAME_PLAYER
+	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon5, MSGBOX_DEFAULT
+	playse SE_SELECT
+	setspeaker Speaker_Lola
+	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon6, MSGBOX_DEFAULT
+	playse SE_SELECT
+	setspeaker Speaker_Lola
+	msgbox OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon7, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_LOLA_COUPON, Common_Movement_FaceDown
+	waitmovement 0
+	delay 16
+	removeobject LOCALID_LOLA_COUPON
+	playse SE_EXIT
+	delay 20
+	setflag FLAG_HIDE_LOLA_APT_COUPON
+	end
+
+OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon1::
+	.string "Sophie! Just who I wanted to see.$"
+
+OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon2::
+	.string "Oh, um, hi Lola.\p"
+	.string "How's, uh, how's Dreams doing?$"
+
+OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon3::
+	.string "A little tuckered out, the poor thing!\n"
+	.string "The way he sleeps is {PAUSE 30}s{PAUSE 5}o{PAUSE 5}o{PAUSE 5}o{PAUSE 5}o {PAUSE 10}cute!!!\p"
+	.string "But anyway, I wanted you to have this.$"
+
+OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon4::
+	.string "It's a redeem code for a free Pokemon\n"
+	.string "from the BETTER Superstore.\p"
+	.string "It was kinda my backup plan, you know?\p"
+	.string "But now I've got Dreams, and I can tell\n"
+	.string "I'll never want a VR Pokemon again.$"
+
+OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon5::
+	.string "Lola, I can't accept-$"
+
+OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon6::
+	.string "Oh, shut it. You let me use your stuff\n"
+	.string "so many times while I was saving up,\l"
+	.string "it's practically a drop in the bucket.$"
+
+OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon7::
+	.string "Now, I gotta run. We're taking the train\n"
+	.string "to the park today!$"

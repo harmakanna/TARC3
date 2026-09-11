@@ -15,17 +15,18 @@
 #define QUEST_MENU_BUFFER_QUEST_NAME    10   //buffers a quest name to gStringVar1
 
 // quest number defines
-#define QUEST_PROLOGUE   0
-#define QUEST_ACTI       1
-#define QUEST_ACTII      2
-#define QUEST_ACTIII     3
-#define QUEST_5          4
-#define QUEST_6          5
-#define QUEST_7          6
-#define QUEST_LEDIAN     7
-#define QUEST_TEA        8
-#define QUEST_CONTENTMENT         9
-#define QUEST_COUNT     (QUEST_CONTENTMENT + 1)
+#define QUEST_PROLOGUE      0
+#define QUEST_ACTI          1
+#define QUEST_ACTII         2
+#define QUEST_ACTIII        3
+#define QUEST_LEDIAN        4
+#define QUEST_TEA           5
+#define QUEST_CONTENTMENT   6
+#define QUEST_BABY          7
+#define QUEST_8             8
+#define QUEST_9             9
+
+#define QUEST_COUNT     (QUEST_BABY + 1)
 
 #define SUB_QUEST_COUNT 0
 

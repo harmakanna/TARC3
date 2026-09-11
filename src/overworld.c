@@ -1237,7 +1237,14 @@ u16 GetLocationMusic(struct WarpData *warp)
 {
     if (IsSpoofingExecutive(warp) == TRUE)
         return MUS_BW12_187;
-    else if (NoMusicInSootopolisWithLegendaries(warp) == TRUE)
+    else if (VarGet(VAR_PETALBURG_CITY_STATE) == 41 && warp->mapNum == MAP_NUM(MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT_BEDROOM))
+    {
+        //Only play emotional song if Lola was told
+        if(FlagGet(FLAG_ACT_III_TELL_LOLA))
+            return MUS_BW12_UNWAVERING_EMOTIONS;
+        return Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->music;
+    }
+        else if (NoMusicInSootopolisWithLegendaries(warp) == TRUE)
         return MUS_NONE;
     else if (ShouldLegendaryMusicPlayAtLocation(warp) == TRUE)
         return MUS_ABNORMAL_WEATHER;
@@ -1301,6 +1308,8 @@ void Overworld_PlaySpecialMapMusic(void)
 {
     u16 music = GetCurrLocationDefaultMusic();
 
+    if (FlagGet(FLAG_SPOOFING_EXECUTIVE) && GetCurrentMapMusic() == MUS_BW12_187)
+        return;
     if (gDisableMapMusicChangeOnMapLoad == MUSIC_DISABLE_STOP)
     {
         StopMapMusic();

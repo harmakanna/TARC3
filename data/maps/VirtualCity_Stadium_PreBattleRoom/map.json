@@ -15,34 +15,6 @@
   "connections": null,
   "object_events": [
     {
-      "local_id": "LOCALID_HARRIET_PREBATTLE2",
-      "graphics_id": "OBJ_EVENT_GFX_HARRIET_VR",
-      "x": 3,
-      "y": 2,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "VirtualCity_Stadium_PreBattleRoom_Eventscript_Harriet",
-      "flag": "FLAG_ACT_II_HIDE_HARRIET_PREBATTLE"
-    },
-    {
-      "local_id": "LOCALID_ERNEST_PREBATTLE",
-      "graphics_id": "OBJ_EVENT_GFX_ERNEST_VR",
-      "x": 0,
-      "y": 3,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "FLAG_ACT_II_HIDE_ERNEST_PREBATTLE"
-    },
-    {
       "local_id": "LOCALID_HARRIET_PREBATTLE",
       "graphics_id": "OBJ_EVENT_GFX_HARRIET_VR",
       "x": 4,
@@ -54,7 +26,21 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "VirtualCity_Stadium_PreBattleRoom_Eventscript_Harriet",
-      "flag": "FLAG_SYS_B_DASH"
+      "flag": "FLAG_ACT_II_HIDE_HARRIET_PREBATTLE"
+    },
+    {
+      "local_id": "LOCALID_ERNEST_PREBATTLE",
+      "graphics_id": "OBJ_EVENT_GFX_ERNEST_VR",
+      "x": 1,
+      "y": 3,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "VirtualCity_Stadium_PreBattleRoom_Eventscript_Ernest",
+      "flag": "FLAG_ACT_II_HIDE_ERNEST_PREBATTLE"
     }
   ],
   "warp_events": [
@@ -72,9 +58,18 @@
       "x": 4,
       "y": 2,
       "elevation": 0,
-      "var": "VAR_ALWAYS_ZERO",
+      "var": "VAR_PRE_BATTLE_ROOM_STATE",
       "var_value": "0",
       "script": "VirtualCity_Stadium_PreBattleRoom_Eventscript_HarrietAreYouReady"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_PRE_BATTLE_ROOM_STATE",
+      "var_value": "1",
+      "script": "VirtualCity_Stadium_PreBattleRoom_EventScript_HarrietHoldOn"
     }
   ],
   "bg_events": [

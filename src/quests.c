@@ -315,36 +315,6 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 	      NULL,
 	      0
 	),
-	side_quest(
-	      gText_SideQuestName_5,
-	      gText_SideQuestDesc_5,
-	      gText_SideQuestDoneDesc_5,
-	      gText_SideQuestMap5,
-	      OBJ_EVENT_GFX_WALLY,
-	      OBJECT,
-	      NULL,
-	      0
-	),
-	side_quest(
-	      gText_SideQuestName_6,
-	      gText_SideQuestDesc_6,
-	      gText_SideQuestDoneDesc_6,
-	      gText_SideQuestMap6,
-	      OBJ_EVENT_GFX_WALLY,
-	      OBJECT,
-	      NULL,
-	      0
-	),
-	side_quest(
-	      gText_SideQuestName_7,
-	      gText_SideQuestDesc_7,
-	      gText_SideQuestDoneDesc_7,
-	      gText_SideQuestMap7,
-	      OBJ_EVENT_GFX_WALLY,
-	      OBJECT,
-	      NULL,
-	      0
-	),
 	//Ledian Quest
 	side_quest(
 	      gText_SideQuestName_Ledian,
@@ -376,6 +346,36 @@ static const struct SideQuest sSideQuests[QUEST_COUNT] =
 	      NULL,
 	      0
 	),
+	side_quest(
+	      gText_SideQuestName_Baby,
+	      gText_SideQuestDesc_Baby,
+	      gText_SideQuestDoneDesc_Baby,
+	      gText_SideQuestMapBaby,
+	      OBJ_EVENT_GFX_SPECIES(TOGEPI),
+	      OBJECT,
+	      NULL,
+	      0
+	),
+	//side_quest(
+	//      gText_SideQuestName_8,
+	//      gText_SideQuestDesc_8,
+	//      gText_SideQuestDoneDesc_8,
+	//      gText_SideQuestMap8,
+	//      OBJ_EVENT_GFX_WALLY,
+	//      OBJECT,
+	//      NULL,
+	//      0
+	//),
+	//side_quest(
+	//      gText_SideQuestName_9,
+	//      gText_SideQuestDesc_9,
+	//      gText_SideQuestDoneDesc_9,
+	//      gText_SideQuestMap9,
+	//      OBJ_EVENT_GFX_WALLY,
+	//      OBJECT,
+	//      NULL,
+	//      0
+	//),
 	// side_quest(
 	//       gText_SideQuestName_11,
 	//       gText_SideQuestDesc_11,

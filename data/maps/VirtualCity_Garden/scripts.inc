@@ -51,7 +51,7 @@ VirtualCity_Garden_LedianLoverReward::
 	
 VirtualCity_Garden_LedianLover_ReceiveLedian::
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_LEDIAN
-	givemon SPECIES_LEDIAN, 50, nature=NATURE_CAREFUL, gender=MON_MALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_DRAIN_PUNCH, move2=MOVE_U_TURN, move3=MOVE_TOXIC, move4=MOVE_PROTECT, otName=OT_Ledian
+	givemon SPECIES_LEDIAN, 50, nature=NATURE_CAREFUL, gender=MON_MALE, hpIv=31, atkIv=31, defIv=31, speedIv=31, spAtkIv=31, spDefIv=31, move1=MOVE_DRAIN_PUNCH, move2=MOVE_U_TURN, move3=MOVE_TOXIC, move4=MOVE_FOLLOW_ME, otName=OT_Ledian
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, VirtualCity_Garden_LedianLover_ReceiveLedianParty
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, VirtualCity_Garden_LedianLover_ReceiveLedianPC
 	goto Common_EventScript_NoMoreRoomForPokemon
@@ -80,7 +80,7 @@ VirtualCity_Garden_LedianLover_TransferLedianToPC::
 	end
 
 VirtualCity_Garden_LedianLover_ReceiveLedianFanfare::
-	playfanfare MUS_OBTAIN_ITEM
+	playfanfare MUS_BW12_003
 	message VirtualCity_Garden_Text_YouReceivedLedian
 	waitmessage
 	waitfanfare
@@ -89,6 +89,8 @@ VirtualCity_Garden_LedianLover_ReceiveLedianFanfare::
 
 VirtualCity_Garden_LedianLover_FinishReceivingLedian::
 	completequest QUEST_LEDIAN
+	clearflag FLAG_HIDE_BABY_QUEST
+	setflag FLAG_HIDE_BABY_GARDEN
 	releaseall
 	end
 
@@ -145,8 +147,6 @@ VirtualCity_Garden_BabyImBaby::
 VirtualCity_Garden_BabySetBaby::
 	setspeaker Speaker_Baby
 	return
-
-@ KUMATORA - This guy is crashing
 
 VirtualCity_Garden_Plump::
 	goto_if_quest_not_active QUEST_LEDIAN, VirtualCity_Garden_PlumpYouCanBeAnyone

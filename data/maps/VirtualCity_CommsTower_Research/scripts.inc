@@ -26,7 +26,8 @@ VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger::
 	speak LOCALID_ARCANINE, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger6, Speaker_Researcher, DIR_NORTH
 	closemessage
 	@TOFOLD
-	@trainerbattle_nointro TRAINER_MISSY, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger7
+	trainerbattle_no_intro TRAINER_MISSY, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger7
+	special HealPlayerParty
 
 	speak OBJ_EVENT_ID_PLAYER, VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger8, SP_NAME_PLAYER, DIR_SOUTH
 	playse SE_SELECT
@@ -86,12 +87,12 @@ VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger6:
 	.string "Come on then, let's see it!$"
 
 VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger7:
-	.string "Don't you think it's too strong?\p"
+	.string "Did you give it an immunity?\p"
 	.string "Also you mixed up the moveset. This is\n"
-	.string "for the Hyperreal pack.$"
+	.string "for the Hyperreal Set.$"
 
 VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger8:
-	.string "The Hyperreal pack? What-$"
+	.string "The Hyperreal Set? What-$"
 
 VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger9:
 	.string "Yeah, you know, back to basics.\n"
@@ -104,7 +105,7 @@ VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger10:
 
 VirtualCity_CommsTower_Research_Eventscript_ResearchBossTrigger11:
 	.string "Yeah, I swear Byron wants practically\n"
-	.string "every Pokemon done this way.\p"
+	.string "every POKéMON done this way.\p"
 	.string "You don't know about it because they\n"
 	.string "haven't needed to be balanced for-\p"
 	.string "Hey, why did Brady give you this one\n"

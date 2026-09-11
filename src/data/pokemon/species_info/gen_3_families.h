@@ -4595,9 +4595,9 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE),
     #if P_UPDATED_ABILITIES >= GEN_4
-        .abilities = { ABILITY_KEEN_EYE, ABILITY_STALL, ABILITY_PRANKSTER },
+        .abilities = { ABILITY_DARK_AURA, ABILITY_DARK_AURA, ABILITY_PRANKSTER },
     #else
-        .abilities = { ABILITY_KEEN_EYE, ABILITY_NONE, ABILITY_PRANKSTER },
+        .abilities = { ABILITY_DARK_AURA, ABILITY_DARK_AURA, ABILITY_DARK_AURA },
     #endif
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Sableye"),
@@ -4607,8 +4607,8 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .height = 5,
         .weight = 110,
         .description = COMPOUND_STRING(
-            "It digs branching holes in caves using its\n"
-            "sharp claws in search of food--raw gems.\n"
+            "CoolBro Set (4/10)\n"
+            "Shades, Stats, and Dark Aura.\n"
             "A Sableye lurks in darkness and is seen\n"
             "only rarely."),
         .pokemonScale = 451,
@@ -13077,11 +13077,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .abilities = { ABILITY_DELTA_STREAM, ABILITY_DELTA_STREAM, ABILITY_DELTA_STREAM },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("MegaRayquaza"),
-        .cryId = CRY_RAYQUAZA,
+        .cryId = CRY_RAYQUAZA_MEGA,
         .natDexNum = NATIONAL_DEX_RAYQUAZA,
         .categoryName = _("Sky High"),
-        .height = 70,
-        .weight = 2065,
+        .height = 108,
+        .weight = 3920,
         .description = COMPOUND_STRING(
             "A Pokémon that flies endlessly in the\n"
             "ozone layer. It is said it would descend\n"
@@ -13091,26 +13091,20 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .pokemonOffset = 0,
         .trainerScale = 448,
         .trainerOffset = 12,
-        .frontPic = gMonFrontPic_Rayquaza,
+        .frontPic = gMonFrontPic_RayquazaMega,
         .frontPicSize = MON_COORDS_SIZE(64, 64),
         .frontPicYOffset = 0,
-        .frontAnimFrames = ANIM_FRAMES(
-            ANIMCMD_FRAME(0, 1),
-            ANIMCMD_FRAME(1, 8),
-            ANIMCMD_FRAME(0, 22),
-            ANIMCMD_FRAME(1, 6),
-            ANIMCMD_FRAME(0, 6),
-        ),
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
         .frontAnimId = ANIM_H_SHAKE,
         .frontAnimDelay = 60,
         .enemyMonElevation = 6,
-        .backPic = gMonBackPic_Rayquaza,
+        .backPic = gMonBackPic_RayquazaMega,
         .backPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(56, 64) : MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 0,
-        .backAnimId = BACK_ANIM_GROW_STUTTER,
-        .palette = gMonPalette_Rayquaza,
-        .shinyPalette = gMonShinyPalette_Rayquaza,
-        .iconSprite = gMonIcon_Rayquaza,
+        .backAnimId = BACK_ANIM_SHAKE_GLOW_GREEN,
+        .palette = gMonPalette_RayquazaMega,
+        .shinyPalette = gMonShinyPalette_RayquazaMega,
+        .iconSprite = gMonIcon_RayquazaMega,
         .iconPalIndex = 1,
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(0, 17, SHADOW_SIZE_L)

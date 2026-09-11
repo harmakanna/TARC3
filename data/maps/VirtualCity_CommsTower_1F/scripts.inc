@@ -1,6 +1,15 @@
 VirtualCity_CommsTower_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, VirtualCity_CommsTower_1F_OnLoad
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, VirtualCity_CommsTower_1F_OnFrame
 	.byte 0
+
+VirtualCity_CommsTower_1F_OnFrame::
+	map_script_2 VAR_PETALBURG_CITY_STATE, 50, VirtualCity_CommsTower_1F_Eventscript_Ready
+	map_script_2 VAR_PETALBURG_CITY_STATE, 52, VirtualCity_CommsTower_1F_ActIII_Revived
+	.2byte 0
+
+
+
 
 VirtualCity_CommsTower_1F_OnLoad::
 	call_if_unset FLAG_COMMS_1F_DOOR, EventScript_CloseComms1FDoor
@@ -198,7 +207,7 @@ VirtualCity_CommsTower_1F_Text_MinhACTIIntro1:
 	.string "They're working in {COLOR GREEN}BETTER{COLOR DARK_GRAY}'s Research\n"
 	.string "Department, which is pretty suspicious.\p"
 	.string "We need to get into the department and\n"
-	.string "see if they're making fake IRL Pokemon.\p"
+	.string "see if they're making fake IRL POKéMON.\p"
 	.string "But, of course, there's a problem.$"
 
 VirtualCity_CommsTower_1F_Text_MinhACTIIntro2:
@@ -221,7 +230,7 @@ VirtualCity_CommsTower_1F_Text_MinhACTIIntro4:
 
 VirtualCity_CommsTower_1F_Text_SophieACTIIntro5:
 	.string "Ugh, fine.\p"
-	.string "So, no Pokemon? My bare hands should\n"
+	.string "So, no POKéMON? My bare hands should\n"
 	.string "be enough to-$"
 
 VirtualCity_CommsTower_1F_Text_MinhACTIIntro6:
@@ -231,7 +240,7 @@ VirtualCity_CommsTower_1F_Text_MinhACTIIntro6:
 	.string "Maybe you can eavesdrop, and find out\n"
 	.string "what they're working on?\p"
 	.string "If you figure it out, maybe we can find\n"
-	.string "that Pokemon and show the guard?\p"
+	.string "that POKéMON and show the guard?\p"
 	.string "Sigh… I dunno. You're the pro battler.\n"
 	.string "My art skills don't really help here.$"
 
@@ -246,7 +255,7 @@ VirtualCity_CommsTower_1F_Text_MinhACTIIntroRepeat:
 	.string "You remember what to do, right?\p"
 	.string "Get to the Casino and eavesdrop on\n"
 	.string "researchers, and see if you can\l"
-	.string "find out what Pokemon they'll let in.\p"
+	.string "find out what POKéMON they'll let in.\p"
 	.string "We'll plan it from there.$"
 
 
@@ -341,19 +350,19 @@ PonytaChoice_Text_Choice14:
 
 
 VirtualCity_CommsTower_1F_Text_MinhACTIPokemonCheck:
-	.string "Did you get any info on what Pokemon\n"
+	.string "Did you get any info on what POKéMON\n"
 	.string "you can get past the guard?$"
 
 VirtualCity_CommsTower_1F_Text_SophieACTIPokemonCheck:
 	.string "You mentioned {COLOR BLUE}five {COLOR DARK_GRAY}researchers… but I\n"
 	.string "saw {COLOR RED}six {COLOR DARK_GRAY}different researchers, talking\l"
-	.string "about a Pokemon they were working on…\p"
+	.string "about a POKéMON they were working on…\p"
 	.string "{COLOR BLUE}One of them must have been unrelated.\p"
 	.string "{COLOR DARK_GRAY}I think they were talking about…$"
 
 VirtualCity_CommsTower_1F_Text_SophieACTIPokemonFailure:
 	.string "Hmm, that doesn't sound right.\p"
-	.string "I'm sure {COLOR BLUE}one of them {COLOR DARK_GRAY}wasn't\n"
+	.string "I'm sure {COLOR BLUE}one of the researchers {COLOR DARK_GRAY}wasn't\n"
 	.string "describing our mystery mon.\p"
 	.string "But which one?$"
 
@@ -384,7 +393,7 @@ Speaker_Guard::
 
 VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuard::
 	
-	goto_if_set FLAG_ACT_III_POINTOFNORETURN, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardFight
+	goto_if_set FLAG_SPOOFING_EXECUTIVE, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardFight
 	goto_if_set FLAG_ACT_II_STARTED, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardTrouble
 	goto_if_set FLAG_ACT_I_EX_PONYTA_OBTAINED, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardPonyta
 	goto_if_set FLAG_ACT_I_STARTED, VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardNoResearch
@@ -399,6 +408,7 @@ VirtualCity_CommsTower_1F_Text_NoPokemonGuardPreActI:
 
 VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardNoResearch::
 	npc_speak Speaker_Guard, VirtualCity_CommsTower_1F_Text_NoPokemonGuardStop
+	closemessage
 	end
 
 
@@ -413,13 +423,50 @@ VirtualCity_CommsTower_1F_Text_NoPokemonGuardTrouble:
 
 
 VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardFight::
+	lockall
+	faceplayer
 	setspeaker Speaker_Guard
-	msgbox VirtualCity_CommsTower_1F_Text_NoPokemonGuardFight, MSGBOX_NPC
-	@@ trainerbattle @TOFOLD
+	msgbox VirtualCity_CommsTower_1F_Text_NoPokemonGuardFight, MSGBOX_DEFAULT
+	closemessage
+	goto_if_eq VAR_FACING, DIR_EAST, VirtualCity_CommsTower_1F_EventScript_GuardRunAwayEast
+	applymovement LOCALID_GUARD, VirtualCity_CommsTower_1F_Movement_GuardRunAway
+	waitmovement 0
+	playse SE_EXIT
+	delay 10
+	removeobject LOCALID_GUARD
+	waitse
+	releaseall
 	end
 
+VirtualCity_CommsTower_1F_EventScript_GuardRunAwayEast::
+	applymovement LOCALID_GUARD, VirtualCity_CommsTower_1F_Movement_GuardRunAwayEast
+	waitmovement 0
+	playse SE_EXIT
+	delay 10
+	removeobject LOCALID_GUARD
+	waitse
+	releaseall
+	end
+VirtualCity_CommsTower_1F_Movement_GuardRunAway:
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	step_end
+
+VirtualCity_CommsTower_1F_Movement_GuardRunAwayEast:
+	walk_faster_down
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	walk_faster_up
+	walk_faster_left
+	step_end
+
 VirtualCity_CommsTower_1F_Text_NoPokemonGuardFight:
-	.string "AAAAA WHAT IS THAT?$"
+	.string "AAAAAAAAAAAAAAAAAA!\p"
+	.string "WHAT IS THAT?\p"
+	.string "SECURITY!!!!!$"
 
 
 
@@ -430,13 +477,12 @@ VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardEnter:
 	end
 
 VirtualCity_CommsTower_1F_Text_NoPokemonGuardEnter:
-	.string "Ah good, no Pokemon.$"
+	.string "Ah good, no POKéMON.$"
 
 VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardMoves:
 	@ guard moves out of the way depending on where you are standing TOFOLD
 	applymovement LOCALID_GUARD, Common_Movement_WalkDown
 	end
-
 
 
 VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardStop:
@@ -481,7 +527,7 @@ VirtualCity_CommsTower_1F_Text_NoPokemonGuardGoAhead:
 
 
 @VirtualCity_CommsTower_1F_Text_NoPokemonGuardMagikarp:
-@	.string "Hold it, you can't bring Pokemon here.\p"
+@	.string "Hold it, you can't bring POKéMON here.\p"
 @	.string "Too many… wait, is that a Magikarp?\n"
 @	.string "Ahahahahahaha!\p"
 @	.string "Go on through, heh. Ain't no way you're\n"
@@ -582,12 +628,16 @@ Speaker_Receptionist::
 	.string "Receptionist$"
 
 VirtualCity_CommsTower_1F_Eventscript_Receptionist::
+	goto_if_set FLAG_ACT_III_RECEPTIONAFRAID, VirtualCity_CommsTower_1F_End
 	applymovement LOCALID_COMMS_RECEPTION, VirtualCity_CommsTower_1F_Move_Receptionist
 	goto_if_set FLAG_ACT_III_COMPLETE, VirtualCity_CommsTower_1F_Eventscript_Receptionist3
-	goto_if_set FLAG_ACT_II_COMPLETE, VirtualCity_CommsTower_1F_Eventscript_Receptionist2
+	goto_if_set FLAG_SPOOFING_EXECUTIVE, VirtualCity_CommsTower_1F_Eventscript_Receptionist2
 	setspeaker Speaker_Receptionist
 	speak LOCALID_ARCANINE, VirtualCity_CommsTower_1F_Text_Receptionist1, Speaker_Receptionist, DIR_EAST
 	closemessage
+	end
+
+VirtualCity_CommsTower_1F_End::
 	end
 
 VirtualCity_CommsTower_1F_Move_Receptionist:
@@ -606,11 +656,18 @@ VirtualCity_CommsTower_1F_Text_Receptionist1:
 VirtualCity_CommsTower_1F_Eventscript_Receptionist2::
 	speak LOCALID_ARCANINE, VirtualCity_CommsTower_1F_Text_Receptionist2, Speaker_Receptionist, DIR_EAST
 	closemessage
+	applymovement LOCALID_COMMS_RECEPTION, VirtualCity_CommsTower_1F_Move_ReceptionistRunaway
+	setflag FLAG_ACT_III_RECEPTIONAFRAID
 	end
 
 VirtualCity_CommsTower_1F_Text_Receptionist2:
 	.string "Aaaah, what is that?!\n"
 	.string "SECURITY!$"
+
+VirtualCity_CommsTower_1F_Move_ReceptionistRunaway:
+	walk_left
+	walk_up
+	step_end
 
 
 VirtualCity_CommsTower_1F_Eventscript_Receptionist3::
@@ -627,8 +684,11 @@ VirtualCity_CommsTower_1F_Autoscanner::
 	delay 10
 	playse SE_CONTEST_MONS_TURN
 	waitse
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 50, VirtualCity_CommsTower_1F_AutoscannerCantID
+	goto_if_eq VAR_PETALBURG_CITY_STATE, 52, VirtualCity_CommsTower_1F_AutoscannerCantID
+	goto_if_set FLAG_SPOOFING_EXECUTIVE, VirtualCity_CommsTower_1F_AutoscannerCantID
 	setspeaker Speaker_Autoscanner
-	msgbox VirtualCity_CommsTower_1F_Text_Autoscanner, MSGBOX_NPC
+	msgbox VirtualCity_CommsTower_1F_Text_Autoscanner, MSGBOX_DEFAULT
 	closemessage
 	releaseall
 	end
@@ -636,6 +696,25 @@ VirtualCity_CommsTower_1F_Autoscanner::
 VirtualCity_CommsTower_1F_Text_Autoscanner:
 	.string "Scan Complete. Welcome, Sophie.\n"
 	.string "Stairs Set To {COLOR GREEN}BETTER{COLOR DARK_GRAY} Design, Wing 5.$"
+
+
+VirtualCity_CommsTower_1F_AutoscannerCantID::
+	setspeaker Speaker_Autoscanner
+	msgbox VirtualCity_CommsTower_1F_Text_AutoscannerCantID, MSGBOX_DEFAULT
+	@setspeaker SP_NAME_PLAYER
+	@msgbox VirtualCity_CommsTower_1F_Text_AutoscannerCantID2, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkRight
+	waitmovement 0
+	end
+
+VirtualCity_CommsTower_1F_Text_AutoscannerCantID:
+	.string "Scan Failed. Stairs disabled.\n"
+	.string "Please consult a representative.$"
+
+VirtualCity_CommsTower_1F_Text_AutoscannerCantID2:
+	.string "I can't go up to the office - I\n"
+	.string "have to get through that gate!$"
 
 
 VirtualCity_CommsTower_1F_AuthorizedSign::
@@ -650,6 +729,23 @@ VirtualCity_HotelLobby_Text_AuthorizedSign:
 
 
 
+
+VirtualCity_CommsTower_1F_Eventscript_Ready::
+	setspeaker SP_NAME_PLAYER
+	msgbox VirtualCity_HotelLobby_Text_Ready, MSGBOX_SIGN
+	setflag FLAG_ACT_III_HIDE_BEDROOM_FRIENDS
+	setvar VAR_PETALBURG_CITY_STATE, 51
+	setvar VAR_TEMP_0, 5
+	end
+
+VirtualCity_HotelLobby_Text_Ready:
+	.string "I'm in, and I'm anonymous.\n"
+	.string "Time to break into the system!$"
+
+
+
+
+
 VirtualCity_CommsTower_1F_CantLeave::
 	setspeaker SP_NAME_PLAYER
 	msgbox VirtualCity_HotelLobby_Text_CantLeave, MSGBOX_SIGN
@@ -661,3 +757,34 @@ VirtualCity_CommsTower_1F_CantLeave::
 VirtualCity_HotelLobby_Text_CantLeave:
 	.string "I can't leave now! I have to\n"
 	.string "get to the Rotom Phone console!$"
+
+
+
+
+VirtualCity_CommsTower_1F_ActIII_Failed::
+	special HealPlayerParty
+	playse SE_PC_OFF
+	applymovement OBJ_EVENT_ID_PLAYER, VirtualCityIntro_Movement_LogOut
+	waitmovement 0
+	hideplayer
+	setvar VAR_PETALBURG_CITY_STATE, 52
+	warpsilent MAP_VIRTUAL_CITY_COMMS_TOWER_1F, 5,10
+	waitstate
+	
+
+VirtualCity_CommsTower_1F_ActIII_Revived::
+	playse SE_PC_LOGIN
+	setvar VAR_PETALBURG_CITY_STATE, 51
+	setvar VAR_TEMP_0, 5
+	msgbox VirtualCity_CommsTower_1F_Text_ActIII_Revived, MSGBOX_DEFAULT
+	closemessage
+	call EventScript_AddRandomMod
+	end
+
+
+	
+VirtualCity_CommsTower_1F_Text_ActIII_Revived:
+	.string "Dang. Well, looks like Ernest's\n"
+	.string "auto-relog script worked.\p"
+	.string "Maybe a quick mod will give me.\n"
+	.string "an edge.$"

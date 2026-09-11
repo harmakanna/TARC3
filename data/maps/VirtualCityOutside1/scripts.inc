@@ -34,47 +34,92 @@ VirtualCityOutside_Sign_Hotel::
 	end
 
 VirtualCityOutside_EventScript_Triangle::
+	goto_if_set FLAG_SPOOFING_EXECUTIVE, VirtualCityOutside_EventScript_TriangleSpoof
 	msgbox VirtualCityOutside_Text_Triangle, MSGBOX_NPC
 	end
 	
+VirtualCityOutside_EventScript_TriangleSpoof::
+	msgbox VirtualCityOutside_Text_TriangleSpoof, MSGBOX_NPC
+	end
+
 VirtualCityOutside_EventScript_Doppelganger1::
 	lock
+	goto_if_set FLAG_SPOOFING_EXECUTIVE, VirtualCityOutside_EventScript_Doppelganger1Spoof
 	msgbox VirtualCityOutside_Text_Doppelganger1, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+	
+VirtualCityOutside_EventScript_Doppelganger1Spoof::	
+	msgbox VirtualCityOutside_Text_Doppelganger1Spoof, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 
 VirtualCityOutside_EventScript_Doppelganger2::
 	lock
+	goto_if_set FLAG_SPOOFING_EXECUTIVE, VirtualCityOutside_EventScript_Doppelganger2Spoof
 	msgbox VirtualCityOutside_Text_Doppelganger2, MSGBOX_DEFAULT
 	closemessage
 	release
 	end
 
+VirtualCityOutside_EventScript_Doppelganger2Spoof::
+	msgbox VirtualCityOutside_Text_Doppelganger2Spoof, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
 VirtualCityOutside_EventScript_StorePikachu::
+	goto_if_ge VAR_VIRTUAL_CITY_OUTSIDE_STATE, 1, VirtualCityOutside_EventScript_StorePikachuSpoof
 	msgbox VirtualCityOutside_Text_StorePikachu, MSGBOX_NPC
 	end
 
+VirtualCityOutside_EventScript_StorePikachuSpoof::
+	msgbox VirtualCityOutside_Text_StorePikachuSpoof, MSGBOX_NPC
+	end
+
 VirtualCityOutside_EventScript_TopCharizard::
+	goto_if_set FLAG_SPOOFING_EXECUTIVE, VirtualCityOutside_EventScript_CharizardSpoof
 	msgbox VirtualCityOutside_Text_TopCharizard, MSGBOX_NPC
 	end
 
 VirtualCityOutside_EventScript_BottomCharizard::
+	goto_if_set FLAG_SPOOFING_EXECUTIVE, VirtualCityOutside_EventScript_CharizardSpoof
 	msgbox VirtualCityOutside_Text_BottomCharizard, MSGBOX_NPC
 	end
 
+VirtualCityOutside_EventScript_CharizardSpoof::
+	msgbox VirtualCityOutside_Text_CharizardSpoof, MSGBOX_NPC
+	end
+
 VirtualCityOutside_EventScript_Mimikyu::
+	goto_if_set FLAG_SPOOFING_EXECUTIVE, VirtualCityOutside_EventScript_MimikyuSpoof
 	msgbox VirtualCityOutside_Text_Mimikyu, MSGBOX_NPC
 	end
 
+VirtualCityOutside_EventScript_MimikyuSpoof::
+	msgbox VirtualCityOutside_Text_MimikyuSpoof, MSGBOX_NPC
+	end
+
 VirtualCityOutside_EventScript_Eevee::
+	goto_if_set FLAG_SPOOFING_EXECUTIVE, VirtualCityOutside_EventScript_EeveeSpoof
 	msgbox VirtualCityOutside_Text_Eevee, MSGBOX_NPC
 	end
 
+VirtualCityOutside_EventScript_EeveeSpoof::
+	msgbox VirtualCityOutside_Text_EeveeSpoof, MSGBOX_NPC
+	end
+
 VirtualCityOutside_EventScript_PlatformPikachu::
+	goto_if_set FLAG_SPOOFING_EXECUTIVE, VirtualCityOutside_EventScript_PlatformPikachuSpoof
 	msgbox VirtualCityOutside_Text_PlatformPikachu, MSGBOX_NPC
 	end
 
+VirtualCityOutside_EventScript_PlatformPikachuSpoof::
+	msgbox VirtualCityOutside_Text_PlatformPikachuSpoof, MSGBOX_NPC
+	end
+	
 VirtualCityOutside_EventScript_Giratina::
 	lock
 	faceplayer
@@ -88,16 +133,40 @@ VirtualCityOutside_EventScript_Giratina::
 	end
 
 VirtualCityOutside_EventScript_CenterIdol::
+	goto_if_set FLAG_SPOOFING_EXECUTIVE, VirtualCityOutside_EventScript_IdolError
 	msgbox VirtualCityOutside_Text_CenterIdol, MSGBOX_NPC
 	end
 	
 VirtualCityOutside_EventScript_RightIdol::
+	goto_if_set FLAG_SPOOFING_EXECUTIVE, VirtualCityOutside_EventScript_IdolError
 	msgbox VirtualCityOutside_Text_RightIdol, MSGBOX_NPC
 	end
 	
 VirtualCityOutside_EventScript_LeftIdol::
+	goto_if_set FLAG_SPOOFING_EXECUTIVE, VirtualCityOutside_EventScript_IdolError
 	msgbox VirtualCityOutside_Text_LeftIdol, MSGBOX_NPC
 	end
+
+VirtualCityOutside_EventScript_IdolError::
+	msgbox VirtualCityOutside_Text_IdolError, MSGBOX_NPC
+	end
+
+VirtualCityOutside_EventScript_SophieNowsNotTheTime::
+	lockall
+	setspeaker SP_NAME_PLAYER
+	msgbox VirtualCityOutside_Text_SophieNowsNotTheTime, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_PLAYER, Common_Movement_WalkDown
+	waitmovement 0
+	releaseall
+	end
+
+VirtualCityOutside_Text_SophieNowsNotTheTime:
+	.string "Now's not the time for this!$"
+
+VirtualCityOutside_Text_IdolError:
+	.string "-ERROR-\n"
+	.string "-UNRECOGNIZED ENTITY-$"
 
 VirtualCityOutside_Text_CenterIdol:
 	.string "Hiiiiiii!\n"
@@ -130,8 +199,17 @@ Speaker_Giratina:
 VirtualCityOutside_Text_Giratina:
 	.string "GRAAAAAAAAAAAAAAH$"
 
+VirtualCityOutside_Text_EeveeSpoof:
+	.string "HEY LETS BATTLE STRANGE PIXELLY\n"
+	.string "MASS!!!$"
+
 VirtualCityOutside_Text_Eevee:
 	.string "HEY LETS BATTLE MISS!!!$"
+
+VirtualCityOutside_Text_PlatformPikachuSpoof:
+	.string "WHOOAAAAAA ARE YOU A NEW VIRTUAL\n"
+	.string "POKEMON?????\p"
+	.string "SPOOKY GHOST USE ASTRAL BARRAGE!!!$"
 
 VirtualCityOutside_Text_PlatformPikachu:
 	.string "ITS SO COOL WE GET TO DO REAL\n"
@@ -144,8 +222,13 @@ VirtualCityOutside_Text_Mimikyu:
 	.string "Or is it an exclusive skin?\p"
 	.string "You gotta tell me!$"
 
+VirtualCityOutside_Text_MimikyuSpoof:
+	.string "YOOOOOO! Where can I get a RAD\n"
+	.string "EFFECT like that!?\p"
+	.string "You GOTTA tell me!$"
+
 VirtualCityOutside_Text_BottomCharizard:
-	.string "One of those two asked me to\n"
+	.string "One of those two Reds asked me to\n"
 	.string "cosplay with him, but I don't\l"
 	.string "remember which…\p"
 	.string "Oh well. RAAAAAAAH!!!$"
@@ -154,12 +237,19 @@ VirtualCityOutside_Text_TopCharizard:
 	.string "RAAAAH! RAAAAAH!\p"
 	.string "RAAAAAAAAAAAAAAAAAAAAH!$"
 
+VirtualCityOutside_Text_CharizardSpoof:
+	.string "Uhhhh… Raaaaaaah?$"
+
 VirtualCityOutside_Text_StorePikachu:
 	.string "my pappa said wait outside while\n"
 	.string "while he got food cuz i keep\l"
 	.string "asking for things\p"
 	.string "ive been here twenty minutes\p"
 	.string "where is he help$"
+
+VirtualCityOutside_Text_StorePikachuSpoof:
+	.string "ive been here SEVEN HOURS\p"
+	.string "HELP$"
 
 VirtualCityOutside_Text_Doppelganger1:
 	.string "Oy, you copycat!\n"
@@ -172,6 +262,19 @@ VirtualCityOutside_Text_Doppelganger2:
 	.string "Stop crampin' my styyyyle!\p"
 	.string "I'm the original Red!\n"
 	.string "You wanna fight over it?$"
+
+
+VirtualCityOutside_Text_Doppelganger1Spoof:
+	.string "{FONT_SMALL}You think it'll go away if\n"
+	.string "we like…{PAUSE 50} don't move…?$"
+
+VirtualCityOutside_Text_Doppelganger2Spoof:
+	.string "{FONT_SMALL}I dunno man, that thing is\n"
+	.string "REALLY freakin' me out…!$"
+
+VirtualCityOutside_Text_TriangleSpoof:
+	.string "Man, what a WACKY avatar!!!\p"
+	.string "You got me beat!$"
 
 VirtualCityOutside_Text_Triangle:
 	.string "You'll never know what wacky\n"
@@ -210,7 +313,7 @@ Sign_Hotel_Text:
 	.string "The Grand {COLOR GREEN}BETTER{COLOR DARK_GRAY} Hotel and Stadium\p"
 	.string "An Infinite Number of Rooms!\n"
 	.string "A Place To Call Home!\l"
-	.string "And The Only Spot For Pokemon Battles!$"
+	.string "And The Only Spot For POKéMON Battles!$"
 
 
 VirtualCity_Outside_Text_EarlGrayWhatAreYouOnAbout:

@@ -1257,7 +1257,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .height = 14,
         .weight = 356,
         .description = COMPOUND_STRING(
-            "Vanilla Set (1/XXXX)\n"
+            "Vanilla Set (166/XXXX)\n"
             "No special attributes.\n"
             "many Ledian. For good reason, they use\n"
             "the light of the stars as energy."),

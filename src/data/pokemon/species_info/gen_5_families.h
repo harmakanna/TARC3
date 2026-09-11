@@ -2720,7 +2720,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .height = 3,
         .weight = 85,
         .description = COMPOUND_STRING(
-            "Vanilla Set (1/XXXX)\n"
+            "Vanilla Set (0530/XXXX)\n"
             "No special attributes.\n"
             "It could give a car running aboveground\n"
             "a good race."),
@@ -2746,7 +2746,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .palette = gMonPalette_Drilbur,
         .shinyPalette = gMonShinyPalette_Drilbur,
         .iconSprite = gMonIcon_Drilbur,
-        .iconPalIndex = 0,
+        .iconPalIndex = P_GBA_STYLE_SPECIES_ICONS ? 0 : 3,
         .pokemonJumpType = PKMN_JUMP_TYPE_NORMAL,
         SHADOW(0, 4, SHADOW_SIZE_S)
         FOOTPRINT(Drilbur)
@@ -5609,7 +5609,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_BUG, EGG_GROUP_MINERAL),
-        .abilities = { ABILITY_STURDY, ABILITY_SHELL_ARMOR, ABILITY_WEAK_ARMOR },
+        .abilities = { ABILITY_STURDY, ABILITY_SHELL_ARMOR, ABILITY_ANGER_SHELL },
         .bodyColor = BODY_COLOR_RED,
         .speciesName = _("Crustle"),
         .cryId = CRY_CRUSTLE,
