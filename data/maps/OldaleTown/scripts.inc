@@ -29,8 +29,22 @@ OldaleTown_EventScript_TownSign::
 	msgbox OldaleTown_Text_TownSign, MSGBOX_SIGN
 	end
 
+GoToPrologueEnd:
+	setvar VAR_PETALBURG_CITY_STATE, 3
+	clearflag FLAG_SYS_NO_MUSIC_ON_TRANSITION
+	clearflag FLAG_PROLOGUE_COMPLETE
+	clearflag FLAG_HIDE_LOLA_BEDROOM_PROLOGUE
+	setflag FLAG_SYS_PREVENT_MAP_FADE
+	warpsilent MAP_OUTSIDE_WORLD, 22, 20
+	waitstate
+	end
+
 OldaleTown_EventScript_Girl::
-	msgbox OldaleTown_Text_SavingMyProgress, MSGBOX_NPC
+	goto GoToPrologueEnd
+	//callnative LoadTitleOnmap
+	.2byte 0
+	.2byte 0
+	//msgbox OldaleTown_Text_SavingMyProgress, MSGBOX_NPC
 	end
 
 OldaleTown_EventScript_MartEmployee::
