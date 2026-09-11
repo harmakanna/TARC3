@@ -45,8 +45,8 @@ void StartBlueScreen(void)
     CpuFill16(RGB_BLUE, gPlttBufferFaded, PLTT_SIZE);
 }
 
-#define FADE_TIME 150
-#define WAIT_TIME 300
+#define FADE_TIME 180
+#define WAIT_TIME 150
 
 void Task_FadeTitleOnMap(u8 taskId)
 {

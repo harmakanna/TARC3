@@ -830,7 +830,7 @@ static void Task_TitleScreenPhase3(u8 taskId)
 
 static void HblankCb_LogoWave(void)
 {
-    s16 var = gScanlineEffectRegBuffers[1][REG_VCOUNT] + 227;
+    s16 var = gScanlineEffectRegBuffers[1][REG_VCOUNT] + 222;
     REG_BG2X_L = var * 256;
     REG_BG2X_H = -1;
 }
@@ -847,7 +847,7 @@ static void SetScanlineValues(u32 counter)
 {
     for (u32 i = 0; i < 72; i++)
     {
-        s16 xPos = -29;
+        s16 xPos = -34;
         if (i < 35)
         {
             if (i < counter / SMEAR_DELAY)

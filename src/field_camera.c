@@ -80,7 +80,7 @@ void FieldUpdateBgTilemapScroll(void)
     r5 = sFieldCameraOffset.xPixelOffset + sHorizontalCameraPan;
     r4 = sVerticalCameraPan + sFieldCameraOffset.yPixelOffset + 8;
 
-    if (FuncIsActiveTask(Task_FadeTitleOnMap))
+    if (GetGpuReg(REG_OFFSET_DISPCNT) & DISPCNT_MODE_1)
     {
         SetGpuReg(REG_OFFSET_BG0HOFS, r5);
         SetGpuReg(REG_OFFSET_BG0VOFS, r4);
