@@ -8688,100 +8688,205 @@ IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 Name: BEVERLY
 Class: Officer M
 Pic: Officer M
-Gender: Female
-Music: Swimmer
-Double Battle: No
-AI: Check Bad Move
+Gender: Male
+Music: Intense
+Double Battle: Yes
+AI: Basic Trainer
 
-Wingull
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Kommo-o @ Choice Band  
+Ability: Bulletproof  
+- Iron Head  
+- Dragon Claw  
+- Fire Punch  
+- Focus Punch  
 
-Wailmer
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Venusaur @ Life Orb  
+Ability: Overgrow  
+IVs: 0 Atk  
+- Rest  
+- Sleep Talk  
+- Giga Drain  
+- Earth Power  
+
+Porygon-Z @ Choice Specs  
+Ability: Adaptability  
+IVs: 0 Atk  
+- Tri Attack  
+- Dark Pulse  
+- Ice Beam  
+- Discharge  
+
 
 === TRAINER_IMANI ===
 Name: IMANI
 Class: Officer F
 Pic: Officer F
 Gender: Female
-Music: Swimmer
-Double Battle: No
-AI: Check Bad Move
+Music: Intense
+Double Battle: Yes
+AI: Basic Trainer
 
-Marill
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Bisharp @ Expert Belt  
+Ability: Defiant  
+- Brick Break  
+- Facade  
+- Knock Off  
+- Power-Up Punch  
+
+Slowbro @ Leftovers  
+Ability: Oblivious  
+- Aqua Tail  
+- Iron Defense  
+- Body Press  
+- Zen Headbutt  
+
+Milotic @ Rocky Helmet  
+Ability: Marvel Scale  
+IVs: 0 Atk  
+- Blizzard  
+- Hydro Pump  
+- Protect  
+- Toxic  
+
 
 === TRAINER_KYLA ===
 Name: KYLA
 Class: Officer F
 Pic: Officer F
 Gender: Female
-Music: Swimmer
-Double Battle: No
-AI: Check Bad Move
+Music: Intense
+Double Battle: Yes
+AI: Basic Trainer
 
-Wailmer
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Volcarona @ Leftovers  
+Ability: Flame Body  
+IVs: 0 Atk  
+- Bug Buzz  
+- Quiver Dance  
+- Heat Wave  
+- Protect  
+
+Azumarill @ Choice Band  
+Ability: Huge Power  
+- Aqua Jet  
+- Aqua Tail  
+- Play Rough  
+- Ice Punch  
+
+Druddigon @ Salac Berry  
+Ability: Rough Skin  
+- Dragon Tail  
+- Dual Wingbeat  
+- Earthquake  
+- Protect  
 
 === TRAINER_DENISE ===
 Name: DENISE
-Class: Officer F
-Pic: Officer F
-Gender: Female
-Music: Swimmer
-Double Battle: No
-AI: Check Bad Move
+Class: Officer M
+Pic: Officer M
+Gender: Male
+Music: Intense
+Double Battle: Yes
+AI: Basic Trainer
 
-Wingull
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Roserade @ Life Orb  
+Ability: Poison Point  
+IVs: 0 Atk  
+- Sludge Bomb  
+- Synthesis  
+- Toxic Spikes  
+- Energy Ball  
 
-Goldeen
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Steelix @ Leftovers  
+Ability: Rock Head  
+- Earthquake  
+- Explosion  
+- Sandstorm  
+- Stealth Rock  
+
+Conkeldurr @ Flame Orb  
+Ability: Guts  
+- Facade  
+- Drain Punch  
+- Ice Punch  
+- Protect  
+
 
 === TRAINER_BETH ===
 Name: BETH
 Class: Officer M
 Pic: Officer M
-Gender: Female
-Music: Swimmer
-Double Battle: No
-AI: Check Bad Move
+Gender: Male
+Music: Intense
+Double Battle: Yes
+AI: Basic Trainer
 
-Goldeen
-Level: 26
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Xatu @ Life Orb  
+Ability: Synchronize  
+IVs: 0 Atk  
+- Dazzling Gleam  
+- Psychic  
+- Shadow Ball  
+- Substitute  
+
+Alakazam @ Choice Specs  
+Ability: Magic Guard  
+IVs: 0 Atk  
+- Dazzling Gleam  
+- Psychic  
+- Shadow Ball  
+- Energy Ball  
+
+Reuniclus @ Leftovers  
+Ability: Magic Guard  
+IVs: 0 Atk  
+- Encore  
+- Focus Blast  
+- Psychic  
+- Shadow Ball  
+
 
 === TRAINER_TARA ===
 Name: TARA
 Class: Officer M
 Pic: Officer M
 Gender: Female
-Music: Swimmer
-Double Battle: No
-AI: Check Bad Move
+Music: Intense
+Double Battle: Yes
+AI: Basic Trainer
 
-Horsea
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Vanilluxe @ Choice Scarf  
+Ability: Snow Warning  
+IVs: 0 Atk  
+- Aurora Veil  
+- Blizzard  
+- Freeze-Dry  
+- Hyper Voice  
 
-Marill
-Level: 25
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Cryogonal @ Choice Specs  
+Ability: Levitate  
+IVs: 0 Atk  
+- Blizzard  
+- Defog  
+- Magic Coat  
+- Ancient Power  
+
+Golem @ Life Orb  
+Ability: Sturdy  
+IVs: 0 Spe  
+- Gyro Ball  
+- Avalanche  
+- Body Slam  
+- Curse  
 
 === TRAINER_MISSY ===
 Name: Benny
 Class: Collector
 Pic: Collector
 Gender: Male
-Music: Swimmer
+Music: Intense
 Double Battle: No
-AI: Check Bad Move
+AI: Basic Trainer
 
 Minun
 Level: 50
@@ -8792,25 +8897,40 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Play Nice  
 
 === TRAINER_ALICE ===
-Name: ALICE
-Class: Swimmer F
-Pic: Swimmer F
+Name: baby
+Class: School Kid
+Pic: School Kid F
 Gender: Female
 Music: Swimmer
-Double Battle: No
-AI: Check Bad Move
+Double Battle: Yes
+AI: Basic Trainer
 
-Goldeen
-Level: 24
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Phanpy @ Leftovers  
+Ability: Pickup  
+Level: 50  
+- Bulldoze  
+- Rock Tomb  
+- Mud-Slap  
+- Ice Shard  
 
-Wingull
-Level: 24
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Swablu @ Sitrus Berry  
+Ability: Natural Cure  
+Level: 50  
+IVs: 0 Atk  
+- Dazzling Gleam  
+- Air Cutter  
+- Heal Pulse  
+- Round  
 
-Goldeen
-Level: 24
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Tinkatink @ Weakness Policy  
+Ability: Mold Breaker  
+Level: 50  
+- Iron Head  
+- Play Rough  
+- Round  
+- Iron Defense  
+
+
 
 === TRAINER_JENNY_1 ===
 Name: JENNY

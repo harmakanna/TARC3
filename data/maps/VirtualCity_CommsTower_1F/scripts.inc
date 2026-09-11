@@ -434,6 +434,7 @@ VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuardFight::
 	playse SE_EXIT
 	delay 10
 	removeobject LOCALID_GUARD
+	setflag FLAG_GUARD_RUNAWAY
 	waitse
 	releaseall
 	end

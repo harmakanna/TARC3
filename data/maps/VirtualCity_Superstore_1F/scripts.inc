@@ -17,9 +17,22 @@ VirtualCity_Superstore1F_CapnChino::
 VirtualCity_Superstore1F_CapnChinoFight::
 	trainerbattle_no_intro TRAINER_CAPN_CHINO, VirtualCity_Superstore1F_CapnChinoDefeated
 	special HealPlayerParty
+
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, VirtualCity_Superstore1F_CapnChinoLoss
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, VirtualCity_Superstore1F_CapnChinoLoss
+	goto_if_eq VAR_RESULT, B_OUTCOME_FORFEITED, VirtualCity_Superstore1F_CapnChinoLoss
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, VirtualCity_Superstore1F_CapnChinoLoss
+	
 	npc_speak SP_NAME_CAPN_CHINO, VirtualCity_Superstore1F_Text_CapnChinoLetMeBe
 	questmenu QUEST_MENU_SET_REWARD, QUEST_TEA
 	setflag FLAG_DEFEATED_CAPN_CHINO
+	releaseall
+	end
+
+VirtualCity_Superstore1F_CapnChinoLoss::
+	npc_speak SP_NAME_CAPN_CHINO, VirtualCity_Superstore1F_Text_CapnChinoHaha
+	closemessage
 	releaseall
 	end
 
@@ -97,6 +110,12 @@ VirtualCity_Superstore1F_Text_CapnChinoWhyYouLittle:
 	.string "Fine!\p"
 	.string "Suck on this!$"
 
+VirtualCity_Superstore1F_Text_CapnChinoHaha:
+	.string "HAHAHA, YOU LITTLE BRAT!\p"
+	.string "COFFEE WINS AGAIN!\p"
+	.string "Go back to yer tea daddy wit'\n"
+	.string "your tail between your legs!$"
+	
 VirtualCity_Superstore1F_Text_CapnChinoBackForMore:
 	.string "Argh, you're back for more, ye\n"
 	.string "little mongrel?\p"

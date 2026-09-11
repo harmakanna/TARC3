@@ -4,6 +4,7 @@ VirtualCity_CommsTower_2F_MapScripts::
 
 VirtualCity_CommsTower_2F_OnLoad::
 	call_if_unset FLAG_COMMS_2F_DOOR, EventScript_CloseComms2FDoor
+	call_if_set FLAG_ACT_III_RECEPTIONAFRAID, EventScript_VanishComms1Receptionist
 	end
 
 EventScript_CloseComms2FDoor::
@@ -21,6 +22,10 @@ EventScript_OpenComms2FDoor::
 	setmetatile 2, 6, METATILE_SilphCo_Floor_ShadeFull, 0
 	setmetatile 3, 6, METATILE_SilphCo_Floor, 0
 	setmetatile 3, 7, METATILE_SilphCo_Floor, 0
+	return
+
+EventScript_VanishComms1Receptionist::
+	setflag FLAG_ACT_III_RECEPTIONAFRAID_2
 	return
 
 @If you make it past the first floor check, you are already spoofing the executive, so no need for any more checks.
@@ -82,3 +87,34 @@ VirtualCity_CommsTower_2F_Text_GuardBIntro::
 
 VirtualCity_CommsTower_2F_Text_GuardBDefeated::
 	.string "Don't hurt me, virus!$"
+
+
+
+
+VirtualCity_CommsTower_2F_EventScript_DaysSince::
+	msgbox VirtualCity_CommsTower_2F_Text_DaysSince, MSGBOX_NPC
+	closemessage
+	releaseall
+	end
+
+VirtualCity_CommsTower_2F_Text_DaysSince::
+	.string "You see! YOU SEE!!!\p"
+	.string "No one listened to me when I suggested\n"
+	.string "we get that 'Days Since Invaded' sign.\p"
+	.string "They laughed at me!\p"
+	.string "WHO'S LAUGHING NOW?!$"
+
+
+VirtualCity_CommsTower_3F_EventScript_NiceBlob::
+	msgbox VirtualCity_CommsTower_3F_Text_NiceBlob, MSGBOX_NPC
+	closemessage
+	releaseall
+	end
+
+VirtualCity_CommsTower_3F_Text_NiceBlob::
+	.string "N-nice glitchy blob! Nice scary blob!\n"
+	.string "Nice blob with a team of powerhouses!$"
+	.string "Nice, non-violent blob who won't\n"
+	.string "hurt me!$"
+
+

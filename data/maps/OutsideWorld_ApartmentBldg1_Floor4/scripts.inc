@@ -26,7 +26,7 @@ OutsideWorld_ApartmentBldg1_Floor4_Eventscript_Stairs::
 	waitse
 	closedoor 5, 1
 	waitdooranim
-	delay 100
+	delay 200
 	setvar VAR_PETALBURG_CITY_STATE, 5
 	setflag FLAG_HIDE_OPENING_CREDITS
 	warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT, 1,3
@@ -40,6 +40,7 @@ OutsideWorld_ApartmentBldg1_Floor4_Move_Sophie::
 	step_end
 
 OutsideWorld_ApartmentBldg1_Floor4_Move_Camera::
+	walk_up
 	walk_up
 	step_end
 

@@ -134,6 +134,7 @@ VirtualCity_CommsTower_Research_Eventscript_PonytaBall::
 
 VirtualCity_CommsTower_Research_Text_PonytaBall:
 	.string "Hmm, it's one of the Ponyta…\n"
+	.string "and the whole back is just outline.\p"
 	.string "This is the perfect evidence!$"
 
 VirtualCity_CommsTower_Research_Text_PonytaBall2:
