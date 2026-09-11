@@ -35,7 +35,7 @@ FastWalkInPlaceWest:
 @ Comms Tower Door Handlers
 
 EventScript_OpenDoor::
-	playfanfare MUS_BW12_002
+	playfanfare MUS_LEVEL_UP
 	msgbox Text_WelcomeBackExecutive
 	waitfanfare
 	call_if_eq VAR_TEMP_1, 1, EventScript_OpenComms1FDoor

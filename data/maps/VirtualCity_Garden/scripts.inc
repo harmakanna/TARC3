@@ -80,7 +80,7 @@ VirtualCity_Garden_LedianLover_TransferLedianToPC::
 	end
 
 VirtualCity_Garden_LedianLover_ReceiveLedianFanfare::
-	playfanfare MUS_BW12_003
+	playfanfare MUS_OBTAIN_ITEM
 	message VirtualCity_Garden_Text_YouReceivedLedian
 	waitmessage
 	waitfanfare

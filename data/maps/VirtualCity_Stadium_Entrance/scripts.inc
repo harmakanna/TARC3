@@ -14,7 +14,7 @@ VirtualCity_Stadium_Entrance_EventScript_Act_II_Harriet::
 	playse SE_SELECT
 	additem ITEM_SPELL_TAG, 1
 	setspeaker NULL
-	playfanfare MUS_BW12_003
+	playfanfare MUS_OBTAIN_ITEM
 	message VirtualCity_Stadium_Entrance_Text_ReceivedCoupon
 	waitfanfare
 	delay 100
@@ -384,7 +384,7 @@ VirtualCity_Stadium_Entrance_EventScript_BabyCheck::
 	delay 50
 	additem ITEM_SPELL_TAG, 1
 	setspeaker NULL
-	playfanfare MUS_BW12_003
+	playfanfare MUS_OBTAIN_ITEM
 	message VirtualCity_Stadium_Entrance_Text_ReceivedCoupon
 	waitfanfare
 	delay 100
