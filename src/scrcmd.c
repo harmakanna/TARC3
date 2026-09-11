@@ -3576,33 +3576,10 @@ bool8 ScrCmd_subquestmenu(struct ScriptContext *ctx)
 
 #include "graphics.h"
 
-//static const u16 sLogoPalette[] = INCGFX_U16("graphics/title_screen/pokemon_logo2.pal", ".gbapal", "-num_colors 255");
-#define FADE_TIME 120
-#define WAIT_TIME 120
+#include "tarc_misc.h"
 
-void Task_FadeTitleOnMap(u8 taskId)
-{
-    //DebugPrintf("Task_FadeTitleOnMap");
-    if (gTasks[taskId].data[0] == 0)
-    {
-        gTasks[taskId].data[1]++;
-        u32 fadeValue = gTasks[taskId].data[1] * 15 / FADE_TIME;
-        //DebugPrintf("fadeValue %d", fadeValue);
-        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(fadeValue, 15 - fadeValue));
-        if (gTasks[taskId].data[1] == FADE_TIME)
-        {
-            gTasks[taskId].data[0]++;
-            gTasks[taskId].data[1] = 0;
-        }
-    }
-    else if (gTasks[taskId].data[0] == 1)
-    {
-        if (gTasks[taskId].data[1]++ == WAIT_TIME)
-        {
-            DoWarp();
-        }
-    }
-}
+static const u16 sLogoPalette[] = INCGFX_U16("graphics/title_screen/pokemon_logo2.pal", ".gbapal", "-num_colors 255");
+static const u32 sOverworldTitleGfx[] = INCGFX_U32("graphics/title_screen/pokemon_logo2.png", ".8bpp.smol");
 
 bool8 LoadTitleOnmap(struct ScriptContext *ctx)
 {
@@ -3610,9 +3587,9 @@ bool8 LoadTitleOnmap(struct ScriptContext *ctx)
     s16 x = ScriptReadHalfword(ctx);
     s16 y = ScriptReadHalfword(ctx);
 
-    DecompressDataWithHeaderVram(gTitleScreenPokemonLogoGfx, (void *)(BG_CHAR_ADDR(2)));
+    DecompressDataWithHeaderVram(sOverworldTitleGfx, (void *)(BG_CHAR_ADDR(2)));
     DecompressDataWithHeaderVram(gTitleScreenPokemonLogoTilemap, (void *)(BG_SCREEN_ADDR(31)));
-    LoadPalette(gTitleScreenBgPalettes, BG_PLTT_ID(10), 6 * PLTT_SIZE_4BPP);
+    LoadPalette(&sLogoPalette[10 * 16], BG_PLTT_ID(10), 6 * PLTT_SIZE_4BPP);
     u32 bg1cnt = GetGpuReg(REG_OFFSET_BG1CNT);
     u32 bg2cnt = GetGpuReg(REG_OFFSET_BG2CNT);
     u32 bg1hofs = GetGpuReg(REG_OFFSET_BG1HOFS);
@@ -3623,6 +3600,9 @@ bool8 LoadTitleOnmap(struct ScriptContext *ctx)
     SetGpuReg(REG_OFFSET_BG0VOFS, bg1vofs);
     SetGpuReg(REG_OFFSET_BG2CNT, BGCNT_PRIORITY(0) | BGCNT_CHARBASE(2) | BGCNT_SCREENBASE(31) | BGCNT_256COLOR | BGCNT_AFF256x256);
     SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_MODE_1 | DISPCNT_OBJ_1D_MAP | DISPCNT_BG0_ON | DISPCNT_BG1_ON | DISPCNT_BG2_ON | DISPCNT_OBJ_ON);
+
+    SetGpuReg(REG_OFFSET_BG2Y_L, 230 << 8);
+    SetGpuReg(REG_OFFSET_BG2Y_H, -1);
 
     SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT1_BG2 | BLDCNT_EFFECT_BLEND | BLDCNT_TGT2_ALL);
     SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(0, 15));

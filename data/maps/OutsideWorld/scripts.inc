@@ -107,13 +107,12 @@ OutsideWorld_Move_Sophie2:
 	step_end
 
 OutsideWorld_Move_Camera1:
-	walk_right
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
-	walk_up
+	walk_slow_diag_northeast
+	walk_slow_diag_northeast
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
+	walk_slow_up
 	step_end
 
 

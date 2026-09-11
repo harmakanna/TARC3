@@ -12,6 +12,8 @@
 #include "sprite.h"
 #include "text.h"
 
+#include "task.h"
+#include "tarc_misc.h"
 //EWRAM_DATA bool8 gUnusedBikeCameraAheadPanback = FALSE;   //  Old EWRAM variable that was never set to anything other than false
 
 struct FieldCameraOffset
@@ -78,12 +80,22 @@ void FieldUpdateBgTilemapScroll(void)
     r5 = sFieldCameraOffset.xPixelOffset + sHorizontalCameraPan;
     r4 = sVerticalCameraPan + sFieldCameraOffset.yPixelOffset + 8;
 
-    SetGpuReg(REG_OFFSET_BG1HOFS, r5);
-    SetGpuReg(REG_OFFSET_BG1VOFS, r4);
-    SetGpuReg(REG_OFFSET_BG2HOFS, r5);
-    SetGpuReg(REG_OFFSET_BG2VOFS, r4);
-    SetGpuReg(REG_OFFSET_BG3HOFS, r5);
-    SetGpuReg(REG_OFFSET_BG3VOFS, r4);
+    if (FuncIsActiveTask(Task_FadeTitleOnMap))
+    {
+        SetGpuReg(REG_OFFSET_BG0HOFS, r5);
+        SetGpuReg(REG_OFFSET_BG0VOFS, r4);
+        SetGpuReg(REG_OFFSET_BG1HOFS, r5);
+        SetGpuReg(REG_OFFSET_BG1VOFS, r4);
+    }
+    else
+    {
+        SetGpuReg(REG_OFFSET_BG1HOFS, r5);
+        SetGpuReg(REG_OFFSET_BG1VOFS, r4);
+        SetGpuReg(REG_OFFSET_BG2HOFS, r5);
+        SetGpuReg(REG_OFFSET_BG2VOFS, r4);
+        SetGpuReg(REG_OFFSET_BG3HOFS, r5);
+        SetGpuReg(REG_OFFSET_BG3VOFS, r4);
+    }
 }
 
 void GetCameraOffsetWithPan(s16 *x, s16 *y)
