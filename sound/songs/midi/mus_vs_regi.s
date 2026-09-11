@@ -1,9 +1,9 @@
 	.include "MPlayDef.s"
 
-	.equ	mus_vs_regi_grp, voicegroup_vs_regi
-	.equ	mus_vs_regi_pri, 1
+	.equ	mus_vs_regi_grp, voicegroup_rg_rocket_hideout
+	.equ	mus_vs_regi_pri, 0
 	.equ	mus_vs_regi_rev, reverb_set+50
-	.equ	mus_vs_regi_mvl, 80
+	.equ	mus_vs_regi_mvl, 90
 	.equ	mus_vs_regi_key, 0
 	.equ	mus_vs_regi_tbs, 1
 	.equ	mus_vs_regi_exg, 1
@@ -19,12 +19,12 @@ mus_vs_regi_1:
 	.byte	KEYSH , mus_vs_regi_key+0
 @ 000   ----------------------------------------
 	.byte	TEMPO , 160*mus_vs_regi_tbs/2
-	.byte		VOICE , 48
-	.byte		VOL   , 127*mus_vs_regi_mvl/mxv
+	.byte		VOICE , 80
+	.byte		VOL   , 167*mus_vs_regi_mvl/mxv
 	.byte		PAN   , c_v+0
-	.byte		N08   , Cs4 , v112
-	.byte	W08
-	.byte		        Gs3 
+	.byte		N08   , Gn3 , v112
+	.byte	W02
+	.byte		        As6 
 mus_vs_regi_1_LOOP:
         .byte   GOTO
          .word  mus_vs_regi_1
