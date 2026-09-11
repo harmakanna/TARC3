@@ -344,7 +344,7 @@ VirtualCity_Superstore_3F_ShopkeepIdol_TransferPassimianToPC::
 	end
 
 VirtualCity_Superstore_3F_ShopkeepIdol_ReceivePassimianFanfare::
-	playfanfare MUS_BW12_003
+	playfanfare MUS_OBTAIN_ITEM
 	message VirtualCity_Superstore_3F_Text_YouReceivedPassimian
 	waitmessage
 	waitfanfare
@@ -382,7 +382,7 @@ VirtualCity_Superstore_3F_ShopkeepIdol_TransferSableyeToPC::
 	end
 
 VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSableyeFanfare::
-	playfanfare MUS_BW12_003
+	playfanfare MUS_OBTAIN_ITEM
 	message VirtualCity_Superstore_3F_Text_YouReceivedSableye
 	waitmessage
 	waitfanfare
@@ -420,7 +420,7 @@ VirtualCity_Superstore_3F_ShopkeepIdol_TransferElectrodeToPC::
 	end
 
 VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveElectrodeFanfare::
-	playfanfare MUS_BW12_003
+	playfanfare MUS_OBTAIN_ITEM
 	message VirtualCity_Superstore_3F_Text_YouReceivedElectrode
 	waitmessage
 	waitfanfare
@@ -458,7 +458,7 @@ VirtualCity_Superstore_3F_ShopkeepIdol_TransferSnoverToPC::
 	end
 
 VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSnoverFanfare::
-	playfanfare MUS_BW12_003
+	playfanfare MUS_OBTAIN_ITEM
 	message VirtualCity_Superstore_3F_Text_YouReceivedSnover
 	waitmessage
 	waitfanfare
@@ -496,7 +496,7 @@ VirtualCity_Superstore_3F_ShopkeepIdol_TransferSolrockToPC::
 	end
 
 VirtualCity_Superstore_3F_ShopkeepIdol_ReceiveSolrockFanfare::
-	playfanfare MUS_BW12_003
+	playfanfare MUS_OBTAIN_ITEM
 	message VirtualCity_Superstore_3F_Text_YouReceivedSolrock
 	waitmessage
 	waitfanfare
