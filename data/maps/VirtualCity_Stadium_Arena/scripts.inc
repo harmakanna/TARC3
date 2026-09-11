@@ -793,11 +793,13 @@ VirtualCity_Stadium_Arena_Eventscript_ByronB3Fight::
 
 VirtualCity_Stadium_Arena_Eventscript_LostByronB1::
 	setvar VAR_PETALBURG_CITY_STATE, 34
+	clearflag FLAG_ACT_II_MOD_INSTALLED
 	goto VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
 	end
 
 VirtualCity_Stadium_Arena_Eventscript_LostByronB2AfterWin::
 	setvar VAR_PETALBURG_CITY_STATE, 36
+	clearflag FLAG_ACT_II_MOD_INSTALLED
 	goto VirtualCity_Stadium_Arena_Eventscript_LostPlatinum
 	end
 
