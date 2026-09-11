@@ -152,7 +152,7 @@ VirtualCity_Stadium_Entrance_Text_ActII_Intro_Harriet1::
 	.string "Hey Sophie!\p"
 	.string "So, I've been scoping it out. There's\n"
 	.string "three tiers of competition here.\p"
-	.string "It's a classic format:\p"
+	.string "It's a classic format:\n"
 	.string "Bring six, use four.\p"
 	.string "There's the Silver rank, where mostly\n"
 	.string "amateurs fight for fun.\p"
@@ -367,7 +367,7 @@ VirtualCity_Stadium_Entrance_EventScript_BabyCheck::
 	setspeaker Speaker_Fight_Baby
 	npc_speak Speaker_Baby, VirtualCity_Stadium_Entrance_Text_BabyMaybeBaby
 	closemessage
-	trainerbattle_no_intro TRAINER_BYRON2, VirtualCity_Stadium_Entrance_Text_BabyThinking
+	trainerbattle_no_intro TRAINER_ALICE, VirtualCity_Stadium_Entrance_Text_BabyThinking
 	special HealPlayerParty
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, 2, VirtualCity_Stadium_Entrance_EventScript_BabyLose
@@ -401,7 +401,7 @@ VirtualCity_Stadium_Entrance_EventScript_BabyLose::
 	setspeaker Speaker_Fight_Baby
 	npc_speak Speaker_Baby, VirtualCity_Stadium_Entrance_Text_BabyMaybeBaby
 	closemessage
-
+	end
 
 VirtualCity_Stadium_Entrance_EventScript_BabyComplete::
 	setspeaker Speaker_Fight_Baby

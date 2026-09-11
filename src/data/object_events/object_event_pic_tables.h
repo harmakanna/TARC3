@@ -505,6 +505,66 @@ static const struct SpriteFrameImage sPicTable_CableCar[] = {
     obj_frame_tiles(gObjectEventPic_CableCar),
 };
 
+
+//custom credits
+
+static const struct SpriteFrameImage sPicTable_CustomCreditsAGB1[] = {
+    obj_frame_tiles(gObjectEventPic_CustomCreditsAGB1),
+};
+
+static const struct SpriteFrameImage sPicTable_CustomCreditsAGB2[] = {
+    obj_frame_tiles(gObjectEventPic_CustomCreditsAGB2),
+};
+
+static const struct SpriteFrameImage sPicTable_CustomCreditsAnd[] = {
+    obj_frame_tiles(gObjectEventPic_CustomCreditsAnd),
+};
+
+static const struct SpriteFrameImage sPicTable_CustomCreditsJamie1[] = {
+    obj_frame_tiles(gObjectEventPic_CustomCreditsJamie1),
+};
+
+static const struct SpriteFrameImage sPicTable_CustomCreditsJamie2[] = {
+    obj_frame_tiles(gObjectEventPic_CustomCreditsJamie2),
+};
+
+static const struct SpriteFrameImage sPicTable_CustomCreditsJamie3[] = {
+    obj_frame_tiles(gObjectEventPic_CustomCreditsJamie3),
+};
+
+static const struct SpriteFrameImage sPicTable_CustomCreditsKuma1[] = {
+    obj_frame_tiles(gObjectEventPic_CustomCreditsKuma1),
+};
+
+static const struct SpriteFrameImage sPicTable_CustomCreditsKuma2[] = {
+    obj_frame_tiles(gObjectEventPic_CustomCreditsKuma2),
+};
+
+static const struct SpriteFrameImage sPicTable_CustomCreditsKuma3[] = {
+    obj_frame_tiles(gObjectEventPic_CustomCreditsKuma3),
+};
+
+static const struct SpriteFrameImage sPicTable_CustomCreditsKuma4[] = {
+    obj_frame_tiles(gObjectEventPic_CustomCreditsKuma4),
+};
+
+static const struct SpriteFrameImage sPicTable_CustomCreditsFold1[] = {
+    obj_frame_tiles(gObjectEventPic_CustomCreditsFold1),
+};
+
+static const struct SpriteFrameImage sPicTable_CustomCreditsFold2[] = {
+    obj_frame_tiles(gObjectEventPic_CustomCreditsFold2),
+};
+
+static const struct SpriteFrameImage sPicTable_CustomCreditsFold3[] = {
+    obj_frame_tiles(gObjectEventPic_CustomCreditsFold3),
+};
+
+static const struct SpriteFrameImage sPicTable_CustomCreditsFold4[] = {
+    obj_frame_tiles(gObjectEventPic_CustomCreditsFold4),
+};
+
+
 static const struct SpriteFrameImage sPicTable_Scientist2[] = {
     overworld_ascending_frames(gObjectEventPic_Scientist2, 2, 4),
 };

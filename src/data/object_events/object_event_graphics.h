@@ -294,6 +294,27 @@ const u32 gFieldEffectObjectPic_RockClimbDust[] = INCGFX_U32("graphics/field_eff
 const u32 gObjectEventPic_QuintyPlump[] = INCGFX_U32("graphics/object_events/pics/people/quinty_plump.png", ".4bpp", "-mwidth 4 -mheight 4");
 const u16 gObjectEventPal_QuintyPlump[] = INCGFX_U16("graphics/object_events/palettes/quinty_plump.pal", ".gbapal");
 const u16 gObjectEventPal_QuintyPlumpReflection[] = INCGFX_U16("graphics/object_events/palettes/quinty_plump_reflection.pal", ".gbapal");
+
+//custom credits
+const u32 gObjectEventPic_CustomCreditsAGB1[] = INCGFX_U32("graphics/object_events/pics/people/agb1.png", ".4bpp", "-mwidth 8 -mheight 4");
+const u32 gObjectEventPic_CustomCreditsAGB2[] = INCGFX_U32("graphics/object_events/pics/people/agb2.png", ".4bpp", "-mwidth 8 -mheight 4");
+const u32 gObjectEventPic_CustomCreditsAnd[] = INCGFX_U32("graphics/object_events/pics/people/and.png", ".4bpp", "-mwidth 8 -mheight 4");
+const u32 gObjectEventPic_CustomCreditsJamie1[] = INCGFX_U32("graphics/object_events/pics/people/jamie1.png", ".4bpp", "-mwidth 8 -mheight 4");
+const u32 gObjectEventPic_CustomCreditsJamie2[] = INCGFX_U32("graphics/object_events/pics/people/jamie2.png", ".4bpp", "-mwidth 8 -mheight 4");
+const u32 gObjectEventPic_CustomCreditsJamie3[] = INCGFX_U32("graphics/object_events/pics/people/jamie3.png", ".4bpp", "-mwidth 4 -mheight 4");
+const u32 gObjectEventPic_CustomCreditsKuma1[] = INCGFX_U32("graphics/object_events/pics/people/kuma1.png", ".4bpp", "-mwidth 8 -mheight 4");
+const u32 gObjectEventPic_CustomCreditsKuma2[] = INCGFX_U32("graphics/object_events/pics/people/kuma2.png", ".4bpp", "-mwidth 8 -mheight 4");
+const u32 gObjectEventPic_CustomCreditsKuma3[] = INCGFX_U32("graphics/object_events/pics/people/kuma3.png", ".4bpp", "-mwidth 8 -mheight 4");
+const u32 gObjectEventPic_CustomCreditsKuma4[] = INCGFX_U32("graphics/object_events/pics/people/kuma4.png", ".4bpp", "-mwidth 8 -mheight 4");
+const u32 gObjectEventPic_CustomCreditsFold1[] = INCGFX_U32("graphics/object_events/pics/people/fold1.png", ".4bpp", "-mwidth 8 -mheight 4");
+const u32 gObjectEventPic_CustomCreditsFold2[] = INCGFX_U32("graphics/object_events/pics/people/fold2.png", ".4bpp", "-mwidth 8 -mheight 4");
+const u32 gObjectEventPic_CustomCreditsFold3[] = INCGFX_U32("graphics/object_events/pics/people/fold3.png", ".4bpp", "-mwidth 8 -mheight 4");
+const u32 gObjectEventPic_CustomCreditsFold4[] = INCGFX_U32("graphics/object_events/pics/people/fold4.png", ".4bpp", "-mwidth 8 -mheight 4");
+
+const u16 gObjectEventPal_CustomCredits[] = INCGFX_U16("graphics/object_events/palettes/customcredits.pal", ".gbapal");
+
+
+
 const u32 gObjectEventPic_Kumatora[] = INCGFX_U32("graphics/object_events/pics/people/kumatora.png", ".4bpp", "-mwidth 4 -mheight 4");
 const u16 gObjectEventPal_Kumatora[] = INCGFX_U16("graphics/object_events/palettes/kumatora.pal", ".gbapal");
 const u32 gObjectEventPic_IdolPink[] = INCGFX_U32("graphics/object_events/pics/people/idol_pink.png", ".4bpp", "-mwidth 2 -mheight 4");

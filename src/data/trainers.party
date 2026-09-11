@@ -8690,7 +8690,7 @@ Class: Officer M
 Pic: Officer M
 Gender: Male
 Music: Intense
-Double Battle: No
+Double Battle: Yes
 AI: Basic Trainer
 
 Kommo-o @ Choice Band  
@@ -8723,7 +8723,7 @@ Class: Officer F
 Pic: Officer F
 Gender: Female
 Music: Intense
-Double Battle: No
+Double Battle: Yes
 AI: Basic Trainer
 
 Bisharp @ Expert Belt  
@@ -8755,7 +8755,7 @@ Class: Officer F
 Pic: Officer F
 Gender: Female
 Music: Intense
-Double Battle: No
+Double Battle: Yes
 AI: Basic Trainer
 
 Volcarona @ Leftovers  
@@ -8786,7 +8786,7 @@ Class: Officer M
 Pic: Officer M
 Gender: Male
 Music: Intense
-Double Battle: No
+Double Battle: Yes
 AI: Basic Trainer
 
 Roserade @ Life Orb  
@@ -8818,7 +8818,7 @@ Class: Officer M
 Pic: Officer M
 Gender: Male
 Music: Intense
-Double Battle: No
+Double Battle: Yes
 AI: Basic Trainer
 
 Xatu @ Life Orb  
@@ -8852,7 +8852,7 @@ Class: Officer M
 Pic: Officer M
 Gender: Female
 Music: Intense
-Double Battle: No
+Double Battle: Yes
 AI: Basic Trainer
 
 Vanilluxe @ Choice Scarf  
@@ -8871,8 +8871,8 @@ IVs: 0 Atk
 - Magic Coat  
 - Ancient Power  
 
-Avalugg @ Life Orb  
-Ability: Ice Body  
+Golem @ Life Orb  
+Ability: Sturdy  
 IVs: 0 Spe  
 - Gyro Ball  
 - Avalanche  
@@ -8897,25 +8897,40 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Play Nice  
 
 === TRAINER_ALICE ===
-Name: ALICE
-Class: Swimmer F
-Pic: Swimmer F
+Name: baby
+Class: School Kid
+Pic: School Kid F
 Gender: Female
 Music: Swimmer
-Double Battle: No
-AI: Check Bad Move
+Double Battle: Yes
+AI: Basic Trainer
 
-Goldeen
-Level: 24
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Phanpy @ Leftovers  
+Ability: Pickup  
+Level: 50  
+- Bulldoze  
+- Rock Tomb  
+- Mud-Slap  
+- Ice Shard  
 
-Wingull
-Level: 24
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Swablu @ Sitrus Berry  
+Ability: Natural Cure  
+Level: 50  
+IVs: 0 Atk  
+- Dazzling Gleam  
+- Air Cutter  
+- Heal Pulse  
+- Round  
 
-Goldeen
-Level: 24
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Tinkatink @ Weakness Policy  
+Ability: Mold Breaker  
+Level: 50  
+- Iron Head  
+- Play Rough  
+- Round  
+- Iron Defense  
+
+
 
 === TRAINER_JENNY_1 ===
 Name: JENNY

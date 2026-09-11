@@ -16,7 +16,7 @@
   "object_events": [
     {
       "local_id": "LOCALID_GUARD",
-      "graphics_id": "OBJ_EVENT_GFX_OFFICER_M",
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
       "x": 6,
       "y": 2,
       "elevation": 0,
@@ -26,7 +26,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "VirtualCity_CommsTower_1F_Eventscript_NoPokemonGuard",
-      "flag": "FLAG_HIDE_COMMS1F_GUARD"
+      "flag": "FLAG_GUARD_RUNAWAY"
     },
     {
       "local_id": "LOCALID_OFFICE_MINH",
@@ -54,7 +54,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "VirtualCity_CommsTower_1F_Eventscript_Receptionist",
-      "flag": "0"
+      "flag": "FLAG_ACT_III_RECEPTIONAFRAID_2"
     }
   ],
   "warp_events": [

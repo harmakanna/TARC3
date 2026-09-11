@@ -549,7 +549,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_FairyTaleGirl,              OBJ_EVENT_PAL_TAG_FAIRY_TALE_GIRL},
     {gObjectEventPal_OfficerM,              OBJ_EVENT_PAL_TAG_OFFICER_M},
     {gObjectEventPal_OfficerF,              OBJ_EVENT_PAL_TAG_OFFICER_F},
-
+    {gObjectEventPal_CustomCredits,              OBJ_EVENT_PAL_TAG_CUSTOM_CREDITS},
 
 #if IS_FRLG
     {gObjectEventPal_PlayerFrlg,            OBJ_EVENT_PAL_TAG_PLAYER_RED},
