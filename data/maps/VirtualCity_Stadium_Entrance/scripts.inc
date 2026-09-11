@@ -370,7 +370,10 @@ VirtualCity_Stadium_Entrance_EventScript_BabyCheck::
 	trainerbattle_no_intro TRAINER_BYRON2, VirtualCity_Stadium_Entrance_Text_BabyThinking
 	special HealPlayerParty
 	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, 2, VirtualCity_Stadium_Entrance_EventScript_BabyLose
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, VirtualCity_Stadium_Entrance_EventScript_BabyLose
+	goto_if_eq VAR_RESULT, B_OUTCOME_LOST, VirtualCity_Stadium_Entrance_EventScript_BabyLose
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, VirtualCity_Stadium_Entrance_EventScript_BabyLose
+	goto_if_eq VAR_RESULT, B_OUTCOME_FORFEITED, VirtualCity_Stadium_Entrance_EventScript_BabyLose
 	
 	setspeaker Speaker_Fight_Baby
 	npc_speak Speaker_Baby, VirtualCity_Stadium_Entrance_Text_BabyUBaby
