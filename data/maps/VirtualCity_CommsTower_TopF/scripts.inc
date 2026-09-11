@@ -38,7 +38,7 @@ VirtualCity_CommsTower_TopF_EventScript_HackRotomPhone::
 	playse SE_PC_OFF
 	waitse
 	delay 60
-	special CB2_StartCreditsSequence
+	callnative StartBetterPlaceCredits
 	waitstate
 	end
 

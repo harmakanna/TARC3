@@ -177,6 +177,7 @@ static void InitMainCallbacks(void)
     gMain.vblankCounter2 = 0;
     gMain.callback1 = NULL;
     SetMainCallback2(gInitialMainCB2);
+    //SetMainCallback2(StartBetterPlaceCredits);
     gSaveBlock2Ptr = &gSaveblock2.block;
     gPokemonStoragePtr = &gPokemonStorage.block;
 }
