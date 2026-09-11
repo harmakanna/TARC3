@@ -1,6 +1,9 @@
 #include "global.h"
 #include "event_data.h"
+#include "field_screen_effect.h"
+#include "gpu_regs.h"
 #include "palette.h"
+#include "task.h"
 #include "constants/rgb.h"
 
 const u8 gSophieName[] = _("Sophie");
@@ -40,4 +43,31 @@ void CloneFirstMon(void)
 void StartBlueScreen(void)
 {
     CpuFill16(RGB_BLUE, gPlttBufferFaded, PLTT_SIZE);
+}
+
+#define FADE_TIME 180
+#define WAIT_TIME 150
+
+void Task_FadeTitleOnMap(u8 taskId)
+{
+    //DebugPrintf("Task_FadeTitleOnMap");
+    if (gTasks[taskId].data[0] == 0)
+    {
+        gTasks[taskId].data[1]++;
+        u32 fadeValue = gTasks[taskId].data[1] * 15 / FADE_TIME;
+        //DebugPrintf("fadeValue %d", fadeValue);
+        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(fadeValue, 15 - fadeValue));
+        if (gTasks[taskId].data[1] == FADE_TIME)
+        {
+            gTasks[taskId].data[0]++;
+            gTasks[taskId].data[1] = 0;
+        }
+    }
+    else if (gTasks[taskId].data[0] == 1)
+    {
+        if (gTasks[taskId].data[1]++ == WAIT_TIME)
+        {
+            DoWarp();
+        }
+    }
 }
