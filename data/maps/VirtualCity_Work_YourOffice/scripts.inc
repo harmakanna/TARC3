@@ -157,6 +157,8 @@ VirtualCity_Work_YourOffice_Text_MinhACTIPonytaDoneRepeat:
 
 
 VirtualCity_Work_YourOffice_Eventscript_MinhACTIOutro::
+	getpartysize
+	goto_if_ne VAR_RESULT, 2, VirtualCity_Work_YourOffice_Eventscript_MinhACTIOutroPCHiding
 	npc_speak Speaker_Minh, VirtualCity_Work_YourOffice_Text_MinhACTIOutro1
 	playse SE_SELECT
 	player_speak VirtualCity_Work_YourOffice_Text_SophieACTIOutro2
@@ -208,6 +210,18 @@ VirtualCity_Work_YourOffice_Eventscript_MinhACTIOutro::
 	warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_YOUR_APARTMENT, 7,4
 	waitstate
 	end
+
+
+VirtualCity_Work_YourOffice_Eventscript_MinhACTIOutroPCHiding::
+	setspeaker Speaker_Minh
+	msgbox VirtualCity_Work_YourOffice_Text_MinhACTIOutroPCHiding, MSGBOX_NPC
+	closemessage
+	end
+
+VirtualCity_Work_YourOffice_Text_MinhACTIOutroPCHiding::
+	.string "You've got Ex and the evidence, right?\n"
+	.string "Don't put 'em away!$"
+
 
 
 VirtualCity_Work_YourOffice_Eventscript_SophieOutroEast::

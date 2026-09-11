@@ -1288,8 +1288,8 @@
 #define FLAG_GUARDE                                           0x4D2 // Unused Flag
 #define FLAG_GUARDF                                           0x4D3 // Unused Flag
 #define FLAG_ACT_III_RECEPTIONAFRAID                                           0x4D4 // Unused Flag
-#define FLAG_UNUSED_0x4D5                                           0x4D5 // Unused Flag
-#define FLAG_UNUSED_0x4D6                                           0x4D6 // Unused Flag
+#define FLAG_GUARD_RUNAWAY                                           0x4D5 // Unused Flag
+#define FLAG_ACT_III_RECEPTIONAFRAID_2                                           0x4D6 // Unused Flag
 #define FLAG_UNUSED_0x4D7                                           0x4D7 // Unused Flag
 #define FLAG_UNUSED_0x4D8                                           0x4D8 // Unused Flag
 #define FLAG_UNUSED_0x4D9                                           0x4D9 // Unused Flag

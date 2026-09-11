@@ -403,6 +403,24 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FairyTaleGi
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OfficerM;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OfficerF;
 
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CustomCreditsAGB1;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CustomCreditsAGB2;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CustomCreditsAnd;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CustomCreditsJamie1;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CustomCreditsJamie2;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CustomCreditsJamie3;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CustomCreditsKuma1;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CustomCreditsKuma2;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CustomCreditsKuma3;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CustomCreditsKuma4;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CustomCreditsFold1;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CustomCreditsFold2;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CustomCreditsFold3;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CustomCreditsFold4;
+
+
+
+
 // Begin Pokémon event objects
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokeBall;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Follower;
@@ -675,6 +693,20 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_FAIRY_TALE_GIRL] =          &gObjectEventGraphicsInfo_FairyTaleGirl,
     [OBJ_EVENT_GFX_OFFICER_M] =                &gObjectEventGraphicsInfo_OfficerM,
     [OBJ_EVENT_GFX_OFFICER_F] =                &gObjectEventGraphicsInfo_OfficerF,
+    [OBJ_EVENT_GFX_CREDITS_AGB1]       =       &gObjectEventGraphicsInfo_CustomCreditsAGB1,
+    [OBJ_EVENT_GFX_CREDITS_AGB2]       =       &gObjectEventGraphicsInfo_CustomCreditsAGB2,
+    [OBJ_EVENT_GFX_CREDITS_AND]       =       &gObjectEventGraphicsInfo_CustomCreditsAnd,
+    [OBJ_EVENT_GFX_CREDITS_JAMIE1]       =       &gObjectEventGraphicsInfo_CustomCreditsJamie1,
+    [OBJ_EVENT_GFX_CREDITS_JAMIE2]       =       &gObjectEventGraphicsInfo_CustomCreditsJamie2,
+    [OBJ_EVENT_GFX_CREDITS_JAMIE3]       =       &gObjectEventGraphicsInfo_CustomCreditsJamie3,
+    [OBJ_EVENT_GFX_CREDITS_KUMA1]       =       &gObjectEventGraphicsInfo_CustomCreditsKuma1,
+    [OBJ_EVENT_GFX_CREDITS_KUMA2]       =       &gObjectEventGraphicsInfo_CustomCreditsKuma2,
+    [OBJ_EVENT_GFX_CREDITS_KUMA3]       =       &gObjectEventGraphicsInfo_CustomCreditsKuma3,
+    [OBJ_EVENT_GFX_CREDITS_KUMA4]       =       &gObjectEventGraphicsInfo_CustomCreditsKuma4,
+    [OBJ_EVENT_GFX_CREDITS_FOLD1]       =       &gObjectEventGraphicsInfo_CustomCreditsFold1,
+    [OBJ_EVENT_GFX_CREDITS_FOLD2]       =       &gObjectEventGraphicsInfo_CustomCreditsFold2,
+    [OBJ_EVENT_GFX_CREDITS_FOLD3]       =       &gObjectEventGraphicsInfo_CustomCreditsFold3,
+    [OBJ_EVENT_GFX_CREDITS_FOLD4]       =       &gObjectEventGraphicsInfo_CustomCreditsFold4,
 #if IS_FRLG
     [OBJ_EVENT_GFX_RED_NORMAL] =               &gObjectEventGraphicsInfo_RedNormal,
     [OBJ_EVENT_GFX_RED_BIKE] =                 &gObjectEventGraphicsInfo_RedBike,

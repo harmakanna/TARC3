@@ -2545,7 +2545,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FLYING),
         .abilities = { ABILITY_KEEN_EYE, ABILITY_NONE, ABILITY_SNIPER },
         .bodyColor = BODY_COLOR_BROWN,
-        .speciesName = _("Fearow"),
+        .speciesName = _("Fear-ow"),
         .cryId = CRY_FEAROW,
         .natDexNum = NATIONAL_DEX_FEAROW,
         .categoryName = _("Beak"),
@@ -18722,7 +18722,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
             "them to let down their guard. A moment\n"
             "later, it pounces."),
         .pokemonScale = 305,
-        .pokemonOffset = 7,
+        .pokemonOffset = 0,
         .trainerScale = 257,
         .trainerOffset = 0,
         .frontPic = gMonFrontPic_Sylveon,

@@ -38,6 +38,7 @@ OutsideWorld_ApartmentBldg1_Floor1_Move_Camera::
 	walk_up
 	walk_up
 	walk_up
+	walk_up
 	walk_right
 	step_end
 

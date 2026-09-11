@@ -33,6 +33,7 @@ OutsideWorld_ApartmentBldg1_Floor3_Move_Sophie::
 OutsideWorld_ApartmentBldg1_Floor3_Move_Camera::
 	walk_left
 	walk_up
+	walk_up
 	step_end
 
 
