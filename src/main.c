@@ -27,6 +27,7 @@
 #include "constants/rgb.h"
 
 #include "tarc_speedup.h"
+#include "tarc_credits.h"
 
 static void VBlankIntr(void);
 static void HBlankIntr(void);
