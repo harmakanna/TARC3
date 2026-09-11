@@ -213,8 +213,8 @@ VirtualCity_Stadium_Arena_EventScript_AudienceLookAround::
 	return
 
 VirtualCity_Stadium_Arena_EventScript_SetUpFight::
-	special SavePlayerParty
 	callnative ChooseVGCParty
+	special SavePlayerParty
 	waitstate
 	special ReducePlayerPartyToSelectedMons
 	@fadescreen FADE_FROM_BLACK
