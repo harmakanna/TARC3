@@ -2960,12 +2960,12 @@ static void Task_HandleInput_MoveSelect(u8 taskId)
     {
         if (JOY_NEW(DPAD_UP))
         {
-            data[0] = 4;
+            data[0] = 3;
             ChangeSelectedMove(data, -1, &sMonSummaryScreen->firstMoveIndex);
         }
         else if (JOY_NEW(DPAD_DOWN))
         {
-            data[0] = 4;
+            data[0] = 3;
             ChangeSelectedMove(data, 1, &sMonSummaryScreen->firstMoveIndex);
         }
         else if (JOY_NEW(A_BUTTON))
