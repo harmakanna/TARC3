@@ -48,12 +48,16 @@ OutsideWorld_PrologueEndScene_Final_Really::
 	hideplayer
 	closedoor 23, 13
 	waitdooranim
-	delay 50
-	delay 50
+	//delay 50
+	//delay 50
 	clearflag FLAG_HIDE_LOLA_BEDROOM_PROLOGUE
 	setflag FLAG_SYS_PREVENT_MAP_FADE
 	setvar VAR_PETALBURG_CITY_STATE, 4
-	warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_FLOOR1, 2,4
+	setwarp MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_FLOOR1, 2,4
+	callnative LoadTitleOnmap
+	.2byte 0
+	.2byte 0
+	//warpsilent MAP_OUTSIDE_WORLD_APARTMENT_BLDG1_FLOOR1, 2,4
 	waitstate
 	end	
 
