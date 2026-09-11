@@ -1766,6 +1766,9 @@ void ShowPokemonSummaryScreen_BW(u8 mode, void *mons, u8 monIndex, u8 maxMonInde
         break;
     }
 
+    if (mode == SUMMARY_MODE_BOX_CURSOR || SUMMARY_MODE_BOX)
+        sMonSummaryScreen->lockMovesFlag = TRUE;
+
     if (mode == SUMMARY_MODE_RELEARNER_BATTLE)
         sMonSummaryScreen->currPageIndex = PSS_PAGE_BATTLE_MOVES;
     else if (mode == SUMMARY_MODE_RELEARNER_CONTEST)
@@ -2197,7 +2200,7 @@ static void CopyMonToSummaryStruct(struct Pokemon *mon)
 static void DrawPromptWindow(void)
 {
     FillWindowPixelBuffer(PSS_LABEL_WINDOW_PROMPT_CANCEL, PIXEL_FILL(0));
-    if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
+    if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS || sMonSummaryScreen->lockMovesFlag)
     {
         ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_CANCEL);
         return;
