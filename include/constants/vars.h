@@ -174,7 +174,7 @@
 #define VAR_PETALBURG_WOODS_STATE                        0x4098
 #define VAR_LILYCOVE_CONTEST_LOBBY_STATE                 0x4099
 #define VAR_RUSTURF_TUNNEL_STATE                         0x409A
-#define VAR_UNUSED_0x409B                                0x409B // Unused Var
+#define VAR_BYRON_FIGHT_STATE                                0x409B // Unused Var
 #define VAR_ELITE_4_STATE                                0x409C
 #define VAR_UNUSED_0x409D                                0x409D // Unused Var
 #define VAR_MOSSDEEP_SPACE_CENTER_STAIR_GUARD_STATE      0x409E
@@ -269,7 +269,7 @@
 #define VAR_WALK_DOWN_IN_VIRTUAL_PREBATTLE_ROOM                                0x40F7 // Unused Var
 #define VAR_PRE_BATTLE_ROOM_STATE                                0x40F8 // Unused Var
 #define VAR_VIRTUAL_CITY_OUTSIDE_STATE                                0x40F9 // Unused Var
-#define VAR_UNUSED_0x40FA                                0x40FA // Unused Var
+#define VAR_STADIUM_LEAGUE_PROGRESS                                0x40FA // Unused Var
 #define VAR_UNUSED_0x40FB                                0x40FB // Unused Var
 #define VAR_UNUSED_0x40FC                                0x40FC // Unused Var
 #define VAR_UNUSED_0x40FD                                0x40FD // Unused Var

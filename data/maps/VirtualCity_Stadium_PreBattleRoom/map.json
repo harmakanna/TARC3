@@ -70,6 +70,15 @@
       "var": "VAR_PRE_BATTLE_ROOM_STATE",
       "var_value": "1",
       "script": "VirtualCity_Stadium_PreBattleRoom_EventScript_HarrietHoldOn"
+    },
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_BYRON_FIGHT_STATE",
+      "var_value": "0",
+      "script": "VirtualCity_Stadium_PreBattleRoom_EventScript_ExitLeague"
     }
   ],
   "bg_events": [

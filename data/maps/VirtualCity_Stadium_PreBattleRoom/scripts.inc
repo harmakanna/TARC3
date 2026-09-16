@@ -533,6 +533,7 @@ VirtualCity_Stadium_PreBattleRoom_Movement_SophieIntoPlace2:
 
 VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronB1Scene::
 	setvar VAR_WALK_DOWN_IN_VIRTUAL_PREBATTLE_ROOM, 0
+	setvar VAR_BYRON_FIGHT_STATE, 1
 	applymovement LOCALID_PLAYER, VirtualCity_Stadium_PreBattleRoom_Movement_SophieIntoPlace2
 	waitmovement 0
 	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_FaceLeft
@@ -720,6 +721,7 @@ VirtualCity_Stadium_PreBattleRoom_Eventscript_ByronHackSuccess::
 	setvar VAR_PETALBURG_CITY_STATE, 39
 	setflag FLAG_SYS_PREVENT_MAP_FADE
 	fadescreen FADE_TO_BLACK
+	setvar VAR_BYRON_FIGHT_STATE, 0
 	delay 80
 	warpsilent MAP_VIRTUAL_CITY_HOTEL_YOUR_ROOM, 12,9
 	waitstate
@@ -1060,3 +1062,75 @@ VirtualCity_Stadium_PreBattleRoom_Text_PC:
 
 VirtualCity_Stadium_PreBattleRoom_Text_RemovalComplete:
 	.string "Removal complete.$"
+
+VirtulCity_Stadium_PreBattleRoom_Text_HarrietAreYouSureExitLeague:
+	.string "Sophie! Leaving means you'll exit\n"
+	.string "the league!\p"
+	.string "Are you sure you want to do that?$"
+
+VirtualCity_Stadium_PreBattleRoom_Text_KeepStoryProgress::
+	.string "Would you like to keep your league\n"
+	.string "progress or reset it to the start?$"
+
+VirtualCity_Stadium_PreBattleRoom_EventScript_ExitLeague::
+	lockall
+	applymovement LOCALID_HARRIET_PREBATTLE, Common_Movement_WalkDown2
+	waitmovement 0
+	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
+	speak LOCALID_HARRIET_PREBATTLE, VirtulCity_Stadium_PreBattleRoom_Text_HarrietAreYouSureExitLeague Speaker_Harriet, DIR_SOUTH, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, VirtualCity_Stadium_PreBattleRoom_EventScript_ExitLeagueDeny
+	goto_if_unset FLAG_STADIUM_PREBATTLE_STORY_PROGRESS, VirtualCity_Stadium_PreBattleRoom_EventScript_ExitLeagueReset
+	setspeaker NULL
+	message VirtualCity_Stadium_PreBattleRoom_Text_KeepStoryProgress
+	waitmessage
+	multichoice 20, 6, MULTI_RETIRE_FROM_LEAGUE, FALSE
+	case 0, VirtualCity_Stadium_PreBattleRoom_EventScript_ExitLeagueKeep
+	case 1, VirtualCity_Stadium_PreBattleRoom_EventScript_ExitLeagueReset
+	case 2, VirtualCity_Stadium_PreBattleRoom_EventScript_ExitLeagueDeny
+	case MULTI_B_PRESSED, VirtualCity_Stadium_PreBattleRoom_EventScript_ExitLeagueDeny
+	goto VirtualCity_Stadium_PreBattleRoom_EventScript_ExitLeagueReset
+	end
+
+VirtualCity_Stadium_PreBattleRoom_EventScript_SophieForget::
+	lockall
+	applymovement LOCALID_PLAYER, Common_Movement_FaceUp
+	speak LOCALID_HARRIET_PREBATTLE, VirtulCity_Stadium_PreBattleRoom_Text_HarrietSophieForget Speaker_Harriet, DIR_SOUTH
+	closemessage
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp
+	waitmovement 0
+	releaseall
+	end
+
+VirtulCity_Stadium_PreBattleRoom_Text_HarrietSophieForget:
+	.string "SOPHIE!!!\p"
+	.string "Did you forget why we're doing this\n"
+	.string "whole thing!?\p"
+	.string "We need you to prepare for the Byron\n"
+	.string "fight! Get back here!$"
+
+VirtualCity_Stadium_PreBattleRoom_Movement_HarrietReturnToTop:
+	walk_up
+	walk_up
+	face_down
+	step_end
+
+VirtualCity_Stadium_PreBattleRoom_EventScript_ExitLeagueReset::
+	setvar VAR_STADIUM_LEAGUE_PROGRESS, 0
+	clearflag FLAG_STADIUM_PREBATTLE_STORY_PROGRESS
+
+VirtualCity_Stadium_PreBattleRoom_EventScript_ExitLeagueKeep::
+	clearflag FLAG_SILVER_LEAGUE
+	clearflag FLAG_GOLD_LEAGUE
+	clearflag FLAG_PLATINUM_LEAGUE
+	warp MAP_VIRTUAL_CITY_STADIUM_ENTRANCE, 10, 10
+	waitstate
+	releaseall
+	end
+
+VirtualCity_Stadium_PreBattleRoom_EventScript_ExitLeagueDeny::
+	closemessage
+	applymovement LOCALID_PLAYER, Common_Movement_WalkUp
+	applymovement LOCALID_HARRIET_PREBATTLE, VirtualCity_Stadium_PreBattleRoom_Movement_HarrietReturnToTop
+	waitmovement 0
+	releaseall
+	end

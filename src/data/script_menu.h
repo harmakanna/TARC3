@@ -1128,6 +1128,12 @@ static const struct MenuAction sMultichoiceList_Why_Ledian[] = {
     {gText_PunchesTickle}
 };
 
+static const struct MenuAction sMultichoiceList_RetireFromLeague[] = {
+    {gText_KeepProgress},
+    {gText_ResetProgress},
+    {gText_Cancel}
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -1301,6 +1307,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_EGGS_VICTORIES_QUIT]                        = MULTICHOICE(sMultichoiceList_Eggs_Victories_Quit),
     [MULTI_HOF_EGGS_VICTORIES_QUIT]                    = MULTICHOICE(sMultichoiceList_HOF_Eggs_Victories_Quit),
     [MULTI_WHY_LEDIAN]                                 = MULTICHOICE(sMultichoiceList_Why_Ledian),
+    [MULTI_RETIRE_FROM_LEAGUE]                         = MULTICHOICE(sMultichoiceList_RetireFromLeague)
 };
 
 const u8 *const gStdStrings[] =

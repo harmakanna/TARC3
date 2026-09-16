@@ -1031,6 +1031,9 @@ const u8 gText_F703Players[] = _("{DYNAMIC 3} players");
 const u8 gText_LedianCute[] = _("It's a CUTIE PIE");
 const u8 gText_SurprisingBulk[] = _("Its surprising SpDEF");
 const u8 gText_PunchesTickle[] = _("Its punches are ticklish");
+const u8 gText_KeepProgress[] = _("KEEP PROGRESS");
+const u8 gText_ResetProgress[] = _("RESET PROGRESS");
+
 const u8 *const gTextTable_Players[] = {
     gText_F700Players,
     gText_F701Players,

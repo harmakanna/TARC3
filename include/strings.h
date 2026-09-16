@@ -684,6 +684,9 @@ extern const u8 gText_LedianCute[];
 extern const u8 gText_SurprisingBulk[];
 extern const u8 gText_PunchesTickle[];
 
+extern const u8 gText_KeepProgress[];
+extern const u8 gText_ResetProgress[];
+
 extern const u8 gText_Information[];
 extern const u8 gText_Yes[];
 extern const u8 gText_No[];
