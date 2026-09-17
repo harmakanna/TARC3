@@ -477,7 +477,7 @@ VirtualCity_Hotel_YourRoom_Text_ActII_Ending2Ernest::
 	.string "I can now encrypt your avatar and\n"
 	.string "spoof your user ID.\p"
 	.string "You'll look like Byron to the system,\n"
-	.string "but as for you avatar…\p"
+	.string "but as for your avatar…\p"
 	.string "Just wait and see!\p"
 	.string "You'll have to enter the Place with\n"
 	.string "a different body.$"
