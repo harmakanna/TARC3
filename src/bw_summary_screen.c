@@ -56,6 +56,7 @@
 
 #include "tarc_misc.h"
 #include "tarc_traits.h"
+#include "text_window.h"
 
 #if BW_SUMMARY_SCREEN == TRUE
 enum BWPSSEffect
@@ -165,7 +166,8 @@ static EWRAM_DATA struct PokemonSummaryScreenData
         u16 species2; // 0x2
         u8 isEgg:1; // 0x4
         u8 isShiny:1;
-        u8 padding:6;
+        u8 canChangeGender:1;
+        u8 padding:5;
         u8 level; // 0x5
         u8 ribbonCount; // 0x6
         u8 ailment; // 0x7
@@ -1766,7 +1768,7 @@ void ShowPokemonSummaryScreen_BW(u8 mode, void *mons, u8 monIndex, u8 maxMonInde
         break;
     }
 
-    if (mode == SUMMARY_MODE_BOX_CURSOR || SUMMARY_MODE_BOX)
+    if (mode == SUMMARY_MODE_BOX_CURSOR || mode == SUMMARY_MODE_BOX)
         sMonSummaryScreen->lockMovesFlag = TRUE;
 
     if (mode == SUMMARY_MODE_RELEARNER_BATTLE)
@@ -2004,6 +2006,7 @@ static bool8 LoadGraphics(void)
         gMain.state++;
         break;
     case 24:
+        LoadPalette(GetOverworldTextboxPalettePtr(), BG_PLTT_ID(14), PLTT_SIZE_4BPP);
         BlendPalettes(PALETTES_ALL, 16, 0);
         gMain.state++;
         break;
@@ -2239,6 +2242,11 @@ static bool8 ExtractMonDataToSummaryStruct(struct Pokemon *mon)
     case 0:
         sum->species = GetMonData(mon, MON_DATA_SPECIES);
         sum->species2 = GetMonData(mon, MON_DATA_SPECIES_OR_EGG);
+        u32 genderRatio = gSpeciesInfo[sum->species].genderRatio;
+        if (genderRatio == MON_MALE || genderRatio == MON_FEMALE || genderRatio == MON_GENDERLESS)
+            sum->canChangeGender = FALSE;
+        else
+            sum->canChangeGender = TRUE;
         sum->exp = GetMonData(mon, MON_DATA_EXP);
         sum->level = GetMonData(mon, MON_DATA_LEVEL);
         sum->abilityNum = GetMonData(mon, MON_DATA_ABILITY_NUM);
@@ -5988,7 +5996,7 @@ static s32 GetNextEditInput(s32 id, bool32 isReverse)
 {
     u32 length = sEditInputsCount[sMonSummaryScreen->currPageIndex];
     id = (id + (isReverse ? -1 : 1)) % length;
-    if (sEditInputs[sMonSummaryScreen->currPageIndex][id].data == MON_DATA_GENDER)
+    if (sEditInputs[sMonSummaryScreen->currPageIndex][id].data == MON_DATA_GENDER && !sMonSummaryScreen->summary.canChangeGender)
     {
         id = (id + (isReverse ? -1 : 1)) % length;
     }

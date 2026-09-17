@@ -1026,6 +1026,16 @@ VirtualCity_Stadium_PreBattleRoom_EventScript_ErnestTaught::
 	release
 	end
 
+VirtualCity_Stadium_PreBattleRoom_CantExitVr::
+	setspeaker SP_NAME_PLAYER
+	msgbox VirtualCity_Stadium_PreBattleRoom_Text_CantExitVr, MSGBOX_DEFAULT
+	releaseall
+	end
+
+VirtualCity_Stadium_PreBattleRoom_Text_CantExitVr:
+	.string "I can't leave VR now or I will be\n"
+	.string "disqualified.$"
+
 VirtualCity_Stadium_PreBattleRoom_Text_ErnestTeach:
 	.string "Are you ready?$"
 
