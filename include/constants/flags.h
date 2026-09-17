@@ -79,8 +79,8 @@
 #define FLAG_IN_ARENA    0x39 // Unused Flag
 #define FLAG_FIRST_VR_WARP    0x3A // Unused Flag
 #define FLAG_STADIUM_PREBATTLE_STORY_PROGRESS    0x3B // Unused Flag
-#define FLAG_UNUSED_0x03C    0x3C // Unused Flag
-#define FLAG_UNUSED_0x03D    0x3D // Unused Flag
+#define FLAG_STADIUM_FIGHTING_OLD_PERSON    0x3C // Unused Flag
+#define FLAG_FINISHED_LEAGUE    0x3D // Unused Flag
 #define FLAG_UNUSED_0x03E    0x3E // Unused Flag
 #define FLAG_UNUSED_0x03F    0x3F // Unused Flag
 #define FLAG_UNUSED_0x040    0x40 // Unused Flag
@@ -524,9 +524,9 @@
 #define FLAG_DEFEATED_HO_OH                  0x1DC
 #define FLAG_DEFEATED_LUGIA                  0x1DD
 
-#define FLAG_SILVER_LEAGUE                    0x1DE // Unused Flag
-#define FLAG_GOLD_LEAGUE                    0x1DF // Unused Flag
-#define FLAG_PLATINUM_LEAGUE                    0x1E0 // Unused Flag
+#define FLAG_UNUSED_0x1DE                    0x1DE // Unused Flag
+#define FLAG_UNUSED_0x1DF                    0x1DF // Unused Flag
+#define FLAG_UNUSED_0x1E0                    0x1E0 // Unused Flag
 #define FLAG_UNUSED_0x1E1                    0x1E1 // Unused Flag
 #define FLAG_UNUSED_0x1E2                    0x1E2 // Unused Flag
 #define FLAG_UNUSED_0x1E3                    0x1E3 // Unused Flag
