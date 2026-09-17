@@ -71,3 +71,10 @@ void Task_FadeTitleOnMap(u8 taskId)
         }
     }
 }
+
+bool32 IsInPreBattleRoom(void)
+{
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_VIRTUAL_CITY_STADIUM_PRE_BATTLE_ROOM))
+        return TRUE;
+    return FALSE;
+}

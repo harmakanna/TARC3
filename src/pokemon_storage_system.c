@@ -48,6 +48,7 @@
 #include "chooseboxmon.h"
 #include "party_menu.h"
 
+#include "tarc_misc.h"
 /*
     NOTE: This file is large. Some general groups of functions have
           been labeled with commented headers to make navigation easier.
@@ -110,6 +111,7 @@ enum {
     MSG_ITEM_IS_HELD,
     MSG_CHANGED_TO_ITEM,
     MSG_CANT_STORE_MAIL,
+    MSG_NEED_MORE_MON
 };
 
 // IDs for how to resolve variables in the above messages
@@ -1080,6 +1082,7 @@ static const struct StorageMessage sMessages[] =
     [MSG_ITEM_IS_HELD]         = {COMPOUND_STRING("{DYNAMIC 0} is now held."),   MSG_VAR_ITEM_NAME},
     [MSG_CHANGED_TO_ITEM]      = {COMPOUND_STRING("Changed to {DYNAMIC 0}."),    MSG_VAR_ITEM_NAME},
     [MSG_CANT_STORE_MAIL]      = {COMPOUND_STRING("MAIL can't be stored!"),      MSG_VAR_NONE},
+    [MSG_NEED_MORE_MON]        = {COMPOUND_STRING("You need 4 mons to continue"), MSG_VAR_NONE},
 };
 
 static const struct WindowTemplate sYesNoWindowTemplate =
@@ -3679,6 +3682,7 @@ static void Task_OnBPressed(u8 taskId)
     switch (sStorage->state)
     {
     case 0:
+        CalculatePlayerPartyCount();
         if (IsMonBeingMoved())
         {
             if (OW_PC_PRESS_B < GEN_4)
@@ -3700,6 +3704,12 @@ static void Task_OnBPressed(u8 taskId)
         else if (IsMovingItem())
         {
             SetPokeStorageTask(Task_CloseBoxWhileHoldingItem);
+        }
+        else if (IsInPreBattleRoom() && gPartiesCount[B_TRAINER_PLAYER] < 4)
+        {
+            PlaySE(SE_FAILURE);
+            PrintMessage(MSG_NEED_MORE_MON);
+            sStorage->state = 1;
         }
         else
         {
