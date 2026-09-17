@@ -342,7 +342,7 @@ VirtualCity_Outside_Text_CapnChinoArgh:
 	.string "high and mighty fat cat sitting on\l"
 	.string "his perch!\p"
 	.string "Or has the Grey name gotten to your\n"
-	.string "head so much you thing you're\l"
+	.string "head so much you think you're\l"
 	.string "diff'rint to us proles?\p"
 	.string "Come down to Earth and get with the\n"
 	.string "the times, you idiot!$"
