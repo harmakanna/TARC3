@@ -1600,6 +1600,9 @@ void PlayTrainerEncounterMusic(void)
     u16 trainerId;
     u16 music;
 
+    if (FlagGet(FLAG_SPOOFING_EXECUTIVE))
+        return;
+
     if (gApproachingTrainerId == 0)
         trainerId = TRAINER_BATTLE_PARAM.opponentA;
     else

@@ -2359,6 +2359,8 @@ void Task_ExitVr(u8 taskId)
     }
 }
 
+#include "event_scripts.h"
+
 static void RotomPhone_OverworldMenu_ExitAndClearTilemap(void)
 {
     u32 i;
@@ -2383,7 +2385,13 @@ static void RotomPhone_OverworldMenu_ExitAndClearTilemap(void)
         sRotomPhone_StartMenu = NULL;
     }
 
-    if (isExitingVR)
+    ReleaseComfyAnims();
+    if (isExitingVR && IsInPreBattleRoom())
+    {
+        ScriptContext_SetupScript(VirtualCity_Stadium_PreBattleRoom_CantExitVr);
+        return;
+    }
+    else if (isExitingVR)
     {
         isExitingVR = FALSE;
         u8 taskId = CreateTask(Task_ExitVr, 0);
@@ -2392,7 +2400,6 @@ static void RotomPhone_OverworldMenu_ExitAndClearTilemap(void)
         
     }
 
-    ReleaseComfyAnims();
     ScriptUnfreezeObjectEvents();  
     UnlockPlayerFieldControls();
 
