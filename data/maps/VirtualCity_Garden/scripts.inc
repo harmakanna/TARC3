@@ -385,9 +385,10 @@ VirtualCity_Garden_Text_Sophie_Freaky:
 	.string "Lacking any taste?$"
 
 VirtualCity_Garden_Text_Plump_EveryonesACritic:
-	.string "WOW, the FAT GUY just CAN'T CATCH\n"
-	.string "A BREAK, HUH!\p"
-	.string "GET OUT of MY SIGHT!$"
+	.string "WOW, you GOT SOMETHING against the\n"
+	.string "BEST skin set, the QUINTY PLUMP set!?\p"
+	.string "{COLOR GREEN}DISGUSTING!\p"
+	.string "{COLOR DARK_GRAY}GET OUT of MY SIGHT!$"
 
 VirtualCity_Garden_Text_Plump_LedianStinks:
 	.string "LEDIAN!?!?\p"
