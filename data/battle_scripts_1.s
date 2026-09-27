@@ -4482,6 +4482,7 @@ BattleScript_AbilityPopUp::
 	@ end bwBattleUI
 	recordability BS_ABILITY_BATTLER
 	sethword sABILITY_OVERWRITE, 0
+	pause B_WAIT_TIME_SHORT
 	return
 
 BattleScript_AbilityPopUpScripting:
