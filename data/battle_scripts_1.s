@@ -4482,6 +4482,7 @@ BattleScript_AbilityPopUp::
 	@ end bwBattleUI
 	recordability BS_ABILITY_BATTLER
 	sethword sABILITY_OVERWRITE, 0
+	pause B_WAIT_TIME_SHORT
 	return
 
 BattleScript_AbilityPopUpScripting:
@@ -4709,7 +4710,6 @@ BattleScript_CommanderActivates::
 BattleScript_HospitalityActivates::
 	pause B_WAIT_TIME_SHORT
 	call BattleScript_AbilityPopUp
-	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_HOSPITALITYRESTORATION
 	waitmessage B_WAIT_TIME_LONG
  	playanimation BS_EFFECT_BATTLER, B_ANIM_SIMPLE_HEAL

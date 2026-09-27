@@ -635,20 +635,7 @@ static void HideAllTargets(void)
 {
     for (enum BattlerId i = 0; i < MAX_BATTLERS_COUNT; i++)
     {
-        if (IsBattlerAlive(i) && gBattleSpritesDataPtr->healthBoxesData[i].healthboxIsBouncing)
-        {
-            gSprites[gBattlerSpriteIds[i]].callback = SpriteCB_HideAsMoveTarget;
-            EndBounceEffect(i, BOUNCE_HEALTHBOX);
-        }
-    }
-}
-
-static void HideShownTargets(enum BattlerId battler)
-{
-    s32 i;
-    for (i = 0; i < MAX_BATTLERS_COUNT; i++)
-    {
-        if (IsBattlerAlive(i) && gBattleSpritesDataPtr->healthBoxesData[i].healthboxIsBouncing && i != battler)
+        if (ShouldHideBattler(i))
         {
             gSprites[gBattlerSpriteIds[i]].callback = SpriteCB_HideAsMoveTarget;
             EndBounceEffect(i, BOUNCE_HEALTHBOX);
@@ -694,7 +681,7 @@ void HandleInputShowTargets(enum BattlerId battler)
     if (JOY_NEW(A_BUTTON))
     {
         PlaySE(SE_SELECT);
-        HideShownTargets(battler);
+        HideAllTargets();
         if (gBattleStruct->gimmick.playerSelect)
             BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, B_ACTION_EXEC_SCRIPT, gMoveSelectionCursor[battler] | RET_GIMMICK | (gMultiUsePlayerCursor << 8));
         else
@@ -706,7 +693,7 @@ void HandleInputShowTargets(enum BattlerId battler)
     else if (JOY_NEW(B_BUTTON) || gPlayerDpadHoldFrames > 59)
     {
         PlaySE(SE_SELECT);
-        HideShownTargets(battler);
+        HideAllTargets();
         gBattlerControllerFuncs[battler] = HandleInputChooseMove;
         DoBounceEffect(battler, BOUNCE_HEALTHBOX, 7, 1);
         DoBounceEffect(battler, BOUNCE_MON, 7, 1);
