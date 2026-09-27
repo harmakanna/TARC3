@@ -1133,6 +1133,7 @@ u8 FldEff_QuestIcon(void)
     sprite = &gSprites[spriteId];
     SetIconSpriteData(sprite, FLDEFF_QUEST_ICON, 0);
     UpdateSpritePaletteByTemplate(&sSpriteTemplate_Emote, sprite);
+    sprite->callback(sprite);
     return 0;
 }
 
