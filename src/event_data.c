@@ -50,9 +50,11 @@ const u16 gBadgeFlags[NUM_BADGES] =
 
 void InitEventData(void)
 {
+    u16 battleSpeed = VarGet(VAR_TARC_SPEEDUP);
     memset(gSaveBlock1Ptr->flags, 0, sizeof(gSaveBlock1Ptr->flags));
     memset(gSaveBlock1Ptr->vars, 0, sizeof(gSaveBlock1Ptr->vars));
     memset(sSpecialFlags, 0, sizeof(sSpecialFlags));
+    VarSet(VAR_TARC_SPEEDUP, battleSpeed);
 }
 
 void ClearTempFieldEventData(void)
