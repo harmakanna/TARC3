@@ -6026,12 +6026,12 @@ static void Task_HandleEditInput(u8 taskId)
     else if (JOY_NEW(DPAD_UP) || (JOY_HELD(DPAD_UP) && gTasks[taskId].tEditHeldTimer == 0))
     {
         IncrementEditValue(gTasks[taskId].tEditInputId, FALSE);
-        gTasks[taskId].tEditHeldTimer = 3;
+        gTasks[taskId].tEditHeldTimer = 6;
     }
     else if (JOY_NEW(DPAD_DOWN) || (JOY_HELD(DPAD_DOWN) && gTasks[taskId].tEditHeldTimer == 0))
     {
         IncrementEditValue(gTasks[taskId].tEditInputId, TRUE);
-        gTasks[taskId].tEditHeldTimer = 3;
+        gTasks[taskId].tEditHeldTimer = 6;
     }
     else if (JOY_NEW(A_BUTTON))
     {
