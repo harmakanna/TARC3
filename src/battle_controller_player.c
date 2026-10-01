@@ -740,7 +740,7 @@ void HandleInputChooseMove(enum BattlerId battler)
     else
         gPlayerDpadHoldFrames = 0;
 
-    if (sQuantaDescription.active)
+    if (sQuantaDescription.active && InQuantaMode())
     {
         if (JOY_NEW(R_BUTTON) || JOY_NEW(A_BUTTON) || JOY_NEW(B_BUTTON))
         {
