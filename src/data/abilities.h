@@ -1792,7 +1792,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
 
     [ABILITY_INTREPID_SWORD] =
     {
-        .name = _("Intrepid Sword"),
+        .name = _("Sith Lord"),
         .description = COMPOUND_STRING("Ups Attack on entry."),
         .aiRating = 3,
     },

@@ -870,7 +870,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon3::
 
 OutsideWorld_ApartmentBldg1_YourApartment_Text_Lola_Coupon4::
 	.string "It's a redeem code for a free Pokemon\n"
-	.string "from the BETTER Superstore.\p"
+	.string "from the {COLOR GREEN}BETTER{COLOR DARK_GRAY} Superstore.\p"
 	.string "It was kinda my backup plan, you know?\p"
 	.string "But now I've got Dreams, and I can tell\n"
 	.string "I'll never want a VR Pokemon again.$"

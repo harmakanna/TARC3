@@ -256,7 +256,7 @@ VirtualCity_Casino_Text_Meowth1:
 	.string "I gotta try harder!$"
 
 VirtualCity_Casino_Text_Meowth2:
-	.string "Come on… Lady luck is on my\n"
+	.string "Come on… Lady Luck is on my\n"
 	.string "side tonight…!$"
 
 Speaker_Idol:

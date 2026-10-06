@@ -1037,7 +1037,9 @@ VirtualCity_Stadium_PreBattleRoom_Text_CantExitVr:
 	.string "disqualified.$"
 
 VirtualCity_Stadium_PreBattleRoom_Text_ErnestTeach:
-	.string "Are you ready?$"
+	.string "I named the move Quick Attack, so\n"
+	.string "no one will be suspicious.\p"
+	.string "Are you ready for me to teach it?$"
 
 
 VirtualCity_Stadium_PreBattleRoom_Text_ErnestWhich:
