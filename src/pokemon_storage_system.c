@@ -7124,11 +7124,13 @@ static void SetDisplayMonData(void *pokemon, u8 mode)
         *(txtPtr++) = TEXT_COLOR_DARK_GRAY;
         *(txtPtr++) = TEXT_COLOR_LIGHT_GRAY;
         *(txtPtr++) = TEXT_COLOR_WHITE;
+        /*
         *(txtPtr++) = CHAR_SPACE;
         *(txtPtr++) = CHAR_EXTRA_SYMBOL;
         *(txtPtr++) = CHAR_LV_2;
 
         txtPtr = ConvertIntToDecimalStringN(txtPtr, sStorage->displayMonLevel, STR_CONV_MODE_LEFT_ALIGN, 3);
+        */
         txtPtr[0] = CHAR_SPACE;
         txtPtr[1] = EOS;
 
