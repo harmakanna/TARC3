@@ -392,16 +392,15 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_Mission0:
 
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_Mission1:
 	.string "Back to the mission.\p"
-	.string "The new identity is ready, and I set\n"
-	.string "it to spawn in the {COLOR GREEN}BETTER{COLOR DARK_GRAY} Office.\p"
+	.string "The new identity is ready, and you'll\n"
+	.string "have to run to the {COLOR GREEN}BETTER{COLOR DARK_GRAY} Office.\p"
 	.string "You should be able to open the eastern\n"
 	.string "security door and go up the stairs.\p"
 	.string "There's probably a lot of guards there,\n"
 	.string "and a lot of control panels.\p"
 	.string "Keep climbing until you find the Rotom\n"
-	.string "Phone controls, and use this USB\l"
-	.string "to upload a message.\p"
-	.string "You can go back in to if you need to\n"
+	.string "Phone controls, and upload our message.\p"
+	.string "You can go back in if you need to\n"
 	.string "prepare, but if not, I'll start it up.$"
 
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_ActIII_Text_Mission3:
@@ -578,7 +577,7 @@ OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Eventscript_PrologueLola::
 OutsideWorld_ApartmentBldg1_YourApartment_Bedroom_Text_PrologueLola:
 	.string "It's everything I imagined. It feels\n"
 	.string "so right, to have a POKéMON companion.\p"
-	.string "…You going back into the BETTER Place\n"
+	.string "…You going back into the {COLOR GREEN}BETTER Place{COLOR DARK_GRAY}\n"
 	.string "tonight? Don't stay up too late.$"
 
 
