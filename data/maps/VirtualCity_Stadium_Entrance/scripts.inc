@@ -332,10 +332,12 @@ VirtualCity_Stadium_Entrance_EventScript_Baby::
 	goto_if_set FLAG_BABY_QUEST_COMPLETE, VirtualCity_Stadium_Entrance_EventScript_BabyComplete
 	goto_if_set FLAG_BABY_QUEST_STARTED, VirtualCity_Stadium_Entrance_EventScript_BabyCheck
 	call_if_set FLAG_IM_BABY, VirtualCity_Stadium_Entrance_EventScript_SpeakerBaby
+	lockall
 	npc_speak Speaker_Baby, VirtualCity_Stadium_Entrance_Text_BabyIntro
 	closemessage
 	startquest QUEST_BABY
 	setflag FLAG_BABY_QUEST_STARTED
+	releaseall
 	end
 
 VirtualCity_Stadium_Entrance_EventScript_SpeakerBaby::
@@ -364,8 +366,7 @@ VirtualCity_Stadium_Entrance_EventScript_BabyCheck::
 	checkspecies SPECIES_DARKANINE
 	goto_if_eq VAR_RESULT, TRUE, VirtualCity_Stadium_Entrance_EventScript_BabyFail
 
-	setspeaker Speaker_Fight_Baby
-	npc_speak Speaker_Baby, VirtualCity_Stadium_Entrance_Text_BabyMaybeBaby
+	npc_speak Speaker_Fight_Baby, VirtualCity_Stadium_Entrance_Text_BabyMaybeBaby
 	closemessage
 	trainerbattle_no_intro TRAINER_ALICE, VirtualCity_Stadium_Entrance_Text_BabyThinking
 	special HealPlayerParty
@@ -375,8 +376,7 @@ VirtualCity_Stadium_Entrance_EventScript_BabyCheck::
 	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, VirtualCity_Stadium_Entrance_EventScript_BabyLose
 	goto_if_eq VAR_RESULT, B_OUTCOME_FORFEITED, VirtualCity_Stadium_Entrance_EventScript_BabyLose
 	
-	setspeaker Speaker_Fight_Baby
-	npc_speak Speaker_Baby, VirtualCity_Stadium_Entrance_Text_BabyUBaby
+	npc_speak Speaker_Fight_Baby, VirtualCity_Stadium_Entrance_Text_BabyUBaby
 	closemessage
 	applymovement LOCALID_STADIUMBABY, Common_Movement_WalkInPlaceDown
 	waitmovement 0
@@ -395,20 +395,17 @@ VirtualCity_Stadium_Entrance_EventScript_BabyCheck::
 
 
 VirtualCity_Stadium_Entrance_EventScript_BabyFail::
-	setspeaker Speaker_Fight_Baby
-	npc_speak Speaker_Baby, VirtualCity_Stadium_Entrance_Text_BabyNotBaby
+	npc_speak Speaker_Fight_Baby, VirtualCity_Stadium_Entrance_Text_BabyNotBaby
 	closemessage
 	end
 
 VirtualCity_Stadium_Entrance_EventScript_BabyLose::
-	setspeaker Speaker_Fight_Baby
-	npc_speak Speaker_Baby, VirtualCity_Stadium_Entrance_Text_BabyMaybeBaby
+	npc_speak Speaker_Fight_Baby, VirtualCity_Stadium_Entrance_Text_BabyMaybeBaby
 	closemessage
 	end
 
 VirtualCity_Stadium_Entrance_EventScript_BabyComplete::
-	setspeaker Speaker_Fight_Baby
-	npc_speak Speaker_Baby, VirtualCity_Stadium_Entrance_Text_BabyWeBaby
+	npc_speak Speaker_Fight_Baby, VirtualCity_Stadium_Entrance_Text_BabyWeBaby
 	closemessage
 	end
 

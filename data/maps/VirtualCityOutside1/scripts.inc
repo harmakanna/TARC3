@@ -344,8 +344,8 @@ VirtualCity_Outside_Text_CapnChinoArgh:
 	.string "Or has the Grey name gotten to your\n"
 	.string "head so much you think you're\l"
 	.string "diff'rint to us proles?\p"
-	.string "Come down to Earth and get with the\n"
-	.string "times, you idiot!$"
+	.string "Come down to Earth and get with\n"
+	.string "the times, you idiot!$"
 	
 VirtualCity_Outside_Text_EarlGrayBaboon:
 	.string "Raaaah!\p"

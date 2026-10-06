@@ -306,14 +306,13 @@ static void PrepareCreditAction(u8 taskId)
             gTasks[taskId].data[2] = (u32) sCreditsEntryTable[gTasks[taskId].data[3]].text;
             break;
         case END_CREDIT:
-            BeginNormalPaletteFade(PALETTES_ALL, 3, 0, 16, RGB_BLACK);
-            gTasks[taskId].func = Task_SampleUiWaitAndExit;
+            gTasks[taskId].data[0] = 3;
             break;
     }
 }
 static void Task_PrintCredits(u8 taskId)
 {
-    if (gTasks[taskId].data[2] == 0)
+    if (gTasks[taskId].data[2] == 0 && gTasks[taskId].data[0] < 3)
     {
         gTasks[taskId].data[0] = 1;
         PrintCreditsLine(gTasks[taskId].data[3]);
@@ -344,6 +343,16 @@ static void Task_PrintCredits(u8 taskId)
     else if (gTasks[taskId].data[0] == 2)
     {
         gTasks[taskId].data[2] -= 1;
+    }
+    else if (gTasks[taskId].data[0] == 3)
+    {
+        if (JOY_NEW(A_BUTTON | B_BUTTON | START_BUTTON | SELECT_BUTTON))
+            gTasks[taskId].data[0] = 4;
+    }
+    else if (gTasks[taskId].data[0] == 4)
+    {
+        BeginNormalPaletteFade(PALETTES_ALL, 3, 0, 16, RGB_BLACK);
+        gTasks[taskId].func = Task_SampleUiWaitAndExit;
     }
 
 }
